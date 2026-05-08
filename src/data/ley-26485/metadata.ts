@@ -1,0 +1,170 @@
+import type { Law } from '../../common/types/law.types';
+
+type LawBase = Omit<Law, 'articles' | 'sections'>;
+
+export const LEY_26485_METADATA: LawBase = {
+  id: 'ley-26485',
+  number: '26485',
+  title: 'Protección Integral para Prevenir, Sancionar y Erradicar la Violencia contra las Mujeres en los ámbitos en que desarrollen sus relaciones interpersonales',
+  commonName: 'Ley de Violencia contra la Mujer',
+  summary:
+    'Establece el marco jurídico integral para prevenir, sancionar y erradicar la violencia contra las mujeres en todos sus tipos (física, psicológica, sexual, económica, simbólica) y modalidades (doméstica, institucional, laboral, obstétrica, mediática). Define derechos de las víctimas, medidas preventivas urgentes y procedimiento judicial gratuito y sumarísimo.',
+  year: 2009,
+  sanctionDate: '2009-03-11',
+  promulgationDate: '2009-04-01',
+  publicationDate: '2009-04-14',
+  boNumber: '31632',
+  status: 'VIGENTE',
+  jurisdiction: 'NACIONAL',
+  normType: 'LEY',
+  issuingBody: 'Honorable Congreso de la Nación Argentina',
+  fullText: null,
+  sourceUrl: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/150000-154999/152155/norma.htm',
+  articleCount: 45,
+  topics: [
+    'Violencia de género',
+    'Derechos de la mujer',
+    'Medidas cautelares',
+    'Violencia doméstica',
+    'Políticas públicas de género',
+  ],
+  keywords: [
+    'violencia contra la mujer',
+    'violencia de género',
+    'femicidio',
+    'violencia doméstica',
+    'violencia institucional',
+    'violencia obstétrica',
+    'violencia laboral',
+    'medidas preventivas urgentes',
+    'exclusión del hogar',
+    'botón antipánico',
+    'Consejo Nacional de la Mujer',
+    'Observatorio de Violencia',
+    'revictimización',
+  ],
+  relatedNorms: [
+    'Ley 24.417 (Protección contra la violencia familiar)',
+    'Ley 27.499 (Ley Micaela)',
+    'Convención de Belém do Pará (ratificada por Ley 24.632)',
+    'CEDAW (ratificada por Ley 23.179)',
+    'Ley 26.061 (Protección integral de NNyA)',
+    'Ley 26.743 (Identidad de género)',
+  ],
+  executiveSummary:
+    'La Ley 26.485 es la ley marco sobre violencia de género en Argentina. Define cinco tipos de violencia (física, psicológica, sexual, económica/patrimonial, simbólica) y seis modalidades (doméstica, institucional, laboral, contra la libertad reproductiva, obstétrica, mediática). Crea el Consejo Nacional de la Mujer como organismo rector y el Observatorio de la Violencia contra las Mujeres. Establece un procedimiento judicial gratuito, sumarísimo y sin mediación. El juez puede dictar medidas preventivas urgentes en 48 horas (exclusión del hogar, prohibición de acercamiento, cuota alimentaria provisional, etc.). Las actuaciones son gratuitas. Prohíbe la mediación y conciliación en causas de violencia.',
+  objective:
+    'Crear un marco normativo integral que reconozca la violencia de género como problema estructural, garantice derechos a las víctimas y dote al Estado de herramientas de prevención, asistencia y sanción.',
+  problemItSolves:
+    'La Ley 24.417 de 1994 solo cubría la violencia doméstica y en el ámbito familiar. La Ley 26.485 amplió la protección a todos los tipos y modalidades de violencia, incluyó la violencia institucional, la obstétrica y la mediática, garantizó derechos procesales específicos para las víctimas y creó un sistema de políticas públicas nacionales.',
+  practicalImpact:
+    'La ley sentó las bases del sistema nacional de respuesta a la violencia de género. Impulsó la creación de líneas de emergencia (137), casas refugio y juzgados especializados. La figura de "violencia institucional" permite denunciar a funcionarios del Estado. Fue el marco normativo que impulsó la tipificación del femicidio (art. 80 inc. 11 CP, 2012) y la Ley Micaela (2018). Su artículo 26 sobre medidas preventivas urgentes es uno de los más utilizados del sistema judicial argentino.',
+  affectedSubjects: [
+    'Mujeres que padecen cualquier tipo de violencia',
+    'Consejo Nacional de la Mujer (organismo rector)',
+    'Observatorio de la Violencia contra las Mujeres',
+    'Poder Judicial (competencia, procedimientos)',
+    'Fuerzas de seguridad',
+    'Efectores de salud',
+    'Medios de comunicación (violencia mediática)',
+    'Empleadores (violencia laboral)',
+  ],
+  createdAt: '2009-04-14T00:00:00.000Z',
+  updatedAt: '2009-04-14T00:00:00.000Z',
+  amendments: [
+    {
+      id: 'amd-26485-1',
+      lawId: 'ley-26485',
+      modifyingLaw: 'Ley 27.501',
+      modifyingDate: '2019-04-25',
+      type: 'MODIFICATION',
+      description: 'Incorporó la violencia política contra las mujeres como nuevo tipo de violencia.',
+      createdAt: '2019-04-25T00:00:00.000Z',
+    },
+    {
+      id: 'amd-26485-2',
+      lawId: 'ley-26485',
+      modifyingLaw: 'Ley 27.533',
+      modifyingDate: '2019-12-11',
+      type: 'MODIFICATION',
+      description: 'Agregó la violencia pública-política como modalidad específica.',
+      createdAt: '2019-12-11T00:00:00.000Z',
+    },
+  ],
+  annexes: [],
+  segments: [],
+  metadata: {
+    id: 'meta-26485',
+    lawId: 'ley-26485',
+    mainTopic: 'Marco integral de prevención y sanción de la violencia contra las mujeres',
+    subtopics: [
+      'Tipos de violencia (física, psicológica, sexual, económica, simbólica)',
+      'Modalidades de violencia (doméstica, institucional, laboral, obstétrica, mediática)',
+      'Medidas preventivas urgentes (art. 26)',
+      'Observatorio de Violencia contra las Mujeres',
+      'Procedimiento judicial gratuito y sumarísimo',
+    ],
+    relatedLaws: [
+      'Ley 24.417 — Violencia familiar (1994, complementaria)',
+      'Ley 26.743 — Identidad de género (2012)',
+      'Ley 27.499 — Micaela (2018)',
+      'Ley 27.610 — IVE (2020)',
+    ],
+    regulations: ['Decreto 1011/2010 (reglamentario)'],
+    modifyingNorms: ['Ley 27.501 (2019 — violencia política)', 'Ley 27.533 (2019 — modalidad pública-política)'],
+    derogatingNorms: [],
+    jurisprudence: [
+      'CSJN — "Góngora, Gabriel Arnaldo s/ causa n° 14.092" (2013) — la mediación en casos de violencia de género viola la Convención de Belém do Pará',
+      'Múltiples fallos sobre violencia obstétrica y violencia institucional policial',
+    ],
+    doctrine: [],
+    obligations: [
+      'Tramitar la denuncia de violencia en forma gratuita y sumarísima (Poder Judicial)',
+      'Dictar medidas preventivas urgentes en 48 horas (juez)',
+      'Prohibir la mediación y conciliación en causas de violencia (art. 28)',
+      'Informar a la mujer sobre sus derechos y recursos disponibles (funcionarios públicos)',
+      'Denunciar hechos de violencia que puedan constituir delito (personal de salud, educación, servicios sociales)',
+    ],
+    rights: [
+      'Gratuidad de las actuaciones judiciales',
+      'Patrocinio jurídico especializado gratuito',
+      'Ser oída por el juez personalmente',
+      'No ser sometida a mediación con el agresor',
+      'Trato humanizado evitando la revictimización',
+      'Protección urgente (medidas cautelares en 48 horas)',
+      'Acompañante de confianza en todas las instancias',
+    ],
+    sanctions: [
+      'Sanciones disciplinarias, penales y civiles para funcionarios que incumplan',
+      'Advertencia o llamado de atención al agresor (art. 32)',
+      'Comunicación de los hechos al lugar de trabajo del agresor (art. 32)',
+      'Asistencia obligatoria a programas terapéuticos (art. 32)',
+      'Comunicación al juez penal si hay desobediencia (art. 32)',
+    ],
+    useCases: [
+      'Una mujer golpeada llega a la guardia de un hospital → el personal de salud tiene obligación de denunciar si los hechos pueden constituir delito (art. 18)',
+      'Una mujer pide protección de urgencia → el juez tiene 48 horas para fijar audiencia y dictar medidas; puede excluir al agresor del hogar sin esperar al juicio (art. 26)',
+      'El agresor viola la prohibición de acercamiento → el juez puede aplicar asistencia obligatoria a programas terapéuticos y derivar al juez penal por desobediencia (art. 32)',
+      'Una empleada sufre hostigamiento sistemático en el trabajo → es violencia laboral bajo el art. 6 inc. c); puede denunciarlo bajo esta ley',
+    ],
+    faq: [
+      {
+        question: '¿Está prohibida la mediación entre la víctima y el agresor?',
+        answer:
+          'Sí. El artículo 28 prohíbe expresamente las audiencias de mediación o conciliación en causas de violencia de género. La Corte Suprema ratificó que admitirlas viola la Convención de Belém do Pará (fallo "Góngora", 2013).',
+      },
+      {
+        question: '¿Qué es la violencia obstétrica?',
+        answer:
+          'Es la violencia ejercida por el personal de salud sobre el cuerpo y los procesos reproductivos de las mujeres: trato deshumanizador, exceso de medicalización, no respetar las decisiones de la paciente en el parto. Está definida en el artículo 6 inc. e) de la ley.',
+      },
+      {
+        question: '¿El juez puede excluir al agresor del hogar aunque sea el propietario?',
+        answer:
+          'Sí. El artículo 26 inc. b.2 permite "ordenar la exclusión de la parte agresora de la residencia común, independientemente de la titularidad de la misma".',
+      },
+    ],
+    createdAt: '2009-04-14T00:00:00.000Z',
+    updatedAt: '2009-04-14T00:00:00.000Z',
+  },
+};

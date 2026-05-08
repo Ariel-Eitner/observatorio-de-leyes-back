@@ -1,0 +1,170 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LawStatus {
+  VIGENTE
+  DEROGADA
+  PARCIALMENTE_VIGENTE
+}
+
+enum Jurisdiction {
+  NACIONAL
+  PROVINCIAL
+  MUNICIPAL
+}
+
+enum NormType {
+  LEY
+  DECRETO
+  RESOLUCION
+  ORDENANZA
+  DECRETO_LEY
+}
+
+enum SegmentType {
+  PARAGRAPH
+  INCISO
+  ANNEX
+  TITLE
+  CHAPTER
+}
+
+model Law {
+  id                String       @id @default(cuid())
+  number            String       @unique
+  title             String
+  summary           String?
+  year              Int
+  sanctionDate      DateTime?
+  promulgationDate  DateTime?
+  publicationDate   DateTime?
+  boNumber          String?
+  status            LawStatus    @default(VIGENTE)
+  jurisdiction      Jurisdiction @default(NACIONAL)
+  normType          NormType     @default(LEY)
+  issuingBody       String?
+  fullText          String?
+  articleCount      Int          @default(0)
+  topics            String[]
+  keywords          String[]
+  relatedNorms      String[]
+  executiveSummary  String?
+  objective         String?
+  problemItSolves   String?
+  practicalImpact   String?
+  affectedSubjects  String[]
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  articles    Article[]
+  segments    LawSegment[]
+  annexes     Annex[]
+  amendments  Amendment[]
+  metadata    LawMetadata?
+}
+
+model Article {
+  id                     String   @id @default(cuid())
+  lawId                  String
+  number                 String
+  title                  String?
+  originalText           String
+  currentText            String
+  plainLanguageExplanation String?
+  practicalEffects       String[]
+  examples               String[]
+  relatedArticles        String[]
+  jurisprudence          String[]
+  regulations            String[]
+  keywords               String[]
+  order                  Int
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  law        Law         @relation(fields: [lawId], references: [id], onDelete: Cascade)
+  segments   LawSegment[]
+  amendments ArticleAmendment[]
+}
+
+model LawSegment {
+  id                 String      @id @default(cuid())
+  lawId              String
+  articleId          String?
+  articleNumber      String
+  segmentType        SegmentType
+  originalText       String
+  plainExplanation   String?
+  practicalExample   String?
+  references         String[]
+  order              Int
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  law     Law      @relation(fields: [lawId], references: [id], onDelete: Cascade)
+  article Article? @relation(fields: [articleId], references: [id])
+}
+
+model Annex {
+  id          String   @id @default(cuid())
+  lawId       String
+  number      String
+  title       String?
+  content     String
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  law Law @relation(fields: [lawId], references: [id], onDelete: Cascade)
+}
+
+model Amendment {
+  id              String   @id @default(cuid())
+  lawId           String
+  modifyingLaw    String
+  modifyingDate   DateTime?
+  description     String
+  createdAt       DateTime @default(now())
+
+  law Law @relation(fields: [lawId], references: [id], onDelete: Cascade)
+}
+
+model ArticleAmendment {
+  id            String   @id @default(cuid())
+  articleId     String
+  modifyingLaw  String
+  modifyingDate DateTime?
+  previousText  String
+  newText       String
+  description   String?
+  createdAt     DateTime @default(now())
+
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+}
+
+model LawMetadata {
+  id              String   @id @default(cuid())
+  lawId           String   @unique
+  mainTopic       String?
+  subtopics       String[]
+  relatedLaws     String[]
+  regulations     String[]
+  modifyingNorms  String[]
+  derogatingNorms String[]
+  jurisprudence   String[]
+  doctrine        String[]
+  obligations     String[]
+  rights          String[]
+  sanctions       String[]
+  useCases        String[]
+  faq             Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  law Law @relation(fields: [lawId], references: [id], onDelete: Cascade)
+}
