@@ -32,24 +32,40 @@ export class EventsService {
   }
 
   async readAll(): Promise<TrackedEvent[]> {
-    const { data, error } = await this.supabase.db
-      .from('tracking_events')
-      .select('*')
-      .order('created_at', { ascending: true })
-      .limit(100_000);
-    if (error || !data) {
-      if (error) console.error('[events.readAll]', error.code, error.message);
-      return [];
+    const PAGE = 1000;
+    const all: TrackedEvent[] = [];
+    let from = 0;
+
+    while (true) {
+      const { data, error } = await this.supabase.db
+        .from('tracking_events')
+        .select('*')
+        .order('created_at', { ascending: true })
+        .range(from, from + PAGE - 1);
+
+      if (error) {
+        console.error('[events.readAll]', error.code, error.message);
+        break;
+      }
+      if (!data || data.length === 0) break;
+
+      for (const row of data) {
+        all.push({
+          id:         row.id,
+          type:       row.type,
+          timestamp:  row.created_at,
+          sessionId:  row.session_id,
+          guestId:    row.guest_id   ?? undefined,
+          properties: row.properties ?? undefined,
+          context:    row.context    ?? undefined,
+        });
+      }
+
+      if (data.length < PAGE) break;
+      from += PAGE;
     }
-    return data.map((row) => ({
-      id:         row.id,
-      type:       row.type,
-      timestamp:  row.created_at,
-      sessionId:  row.session_id,
-      guestId:    row.guest_id   ?? undefined,
-      properties: row.properties ?? undefined,
-      context:    row.context    ?? undefined,
-    }));
+
+    return all;
   }
 
   async clear(): Promise<void> {
