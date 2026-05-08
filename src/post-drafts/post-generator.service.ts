@@ -3,8 +3,7 @@ import { Law, Article, LawSegment } from '../common/types/law.types';
 import { GenerateResult, TemplateId } from './types';
 import { computeFrontendPath } from '../common/utils/law-url.util';
 
-const FRONTEND_BASE =
-  process.env.FRONTEND_URL ?? 'https://observatorio-de-leyes-front.vercel.app';
+const FRONTEND_BASE = 'https://observatorio-de-leyes-front.vercel.app';
 
 const UTM_BASE = 'utm_source=twitter&utm_medium=social&utm_campaign=contenido';
 
