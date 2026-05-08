@@ -28,6 +28,7 @@ const LAW_STATIC_META: Record<string, { shortCode?: string; apiPath: string; ali
   'ley-27802':             { shortCode: 'Ley 27.802', apiPath: '/laws/number/27802',    aliases: ['27802', '27.802'] },
   'decreto-207-2011':      { shortCode: 'Decreto 207/2011', apiPath: '/laws/decreto-207-2011' },
   'carta-onu':             { shortCode: 'Carta ONU', apiPath: '/carta-onu', aliases: ['ONU', 'Carta ONU', 'Naciones Unidas'], isDestacada: true, category: 'internacional' },
+  'ley-27801':             { shortCode: 'LPJ',       apiPath: '/ley-penal-juvenil', aliases: ['LPJ', '27801', '27.801', 'Ley Penal Juvenil', 'Régimen Penal Juvenil'], isDestacada: true, category: 'penal' },
   'const-buenos-aires':      { shortCode: 'CBsAs', apiPath: '/constituciones-provinciales/buenos-aires',       category: 'constitucion' },
   'const-caba':              { shortCode: 'CCABA', apiPath: '/constituciones-provinciales/caba',               category: 'constitucion' },
   'const-catamarca':         { shortCode: 'CCat',  apiPath: '/constituciones-provinciales/catamarca',          category: 'constitucion' },

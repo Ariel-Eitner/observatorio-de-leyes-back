@@ -27,6 +27,7 @@ import { LEY_24240 } from './ley-24240/index';
 import { LEY_26061 } from './ley-26061/index';
 import { LEY_26206 } from './ley-26206/index';
 import { CARTA_ONU } from './carta-onu/index';
+import { LEY_27801 } from './ley-27801/index';
 import type { Law } from '../common/types/law.types';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
@@ -55,4 +56,5 @@ export const ALL_LAWS: Law[] = [
   LEY_24240,         // Ley de Defensa del Consumidor
   LEY_26061,         // Ley de Protección Integral NNyA
   LEY_26206,         // Ley de Educación Nacional
+  LEY_27801,         // Ley Penal Juvenil
 ];

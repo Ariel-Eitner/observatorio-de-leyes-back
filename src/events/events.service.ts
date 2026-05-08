@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
 
 export interface TrackEventDto {
@@ -16,6 +16,8 @@ export interface TrackedEvent extends TrackEventDto {
 
 @Injectable()
 export class EventsService {
+  private readonly logger = new Logger(EventsService.name);
+
   constructor(private readonly supabase: SupabaseService) {}
 
   async track(dto: TrackEventDto): Promise<void> {
@@ -28,7 +30,7 @@ export class EventsService {
         properties: dto.properties ?? null,
         context:    dto.context    ?? null,
       });
-    if (error) console.error('[events.track]', error.code, error.message);
+    if (error) this.logger.error(`track: ${error.code} ${error.message}`);
   }
 
   async readAll(): Promise<TrackedEvent[]> {
@@ -44,7 +46,7 @@ export class EventsService {
         .range(from, from + PAGE - 1);
 
       if (error) {
-        console.error('[events.readAll]', error.code, error.message);
+        this.logger.error(`readAll: ${error.code} ${error.message}`);
         break;
       }
       if (!data || data.length === 0) break;
@@ -73,6 +75,6 @@ export class EventsService {
       .from('tracking_events')
       .delete()
       .lte('created_at', new Date().toISOString());
-    if (error) console.error('[events.clear]', error.code, error.message);
+    if (error) this.logger.error(`clear: ${error.code} ${error.message}`);
   }
 }

@@ -1,13 +1,20 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, Logger, LogLevel } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
   const isProd = process.env.NODE_ENV === 'production';
+
+  // En producción solo warn+error; en dev se agrega log+verbose
+  const logLevels: LogLevel[] = isProd
+    ? ['warn', 'error']
+    : ['log', 'warn', 'error', 'verbose'];
+
+  const app = await NestFactory.create(AppModule, { logger: logLevels });
+  const logger = new Logger('Bootstrap');
 
   // ── Seguridad HTTP ──────────────────────────────────────────────────────────
   app.use(helmet());
@@ -16,8 +23,13 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   // ── CORS — solo orígenes conocidos ─────────────────────────────────────────
+  const PROD_ORIGINS = [
+    'https://observatorio-de-leyes-front.vercel.app',
+    'https://observatoriodeleyes.ar',
+    'https://www.observatoriodeleyes.ar',
+  ];
   const allowedOrigins = isProd
-    ? [process.env.FRONTEND_URL].filter(Boolean) as string[]
+    ? [...PROD_ORIGINS, ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [])]
     : ['http://localhost:3000', 'http://localhost:4000'];
 
   app.enableCors({
@@ -52,12 +64,12 @@ async function bootstrap() {
 
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api/docs', app, document);
-    console.log(`Swagger docs: http://localhost:${process.env.PORT || 3600}/api/docs`);
+    logger.log(`Swagger: http://localhost:${process.env.PORT || 3600}/api/docs`);
   }
 
   const port = process.env.PORT || 3600;
   await app.listen(port);
-  console.log(`Observatorio de Leyes API corriendo en: http://localhost:${port}/api`);
+  logger.log(`API lista en puerto ${port}`);
 }
 
 bootstrap();

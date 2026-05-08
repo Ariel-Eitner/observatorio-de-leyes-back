@@ -9,6 +9,7 @@ const CUSTOM_PATHS: Record<string, string> = {
   'codigo-civil-comercial': '/codigo-civil-comercial',
   'carta-onu':              '/carta-onu',
   'ley-26639':              '/ley-de-glaciares',
+  'ley-27801':              '/ley-penal-juvenil',
 };
 
 function slugify(text: string): string {
