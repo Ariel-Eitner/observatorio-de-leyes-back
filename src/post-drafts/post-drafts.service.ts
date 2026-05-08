@@ -2,7 +2,7 @@ import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
 import { LawsService } from '../laws/laws.service';
 import { PostGeneratorService } from './post-generator.service';
-import { PostDraft, Platform } from './types';
+import { PostDraft, Platform, TemplateId } from './types';
 
 const HISTORY_WINDOW_DAYS = 90;
 
@@ -133,7 +133,7 @@ export class PostDraftsService {
 
   private pickLaw(usedSet: Set<string>) {
     // Paginación grande para traer todos los IDs de una sola vez
-    const { data: summaries } = this.laws.findAll({ page: 1, limit: 500 } as any);
+    const { data: summaries } = this.laws.findAll({ page: 1, limit: 500 });
 
     // Solo leyes con artículos cargados; excluir constituciones (poco tweetables)
     const eligible = (summaries ?? [])
@@ -175,7 +175,7 @@ export class PostDraftsService {
       lawTitle:      row.law_title     as string,
       articleNumber: row.article_number as string,
       utmContent:    row.utm_content   as string,
-      templateUsed:  row.template_used as any,
+      templateUsed:  row.template_used as TemplateId,
     };
   }
 }

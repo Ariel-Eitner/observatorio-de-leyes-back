@@ -5,6 +5,7 @@ import {
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { PostDraftsService } from './post-drafts.service';
 import { AdminHeaderGuard } from '../common/guards/admin-header.guard';
+import { Platform } from './types';
 
 @ApiTags('post-drafts')
 @UseGuards(AdminHeaderGuard)
@@ -15,13 +16,13 @@ export class PostDraftsController {
   @Get()
   @ApiOperation({ summary: 'Listar borradores pendientes' })
   findAll(@Query('platform') platform = 'twitter') {
-    return this.service.findAll(platform as any);
+    return this.service.findAll(platform as Platform);
   }
 
   @Post('generate')
   @ApiOperation({ summary: 'Generar un nuevo borrador' })
   generate(@Query('platform') platform = 'twitter') {
-    return this.service.generate(platform as any);
+    return this.service.generate(platform as Platform);
   }
 
   @Patch(':id')
