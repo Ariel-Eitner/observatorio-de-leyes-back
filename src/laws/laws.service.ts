@@ -7,12 +7,12 @@ import { computeFrontendPath } from '../common/utils/law-url.util';
 
 // Metadata estática que no puede derivarse de los data files solos
 const LAW_STATIC_META: Record<string, { shortCode?: string; apiPath: string; aliases?: string[]; isDestacada?: boolean; category?: string }> = {
-  'constitucion-nacional': { shortCode: 'CN',    apiPath: '/constitucion',              aliases: ['CN', '24430', '24.430'],   isDestacada: false, category: 'constitucion' },
-  'codigo-penal':          { shortCode: 'CP',    apiPath: '/codigo-penal',              aliases: ['CP', '11179', '11.179'],   isDestacada: true,  category: 'penal'        },
-  'ley-27150':             { shortCode: 'CPP',   apiPath: '/codigo-procesal-penal',     aliases: ['CPP', '27150', '27.150'],  isDestacada: true,  category: 'penal'        },
-  'ley-20744':             { shortCode: 'LCT',   apiPath: '/lct',                       aliases: ['LCT', '20744', '20.744'],  isDestacada: true,  category: 'laboral'      },
-  'codigo-aduanero':       { shortCode: 'CA',    apiPath: '/codigo-aduanero',           aliases: ['CA', '22415', '22.415'],   isDestacada: true,  category: 'aduanero'     },
-  'codigo-civil-comercial': { shortCode: 'CCyCN', apiPath: '/codigo-civil-comercial',   aliases: ['CCyCN', '26994', '26.994'], isDestacada: true, category: 'civil'        },
+  'constitucion-nacional': { shortCode: 'CN',    apiPath: '/laws/constitucion-nacional',  aliases: ['CN', '24430', '24.430'],   isDestacada: false, category: 'constitucion' },
+  'codigo-penal':          { shortCode: 'CP',    apiPath: '/laws/codigo-penal',           aliases: ['CP', '11179', '11.179'],   isDestacada: true,  category: 'penal'        },
+  'ley-27150':             { shortCode: 'CPP',   apiPath: '/laws/ley-27150',              aliases: ['CPP', '27150', '27.150'],  isDestacada: true,  category: 'penal'        },
+  'ley-20744':             { shortCode: 'LCT',   apiPath: '/laws/ley-20744',              aliases: ['LCT', '20744', '20.744'],  isDestacada: true,  category: 'laboral'      },
+  'codigo-aduanero':       { shortCode: 'CA',    apiPath: '/laws/codigo-aduanero',        aliases: ['CA', '22415', '22.415'],   isDestacada: true,  category: 'aduanero'     },
+  'codigo-civil-comercial': { shortCode: 'CCyCN', apiPath: '/laws/codigo-civil-comercial', aliases: ['CCyCN', '26994', '26.994'], isDestacada: true, category: 'civil'        },
   'ley-25326':             { shortCode: 'Ley 25.326', apiPath: '/laws/number/25326',    aliases: ['25326', '25.326'],         category: 'transparencia' },
   'ley-26639':             { shortCode: 'Ley 26.639', apiPath: '/laws/ley-26639',       aliases: ['26639', '26.639'],         category: 'ambiental'    },
   'ley-27499':             { shortCode: 'Ley 27.499', apiPath: '/laws/ley-27499',       aliases: ['27499', '27.499', 'Micaela'], category: 'genero'      },
@@ -27,32 +27,32 @@ const LAW_STATIC_META: Record<string, { shortCode?: string; apiPath: string; ali
   'ley-26206':             { shortCode: 'Ley 26.206', apiPath: '/laws/ley-26206',       aliases: ['26206', '26.206'],         category: 'educacion'    },
   'ley-27802':             { shortCode: 'Ley 27.802', apiPath: '/laws/number/27802',    aliases: ['27802', '27.802'] },
   'decreto-207-2011':      { shortCode: 'Decreto 207/2011', apiPath: '/laws/decreto-207-2011' },
-  'carta-onu':             { shortCode: 'Carta ONU', apiPath: '/carta-onu', aliases: ['ONU', 'Carta ONU', 'Naciones Unidas'], isDestacada: true, category: 'internacional' },
-  'ley-27801':             { shortCode: 'LPJ',       apiPath: '/ley-penal-juvenil', aliases: ['LPJ', '27801', '27.801', 'Ley Penal Juvenil', 'Régimen Penal Juvenil'], isDestacada: true, category: 'penal' },
-  'const-buenos-aires':      { shortCode: 'CBsAs', apiPath: '/constituciones-provinciales/buenos-aires',       category: 'constitucion' },
-  'const-caba':              { shortCode: 'CCABA', apiPath: '/constituciones-provinciales/caba',               category: 'constitucion' },
-  'const-catamarca':         { shortCode: 'CCat',  apiPath: '/constituciones-provinciales/catamarca',          category: 'constitucion' },
-  'const-chaco':             { shortCode: 'CChac', apiPath: '/constituciones-provinciales/chaco',              category: 'constitucion' },
-  'const-chubut':            { shortCode: 'CChub', apiPath: '/constituciones-provinciales/chubut',             category: 'constitucion' },
-  'const-cordoba':           { shortCode: 'CCor',  apiPath: '/constituciones-provinciales/cordoba',            category: 'constitucion' },
-  'const-corrientes':        { shortCode: 'CCtes', apiPath: '/constituciones-provinciales/corrientes',         category: 'constitucion' },
-  'const-entre-rios':        { shortCode: 'CER',   apiPath: '/constituciones-provinciales/entre-rios',         category: 'constitucion' },
-  'const-formosa':           { shortCode: 'CFos',  apiPath: '/constituciones-provinciales/formosa',            category: 'constitucion' },
-  'const-jujuy':             { shortCode: 'CJuj',  apiPath: '/constituciones-provinciales/jujuy',              category: 'constitucion' },
-  'const-la-pampa':          { shortCode: 'CLPam', apiPath: '/constituciones-provinciales/la-pampa',           category: 'constitucion' },
-  'const-la-rioja':          { shortCode: 'CLRio', apiPath: '/constituciones-provinciales/la-rioja',           category: 'constitucion' },
-  'const-mendoza':           { shortCode: 'CMza',  apiPath: '/constituciones-provinciales/mendoza',            category: 'constitucion' },
-  'const-misiones':          { shortCode: 'CMis',  apiPath: '/constituciones-provinciales/misiones',           category: 'constitucion' },
-  'const-neuquen':           { shortCode: 'CNqn',  apiPath: '/constituciones-provinciales/neuquen',            category: 'constitucion' },
-  'const-rio-negro':         { shortCode: 'CRN',   apiPath: '/constituciones-provinciales/rio-negro',          category: 'constitucion' },
-  'const-salta':             { shortCode: 'CSal',  apiPath: '/constituciones-provinciales/salta',              category: 'constitucion' },
-  'const-san-juan':          { shortCode: 'CSJ',   apiPath: '/constituciones-provinciales/san-juan',           category: 'constitucion' },
-  'const-san-luis':          { shortCode: 'CSL',   apiPath: '/constituciones-provinciales/san-luis',           category: 'constitucion' },
-  'const-santa-cruz':        { shortCode: 'CSCZ',  apiPath: '/constituciones-provinciales/santa-cruz',         category: 'constitucion' },
-  'const-santa-fe':          { shortCode: 'CSF',   apiPath: '/constituciones-provinciales/santa-fe',           category: 'constitucion' },
-  'const-santiago-del-estero': { shortCode: 'CSTE', apiPath: '/constituciones-provinciales/santiago-del-estero', category: 'constitucion' },
-  'const-tierra-del-fuego':  { shortCode: 'CTDF',  apiPath: '/constituciones-provinciales/tierra-del-fuego',  category: 'constitucion' },
-  'const-tucuman':           { shortCode: 'CTUC',  apiPath: '/constituciones-provinciales/tucuman',            category: 'constitucion' },
+  'carta-onu':             { shortCode: 'Carta ONU', apiPath: '/laws/carta-onu',   aliases: ['ONU', 'Carta ONU', 'Naciones Unidas'], isDestacada: true, category: 'internacional' },
+  'ley-27801':             { shortCode: 'LPJ',       apiPath: '/laws/ley-27801',   aliases: ['LPJ', '27801', '27.801', 'Ley Penal Juvenil', 'Régimen Penal Juvenil'], isDestacada: true, category: 'penal' },
+  'const-buenos-aires':      { shortCode: 'CBsAs', apiPath: '/laws/const-buenos-aires',       category: 'constitucion' },
+  'const-caba':              { shortCode: 'CCABA', apiPath: '/laws/const-caba',               category: 'constitucion' },
+  'const-catamarca':         { shortCode: 'CCat',  apiPath: '/laws/const-catamarca',          category: 'constitucion' },
+  'const-chaco':             { shortCode: 'CChac', apiPath: '/laws/const-chaco',              category: 'constitucion' },
+  'const-chubut':            { shortCode: 'CChub', apiPath: '/laws/const-chubut',             category: 'constitucion' },
+  'const-cordoba':           { shortCode: 'CCor',  apiPath: '/laws/const-cordoba',            category: 'constitucion' },
+  'const-corrientes':        { shortCode: 'CCtes', apiPath: '/laws/const-corrientes',         category: 'constitucion' },
+  'const-entre-rios':        { shortCode: 'CER',   apiPath: '/laws/const-entre-rios',         category: 'constitucion' },
+  'const-formosa':           { shortCode: 'CFos',  apiPath: '/laws/const-formosa',            category: 'constitucion' },
+  'const-jujuy':             { shortCode: 'CJuj',  apiPath: '/laws/const-jujuy',              category: 'constitucion' },
+  'const-la-pampa':          { shortCode: 'CLPam', apiPath: '/laws/const-la-pampa',           category: 'constitucion' },
+  'const-la-rioja':          { shortCode: 'CLRio', apiPath: '/laws/const-la-rioja',           category: 'constitucion' },
+  'const-mendoza':           { shortCode: 'CMza',  apiPath: '/laws/const-mendoza',            category: 'constitucion' },
+  'const-misiones':          { shortCode: 'CMis',  apiPath: '/laws/const-misiones',           category: 'constitucion' },
+  'const-neuquen':           { shortCode: 'CNqn',  apiPath: '/laws/const-neuquen',            category: 'constitucion' },
+  'const-rio-negro':         { shortCode: 'CRN',   apiPath: '/laws/const-rio-negro',          category: 'constitucion' },
+  'const-salta':             { shortCode: 'CSal',  apiPath: '/laws/const-salta',              category: 'constitucion' },
+  'const-san-juan':          { shortCode: 'CSJ',   apiPath: '/laws/const-san-juan',           category: 'constitucion' },
+  'const-san-luis':          { shortCode: 'CSL',   apiPath: '/laws/const-san-luis',           category: 'constitucion' },
+  'const-santa-cruz':        { shortCode: 'CSCZ',  apiPath: '/laws/const-santa-cruz',         category: 'constitucion' },
+  'const-santa-fe':          { shortCode: 'CSF',   apiPath: '/laws/const-santa-fe',           category: 'constitucion' },
+  'const-santiago-del-estero': { shortCode: 'CSTE', apiPath: '/laws/const-santiago-del-estero', category: 'constitucion' },
+  'const-tierra-del-fuego':  { shortCode: 'CTDF',  apiPath: '/laws/const-tierra-del-fuego',  category: 'constitucion' },
+  'const-tucuman':           { shortCode: 'CTUC',  apiPath: '/laws/const-tucuman',            category: 'constitucion' },
 };
 
 const SLUG_ALIASES: Record<string, string> = {
@@ -128,7 +128,8 @@ export class LawsService {
   }
 
   findOne(id: string): Law {
-    const law = this.laws.find((l) => l.id === id);
+    const all = [...this.allSources, ...CONSTITUCIONES_PROVINCIALES];
+    const law = all.find((l) => l.id === id);
     if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
     return law;
   }

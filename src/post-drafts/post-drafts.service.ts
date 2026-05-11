@@ -2,6 +2,7 @@ import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { SupabaseService } from '../supabase/supabase.service';
 import { LawsService } from '../laws/laws.service';
 import { PostGeneratorService } from './post-generator.service';
+import { LinkedInGeneratorService } from './linkedin-generator.service';
 import { PostDraft, Platform, TemplateId } from './types';
 
 const HISTORY_WINDOW_DAYS = 90;
@@ -11,9 +12,10 @@ export class PostDraftsService {
   private readonly logger = new Logger(PostDraftsService.name);
 
   constructor(
-    private readonly supabase:   SupabaseService,
-    private readonly laws:       LawsService,
-    private readonly generator:  PostGeneratorService,
+    private readonly supabase:    SupabaseService,
+    private readonly laws:        LawsService,
+    private readonly generator:   PostGeneratorService,
+    private readonly liGenerator: LinkedInGeneratorService,
   ) {}
 
   // ── read ──────────────────────────────────────────────────────────────────
@@ -59,7 +61,9 @@ export class PostDraftsService {
       return null;
     }
 
-    const result = this.generator.generate(law, usedSet);
+    const result = platform === 'linkedin'
+      ? this.liGenerator.generate(law, usedSet)
+      : this.generator.generate(law, usedSet);
     if (!result) return null;
 
     const { data, error } = await this.supabase.db
@@ -68,6 +72,7 @@ export class PostDraftsService {
         platform,
         post_text:      result.postText,
         comment_text:   result.commentText,
+        hashtags:       result.hashtags,
         law_id:         result.lawId,
         law_title:      result.lawTitle,
         article_number: result.articleNumber,
@@ -171,6 +176,7 @@ export class PostDraftsService {
       platform:      row.platform      as Platform,
       postText:      row.post_text     as string,
       commentText:   row.comment_text  as string,
+      hashtags:      (row.hashtags     as string) ?? '',
       lawId:         row.law_id        as string,
       lawTitle:      row.law_title     as string,
       articleNumber: row.article_number as string,

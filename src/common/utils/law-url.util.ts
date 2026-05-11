@@ -1,15 +1,15 @@
 import type { Law } from '../types/law.types';
 
-const CUSTOM_PATHS: Record<string, string> = {
-  'constitucion-nacional':  '/constitucion-nacional',
-  'codigo-penal':           '/codigo-penal',
-  'ley-20744':              '/ley-de-contrato-de-trabajo',
-  'codigo-aduanero':        '/codigo-aduanero',
-  'ley-27150':              '/codigo-procesal-penal',
-  'codigo-civil-comercial': '/codigo-civil-comercial',
-  'carta-onu':              '/carta-onu',
-  'ley-26639':              '/ley-de-glaciares',
-  'ley-27801':              '/ley-penal-juvenil',
+const TIPO_SLUG: Record<string, string> = {
+  'constitucion-nacional':  '/constituciones/nacional',
+  'codigo-penal':           '/codigos/penal',
+  'codigo-aduanero':        '/codigos/aduanero',
+  'codigo-civil-comercial': '/codigos/civil-comercial',
+  'ley-20744':              '/leyes/ley-de-contrato-laboral',
+  'ley-27150':              '/codigos/procesal-penal',
+  'carta-onu':              '/tratados/carta-onu',
+  'ley-26639':              '/leyes/ley-26639',
+  'ley-27801':              '/leyes/ley-27801',
 };
 
 function slugify(text: string): string {
@@ -25,7 +25,7 @@ function slugify(text: string): string {
 }
 
 export function computeFrontendPath(law: Law): string {
-  if (CUSTOM_PATHS[law.id]) return CUSTOM_PATHS[law.id];
+  if (TIPO_SLUG[law.id]) return TIPO_SLUG[law.id];
   if (law.id.startsWith('const-')) return `/constituciones/${law.id.slice('const-'.length)}`;
   if (law.id.startsWith('decreto-')) return `/leyes/${law.id}`;
   const cleanNumber = law.number.replace(/\./g, '');

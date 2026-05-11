@@ -173,6 +173,7 @@ export class PostGeneratorService {
       return {
         postText:      buildBase(law),
         commentText:   this.buildBaseComment(law, utmCtx),
+        hashtags:      '',
         lawId:         law.id,
         lawTitle:      lawName(law),
         articleNumber: '0',
@@ -207,6 +208,7 @@ export class PostGeneratorService {
     return {
       postText,
       commentText:   buildCommentText(law, article.number, utmCtx),
+      hashtags:      '',
       lawId:         law.id,
       lawTitle:      lawName(law),
       articleNumber: article.number,
