@@ -10,6 +10,7 @@ const TIPO_SLUG: Record<string, string> = {
   'carta-onu':              '/tratados/carta-onu',
   'ley-26639':              '/leyes/ley-26639',
   'ley-27801':              '/leyes/ley-27801',
+  'ley-27742':              '/leyes/ley-de-bases',
 };
 
 function slugify(text: string): string {

@@ -29,6 +29,7 @@ const LAW_STATIC_META: Record<string, { shortCode?: string; apiPath: string; ali
   'decreto-207-2011':      { shortCode: 'Decreto 207/2011', apiPath: '/laws/decreto-207-2011' },
   'carta-onu':             { shortCode: 'Carta ONU', apiPath: '/laws/carta-onu',   aliases: ['ONU', 'Carta ONU', 'Naciones Unidas'], isDestacada: true, category: 'internacional' },
   'ley-27801':             { shortCode: 'LPJ',       apiPath: '/laws/ley-27801',   aliases: ['LPJ', '27801', '27.801', 'Ley Penal Juvenil', 'Régimen Penal Juvenil'], isDestacada: true, category: 'penal' },
+  'ley-27742':             { shortCode: 'LdB',       apiPath: '/laws/ley-27742',   aliases: ['RIGI', 'Ley de Bases', 'Ley Ómnibus', '27742', '27.742', 'Ley del RIGI', 'ley omnibus'], isDestacada: true, category: 'economico' },
   'const-buenos-aires':      { shortCode: 'CBsAs', apiPath: '/laws/const-buenos-aires',       category: 'constitucion' },
   'const-caba':              { shortCode: 'CCABA', apiPath: '/laws/const-caba',               category: 'constitucion' },
   'const-catamarca':         { shortCode: 'CCat',  apiPath: '/laws/const-catamarca',          category: 'constitucion' },
@@ -57,6 +58,9 @@ const LAW_STATIC_META: Record<string, { shortCode?: string; apiPath: string; ali
 
 const SLUG_ALIASES: Record<string, string> = {
   'ley-de-glaciares': 'ley-26639',
+  'ley-omnibus':      'ley-27742',
+  'ley-de-bases':     'ley-27742',
+  'rigi':             'ley-27742',
 };
 
 

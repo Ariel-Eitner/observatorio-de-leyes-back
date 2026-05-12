@@ -28,6 +28,7 @@ import { LEY_26061 } from './ley-26061/index';
 import { LEY_26206 } from './ley-26206/index';
 import { CARTA_ONU } from './carta-onu/index';
 import { LEY_27801 } from './ley-27801/index';
+import { LEY_27742 } from './ley-27742/index';
 import type { Law } from '../common/types/law.types';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
@@ -39,6 +40,7 @@ export const NORMAS_CLAVE: Law[] = [
   LEY_27150,                // Código Procesal Penal Federal
   CONSTITUCION_NACIONAL,    // Constitución Nacional
   LEY_20744,                // Ley de Contrato de Trabajo
+  LEY_27742,                // Ley del RIGI
 ];
 
 // Leyes del listado general /api/laws
@@ -57,4 +59,5 @@ export const ALL_LAWS: Law[] = [
   LEY_26061,         // Ley de Protección Integral NNyA
   LEY_26206,         // Ley de Educación Nacional
   LEY_27801,         // Ley Penal Juvenil
+  LEY_27742,         // Ley de Bases / RIGI
 ];
