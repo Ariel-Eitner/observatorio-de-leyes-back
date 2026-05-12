@@ -33,17 +33,18 @@ export class EventsService {
     if (error) this.logger.error(`track: ${error.code} ${error.message}`);
   }
 
-  async readAll(): Promise<TrackedEvent[]> {
+  async readAll(since?: string): Promise<TrackedEvent[]> {
     const PAGE = 1000;
     const all: TrackedEvent[] = [];
     let from = 0;
 
     while (true) {
-      const { data, error } = await this.supabase.db
+      let q = this.supabase.db
         .from('tracking_events')
         .select('*')
-        .order('created_at', { ascending: true })
-        .range(from, from + PAGE - 1);
+        .order('created_at', { ascending: true });
+      if (since) q = q.gte('created_at', since);
+      const { data, error } = await q.range(from, from + PAGE - 1);
 
       if (error) {
         this.logger.error(`readAll: ${error.code} ${error.message}`);

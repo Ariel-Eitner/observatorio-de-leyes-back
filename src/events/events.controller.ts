@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Post, Query, UseGuards } from '@nestjs/common';
 import { Throttle, SkipThrottle } from '@nestjs/throttler';
 import { EventsService, TrackEventDto } from './events.service';
 import { AdminHeaderGuard } from '../common/guards/admin-header.guard';
@@ -18,8 +18,8 @@ export class EventsController {
   @Get()
   @SkipThrottle()
   @UseGuards(AdminHeaderGuard)
-  async readAll() {
-    return this.events.readAll();
+  async readAll(@Query('since') since?: string) {
+    return this.events.readAll(since);
   }
 
   @Delete()

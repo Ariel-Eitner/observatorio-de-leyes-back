@@ -22,6 +22,7 @@ import { AdminModule }       from './admin/admin.module';
 import { SupabaseModule }    from './supabase/supabase.module';
 import { PostDraftsModule }  from './post-drafts/post-drafts.module';
 import { LeyPenalJuvenilModule } from './ley-penal-juvenil/ley-penal-juvenil.module';
+import { ExportsModule }         from './exports/exports.module';
 
 @Module({
   imports: [
@@ -52,6 +53,7 @@ import { LeyPenalJuvenilModule } from './ley-penal-juvenil/ley-penal-juvenil.mod
     AdminModule,
     PostDraftsModule,
     LeyPenalJuvenilModule,
+    ExportsModule,
   ],
   providers: [
     // Aplicar rate limiting globalmente por IP (ThrottlerGuard usa IP por defecto)
