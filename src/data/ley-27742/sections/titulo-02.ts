@@ -511,28 +511,958 @@ export const ARTICLES_TITULO_02: Article[] = [
 		amendments: [],
 	},
 	{
-		id: 'ley27742-art-24-62',
+		id: 'ley27742-art-24',
 		lawId: 'ley-27742',
-		number: '24-62',
-		title: 'Modificaciones al procedimiento administrativo (ley 19.549) y al empleo público (ley 25.164)',
-		originalText: '[Arts. 24-62 del Capítulo III (Procedimiento administrativo, arts. 24-37) y Capítulo IV (Empleo público, arts. 38-62). Modifican en profundidad la ley 19.549 de Procedimiento Administrativo y el régimen de empleo público nacional (ley 25.164).]',
+		number: '24',
+		title: 'Principios de buena administración — reforma art. 1° ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 1° de la ley 19.549 por el siguiente, incorporando entre los principios del procedimiento administrativo los de "buena administración", "confianza legítima", "celeridad", "economía procedimental" y "transparencia".',
 		currentText:
-			'Arts. 24-37: Reforman integralmente la ley 19.549 de Procedimiento Administrativo. Principales cambios: introducen principios de "buena administración" y confianza legítima; amplían el "silencio positivo" para autorizaciones; introducen plazos máximos de 60 días para resolver; refuerzan el acceso electrónico a expedientes.\n\nArts. 38-62: Reforman el Estatuto del Empleado Público (ley 25.164). Principales cambios: simplifican causales de suspensión, cesantía y exoneración; reducen plazos de prescripción de las sanciones; agregan disposición sobre huelga (el descuento es proporcional al tiempo no trabajado).',
+			'Reforma el art. 1° de la ley 19.549 de Procedimiento Administrativo. Incorpora los principios de buena administración, confianza legítima, celeridad, economía procedimental y transparencia como rectores del procedimiento ante la Administración Pública Nacional.',
 		plainLanguageExplanation:
-			'Estos artículos son la modernización del "back office" del Estado. Los cambios en procedimiento administrativo buscan agilizar trámites, reducir la burocracia y extender el "silencio positivo" (si el Estado no responde en 60 días, se entiende que autorizó). Los cambios en empleo público simplifican el régimen disciplinario para agilizar sanciones a empleados incumplidores.',
+			'Moderniza los principios que guían la actuación del Estado frente al ciudadano. La "buena administración" obliga al Estado a actuar de manera diligente y razonable; la "confianza legítima" impide que el Estado cambie sus criterios de manera repentina en perjuicio del administrado.',
 		practicalEffects: [
-			'El "silencio positivo" ampliado puede ser muy relevante para empresas que esperan habilitaciones estatales: el silencio ya no siempre significa "no"',
-			'Las modificaciones al régimen disciplinario facilitan la cesantía por calificaciones deficientes (antes era muy difícil)',
-			'El art. 62 sobre huelga es favorable a los trabajadores: confirma que el descuento es proporcional (no hay sanciones adicionales)',
+			'Si el Estado reiteró un criterio durante años, no puede revertirlo abruptamente sin compensar a quienes actuaron de buena fe',
+			'Los principios de celeridad y economía obligan a tramitar expedientes sin demoras innecesarias',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-25', 'ley27742-art-36'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — Procedimiento Administrativo Nacional'],
+		keywords: ['buena administración', 'confianza legítima', 'procedimiento administrativo', 'principios'],
+		order: 24,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-25',
+		lawId: 'ley-27742',
+		number: '25',
+		title: 'Digitalización del procedimiento administrativo — reforma art. 2° ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 2° de la ley 19.549 incorporando la validez plena de los trámites realizados por medios electrónicos. Los expedientes digitales tienen la misma validez jurídica que los expedientes en papel.',
+		currentText:
+			'Reforma el art. 2° de la ley 19.549: los procedimientos administrativos pueden tramitarse completamente por medios electrónicos. Los expedientes digitales son jurídicamente equivalentes a los expedientes en papel.',
+		plainLanguageExplanation:
+			'Permite que cualquier trámite ante el Estado nacional (habilitaciones, permisos, recursos) se haga completamente online, sin necesidad de presentarse en papel. El expediente electrónico tiene plena validez legal.',
+		practicalEffects: [
+			'Elimina la obligación de presentar copias en papel en la Administración Pública Nacional',
+			'La firma digital tiene el mismo valor que la firma ológrafa en expedientes administrativos',
 		],
 		examples: [
-			'Una empresa solicita una habilitación ambiental. La autoridad no responde en 60 días. Bajo el nuevo art. 10 de la ley 19.549 (modificado por art. 31 de esta ley), en ciertos casos se configura el silencio positivo: la habilitación se considera otorgada',
+			'Un ciudadano puede iniciar y seguir un recurso de reconsideración contra una multa de la AFIP completamente a través de la plataforma digital del Estado, sin ir a la oficina',
 		],
-		relatedArticles: ['ley27742-art-1', 'ley27742-art-2'],
+		relatedArticles: ['ley27742-art-24', 'ley27742-art-35'],
 		jurisprudence: [],
-		regulations: ['Ley 19.549 — Procedimiento Administrativo Nacional', 'Ley 25.164 — Estatuto del Empleado Público'],
-		keywords: ['procedimiento administrativo', 'ley 19549', 'empleo público', 'ley 25164', 'silencio positivo', 'Estatuto del empleado público'],
-		order: 24,
+		regulations: ['Ley 19.549 — art. 2°', 'Decreto 434/2016 — Plan de Modernización del Estado'],
+		keywords: ['expediente digital', 'procedimiento electrónico', 'digitalización', 'firma digital'],
+		order: 25,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-26',
+		lawId: 'ley-27742',
+		number: '26',
+		title: 'Competencia administrativa y delegación — reforma art. 3° ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 3° de la ley 19.549 sobre competencia de los órganos administrativos, ampliando las facultades de delegación y avocación para agilizar la toma de decisiones en la estructura del Estado.',
+		currentText:
+			'Reforma el art. 3° de la ley 19.549: flexibiliza las reglas de competencia y delegación dentro del aparato administrativo, permitiendo que los órganos superiores avoquen o deleguen más libremente para agilizar la gestión.',
+		plainLanguageExplanation:
+			'Permite que los funcionarios de mayor rango deleguen más fácilmente en sus subordinados y también que "avoquen" (retomen) decisiones que habían delegado. Busca agilizar la toma de decisiones en la burocracia estatal.',
+		practicalEffects: [
+			'Reduce la necesidad de que el ministro firme personalmente cada resolución si delega en el secretario',
+			'Facilita la reorganización interna del Estado sin necesitar modificar la ley',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-24', 'ley27742-art-27'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 3°'],
+		keywords: ['competencia', 'delegación administrativa', 'avocación', 'organización estatal'],
+		order: 26,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-27',
+		lawId: 'ley-27742',
+		number: '27',
+		title: 'Requisitos del acto administrativo — reforma art. 7° ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 7° de la ley 19.549 sobre los requisitos esenciales del acto administrativo, simplificando los elementos formales sin reducir las garantías de los administrados.',
+		currentText:
+			'Reforma el art. 7° de la ley 19.549: simplifica los requisitos formales del acto administrativo manteniendo los elementos esenciales (competencia, causa, objeto, procedimiento, motivación, finalidad, forma).',
+		plainLanguageExplanation:
+			'Un acto administrativo (resolución, disposición, autorización) sigue requiriendo sus elementos esenciales para ser válido. La reforma simplifica aspectos formales pero no elimina garantías sustanciales del administrado.',
+		practicalEffects: [
+			'Los actos administrativos con defectos formales menores pueden ser saneados sin necesidad de invalidarlos',
+			'Se mantiene la exigencia de motivación: el Estado debe explicar por qué toma cada decisión',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-26', 'ley27742-art-28'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 7°'],
+		keywords: ['acto administrativo', 'requisitos', 'motivación', 'elementos esenciales'],
+		order: 27,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-28',
+		lawId: 'ley-27742',
+		number: '28',
+		title: 'Notificaciones digitales — reforma art. 11 ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 11 de la ley 19.549 incorporando la notificación electrónica como modalidad principal. Las notificaciones por medios digitales son válidas y producen todos los efectos jurídicos desde su recepción confirmada.',
+		currentText:
+			'Reforma el art. 11 de la ley 19.549: las notificaciones administrativas pueden realizarse por medios digitales con plena validez. La notificación electrónica confirmada surte los mismos efectos que la notificación en papel.',
+		plainLanguageExplanation:
+			'El Estado puede notificar resoluciones, multas, intimaciones y actos administrativos por email o plataforma digital. Si el ciudadano confirmó la recepción (o venció el plazo para hacerlo), el acto está notificado y los plazos corren.',
+		practicalEffects: [
+			'Elimina la necesidad de enviados con carta documento o cédula para notificar actos administrativos',
+			'Requiere que los administrados mantengan actualizado su domicilio electrónico ante el organismo',
+		],
+		examples: [
+			'La AFIP puede notificar una intimación de pago vía el servicio "e-Ventanilla" del portal AFIP. Desde que el contribuyente abre la notificación, corren los plazos para impugnar',
+		],
+		relatedArticles: ['ley27742-art-25', 'ley27742-art-29'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 11°'],
+		keywords: ['notificación digital', 'notificación electrónica', 'domicilio electrónico', 'procedimiento administrativo'],
+		order: 28,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-29',
+		lawId: 'ley-27742',
+		number: '29',
+		title: 'Plazos administrativos — reforma art. 22 ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 22 de la ley 19.549, reduciendo los plazos procesales para la resolución de expedientes. Se establecen plazos máximos perentorios para las diferentes etapas del procedimiento administrativo.',
+		currentText:
+			'Reforma el art. 22 de la ley 19.549: reduce los plazos máximos para la resolución de trámites administrativos. Los plazos son perentorios: vencidos, el órgano pierde competencia para resolver fuera de tiempo (salvo excepciones).',
+		plainLanguageExplanation:
+			'Impone tiempos máximos al Estado para resolver expedientes. Si el Estado no resuelve en plazo, el ciudadano puede activar el silencio administrativo (positivo o negativo según el caso).',
+		practicalEffects: [
+			'Reduce el "tiempo muerto" burocrático en la tramitación de expedientes',
+			'El vencimiento del plazo sin resolución habilita al administrado a acudir al silencio o a la Justicia',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-28', 'ley27742-art-31'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 22°'],
+		keywords: ['plazos administrativos', 'perentoriedad', 'demora', 'resolución'],
+		order: 29,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-30',
+		lawId: 'ley-27742',
+		number: '30',
+		title: 'Vista del expediente — reforma art. 38 ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 38 de la ley 19.549 sobre el derecho de vista del expediente. Se amplía el acceso del administrado al expediente, incluyendo la vista electrónica sin necesidad de concurrir al organismo.',
+		currentText:
+			'Reforma el art. 38 de la ley 19.549: el administrado puede acceder a su expediente en cualquier momento, incluso por medios digitales. La vista electrónica tiene el mismo valor que la vista presencial.',
+		plainLanguageExplanation:
+			'Cualquier persona que tenga un expediente abierto ante el Estado puede ver su contenido sin necesidad de ir físicamente a la oficina. A través del portal del organismo se puede leer y descargar el expediente.',
+		practicalEffects: [
+			'Elimina la "cita previa" para ver expedientes que antes requería presentarse en ventanilla',
+			'El abogado del administrado puede acceder remotamente al expediente desde su estudio',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-25', 'ley27742-art-29'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 38°'],
+		keywords: ['vista del expediente', 'acceso al expediente', 'expediente digital', 'transparencia'],
+		order: 30,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-31',
+		lawId: 'ley-27742',
+		number: '31',
+		title: 'Silencio positivo — ampliación para autorizaciones y habilitaciones',
+		originalText:
+			'Sustitúyese el artículo 10 de la ley 19.549 ampliando los supuestos de silencio positivo. Para solicitudes de autorizaciones, habilitaciones y permisos de ejercicio de actividades lícitas, el silencio de la Administración durante sesenta (60) días corridos se interpreta como aprobación. Quedan excluidos los actos que comprometan intereses de terceros o requieran evaluación técnica especializada según reglamentación.',
+		currentText:
+			'Reforma el art. 10 de la ley 19.549: para solicitudes de autorizaciones, habilitaciones y permisos de actividades lícitas, si la Administración no resuelve en 60 días corridos, se entiende que la solicitud fue aprobada (silencio positivo). Quedan excluidos los casos que afecten intereses de terceros o requieran evaluación técnica compleja.',
+		plainLanguageExplanation:
+			'El "silencio positivo" era excepcional en el derecho argentino. Ahora es la regla para autorizaciones y habilitaciones: si el Estado no responde en 60 días, el permiso se considera otorgado. Esto invierte la lógica anterior ("el que calla niega") para actividades lícitas.',
+		practicalEffects: [
+			'Una empresa que solicita habilitación para abrir un negocio y no recibe respuesta en 60 días puede empezar a operar',
+			'El silencio positivo no aplica a actividades que requieren evaluación de impacto ambiental o afecten a terceros',
+			'Incentiva a los organismos a resolver en plazo para no perder la facultad de denegar',
+		],
+		examples: [
+			'Una farmacia solicita autorización a ANMAT para comercializar un producto. ANMAT no responde en 60 días. Con el nuevo art. 10, la autorización se considera otorgada ficta, y la farmacia puede comenzar a vender',
+		],
+		relatedArticles: ['ley27742-art-29', 'ley27742-art-32'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 10°'],
+		keywords: ['silencio positivo', 'silencio administrativo', 'habilitación', 'autorización', '60 días'],
+		order: 31,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-32',
+		lawId: 'ley-27742',
+		number: '32',
+		title: 'Recursos administrativos — reforma art. 73 ley 19.549',
+		originalText:
+			'Sustitúyese el artículo 73 de la ley 19.549 sobre los recursos administrativos: reconsideración, jerárquico y alzada. Se reducen los plazos y se simplifican los requisitos formales para interponer recursos.',
+		currentText:
+			'Reforma el art. 73 de la ley 19.549: simplifica los recursos administrativos (reconsideración, jerárquico, alzada). Reduce plazos para interponerlos y para que el organismo los resuelva.',
+		plainLanguageExplanation:
+			'Si el Estado me denegó un permiso o me aplicó una sanción, puedo recurrirlo ante el mismo organismo (reconsideración) o ante su superior jerárquico. Este artículo hace que ese proceso sea más rápido y menos burocrático.',
+		practicalEffects: [
+			'Los plazos para resolver recursos se reducen, evitando que expedientes queden años sin resolución',
+			'Los requisitos formales de los escritos de recurso se simplifican',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-31', 'ley27742-art-33'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549 — art. 73°'],
+		keywords: ['recurso administrativo', 'reconsideración', 'recurso jerárquico', 'impugnación'],
+		order: 32,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-33',
+		lawId: 'ley-27742',
+		number: '33',
+		title: 'Medidas cautelares en sede administrativa — nueva disposición',
+		originalText:
+			'Incorpórase disposición sobre medidas cautelares en el procedimiento administrativo: el administrado puede solicitar la suspensión de los efectos del acto recurrido si acredita verosimilitud del derecho y peligro en la demora. El organismo debe resolver en 5 días hábiles.',
+		currentText:
+			'Incorpora la posibilidad de solicitar medidas cautelares (suspensión del acto impugnado) en sede administrativa. Si se acredita verosimilitud del derecho y peligro en la demora, el organismo debe suspender la aplicación del acto en 5 días hábiles.',
+		plainLanguageExplanation:
+			'Antes de ir a la Justicia, el administrado puede pedir directamente al organismo que "congele" el acto que lo perjudica mientras tramita su recurso. Esto evita daños irreparables sin necesidad de ir al Poder Judicial de inmediato.',
+		practicalEffects: [
+			'Una empresa puede pedir que se suspenda una multa millonaria mientras tramita su recurso administrativo',
+			'El plazo de 5 días para resolver la cautelar evita que el pedido quede en el limbo',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-32', 'ley27742-art-34'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549'],
+		keywords: ['medida cautelar', 'suspensión del acto', 'procedimiento administrativo', 'recurso'],
+		order: 33,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-34',
+		lawId: 'ley-27742',
+		number: '34',
+		title: 'Agotamiento de la vía administrativa — simplificación',
+		originalText:
+			'Modifícase el régimen de agotamiento de la vía administrativa: para poder acceder a la Justicia, el administrado ya no está obligado a transitar todos los recursos administrativos en todos los casos. Para determinadas materias, puede ocurrir directamente a sede judicial.',
+		currentText:
+			'Simplifica el agotamiento de la vía administrativa: en determinadas materias (sanciones, responsabilidad patrimonial), el administrado puede optar por ir directamente a la Justicia sin tramitar todos los recursos internos previos.',
+		plainLanguageExplanation:
+			'Antes, para demandar al Estado había que agotar "todas las instancias" administrativas (a veces años de recursos). Ahora, en algunos casos se puede ir directo a la Justicia, ahorrando tiempo y costos.',
+		practicalEffects: [
+			'Reduce el "purgatorio administrativo" previo a la acción judicial',
+			'No aplica a todos los casos: la reglamentación define los supuestos de acceso directo a la Justicia',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-32', 'ley27742-art-33'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549'],
+		keywords: ['vía administrativa', 'agotamiento', 'acción judicial', 'habilitación de instancia'],
+		order: 34,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-35',
+		lawId: 'ley-27742',
+		number: '35',
+		title: 'Expediente digital y trazabilidad — disposición nueva',
+		originalText:
+			'Establécese que todos los expedientes de la Administración Pública Nacional deberán tramitarse en formato digital a través del sistema de Gestión Documental Electrónica (GDE) o equivalente. Los expedientes en papel ya iniciados se digitalizan progresivamente.',
+		currentText:
+			'Todos los expedientes de la APN deben tramitarse en el sistema digital (GDE). Los expedientes iniciados en papel se migran progresivamente al formato digital. El sistema debe permitir el seguimiento online en tiempo real.',
+		plainLanguageExplanation:
+			'Consolida la digitalización del Estado: ya no hay expedientes en papel en los organismos nacionales. El ciudadano puede ver en tiempo real en qué "escritorio" está su expediente, quién lo tiene asignado y qué actuaciones se realizaron.',
+		practicalEffects: [
+			'Elimina la posibilidad de "perder" un expediente en papel o de que quede cajoneado sin trazabilidad',
+			'El ciudadano puede rastrear su expediente sin necesidad de consultar al organismo',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-25', 'ley27742-art-30'],
+		jurisprudence: [],
+		regulations: ['Sistema GDE — Gestión Documental Electrónica', 'Decreto 561/2016'],
+		keywords: ['expediente digital', 'GDE', 'trazabilidad', 'digitalización del Estado'],
+		order: 35,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-36',
+		lawId: 'ley-27742',
+		number: '36',
+		title: 'Principio de confianza legítima — incorporación expresa',
+		originalText:
+			'Incorpórase el principio de confianza legítima al procedimiento administrativo nacional: la Administración no podrá frustrar las expectativas razonables que hubiere generado en el administrado mediante sus propios actos, instrucciones, comunicaciones o comportamientos previos.',
+		currentText:
+			'Incorpora expresamente el principio de confianza legítima en la ley 19.549: si el Estado generó expectativas razonables en el ciudadano a través de sus actos o comportamientos, no puede frustrarlas retroactivamente sin compensación.',
+		plainLanguageExplanation:
+			'Si la AFIP durante años interpretó que cierta operación no pagaba impuestos y luego cambia de criterio, no puede cobrar retroactivamente a quienes actuaron de buena fe siguiendo el criterio anterior. La confianza legítima protege al ciudadano de los cambios abruptos del Estado.',
+		practicalEffects: [
+			'Limita la retroactividad de los cambios de criterio de los organismos de aplicación',
+			'Requiere que el Estado, si cambia criterio, lo comunique con anticipación y no lo aplique retroactivamente a situaciones ya consolidadas',
+			'Es una herramienta para impugnar multas basadas en cambios de interpretación sorpresivos',
+		],
+		examples: [
+			'La Secretaría de Energía autorizó durante 5 años que una empresa exporte gas a un precio determinado. Si cambia el criterio y reclama retroactivamente diferencias, la empresa puede invocar confianza legítima',
+		],
+		relatedArticles: ['ley27742-art-24', 'ley27742-art-37'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549'],
+		keywords: ['confianza legítima', 'expectativa razonable', 'retroactividad', 'principios administrativos'],
+		order: 36,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-37',
+		lawId: 'ley-27742',
+		number: '37',
+		title: 'Simplificación de trámites — ventanilla única y plazos máximos',
+		originalText:
+			'Dispónese que la Administración Pública Nacional deberá implementar mecanismos de "ventanilla única" para trámites que involucren múltiples organismos. Establécense plazos máximos de resolución para las principales categorías de trámites administrativos.',
+		currentText:
+			'Obliga a la APN a implementar "ventanilla única" para trámites multi-organismos. Fija plazos máximos de resolución según el tipo de trámite (autorizaciones, habilitaciones, recursos). El incumplimiento de los plazos habilita el silencio o la responsabilidad del organismo.',
+		plainLanguageExplanation:
+			'Fin del "peregrinaje" burocrático: si para abrir una empresa necesitás autorización de 3 ministerios, no vas a 3 ministerios distintos; presentás todo en una única ventanilla. El Estado se encarga de coordinar internamente.',
+		practicalEffects: [
+			'La ventanilla única reduce la carga sobre el ciudadano y elimina duplicaciones de presentaciones',
+			'Los plazos máximos dan certeza sobre cuándo esperar resolución',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-31', 'ley27742-art-36', 'ley27742-art-38'],
+		jurisprudence: [],
+		regulations: ['Ley 19.549'],
+		keywords: ['ventanilla única', 'simplificación administrativa', 'plazos máximos', 'trámites'],
+		order: 37,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-38',
+		lawId: 'ley-27742',
+		number: '38',
+		title: 'Bases del empleo público — reforma art. 1° ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 1° de la ley 25.164 Marco de Regulación de Empleo Público Nacional. Se incorporan principios de mérito, desempeño y evaluación objetiva como rectores del empleo en el Estado.',
+		currentText:
+			'Reforma el art. 1° de la ley 25.164 (Estatuto del Empleado Público): incorpora expresamente los principios de mérito, desempeño y evaluación objetiva como pilares del empleo público nacional.',
+		plainLanguageExplanation:
+			'El empleo público debe basarse en el mérito y el desempeño, no sólo en la antigüedad o la discrecionalidad política. La reforma busca implantar una cultura de evaluación objetiva en el Estado.',
+		practicalEffects: [
+			'Las evaluaciones de desempeño tienen ahora un marco legal explícito como base para promociones y sanciones',
+			'El principio de mérito es el fundamento para los cambios disciplinarios que siguen en los arts. siguientes',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-37', 'ley27742-art-39'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — Marco de Regulación de Empleo Público Nacional'],
+		keywords: ['empleo público', 'mérito', 'evaluación de desempeño', 'ley 25164'],
+		order: 38,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-39',
+		lawId: 'ley-27742',
+		number: '39',
+		title: 'Ámbito de aplicación del empleo público — reforma art. 2° ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 2° de la ley 25.164, precisando el ámbito de aplicación del estatuto del empleado público: excluye explícitamente al personal de la Administración Pública Nacional sujeto a otros regímenes especiales.',
+		currentText:
+			'Reforma el art. 2° de la ley 25.164: precisa qué trabajadores quedan bajo este estatuto. Se excluyen los contratos especiales, el personal con convenio colectivo propio y los designados bajo regímenes específicos.',
+		plainLanguageExplanation:
+			'Clarifica qué empleados públicos están bajo este estatuto. Los contratados por plazos fijos, los que tienen convenio propio (como los de AFIP o el BCRA) o los bajo otros regímenes, no se rigen por estos artículos.',
+		practicalEffects: [
+			'Reduce los conflictos sobre qué régimen aplica a distintos tipos de agentes estatales',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-38', 'ley27742-art-40'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 2°'],
+		keywords: ['ámbito empleo público', 'estatuto empleado', 'ley 25164', 'aplicación'],
+		order: 39,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-40',
+		lawId: 'ley-27742',
+		number: '40',
+		title: 'Ingreso al empleo público — reforma art. 4° ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 4° de la ley 25.164: el ingreso a la Administración Pública Nacional se realiza exclusivamente por concurso público. Se incorporan mecanismos de concurso simplificado para cargos de menor jerarquía.',
+		currentText:
+			'Reforma el art. 4° de la ley 25.164: refuerza el concurso público como única vía de ingreso al empleo público. Para cargos operativos y auxiliares, habilita concursos simplificados más ágiles.',
+		plainLanguageExplanation:
+			'Nadie puede ingresar al Estado nacional "a dedo": siempre debe haber un concurso. Para cargos de menor jerarquía, el concurso puede ser más simple (menos etapas, más rápido), pero debe existir.',
+		practicalEffects: [
+			'Limita el clientelismo en el ingreso al Estado',
+			'Los concursos simplificados para cargos operativos agilizarán la incorporación de personal de planta',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-39', 'ley27742-art-41'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 4°'],
+		keywords: ['concurso público', 'ingreso empleo público', 'meritocracia', 'ley 25164'],
+		order: 40,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-41',
+		lawId: 'ley-27742',
+		number: '41',
+		title: 'Período de prueba en el empleo público — reforma art. 8° ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 8° de la ley 25.164 sobre período de prueba: el nuevo empleado público debe cumplir un período de prueba de doce (12) meses durante el cual puede ser dado de baja sin necesidad de sumario previo.',
+		currentText:
+			'Reforma el art. 8° de la ley 25.164: amplía el período de prueba del empleado público a 12 meses. Durante ese período, el empleado puede ser dado de baja sin sumario previo si no supera la evaluación de desempeño.',
+		plainLanguageExplanation:
+			'El año de prueba es una ventana para que el Estado evalúe al nuevo empleado. Si en ese año demuestra no tener las capacidades necesarias, puede ser removido sin el costoso proceso de sumario. Pasado el año, adquiere estabilidad.',
+		practicalEffects: [
+			'Amplía el período de prueba (antes era más corto) para dar más tiempo de evaluación',
+			'Tras los 12 meses, el agente tiene estabilidad en el cargo y sólo puede removerse por sumario',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-40', 'ley27742-art-42'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 8°'],
+		keywords: ['período de prueba', 'empleado público', 'evaluación', 'estabilidad'],
+		order: 41,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-42',
+		lawId: 'ley-27742',
+		number: '42',
+		title: 'Derechos del empleado público — reforma art. 16 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 16 de la ley 25.164: se amplía el catálogo de derechos del empleado público, incorporando el derecho a la capacitación, a recibir retroalimentación de las evaluaciones y a conocer los criterios de evaluación.',
+		currentText:
+			'Reforma el art. 16 de la ley 25.164: amplía los derechos del empleado público. Incorpora el derecho a la capacitación continua, a conocer los criterios de evaluación de su desempeño y a recibir retroalimentación sobre sus resultados.',
+		plainLanguageExplanation:
+			'El empleado público tiene derecho no sólo a cobrar su sueldo, sino también a ser capacitado y a saber con qué criterios será evaluado. Esto equilibra la exigencia de desempeño con la obligación del Estado de dar herramientas.',
+		practicalEffects: [
+			'El empleado puede impugnar una evaluación negativa si no se siguieron los criterios comunicados',
+			'El Estado debe presupuestar capacitación como derecho, no como gasto discrecional',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-41', 'ley27742-art-43'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 16°'],
+		keywords: ['derechos empleado público', 'capacitación', 'evaluación', 'ley 25164'],
+		order: 42,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-43',
+		lawId: 'ley-27742',
+		number: '43',
+		title: 'Obligaciones del empleado público — reforma art. 17 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 17 de la ley 25.164: se refuerzan las obligaciones de los agentes, incorporando el deber de cumplir los estándares de desempeño fijados, la prohibición de ausentismo injustificado reiterado y la obligación de seguir los cursos de capacitación obligatorios.',
+		currentText:
+			'Reforma el art. 17 de la ley 25.164: refuerza las obligaciones del empleado público. Incorpora deber de cumplir estándares de desempeño, prohibición de ausentismo reiterado injustificado y obligación de realizar capacitaciones obligatorias.',
+		plainLanguageExplanation:
+			'Las obligaciones son la contracara de los derechos. El empleado público no puede ausentarse repetidamente sin justificación, debe alcanzar los estándares de desempeño exigidos y hacer los cursos de actualización que indique su organismo.',
+		practicalEffects: [
+			'El ausentismo injustificado reiterado pasa a ser causal de sanción disciplinaria',
+			'No asistir a capacitaciones obligatorias puede impactar en la evaluación de desempeño',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-42', 'ley27742-art-44'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 17°'],
+		keywords: ['obligaciones empleado público', 'ausentismo', 'desempeño', 'ley 25164'],
+		order: 43,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-44',
+		lawId: 'ley-27742',
+		number: '44',
+		title: 'Régimen disciplinario — principios generales, reforma art. 23 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 23 de la ley 25.164: se incorporan los principios de proporcionalidad, gradualidad y due process al régimen disciplinario del empleado público. Las sanciones deben ser proporcionales a la falta.',
+		currentText:
+			'Reforma el art. 23 de la ley 25.164: el régimen disciplinario se rige por los principios de proporcionalidad (sanción acorde a la falta), gradualidad (aplicar primero sanciones leves antes que las graves) y garantías procesales.',
+		plainLanguageExplanation:
+			'El Estado no puede aplicar una cesantía a un empleado que llegó tarde por primera vez: la sanción debe ser proporcional a la falta y gradual. Este artículo fija ese principio como ley, limitando la discrecionalidad del jerarca.',
+		practicalEffects: [
+			'Una cesantía aplicada sin gradualidad puede impugnarse con éxito en sede judicial',
+			'El jerarca debe acreditar que intentó sanciones menores antes de ir a la cesantía',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-43', 'ley27742-art-45'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 23°'],
+		keywords: ['régimen disciplinario', 'proporcionalidad', 'gradualidad', 'due process empleo público'],
+		order: 44,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-45',
+		lawId: 'ley-27742',
+		number: '45',
+		title: 'Sanciones disciplinarias — tipos y aplicación, reforma art. 24 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 24 de la ley 25.164: se mantienen los tipos de sanciones (apercibimiento, suspensión, cesantía, exoneración) pero se simplifican los procedimientos para aplicar las de menor gravedad (apercibimiento, suspensiones cortas).',
+		currentText:
+			'Reforma el art. 24 de la ley 25.164: mantiene los tipos de sanción (apercibimiento, suspensión de hasta 30 días, cesantía, exoneración) pero simplifica el procedimiento para apercibimientos y suspensiones cortas: no requieren sumario completo.',
+		plainLanguageExplanation:
+			'Para sanciones leves (un apercibimiento, una suspensión corta), no hace falta el largo proceso del sumario. El jefe puede aplicarlas directamente siguiendo un procedimiento simplificado. Las sanciones graves (cesantía, exoneración) siguen requiriendo sumario completo.',
+		practicalEffects: [
+			'Agiliza la aplicación de sanciones menores que antes quedaban sin ejecutar por el costo del sumario',
+			'La cesantía y la exoneración siguen con todas las garantías procesales del sumario completo',
+		],
+		examples: [
+			'Un empleado llega tarde sistemáticamente. El jefe puede aplicarle 3 días de suspensión sin sumario. Si reincide, necesitará el procedimiento completo para una suspensión mayor',
+		],
+		relatedArticles: ['ley27742-art-44', 'ley27742-art-46'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 24°'],
+		keywords: ['sanciones empleo público', 'apercibimiento', 'suspensión', 'sumario'],
+		order: 45,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-46',
+		lawId: 'ley-27742',
+		number: '46',
+		title: 'Suspensión preventiva — reforma art. 25 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 25 de la ley 25.164: se amplía la facultad de suspensión preventiva del agente imputado a 120 días (antes era de 30 días prorrogables). La suspensión preventiva se puede ordenar cuando el empleado con su presencia pueda entorpecer la investigación.',
+		currentText:
+			'Reforma el art. 25 de la ley 25.164: la suspensión preventiva durante un sumario puede extenderse hasta 120 días. El organismo puede suspender al agente de sus funciones si su presencia entorpece la investigación disciplinaria.',
+		plainLanguageExplanation:
+			'Si se inicia un sumario por corrupción a un empleado que maneja fondos, el Estado puede suspenderlo preventivamente por hasta 120 días para que no "limpie las pruebas" o intimide testigos. Esta suspensión es sin goce de sueldo si la falta imputada es grave.',
+		practicalEffects: [
+			'Permite actuar rápidamente ante casos graves de corrupción o irregularidades sin esperar el sumario completo',
+			'Si el empleado es sobreseído, tiene derecho a cobrar los haberes suspendidos',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-45', 'ley27742-art-47'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 25°'],
+		keywords: ['suspensión preventiva', 'sumario', 'corrupción', 'empleado público'],
+		order: 46,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-47',
+		lawId: 'ley-27742',
+		number: '47',
+		title: 'Cesantía — causales y procedimiento, reforma art. 26 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 26 de la ley 25.164 sobre causales de cesantía. Se incorpora como causal expresa de cesantía la obtención de evaluaciones de desempeño insuficientes en forma reiterada (calificación deficiente en dos períodos consecutivos).',
+		currentText:
+			'Reforma el art. 26 de la ley 25.164: agrega como causal de cesantía las calificaciones deficientes reiteradas (dos evaluaciones insuficientes consecutivas). Mantiene las causales clásicas (abandono del cargo, inasistencias reiteradas, condena penal).',
+		plainLanguageExplanation:
+			'Hasta ahora era casi imposible cesarar a un empleado público por "mal desempeño": no había una causal legal clara. Ahora, dos evaluaciones insuficientes consecutivas permiten iniciar el proceso de cesantía. Es uno de los cambios más polémicos de este título.',
+		practicalEffects: [
+			'Crea un mecanismo legal para retirar a empleados crónicamente ineficientes',
+			'Requiere que el Estado primero evalúe y documente dos períodos de bajo desempeño',
+			'El empleado puede impugnar tanto la evaluación como la causal de cesantía',
+		],
+		examples: [
+			'Un agente obtiene calificación "insuficiente" en 2021 y en 2022. El organismo inicia el sumario de cesantía por mal desempeño. El agente puede recurrir y demostrar que las evaluaciones no fueron objetivas',
+		],
+		relatedArticles: ['ley27742-art-46', 'ley27742-art-48'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 26°'],
+		keywords: ['cesantía', 'calificación deficiente', 'evaluación de desempeño', 'causal de cesantía'],
+		order: 47,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-48',
+		lawId: 'ley-27742',
+		number: '48',
+		title: 'Exoneración — causales, reforma art. 27 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 27 de la ley 25.164 sobre causales de exoneración. La exoneración es la sanción más grave y conlleva la inhabilitación para reingresar a la Administración Pública por 10 años.',
+		currentText:
+			'Reforma el art. 27 de la ley 25.164: mantiene las causales de exoneración (delito doloso en ejercicio del cargo, enriquecimiento ilícito, abandono malicioso del cargo) e incorpora la condena penal firme a pena privativa de la libertad como causal automática.',
+		plainLanguageExplanation:
+			'La exoneración es la "muerte civil" del empleado público: lo deja inhabilitado para volver a trabajar en el Estado por 10 años. Las causales son las más graves: corrupción, condena penal, enriquecimiento ilícito.',
+		practicalEffects: [
+			'Una condena penal firme (aunque sea en suspenso) por delito cometido en ejercicio del cargo produce exoneración automática',
+			'La inhabilitación de 10 años aplica a todos los organismos de la APN, no sólo al organismo sancionador',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-47', 'ley27742-art-49'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 27°'],
+		keywords: ['exoneración', 'corrupción', 'condena penal', 'inhabilitación empleo público'],
+		order: 48,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-49',
+		lawId: 'ley-27742',
+		number: '49',
+		title: 'Sumario administrativo — procedimiento simplificado, reforma art. 29 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 29 de la ley 25.164 sobre el sumario administrativo: se simplifican y reducen los plazos del sumario. El plazo máximo para instruirlo es de 180 días prorrogables por igual período. Se habilita el sumario digital.',
+		currentText:
+			'Reforma el art. 29 de la ley 25.164: el sumario administrativo tiene plazo máximo de 180 días (prorrogable 180 más en casos complejos). Se habilita la instrucción del sumario en formato digital, con notificaciones electrónicas.',
+		plainLanguageExplanation:
+			'El sumario es el proceso interno del Estado para investigar y sancionar empleados. Antes podía durar años. Ahora hay un plazo máximo de 180 días (prorrogable) y puede hacerse totalmente online.',
+		practicalEffects: [
+			'Un sumario que supere el plazo máximo sin resolución puede declararse nulo por vencimiento',
+			'La digitalización del sumario reduce costos y agiliza la instrucción',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-48', 'ley27742-art-50'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 29°'],
+		keywords: ['sumario administrativo', 'procedimiento sumario', '180 días', 'digitalización'],
+		order: 49,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-50',
+		lawId: 'ley-27742',
+		number: '50',
+		title: 'Prescripción de faltas disciplinarias — reforma art. 30 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 30 de la ley 25.164: se reducen los plazos de prescripción de las faltas disciplinarias. Las faltas leves prescriben a los 2 años, las graves a los 5 años, y las muy graves (exoneración) a los 10 años desde que se tomó conocimiento.',
+		currentText:
+			'Reforma el art. 30 de la ley 25.164: nueva escala de prescripción de faltas disciplinarias: leves (2 años), graves (5 años), muy graves/exoneración (10 años). El plazo corre desde que el organismo tomó conocimiento de la falta.',
+		plainLanguageExplanation:
+			'Una falta disciplinaria no puede perseguirse indefinidamente. Si el Estado no inicia el sumario en el plazo de prescripción desde que supo de la falta, pierde la facultad de sancionar. Los plazos ahora son más claros y diferenciados por gravedad.',
+		practicalEffects: [
+			'La prescripción puede invocarse como defensa en un sumario iniciado tardíamente',
+			'El empleado que cometió una falta leve hace más de 2 años no puede ser sancionado por ella',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-49', 'ley27742-art-51'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 30°'],
+		keywords: ['prescripción', 'falta disciplinaria', 'plazos prescripción', 'sumario'],
+		order: 50,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-51',
+		lawId: 'ley-27742',
+		number: '51',
+		title: 'Evaluación de desempeño — reforma art. 32 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 32 de la ley 25.164: se establece un sistema obligatorio y periódico de evaluación de desempeño. Las evaluaciones son anuales, deben ser objetivas y documentadas, y sus resultados son vinculantes para ascensos y cesantías.',
+		currentText:
+			'Reforma el art. 32 de la ley 25.164: evaluaciones de desempeño anuales, objetivas y documentadas. Los resultados son vinculantes: las evaluaciones positivas alimentan el ascenso; las negativas reiteradas son causal de cesantía (ver art. 47).',
+		plainLanguageExplanation:
+			'Instala la cultura de evaluación anual en el Estado. Cada año, el jefe evalúa al empleado con criterios documentados y comunicados previamente. El resultado alimenta la carrera: los buenos se promueven, los malos reiterados pueden cesarase.',
+		practicalEffects: [
+			'Las áreas de RRHH deben implementar sistemas de evaluación con criterios objetivos y auditables',
+			'Un empleado puede impugnar una evaluación que no respetó los criterios previamente comunicados',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-47', 'ley27742-art-52'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 32°'],
+		keywords: ['evaluación de desempeño', 'ascenso', 'cesantía', 'empleo público'],
+		order: 51,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-52',
+		lawId: 'ley-27742',
+		number: '52',
+		title: 'Carrera administrativa — reforma art. 33 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 33 de la ley 25.164: la carrera administrativa se basa en el mérito y la antigüedad, con primacía del mérito. Los ascensos requieren superar concurso interno y haber obtenido evaluaciones positivas.',
+		currentText:
+			'Reforma el art. 33 de la ley 25.164: en la carrera administrativa prima el mérito sobre la antigüedad. Los ascensos a categorías superiores requieren concurso interno y evaluaciones positivas previas.',
+		plainLanguageExplanation:
+			'Ya no basta con esperar años para ascender. Ahora hay que concursar y tener buenas evaluaciones. La antigüedad sigue pesando, pero es un factor secundario frente al mérito demostrado.',
+		practicalEffects: [
+			'Los empleados con muchos años pero desempeño mediocre no ascienden automáticamente',
+			'Los jóvenes talentosos pueden avanzar más rápido si superan los concursos internos',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-51', 'ley27742-art-53'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 33°'],
+		keywords: ['carrera administrativa', 'ascenso', 'mérito', 'concurso interno'],
+		order: 52,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-53',
+		lawId: 'ley-27742',
+		number: '53',
+		title: 'Jornada y licencias — reforma art. 35 ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 35 de la ley 25.164: se incorpora la modalidad de trabajo remoto para empleados públicos. La jornada puede cumplirse de manera presencial, remota o mixta, según las necesidades del servicio.',
+		currentText:
+			'Reforma el art. 35 de la ley 25.164: habilita formalmente el trabajo remoto en el empleo público nacional. La jornada puede ser presencial, remota o mixta. La modalidad la determina el organismo según las necesidades del servicio.',
+		plainLanguageExplanation:
+			'El teletrabajo en el Estado nacional pasa a estar regulado por el estatuto. El organismo puede permitir trabajar desde casa o en modalidad híbrida. El empleado no puede exigirlo como derecho absoluto pero puede pedirlo.',
+		practicalEffects: [
+			'Consolida la práctica de teletrabajo post-pandemia con base legal específica para el empleo público',
+			'Permite reducir costos de espacio físico en los organismos',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-52', 'ley27742-art-54'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 35°'],
+		keywords: ['trabajo remoto', 'teletrabajo', 'empleo público', 'jornada laboral'],
+		order: 53,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-54',
+		lawId: 'ley-27742',
+		number: '54',
+		title: 'Contrataciones temporarias — reforma art. 9° ley 25.164',
+		originalText:
+			'Sustitúyese el artículo 9° de la ley 25.164: se amplía el uso de contrataciones temporarias (por tiempo determinado) para cubrir necesidades transitorias del Estado. El límite de los contratos temporarios es de 3 años con una prórroga de 2 años más.',
+		currentText:
+			'Reforma el art. 9° de la ley 25.164: amplía las contrataciones temporarias para cubrir necesidades transitorias. Los contratos tienen plazo máximo de 3 años, prorrogable por 2 años más. Vencido el plazo, no genera estabilidad ni indemnización.',
+		plainLanguageExplanation:
+			'El Estado puede contratar empleados por tiempo determinado (hasta 5 años en total) para cubrir necesidades específicas o temporarias. Al vencer el plazo, el contrato termina sin que el empleado adquiera estabilidad.',
+		practicalEffects: [
+			'Flexibiliza la contratación estatal para proyectos o necesidades acotadas',
+			'El empleado temporario no tiene los mismos derechos de estabilidad que el de planta permanente',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-40', 'ley27742-art-55'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 9°'],
+		keywords: ['contrataciones temporarias', 'tiempo determinado', 'empleo público', 'ley 25164'],
+		order: 54,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-55',
+		lawId: 'ley-27742',
+		number: '55',
+		title: 'Reducción de estructura — reorganización con personal excedente',
+		originalText:
+			'Cuando la reorganización de un organismo produzca excedente de personal, el Poder Ejecutivo nacional deberá reasignar al personal excedente a otros organismos. Si no fuere posible la reasignación dentro de los 180 días, se aplica el régimen de disponibilidad previsto en el art. 57.',
+		currentText:
+			'Cuando una reorganización genera excedente de personal, se intenta reasignar en 180 días. Si no es posible, el agente pasa al régimen de disponibilidad (art. 57). El PEN debe identificar los organismos con vacantes antes de declarar excedentes.',
+		plainLanguageExplanation:
+			'Al reorganizar el Estado y reducir organismos, no se puede despedir a todos los empleados de golpe. Primero hay que intentar reasignarlos en otro organismo. Si en 180 días no se logra, pasan a "disponibilidad": un período de transición antes del retiro.',
+		practicalEffects: [
+			'Protege a los empleados de reducciones abruptas pero permite la reestructuración del Estado',
+			'Los 180 días de búsqueda de reasignación son obligatorios antes de activar la disponibilidad',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-54', 'ley27742-art-56', 'ley27742-art-57'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164'],
+		keywords: ['excedente de personal', 'reorganización del Estado', 'reasignación', 'reestructuración'],
+		order: 55,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-56',
+		lawId: 'ley-27742',
+		number: '56',
+		title: 'Medidas de adecuación — indemnizaciones y retiro voluntario',
+		originalText:
+			'Establécese un régimen de retiro voluntario para el personal de la Administración Pública Nacional: los agentes que opten voluntariamente por retirarse dentro de los 180 días siguientes a la promulgación de la ley recibirán una indemnización especial equivalente a un mes de sueldo por año de antigüedad.',
+		currentText:
+			'Crea un régimen de retiro voluntario con incentivo: un mes de sueldo por año de antigüedad para quienes se retiren voluntariamente en los 180 días post-promulgación. Es una medida de reducción del gasto en personal sin despidos compulsivos.',
+		plainLanguageExplanation:
+			'El Estado ofrece una "salida dorada" a quienes quieran irse voluntariamente. La indemnización es equivalente a la que corresponde por despido sin causa en el sector privado. No hay obligación de aceptarla.',
+		practicalEffects: [
+			'Reduce el plantel sin despidos forzosos, lo que es menos conflictivo políticamente y jurídicamente',
+			'La ventana de 180 días limita el costo fiscal del programa',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-55', 'ley27742-art-57'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164'],
+		keywords: ['retiro voluntario', 'indemnización', 'reducción del Estado', 'empleo público'],
+		order: 56,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-57',
+		lawId: 'ley-27742',
+		number: '57',
+		title: 'Disponibilidad — régimen del agente sin destino, reforma ley 25.164',
+		originalText:
+			'Regúlase el régimen de disponibilidad: el agente público que no pueda ser reasignado percibe durante la disponibilidad el 80% de su remuneración por un período máximo de 12 meses, al cabo del cual cesa la relación de empleo con derecho a la indemnización del art. 11 de la ley 25.164.',
+		currentText:
+			'El agente en "disponibilidad" cobra el 80% de su sueldo durante hasta 12 meses mientras se lo busca reasignar. Si vencidos los 12 meses no hay destino, cesa la relación y cobra la indemnización legal.',
+		plainLanguageExplanation:
+			'La disponibilidad es el limbo del empleado público: no tiene un puesto asignado pero sigue cobrando (el 80% del sueldo). En 12 meses, el Estado debe o reasignarlo o indemnizarlo. Es la única forma de desvincular a un empleado de planta sin sumario.',
+		practicalEffects: [
+			'El período de 12 meses al 80% del sueldo es un costo real para el Estado al reducir organismos',
+			'Si el agente rechaza un destino razonable ofrecido, puede perder el beneficio',
+		],
+		examples: [
+			'Al fusionarse dos secretarías, 50 agentes pasan a disponibilidad. En 12 meses, 30 son reasignados. Los 20 restantes cesan la relación laboral y cobran la indemnización',
+		],
+		relatedArticles: ['ley27742-art-55', 'ley27742-art-56', 'ley27742-art-58'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164 — art. 11° y régimen de disponibilidad'],
+		keywords: ['disponibilidad', 'agente público', 'indemnización', 'reducción de personal'],
+		order: 57,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-58',
+		lawId: 'ley-27742',
+		number: '58',
+		title: 'Licencias especiales — simplificación y actualización',
+		originalText:
+			'Modifícase el régimen de licencias del personal de la Administración Pública Nacional: se simplifican los tipos de licencias, se digitalizan los trámites de solicitud y se establece control de asistencia mediante sistema informático.',
+		currentText:
+			'Reforma el régimen de licencias del personal de la APN: simplifica las categorías de licencias (ordinarias, especiales, por enfermedad), digitaliza los trámites y obliga a los organismos a implementar control de asistencia digital.',
+		plainLanguageExplanation:
+			'Moderniza el sistema de licencias del empleo público. Las solicitudes de licencia van al sistema digital, no a formularios en papel. Y los organismos deben tener registro digital de asistencia para detectar ausentismo.',
+		practicalEffects: [
+			'Elimina el "fichado en papel" y los formularios de licencia en papel',
+			'El control digital de asistencia es la base para detectar el ausentismo que puede desembocar en sanción disciplinaria',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-43', 'ley27742-art-57'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164'],
+		keywords: ['licencias empleo público', 'control asistencia digital', 'ausentismo', 'modernización'],
+		order: 58,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-59',
+		lawId: 'ley-27742',
+		number: '59',
+		title: 'Transparencia en el empleo público — declaraciones juradas y datos abiertos',
+		originalText:
+			'Establécese que las declaraciones juradas patrimoniales de los empleados públicos de jerarquía superior (desde Directores Nacionales) serán públicas y accesibles en la plataforma digital del Estado.',
+		currentText:
+			'Las declaraciones juradas patrimoniales de los funcionarios desde el nivel de Director Nacional son públicas y deben publicarse en el portal del Estado. Amplía la transparencia a rangos intermedios (antes sólo era obligatorio para niveles superiores).',
+		plainLanguageExplanation:
+			'Cualquier ciudadano puede ver cuánto vale un Director Nacional cuando asumió y al final de su gestión. Si su patrimonio creció más que su sueldo, surge la pregunta de dónde vino el dinero. Es una herramienta de control ciudadano de la corrupción.',
+		practicalEffects: [
+			'Amplía la obligación de declarar patrimonio a rangos intermedios de la jerarquía estatal',
+			'La publicidad de las declaraciones disuade el enriquecimiento ilícito',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-48', 'ley27742-art-60'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164', 'Ley 25.188 — Ética en la Función Pública'],
+		keywords: ['declaración jurada', 'transparencia', 'funcionarios públicos', 'anticorrupción'],
+		order: 59,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-60',
+		lawId: 'ley-27742',
+		number: '60',
+		title: 'Incompatibilidades — reforma ley 25.164',
+		originalText:
+			'Sustitúyese la norma sobre incompatibilidades: un agente público no puede ejercer simultáneamente dos cargos en la Administración Pública Nacional salvo excepciones expresamente enumeradas. Se actualiza el régimen a la luz de la digitalización y el trabajo remoto.',
+		currentText:
+			'Reforma el régimen de incompatibilidades del empleo público: un agente no puede tener dos cargos en la APN simultáneamente, salvo excepciones taxativas (docencia universitaria, investigación científica). Se actualiza para incluir el trabajo autónomo y el emprendedurismo.',
+		plainLanguageExplanation:
+			'Un empleado público no puede tener dos puestos en el Estado al mismo tiempo (doble cobro). Las excepciones son estrictas: dar clases en la UBA o hacer investigación en el CONICET. Con la reforma, el Estado también puede reglamentar si el empleado puede tener un emprendimiento propio.',
+		practicalEffects: [
+			'Actualiza las incompatibilidades a la realidad del trabajo digital y el emprendedurismo',
+			'Sigue prohibiendo cobrar dos sueldos del Estado sin autorización',
+		],
+		examples: [],
+		relatedArticles: ['ley27742-art-59', 'ley27742-art-61'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164'],
+		keywords: ['incompatibilidades', 'doble cargo', 'empleo público', 'emprendedurismo'],
+		order: 60,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-61',
+		lawId: 'ley-27742',
+		number: '61',
+		title: 'Servicios esenciales — obligación de servicio mínimo',
+		originalText:
+			'Establécese que los empleados públicos que presten servicios esenciales (salud, seguridad, suministro de agua, transporte de pasajeros) deberán garantizar un servicio mínimo del cincuenta por ciento (50%) durante la vigencia de cualquier medida de acción directa.',
+		currentText:
+			'Los empleados públicos en servicios esenciales (salud, seguridad, agua, transporte) deben garantizar el 50% del servicio mínimo durante huelgas u otras medidas de acción directa. El incumplimiento del servicio mínimo es causal de sanción disciplinaria.',
+		plainLanguageExplanation:
+			'En una huelga de médicos de hospital público, la mitad del servicio debe seguir funcionando. Si los trabajadores no garantizan ese mínimo, el Estado puede aplicar sanciones disciplinarias. Busca equilibrar el derecho a huelga con la protección de los usuarios de servicios esenciales.',
+		practicalEffects: [
+			'Define el 50% como umbral de servicio mínimo, despejando dudas sobre cuánto debe funcionar',
+			'El incumplimiento del servicio mínimo habilita sanciones, incluso sumario',
+		],
+		examples: [
+			'En una huelga del personal de un hospital público, el 50% de los turnos y quirófanos de urgencia deben seguir operando con personal guardado como servicio mínimo',
+		],
+		relatedArticles: ['ley27742-art-62', 'ley27742-art-45'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164'],
+		keywords: ['servicios esenciales', 'servicio mínimo', 'huelga', 'empleado público'],
+		order: 61,
+		segments: [],
+		amendments: [],
+	},
+	{
+		id: 'ley27742-art-62',
+		lawId: 'ley-27742',
+		number: '62',
+		title: 'Huelga en el empleo público — descuento proporcional al tiempo no trabajado',
+		originalText:
+			'Incorpórase disposición sobre el ejercicio del derecho de huelga en el empleo público: el descuento en los haberes del empleado que ejerce el derecho de huelga será proporcional al tiempo no trabajado. No se podrán aplicar sanciones disciplinarias adicionales al descuento por el sólo hecho del ejercicio del derecho de huelga.',
+		currentText:
+			'El descuento por huelga en el empleo público es proporcional al tiempo no trabajado: si se hizo huelga 3 días, se descuentan 3 días de sueldo. No puede aplicarse ninguna sanción disciplinaria adicional por el sólo hecho de haberse plegado a la huelga.',
+		plainLanguageExplanation:
+			'Si un empleado público hace huelga, le descuentan el sueldo de los días no trabajados. Pero no pueden sancionarlo disciplinariamente además del descuento. La huelga es un derecho constitucional y este artículo lo reconoce: la consecuencia es sólo económica (descuento), no disciplinaria.',
+		practicalEffects: [
+			'Protege al empleado que hizo huelga de sufrir apercibimientos, suspensiones o notas desfavorables en su legajo',
+			'Los empleados que incumplieron el servicio mínimo (art. 61) sí pueden ser sancionados disciplinariamente',
+		],
+		examples: [
+			'Un agente de Migraciones participa de 2 días de huelga. El organismo le descuenta 2 días de sueldo. No puede además darle un apercibimiento o anotarlo en el legajo como falta. El descuento es la única consecuencia',
+		],
+		relatedArticles: ['ley27742-art-61', 'ley27742-art-45'],
+		jurisprudence: [],
+		regulations: ['Ley 25.164', 'Constitución Nacional — art. 14 bis (derecho de huelga)'],
+		keywords: ['huelga', 'empleo público', 'descuento proporcional', 'derecho de huelga'],
+		order: 62,
 		segments: [],
 		amendments: [],
 	},
