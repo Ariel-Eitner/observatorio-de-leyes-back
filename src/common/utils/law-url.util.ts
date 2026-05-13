@@ -35,5 +35,15 @@ export function computeFrontendPath(law: Law): string {
 }
 
 export function computeArticleUrl(law: Law, articleNumber: string): string {
-  return `${computeFrontendPath(law)}?articulo=${articleNumber.replaceAll(' ', '-')}`;
+  const slug = articleNumber
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[º°]/g, 'o')
+    .replace(/ª/g, 'a')
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-{2,}/g, '-')
+    .replace(/^-|-$/g, '');
+  return `${computeFrontendPath(law)}?articulo=${slug}`;
 }

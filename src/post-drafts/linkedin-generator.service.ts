@@ -45,7 +45,9 @@ function utmContent(lawId: string, articleNumber: string): string {
 
 function buildUrl(law: Law, articleNumber: string, utmCtx: string): string {
   const path     = computeFrontendPath(law);
-  const artPart  = articleNumber !== '0' ? `?articulo=${articleNumber.replace(/\s+/g, '-')}&` : '?';
+  const artSlug  = articleNumber.normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[º°]/g, 'o').replace(/ª/g, 'a')
+    .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-{2,}/g, '-').replace(/^-|-$/g, '');
+  const artPart  = articleNumber !== '0' ? `?articulo=${artSlug}&` : '?';
   const campaign = `li-${law.category ?? 'contenido'}`;
   return `${FRONTEND_BASE}${path}${artPart}${UTM_BASE}&utm_campaign=${campaign}&utm_content=${utmCtx}`;
 }

@@ -37,7 +37,9 @@ function utmContent(lawId: string, articleNumber: string): string {
 
 function buildCommentText(law: Law, articleNumber: string, utmCtx: string): string {
   const path = computeFrontendPath(law);
-  const artParam = articleNumber.replace(/\s+/g, '-');
+  const artParam = articleNumber
+    .normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[º°]/g, 'o').replace(/ª/g, 'a')
+    .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-{2,}/g, '-').replace(/^-|-$/g, '');
   const url = `${FRONTEND_BASE}${path}?articulo=${artParam}&${UTM_BASE}&utm_content=${utmCtx}`;
   return `Ley ${law.number} · Art. ${articleNumber} — texto completo:\n${url}`;
 }
