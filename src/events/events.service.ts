@@ -1,12 +1,22 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
 import { SupabaseService } from '../supabase/supabase.service';
 
-export interface TrackEventDto {
-  type:        string;
-  sessionId:   string;
-  guestId?:    string;
+export class TrackEventDto {
+  @IsString() @IsNotEmpty() @MaxLength(100)
+  type: string;
+
+  @IsString() @IsNotEmpty() @MaxLength(200)
+  sessionId: string;
+
+  @IsOptional() @IsString() @MaxLength(200)
+  guestId?: string;
+
+  @IsOptional()
   properties?: Record<string, unknown>;
-  context?:    Record<string, unknown>;
+
+  @IsOptional()
+  context?: Record<string, unknown>;
 }
 
 export interface TrackedEvent extends TrackEventDto {

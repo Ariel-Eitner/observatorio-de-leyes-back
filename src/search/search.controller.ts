@@ -29,14 +29,16 @@ export class SearchController {
     @Query('yearTo') yearTo?: string,
     @Query('limit') limit?: string,
   ) {
-    return this.searchService.search(q, {
+    const safeQ     = (q ?? '').slice(0, 200);
+    const safeLimit = Math.min(Math.max(parseInt(limit ?? '30') || 30, 1), 50);
+    return this.searchService.search(safeQ, {
       type,
       normType,
       status,
       jurisdiction,
       yearFrom: yearFrom ? parseInt(yearFrom) : undefined,
       yearTo: yearTo ? parseInt(yearTo) : undefined,
-      limit: limit ? parseInt(limit) : 30,
+      limit: safeLimit,
     });
   }
 
@@ -44,13 +46,13 @@ export class SearchController {
   @ApiOperation({ summary: 'Autocompletado inteligente' })
   @ApiQuery({ name: 'q', required: true })
   suggest(@Query('q') q: string) {
-    return this.searchService.suggest(q);
+    return this.searchService.suggest((q ?? '').slice(0, 200));
   }
 
   @Get('facets')
   @ApiOperation({ summary: 'Facetas y agregaciones' })
   @ApiQuery({ name: 'q', required: false })
   facets(@Query('q') q?: string) {
-    return this.searchService.facets(q);
+    return this.searchService.facets(q ? q.slice(0, 200) : undefined);
   }
 }
