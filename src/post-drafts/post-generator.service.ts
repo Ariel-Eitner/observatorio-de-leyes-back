@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Law, Article, LawSegment } from '../common/types/law.types';
 import { GenerateResult, TemplateId } from './types';
-import { computeFrontendPath } from '../common/utils/law-url.util';
+import { computeFrontendPath, computeArticleUrl } from '../common/utils/law-url.util';
 
 const FRONTEND_BASE = 'https://observatorio-de-leyes-front.vercel.app';
 
@@ -36,11 +36,8 @@ function utmContent(lawId: string, articleNumber: string): string {
 }
 
 function buildCommentText(law: Law, articleNumber: string, utmCtx: string): string {
-  const path = computeFrontendPath(law);
-  const artParam = articleNumber
-    .normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[º°]/g, 'o').replace(/ª/g, 'a')
-    .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-{2,}/g, '-').replace(/^-|-$/g, '');
-  const url = `${FRONTEND_BASE}${path}?articulo=${artParam}&${UTM_BASE}&utm_content=${utmCtx}`;
+  const articlePath = computeArticleUrl(law, articleNumber);
+  const url = `${FRONTEND_BASE}${articlePath}?${UTM_BASE}&utm_content=${utmCtx}`;
   return `Ley ${law.number} · Art. ${articleNumber} — texto completo:\n${url}`;
 }
 
@@ -222,6 +219,6 @@ export class PostGeneratorService {
   private buildBaseComment(law: Law, utmCtx: string): string {
     const path = computeFrontendPath(law);
     const url  = `${FRONTEND_BASE}${path}?${UTM_BASE}&utm_content=${utmCtx}`;
-    return `${lawName(law)} — ley completa:\n${url}`;
+    return `${lawName(law)} — texto completo:\n${url}`;
   }
 }

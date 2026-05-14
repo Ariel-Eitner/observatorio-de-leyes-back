@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Law, Article, LawSegment } from '../common/types/law.types';
 import { GenerateResult, TemplateId } from './types';
-import { computeFrontendPath } from '../common/utils/law-url.util';
+import { computeFrontendPath, computeArticleUrl } from '../common/utils/law-url.util';
 
 const FRONTEND_BASE = 'https://observatorio-de-leyes-front.vercel.app';
 const UTM_BASE      = 'utm_source=linkedin&utm_medium=social';
@@ -44,12 +44,10 @@ function utmContent(lawId: string, articleNumber: string): string {
 }
 
 function buildUrl(law: Law, articleNumber: string, utmCtx: string): string {
-  const path     = computeFrontendPath(law);
-  const artSlug  = articleNumber.normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[º°]/g, 'o').replace(/ª/g, 'a')
-    .toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').replace(/-{2,}/g, '-').replace(/^-|-$/g, '');
-  const artPart  = articleNumber !== '0' ? `?articulo=${artSlug}&` : '?';
+  const articlePath = computeArticleUrl(law, articleNumber);
+  const sep      = articlePath.includes('?') ? '&' : '?';
   const campaign = `li-${law.category ?? 'contenido'}`;
-  return `${FRONTEND_BASE}${path}${artPart}${UTM_BASE}&utm_campaign=${campaign}&utm_content=${utmCtx}`;
+  return `${FRONTEND_BASE}${articlePath}${sep}${UTM_BASE}&utm_campaign=${campaign}&utm_content=${utmCtx}`;
 }
 
 function buildCommentText(law: Law, articleNumber: string, utmCtx: string): string {

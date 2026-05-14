@@ -34,8 +34,8 @@ export function computeFrontendPath(law: Law): string {
   return `/leyes/${cleanNumber}-${slugify(cleanTitle)}`;
 }
 
-export function computeArticleUrl(law: Law, articleNumber: string): string {
-  const slug = articleNumber
+export function slugifyArticle(articleNumber: string): string {
+  return articleNumber
     .normalize('NFD')
     .replace(/\p{Diacritic}/gu, '')
     .replace(/[º°]/g, 'o')
@@ -45,5 +45,10 @@ export function computeArticleUrl(law: Law, articleNumber: string): string {
     .replace(/[^a-z0-9-]/g, '')
     .replace(/-{2,}/g, '-')
     .replace(/^-|-$/g, '');
-  return `${computeFrontendPath(law)}?articulo=${slug}`;
+}
+
+export function computeArticleUrl(law: Law, articleNumber: string): string {
+  if (!articleNumber || articleNumber === '0') return computeFrontendPath(law);
+  const slug = slugifyArticle(articleNumber);
+  return `${computeFrontendPath(law)}/articulo/${slug}`;
 }
