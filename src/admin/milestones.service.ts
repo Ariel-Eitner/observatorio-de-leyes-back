@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { EventsService, type TrackedEvent } from '../events/events.service';
 
 export type MilestoneCategory = 'adquisicion' | 'engagement' | 'retencion' | 'conversion';
-export type MilestonePhase = 1 | 2;
+export type MilestonePhase = 1 | 2 | 3;
 
 export interface Milestone {
   id:          string;
@@ -119,7 +119,6 @@ export class MilestonesService {
     };
 
     // ── unique guests por tipo de evento ──────────────────────────────────────
-    // Usa guestId si existe, si no sessionId como fallback (eventos de navegador siempre tienen guestId)
     const uniqueGuestsForType = (type: string): string[] => {
       const seen = new Set<string>();
       const result: string[] = [];
@@ -196,12 +195,8 @@ export class MilestonesService {
       target?: number,
     ): Milestone => ({ id, category, phase, title, description, unlocked, unlockedAt, value, target });
 
-    return [
-      // ══════════════════════════════════════════════════════════════
-      // FASE 1
-      // ══════════════════════════════════════════════════════════════
-
-      // ── ADQUISICIÓN ───────────────────────────────────────────────────────────
+    // ── Fase 1 base milestones (para calcular fase1_completa) ─────────────────
+    const phase1Base = [
       m('primer_visitante', 'adquisicion', 1, 'Primer visitante',
         'La primera sesión registrada — el sitio está vivo.',
         !!first('session_start'), first('session_start')?.timestamp ?? null),
@@ -223,7 +218,7 @@ export class MilestonesService {
         guestCount >= 10, guestCount >= 10 ? nthGuestTs(10) : null, guestCount, 10),
 
       m('guests_25', 'adquisicion', 1, '25 visitantes únicos',
-        'La audiencia crece — tracción inicial.',
+        'La audiencia crece — tracción inicial confirmada.',
         guestCount >= 25, guestCount >= 25 ? nthGuestTs(25) : null, guestCount, 25),
 
       m('guests_50', 'adquisicion', 1, '50 visitantes únicos',
@@ -231,7 +226,7 @@ export class MilestonesService {
         guestCount >= 50, guestCount >= 50 ? nthGuestTs(50) : null, guestCount, 50),
 
       m('guests_100', 'adquisicion', 1, '100 visitantes únicos',
-        'Cien guests únicos — Fase 1 completada.',
+        'Cien guests únicos — masa crítica de validación.',
         guestCount >= 100, guestCount >= 100 ? nthGuestTs(100) : null, guestCount, 100),
 
       m('queries_10_unicas', 'adquisicion', 1, '10 búsquedas distintas',
@@ -242,52 +237,6 @@ export class MilestonesService {
         'El sitio tiene datos de al menos 7 días distintos.',
         calendarDays.size >= 7, calendarDays.size >= 7 ? nthDayTs(7) : null, calendarDays.size, 7),
 
-      // ── ENGAGEMENT ────────────────────────────────────────────────────────────
-      m('primera_busqueda', 'engagement', 1, 'Primera búsqueda',
-        'Alguien usó el buscador para encontrar algo.',
-        !!first('search_executed'), first('search_executed')?.timestamp ?? null),
-
-      m('primer_articulo', 'engagement', 1, 'Primer artículo abierto',
-        'Un visitante expandió un artículo para leer el detalle.',
-        !!first('article_expanded'), first('article_expanded')?.timestamp ?? null),
-
-      m('primer_link', 'engagement', 1, 'Primer link copiado',
-        'Alguien copió el enlace a un artículo — contenido que vale compartir.',
-        !!first('article_link_copied'), first('article_link_copied')?.timestamp ?? null),
-
-      m('sesion_5min', 'engagement', 1, 'Sesión de 5 minutos',
-        'Un visitante estuvo al menos 5 minutos leyendo.',
-        !!m9, m9?.timestamp ?? null),
-
-      m('primera_ley_vista', 'engagement', 1, 'Primera ley visualizada',
-        'Alguien abrió una ley y la cargó en el visor.',
-        !!first('law_viewed'), first('law_viewed')?.timestamp ?? null),
-
-      m('primer_enmienda', 'engagement', 1, 'Primera enmienda consultada',
-        'Un usuario abrió el historial de modificaciones de un artículo.',
-        !!first('article_amendment_opened'), first('article_amendment_opened')?.timestamp ?? null),
-
-      m('primer_inline_ref', 'engagement', 1, 'Primera referencia cruzada',
-        'Un visitante navegó entre leyes usando un link inline — lectura profunda.',
-        !!first('inline_ref_clicked'), first('inline_ref_clicked')?.timestamp ?? null),
-
-      m('cinco_leyes_distintas', 'engagement', 1, '5 leyes distintas abiertas',
-        'Cinco leyes únicas vistas — la audiencia explora más allá de una sola norma.',
-        uniqueLawsViewed >= 5, uniqueLawsViewed >= 5 ? nthDayTs(1) : null, uniqueLawsViewed, 5),
-
-      m('ley_activa_5min', 'engagement', 1, 'Ley con 5 min de lectura activa',
-        'Al menos una ley acumuló 5 minutos de tiempo activo — lectura real, no rebote.',
-        lawWith5Min, lawWith5Min ? nthDayTs(1) : null),
-
-      m('busqueda_profunda', 'engagement', 1, 'Primera búsqueda refinada',
-        'Un usuario ajustó su query — señal de intención seria de encontrar algo.',
-        !!first('search_refined'), first('search_refined')?.timestamp ?? null),
-
-      m('primer_demanda', 'engagement', 1, 'Contenido demandado no disponible',
-        'Alguien intentó abrir una ley sin artículos cargados — demanda real para priorizar.',
-        !!first('unavailable_content_clicked'), first('unavailable_content_clicked')?.timestamp ?? null),
-
-      // ── RETENCIÓN ─────────────────────────────────────────────────────────────
       m('primer_retorno', 'retencion', 1, 'Visitante que volvió',
         'El mismo guest regresó al sitio en un día diferente.',
         !!m10, m10?.timestamp ?? null),
@@ -302,98 +251,196 @@ export class MilestonesService {
         returnedGuests.length >= 10 ? (raw.filter((e) => e.guestId === returnedGuests[9])
           .sort((a, b) => a.timestamp.localeCompare(b.timestamp))[1]?.timestamp ?? null) : null,
         returnedGuests.length, 10),
+    ];
+
+    // ── Hito especial: Fase 1 completa ────────────────────────────────────────
+    const fase1Complete = phase1Base.every((ms) => ms.unlocked);
+    const fase1CompleteTs = fase1Complete
+      ? phase1Base.map((ms) => ms.unlockedAt).filter(Boolean).sort().at(-1) ?? null
+      : null;
+
+    const fase1CompleteMilestone = m(
+      'fase1_completa', 'adquisicion', 1,
+      'Fase 1 completada',
+      'Todos los hitos de prueba de vida alcanzados — el producto tiene tracción real.',
+      fase1Complete, fase1CompleteTs,
+    );
+
+    return [
+      // ══════════════════════════════════════════════════════════════
+      // FASE 1 — Prueba de vida
+      // ══════════════════════════════════════════════════════════════
+      ...phase1Base,
+      fase1CompleteMilestone,
+
+      // ══════════════════════════════════════════════════════════════
+      // FASE 2 — Producto en uso
+      // ══════════════════════════════════════════════════════════════
+
+      // ── ENGAGEMENT ────────────────────────────────────────────────────────────
+      m('primera_busqueda', 'engagement', 2, 'Primera búsqueda',
+        'Alguien usó el buscador para encontrar algo.',
+        !!first('search_executed'), first('search_executed')?.timestamp ?? null),
+
+      m('primer_articulo', 'engagement', 2, 'Primer artículo abierto',
+        'Un visitante expandió un artículo para leer el detalle.',
+        !!first('article_expanded'), first('article_expanded')?.timestamp ?? null),
+
+      m('primer_link', 'engagement', 2, 'Primer link copiado',
+        'Alguien copió el enlace a un artículo — contenido que vale compartir.',
+        !!first('article_link_copied'), first('article_link_copied')?.timestamp ?? null),
+
+      m('sesion_5min', 'engagement', 2, 'Sesión de 5 minutos',
+        'Un visitante estuvo al menos 5 minutos leyendo.',
+        !!m9, m9?.timestamp ?? null),
+
+      m('primera_ley_vista', 'engagement', 2, 'Primera ley visualizada',
+        'Alguien abrió una ley y la cargó en el visor.',
+        !!first('law_viewed'), first('law_viewed')?.timestamp ?? null),
+
+      m('primer_enmienda', 'engagement', 2, 'Primera enmienda consultada',
+        'Un usuario abrió el historial de modificaciones de un artículo.',
+        !!first('article_amendment_opened'), first('article_amendment_opened')?.timestamp ?? null),
+
+      m('primer_inline_ref', 'engagement', 2, 'Primera referencia cruzada',
+        'Un visitante navegó entre leyes usando un link inline — lectura profunda.',
+        !!first('inline_ref_clicked'), first('inline_ref_clicked')?.timestamp ?? null),
+
+      m('cinco_leyes_distintas', 'engagement', 2, '5 leyes distintas abiertas',
+        'Cinco leyes únicas vistas — la audiencia explora más allá de una sola norma.',
+        uniqueLawsViewed >= 5, uniqueLawsViewed >= 5 ? nthDayTs(1) : null, uniqueLawsViewed, 5),
+
+      m('ley_activa_5min', 'engagement', 2, 'Ley con 5 min de lectura activa',
+        'Al menos una ley acumuló 5 minutos de tiempo activo — lectura real, no rebote.',
+        lawWith5Min, lawWith5Min ? nthDayTs(1) : null),
+
+      m('busqueda_profunda', 'engagement', 2, 'Primera búsqueda refinada',
+        'Un usuario ajustó su query — señal de intención seria de encontrar algo.',
+        !!first('search_refined'), first('search_refined')?.timestamp ?? null),
+
+      m('primer_demanda', 'engagement', 2, 'Contenido demandado no disponible',
+        'Alguien intentó abrir una ley sin artículos cargados — demanda real a priorizar.',
+        !!first('unavailable_content_clicked'), first('unavailable_content_clicked')?.timestamp ?? null),
 
       // ── CONVERSIÓN ────────────────────────────────────────────────────────────
-      m('soft_gate', 'conversion', 1, 'Soft gate activado',
+      m('soft_gate', 'conversion', 2, 'Soft gate activado',
         'El modal de registro apareció — hay un usuario que llegó al umbral.',
         !!first('soft_gate_shown'), first('soft_gate_shown')?.timestamp ?? null),
 
-      m('soft_gate_cta', 'conversion', 1, 'CTA de registro clickeado',
+      m('soft_gate_cta', 'conversion', 2, 'CTA de registro clickeado',
         'Alguien clickeó en "Registrarme" dentro del modal.',
         !!first('soft_gate_cta_clicked'), first('soft_gate_cta_clicked')?.timestamp ?? null),
 
-      m('soft_gate_5', 'conversion', 1, '5 usuarios alcanzaron el umbral',
+      m('soft_gate_5', 'conversion', 2, '5 usuarios alcanzaron el umbral',
         'Cinco guests distintos llegaron a los 50 puntos y vieron el modal.',
         sgShownCount >= 5, sgShownCount >= 5 ? nthGuestTsForType('soft_gate_shown', 5) : null, sgShownCount, 5),
 
-      m('soft_gate_cta_5', 'conversion', 1, '5 usuarios clickearon el CTA',
+      m('soft_gate_cta_5', 'conversion', 2, '5 usuarios clickearon el CTA',
         'Cinco guests distintos mostraron intención de registrarse.',
         sgCtaCount >= 5, sgCtaCount >= 5 ? nthGuestTsForType('soft_gate_cta_clicked', 5) : null, sgCtaCount, 5),
 
-      m('primer_fundador', 'conversion', 1, 'Primer registro completado',
+      m('primer_fundador', 'conversion', 2, 'Primer registro completado',
         'Alguien completó el flujo de registro entero — el primer fundador.',
         sgCompletedCount >= 1, first('soft_gate_completed')?.timestamp ?? null),
 
-      m('primer_contacto', 'conversion', 1, 'Primer mensaje recibido',
+      m('primer_contacto', 'conversion', 2, 'Primer mensaje recibido',
         'Alguien completó el formulario de contacto — hay personas del otro lado.',
         !!firstContact, firstContact?.timestamp ?? null),
 
-      m('primer_reporte_contenido', 'conversion', 1, 'Primer reporte de contenido',
-        'Un usuario reportó un error o actualización — señal de usuarios comprometidos con la calidad.',
+      m('primer_reporte_contenido', 'conversion', 2, 'Primer reporte de contenido',
+        'Un usuario reportó un error o actualización — hay usuarios comprometidos con la calidad.',
         !!firstContenido, firstContenido?.timestamp ?? null),
 
-      m('primer_contacto_prensa', 'conversion', 1, 'Primer contacto de prensa',
+      m('primer_contacto_prensa', 'conversion', 2, 'Primer contacto de prensa',
         'Una consulta de prensa o colaboración. El proyecto tiene visibilidad.',
         !!firstPrensa, firstPrensa?.timestamp ?? null),
 
-      m('busqueda_calidad', 'conversion', 1, 'Búsquedas con <40% sin resultados',
+      m('busqueda_calidad', 'conversion', 2, 'Búsquedas con <40% sin resultados',
         'El contenido cubre la mayoría de lo que buscan — alineación entre oferta y demanda.',
         searchQualityOk, searchQualityOk ? nthDayTs(1) : null),
 
       // ══════════════════════════════════════════════════════════════
-      // FASE 2 — Escala
+      // FASE 3 — Escala y tracción
       // ══════════════════════════════════════════════════════════════
 
-      // ── ADQUISICIÓN FASE 2 ────────────────────────────────────────────────────
-      m('guests_250', 'adquisicion', 2, '250 visitantes únicos',
+      // ── ADQUISICIÓN ───────────────────────────────────────────────────────────
+      m('guests_250', 'adquisicion', 3, '250 visitantes únicos',
         'Tracción sostenida — la audiencia ya tiene masa crítica.',
         guestCount >= 250, guestCount >= 250 ? nthGuestTs(250) : null, guestCount, 250),
 
-      m('guests_500', 'adquisicion', 2, '500 visitantes únicos',
+      m('guests_500', 'adquisicion', 3, '500 visitantes únicos',
         'Quinientas personas distintas. El sitio escala.',
         guestCount >= 500, guestCount >= 500 ? nthGuestTs(500) : null, guestCount, 500),
 
-      m('guests_1000', 'adquisicion', 2, '1.000 visitantes únicos',
+      m('guests_1000', 'adquisicion', 3, '1.000 visitantes únicos',
         'Mil visitantes únicos — producto validado a escala.',
         guestCount >= 1000, guestCount >= 1000 ? nthGuestTs(1000) : null, guestCount, 1000),
 
-      // ── RETENCIÓN FASE 2 ──────────────────────────────────────────────────────
-      m('retorno_25', 'retencion', 2, '25 visitantes recurrentes',
+      m('guests_5000', 'adquisicion', 3, '5.000 visitantes únicos',
+        'Cinco mil personas — el crecimiento es orgánico y sostenido.',
+        guestCount >= 5000, guestCount >= 5000 ? nthGuestTs(5000) : null, guestCount, 5000),
+
+      // ── RETENCIÓN ─────────────────────────────────────────────────────────────
+      m('retorno_25', 'retencion', 3, '25 visitantes recurrentes',
         'Veinticinco personas que vuelven — la retención escala.',
         returnedGuests.length >= 25, null, returnedGuests.length, 25),
 
-      // ── CONVERSIÓN FASE 2 ─────────────────────────────────────────────────────
-      m('soft_gate_25', 'conversion', 2, '25 usuarios alcanzaron el umbral',
+      m('retorno_100', 'retencion', 3, '100 visitantes recurrentes',
+        'Cien usuarios que volvieron — hay una comunidad fiel establecida.',
+        returnedGuests.length >= 100, null, returnedGuests.length, 100),
+
+      // ── CONVERSIÓN ────────────────────────────────────────────────────────────
+      m('soft_gate_25', 'conversion', 3, '25 usuarios alcanzaron el umbral',
         'La intención de registro aparece con regularidad.',
         sgShownCount >= 25, sgShownCount >= 25 ? nthGuestTsForType('soft_gate_shown', 25) : null, sgShownCount, 25),
 
-      m('soft_gate_50', 'conversion', 2, '50 usuarios alcanzaron el umbral',
+      m('soft_gate_50', 'conversion', 3, '50 usuarios alcanzaron el umbral',
         'El soft gate es un embudo activo — hay flujo constante.',
         sgShownCount >= 50, sgShownCount >= 50 ? nthGuestTsForType('soft_gate_shown', 50) : null, sgShownCount, 50),
 
-      m('soft_gate_100', 'conversion', 2, '100 usuarios alcanzaron el umbral',
+      m('soft_gate_100', 'conversion', 3, '100 usuarios alcanzaron el umbral',
         'Cien personas llegaron al umbral — hay demanda real de registro.',
         sgShownCount >= 100, sgShownCount >= 100 ? nthGuestTsForType('soft_gate_shown', 100) : null, sgShownCount, 100),
 
-      m('soft_gate_200', 'conversion', 2, '200 usuarios alcanzaron el umbral',
+      m('soft_gate_200', 'conversion', 3, '200 usuarios alcanzaron el umbral',
         'El embudo de conversión opera a escala.',
         sgShownCount >= 200, sgShownCount >= 200 ? nthGuestTsForType('soft_gate_shown', 200) : null, sgShownCount, 200),
 
-      m('soft_gate_cta_25', 'conversion', 2, '25 usuarios clickearon el CTA',
+      m('soft_gate_cta_25', 'conversion', 3, '25 usuarios clickearon el CTA',
         'La propuesta de valor del modal convierte de forma consistente.',
         sgCtaCount >= 25, sgCtaCount >= 25 ? nthGuestTsForType('soft_gate_cta_clicked', 25) : null, sgCtaCount, 25),
 
-      m('soft_gate_cta_50', 'conversion', 2, '50 usuarios clickearon el CTA',
+      m('soft_gate_cta_50', 'conversion', 3, '50 usuarios clickearon el CTA',
         'Cincuenta intenciones de registro concretas.',
         sgCtaCount >= 50, sgCtaCount >= 50 ? nthGuestTsForType('soft_gate_cta_clicked', 50) : null, sgCtaCount, 50),
 
-      m('fundadores_5', 'conversion', 2, '5 registros completados',
+      m('fundadores_5', 'conversion', 3, '5 registros completados',
         'Cinco fundadores — hay una comunidad inicial.',
         sgCompletedCount >= 5, sgCompletedCount >= 5 ? nthGuestTsForType('soft_gate_completed', 5) : null, sgCompletedCount, 5),
 
-      m('fundadores_10', 'conversion', 2, '10 registros completados',
+      m('fundadores_10', 'conversion', 3, '10 registros completados',
         'Diez fundadores — el modelo de comunidad está validado.',
         sgCompletedCount >= 10, sgCompletedCount >= 10 ? nthGuestTsForType('soft_gate_completed', 10) : null, sgCompletedCount, 10),
+
+      m('fundadores_25', 'conversion', 3, '25 registros completados',
+        'Veinticinco fundadores — base de usuarios activa y comprometida.',
+        sgCompletedCount >= 25, sgCompletedCount >= 25 ? nthGuestTsForType('soft_gate_completed', 25) : null, sgCompletedCount, 25),
+
+      m('fundadores_50', 'conversion', 3, '50 registros completados',
+        'Cincuenta fundadores — el producto tiene una comunidad real.',
+        sgCompletedCount >= 50, sgCompletedCount >= 50 ? nthGuestTsForType('soft_gate_completed', 50) : null, sgCompletedCount, 50),
+
+      m('primer_pago', 'conversion', 3, 'Primera suscripción paga',
+        'Alguien pagó por acceder — el modelo de negocio funciona.',
+        false, null),
+
+      m('revenue_primer_mes', 'conversion', 3, 'Primer mes con ingresos',
+        'Un mes cerrado con ingresos reales — la monetización arrancó.',
+        false, null),
+
+      m('fundadores_100', 'conversion', 3, '100 registros completados',
+        'Cien fundadores — comunidad establecida y producto validado a escala.',
+        sgCompletedCount >= 100, sgCompletedCount >= 100 ? nthGuestTsForType('soft_gate_completed', 100) : null, sgCompletedCount, 100),
     ];
   }
 }
