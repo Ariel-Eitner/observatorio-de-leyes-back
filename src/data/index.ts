@@ -29,6 +29,7 @@ import { LEY_26206 } from './ley-26206/index';
 import { CARTA_ONU } from './carta-onu/index';
 import { LEY_27801 } from './ley-27801/index';
 import { LEY_27742 } from './ley-27742/index';
+import { LEY_27802 } from './ley-27802.data';
 import type { Law } from '../common/types/law.types';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
@@ -60,4 +61,5 @@ export const ALL_LAWS: Law[] = [
   LEY_26206,         // Ley de Educación Nacional
   LEY_27801,         // Ley Penal Juvenil
   LEY_27742,         // Ley de Bases / RIGI
+  LEY_27802,         // Ley de Modernización Laboral
 ];
