@@ -267,7 +267,7 @@ export const ARTICLES_CP_01: Article[] = [
       title: 'Restricciones a la libertad condicional',
       originalText: 'La libertad condicional no se concederá a los reincidentes. Tampoco se concederá cuando la condena fuera por los delitos previstos en los artículos 80 inciso 7°, 124, 142 bis anteúltimo párrafo, 165 y 170 anteúltimo párrafo.',
       currentText: 'La libertad condicional no se concederá a los reincidentes. Tampoco se concederá cuando la condena fuera por los delitos previstos en los artículos 80 inciso 7°, 124, 142 bis anteúltimo párrafo, 165 y 170 anteúltimo párrafo.',
-      plainLanguageExplanation: 'Los reincidentes no tienen derecho a libertad condicional. Tampoco pueden obtenerla los condenados por ciertos delitos gravísimos: homicidio criminis causae (art. 80 inc. 7), abuso sexual con muerte (art. 124), secuestro extorsivo con muerte (art. 142bis), robo con homicidio (art. 165) y secuestro con muerte (art. 170).',
+      plainLanguageExplanation: 'Los reincidentes no tienen derecho a libertad condicional. Tampoco pueden obtenerla los condenados por ciertos delitos gravísimos: homicidio criminis causae (art. 80 inc. 7), abuso sexual con muerte (art. 124), secuestro extorsivo con muerte (art. 142 bis CP), robo con homicidio (art. 165) y secuestro con muerte (art. 170).',
       practicalEffects: ['El reincidente debe cumplir la pena íntegra', 'Los delitos más graves excluyen la libertad condicional', 'Reforma Ley 25.892 (2004) amplió las exclusiones'],
       examples: ['Una persona condenada dos veces por robo (reincidente) no puede acceder a libertad condicional en su segunda condena: debe cumplir todo el tiempo impuesto.'],
       relatedArticles: ['cp-art-13', 'cp-art-50', 'cp-art-51'],

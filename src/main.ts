@@ -18,6 +18,10 @@ async function bootstrap() {
 
   // ── Seguridad HTTP ──────────────────────────────────────────────────────────
   app.use(helmet());
+  app.use((_req, res, next) => {
+    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=()');
+    next();
+  });
   app.use(cookieParser());
 
   app.setGlobalPrefix('api');
