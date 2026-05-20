@@ -66,6 +66,18 @@ export interface LawSection {
   titles: LawTitle[];
 }
 
+export type VisualItemType = 'sello-advertencia' | 'tabla' | 'imagen' | 'diagrama';
+
+export interface VisualItem {
+  id: string;
+  type: VisualItemType;
+  title: string;
+  description?: string;
+  sourceUrl?: string;   // URL directa a la imagen oficial (png/jpg) o página fuente
+  sourcePage?: string;  // URL de la página donde el usuario puede ver/descargar el recurso
+  data: Record<string, unknown>;
+}
+
 export interface Article {
   id: string;
   lawId: string;
@@ -83,6 +95,7 @@ export interface Article {
   order: number;
   segments: LawSegment[];
   amendments: ArticleAmendment[];
+  visualContent?: VisualItem[];
 }
 
 export interface Annex {

@@ -21,6 +21,8 @@ const LAW_STATIC_META: Record<string, { shortCode?: string; apiPath: string; ali
   'ley-26485':             { shortCode: 'Ley 26.485', apiPath: '/laws/ley-26485',       aliases: ['26485', '26.485'],         category: 'genero'       },
   'ley-27610':             { shortCode: 'Ley 27.610', apiPath: '/laws/ley-27610',       aliases: ['27610', '27.610', 'IVE'],  category: 'genero'       },
   'ley-26657':             { shortCode: 'Ley 26.657', apiPath: '/laws/ley-26657',       aliases: ['26657', '26.657'],         category: 'salud'        },
+  'ley-27642':             { shortCode: 'Ley 27.642', apiPath: '/laws/ley-27642',       aliases: ['27642', '27.642', 'etiquetado frontal', 'alimentacion saludable', 'sellos advertencia'], category: 'salud' },
+  'decreto-151-2022':      { shortCode: 'Dec. 151/2022', apiPath: '/laws/decreto-151-2022', aliases: ['151/2022', 'decreto 151', 'reglamentacion etiquetado'], category: 'salud' },
   'ley-27275':             { shortCode: 'Ley 27.275', apiPath: '/laws/ley-27275',       aliases: ['27275', '27.275'],         category: 'transparencia'},
   'ley-24240':             { shortCode: 'Ley 24.240', apiPath: '/laws/ley-24240',       aliases: ['24240', '24.240'],         category: 'consumidor'   },
   'ley-26061':             { shortCode: 'Ley 26.061', apiPath: '/laws/ley-26061',       aliases: ['26061', '26.061'],         category: 'ninez'        },

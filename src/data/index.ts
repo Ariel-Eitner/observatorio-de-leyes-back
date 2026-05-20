@@ -30,6 +30,8 @@ import { CARTA_ONU } from './carta-onu/index';
 import { LEY_27801 } from './ley-27801/index';
 import { LEY_27742 } from './ley-27742/index';
 import { LEY_27802 } from './ley-27802.data';
+import { LEY_27642 } from './ley-27642/index';
+import { DECRETO_151_2022 } from './decreto-151-2022/index';
 import type { Law } from '../common/types/law.types';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
@@ -59,6 +61,8 @@ export const ALL_LAWS: Law[] = [
   LEY_24240,         // Ley de Defensa del Consumidor
   LEY_26061,         // Ley de Protección Integral NNyA
   LEY_26206,         // Ley de Educación Nacional
+  LEY_27642,         // Ley de Etiquetado Frontal
+  DECRETO_151_2022,  // Reglamentación Etiquetado Frontal
   LEY_27801,         // Ley Penal Juvenil
   LEY_27742,         // Ley de Bases / RIGI
   LEY_27802,         // Ley de Modernización Laboral
