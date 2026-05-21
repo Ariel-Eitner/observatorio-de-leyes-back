@@ -32,6 +32,9 @@ import { LEY_27742 } from './ley-27742/index';
 import { LEY_27802 } from './ley-27802.data';
 import { LEY_27642 } from './ley-27642/index';
 import { DECRETO_151_2022 } from './decreto-151-2022/index';
+import { LEY_23592 } from './ley-23592/index';
+import { LEY_11544 } from './ley-11544/index';
+import { LEY_22278 } from './ley-22278/index';
 import type { Law } from '../common/types/law.types';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
@@ -64,6 +67,8 @@ export const ALL_LAWS: Law[] = [
   LEY_27642,         // Ley de Etiquetado Frontal
   DECRETO_151_2022,  // Reglamentación Etiquetado Frontal
   LEY_27801,         // Ley Penal Juvenil
-  LEY_27742,         // Ley de Bases / RIGI
   LEY_27802,         // Ley de Modernización Laboral
+  LEY_23592,         // Ley Antidiscriminatoria
+  LEY_11544,         // Ley de Jornada de Trabajo
+  LEY_22278,         // Régimen Penal de la Minoridad (derogada por Ley 27.801)
 ];

@@ -1,18 +1,23 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { ALL_LAWS } from '../data/ley-25326.data';
+import { ALL_LAWS } from '../data';
+import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales/index';
 import { LawSegment } from '../common/types/law.types';
+
+const ALL_SOURCES = [...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES];
 
 @Injectable()
 export class SegmentsService {
-  private get allSegments(): LawSegment[] {
-    return ALL_LAWS.flatMap((law) => [
+  private readonly allSegments: LawSegment[];
+
+  constructor() {
+    this.allSegments = ALL_SOURCES.flatMap((law) => [
       ...law.segments,
       ...law.articles.flatMap((a) => a.segments),
     ]);
   }
 
   findByLaw(lawId: string) {
-    const law = ALL_LAWS.find((l) => l.id === lawId);
+    const law = ALL_SOURCES.find((l) => l.id === lawId);
     if (!law) throw new NotFoundException(`Ley con id "${lawId}" no encontrada`);
     const articleSegments = law.articles.flatMap((a) => a.segments);
     return [...law.segments, ...articleSegments].sort((a, b) => a.order - b.order);
