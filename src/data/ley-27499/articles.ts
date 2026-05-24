@@ -6,11 +6,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '1',
     title: 'Capacitación obligatoria',
-    originalText:
-      'Establécese la capacitación obligatoria en la temática de género y violencia contra las mujeres para todas las personas que se desempeñen en la función pública en todos sus niveles y jerarquías en los poderes Ejecutivo, Legislativo y Judicial de la Nación.',
-    currentText:
-      'Establécese la capacitación obligatoria en la temática de género y violencia contra las mujeres para todas las personas que se desempeñen en la función pública en todos sus niveles y jerarquías en los poderes Ejecutivo, Legislativo y Judicial de la Nación.',
-    plainLanguageExplanation:
+    text:
+      'Establécese la capacitación obligatoria en la temática de género y violencia contra las mujeres para todas las personas que se desempeñen en la función pública en todos sus niveles y jerarquías en los poderes Ejecutivo, Legislativo y Judicial de la Nación.',    plainLanguageExplanation:
       'Toda persona que trabaje en el Estado nacional —desde el más alto cargo hasta el más básico— está obligada a capacitarse en género y violencia contra las mujeres. No importa en qué poder trabaje (Ejecutivo, Legislativo o Judicial) ni en qué nivel jerárquico.',
     practicalEffects: [
       'La capacitación es obligatoria para absolutamente todos los funcionarios y empleados públicos nacionales',
@@ -33,7 +30,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Establécese la capacitación obligatoria en la temática de género y violencia contra las mujeres para todas las personas que se desempeñen en la función pública en todos sus niveles y jerarquías en los poderes Ejecutivo, Legislativo y Judicial de la Nación.',
         plainExplanation:
           'Todos los empleados públicos nacionales deben capacitarse en género, sin excepción de cargo ni poder del Estado.',
@@ -50,11 +47,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '2',
     title: 'Modalidad de capacitación',
-    originalText:
-      'Las personas referidas en el artículo 1 deben realizar las capacitaciones en el modo y forma que establezcan los respectivos organismos en los que desempeñan sus funciones.',
-    currentText:
-      'Las personas referidas en el artículo 1 deben realizar las capacitaciones en el modo y forma que establezcan los respectivos organismos en los que desempeñan sus funciones.',
-    plainLanguageExplanation:
+    text:
+      'Las personas referidas en el artículo 1 deben realizar las capacitaciones en el modo y forma que establezcan los respectivos organismos en los que desempeñan sus funciones.',    plainLanguageExplanation:
       'Cada organismo público define cómo implementa la capacitación: presencial, virtual, horarios, etc. Lo importante es que se haga; la forma la decide cada institución.',
     practicalEffects: [
       'Los organismos tienen autonomía para definir la modalidad: cursos presenciales, virtuales, talleres, etc.',
@@ -75,7 +69,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las personas referidas en el artículo 1 deben realizar las capacitaciones en el modo y forma que establezcan los respectivos organismos en los que desempeñan sus funciones.',
         plainExplanation:
           'Cada organismo decide la modalidad: presencial, virtual, talleres, etc. La obligación es capacitarse, no el cómo.',
@@ -91,11 +85,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '3',
     title: 'Autoridad de aplicación',
-    originalText:
-      'El Instituto Nacional de las Mujeres es autoridad de aplicación de la presente ley.',
-    currentText:
-      'El Instituto Nacional de las Mujeres es autoridad de aplicación de la presente ley.',
-    plainLanguageExplanation:
+    text:
+      'El Instituto Nacional de las Mujeres es autoridad de aplicación de la presente ley.',    plainLanguageExplanation:
       'El Instituto Nacional de las Mujeres (INAM) es el organismo responsable de hacer cumplir la ley, certificar capacitaciones, monitorear el avance y reportar públicamente.',
     practicalEffects: [
       'El INAM establece los estándares de calidad que deben cumplir las capacitaciones',
@@ -117,7 +108,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-3',
         articleNumber: '3',
         segmentType: 'PARAGRAPH',
-        originalText: 'El Instituto Nacional de las Mujeres es autoridad de aplicación de la presente ley.',
+        text: 'El Instituto Nacional de las Mujeres es autoridad de aplicación de la presente ley.',
         plainExplanation: 'El INAM controla que la ley se cumpla y certifica la calidad de las capacitaciones.',
         practicalExample: null,
         references: [],
@@ -131,11 +122,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '4',
     title: 'Responsabilidad de las máximas autoridades',
-    originalText:
-      'Las máximas autoridades de los organismos referidos en el artículo 1, con la colaboración de sus áreas, programas u oficinas de género si estuvieren en funcionamiento, y las organizaciones sindicales correspondientes, son responsables de garantizar la implementación de las capacitaciones que comenzarán a impartirse dentro del año de la entrada en vigencia de la presente ley. Para tal fin, los organismos públicos podrán realizar adaptaciones de materiales y/o programas, o desarrollar uno propio, debiendo regirse por la normativa, recomendaciones y otras disposiciones que establecen al respecto los organismos de monitoreo de las convenciones vinculadas a la temática de género y violencia contra las mujeres suscriptas por el país.',
-    currentText:
-      'Las máximas autoridades de los organismos referidos en el artículo 1, con la colaboración de sus áreas, programas u oficinas de género si estuvieren en funcionamiento, y las organizaciones sindicales correspondientes, son responsables de garantizar la implementación de las capacitaciones que comenzarán a impartirse dentro del año de la entrada en vigencia de la presente ley. Para tal fin, los organismos públicos podrán realizar adaptaciones de materiales y/o programas, o desarrollar uno propio, debiendo regirse por la normativa, recomendaciones y otras disposiciones que establecen al respecto los organismos de monitoreo de las convenciones vinculadas a la temática de género y violencia contra las mujeres suscriptas por el país.',
-    plainLanguageExplanation:
+    text:
+      'Las máximas autoridades de los organismos referidos en el artículo 1, con la colaboración de sus áreas, programas u oficinas de género si estuvieren en funcionamiento, y las organizaciones sindicales correspondientes, son responsables de garantizar la implementación de las capacitaciones que comenzarán a impartirse dentro del año de la entrada en vigencia de la presente ley. Para tal fin, los organismos públicos podrán realizar adaptaciones de materiales y/o programas, o desarrollar uno propio, debiendo regirse por la normativa, recomendaciones y otras disposiciones que establecen al respecto los organismos de monitoreo de las convenciones vinculadas a la temática de género y violencia contra las mujeres suscriptas por el país.',    plainLanguageExplanation:
       'El ministro, el presidente del organismo o la máxima autoridad de cada institución es personalmente responsable de que las capacitaciones se implementen. Pueden adaptar materiales existentes o crear programas propios, siempre cumpliendo los estándares internacionales de género (CEDAW, Belém do Pará).',
     practicalEffects: [
       'La responsabilidad es personal de la autoridad máxima de cada organismo',
@@ -158,7 +146,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las máximas autoridades de los organismos referidos en el artículo 1... son responsables de garantizar la implementación de las capacitaciones...',
         plainExplanation:
           'El jefe máximo de cada organismo responde personalmente si la capacitación no se implementa.',
@@ -175,11 +163,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '5',
     title: 'Certificación de calidad',
-    originalText:
-      'El Instituto Nacional de las Mujeres certificará la calidad de las capacitaciones que elabore e implemente cada organismo, que deberán ser enviadas dentro de los seis (6) meses siguientes a la entrada en vigencia de la presente ley, pudiéndose realizar modificaciones y sugerencias para su mayor efectividad.',
-    currentText:
-      'El Instituto Nacional de las Mujeres certificará la calidad de las capacitaciones que elabore e implemente cada organismo, que deberán ser enviadas dentro de los seis (6) meses siguientes a la entrada en vigencia de la presente ley, pudiéndose realizar modificaciones y sugerencias para su mayor efectividad.',
-    plainLanguageExplanation:
+    text:
+      'El Instituto Nacional de las Mujeres certificará la calidad de las capacitaciones que elabore e implemente cada organismo, que deberán ser enviadas dentro de los seis (6) meses siguientes a la entrada en vigencia de la presente ley, pudiéndose realizar modificaciones y sugerencias para su mayor efectividad.',    plainLanguageExplanation:
       'El INAM funciona como acreditador: cada organismo le envía su programa de capacitación y el INAM lo revisa, puede pedir cambios y finalmente lo certifica. Los programas debían enviarse en los primeros 6 meses.',
     practicalEffects: [
       'El INAM puede rechazar o solicitar modificaciones en programas que no cumplan los estándares',
@@ -200,7 +185,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-5',
         articleNumber: '5',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El Instituto Nacional de las Mujeres certificará la calidad de las capacitaciones que elabore e implemente cada organismo...',
         plainExplanation:
           'El INAM revisa y certifica los programas. Puede pedir cambios si el contenido no es adecuado.',
@@ -216,11 +201,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '6',
     title: 'Capacitación de altas autoridades',
-    originalText:
-      'La capacitación de las máximas autoridades de los poderes Ejecutivo, Legislativo y Judicial de la Nación estará a cargo del Instituto Nacional de las Mujeres.',
-    currentText:
-      'La capacitación de las máximas autoridades de los poderes Ejecutivo, Legislativo y Judicial de la Nación estará a cargo del Instituto Nacional de las Mujeres.',
-    plainLanguageExplanation:
+    text:
+      'La capacitación de las máximas autoridades de los poderes Ejecutivo, Legislativo y Judicial de la Nación estará a cargo del Instituto Nacional de las Mujeres.',    plainLanguageExplanation:
       'Los presidentes, ministros, legisladores y jueces de la Corte Suprema no se capacitan en el programa de su propio organismo: se capacitan directamente con el INAM. Esto garantiza que las capacitaciones para altas autoridades sean homogéneas y de máxima calidad.',
     practicalEffects: [
       'El INAM diseña y dicta personalmente las capacitaciones para el presidente, ministros, presidentes de cámaras, ministros de la Corte, etc.',
@@ -241,7 +223,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-6',
         articleNumber: '6',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La capacitación de las máximas autoridades de los poderes Ejecutivo, Legislativo y Judicial de la Nación estará a cargo del Instituto Nacional de las Mujeres.',
         plainExplanation:
           'El INAM capacita directamente a ministros, legisladores y jueces de la Corte — no los programa general de cada organismo.',
@@ -258,11 +240,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '7',
     title: 'Transparencia y publicidad del cumplimiento',
-    originalText:
-      'El Instituto Nacional de las Mujeres, en su página web, deberá brindar acceso público y difundir el grado de cumplimiento de las disposiciones de la presente en cada uno de los organismos referidos en el artículo 1. En la página se identificará a las/os responsables de cumplir con las obligaciones que establece la presente ley en cada organismo y el porcentaje de personas capacitadas, desagregadas según su jerarquía. Anualmente, el Instituto Nacional de las Mujeres publicará en esta página web un informe anual sobre el cumplimiento de lo dispuesto en la presente ley, incluyendo la nómina de altas autoridades del país que se han capacitado. Además de los indicadores cuantitativos, el Instituto Nacional de las Mujeres elaborará indicadores de evaluación sobre el impacto de las capacitaciones realizadas por cada organismo. En la página web del Instituto Nacional de las Mujeres se publicará una reseña biográfica de la vida de Micaela García y su compromiso social, así como las acciones del Estado vinculadas a la causa penal por su femicidio.',
-    currentText:
-      'El Instituto Nacional de las Mujeres, en su página web, deberá brindar acceso público y difundir el grado de cumplimiento de las disposiciones de la presente en cada uno de los organismos referidos en el artículo 1. En la página se identificará a las/os responsables de cumplir con las obligaciones que establece la presente ley en cada organismo y el porcentaje de personas capacitadas, desagregadas según su jerarquía. Anualmente, el Instituto Nacional de las Mujeres publicará en esta página web un informe anual sobre el cumplimiento de lo dispuesto en la presente ley, incluyendo la nómina de altas autoridades del país que se han capacitado. Además de los indicadores cuantitativos, el Instituto Nacional de las Mujeres elaborará indicadores de evaluación sobre el impacto de las capacitaciones realizadas por cada organismo. En la página web del Instituto Nacional de las Mujeres se publicará una reseña biográfica de la vida de Micaela García y su compromiso social, así como las acciones del Estado vinculadas a la causa penal por su femicidio.',
-    plainLanguageExplanation:
+    text:
+      'El Instituto Nacional de las Mujeres, en su página web, deberá brindar acceso público y difundir el grado de cumplimiento de las disposiciones de la presente en cada uno de los organismos referidos en el artículo 1. En la página se identificará a las/os responsables de cumplir con las obligaciones que establece la presente ley en cada organismo y el porcentaje de personas capacitadas, desagregadas según su jerarquía. Anualmente, el Instituto Nacional de las Mujeres publicará en esta página web un informe anual sobre el cumplimiento de lo dispuesto en la presente ley, incluyendo la nómina de altas autoridades del país que se han capacitado. Además de los indicadores cuantitativos, el Instituto Nacional de las Mujeres elaborará indicadores de evaluación sobre el impacto de las capacitaciones realizadas por cada organismo. En la página web del Instituto Nacional de las Mujeres se publicará una reseña biográfica de la vida de Micaela García y su compromiso social, así como las acciones del Estado vinculadas a la causa penal por su femicidio.',    plainLanguageExplanation:
       'El INAM publica en su web quién cumplió y quién no: organismo por organismo, con el nombre del responsable y el porcentaje de personal capacitado. Hay un informe anual que incluye la nómina de altas autoridades que se capacitaron. También hay una sección dedicada a la historia de Micaela García. La transparencia es la herramienta de presión social que complementa las sanciones formales.',
     practicalEffects: [
       'El incumplimiento queda expuesto públicamente: cualquier ciudadano puede ver qué organismos y qué autoridades no cumplieron',
@@ -285,7 +264,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-7',
         articleNumber: '7',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El Instituto Nacional de las Mujeres, en su página web, deberá brindar acceso público y difundir el grado de cumplimiento...',
         plainExplanation:
           'El INAM publica en su web quién cumplió y quién no, con nombres y porcentajes. El incumplimiento es público.',
@@ -302,11 +281,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '8',
     title: 'Sanción por incumplimiento',
-    originalText:
-      'Las personas que se negaren sin justa causa a realizar las capacitaciones previstas en la presente ley serán intimadas en forma fehaciente por la autoridad de aplicación a través y de conformidad con el organismo de que se trate. El incumplimiento de dicha intimación será considerado falta grave dando lugar a la sanción disciplinaria pertinente, siendo posible hacer pública la negativa a participar en la capacitación en la página web del Instituto Nacional de las Mujeres.',
-    currentText:
-      'Las personas que se negaren sin justa causa a realizar las capacitaciones previstas en la presente ley serán intimadas en forma fehaciente por la autoridad de aplicación a través y de conformidad con el organismo de que se trate. El incumplimiento de dicha intimación será considerado falta grave dando lugar a la sanción disciplinaria pertinente, siendo posible hacer pública la negativa a participar en la capacitación en la página web del Instituto Nacional de las Mujeres.',
-    plainLanguageExplanation:
+    text:
+      'Las personas que se negaren sin justa causa a realizar las capacitaciones previstas en la presente ley serán intimadas en forma fehaciente por la autoridad de aplicación a través y de conformidad con el organismo de que se trate. El incumplimiento de dicha intimación será considerado falta grave dando lugar a la sanción disciplinaria pertinente, siendo posible hacer pública la negativa a participar en la capacitación en la página web del Instituto Nacional de las Mujeres.',    plainLanguageExplanation:
       'Quien se niegue sin razón a capacitarse recibe primero una intimación formal. Si persiste en el incumplimiento, incurre en falta grave y puede recibir sanción disciplinaria (descuento de haberes, suspensión, etc.). Además, su nombre puede publicarse en la web del INAM. La negativa debe ser "sin justa causa": hay excepciones razonables por salud, etc.',
     practicalEffects: [
       'Hay un proceso: intimación → falta grave → sanción disciplinaria',
@@ -328,7 +304,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-8',
         articleNumber: '8',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las personas que se negaren sin justa causa a realizar las capacitaciones... El incumplimiento de dicha intimación será considerado falta grave...',
         plainExplanation:
           'Negarse a capacitarse es falta grave tras una intimación. Puede resultar en sanción disciplinaria y publicación del nombre en la web del INAM.',
@@ -345,11 +321,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '9',
     title: 'Financiamiento',
-    originalText:
-      'Los gastos que demande la presente ley se tomarán de los créditos que correspondan a las partidas presupuestarias de los organismos públicos de que se trate.',
-    currentText:
-      'Los gastos que demande la presente ley se tomarán de los créditos que correspondan a las partidas presupuestarias de los organismos públicos de que se trate.',
-    plainLanguageExplanation:
+    text:
+      'Los gastos que demande la presente ley se tomarán de los créditos que correspondan a las partidas presupuestarias de los organismos públicos de que se trate.',    plainLanguageExplanation:
       'Cada organismo cubre el costo de las capacitaciones con su propio presupuesto. No hay un fondo centralizado especial: los gastos se cargan a las partidas existentes de cada repartición.',
     practicalEffects: [
       'No crea carga presupuestaria adicional sobre la AFIP ni el Tesoro Nacional en forma directa',
@@ -368,7 +341,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-9',
         articleNumber: '9',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los gastos que demande la presente ley se tomarán de los créditos que correspondan a las partidas presupuestarias de los organismos públicos de que se trate.',
         plainExplanation:
           'Cada organismo paga sus propias capacitaciones con su propio presupuesto.',
@@ -384,11 +357,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '10',
     title: 'Adhesión de provincias',
-    originalText:
-      'Invítase a la Ciudad Autónoma de Buenos Aires y a las provincias a adherir a la presente ley.',
-    currentText:
-      'Invítase a la Ciudad Autónoma de Buenos Aires y a las provincias a adherir a la presente ley.',
-    plainLanguageExplanation:
+    text:
+      'Invítase a la Ciudad Autónoma de Buenos Aires y a las provincias a adherir a la presente ley.',    plainLanguageExplanation:
       'La ley es de aplicación directa para el Estado nacional. Las provincias y CABA no están obligadas automáticamente (tienen autonomía legislativa), pero se las invita a adoptar las mismas exigencias para sus propios empleados públicos provinciales y municipales.',
     practicalEffects: [
       'Varias provincias y CABA adhirieron y dictaron sus propias leyes Micaela',
@@ -409,7 +379,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-10',
         articleNumber: '10',
         segmentType: 'PARAGRAPH',
-        originalText: 'Invítase a la Ciudad Autónoma de Buenos Aires y a las provincias a adherir a la presente ley.',
+        text: 'Invítase a la Ciudad Autónoma de Buenos Aires y a las provincias a adherir a la presente ley.',
         plainExplanation:
           'Las provincias no están obligadas por esta ley nacional, pero se las invita a replicar la exigencia para sus propios empleados públicos.',
         practicalExample:
@@ -425,9 +395,7 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: '11',
     title: 'Comunicación',
-    originalText: 'Comuníquese al Poder Ejecutivo nacional.',
-    currentText: 'Comuníquese al Poder Ejecutivo nacional.',
-    plainLanguageExplanation: 'Artículo de forma: el Congreso notifica al Poder Ejecutivo de la sanción de la ley para su promulgación.',
+    text: 'Comuníquese al Poder Ejecutivo nacional.',    plainLanguageExplanation: 'Artículo de forma: el Congreso notifica al Poder Ejecutivo de la sanción de la ley para su promulgación.',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -442,7 +410,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-11',
         articleNumber: '11',
         segmentType: 'PARAGRAPH',
-        originalText: 'Comuníquese al Poder Ejecutivo nacional.',
+        text: 'Comuníquese al Poder Ejecutivo nacional.',
         plainExplanation: 'Artículo de forma para la promulgación.',
         practicalExample: null,
         references: [],
@@ -456,11 +424,8 @@ export const ARTICLES_27499: Article[] = [
     lawId: 'ley-27499',
     number: 'CT',
     title: 'Cláusula transitoria',
-    originalText:
-      'De conformidad con lo previsto en el artículo 4, los organismos que a la entrada en vigencia de la presente ley no hayan elaborado o adaptado programas de capacitación en género, deberán utilizar los programas, cursos u otras plataformas de capacitación diseñados por el Instituto Nacional de las Mujeres.',
-    currentText:
-      'De conformidad con lo previsto en el artículo 4, los organismos que a la entrada en vigencia de la presente ley no hayan elaborado o adaptado programas de capacitación en género, deberán utilizar los programas, cursos u otras plataformas de capacitación diseñados por el Instituto Nacional de las Mujeres.',
-    plainLanguageExplanation:
+    text:
+      'De conformidad con lo previsto en el artículo 4, los organismos que a la entrada en vigencia de la presente ley no hayan elaborado o adaptado programas de capacitación en género, deberán utilizar los programas, cursos u otras plataformas de capacitación diseñados por el Instituto Nacional de las Mujeres.',    plainLanguageExplanation:
       'Los organismos que al entrar en vigencia la ley no tenían programa propio de capacitación en género debían usar los recursos que el INAM ya tenía disponibles. Así, nadie podía excusarse en la falta de materiales propios para no capacitar.',
     practicalEffects: [
       'Garantiza que la capacitación comience aunque el organismo no haya desarrollado su propio programa',
@@ -481,7 +446,7 @@ export const ARTICLES_27499: Article[] = [
         articleId: 'art-27499-ct',
         articleNumber: 'CT',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'De conformidad con lo previsto en el artículo 4, los organismos que a la entrada en vigencia de la presente ley no hayan elaborado o adaptado programas de capacitación en género, deberán utilizar los programas, cursos u otras plataformas de capacitación diseñados por el Instituto Nacional de las Mujeres.',
         plainExplanation:
           'Si no tenés programa propio al entrar en vigor la ley, usás los del INAM. Sin excusas para no empezar.',

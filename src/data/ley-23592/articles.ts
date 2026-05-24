@@ -6,9 +6,7 @@ export const ARTICLES_23592: Article[] = [
     lawId: 'ley-23592',
     number: '1',
     title: 'Acción civil antidiscriminatoria',
-    originalText:
-      'Quien arbitrariamente impida, obstruya, restrinja o de algún modo menoscabe el pleno ejercicio sobre bases igualitarias de los derechos y garantías fundamentales reconocidos en la Constitución Nacional, será obligado, a pedido del damnificado, a dejar sin efecto el acto discriminatorio o cesar en su realización y a reparar el daño moral y material ocasionados. A los efectos del presente artículo se considerarán particularmente los actos u omisiones discriminatorios determinados por motivos tales como raza, religión, nacionalidad, ideología, opinión política o gremial, sexo, posición económica, condición social o caracteres físicos.',
-    currentText:
+    text:
       'Quien arbitrariamente impida, obstruya, restrinja o de algún modo menoscabe el pleno ejercicio sobre bases igualitarias de los derechos y garantías fundamentales reconocidos en la Constitución Nacional, será obligado, a pedido del damnificado, a dejar sin efecto el acto discriminatorio o cesar en su realización y a reparar el daño moral y material ocasionados. A los efectos del presente artículo se considerarán particularmente los actos u omisiones discriminatorios determinados por motivos tales como raza, religión, nacionalidad, ideología, opinión política o gremial, sexo, posición económica, condición social o caracteres físicos.',
     plainLanguageExplanation:
       'Si alguien impide, restringe o perjudica el ejercicio igualitario de derechos fundamentales por motivos discriminatorios (raza, religión, sexo, ideología, etc.), la víctima puede exigirle judicialmente que cese la conducta y que repare el daño moral y material causado.',
@@ -37,7 +35,7 @@ export const ARTICLES_23592: Article[] = [
         articleId: 'art-23592-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Quien arbitrariamente impida, obstruya, restrinja o de algún modo menoscabe el pleno ejercicio sobre bases igualitarias de los derechos y garantías fundamentales reconocidos en la Constitución Nacional, será obligado, a pedido del damnificado, a dejar sin efecto el acto discriminatorio o cesar en su realización y a reparar el daño moral y material ocasionados.',
         plainExplanation:
           'El discriminador debe cesar el acto y pagar el daño moral y material a quien perjudicó.',
@@ -52,7 +50,7 @@ export const ARTICLES_23592: Article[] = [
         articleId: 'art-23592-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'A los efectos del presente artículo se considerarán particularmente los actos u omisiones discriminatorios determinados por motivos tales como raza, religión, nacionalidad, ideología, opinión política o gremial, sexo, posición económica, condición social o caracteres físicos.',
         plainExplanation:
           'La lista de motivos protegidos incluye raza, religión, sexo, ideología, posición económica y características físicas, entre otros. No es taxativa.',
@@ -68,9 +66,7 @@ export const ARTICLES_23592: Article[] = [
     lawId: 'ley-23592',
     number: '2',
     title: 'Agravante penal por motivos discriminatorios',
-    originalText:
-      'Elévanse en un tercio el mínimo y en un medio el máximo de la escala penal de todo delito reprimido por el Código Penal o Leyes complementarias cuando sea cometido por persecución u odio a una raza, religión o nacionalidad, o con el objeto de destruir en todo o en parte a un grupo nacional, étnico, racial o religioso. En ningún caso la pena podrá exceder el máximo legal del especie de pena de que se trate.',
-    currentText:
+    text:
       'Elévanse en un tercio el mínimo y en un medio el máximo de la escala penal de todo delito reprimido por el Código Penal o Leyes complementarias cuando sea cometido por persecución u odio a una raza, religión o nacionalidad, o con el objeto de destruir en todo o en parte a un grupo nacional, étnico, racial o religioso. En ningún caso la pena podrá exceder el máximo legal del especie de pena de que se trate.',
     plainLanguageExplanation:
       'Si un delito penal es cometido por odio a una raza, religión o nacionalidad, o con intención genocida, la escala penal se agrava: el mínimo sube un tercio y el máximo sube la mitad. Por ejemplo, si un delito tiene pena de 2 a 6 años, cuando hay motivo discriminatorio pasa a ser de 2 años y 8 meses a 9 años.',
@@ -95,7 +91,7 @@ export const ARTICLES_23592: Article[] = [
         articleId: 'art-23592-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Elévanse en un tercio el mínimo y en un medio el máximo de la escala penal de todo delito reprimido por el Código Penal o Leyes complementarias cuando sea cometido por persecución u odio a una raza, religión o nacionalidad, o con el objeto de destruir en todo o en parte a un grupo nacional, étnico, racial o religioso.',
         plainExplanation:
           'El delito común se agrava si fue motivado por odio racial, religioso o nacional: el mínimo sube 1/3 y el máximo sube 1/2.',
@@ -112,9 +108,7 @@ export const ARTICLES_23592: Article[] = [
     lawId: 'ley-23592',
     number: '3',
     title: 'Organizaciones discriminatorias',
-    originalText:
-      'Serán reprimidos con prisión de un mes a tres años los que participaren en una organización o realizaren propaganda basados en ideas o teorías de superioridad de una raza o de un grupo de personas de determinada religión, origen étnico o color, que tengan por objeto la justificación o promoción de la discriminación racial o religiosa en cualquier forma. En igual pena incurrirán quienes por cualquier medio alentaren o iniciaren persecuciones contra una persona o grupos de personas a causa de su raza, religión, origen étnico o color.',
-    currentText:
+    text:
       'Serán reprimidos con prisión de un mes a tres años los que participaren en una organización o realizaren propaganda basados en ideas o teorías de superioridad de una raza o de un grupo de personas de determinada religión, origen étnico o color, que tengan por objeto la justificación o promoción de la discriminación racial o religiosa en cualquier forma. En igual pena incurrirán quienes por cualquier medio alentaren o iniciaren persecuciones contra una persona o grupos de personas a causa de su raza, religión, origen étnico o color.',
     plainLanguageExplanation:
       'Participar en organizaciones que promueven la superioridad racial o religiosa, o hacer propaganda en ese sentido, es un delito penal con pena de 1 mes a 3 años de prisión. La misma pena se aplica a quien instigue persecuciones por motivos raciales, religiosos o étnicos.',
@@ -139,7 +133,7 @@ export const ARTICLES_23592: Article[] = [
         articleId: 'art-23592-3',
         articleNumber: '3',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Serán reprimidos con prisión de un mes a tres años los que participaren en una organización o realizaren propaganda basados en ideas o teorías de superioridad de una raza o de un grupo de personas de determinada religión, origen étnico o color...',
         plainExplanation:
           'Participar en organizaciones supremacistas o hacer propaganda discriminatoria racial o religiosa es un delito con hasta 3 años de prisión.',
@@ -156,8 +150,7 @@ export const ARTICLES_23592: Article[] = [
     lawId: 'ley-23592',
     number: '4',
     title: 'Comunicación',
-    originalText: 'Comuníquese al Poder Ejecutivo.',
-    currentText: 'Comuníquese al Poder Ejecutivo.',
+    text: 'Comuníquese al Poder Ejecutivo.',
     plainLanguageExplanation: 'Artículo de forma para la promulgación de la ley.',
     practicalEffects: [],
     examples: [],
@@ -173,7 +166,7 @@ export const ARTICLES_23592: Article[] = [
         articleId: 'art-23592-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText: 'Comuníquese al Poder Ejecutivo.',
+        text: 'Comuníquese al Poder Ejecutivo.',
         plainExplanation: 'Artículo de forma para la promulgación.',
         practicalExample: null,
         references: [],

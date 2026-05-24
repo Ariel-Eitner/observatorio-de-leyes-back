@@ -6,9 +6,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '1',
     title: 'Jornada máxima',
-    originalText:
-      'La duración del trabajo no podrá exceder de ocho horas diarias o cuarenta y ocho horas semanales para toda persona ocupada por cuenta ajena en explotaciones públicas o privadas, aunque no persigan fines de lucro. No están comprendidos en las disposiciones de esta ley los trabajos agrícolas, ganaderos y los del servicio doméstico, ni los establecimientos en que trabajen solamente miembros de la familia del jefe, dueño, empresario, gerente, director o habilitado principal.',
-    currentText:
+    text:
       'La duración del trabajo no podrá exceder de ocho horas diarias o cuarenta y ocho horas semanales para toda persona ocupada por cuenta ajena en explotaciones públicas o privadas, aunque no persigan fines de lucro. No están comprendidos en las disposiciones de esta ley los trabajos agrícolas, ganaderos y los del servicio doméstico, ni los establecimientos en que trabajen solamente miembros de la familia del jefe, dueño, empresario, gerente, director o habilitado principal.',
     plainLanguageExplanation:
       'Ningún trabajador en relación de dependencia puede ser obligado a trabajar más de 8 horas por día ni más de 48 horas por semana. Las excepciones son el trabajo agrícola, ganadero, doméstico y los negocios de familia.',
@@ -33,7 +31,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La duración del trabajo no podrá exceder de ocho horas diarias o cuarenta y ocho horas semanales para toda persona ocupada por cuenta ajena en explotaciones públicas o privadas, aunque no persigan fines de lucro.',
         plainExplanation:
           'Límite legal: 8 horas por día y 48 por semana para todo trabajador dependiente.',
@@ -50,9 +48,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '2',
     title: 'Jornada nocturna',
-    originalText:
-      'La jornada de trabajo nocturno no podrá exceder de siete horas, entendiéndose como tal la que se cumpla entre la hora veintiuna de un día y la hora seis del siguiente. Cuando el trabajo sea por equipos, la jornada podrá prolongarse más allá de las nueve horas diarias y de las cuarenta y ocho horas semanales, siempre que el promedio de horas trabajadas calculado para un período de tres semanas, no exceda de ocho horas diarias o de cuarenta y ocho semanales.',
-    currentText:
+    text:
       'La jornada de trabajo nocturno no podrá exceder de siete horas, entendiéndose como tal la que se cumpla entre la hora veintiuna de un día y la hora seis del siguiente. Cuando el trabajo sea por equipos, la jornada podrá prolongarse más allá de las nueve horas diarias y de las cuarenta y ocho horas semanales, siempre que el promedio de horas trabajadas calculado para un período de tres semanas, no exceda de ocho horas diarias o de cuarenta y ocho semanales.',
     plainLanguageExplanation:
       'El trabajo nocturno (entre las 21 y las 6 hs) tiene un límite de 7 horas diarias. En el trabajo por turnos rotativos se permite superar las 8 horas diarias, siempre que el promedio en 3 semanas no exceda las 8 h/día o 48 h/semana.',
@@ -77,7 +73,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La jornada de trabajo nocturno no podrá exceder de siete horas, entendiéndose como tal la que se cumpla entre la hora veintiuna de un día y la hora seis del siguiente.',
         plainExplanation:
           'El trabajo nocturno (21 hs a 6 hs) tiene máximo de 7 horas diarias, una hora menos que la jornada diurna.',
@@ -94,9 +90,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '3',
     title: 'Excepciones al límite de jornada',
-    originalText:
-      'Las excepciones a lo dispuesto en el artículo 1 podrán aplicarse en los casos siguientes:\na) Cuando se trate de trabajos preparatorios o complementarios que deban ejecutarse necesariamente fuera del límite asignado al trabajo general del establecimiento;\nb) En caso de accidente ocurrido o inminente, o de trabajo de urgencia a efectuarse en las máquinas, herramientas o instalaciones, o en caso de fuerza mayor; pero solamente en la medida necesaria para evitar que este inconveniente grave obstaculice el funcionamiento del establecimiento;\nc) Cuando sobrevenga un aumento extraordinario de trabajo que no pueda ser atendido por la contratación de nuevo personal.',
-    currentText:
+    text:
       'Las excepciones a lo dispuesto en el artículo 1 podrán aplicarse en los casos siguientes:\na) Cuando se trate de trabajos preparatorios o complementarios que deban ejecutarse necesariamente fuera del límite asignado al trabajo general del establecimiento;\nb) En caso de accidente ocurrido o inminente, o de trabajo de urgencia a efectuarse en las máquinas, herramientas o instalaciones, o en caso de fuerza mayor; pero solamente en la medida necesaria para evitar que este inconveniente grave obstaculice el funcionamiento del establecimiento;\nc) Cuando sobrevenga un aumento extraordinario de trabajo que no pueda ser atendido por la contratación de nuevo personal.',
     plainLanguageExplanation:
       'Se permiten excepciones al límite de 8 horas en 3 casos: (a) tareas preparatorias necesariamente fuera del horario central, (b) accidentes o urgencias técnicas, y (c) picos extraordinarios de trabajo que no pueden cubrirse con personal adicional.',
@@ -121,7 +115,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-3',
         articleNumber: '3',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las excepciones a lo dispuesto en el artículo 1 podrán aplicarse en los casos siguientes: a) trabajos preparatorios; b) accidente o urgencia; c) aumento extraordinario de trabajo.',
         plainExplanation:
           'El límite de 8 horas puede superarse en casos de trabajos preparatorios, urgencias técnicas o picos imprevistos de demanda.',
@@ -137,9 +131,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '4',
     title: 'Trabajo insalubre',
-    originalText:
-      'En ningún caso el trabajo insalubre podrá durar más de seis horas diarias o treinta y seis semanales. La insalubridad no existirá sin declaración previa de la autoridad de aplicación, con fundamento en dictámenes médicos de rigor científico.',
-    currentText:
+    text:
       'En ningún caso el trabajo insalubre podrá durar más de seis horas diarias o treinta y seis semanales. La insalubridad no existirá sin declaración previa de la autoridad de aplicación, con fundamento en dictámenes médicos de rigor científico.',
     plainLanguageExplanation:
       'El trabajo en condiciones insalubres tiene un límite de 6 horas diarias o 36 semanales. La insalubridad no puede declararse unilateralmente: requiere una declaración oficial previa basada en estudios médicos.',
@@ -164,7 +156,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En ningún caso el trabajo insalubre podrá durar más de seis horas diarias o treinta y seis semanales. La insalubridad no existirá sin declaración previa de la autoridad de aplicación, con fundamento en dictámenes médicos de rigor científico.',
         plainExplanation:
           'Trabajo insalubre: máximo 6 horas por día. Requiere declaración oficial — no alcanza con que el lugar sea objetivamente peligroso.',
@@ -181,9 +173,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '5',
     title: 'Horas extraordinarias',
-    originalText:
-      'Las horas extraordinarias serán remuneradas con un aumento del cincuenta por ciento (50%) sobre el salario habitual si se tratare de días comunes, y del ciento por ciento (100%) en días sábados después de las trece horas, domingos y feriados. El máximo de horas extras será fijado por reglamentación.',
-    currentText:
+    text:
       'Las horas extraordinarias serán remuneradas con un aumento del cincuenta por ciento (50%) sobre el salario habitual si se tratare de días comunes, y del ciento por ciento (100%) en días sábados después de las trece horas, domingos y feriados. El máximo de horas extras será fijado por reglamentación.',
     plainLanguageExplanation:
       'Las horas trabajadas fuera de la jornada legal se pagan con recargo: 50% adicional en días hábiles, 100% adicional en sábados desde las 13 hs, domingos y feriados. El tope de horas extra por semana/mes lo fija la reglamentación.',
@@ -208,7 +198,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-5',
         articleNumber: '5',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las horas extraordinarias serán remuneradas con un aumento del cincuenta por ciento (50%) sobre el salario habitual si se tratare de días comunes, y del ciento por ciento (100%) en días sábados después de las trece horas, domingos y feriados.',
         plainExplanation:
           'Horas extra: +50% en días hábiles, +100% en sábados desde las 13 hs, domingos y feriados.',
@@ -225,8 +215,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '6',
     title: 'Trabajo de mujeres y menores (DEROGADO)',
-    originalText: '[Derogado por Ley 27.802]',
-    currentText: '[Derogado por Ley 27.802]',
+    text: '[Derogado por Ley 27.802]',
     plainLanguageExplanation:
       'Este artículo fue derogado por la Ley 27.802 (Modernización Laboral). Las disposiciones sobre trabajo de mujeres y menores se encuentran actualmente en la Ley de Contrato de Trabajo (arts. 172-182 para mujeres y arts. 187-195 para menores) y legislación específica.',
     practicalEffects: [
@@ -246,7 +235,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-6',
         articleNumber: '6',
         segmentType: 'PARAGRAPH',
-        originalText: '[Derogado por Ley 27.802]',
+        text: '[Derogado por Ley 27.802]',
         plainExplanation: 'Artículo derogado. Sin vigencia.',
         practicalExample: null,
         references: [],
@@ -260,9 +249,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '7',
     title: 'Autoridad de aplicación',
-    originalText:
-      'El Poder Ejecutivo determinará las autoridades encargadas de velar por el cumplimiento de las disposiciones de la presente ley y les acordará las facultades necesarias al efecto.',
-    currentText:
+    text:
       'El Poder Ejecutivo determinará las autoridades encargadas de velar por el cumplimiento de las disposiciones de la presente ley y les acordará las facultades necesarias al efecto.',
     plainLanguageExplanation:
       'El Poder Ejecutivo designa los organismos de control del cumplimiento de la ley. Actualmente la autoridad es el Ministerio de Trabajo y los inspectoratos provinciales.',
@@ -283,7 +270,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-7',
         articleNumber: '7',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El Poder Ejecutivo determinará las autoridades encargadas de velar por el cumplimiento de las disposiciones de la presente ley y les acordará las facultades necesarias al efecto.',
         plainExplanation: 'El Poder Ejecutivo designa quién fiscaliza el cumplimiento de la jornada laboral.',
         practicalExample: null,
@@ -298,9 +285,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '8',
     title: 'Registros del empleador',
-    originalText:
-      'El empleador deberá llevar el registro de las horas de trabajo, indicando el comienzo y la terminación de la jornada y las horas extraordinarias prestadas.',
-    currentText:
+    text:
       'El empleador deberá llevar el registro de las horas de trabajo, indicando el comienzo y la terminación de la jornada y las horas extraordinarias prestadas.',
     plainLanguageExplanation:
       'El empleador está obligado a registrar la jornada de cada trabajador: hora de entrada, hora de salida y horas extras. Ese registro sirve de prueba en caso de litigio laboral.',
@@ -323,7 +308,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-8',
         articleNumber: '8',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El empleador deberá llevar el registro de las horas de trabajo, indicando el comienzo y la terminación de la jornada y las horas extraordinarias prestadas.',
         plainExplanation:
           'El empleador debe registrar entrada, salida y horas extras de cada empleado.',
@@ -340,9 +325,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '9',
     title: 'Sanciones',
-    originalText:
-      'Las infracciones a esta ley serán penadas con multa que se fijará entre un mínimo de dos días y un máximo de veinte días del salario mínimo vital y móvil, por cada obrero empleado en infracción.',
-    currentText:
+    text:
       'Las infracciones a esta ley serán penadas con multa que se fijará entre un mínimo de dos días y un máximo de veinte días del salario mínimo vital y móvil, por cada obrero empleado en infracción.',
     plainLanguageExplanation:
       'El empleador que viole los límites de jornada enfrenta multas calculadas sobre el salario mínimo vital y móvil, por cada trabajador afectado. La multa va de 2 a 20 días de salario mínimo por trabajador.',
@@ -364,7 +347,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-9',
         articleNumber: '9',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las infracciones a esta ley serán penadas con multa que se fijará entre un mínimo de dos días y un máximo de veinte días del salario mínimo vital y móvil, por cada obrero empleado en infracción.',
         plainExplanation:
           'Multa de 2 a 20 días de SMVM por cada empleado que trabaje más horas de las permitidas.',
@@ -381,9 +364,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '10',
     title: 'Reincidencia',
-    originalText:
-      'En caso de reincidencia, la multa podrá elevarse hasta el doble del máximo establecido en el artículo anterior.',
-    currentText:
+    text:
       'En caso de reincidencia, la multa podrá elevarse hasta el doble del máximo establecido en el artículo anterior.',
     plainLanguageExplanation:
       'Si el empleador reincide en violar la jornada, la multa puede duplicarse respecto del máximo normal (hasta 40 días de SMVM por trabajador).',
@@ -401,7 +382,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-10',
         articleNumber: '10',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En caso de reincidencia, la multa podrá elevarse hasta el doble del máximo establecido en el artículo anterior.',
         plainExplanation: 'Reincidencia: multa hasta 40 días de SMVM por trabajador.',
         practicalExample: null,
@@ -416,9 +397,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '11',
     title: 'Clausura',
-    originalText:
-      'En caso de nueva reincidencia, el establecimiento podrá ser clausurado por el tiempo que determine la autoridad de aplicación.',
-    currentText:
+    text:
       'En caso de nueva reincidencia, el establecimiento podrá ser clausurado por el tiempo que determine la autoridad de aplicación.',
     plainLanguageExplanation:
       'Si el empleador reincide por segunda vez (es decir, incumple reiteradamente), la autoridad laboral puede clausurar el establecimiento por el tiempo que considere necesario.',
@@ -436,7 +415,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-11',
         articleNumber: '11',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En caso de nueva reincidencia, el establecimiento podrá ser clausurado por el tiempo que determine la autoridad de aplicación.',
         plainExplanation: 'Reincidencia múltiple: clausura del local por tiempo determinado por el inspector.',
         practicalExample: null,
@@ -451,9 +430,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '12',
     title: 'Ámbito de aplicación territorial',
-    originalText:
-      'La presente ley es de aplicación en todo el territorio de la Nación Argentina.',
-    currentText:
+    text:
       'La presente ley es de aplicación en todo el territorio de la Nación Argentina.',
     plainLanguageExplanation:
       'La ley rige en todo el país. No es una ley provincial sino federal de derecho del trabajo.',
@@ -474,7 +451,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-12',
         articleNumber: '12',
         segmentType: 'PARAGRAPH',
-        originalText: 'La presente ley es de aplicación en todo el territorio de la Nación Argentina.',
+        text: 'La presente ley es de aplicación en todo el territorio de la Nación Argentina.',
         plainExplanation: 'Rige en todo el país como ley federal de trabajo.',
         practicalExample: null,
         references: [],
@@ -488,8 +465,7 @@ export const ARTICLES_11544: Article[] = [
     lawId: 'ley-11544',
     number: '13',
     title: 'Comunicación',
-    originalText: 'Comuníquese al Poder Ejecutivo.',
-    currentText: 'Comuníquese al Poder Ejecutivo.',
+    text: 'Comuníquese al Poder Ejecutivo.',
     plainLanguageExplanation: 'Artículo de forma para la promulgación de la ley.',
     practicalEffects: [],
     examples: [],
@@ -505,7 +481,7 @@ export const ARTICLES_11544: Article[] = [
         articleId: 'art-11544-13',
         articleNumber: '13',
         segmentType: 'PARAGRAPH',
-        originalText: 'Comuníquese al Poder Ejecutivo.',
+        text: 'Comuníquese al Poder Ejecutivo.',
         plainExplanation: 'Artículo de forma para la promulgación.',
         practicalExample: null,
         references: [],

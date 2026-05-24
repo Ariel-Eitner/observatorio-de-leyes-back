@@ -87,9 +87,7 @@ export const ARTICLES_CAP1: Article[] = [
     lawId: LAW_ID,
     number: '1',
     title: 'Objeto de la ley',
-    originalText:
-      'ARTÍCULO 1°- Objeto. La presente ley tiene por objeto:\na) Garantizar el derecho a la salud y a una alimentación adecuada;\nb) Brindar información nutricional sobre los alimentos y bebidas analcohólicas envasados, a fin de promover hábitos de alimentación saludable;\nc) Advertir sobre el exceso de azúcares, sodio, grasas saturadas, grasas totales y calorías en los productos, mediante el uso de un sistema de advertencia frontal;\nd) Prevenir el sobrepeso, la obesidad y las enfermedades crónicas no transmisibles vinculadas a la alimentación.',
-    currentText:
+    text:
       'ARTÍCULO 1°- Objeto. La presente ley tiene por objeto:\na) Garantizar el derecho a la salud y a una alimentación adecuada;\nb) Brindar información nutricional sobre los alimentos y bebidas analcohólicas envasados, a fin de promover hábitos de alimentación saludable;\nc) Advertir sobre el exceso de azúcares, sodio, grasas saturadas, grasas totales y calorías en los productos, mediante el uso de un sistema de advertencia frontal;\nd) Prevenir el sobrepeso, la obesidad y las enfermedades crónicas no transmisibles vinculadas a la alimentación.',
     plainLanguageExplanation:
       'La ley busca que los consumidores tengan información clara y visible sobre qué alimentos tienen altos niveles de nutrientes que, en exceso, son perjudiciales para la salud. Su objetivo principal es reducir el sobrepeso, la obesidad y enfermedades como la diabetes tipo 2, hipertensión y enfermedades cardiovasculares.',
@@ -113,7 +111,7 @@ export const ARTICLES_CAP1: Article[] = [
         articleNumber: '1',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La presente ley tiene por objeto garantizar el derecho a la salud y a una alimentación adecuada.',
+        text: 'La presente ley tiene por objeto garantizar el derecho a la salud y a una alimentación adecuada.',
         plainExplanation: 'La ley es una norma de salud pública que reconoce la alimentación adecuada como un derecho fundamental.',
         practicalExample: 'Un consumidor tiene derecho a recibir información veraz y accesible sobre el contenido nutricional de lo que compra en el supermercado.',
         references: [],
@@ -125,7 +123,7 @@ export const ARTICLES_CAP1: Article[] = [
         articleNumber: '1',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText: 'Advertir sobre el exceso de azúcares, sodio, grasas saturadas, grasas totales y calorías en los productos, mediante el uso de un sistema de advertencia frontal.',
+        text: 'Advertir sobre el exceso de azúcares, sodio, grasas saturadas, grasas totales y calorías en los productos, mediante el uso de un sistema de advertencia frontal.',
         plainExplanation: 'El sistema de advertencia frontal son los sellos octogonales negros que deben aparecer en la cara principal del envase, visibles de inmediato al tomar el producto.',
         practicalExample: 'Una gaseosa con 11g de azúcar por cada 100ml debe llevar el sello "EXCESO EN AZÚCARES" en la parte delantera de la botella, no en la etiqueta posterior.',
         references: [],
@@ -138,9 +136,7 @@ export const ARTICLES_CAP1: Article[] = [
     lawId: LAW_ID,
     number: '2',
     title: 'Definiciones',
-    originalText:
-      'ARTÍCULO 2°- Definiciones. A los efectos de la presente ley se entiende por:\na) Alimentación saludable: aquella que satisface las necesidades nutricionales de los individuos, teniendo en cuenta su edad, sexo, actividad física y estado de salud;\nb) Nutrientes críticos: las grasas saturadas, las grasas totales, los azúcares libres y el sodio;\nc) Rotulado nutricional: toda descripción destinada a informar al consumidor sobre las propiedades nutricionales de un alimento;\nd) Sello de advertencia: símbolo de forma octogonal de color negro con letras de color blanco que advierten sobre el exceso en el contenido de nutrientes críticos o la presencia de sustancias cuyo consumo en exceso es perjudicial para la salud;\ne) Alimento envasado: todo alimento que se presenta envuelto, encerrado o contenido en un envase listo para ofrecerse al consumidor;\nf) Claim: toda mención, representación, imagen o señal que en la publicidad o en el etiquetado afirme o sugiera que un producto posee una o más propiedades especiales.',
-    currentText:
+    text:
       'ARTÍCULO 2°- Definiciones. A los efectos de la presente ley se entiende por:\na) Alimentación saludable: aquella que satisface las necesidades nutricionales de los individuos, teniendo en cuenta su edad, sexo, actividad física y estado de salud;\nb) Nutrientes críticos: las grasas saturadas, las grasas totales, los azúcares libres y el sodio;\nc) Rotulado nutricional: toda descripción destinada a informar al consumidor sobre las propiedades nutricionales de un alimento;\nd) Sello de advertencia: símbolo de forma octogonal de color negro con letras de color blanco que advierten sobre el exceso en el contenido de nutrientes críticos o la presencia de sustancias cuyo consumo en exceso es perjudicial para la salud;\ne) Alimento envasado: todo alimento que se presenta envuelto, encerrado o contenido en un envase listo para ofrecerse al consumidor;\nf) Claim: toda mención, representación, imagen o señal que en la publicidad o en el etiquetado afirme o sugiera que un producto posee una o más propiedades especiales.',
     plainLanguageExplanation:
       'El artículo define los términos clave para entender la ley. Los "nutrientes críticos" son los que en exceso causan enfermedades: grasas saturadas, grasas totales, azúcares y sodio. El "sello de advertencia" es el octágono negro con letras blancas que todos habremos visto en paquetes de alimentos. Un "claim" es cualquier promesa de beneficio nutricional en el packaging (tipo "rico en fibra" o "bajo en grasas").',
@@ -163,7 +159,7 @@ export const ARTICLES_CAP1: Article[] = [
         articleNumber: '2',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Nutrientes críticos: las grasas saturadas, las grasas totales, los azúcares libres y el sodio.',
+        text: 'Nutrientes críticos: las grasas saturadas, las grasas totales, los azúcares libres y el sodio.',
         plainExplanation: 'Son los cuatro nutrientes cuyo exceso está asociado a obesidad, diabetes, hipertensión y enfermedades cardiovasculares, según la evidencia científica de la OPS/OMS.',
         practicalExample: 'Una galletita con 18g de grasas totales por 100g tiene exceso en grasas totales. Una sopa instantánea con 900mg de sodio por 100g tiene exceso en sodio.',
         references: [],
@@ -175,7 +171,7 @@ export const ARTICLES_CAP1: Article[] = [
         articleNumber: '2',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText: 'Claim: toda mención, representación, imagen o señal en la publicidad o en el etiquetado que afirme o sugiera que un producto posee propiedades especiales.',
+        text: 'Claim: toda mención, representación, imagen o señal en la publicidad o en el etiquetado que afirme o sugiera que un producto posee propiedades especiales.',
         plainExplanation: 'Un claim puede ser explícito ("0% azúcar") o implícito (una imagen de frutas frescas en un producto ultra-procesado). Si el producto tiene sellos, están prohibidos.',
         practicalExample: 'Una barra de cereal con sello de "EXCESO EN AZÚCARES" no puede tener en su envase la leyenda "fuente de energía natural" ni la imagen de un deportista.',
         references: [],
@@ -188,9 +184,7 @@ export const ARTICLES_CAP1: Article[] = [
     lawId: LAW_ID,
     number: '3',
     title: 'Sujetos obligados',
-    originalText:
-      'ARTÍCULO 3°- Sujetos obligados. Las disposiciones de la presente ley son aplicables a todas las personas, humanas o jurídicas, que fabriquen, produzcan, elaboren, fraccionen, envasen, transporten, almacenen, distribuyan, importen, exporten, comercialicen o pongan a disposición de los consumidores en el país alimentos envasados y bebidas analcohólicas, cualquiera sea su procedencia o lugar de elaboración.',
-    currentText:
+    text:
       'ARTÍCULO 3°- Sujetos obligados. Las disposiciones de la presente ley son aplicables a todas las personas, humanas o jurídicas, que fabriquen, produzcan, elaboren, fraccionen, envasen, transporten, almacenen, distribuyan, importen, exporten, comercialicen o pongan a disposición de los consumidores en el país alimentos envasados y bebidas analcohólicas, cualquiera sea su procedencia o lugar de elaboración.',
     plainLanguageExplanation:
       'La ley aplica a toda empresa o persona que de alguna manera ponga un alimento envasado en manos del consumidor argentino, sin importar si es nacional o importado. Desde el fabricante de la fábrica hasta el kiosco que lo revende.',
@@ -214,7 +208,7 @@ export const ARTICLES_CAP1: Article[] = [
         articleNumber: '3',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las disposiciones de la presente ley son aplicables a todas las personas, humanas o jurídicas, que fabriquen, produzcan, elaboren, fraccionen, envasen, transporten, almacenen, distribuyan, importen, exporten, comercialicen o pongan a disposición de los consumidores en el país alimentos envasados y bebidas analcohólicas.',
         plainExplanation:
           'La cadena de responsabilidad es total: abarca desde quien fabrica hasta quien vende. Cualquier eslabón que no cumpla puede ser sancionado.',
@@ -235,9 +229,7 @@ export const ARTICLES_CAP2: Article[] = [
     lawId: LAW_ID,
     number: '4',
     title: 'Sello de advertencia en la cara principal',
-    originalText:
-      'ARTÍCULO 4°- Sello en la cara principal. Los alimentos envasados y las bebidas analcohólicas que contengan cantidades iguales o superiores a los valores establecidos en el artículo 6° de la presente ley de azúcares añadidos, grasas saturadas, grasas totales, sodio y/o energía, deben llevar en la cara principal los sellos de advertencia que correspondan. Asimismo, deben contener leyendas precautorias cuando contengan edulcorantes y/o cafeína.',
-    currentText:
+    text:
       'ARTÍCULO 4°- Sello en la cara principal. Los alimentos envasados y las bebidas analcohólicas que contengan cantidades iguales o superiores a los valores establecidos en el artículo 6° de la presente ley de azúcares añadidos, grasas saturadas, grasas totales, sodio y/o energía, deben llevar en la cara principal los sellos de advertencia que correspondan. Asimismo, deben contener leyendas precautorias cuando contengan edulcorantes y/o cafeína.',
     plainLanguageExplanation:
       'Si un alimento supera cualquiera de los límites de nutrientes críticos, debe llevar el sello correspondiente visible en el frente del envase. Un producto puede tener más de un sello al mismo tiempo. Además, si contiene edulcorantes o cafeína, debe incluir leyendas de advertencia aunque no supere otros límites.',
@@ -265,7 +257,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '4',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los alimentos envasados que contengan cantidades iguales o superiores a los valores establecidos en el artículo 6° de azúcares añadidos, grasas saturadas, grasas totales, sodio y/o energía, deben llevar en la cara principal los sellos de advertencia que correspondan.',
         plainExplanation:
           'Los sellos son obligatorios una vez que se supera el umbral; el fabricante no tiene opción de no colocarlos.',
@@ -280,7 +272,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '4',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Asimismo, deben contener leyendas precautorias cuando contengan edulcorantes y/o cafeína.',
         plainExplanation:
           'Las leyendas precautorias de edulcorantes y cafeína son independientes de los sellos de exceso: se activan por la simple presencia de esas sustancias.',
@@ -296,9 +288,7 @@ export const ARTICLES_CAP2: Article[] = [
     lawId: LAW_ID,
     number: '5',
     title: 'Características del sello de advertencia',
-    originalText:
-      'ARTÍCULO 5°- Características del sello. Los sellos de advertencia y las leyendas precautorias deberán:\na) Ser de forma octogonal, de color negro, con borde y letras de color blanco;\nb) Contener la leyenda correspondiente según el nutriente en exceso;\nc) Tener un tamaño mínimo del cinco por ciento (5%) de la cara principal del envase;\nd) No estar cubiertos ni ocultados por elementos del envase.',
-    currentText:
+    text:
       'ARTÍCULO 5°- Características del sello. Los sellos de advertencia y las leyendas precautorias deberán:\na) Ser de forma octogonal, de color negro, con borde y letras de color blanco;\nb) Contener la leyenda correspondiente según el nutriente en exceso;\nc) Tener un tamaño mínimo del cinco por ciento (5%) de la cara principal del envase;\nd) No estar cubiertos ni ocultados por elementos del envase.',
     plainLanguageExplanation:
       'El artículo define la forma visual exacta del sello: octágono negro con letras blancas. El tamaño mínimo del 5% de la cara principal asegura que sea visible. Es ilegal cubrir el sello con etiquetas de precio, stickers promocionales o cualquier otro elemento.',
@@ -325,7 +315,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '5',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Ser de forma octogonal, de color negro, con borde y letras de color blanco.',
+        text: 'Ser de forma octogonal, de color negro, con borde y letras de color blanco.',
         plainExplanation:
           'El octágono negro es el formato estandarizado por la OPS/OMS y ya adoptado en Chile, Perú, México y Uruguay. Permite al consumidor reconocer el sistema de advertencia sin importar el idioma.',
         practicalExample:
@@ -339,7 +329,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '5',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText: 'Tener un tamaño mínimo del cinco por ciento (5%) de la cara principal del envase. No estar cubiertos ni ocultados por elementos del envase.',
+        text: 'Tener un tamaño mínimo del cinco por ciento (5%) de la cara principal del envase. No estar cubiertos ni ocultados por elementos del envase.',
         plainExplanation:
           'El tamaño mínimo garantiza visibilidad incluso en envases pequeños. La prohibición de ocultarlos cierra la posibilidad de cumplir formalmente con la ley pero obstaculizar la información.',
         practicalExample:
@@ -354,9 +344,7 @@ export const ARTICLES_CAP2: Article[] = [
     lawId: LAW_ID,
     number: '6',
     title: 'Valores máximos — Perfil de Nutrientes OPS',
-    originalText:
-      'ARTÍCULO 6°- Valores máximos. Los valores máximos de contenido de nutrientes críticos a partir de los cuales corresponde incluir el sello de advertencia se establecen conforme al Perfil de Nutrientes de la Organización Panamericana de la Salud (OPS). La autoridad de aplicación fijará los parámetros energéticos y establecerá un cronograma de cumplimiento progresivo de un máximo de dos (2) años desde la entrada en vigencia de la presente ley.',
-    currentText:
+    text:
       'ARTÍCULO 6°- Valores máximos. Los valores máximos de contenido de nutrientes críticos a partir de los cuales corresponde incluir el sello de advertencia se establecen conforme al Perfil de Nutrientes de la Organización Panamericana de la Salud (OPS). La autoridad de aplicación fijará los parámetros energéticos y establecerá un cronograma de cumplimiento progresivo de un máximo de dos (2) años desde la entrada en vigencia de la presente ley.',
     plainLanguageExplanation:
       'Los límites numéricos que disparan la obligación de usar el sello no están en la ley sino en el estándar de la OPS, que Argentina adoptó. El Decreto 151/2022 los fija en dos etapas: la primera con umbrales más altos, la segunda más estricta.',
@@ -383,7 +371,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '6',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los valores máximos de contenido de nutrientes críticos se establecen conforme al Perfil de Nutrientes de la OPS. La autoridad de aplicación establecerá un cronograma de cumplimiento progresivo de un máximo de dos (2) años.',
         plainExplanation:
           'El cronograma progresivo da tiempo a los fabricantes para reformular sus productos o ajustar etiquetas. Primero entran en vigor los umbrales más permisivos (Etapa 1), luego los más estrictos (Etapa 2).',
@@ -399,9 +387,7 @@ export const ARTICLES_CAP2: Article[] = [
     lawId: LAW_ID,
     number: '7',
     title: 'Excepciones a la obligación de sello',
-    originalText:
-      'ARTÍCULO 7°- Excepción. Quedan exceptuados de la obligación de incluir los sellos de advertencia el azúcar común, los aceites vegetales, los frutos secos y la sal común de mesa, en tanto no sean mezclas o preparaciones que incluyan otros ingredientes que modifiquen su perfil nutricional.',
-    currentText:
+    text:
       'ARTÍCULO 7°- Excepción. Quedan exceptuados de la obligación de incluir los sellos de advertencia el azúcar común, los aceites vegetales, los frutos secos y la sal común de mesa, en tanto no sean mezclas o preparaciones que incluyan otros ingredientes que modifiquen su perfil nutricional.',
     plainLanguageExplanation:
       'Ciertos alimentos que por su naturaleza tienen altos niveles de nutrientes críticos quedan eximidos de los sellos, porque el consumidor ya sabe que el azúcar tiene azúcar o la sal tiene sodio. Pero si esos ingredientes se mezclan con otros (tipo "maní con miel y sal"), la excepción no aplica.',
@@ -430,7 +416,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '7',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Quedan exceptuados el azúcar común, los aceites vegetales, los frutos secos y la sal común de mesa, en tanto no sean mezclas o preparaciones que incluyan otros ingredientes.',
         plainExplanation:
           'La excepción se basa en que estos productos son ingredientes culinarios básicos cuya composición nutricional es obvia y conocida por el consumidor promedio.',
@@ -446,9 +432,7 @@ export const ARTICLES_CAP2: Article[] = [
     lawId: LAW_ID,
     number: '8',
     title: 'Declaración obligatoria de azúcares',
-    originalText:
-      'ARTÍCULO 8°- Declaración obligatoria de azúcares. Los alimentos envasados y las bebidas analcohólicas deben declarar el contenido de azúcares totales y de azúcares añadidos en el rotulado nutricional. Esta declaración deberá realizarse inmediatamente después de la declaración de carbohidratos.',
-    currentText:
+    text:
       'ARTÍCULO 8°- Declaración obligatoria de azúcares. Los alimentos envasados y las bebidas analcohólicas deben declarar el contenido de azúcares totales y de azúcares añadidos en el rotulado nutricional. Esta declaración deberá realizarse inmediatamente después de la declaración de carbohidratos.',
     plainLanguageExplanation:
       'Además de los sellos en la cara principal, la tabla nutricional del dorso del envase debe ahora mostrar dos filas: "azúcares totales" (todos los azúcares, incluidos los naturales de la fruta) y "azúcares añadidos" (los que se agregaron en el proceso de producción). Antes la mayoría de las tablas solo decía "azúcares".',
@@ -474,7 +458,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '8',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los alimentos envasados deben declarar el contenido de azúcares totales y de azúcares añadidos en el rotulado nutricional, inmediatamente después de la declaración de carbohidratos.',
         plainExplanation:
           'La ubicación específica "inmediatamente después de carbohidratos" hace que la información sea fácil de encontrar y difícil de ocultar en la tabla nutricional.',
@@ -490,9 +474,7 @@ export const ARTICLES_CAP2: Article[] = [
     lawId: LAW_ID,
     number: '9',
     title: 'Prohibiciones en envases con sello',
-    originalText:
-      'ARTÍCULO 9°- Prohibiciones en envases. Los alimentos envasados y las bebidas analcohólicas que deban incluir los sellos de advertencia no podrán:\na) Incluir en sus envases declaraciones nutricionales, de salud, o de propiedades beneficiosas para la salud;\nb) Presentar logos o avales de instituciones o asociaciones científicas o de profesionales de la salud;\nc) Incluir personajes de dibujos animados, animales, deportistas, personajes de ficción o personajes reconocidos que resulten atractivos para menores de dieciséis (16) años;\nd) Incluir juguetes, regalos, concursos, sorteos, aplicaciones y cualquier otro elemento o incentivo que estimule la compra por parte del público infantil.',
-    currentText:
+    text:
       'ARTÍCULO 9°- Prohibiciones en envases. Los alimentos envasados y las bebidas analcohólicas que deban incluir los sellos de advertencia no podrán:\na) Incluir en sus envases declaraciones nutricionales, de salud, o de propiedades beneficiosas para la salud;\nb) Presentar logos o avales de instituciones o asociaciones científicas o de profesionales de la salud;\nc) Incluir personajes de dibujos animados, animales, deportistas, personajes de ficción o personajes reconocidos que resulten atractivos para menores de dieciséis (16) años;\nd) Incluir juguetes, regalos, concursos, sorteos, aplicaciones y cualquier otro elemento o incentivo que estimule la compra por parte del público infantil.',
     plainLanguageExplanation:
       'Los productos con sellos no pueden usar estrategias de marketing que confundan al consumidor o atraigan a menores. Queda prohibido poner el logo de la "Asociación Argentina de Cardiología" en una galletita con exceso en grasas, o usar personajes de películas para vender cereales azucarados a niños.',
@@ -519,7 +501,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '9',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los alimentos que deban incluir los sellos de advertencia no podrán incluir declaraciones nutricionales, de salud, o de propiedades beneficiosas para la salud.',
         plainExplanation:
           'La prohibición de claims positivos evita la paradoja de un alimento con "EXCESO EN AZÚCARES" que al mismo tiempo declara ser "fuente de energía natural".',
@@ -533,7 +515,7 @@ export const ARTICLES_CAP2: Article[] = [
         articleNumber: '9',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'No podrán incluir personajes de dibujos animados, animales, deportistas, personajes de ficción o personajes reconocidos que resulten atractivos para menores de dieciséis (16) años.',
         plainExplanation:
           'El umbral de 16 años es amplio y deliberado: protege a adolescentes además de niños pequeños. Los personajes "de culto" que también atraen a adolescentes están incluidos.',

@@ -213,11 +213,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '1',
       title: 'Objeto',
-      originalText:
-        'La presente ley tiene por objeto la protección integral de los datos personales asentados en archivos, registros, bancos de datos, u otros medios técnicos de tratamiento de datos, sean éstos públicos, o privados destinados a dar informes, para garantizar el derecho al honor y a la intimidad de las personas, así como también el acceso a la información que sobre las mismas se registre, de conformidad a lo establecido en el artículo 43, párrafo tercero de la Constitución Nacional.',
-      currentText:
-        'La presente ley tiene por objeto la protección integral de los datos personales asentados en archivos, registros, bancos de datos, u otros medios técnicos de tratamiento de datos, sean éstos públicos, o privados destinados a dar informes, para garantizar el derecho al honor y a la intimidad de las personas, así como también el acceso a la información que sobre las mismas se registre, de conformidad a lo establecido en el artículo 43, párrafo tercero de la Constitución Nacional.',
-      plainLanguageExplanation:
+      text:
+        'La presente ley tiene por objeto la protección integral de los datos personales asentados en archivos, registros, bancos de datos, u otros medios técnicos de tratamiento de datos, sean éstos públicos, o privados destinados a dar informes, para garantizar el derecho al honor y a la intimidad de las personas, así como también el acceso a la información que sobre las mismas se registre, de conformidad a lo establecido en el artículo 43, párrafo tercero de la Constitución Nacional.',      plainLanguageExplanation:
         'Esta ley protege tu información personal: tu nombre, domicilio, historial médico, datos bancarios, etc. Aplica a cualquier lugar donde esos datos estén guardados: un hospital, una empresa, el Estado, o una app. El objetivo es que nadie pueda usar tus datos para dañar tu reputación o invadir tu privacidad.',
       practicalEffects: [
         'Toda empresa o entidad que guarde datos de personas debe cumplir esta ley',
@@ -242,7 +239,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-1',
           articleNumber: '1',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La presente ley tiene por objeto la protección integral de los datos personales asentados en archivos, registros, bancos de datos, u otros medios técnicos de tratamiento de datos, sean éstos públicos, o privados destinados a dar informes...',
           plainExplanation:
             'La ley protege cualquier dato personal que esté guardado en algún sistema, ya sea del Estado o de una empresa privada.',
@@ -257,7 +254,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-1',
           articleNumber: '1',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             '...para garantizar el derecho al honor y a la intimidad de las personas, así como también el acceso a la información que sobre las mismas se registre, de conformidad a lo establecido en el artículo 43, párrafo tercero de la Constitución Nacional.',
           plainExplanation:
             'El objetivo final es doble: que tus datos no se usen para perjudicarte, y que puedas saber qué información existe sobre vos. Este derecho tiene rango constitucional.',
@@ -273,11 +270,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '2',
       title: 'Definiciones',
-      originalText:
-        'A los fines de la presente ley se entiende por:\nDATOS PERSONALES: Información de cualquier tipo referida a personas físicas o de existencia ideal determinadas o determinables.\nDATOS SENSIBLES: Datos personales que revelan origen racial y étnico, opiniones políticas, convicciones religiosas, filosóficas o morales, afiliación sindical e información referente a la salud o a la vida sexual.\nARCHIVO, REGISTRO, BASE O BANCO DE DATOS: Indistintamente, designan al conjunto organizado de datos personales que sean objeto de tratamiento o procesamiento, electrónico o no, cualquiera que fuere la modalidad de su formación, almacenamiento, organización o acceso.\nTRATAMIENTO DE DATOS: Operaciones y procedimientos sistemáticos, electrónicos o no, que permitan la recolección, conservación, ordenación, almacenamiento, modificación, relacionamiento, evaluación, bloqueo, destrucción, y en general el procesamiento de datos personales, así como también su cesión a terceros a través de comunicaciones, consultas, interconexiones o transferencias.\nRESPONSABLE DE ARCHIVO, REGISTRO, BASE O BANCO DE DATOS: Persona física o de existencia ideal, pública o privada, que es titular de un archivo, registro, base o banco de datos.\nDATOS INFORMATIZADOS: Los datos personales sometidos al tratamiento o procesamiento electrónico o automatizado.\nTITULAR DE LOS DATOS: Toda persona física o persona jurídica de existencia ideal con domicilio legal o delegaciones o sucursales en el país, cuyos datos sean objeto del tratamiento al que se refiere la presente ley.\nUSUARIO DE DATOS: Toda persona, pública o privada que realice a su arbitrio el tratamiento de datos, ya sea en archivos, registros o bancos de datos propios o a través de conexión con los mismos.\nDISOCIACIÓN DE DATOS: Todo tratamiento de datos personales de manera que la información obtenida no pueda asociarse a persona determinada o determinable.',
-      currentText:
-        'A los fines de la presente ley se entiende por:\nDATOS PERSONALES: Información de cualquier tipo referida a personas físicas o de existencia ideal determinadas o determinables.\nDATOS SENSIBLES: Datos personales que revelan origen racial y étnico, opiniones políticas, convicciones religiosas, filosóficas o morales, afiliación sindical e información referente a la salud o a la vida sexual.\nARCHIVO, REGISTRO, BASE O BANCO DE DATOS: Indistintamente, designan al conjunto organizado de datos personales que sean objeto de tratamiento o procesamiento, electrónico o no, cualquiera que fuere la modalidad de su formación, almacenamiento, organización o acceso.\nTRATAMIENTO DE DATOS: Operaciones y procedimientos sistemáticos, electrónicos o no, que permitan la recolección, conservación, ordenación, almacenamiento, modificación, relacionamiento, evaluación, bloqueo, destrucción, y en general el procesamiento de datos personales, así como también su cesión a terceros a través de comunicaciones, consultas, interconexiones o transferencias.\nRESPONSABLE DE ARCHIVO, REGISTRO, BASE O BANCO DE DATOS: Persona física o de existencia ideal, pública o privada, que es titular de un archivo, registro, base o banco de datos.\nDATOS INFORMATIZADOS: Los datos personales sometidos al tratamiento o procesamiento electrónico o automatizado.\nTITULAR DE LOS DATOS: Toda persona física o persona jurídica de existencia ideal con domicilio legal o delegaciones o sucursales en el país, cuyos datos sean objeto del tratamiento al que se refiere la presente ley.\nUSUARIO DE DATOS: Toda persona, pública o privada que realice a su arbitrio el tratamiento de datos, ya sea en archivos, registros o bancos de datos propios o a través de conexión con los mismos.\nDISOCIACIÓN DE DATOS: Todo tratamiento de datos personales de manera que la información obtenida no pueda asociarse a persona determinada o determinable.',
-      plainLanguageExplanation:
+      text:
+        'A los fines de la presente ley se entiende por:\nDATOS PERSONALES: Información de cualquier tipo referida a personas físicas o de existencia ideal determinadas o determinables.\nDATOS SENSIBLES: Datos personales que revelan origen racial y étnico, opiniones políticas, convicciones religiosas, filosóficas o morales, afiliación sindical e información referente a la salud o a la vida sexual.\nARCHIVO, REGISTRO, BASE O BANCO DE DATOS: Indistintamente, designan al conjunto organizado de datos personales que sean objeto de tratamiento o procesamiento, electrónico o no, cualquiera que fuere la modalidad de su formación, almacenamiento, organización o acceso.\nTRATAMIENTO DE DATOS: Operaciones y procedimientos sistemáticos, electrónicos o no, que permitan la recolección, conservación, ordenación, almacenamiento, modificación, relacionamiento, evaluación, bloqueo, destrucción, y en general el procesamiento de datos personales, así como también su cesión a terceros a través de comunicaciones, consultas, interconexiones o transferencias.\nRESPONSABLE DE ARCHIVO, REGISTRO, BASE O BANCO DE DATOS: Persona física o de existencia ideal, pública o privada, que es titular de un archivo, registro, base o banco de datos.\nDATOS INFORMATIZADOS: Los datos personales sometidos al tratamiento o procesamiento electrónico o automatizado.\nTITULAR DE LOS DATOS: Toda persona física o persona jurídica de existencia ideal con domicilio legal o delegaciones o sucursales en el país, cuyos datos sean objeto del tratamiento al que se refiere la presente ley.\nUSUARIO DE DATOS: Toda persona, pública o privada que realice a su arbitrio el tratamiento de datos, ya sea en archivos, registros o bancos de datos propios o a través de conexión con los mismos.\nDISOCIACIÓN DE DATOS: Todo tratamiento de datos personales de manera que la información obtenida no pueda asociarse a persona determinada o determinable.',      plainLanguageExplanation:
         'El artículo 2 es el glosario de la ley. Define los términos clave para que no haya confusiones. Lo más importante: "datos personales" es casi cualquier información que permita identificarte; "datos sensibles" son los más protegidos (salud, religión, política, sexualidad).',
       practicalEffects: [
         '"Datos personales" incluye nombre, DNI, mail, foto, voz, geolocalización e IP',
@@ -302,7 +296,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-2',
           articleNumber: '2',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'DATOS PERSONALES: Información de cualquier tipo referida a personas físicas o de existencia ideal determinadas o determinables.',
           plainExplanation:
             'Dato personal = cualquier información que permita identificar a alguien, directa o indirectamente. Alcanza desde el nombre hasta una IP o un número de placa.',
@@ -317,7 +311,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-2',
           articleNumber: '2',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'DATOS SENSIBLES: Datos personales que revelan origen racial y étnico, opiniones políticas, convicciones religiosas, filosóficas o morales, afiliación sindical e información referente a la salud o a la vida sexual.',
           plainExplanation:
             'Los datos sensibles son los que más pueden usarse para discriminar o perjudicar. Por eso tienen protección reforzada y reglas mucho más estrictas para su tratamiento.',
@@ -332,7 +326,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-2',
           articleNumber: '2',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'TRATAMIENTO DE DATOS: Operaciones y procedimientos sistemáticos, electrónicos o no, que permitan la recolección, conservación, ordenación, almacenamiento, modificación, relacionamiento, evaluación, bloqueo, destrucción, y en general el procesamiento de datos personales, así como también su cesión a terceros a través de comunicaciones, consultas, interconexiones o transferencias.',
           plainExplanation:
             '"Tratamiento" abarca todo lo que se pueda hacer con un dato: guardarlo, modificarlo, mandárselo a otro, borrarlo. Si hacés cualquiera de estas cosas, estás tratando datos.',
@@ -347,7 +341,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-2',
           articleNumber: '2',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'DISOCIACIÓN DE DATOS: Todo tratamiento de datos personales de manera que la información obtenida no pueda asociarse a persona determinada o determinable.',
           plainExplanation:
             'Disociar datos = anonimizarlos. Si los datos ya no pueden identificar a nadie, dejan de ser "datos personales" y salen del régimen protectorio de la ley. Muy usado en investigación.',
@@ -363,11 +357,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '3',
       title: 'Ámbito de aplicación',
-      originalText:
-        'La presente ley rige en todo el territorio nacional y se aplica a todos los datos personales que, reuniendo las características y condiciones que establece la presente ley, sean tratados por personas o entidades domiciliadas en la República Argentina, salvo lo dispuesto en los convenios internacionales en que la República Argentina sea parte. También rige a personas o entidades domiciliadas en el extranjero siempre que sean tratados en el territorio nacional o con fines comerciales en la República Argentina. Quedan excluidos del ámbito de aplicación de esta ley los archivos de datos mantenidos por personas físicas en el ejercicio de actividades exclusivamente personales o domésticas. Los archivos, registros, bases y bancos de datos que contengan información de personas de existencia ideal no son alcanzados por la presente ley.',
-      currentText:
-        'La presente ley rige en todo el territorio nacional y se aplica a todos los datos personales que, reuniendo las características y condiciones que establece la presente ley, sean tratados por personas o entidades domiciliadas en la República Argentina, salvo lo dispuesto en los convenios internacionales en que la República Argentina sea parte. También rige a personas o entidades domiciliadas en el extranjero siempre que sean tratados en el territorio nacional o con fines comerciales en la República Argentina. Quedan excluidos del ámbito de aplicación de esta ley los archivos de datos mantenidos por personas físicas en el ejercicio de actividades exclusivamente personales o domésticas. Los archivos, registros, bases y bancos de datos que contengan información de personas de existencia ideal no son alcanzados por la presente ley.',
-      plainLanguageExplanation:
+      text:
+        'La presente ley rige en todo el territorio nacional y se aplica a todos los datos personales que, reuniendo las características y condiciones que establece la presente ley, sean tratados por personas o entidades domiciliadas en la República Argentina, salvo lo dispuesto en los convenios internacionales en que la República Argentina sea parte. También rige a personas o entidades domiciliadas en el extranjero siempre que sean tratados en el territorio nacional o con fines comerciales en la República Argentina. Quedan excluidos del ámbito de aplicación de esta ley los archivos de datos mantenidos por personas físicas en el ejercicio de actividades exclusivamente personales o domésticas. Los archivos, registros, bases y bancos de datos que contengan información de personas de existencia ideal no son alcanzados por la presente ley.',      plainLanguageExplanation:
         'La ley aplica en todo el país. También aplica a empresas extranjeras que operen en Argentina o que usen datos de argentinos con fines comerciales. Hay dos excepciones: las agendas personales (uso doméstico) y los datos de empresas (personas jurídicas), que no están protegidos por esta ley.',
       practicalEffects: [
         'Una empresa extranjera con usuarios argentinos (Netflix, Spotify, Google) queda alcanzada',
@@ -391,11 +382,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '4',
       title: 'Calidad de los datos',
-      originalText:
-        'Los datos personales que se recojan a los efectos de su tratamiento deben ser ciertos, adecuados, pertinentes y no excesivos en relación al ámbito y finalidad para los que se hubieren obtenido. La recolección de datos no puede hacerse por medios desleales, ilícitos, o en forma contraria a las disposiciones de la presente ley. Los datos objeto de tratamiento no pueden ser utilizados para finalidades distintas o incompatibles con aquellas que motivaron su obtención. Los datos deben ser exactos y actualizarse en el caso de que ello fuere necesario. Los datos total o parcialmente inexactos, o que sean incompletos, deben ser suprimidos y sustituidos, o en su caso completados, por el responsable del archivo o base de datos cuando se tenga conocimiento de la inexactitud o carácter incompleto de la información de que se trate, sin perjuicio de los derechos del titular establecidos en el artículo 16 de la presente ley. Los datos deben ser almacenados de modo que permitan el ejercicio del derecho de acceso de su titular. Los datos deben ser destruidos cuando hayan dejado de ser necesarios o pertinentes a los fines para los cuales hubiesen sido recolectados.',
-      currentText:
-        'Los datos personales que se recojan a los efectos de su tratamiento deben ser ciertos, adecuados, pertinentes y no excesivos en relación al ámbito y finalidad para los que se hubieren obtenido. La recolección de datos no puede hacerse por medios desleales, ilícitos, o en forma contraria a las disposiciones de la presente ley. Los datos objeto de tratamiento no pueden ser utilizados para finalidades distintas o incompatibles con aquellas que motivaron su obtención. Los datos deben ser exactos y actualizarse en el caso de que ello fuere necesario. Los datos total o parcialmente inexactos, o que sean incompletos, deben ser suprimidos y sustituidos, o en su caso completados, por el responsable del archivo o base de datos cuando se tenga conocimiento de la inexactitud o carácter incompleto de la información de que se trate, sin perjuicio de los derechos del titular establecidos en el artículo 16 de la presente ley. Los datos deben ser almacenados de modo que permitan el ejercicio del derecho de acceso de su titular. Los datos deben ser destruidos cuando hayan dejado de ser necesarios o pertinentes a los fines para los cuales hubiesen sido recolectados.',
-      plainLanguageExplanation:
+      text:
+        'Los datos personales que se recojan a los efectos de su tratamiento deben ser ciertos, adecuados, pertinentes y no excesivos en relación al ámbito y finalidad para los que se hubieren obtenido. La recolección de datos no puede hacerse por medios desleales, ilícitos, o en forma contraria a las disposiciones de la presente ley. Los datos objeto de tratamiento no pueden ser utilizados para finalidades distintas o incompatibles con aquellas que motivaron su obtención. Los datos deben ser exactos y actualizarse en el caso de que ello fuere necesario. Los datos total o parcialmente inexactos, o que sean incompletos, deben ser suprimidos y sustituidos, o en su caso completados, por el responsable del archivo o base de datos cuando se tenga conocimiento de la inexactitud o carácter incompleto de la información de que se trate, sin perjuicio de los derechos del titular establecidos en el artículo 16 de la presente ley. Los datos deben ser almacenados de modo que permitan el ejercicio del derecho de acceso de su titular. Los datos deben ser destruidos cuando hayan dejado de ser necesarios o pertinentes a los fines para los cuales hubiesen sido recolectados.',      plainLanguageExplanation:
         'Principio de calidad: los datos deben ser verídicos, necesarios y usarse sólo para lo que fueron pedidos. No se pueden usar de cualquier manera ni guardarlos para siempre. Este artículo consagra el principio de "mínima recopilación" y el "derecho al olvido".',
       practicalEffects: [
         'Una empresa no puede usar tu mail para publicidad si te lo pidió para emitir una factura',
@@ -423,11 +411,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '5',
       title: 'Consentimiento',
-      originalText:
-        '1. El tratamiento de datos personales es ilícito cuando el titular no hubiere prestado su consentimiento libre, expreso e informado, el que deberá constar por escrito, o por otro medio que permita se le equipare, de acuerdo a las circunstancias. El referido consentimiento prestado con otras declaraciones, deberá figurar en forma expresa y destacada, previa notificación al titular de los datos de la información descrita en el artículo 6 de la presente ley.\n2. No será necesario el consentimiento cuando:\na) Los datos se obtengan de fuentes de acceso público irrestricto;\nb) Se recaben para el ejercicio de funciones propias de los poderes del Estado o en virtud de una obligación legal;\nc) Se trate de listados cuyos datos se limiten a nombre, documento nacional de identidad, identificación tributaria o previsional, ocupación, fecha de nacimiento y domicilio;\nd) Deriven de una relación contractual, científica o profesional del titular de los datos, y resulten necesarios para su desarrollo o cumplimiento;\ne) Se trate de las operaciones que realicen las entidades financieras y de las informaciones que reciban de sus clientes conforme las disposiciones del artículo 39 de la Ley 21.526.',
-      currentText:
-        '1. El tratamiento de datos personales es ilícito cuando el titular no hubiere prestado su consentimiento libre, expreso e informado, el que deberá constar por escrito, o por otro medio que permita se le equipare, de acuerdo a las circunstancias. El referido consentimiento prestado con otras declaraciones, deberá figurar en forma expresa y destacada, previa notificación al titular de los datos de la información descrita en el artículo 6 de la presente ley.\n2. No será necesario el consentimiento cuando:\na) Los datos se obtengan de fuentes de acceso público irrestricto;\nb) Se recaben para el ejercicio de funciones propias de los poderes del Estado o en virtud de una obligación legal;\nc) Se trate de listados cuyos datos se limiten a nombre, documento nacional de identidad, identificación tributaria o previsional, ocupación, fecha de nacimiento y domicilio;\nd) Deriven de una relación contractual, científica o profesional del titular de los datos, y resulten necesarios para su desarrollo o cumplimiento;\ne) Se trate de las operaciones que realicen las entidades financieras y de las informaciones que reciban de sus clientes conforme las disposiciones del artículo 39 de la Ley 21.526.',
-      plainLanguageExplanation:
+      text:
+        '1. El tratamiento de datos personales es ilícito cuando el titular no hubiere prestado su consentimiento libre, expreso e informado, el que deberá constar por escrito, o por otro medio que permita se le equipare, de acuerdo a las circunstancias. El referido consentimiento prestado con otras declaraciones, deberá figurar en forma expresa y destacada, previa notificación al titular de los datos de la información descrita en el artículo 6 de la presente ley.\n2. No será necesario el consentimiento cuando:\na) Los datos se obtengan de fuentes de acceso público irrestricto;\nb) Se recaben para el ejercicio de funciones propias de los poderes del Estado o en virtud de una obligación legal;\nc) Se trate de listados cuyos datos se limiten a nombre, documento nacional de identidad, identificación tributaria o previsional, ocupación, fecha de nacimiento y domicilio;\nd) Deriven de una relación contractual, científica o profesional del titular de los datos, y resulten necesarios para su desarrollo o cumplimiento;\ne) Se trate de las operaciones que realicen las entidades financieras y de las informaciones que reciban de sus clientes conforme las disposiciones del artículo 39 de la Ley 21.526.',      plainLanguageExplanation:
         'La regla es que nadie puede usar tus datos sin que vos lo hayas autorizado de manera libre, clara y consciente. Las excepciones son específicas: datos de acceso público, datos necesarios para una obligación legal, o datos que surgen de un contrato donde participaste.',
       practicalEffects: [
         'Una casilla tildada por defecto NO cumple el requisito de consentimiento libre',
@@ -452,7 +437,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-5',
           articleNumber: '5',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El tratamiento de datos personales es ilícito cuando el titular no hubiere prestado su consentimiento libre, expreso e informado, el que deberá constar por escrito, o por otro medio que permita se le equipare, de acuerdo a las circunstancias.',
           plainExplanation:
             'La regla general: sin consentimiento, no hay tratamiento lícito. El consentimiento debe ser libre (sin presión), expreso (no tácito) e informado (sabiendo para qué).',
@@ -467,7 +452,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-5',
           articleNumber: '5',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'No será necesario el consentimiento cuando:\na) Los datos se obtengan de fuentes de acceso público irrestricto...',
           plainExplanation:
             'Excepción 1: si la información ya es pública (guía telefónica, registro de propietarios), no hace falta pedir permiso para usarla.',
@@ -482,7 +467,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-5',
           articleNumber: '5',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'd) Deriven de una relación contractual, científica o profesional del titular de los datos, y resulten necesarios para su desarrollo o cumplimiento...',
           plainExplanation:
             'Excepción clave para negocios: si tenés un contrato con alguien, podés usar los datos que necesitás para cumplirlo, sin necesidad de un consentimiento adicional.',
@@ -498,11 +483,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '6',
       title: 'Información al titular',
-      originalText:
-        'Cuando se recaben datos personales se deberá informar previamente a sus titulares en forma expresa y clara:\na) La finalidad para la que serán tratados y quiénes pueden ser sus destinatarios o clase de destinatarios;\nb) La existencia del archivo, registro, base o banco de datos, electrónico o de cualquier otro tipo, de que se trate y la identidad y domicilio de su responsable;\nc) El carácter obligatorio o facultativo de las respuestas al cuestionario que se le proponga, en especial en cuanto a los datos referidos en el artículo siguiente;\nd) Las consecuencias de proporcionar los datos, de la negativa a hacerlo o de la inexactitud de los mismos;\ne) La posibilidad de ejercer los derechos de acceso, rectificación y supresión de los datos.',
-      currentText:
-        'Cuando se recaben datos personales se deberá informar previamente a sus titulares en forma expresa y clara:\na) La finalidad para la que serán tratados y quiénes pueden ser sus destinatarios o clase de destinatarios;\nb) La existencia del archivo, registro, base o banco de datos, electrónico o de cualquier otro tipo, de que se trate y la identidad y domicilio de su responsable;\nc) El carácter obligatorio o facultativo de las respuestas al cuestionario que se le proponga, en especial en cuanto a los datos referidos en el artículo siguiente;\nd) Las consecuencias de proporcionar los datos, de la negativa a hacerlo o de la inexactitud de los mismos;\ne) La posibilidad de ejercer los derechos de acceso, rectificación y supresión de los datos.',
-      plainLanguageExplanation:
+      text:
+        'Cuando se recaben datos personales se deberá informar previamente a sus titulares en forma expresa y clara:\na) La finalidad para la que serán tratados y quiénes pueden ser sus destinatarios o clase de destinatarios;\nb) La existencia del archivo, registro, base o banco de datos, electrónico o de cualquier otro tipo, de que se trate y la identidad y domicilio de su responsable;\nc) El carácter obligatorio o facultativo de las respuestas al cuestionario que se le proponga, en especial en cuanto a los datos referidos en el artículo siguiente;\nd) Las consecuencias de proporcionar los datos, de la negativa a hacerlo o de la inexactitud de los mismos;\ne) La posibilidad de ejercer los derechos de acceso, rectificación y supresión de los datos.',      plainLanguageExplanation:
         'Cuando alguien te pide datos, antes de que los des, tiene la obligación de decirte: para qué los va a usar, quién los va a tener, si es obligatorio contestar, qué pasa si no contestás, y que podés pedir verlos, corregirlos o borrarlos. Es el fundamento legal de las "políticas de privacidad".',
       practicalEffects: [
         'Toda app, formulario o contrato que pida datos debe incluir esta información',
@@ -526,11 +508,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '7',
       title: 'Categorías de datos',
-      originalText:
-        '1. Ninguna persona puede ser obligada a proporcionar datos sensibles.\n2. Los datos sensibles sólo pueden ser recolectados y objeto de tratamiento cuando medien razones de interés general autorizadas por ley. También podrán ser tratados con finalidades estadísticas o científicas cuando no puedan ser identificados sus titulares.\n3. Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Se exceptúan los archivos de las Iglesias, asociaciones religiosas y organizaciones políticas y sindicales que procedan con relación a sus miembros respectivos.\n4. Los datos relativos a antecedentes penales o contravencionales sólo pueden ser objeto de tratamiento por parte de las autoridades públicas competentes, en el marco de las leyes y reglamentaciones respectivas.',
-      currentText:
-        '1. Ninguna persona puede ser obligada a proporcionar datos sensibles.\n2. Los datos sensibles sólo pueden ser recolectados y objeto de tratamiento cuando medien razones de interés general autorizadas por ley. También podrán ser tratados con finalidades estadísticas o científicas cuando no puedan ser identificados sus titulares.\n3. Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Se exceptúan los archivos de las Iglesias, asociaciones religiosas y organizaciones políticas y sindicales que procedan con relación a sus miembros respectivos.\n4. Los datos relativos a antecedentes penales o contravencionales sólo pueden ser objeto de tratamiento por parte de las autoridades públicas competentes, en el marco de las leyes y reglamentaciones respectivas.',
-      plainLanguageExplanation:
+      text:
+        '1. Ninguna persona puede ser obligada a proporcionar datos sensibles.\n2. Los datos sensibles sólo pueden ser recolectados y objeto de tratamiento cuando medien razones de interés general autorizadas por ley. También podrán ser tratados con finalidades estadísticas o científicas cuando no puedan ser identificados sus titulares.\n3. Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Se exceptúan los archivos de las Iglesias, asociaciones religiosas y organizaciones políticas y sindicales que procedan con relación a sus miembros respectivos.\n4. Los datos relativos a antecedentes penales o contravencionales sólo pueden ser objeto de tratamiento por parte de las autoridades públicas competentes, en el marco de las leyes y reglamentaciones respectivas.',      plainLanguageExplanation:
         'Los datos sensibles tienen protección máxima. Nadie puede obligarte a revelar tu religión, ideología política, sexualidad o estado de salud. Ni siquiera el Estado puede crear bases de datos que contengan este tipo de información, salvo excepciones muy acotadas.',
       practicalEffects: [
         'Un empleador no puede exigirte declarar tu religión, ideología o condición de salud en el proceso de selección',
@@ -555,11 +534,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '9',
       title: 'Seguridad de los datos',
-      originalText:
-        '1. El responsable o usuario del archivo de datos debe adoptar las medidas técnicas y organizativas que resulten necesarias para garantizar la seguridad y confidencialidad de los datos personales, de modo de evitar su adulteración, pérdida, consulta o tratamiento no autorizado, y que permitan detectar desviaciones, intencionales o no, de información, ya sea que los riesgos provengan de la acción humana o del medio técnico utilizado.\n2. Queda prohibido registrar datos personales en archivos, registros, bases o bancos que no reúnan condiciones técnicas de integridad y seguridad.',
-      currentText:
-        '1. El responsable o usuario del archivo de datos debe adoptar las medidas técnicas y organizativas que resulten necesarias para garantizar la seguridad y confidencialidad de los datos personales, de modo de evitar su adulteración, pérdida, consulta o tratamiento no autorizado, y que permitan detectar desviaciones, intencionales o no, de información, ya sea que los riesgos provengan de la acción humana o del medio técnico utilizado.\n2. Queda prohibido registrar datos personales en archivos, registros, bases o bancos que no reúnan condiciones técnicas de integridad y seguridad.',
-      plainLanguageExplanation:
+      text:
+        '1. El responsable o usuario del archivo de datos debe adoptar las medidas técnicas y organizativas que resulten necesarias para garantizar la seguridad y confidencialidad de los datos personales, de modo de evitar su adulteración, pérdida, consulta o tratamiento no autorizado, y que permitan detectar desviaciones, intencionales o no, de información, ya sea que los riesgos provengan de la acción humana o del medio técnico utilizado.\n2. Queda prohibido registrar datos personales en archivos, registros, bases o bancos que no reúnan condiciones técnicas de integridad y seguridad.',      plainLanguageExplanation:
         'Toda empresa u organismo que maneje datos tiene la obligación de implementar medidas de seguridad. Si no protegen bien los datos y hay una brecha (hackeo, filtración), son responsables. No alcanza con buenas intenciones: deben existir medidas concretas, técnicas y organizativas.',
       practicalEffects: [
         'Uso de contraseñas, cifrado y control de acceso son obligatorios, no opcionales',
@@ -583,11 +559,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '10',
       title: 'Deber de confidencialidad',
-      originalText:
-        'El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada su relación con el titular del archivo de datos.',
-      currentText:
-        'El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada su relación con el titular del archivo de datos.',
-      plainLanguageExplanation:
+      text:
+        'El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada su relación con el titular del archivo de datos.',      plainLanguageExplanation:
         'Cualquier persona que trabaje con datos personales —empleados, contratistas, consultores— debe guardar secreto sobre ellos. Esta obligación no termina cuando dejan el trabajo. Un exempleado que filtra base de datos de clientes sigue siendo responsable legalmente.',
       practicalEffects: [
         'Aplica a todos: empleados de IT, call centers, consultoras, freelancers',
@@ -614,11 +587,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '14',
       title: 'Derecho de acceso',
-      originalText:
-        '1. El titular de los datos, previa acreditación de su identidad, tiene derecho a solicitar y obtener información de sus datos personales incluidos en los bancos de datos públicos, o privados destinados a proveer informes.\n2. El responsable o usuario debe proporcionar la información solicitada dentro de los diez días corridos de haber sido intimado fehacientemente. Vencido el plazo sin que se satisfaga el pedido, o si evacuado el informe, éste resultara insuficiente, quedará expedita la acción de protección de los datos personales o de habeas data prevista en esta ley.\n3. El derecho de acceso a que se refiere este artículo sólo puede ser ejercido en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto.',
-      currentText:
-        '1. El titular de los datos, previa acreditación de su identidad, tiene derecho a solicitar y obtener información de sus datos personales incluidos en los bancos de datos públicos, o privados destinados a proveer informes.\n2. El responsable o usuario debe proporcionar la información solicitada dentro de los diez días corridos de haber sido intimado fehacientemente. Vencido el plazo sin que se satisfaga el pedido, o si evacuado el informe, éste resultara insuficiente, quedará expedita la acción de protección de los datos personales o de habeas data prevista en esta ley.\n3. El derecho de acceso a que se refiere este artículo sólo puede ser ejercido en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto.',
-      plainLanguageExplanation:
+      text:
+        '1. El titular de los datos, previa acreditación de su identidad, tiene derecho a solicitar y obtener información de sus datos personales incluidos en los bancos de datos públicos, o privados destinados a proveer informes.\n2. El responsable o usuario debe proporcionar la información solicitada dentro de los diez días corridos de haber sido intimado fehacientemente. Vencido el plazo sin que se satisfaga el pedido, o si evacuado el informe, éste resultara insuficiente, quedará expedita la acción de protección de los datos personales o de habeas data prevista en esta ley.\n3. El derecho de acceso a que se refiere este artículo sólo puede ser ejercido en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto.',      plainLanguageExplanation:
         'Tenés derecho a saber qué información guardan sobre vos. Podés pedirla a cualquier empresa o entidad pública que tenga una base de datos. Tienen 10 días corridos para responder. Si no responden o la respuesta es incompleta, podés ir a la Justicia con una acción de habeas data. El derecho es gratuito, pero no podés pedirlo más de dos veces por año sin demostrar necesidad.',
       practicalEffects: [
         'Podés pedir a Veraz, Nosis o cualquier empresa de informes crediticios que te muestren tu ficha',
@@ -642,7 +612,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-14',
           articleNumber: '14',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El titular de los datos, previa acreditación de su identidad, tiene derecho a solicitar y obtener información de sus datos personales incluidos en los bancos de datos públicos, o privados destinados a proveer informes.',
           plainExplanation:
             'El derecho de acceso es universal: aplica a bases de datos del Estado y también a empresas privadas que proveen informes (Veraz, Nosis, etc.). Solo necesitás acreditar que sos vos.',
@@ -657,7 +627,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-14',
           articleNumber: '14',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El responsable o usuario debe proporcionar la información solicitada dentro de los diez días corridos de haber sido intimado fehacientemente. Vencido el plazo sin que se satisfaga el pedido, o si evacuado el informe, éste resultara insuficiente, quedará expedita la acción de protección de los datos personales o de habeas data prevista en esta ley.',
           plainExplanation:
             'El plazo para recibir respuesta es de 10 días corridos. Si no te responden o te responden con evasivas, ya podés ir a la Justicia sin ningún otro trámite previo.',
@@ -672,7 +642,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-14',
           articleNumber: '14',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El derecho de acceso a que se refiere este artículo sólo puede ser ejercido en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto.',
           plainExplanation:
             'El derecho de acceso es gratis, pero tiene límite de frecuencia: una vez cada 6 meses. Si necesitás consultarlo antes, tenés que demostrar un motivo válido (por ejemplo, una causa judicial en curso).',
@@ -688,11 +658,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '16',
       title: 'Derecho de rectificación, actualización o supresión',
-      originalText:
-        '1. Toda persona tiene derecho a que sean rectificados, actualizados y, cuando corresponda, suprimidos o sometidos a confidencialidad los datos personales de los que sea titular, que estuvieren incluidos en un banco de datos.\n2. El responsable o usuario del banco de datos, debe proceder a la rectificación, supresión o actualización de los datos en el plazo máximo de cinco días hábiles de haber recibido la solicitud del titular de los mismos.\n3. El incumplimiento de esta obligación dentro del término acordado en el inciso precedente, habilitará al interesado a promover sin más trámite la acción de habeas data prevista en la presente ley.\n4. En el supuesto de cesión, o transferencia de datos, el responsable o usuario del banco de datos debe notificar la rectificación o supresión al cesionario dentro del quinto día hábil de efectuado el tratamiento del dato.\n5. La rectificación, actualización o supresión de datos personales inexactos o incompletos que obren en registros públicos, se hará asimismo de oficio cuando se tenga conocimiento de la inexactitud o carácter incompleto de la información de que se trate.',
-      currentText:
-        '1. Toda persona tiene derecho a que sean rectificados, actualizados y, cuando corresponda, suprimidos o sometidos a confidencialidad los datos personales de los que sea titular, que estuvieren incluidos en un banco de datos.\n2. El responsable o usuario del banco de datos, debe proceder a la rectificación, supresión o actualización de los datos en el plazo máximo de cinco días hábiles de haber recibido la solicitud del titular de los mismos.\n3. El incumplimiento de esta obligación dentro del término acordado en el inciso precedente, habilitará al interesado a promover sin más trámite la acción de habeas data prevista en la presente ley.\n4. En el supuesto de cesión, o transferencia de datos, el responsable o usuario del banco de datos debe notificar la rectificación o supresión al cesionario dentro del quinto día hábil de efectuado el tratamiento del dato.\n5. La rectificación, actualización o supresión de datos personales inexactos o incompletos que obren en registros públicos, se hará asimismo de oficio cuando se tenga conocimiento de la inexactitud o carácter incompleto de la información de que se trate.',
-      plainLanguageExplanation:
+      text:
+        '1. Toda persona tiene derecho a que sean rectificados, actualizados y, cuando corresponda, suprimidos o sometidos a confidencialidad los datos personales de los que sea titular, que estuvieren incluidos en un banco de datos.\n2. El responsable o usuario del banco de datos, debe proceder a la rectificación, supresión o actualización de los datos en el plazo máximo de cinco días hábiles de haber recibido la solicitud del titular de los mismos.\n3. El incumplimiento de esta obligación dentro del término acordado en el inciso precedente, habilitará al interesado a promover sin más trámite la acción de habeas data prevista en la presente ley.\n4. En el supuesto de cesión, o transferencia de datos, el responsable o usuario del banco de datos debe notificar la rectificación o supresión al cesionario dentro del quinto día hábil de efectuado el tratamiento del dato.\n5. La rectificación, actualización o supresión de datos personales inexactos o incompletos que obren en registros públicos, se hará asimismo de oficio cuando se tenga conocimiento de la inexactitud o carácter incompleto de la información de que se trate.',      plainLanguageExplanation:
         'Si tus datos son incorrectos, desactualizados o irrelevantes, podés pedir que los corrijan, actualicen o borren. El plazo de respuesta es de 5 días hábiles. Si no lo hacen, vas directo a la Justicia. Importante: si tus datos ya fueron cedidos a terceros, también deben notificarlos del cambio.',
       practicalEffects: [
         'El plazo es de 5 días hábiles (más corto que el derecho de acceso)',
@@ -716,7 +683,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-16',
           articleNumber: '16',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Toda persona tiene derecho a que sean rectificados, actualizados y, cuando corresponda, suprimidos o sometidos a confidencialidad los datos personales de los que sea titular, que estuvieren incluidos en un banco de datos.',
           plainExplanation:
             'El "derecho al olvido" argentino: podés pedir que borren tus datos cuando ya no son necesarios o son incorrectos. También podés pedir que los bloqueen (confidencialidad) en lugar de borrarlos.',
@@ -731,7 +698,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-16',
           articleNumber: '16',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El responsable o usuario del banco de datos, debe proceder a la rectificación, supresión o actualización de los datos en el plazo máximo de cinco días hábiles de haber recibido la solicitud del titular de los mismos.',
           plainExplanation:
             'El plazo de 5 días hábiles es muy corto. Contá desde que reciben la nota: si el lunes reciben tu carta, el lunes siguiente (5 hábiles) ya debería estar corregido.',
@@ -746,7 +713,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-16',
           articleNumber: '16',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'En el supuesto de cesión, o transferencia de datos, el responsable o usuario del banco de datos debe notificar la rectificación o supresión al cesionario dentro del quinto día hábil de efectuado el tratamiento del dato.',
           plainExplanation:
             'Si tus datos fueron compartidos con otras empresas, la corrección debe propagarse. El responsable tiene 5 días hábiles para avisar a todos los que recibieron tu información.',
@@ -762,11 +729,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '26',
       title: 'Prestación de servicios de información crediticia',
-      originalText:
-        '1. En la prestación de servicios de información crediticia sólo pueden tratarse datos personales de carácter patrimonial relativos a la solvencia económica y al crédito, obtenidos de fuentes accesibles al público o procedentes de informaciones facilitadas por el interesado o con su consentimiento.\n2. Pueden tratarse igualmente datos personales relativos al cumplimiento o incumplimiento de obligaciones de contenido patrimonial, facilitados por el acreedor o por quien actúe por su cuenta o interés.\n3. A solicitud del titular de los datos, el responsable del banco de datos le comunicará las informaciones, evaluaciones y apreciaciones que sobre el mismo hayan sido comunicadas durante los últimos seis meses, y el nombre y domicilio del cesionario en el supuesto de tratarse de datos obtenidos por cesión.\n4. Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económica-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación, debiéndose hacer constar dicho hecho.',
-      currentText:
-        '1. En la prestación de servicios de información crediticia sólo pueden tratarse datos personales de carácter patrimonial relativos a la solvencia económica y al crédito, obtenidos de fuentes accesibles al público o procedentes de informaciones facilitadas por el interesado o con su consentimiento.\n2. Pueden tratarse igualmente datos personales relativos al cumplimiento o incumplimiento de obligaciones de contenido patrimonial, facilitados por el acreedor o por quien actúe por su cuenta o interés.\n3. A solicitud del titular de los datos, el responsable del banco de datos le comunicará las informaciones, evaluaciones y apreciaciones que sobre el mismo hayan sido comunicadas durante los últimos seis meses, y el nombre y domicilio del cesionario en el supuesto de tratarse de datos obtenidos por cesión.\n4. Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económica-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación, debiéndose hacer constar dicho hecho.',
-      plainLanguageExplanation:
+      text:
+        '1. En la prestación de servicios de información crediticia sólo pueden tratarse datos personales de carácter patrimonial relativos a la solvencia económica y al crédito, obtenidos de fuentes accesibles al público o procedentes de informaciones facilitadas por el interesado o con su consentimiento.\n2. Pueden tratarse igualmente datos personales relativos al cumplimiento o incumplimiento de obligaciones de contenido patrimonial, facilitados por el acreedor o por quien actúe por su cuenta o interés.\n3. A solicitud del titular de los datos, el responsable del banco de datos le comunicará las informaciones, evaluaciones y apreciaciones que sobre el mismo hayan sido comunicadas durante los últimos seis meses, y el nombre y domicilio del cesionario en el supuesto de tratarse de datos obtenidos por cesión.\n4. Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económica-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación, debiéndose hacer constar dicho hecho.',      plainLanguageExplanation:
         'Este artículo regula específicamente a Veraz, Nosis, Score y similares. Solo pueden guardar tu historial de deudas de los últimos 5 años. Si pagaste una deuda, el plazo se reduce a 2 años desde que la cancelaste. Podés pedirles que te digan qué informaron y a quién en los últimos 6 meses.',
       practicalEffects: [
         'Deudas viejas de más de 5 años deben ser borradas automáticamente',
@@ -791,7 +755,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-26',
           articleNumber: '26',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económica-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación, debiéndose hacer constar dicho hecho.',
           plainExplanation:
             'Los plazos son taxativos: máximo 5 años para deudas impagas. Si pagaste la deuda, el dato debe borrarse a los 2 años de haber saldado.',
@@ -807,11 +771,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '29',
       title: 'Dirección Nacional de Protección de Datos Personales',
-      originalText:
-        '1. El órgano de control de la presente ley estará representado por la Dirección Nacional de Protección de Datos Personales, organismo que actuará en el ámbito de la Secretaría de Justicia y Asuntos Legislativos del Ministerio de Justicia y Derechos Humanos de la Nación.\n2. La Dirección Nacional de Protección de Datos Personales tendrá las siguientes funciones:\na) Asistir y asesorar a las personas que lo requieran acerca de los alcances de la presente y los medios legales de que disponen para la defensa de los derechos que ésta garantiza;\nb) Dictar las normas y reglamentaciones que se deben observar en el desarrollo de las actividades comprendidas por esta ley;\nc) Realizar una auditoría anual de sistemas, a fin de evaluar los distintos archivos de datos existentes;\nd) Recibir y tramitar las denuncias y reclamos presentados por quienes se crean afectados en los derechos que la presente les garantiza;\ne) Llevar el registro de archivos y bases de datos previsto por el artículo 21 de la presente ley.',
-      currentText:
-        '1. El órgano de control de la presente ley estará representado por la Dirección Nacional de Protección de Datos Personales, organismo que actuará en el ámbito de la Secretaría de Justicia y Asuntos Legislativos del Ministerio de Justicia y Derechos Humanos de la Nación.\n2. La Dirección Nacional de Protección de Datos Personales tendrá las siguientes funciones:\na) Asistir y asesorar a las personas que lo requieran acerca de los alcances de la presente y los medios legales de que disponen para la defensa de los derechos que ésta garantiza;\nb) Dictar las normas y reglamentaciones que se deben observar en el desarrollo de las actividades comprendidas por esta ley;\nc) Realizar una auditoría anual de sistemas, a fin de evaluar los distintos archivos de datos existentes;\nd) Recibir y tramitar las denuncias y reclamos presentados por quienes se crean afectados en los derechos que la presente les garantiza;\ne) Llevar el registro de archivos y bases de datos previsto por el artículo 21 de la presente ley.',
-      plainLanguageExplanation:
+      text:
+        '1. El órgano de control de la presente ley estará representado por la Dirección Nacional de Protección de Datos Personales, organismo que actuará en el ámbito de la Secretaría de Justicia y Asuntos Legislativos del Ministerio de Justicia y Derechos Humanos de la Nación.\n2. La Dirección Nacional de Protección de Datos Personales tendrá las siguientes funciones:\na) Asistir y asesorar a las personas que lo requieran acerca de los alcances de la presente y los medios legales de que disponen para la defensa de los derechos que ésta garantiza;\nb) Dictar las normas y reglamentaciones que se deben observar en el desarrollo de las actividades comprendidas por esta ley;\nc) Realizar una auditoría anual de sistemas, a fin de evaluar los distintos archivos de datos existentes;\nd) Recibir y tramitar las denuncias y reclamos presentados por quienes se crean afectados en los derechos que la presente les garantiza;\ne) Llevar el registro de archivos y bases de datos previsto por el artículo 21 de la presente ley.',      plainLanguageExplanation:
         'La DNPDP es el "árbitro" de la ley. Depende del Ministerio de Justicia y tiene varias funciones: asesorar ciudadanos, hacer auditorías anuales, recibir denuncias y llevar el registro de bases de datos. Si una empresa viola la ley, la DNPDP puede iniciar un sumario administrativo.',
       practicalEffects: [
         'La DNPDP es gratuita y pública: cualquier ciudadano puede hacer una consulta o denuncia',
@@ -835,11 +796,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '32',
       title: 'Sanciones penales',
-      originalText:
-        'Incorpóranse como artículos 117 bis y 157 bis del Código Penal los siguientes:\nArtículo 117 bis.\n1. Será reprimido con la pena de prisión de un mes a dos años el que insertara o hiciera insertar a sabiendas datos falsos en un archivo de datos personales.\n2. La pena será de seis meses a tres años, al que proporcionara a un tercero a sabiendas información falsa contenida en un archivo de datos personales.\n3. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona.\nArtículo 157 bis. Será reprimido con la pena de prisión de un mes a dos años el que:\n1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales;\n2. Revelare a otro información registrada en un banco de datos personales cuyo secreto estuviere obligado a guardar conforme a la ley.',
-      currentText:
-        'Incorpóranse como artículos 117 bis y 157 bis del Código Penal los siguientes:\nArtículo 117 bis.\n1. Será reprimido con la pena de prisión de un mes a dos años el que insertara o hiciera insertar a sabiendas datos falsos en un archivo de datos personales.\n2. La pena será de seis meses a tres años, al que proporcionara a un tercero a sabiendas información falsa contenida en un archivo de datos personales.\n3. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona.\nArtículo 157 bis. Será reprimido con la pena de prisión de un mes a dos años el que:\n1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales;\n2. Revelare a otro información registrada en un banco de datos personales cuyo secreto estuviere obligado a guardar conforme a la ley.',
-      plainLanguageExplanation:
+      text:
+        'Incorpóranse como artículos 117 bis y 157 bis del Código Penal los siguientes:\nArtículo 117 bis.\n1. Será reprimido con la pena de prisión de un mes a dos años el que insertara o hiciera insertar a sabiendas datos falsos en un archivo de datos personales.\n2. La pena será de seis meses a tres años, al que proporcionara a un tercero a sabiendas información falsa contenida en un archivo de datos personales.\n3. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona.\nArtículo 157 bis. Será reprimido con la pena de prisión de un mes a dos años el que:\n1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales;\n2. Revelare a otro información registrada en un banco de datos personales cuyo secreto estuviere obligado a guardar conforme a la ley.',      plainLanguageExplanation:
         'Además de las multas administrativas, la ley tipificó delitos penales en el Código Penal. Hay tres conductas que pueden llevar a la cárcel: insertar datos falsos en una base de datos, divulgar esos datos falsos, y acceder ilegítimamente a bases de datos (hacking). También va preso quien revela datos confidenciales de una base a la que tiene acceso por razones laborales.',
       practicalEffects: [
         'Un empleado que hackea la base de datos de su empresa puede ir preso de 1 mes a 2 años',
@@ -863,7 +821,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-32',
           articleNumber: '32',
           segmentType: 'PARAGRAPH',
-          originalText: 'Artículo 117 bis.\n1. Será reprimido con la pena de prisión de un mes a dos años el que insertara o hiciera insertar a sabiendas datos falsos en un archivo de datos personales.\n2. La pena será de seis meses a tres años, al que proporcionara a un tercero a sabiendas información falsa contenida en un archivo de datos personales.\n3. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona.',
+          text: 'Artículo 117 bis.\n1. Será reprimido con la pena de prisión de un mes a dos años el que insertara o hiciera insertar a sabiendas datos falsos en un archivo de datos personales.\n2. La pena será de seis meses a tres años, al que proporcionara a un tercero a sabiendas información falsa contenida en un archivo de datos personales.\n3. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona.',
           plainExplanation: 'La propia Ley 25.326 incorporó el art. 117 bis CP al Código Penal para penalizar la inserción de datos falsos en bases de datos. El que carga datos falsos a sabiendas va preso de 1 mes a 2 años. Si además le da esa información falsa a un tercero, la pena sube a 6 meses–3 años. Si la víctima sufre un perjuicio concreto, las penas aumentan 50%.',
           practicalExample: 'Una empresa de informes crediticios que carga una deuda ficticia en el perfil de un usuario, sabiendo que es falsa, comete el Art. 117 bis CP. Si además emite ese informe negativo a un banco, comete también el inciso 2.',
           references: ['Art. 117 bis CP'],
@@ -875,7 +833,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-32',
           articleNumber: '32',
           segmentType: 'PARAGRAPH',
-          originalText: 'Artículo 157 bis. Será reprimido con la pena de prisión de un mes a dos años el que:\n1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales;\n2. Revelare a otro información registrada en un banco de datos personales cuyo secreto estuviere obligado a guardar conforme a la ley.',
+          text: 'Artículo 157 bis. Será reprimido con la pena de prisión de un mes a dos años el que:\n1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales;\n2. Revelare a otro información registrada en un banco de datos personales cuyo secreto estuviere obligado a guardar conforme a la ley.',
           plainExplanation: 'El art. 157 bis CP penaliza el acceso ilegítimo a bases de datos (hacking de datos personales) y la revelación de datos confidenciales por parte de quien estaba obligado a guardarlos. Ambas conductas tienen pena de 1 mes a 2 años de prisión.',
           practicalExample: 'Un técnico de sistemas que accede sin autorización a la base de datos de RRHH para ver los sueldos de sus compañeros comete el inciso 1. Un empleado de obra social que le cuenta a un familiar el diagnóstico de un paciente comete el inciso 2.',
           references: ['Art. 157 bis CP'],
@@ -888,11 +846,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '33',
       title: 'Procedencia del habeas data',
-      originalText:
-        '1. La acción de protección de los datos personales o de habeas data procederá:\na) Para tomar conocimiento de los datos personales almacenados en archivos, registros o bancos de datos públicos o privados destinados a proporcionar informes, y de la finalidad de aquellos;\nb) En los casos en que se presuma la falsedad, inexactitud, desactualización de la información de que se trate, o el tratamiento de datos cuyo registro se encuentra prohibido en la presente ley, para exigir su rectificación, supresión, confidencialidad o actualización.\n2. Al juez interviniente en una acción entablada en virtud de la presente ley le estará prohibido revelar la información obtenida o a obtenerse, ni divulgarla de ningún modo.',
-      currentText:
-        '1. La acción de protección de los datos personales o de habeas data procederá:\na) Para tomar conocimiento de los datos personales almacenados en archivos, registros o bancos de datos públicos o privados destinados a proporcionar informes, y de la finalidad de aquellos;\nb) En los casos en que se presuma la falsedad, inexactitud, desactualización de la información de que se trate, o el tratamiento de datos cuyo registro se encuentra prohibido en la presente ley, para exigir su rectificación, supresión, confidencialidad o actualización.\n2. Al juez interviniente en una acción entablada en virtud de la presente ley le estará prohibido revelar la información obtenida o a obtenerse, ni divulgarla de ningún modo.',
-      plainLanguageExplanation:
+      text:
+        '1. La acción de protección de los datos personales o de habeas data procederá:\na) Para tomar conocimiento de los datos personales almacenados en archivos, registros o bancos de datos públicos o privados destinados a proporcionar informes, y de la finalidad de aquellos;\nb) En los casos en que se presuma la falsedad, inexactitud, desactualización de la información de que se trate, o el tratamiento de datos cuyo registro se encuentra prohibido en la presente ley, para exigir su rectificación, supresión, confidencialidad o actualización.\n2. Al juez interviniente en una acción entablada en virtud de la presente ley le estará prohibido revelar la información obtenida o a obtenerse, ni divulgarla de ningún modo.',      plainLanguageExplanation:
         'El habeas data es la acción judicial que protege tus datos personales. Tiene dos variantes: el "habeas data informativo" (para saber qué datos tienen sobre vos) y el "habeas data rectificatorio/supresorio" (para corregir o borrar datos falsos, desactualizados o prohibidos). El juez tiene prohibido difundir la información que obtenga en el proceso.',
       practicalEffects: [
         'Es una acción rápida (sumaria) y gratuita para el titular de los datos',
@@ -916,7 +871,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-33',
           articleNumber: '33',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'a) Para tomar conocimiento de los datos personales almacenados en archivos, registros o bancos de datos públicos o privados destinados a proporcionar informes, y de la finalidad de aquellos...',
           plainExplanation:
             'Habeas data informativo: sirve para preguntarle al juez que ordene a una base de datos que te informe qué datos tiene sobre vos. Útil cuando la empresa no respondió extrajudicialmente.',
@@ -931,7 +886,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-33',
           articleNumber: '33',
           segmentType: 'INCISO',
-          originalText:
+          text:
             'b) En los casos en que se presuma la falsedad, inexactitud, desactualización de la información de que se trate, o el tratamiento de datos cuyo registro se encuentra prohibido en la presente ley, para exigir su rectificación, supresión, confidencialidad o actualización.',
           plainExplanation:
             'Habeas data rectificatorio: sirve para corregir o eliminar datos incorrectos. Basta con "presumir" la falsedad, no hay que probarla definitivamente para iniciar la acción.',
@@ -947,11 +902,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '8',
       title: 'Datos sensibles',
-      originalText:
-        'ARTICULO 8° — Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Las instituciones religiosas y las asociaciones políticas, sindicales, profesionales y similares podrán llevar un registro de sus miembros.',
-      currentText:
-        'ARTICULO 8° — Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Las instituciones religiosas y las asociaciones políticas, sindicales, profesionales y similares podrán llevar un registro de sus miembros.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 8° — Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Las instituciones religiosas y las asociaciones políticas, sindicales, profesionales y similares podrán llevar un registro de sus miembros.',      plainLanguageExplanation:
         'Está prohibido crear bases de datos que contengan datos sensibles (origen racial, opiniones políticas, creencias religiosas, salud, vida sexual, etc.). La única excepción son las organizaciones religiosas, políticas, sindicales y profesionales para sus propios miembros.',
       practicalEffects: [
         'Ninguna empresa puede crear una base de datos que registre la religión o las opiniones políticas de sus clientes.',
@@ -975,7 +927,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-8',
           articleNumber: '8',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Queda prohibida la formación de archivos, bancos o registros que almacenen información que directa o indirectamente revele datos sensibles. Las instituciones religiosas y las asociaciones políticas, sindicales, profesionales y similares podrán llevar un registro de sus miembros.',
           plainExplanation: 'Prohibición de crear bases de datos con datos sensibles; excepción para organizaciones que registran a sus propios miembros.',
           practicalExample:
@@ -990,11 +942,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '11',
       title: 'Cesión',
-      originalText:
-        'ARTICULO 11. — 1. Los datos personales objeto de tratamiento sólo pueden ser cedidos para el cumplimiento de los fines directamente relacionados con el interés legítimo del cedente y del cesionario y con el previo consentimiento del titular de los datos, al que se le debe informar sobre la finalidad de la cesión e identificar al cesionario o los elementos que permitan hacerlo. 2. El consentimiento para la cesión es revocable. 3. El consentimiento no es requerido cuando: a) Así lo disponga una ley; b) En los supuestos previstos en el artículo 5° inciso 2; c) Se realice entre dependencias de los órganos del Estado en forma directa, en la medida del cumplimiento de sus respectivas competencias; d) Se trate de datos personales relativos a la salud, y sea necesario por razones de salud pública, de emergencia o para la realización de estudios epidemiológicos, en tanto se preserven los datos identificatorios del titular mediante mecanismos de disociación adecuados; e) Se hubiera aplicado un procedimiento de disociación de la información.',
-      currentText:
-        'Los datos personales objeto de tratamiento sólo pueden ser cedidos para el cumplimiento de los fines directamente relacionados con el interés legítimo del cedente y del cesionario y con el previo consentimiento del titular de los datos. El consentimiento para la cesión es revocable. El consentimiento no es requerido cuando así lo disponga una ley, en los supuestos del art. 5.2, entre dependencias estatales, para datos de salud por razones de salud pública con disociación, o cuando se aplique disociación.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 11. — 1. Los datos personales objeto de tratamiento sólo pueden ser cedidos para el cumplimiento de los fines directamente relacionados con el interés legítimo del cedente y del cesionario y con el previo consentimiento del titular de los datos, al que se le debe informar sobre la finalidad de la cesión e identificar al cesionario o los elementos que permitan hacerlo. 2. El consentimiento para la cesión es revocable. 3. El consentimiento no es requerido cuando: a) Así lo disponga una ley; b) En los supuestos previstos en el artículo 5° inciso 2; c) Se realice entre dependencias de los órganos del Estado en forma directa, en la medida del cumplimiento de sus respectivas competencias; d) Se trate de datos personales relativos a la salud, y sea necesario por razones de salud pública, de emergencia o para la realización de estudios epidemiológicos, en tanto se preserven los datos identificatorios del titular mediante mecanismos de disociación adecuados; e) Se hubiera aplicado un procedimiento de disociación de la información.',      plainLanguageExplanation:
         'Los datos personales sólo pueden cederse a terceros con el consentimiento del titular, informándole para qué y a quién. El consentimiento puede revocarse en cualquier momento. Hay excepciones: cesión por ley, entre organismos del Estado con competencia, o para estudios epidemiológicos con datos disociados.',
       practicalEffects: [
         'Una empresa no puede vender su base de clientes a otra empresa sin el consentimiento de cada cliente.',
@@ -1018,7 +967,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-11',
           articleNumber: '11',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Los datos personales objeto de tratamiento sólo pueden ser cedidos para el cumplimiento de los fines directamente relacionados con el interés legítimo del cedente y del cesionario y con el previo consentimiento del titular de los datos, al que se le debe informar sobre la finalidad de la cesión e identificar al cesionario.',
           plainExplanation: 'Los datos sólo pueden cederse a terceros con consentimiento del titular, informando el propósito y el destinatario.',
           practicalExample:
@@ -1033,11 +982,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '12',
       title: 'Transferencia internacional',
-      originalText:
-        'ARTICULO 12. — 1. Es prohibida la transferencia de datos personales de cualquier tipo con países u organismos internacionales o supranacionales, que no proporcionen niveles de protección adecuados. 2. La prohibición no regirá en los siguientes supuestos: a) Colaboración judicial internacional; b) Intercambio de datos de carácter médico, cuando así lo exija el tratamiento del afectado, o una investigación epidemiológica; c) Transferencias bancarias o bursátiles, en lo relativo a las transacciones respectivas y conforme las leyes que les resulten aplicables; d) Cuando la transferencia se hubiera acordado en el marco de tratados internacionales en los cuales la República Argentina sea parte; e) Cuando la transferencia tenga por objeto la cooperación internacional entre organismos de inteligencia para la lucha contra el crimen organizado, el terrorismo y el narcotráfico.',
-      currentText:
-        'Es prohibida la transferencia de datos personales a países u organismos internacionales que no proporcionen niveles de protección adecuados. La prohibición no rige para colaboración judicial, datos médicos necesarios, transferencias bancarias/bursátiles, tratados internacionales, o cooperación de inteligencia contra crimen organizado.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 12. — 1. Es prohibida la transferencia de datos personales de cualquier tipo con países u organismos internacionales o supranacionales, que no proporcionen niveles de protección adecuados. 2. La prohibición no regirá en los siguientes supuestos: a) Colaboración judicial internacional; b) Intercambio de datos de carácter médico, cuando así lo exija el tratamiento del afectado, o una investigación epidemiológica; c) Transferencias bancarias o bursátiles, en lo relativo a las transacciones respectivas y conforme las leyes que les resulten aplicables; d) Cuando la transferencia se hubiera acordado en el marco de tratados internacionales en los cuales la República Argentina sea parte; e) Cuando la transferencia tenga por objeto la cooperación internacional entre organismos de inteligencia para la lucha contra el crimen organizado, el terrorismo y el narcotráfico.',      plainLanguageExplanation:
         'Está prohibido enviar datos personales a países que no tengan un nivel de protección de datos similar al argentino. Las excepciones son: colaboración judicial, salud, banca y bolsa, tratados internacionales, y cooperación antiterrorista.',
       practicalEffects: [
         'Una empresa argentina que envía datos de clientes a un servidor en un país sin ley de protección de datos viola este artículo.',
@@ -1061,7 +1007,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-12',
           articleNumber: '12',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Es prohibida la transferencia de datos personales de cualquier tipo con países u organismos internacionales o supranacionales, que no proporcionen niveles de protección adecuados.',
           plainExplanation: 'Prohibición de enviar datos a países sin protección adecuada.',
           practicalExample:
@@ -1076,11 +1022,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '13',
       title: 'Secreto profesional',
-      originalText:
-        'ARTICULO 13. — El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada la relación con el titular del archivo de datos.',
-      currentText:
-        'El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada la relación con el titular del archivo de datos.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 13. — El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada la relación con el titular del archivo de datos.',      plainLanguageExplanation:
         'Todas las personas que trabajan con datos personales (no sólo el responsable del archivo, sino también empleados, consultores, proveedores) tienen obligación de secreto profesional. Esta obligación no termina cuando dejan de trabajar con esos datos.',
       practicalEffects: [
         'Un empleado que accede a bases de datos de clientes sigue obligado al secreto aunque renuncie.',
@@ -1104,7 +1047,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-13',
           articleNumber: '13',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El responsable y las personas que intervengan en cualquier fase del tratamiento de datos personales están obligados al secreto profesional respecto de los mismos. Tal obligación subsistirá aun después de finalizada la relación con el titular del archivo de datos.',
           plainExplanation: 'El secreto sobre datos personales es permanente y aplica a todos quienes los tratan, incluso ex-empleados.',
           practicalExample:
@@ -1119,11 +1062,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '15',
       title: 'Control. Calidad de los datos. Actualización',
-      originalText:
-        'ARTICULO 15. — 1. Los responsables de archivos de datos deben adoptar las medidas técnicas y organizativas necesarias para garantizar la seguridad y confidencialidad de los datos personales, de modo de evitar su adulteración, pérdida, consulta o tratamiento no autorizado, y que permitan detectar desviaciones, intencionales o no, de información, ya sea que los riesgos provengan de la acción humana o del medio técnico utilizado. 2. Queda prohibido registrar datos personales en archivos, registros o bancos que no reúnan condiciones técnicas de integridad y seguridad. 3. La DNPDP establecerá los requisitos de integridad y seguridad de conformidad con los estándares internacionales.',
-      currentText:
-        'Los responsables de archivos deben adoptar medidas técnicas y organizativas para garantizar la seguridad y confidencialidad de los datos personales, evitando adulteración, pérdida, consulta o tratamiento no autorizado. Está prohibido registrar datos en archivos que no reúnan condiciones técnicas de integridad y seguridad.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 15. — 1. Los responsables de archivos de datos deben adoptar las medidas técnicas y organizativas necesarias para garantizar la seguridad y confidencialidad de los datos personales, de modo de evitar su adulteración, pérdida, consulta o tratamiento no autorizado, y que permitan detectar desviaciones, intencionales o no, de información, ya sea que los riesgos provengan de la acción humana o del medio técnico utilizado. 2. Queda prohibido registrar datos personales en archivos, registros o bancos que no reúnan condiciones técnicas de integridad y seguridad. 3. La DNPDP establecerá los requisitos de integridad y seguridad de conformidad con los estándares internacionales.',      plainLanguageExplanation:
         'Quienes tienen bases de datos deben implementar medidas de seguridad técnicas y organizativas. No se pueden usar sistemas o bases de datos que no cumplan los estándares de seguridad. La autoridad (DNPDP) establece los requisitos mínimos según estándares internacionales.',
       practicalEffects: [
         'Las empresas deben tener políticas de seguridad de la información para los datos personales.',
@@ -1147,7 +1087,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-15',
           articleNumber: '15',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Los responsables de archivos de datos deben adoptar las medidas técnicas y organizativas necesarias para garantizar la seguridad y confidencialidad de los datos personales, de modo de evitar su adulteración, pérdida, consulta o tratamiento no autorizado.',
           plainExplanation: 'Los responsables de bases de datos deben implementar medidas de seguridad técnicas y organizativas.',
           practicalExample:
@@ -1162,11 +1102,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '17',
       title: 'Excepciones',
-      originalText:
-        'ARTICULO 17. — 1. Los responsables de bancos de datos públicos pueden, mediante decisión fundada, denegar el acceso, la rectificación o la supresión en función de la protección de la defensa de la Nación, del orden y la seguridad pública, o de la protección de los derechos e intereses de terceros. 2. La información sobre datos personales también puede ser denegada por los responsables de bancos de datos públicos, cuando de tal modo se pudieran obstaculizar actuaciones judiciales o administrativas en curso vinculadas a la investigación sobre el cumplimiento de obligaciones tributarias o previsionales, el desarrollo de funciones de control de la salud y del medio ambiente, la investigación y persecución de infracciones penales y la verificación de infracciones administrativas. 3. La resolución que así lo disponga debe ser fundada y notificada al afectado.',
-      currentText:
-        'Los responsables de bases de datos públicas pueden denegar el acceso, rectificación o supresión de datos cuando sea necesario para: defensa nacional, seguridad pública, protección de terceros, investigaciones judiciales en curso (impuestos, salud, penal, administrativo). La resolución debe ser fundada y notificada.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 17. — 1. Los responsables de bancos de datos públicos pueden, mediante decisión fundada, denegar el acceso, la rectificación o la supresión en función de la protección de la defensa de la Nación, del orden y la seguridad pública, o de la protección de los derechos e intereses de terceros. 2. La información sobre datos personales también puede ser denegada por los responsables de bancos de datos públicos, cuando de tal modo se pudieran obstaculizar actuaciones judiciales o administrativas en curso vinculadas a la investigación sobre el cumplimiento de obligaciones tributarias o previsionales, el desarrollo de funciones de control de la salud y del medio ambiente, la investigación y persecución de infracciones penales y la verificación de infracciones administrativas. 3. La resolución que así lo disponga debe ser fundada y notificada al afectado.',      plainLanguageExplanation:
         'Los organismos públicos pueden negarle al ciudadano el acceso o corrección de sus datos cuando hay razones de seguridad nacional, investigaciones judiciales en curso, o protección de terceros. Pero deben comunicar la denegación de forma fundada.',
       practicalEffects: [
         'La AFIP puede negarte ver tus datos si hay una investigación fiscal en curso.',
@@ -1190,7 +1127,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-17',
           articleNumber: '17',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Los responsables de bancos de datos públicos pueden, mediante decisión fundada, denegar el acceso, la rectificación o la supresión en función de la protección de la defensa de la Nación, del orden y la seguridad pública, o de la protección de los derechos e intereses de terceros.',
           plainExplanation: 'Los organismos públicos pueden denegar acceso a datos por razones de seguridad nacional o investigaciones en curso, pero deben fundarlo.',
           practicalExample:
@@ -1205,11 +1142,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '18',
       title: 'Archivos de seguridad',
-      originalText:
-        'ARTICULO 18. — Los responsables de archivos de datos personales que actúen con fines de seguridad, defensa, inteligencia del Estado, o persecución de infracciones penales, estarán excluidos de las disposiciones contenidas en los capítulos II, III y IV de esta ley. Queda a salvo la posibilidad de iniciar una acción de habeas data.',
-      currentText:
-        'Los responsables de archivos de datos que actúen con fines de seguridad, defensa, inteligencia del Estado, o persecución de infracciones penales están excluidos de los capítulos II, III y IV de esta ley. La acción de habeas data sigue siendo posible.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 18. — Los responsables de archivos de datos personales que actúen con fines de seguridad, defensa, inteligencia del Estado, o persecución de infracciones penales, estarán excluidos de las disposiciones contenidas en los capítulos II, III y IV de esta ley. Queda a salvo la posibilidad de iniciar una acción de habeas data.',      plainLanguageExplanation:
         'Las bases de datos de organismos de seguridad e inteligencia (SIDE, PFA, Gendarmería, etc.) están exentas de las reglas de acceso, rectificación y baja de datos. Sin embargo, cualquier persona puede iniciar una acción de habeas data judicial contra esos organismos.',
       practicalEffects: [
         'Los archivos de inteligencia no están obligados a responder pedidos de acceso extrajudicial.',
@@ -1232,7 +1166,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-18',
           articleNumber: '18',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Los responsables de archivos de datos personales que actúen con fines de seguridad, defensa, inteligencia del Estado, o persecución de infracciones penales, estarán excluidos de las disposiciones contenidas en los capítulos II, III y IV de esta ley. Queda a salvo la posibilidad de iniciar una acción de habeas data.',
           plainExplanation: 'Los archivos de seguridad e inteligencia están exentos de acceso extrajudicial pero el habeas data judicial sigue disponible.',
           practicalExample:
@@ -1247,11 +1181,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '19',
       title: 'Registros de acceso restringido',
-      originalText:
-        'ARTICULO 19. — Las normas de los capítulos I y II de la presente ley se aplicarán a los registros que contengan datos personales destinados a ser utilizados con fines estadísticos, científicos o de investigación, siempre y cuando no se puedan identificar a los titulares de los datos.',
-      currentText:
-        'Las normas de los capítulos I y II de esta ley se aplican a los registros estadísticos, científicos o de investigación, siempre que no sea posible identificar a los titulares de los datos.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 19. — Las normas de los capítulos I y II de la presente ley se aplicarán a los registros que contengan datos personales destinados a ser utilizados con fines estadísticos, científicos o de investigación, siempre y cuando no se puedan identificar a los titulares de los datos.',      plainLanguageExplanation:
         'Los datos usados con fines estadísticos, científicos o de investigación están protegidos por los capítulos I y II de la ley, pero sólo cuando los titulares puedan ser identificados. Si los datos están efectivamente disociados (anónimos), las protecciones plenas no aplican.',
       practicalEffects: [
         'Los datos de investigación anónimos están menos sujetos a restricciones.',
@@ -1275,7 +1206,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-19',
           articleNumber: '19',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Las normas de los capítulos I y II de la presente ley se aplicarán a los registros que contengan datos personales destinados a ser utilizados con fines estadísticos, científicos o de investigación, siempre y cuando no se puedan identificar a los titulares de los datos.',
           plainExplanation: 'Los datos estadísticos y de investigación están protegidos si permiten identificar personas; si son anónimos, tienen menos restricciones.',
           practicalExample:
@@ -1290,11 +1221,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '20',
       title: 'Prestación de servicios de información crediticia',
-      originalText:
-        'ARTICULO 20. — 1. En la prestación de servicios de información crediticia sólo pueden tratarse datos personales de carácter patrimonial relativos a la solvencia económica y al crédito, obtenidos de fuentes accesibles al público o procedentes de informaciones facilitadas por el interesado o con su consentimiento. 2. Pueden tratarse igualmente datos personales relativos al cumplimiento o incumplimiento de obligaciones de contenido patrimonial, facilitados por el acreedor o por quien actúe por su cuenta o interés. 3. A solicitud del titular de los datos, el responsable del banco de datos le comunicará las informaciones, evaluaciones y apreciaciones que sobre el mismo hayan sido comunicadas durante los últimos seis meses y el nombre y domicilio del cesionario en el supuesto de tratarse de datos obtenidos por cesión. 4. Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económico-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación, debiéndose hacer constar dicho hecho.',
-      currentText:
-        'En información crediticia sólo pueden tratarse datos patrimoniales de fuentes públicas o con consentimiento. Los datos de incumplimiento pueden ser aportados por el acreedor. El titular puede pedir qué datos se informaron en los últimos 6 meses. Los datos pueden archivarse por 5 años máximo; 2 años si se cancela la deuda.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 20. — 1. En la prestación de servicios de información crediticia sólo pueden tratarse datos personales de carácter patrimonial relativos a la solvencia económica y al crédito, obtenidos de fuentes accesibles al público o procedentes de informaciones facilitadas por el interesado o con su consentimiento. 2. Pueden tratarse igualmente datos personales relativos al cumplimiento o incumplimiento de obligaciones de contenido patrimonial, facilitados por el acreedor o por quien actúe por su cuenta o interés. 3. A solicitud del titular de los datos, el responsable del banco de datos le comunicará las informaciones, evaluaciones y apreciaciones que sobre el mismo hayan sido comunicadas durante los últimos seis meses y el nombre y domicilio del cesionario en el supuesto de tratarse de datos obtenidos por cesión. 4. Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económico-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación, debiéndose hacer constar dicho hecho.',      plainLanguageExplanation:
         'Las empresas de informes crediticios (como Veraz, Nosis, Equifax) sólo pueden usar datos económicos de fuentes públicas o con tu consentimiento. Un acreedor puede reportar tu deuda. Tenés derecho a saber qué datos se informaron en los últimos 6 meses. Los datos de mora permanecen por 5 años máximo (2 años si cancelaste la deuda).',
       practicalEffects: [
         'Una mora de 2016 ya no puede aparecer en el Veraz en 2022 (superó los 5 años).',
@@ -1319,7 +1247,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-20',
           articleNumber: '20',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'En la prestación de servicios de información crediticia sólo pueden tratarse datos personales de carácter patrimonial relativos a la solvencia económica y al crédito, obtenidos de fuentes accesibles al público o procedentes de informaciones facilitadas por el interesado o con su consentimiento.',
           plainExplanation: 'Las empresas de informes crediticios sólo pueden usar datos patrimoniales de fuentes públicas o con consentimiento.',
           practicalExample:
@@ -1333,7 +1261,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-20',
           articleNumber: '20',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Sólo se podrán archivar, registrar o ceder los datos personales que sean significativos para evaluar la solvencia económico-financiera de los afectados durante los últimos cinco años. Dicho plazo se reducirá a dos años cuando el deudor cancele o de otro modo extinga la obligación.',
           plainExplanation: 'Los datos de mora sólo pueden conservarse 5 años; 2 años si se canceló la deuda.',
           practicalExample:
@@ -1348,11 +1276,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '21',
       title: 'Prestación de servicios de información crediticia — datos de salud',
-      originalText:
-        'ARTICULO 21. — Los datos de salud sólo podrán ser cedidos, en los términos previstos en la presente ley, cuando medien razones de salud pública, de emergencia o para la realización de estudios epidemiológicos, siempre que se preserven los datos identificatorios del titular mediante mecanismos de disociación adecuados.',
-      currentText:
-        'Los datos de salud sólo podrán cederse cuando medien razones de salud pública, emergencia o estudios epidemiológicos, preservando los datos identificatorios mediante disociación adecuada.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 21. — Los datos de salud sólo podrán ser cedidos, en los términos previstos en la presente ley, cuando medien razones de salud pública, de emergencia o para la realización de estudios epidemiológicos, siempre que se preserven los datos identificatorios del titular mediante mecanismos de disociación adecuados.',      plainLanguageExplanation:
         'Los datos de salud son datos sensibles con protección reforzada: sólo pueden cederse para salud pública, emergencias o estudios epidemiológicos, y siempre con anonimización.',
       practicalEffects: [
         'Un hospital no puede ceder historias clínicas identificadas a una compañía de seguros.',
@@ -1374,7 +1299,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-21',
           articleNumber: '21',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Los datos de salud sólo podrán ser cedidos cuando medien razones de salud pública, de emergencia o para la realización de estudios epidemiológicos, siempre que se preserven los datos identificatorios mediante mecanismos de disociación adecuados.',
           plainExplanation: 'Los datos de salud sólo pueden cederse para fines de salud pública y con anonimización.',
           practicalExample:
@@ -1389,11 +1314,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '22',
       title: 'Archivos, registros o bancos de datos públicos',
-      originalText:
-        'ARTICULO 22. — 1. Las normas del presente capítulo se aplicarán a los archivos de datos personales de los organismos públicos con las siguientes modificaciones: a) La reglamentación establecerá el procedimiento específico para que el responsable del archivo informe sobre la existencia y finalidad del mismo. b) Los responsables de los archivos de datos dependientes de los organismos públicos comunicarán a la autoridad de aplicación la existencia de esos archivos. 2. Cuando por la índole de la información que tuvieran registrada en sus archivos, los organismos públicos estuvieran alcanzados por las excepciones previstas en el artículo 17, las disposiciones de este capítulo les serán de aplicación en la medida en que no obsten al cumplimiento de sus funciones específicas.',
-      currentText:
-        'Las normas del capítulo se aplican a archivos públicos con modificaciones: los responsables deben registrar el archivo ante la autoridad de aplicación. Si están alcanzados por las excepciones del art. 17, las normas aplican sólo en la medida en que no obstaculicen sus funciones.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 22. — 1. Las normas del presente capítulo se aplicarán a los archivos de datos personales de los organismos públicos con las siguientes modificaciones: a) La reglamentación establecerá el procedimiento específico para que el responsable del archivo informe sobre la existencia y finalidad del mismo. b) Los responsables de los archivos de datos dependientes de los organismos públicos comunicarán a la autoridad de aplicación la existencia de esos archivos. 2. Cuando por la índole de la información que tuvieran registrada en sus archivos, los organismos públicos estuvieran alcanzados por las excepciones previstas en el artículo 17, las disposiciones de este capítulo les serán de aplicación en la medida en que no obsten al cumplimiento de sus funciones específicas.',      plainLanguageExplanation:
         'Los organismos del Estado también están sometidos a la ley de datos personales, con algunas adaptaciones. Deben registrar sus bases de datos ante la autoridad. Si tienen excepciones por razones de seguridad (art. 17), las normas aplican en la medida posible.',
       practicalEffects: [
         'Un ministerio que tiene una base de datos de ciudadanos debe registrarla ante la DNPDP.',
@@ -1415,7 +1337,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-22',
           articleNumber: '22',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Las normas del presente capítulo se aplicarán a los archivos de datos personales de los organismos públicos. Los responsables de los archivos de datos dependientes de organismos públicos comunicarán a la autoridad de aplicación la existencia de esos archivos.',
           plainExplanation: 'Los organismos públicos también deben cumplir la ley de datos y registrar sus bases ante la DNPDP.',
           practicalExample:
@@ -1430,11 +1352,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '23',
       title: 'Responsabilidad',
-      originalText:
-        'ARTICULO 23. — 1. El responsable del archivo de datos responderá por los daños y perjuicios que cause al titular de los datos como consecuencia del incumplimiento de las obligaciones previstas en la presente ley. 2. El responsable se eximirá de responsabilidad cuando demuestre que existió causa ajena que le impidió cumplirlas. 3. En materia de daños derivados del tratamiento de datos personales, los jueces podrán aplicar el Código Civil y Comercial de la Nación y las disposiciones de esta ley.',
-      currentText:
-        'El responsable del archivo responde por los daños causados al titular por incumplimiento de la ley. Se exime si demuestra causa ajena. Los jueces pueden aplicar el CCyC.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 23. — 1. El responsable del archivo de datos responderá por los daños y perjuicios que cause al titular de los datos como consecuencia del incumplimiento de las obligaciones previstas en la presente ley. 2. El responsable se eximirá de responsabilidad cuando demuestre que existió causa ajena que le impidió cumplirlas. 3. En materia de daños derivados del tratamiento de datos personales, los jueces podrán aplicar el Código Civil y Comercial de la Nación y las disposiciones de esta ley.',      plainLanguageExplanation:
         'El responsable del archivo de datos es responsable civil por los daños que cause a las personas cuyos datos trata. Para eximirse, debe probar que fue una causa ajena (hecho de tercero, caso fortuito). Los jueces aplican la ley de datos y el Código Civil y Comercial.',
       practicalEffects: [
         'Si una empresa filtra datos de clientes por negligencia, responde civilmente por todos los daños causados.',
@@ -1457,7 +1376,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-23',
           articleNumber: '23',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El responsable del archivo de datos responderá por los daños y perjuicios que cause al titular de los datos como consecuencia del incumplimiento de las obligaciones previstas en la presente ley. El responsable se eximirá de responsabilidad cuando demuestre que existió causa ajena que le impidió cumplirlas.',
           plainExplanation: 'El responsable del archivo responde civilmente por daños; sólo se exime probando causa ajena.',
           practicalExample:
@@ -1472,11 +1391,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '24',
       title: 'Sanciones administrativas',
-      originalText:
-        'ARTICULO 24. — 1. El organismo de control podrá aplicar las sanciones de apercibimiento, suspensión, multa de mil pesos ($ 1.000) a cien mil pesos ($ 100.000), clausura o cancelación del archivo, registro o banco de datos. 2. La reglamentación determinará las condiciones y procedimientos para la aplicación de las sanciones previstas, las que deberán graduarse en relación a la gravedad y extensión de la violación y de los daños que se hubieran producido. 3. Cuando los archivos de datos sean públicos, las sanciones administrativas podrán imponerse a las autoridades responsables de los mismos, dentro del máximo previsto en este artículo.',
-      currentText:
-        'El organismo de control puede aplicar: apercibimiento, suspensión, multa ($1.000 a $100.000), clausura o cancelación del archivo. Las sanciones se gradúan según la gravedad y extensión de la violación. Para archivos públicos, las sanciones pueden recaer sobre los funcionarios responsables.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 24. — 1. El organismo de control podrá aplicar las sanciones de apercibimiento, suspensión, multa de mil pesos ($ 1.000) a cien mil pesos ($ 100.000), clausura o cancelación del archivo, registro o banco de datos. 2. La reglamentación determinará las condiciones y procedimientos para la aplicación de las sanciones previstas, las que deberán graduarse en relación a la gravedad y extensión de la violación y de los daños que se hubieran producido. 3. Cuando los archivos de datos sean públicos, las sanciones administrativas podrán imponerse a las autoridades responsables de los mismos, dentro del máximo previsto en este artículo.',      plainLanguageExplanation:
         'La DNPDP puede sancionar a quienes violen la ley con apercibimiento, suspensión, multas, clausura o hasta cancelación definitiva de la base de datos. Para organismos públicos, los funcionarios responsables también pueden ser sancionados.',
       practicalEffects: [
         'La clausura de una base de datos puede paralizar la operación de una empresa que depende de ella.',
@@ -1500,7 +1416,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-24',
           articleNumber: '24',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El organismo de control podrá aplicar las sanciones de apercibimiento, suspensión, multa de mil pesos ($ 1.000) a cien mil pesos ($ 100.000), clausura o cancelación del archivo, registro o banco de datos.',
           plainExplanation: 'La DNPDP puede sancionar con apercibimiento, multa, clausura o cancelación del archivo de datos.',
           practicalExample:
@@ -1515,11 +1431,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '25',
       title: 'Sanciones penales',
-      originalText:
-        'ARTICULO 25. — Incorpórase como artículo 117 bis del Código Penal el siguiente texto: "1°. Será reprimido con la pena de prisión de un mes a dos años el que insertare o hiciere insertar a sabiendas datos falsos en un archivo de datos personales. 2°. La pena será de seis meses a tres años, al que proporcionare a un tercero a sabiendas información falsa contenida en un archivo de datos personales. 3°. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona. 4°. Cuando el autor o responsable del ilícito sea funcionario público en ejercicio de sus funciones, se le aplicará la accesoria de inhabilitación para el desempeño de cargos públicos por el doble del tiempo que el de la condena."',
-      currentText:
-        'Incorpora el art. 117 bis al Código Penal: insertar datos falsos en archivo de datos personales: 1–2 años de prisión. Proporcionar información falsa a terceros: 6 meses a 3 años. Si causa perjuicio, se agrava la pena. Si es funcionario público, inhabilitación por el doble del tiempo de condena.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 25. — Incorpórase como artículo 117 bis del Código Penal el siguiente texto: "1°. Será reprimido con la pena de prisión de un mes a dos años el que insertare o hiciere insertar a sabiendas datos falsos en un archivo de datos personales. 2°. La pena será de seis meses a tres años, al que proporcionare a un tercero a sabiendas información falsa contenida en un archivo de datos personales. 3°. La escala penal se aumentará en la mitad del mínimo y del máximo, cuando del hecho se derive perjuicio a alguna persona. 4°. Cuando el autor o responsable del ilícito sea funcionario público en ejercicio de sus funciones, se le aplicará la accesoria de inhabilitación para el desempeño de cargos públicos por el doble del tiempo que el de la condena."',      plainLanguageExplanation:
         'Incorpora al Código Penal el delito de manipulación de datos personales. Es delito insertar datos falsos en una base de datos (1-2 años de prisión) o dar esa información falsa a terceros (6 meses-3 años). Si el autor es funcionario público, también pierde su cargo.',
       practicalEffects: [
         'Insertar datos falsos en el Veraz o en el BCRA es un delito penal.',
@@ -1543,7 +1456,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-25',
           articleNumber: '25',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Será reprimido con prisión de un mes a dos años el que insertare o hiciere insertar a sabiendas datos falsos en un archivo de datos personales. La pena será de seis meses a tres años al que proporcionare a un tercero información falsa contenida en un archivo de datos personales.',
           plainExplanation: 'Insertar datos falsos en un archivo: 1-2 años; dar esa información falsa a terceros: 6 meses-3 años.',
           practicalExample:
@@ -1558,11 +1471,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '27',
       title: 'Autoridad de control',
-      originalText:
-        'ARTICULO 27. — 1. El organismo de control realizará todas las acciones necesarias para el cumplimiento de los objetivos y demás disposiciones de la presente ley. En especial, podrá: a) Asistir y asesorar a las personas que lo requieran acerca de los alcances de la presente y de los medios legales de que disponen para la defensa de los derechos que ella garantiza; b) Dictar las normas y reglamentaciones que se deben observar en el desarrollo de las actividades incluidas en la presente ley; c) Realizar una auditoria anual sobre los archivos, registros o bancos de datos alcanzados por la ley, a efectos de evaluar el cumplimiento de sus disposiciones; d) Solicitar información a las entidades públicas y privadas; e) Imponer las sanciones administrativas que correspondan por violación a las normas de la presente ley y su reglamentación; f) Efectuar denuncias penales en los casos en que lo estime pertinente; g) Controlar el cumplimiento de los requisitos y garantías que deben reunir los archivos o bancos de datos privados destinados a suministrar informes, para obtener la correspondiente inscripción en el registro.',
-      currentText:
-        'El organismo de control (DNPDP) puede: asesorar, dictar normas, auditar archivos anualmente, solicitar información a entidades públicas y privadas, imponer sanciones, efectuar denuncias penales, y controlar inscripciones de bases de datos privadas.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 27. — 1. El organismo de control realizará todas las acciones necesarias para el cumplimiento de los objetivos y demás disposiciones de la presente ley. En especial, podrá: a) Asistir y asesorar a las personas que lo requieran acerca de los alcances de la presente y de los medios legales de que disponen para la defensa de los derechos que ella garantiza; b) Dictar las normas y reglamentaciones que se deben observar en el desarrollo de las actividades incluidas en la presente ley; c) Realizar una auditoria anual sobre los archivos, registros o bancos de datos alcanzados por la ley, a efectos de evaluar el cumplimiento de sus disposiciones; d) Solicitar información a las entidades públicas y privadas; e) Imponer las sanciones administrativas que correspondan por violación a las normas de la presente ley y su reglamentación; f) Efectuar denuncias penales en los casos en que lo estime pertinente; g) Controlar el cumplimiento de los requisitos y garantías que deben reunir los archivos o bancos de datos privados destinados a suministrar informes, para obtener la correspondiente inscripción en el registro.',      plainLanguageExplanation:
         'La DNPDP (hoy AAIP) tiene amplias facultades: puede asesorar ciudadanos, dictar normas, hacer auditorías anuales de bases de datos, pedir información a cualquier organismo, sancionar, denunciar penalmente y controlar que las bases privadas estén inscriptas.',
       practicalEffects: [
         'La DNPDP puede auditar cualquier base de datos privada sin previo aviso si tiene razones fundadas.',
@@ -1586,7 +1496,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-27',
           articleNumber: '27',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El organismo de control realizará todas las acciones necesarias para el cumplimiento de los objetivos de la ley. Podrá asesorar, dictar normas, auditar archivos, solicitar información, imponer sanciones y efectuar denuncias penales.',
           plainExplanation: 'La DNPDP/AAIP tiene amplias facultades para hacer cumplir la ley de datos personales.',
           practicalExample:
@@ -1601,11 +1511,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '28',
       title: 'Registro de archivos de datos',
-      originalText:
-        'ARTICULO 28. — 1. Todo archivo, registro, base o banco de datos público, y privado destinado a proporcionar informes debe inscribirse en el Registro que al efecto habilite el organismo de control. 2. El registro de archivos de datos debe comprender como mínimo, la siguiente información: a) Nombre y domicilio del responsable; b) Características y finalidad del archivo; c) Naturaleza de los datos personales contenidos en cada archivo; d) Forma de recolección y actualización de datos; e) Destino de los datos y personas físicas o jurídicas a las cuales pueden ser transmitidos; f) Modo de interrelacionar la información registrada; g) Medios utilizados para garantizar la seguridad de los datos, debiendo informar sobre las categorías de personas que tendrán acceso al tratamiento de la información; h) Tiempo de conservación de los datos; i) Forma y condiciones en que las personas pueden acceder a los datos referidos a ellas y los procedimientos a realizar para la rectificación o actualización de los datos.',
-      currentText:
-        'Todo archivo público o privado de datos que sirva para informes debe inscribirse en el Registro de la DNPDP. La inscripción debe incluir: datos del responsable, características del archivo, tipo de datos, forma de recolección, destinatarios, medidas de seguridad, tiempo de conservación y procedimiento de acceso.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 28. — 1. Todo archivo, registro, base o banco de datos público, y privado destinado a proporcionar informes debe inscribirse en el Registro que al efecto habilite el organismo de control. 2. El registro de archivos de datos debe comprender como mínimo, la siguiente información: a) Nombre y domicilio del responsable; b) Características y finalidad del archivo; c) Naturaleza de los datos personales contenidos en cada archivo; d) Forma de recolección y actualización de datos; e) Destino de los datos y personas físicas o jurídicas a las cuales pueden ser transmitidos; f) Modo de interrelacionar la información registrada; g) Medios utilizados para garantizar la seguridad de los datos, debiendo informar sobre las categorías de personas que tendrán acceso al tratamiento de la información; h) Tiempo de conservación de los datos; i) Forma y condiciones en que las personas pueden acceder a los datos referidos a ellas y los procedimientos a realizar para la rectificación o actualización de los datos.',      plainLanguageExplanation:
         'Toda base de datos que sirva para dar informes (Veraz, Nosis, bases empresariales) debe estar inscripta en el Registro de la DNPDP. La inscripción requiere informar qué datos tiene, para qué, quién accede, cómo se protegen y cuánto tiempo se guardan.',
       practicalEffects: [
         'Una empresa que opera una base de datos sin inscripción viola la ley aunque no haya causado daños.',
@@ -1629,7 +1536,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-28',
           articleNumber: '28',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Todo archivo, registro, base o banco de datos público, y privado destinado a proporcionar informes debe inscribirse en el Registro que al efecto habilite el organismo de control.',
           plainExplanation: 'Toda base de datos que sirva para dar informes debe inscribirse en el Registro de la DNPDP.',
           practicalExample:
@@ -1644,11 +1551,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '30',
       title: 'Acción de protección de datos (habeas data) — competencia',
-      originalText:
-        'ARTICULO 30. — 1. La acción de habeas data tramitará según las disposiciones de la ley 16.986, en lo que no sea modificado por la presente. 2. Cuando la acción sea iniciada por personas jurídicas, no será de aplicación el procedimiento establecido en la ley 16.986, sino el que corresponda según la naturaleza de la cuestión planteada. 3. En el caso de los archivos o bancos de datos públicos, la acción se entenderá como dirigida contra el Estado, el que será el responsable del procedimiento. 4. Cuando la acción sea dirigida contra una entidad privada, y ésta invoque la confidencialidad de la información que se le requiere, el juez podrá tomar conocimiento personal y directo de los datos solicitados, asegurando su confidencialidad.',
-      currentText:
-        'La acción de habeas data tramita según la ley 16.986. Para personas jurídicas aplica el proceso ordinario. Contra archivos públicos, el demandado es el Estado. Para archivos privados que invoquen confidencialidad, el juez puede revisar los datos en privado.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 30. — 1. La acción de habeas data tramitará según las disposiciones de la ley 16.986, en lo que no sea modificado por la presente. 2. Cuando la acción sea iniciada por personas jurídicas, no será de aplicación el procedimiento establecido en la ley 16.986, sino el que corresponda según la naturaleza de la cuestión planteada. 3. En el caso de los archivos o bancos de datos públicos, la acción se entenderá como dirigida contra el Estado, el que será el responsable del procedimiento. 4. Cuando la acción sea dirigida contra una entidad privada, y ésta invoque la confidencialidad de la información que se le requiere, el juez podrá tomar conocimiento personal y directo de los datos solicitados, asegurando su confidencialidad.',      plainLanguageExplanation:
         'El habeas data se tramita por el proceso de amparo (ley 16.986). Si la empresa demandada dice que los datos son confidenciales, el juez puede revisarlos él mismo sin revelarlos al público. Contra organismos públicos, el demandado es el Estado.',
       practicalEffects: [
         'El habeas data es una acción rápida similar al amparo.',
@@ -1672,7 +1576,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-30',
           articleNumber: '30',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La acción de habeas data tramitará según las disposiciones de la ley 16.986. Cuando la acción sea dirigida contra una entidad privada y ésta invoque confidencialidad, el juez podrá tomar conocimiento personal y directo de los datos solicitados.',
           plainExplanation: 'El habeas data tramita por amparo; si la empresa invoca confidencialidad, el juez puede revisar los datos en privado.',
           practicalExample:
@@ -1687,11 +1591,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '31',
       title: 'Legitimación activa',
-      originalText:
-        'ARTICULO 31. — La acción de protección de los datos personales o de habeas data podrá ser ejercida por el afectado, sus tutores o curadores y los sucesores de las personas físicas, sean en línea directa o colateral hasta el segundo grado, por sí o por intermedio de apoderado. Cuando la acción sea ejercida por personas de existencia ideal, deberá ser interpuesta por sus representantes legales, o apoderados que éstas designen al efecto. En el proceso podrá intervenir en forma coadyuvante el Defensor del Pueblo.',
-      currentText:
-        'El habeas data puede iniciarlo el afectado, tutores, curadores, o herederos hasta 2° grado. Las personas jurídicas actúan por sus representantes. El Defensor del Pueblo puede intervenir como coadyuvante.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 31. — La acción de protección de los datos personales o de habeas data podrá ser ejercida por el afectado, sus tutores o curadores y los sucesores de las personas físicas, sean en línea directa o colateral hasta el segundo grado, por sí o por intermedio de apoderado. Cuando la acción sea ejercida por personas de existencia ideal, deberá ser interpuesta por sus representantes legales, o apoderados que éstas designen al efecto. En el proceso podrá intervenir en forma coadyuvante el Defensor del Pueblo.',      plainLanguageExplanation:
         'El habeas data puede iniciarlo la persona afectada, sus familiares directos (hasta segundo grado), sus tutores o apoderados. Las empresas actúan por sus representantes legales. El Defensor del Pueblo puede intervenir en el proceso.',
       practicalEffects: [
         'Los herederos pueden iniciar habeas data para acceder a datos de una persona fallecida.',
@@ -1715,7 +1616,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-31',
           articleNumber: '31',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La acción de protección de los datos personales o de habeas data podrá ser ejercida por el afectado, sus tutores o curadores y los sucesores de las personas físicas, sean en línea directa o colateral hasta el segundo grado. En el proceso podrá intervenir en forma coadyuvante el Defensor del Pueblo.',
           plainExplanation: 'El habeas data puede iniciarlo el afectado, tutores, herederos hasta 2° grado, o el Defensor del Pueblo como coadyuvante.',
           practicalExample:
@@ -1730,11 +1631,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '34',
       title: 'Trámite de la acción — demanda',
-      originalText:
-        'ARTICULO 34. — En la demanda se deberá indicar con precisión los datos personales que se solicita rectificar, actualizar, suprimir o en su caso la información que se requiere conocer. El afectado podrá solicitar que, mientras dure el proceso, el registro sea bloqueado temporariamente.',
-      currentText:
-        'La demanda de habeas data debe indicar con precisión los datos a rectificar, actualizar o suprimir. El titular puede pedir el bloqueo temporal del registro mientras dure el proceso.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 34. — En la demanda se deberá indicar con precisión los datos personales que se solicita rectificar, actualizar, suprimir o en su caso la información que se requiere conocer. El afectado podrá solicitar que, mientras dure el proceso, el registro sea bloqueado temporariamente.',      plainLanguageExplanation:
         'Al iniciar el habeas data, hay que especificar exactamente qué datos se quieren conocer, corregir o eliminar. Durante el proceso, el juez puede bloquear temporariamente el uso de esos datos para evitar daños mientras se resuelve el caso.',
       practicalEffects: [
         'El bloqueo temporal impide que la empresa use los datos cuestionados mientras dura el juicio.',
@@ -1756,7 +1654,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-34',
           articleNumber: '34',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'En la demanda se deberá indicar con precisión los datos personales que se solicita rectificar, actualizar, suprimir o la información que se requiere conocer. El afectado podrá solicitar que el registro sea bloqueado temporariamente mientras dure el proceso.',
           plainExplanation: 'La demanda de habeas data debe ser precisa; se puede pedir bloqueo temporal de los datos durante el proceso.',
           practicalExample:
@@ -1771,11 +1669,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '35',
       title: 'Citación del demandado',
-      originalText:
-        'ARTICULO 35. — Admitida la acción, se requerirá al archivo, registro o banco de datos la remisión de la información concerniente al accionante. Podrá ordenarse la suspensión del uso de los datos personales en cuestión. La información deberá ser remitida por el responsable dentro del plazo fijado por el juez.',
-      currentText:
-        'Admitida la acción, el juez requiere al responsable del archivo la información concerniente al actor. Puede ordenar la suspensión del uso de los datos. El plazo lo fija el juez.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 35. — Admitida la acción, se requerirá al archivo, registro o banco de datos la remisión de la información concerniente al accionante. Podrá ordenarse la suspensión del uso de los datos personales en cuestión. La información deberá ser remitida por el responsable dentro del plazo fijado por el juez.',      plainLanguageExplanation:
         'Cuando el juez admite el habeas data, pide al responsable de la base de datos que remita la información sobre el actor. El juez también puede suspender el uso de esos datos durante el proceso. El responsable debe cumplir en el plazo que fije el juez.',
       practicalEffects: [
         'El responsable está legalmente obligado a remitir la información al juez.',
@@ -1798,7 +1693,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-35',
           articleNumber: '35',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Admitida la acción, se requerirá al archivo, registro o banco de datos la remisión de la información concerniente al accionante. Podrá ordenarse la suspensión del uso de los datos personales en cuestión.',
           plainExplanation: 'El juez pide la información al responsable y puede suspender el uso de los datos durante el proceso.',
           practicalExample:
@@ -1813,11 +1708,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '36',
       title: 'Contestación del demandado',
-      originalText:
-        'ARTICULO 36. — 1. Si el archivo, registro o banco de datos reconoce la inexactitud o falsedad de los datos, deberá proceder de inmediato a su rectificación, actualización, supresión o confidencialidad según corresponda, y comunicarlo al actor. 2. Si el accionado no estuviese de acuerdo con lo solicitado, se procederá a una audiencia ante el juez para que cada parte exponga sus fundamentos.',
-      currentText:
-        'Si el responsable reconoce la inexactitud o falsedad, debe rectificar inmediatamente y comunicarlo al actor. Si no está de acuerdo, el juez convoca a audiencia para que cada parte exponga sus fundamentos.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 36. — 1. Si el archivo, registro o banco de datos reconoce la inexactitud o falsedad de los datos, deberá proceder de inmediato a su rectificación, actualización, supresión o confidencialidad según corresponda, y comunicarlo al actor. 2. Si el accionado no estuviese de acuerdo con lo solicitado, se procederá a una audiencia ante el juez para que cada parte exponga sus fundamentos.',      plainLanguageExplanation:
         'Si la empresa reconoce que los datos son incorrectos, debe corregirlos de inmediato y notificar al actor. Si no está de acuerdo, hay una audiencia ante el juez donde ambas partes exponen su posición.',
       practicalEffects: [
         'La rectificación espontánea puede poner fin al proceso rápidamente.',
@@ -1840,7 +1732,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-36',
           articleNumber: '36',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Si el archivo, registro o banco de datos reconoce la inexactitud o falsedad de los datos, deberá proceder de inmediato a su rectificación y comunicarlo al actor. Si el accionado no estuviese de acuerdo con lo solicitado, se procederá a una audiencia ante el juez.',
           plainExplanation: 'Reconocimiento voluntario lleva a rectificación inmediata; si hay desacuerdo, el juez convoca audiencia.',
           practicalExample:
@@ -1855,11 +1747,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '37',
       title: 'Sentencia',
-      originalText:
-        'ARTICULO 37. — La sentencia que haga lugar al habeas data deberá contener: a) Identificación del archivo, registro, base o banco de datos; b) Si correspondiere, la determinación de la información a rectificar, completar, depurar, suprimir, reservar o actualizar; c) El plazo para cumplir con lo resuelto; d) En su caso, la imposición de las costas al vencido.',
-      currentText:
-        'La sentencia favorable al habeas data debe identificar el archivo, determinar qué información rectificar/suprimir, fijar el plazo de cumplimiento e imponer costas al vencido.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 37. — La sentencia que haga lugar al habeas data deberá contener: a) Identificación del archivo, registro, base o banco de datos; b) Si correspondiere, la determinación de la información a rectificar, completar, depurar, suprimir, reservar o actualizar; c) El plazo para cumplir con lo resuelto; d) En su caso, la imposición de las costas al vencido.',      plainLanguageExplanation:
         'La sentencia que da lugar al habeas data debe ser concreta: identifica la base de datos, establece exactamente qué hay que corregir o eliminar, y fija el plazo para cumplirlo. Las costas (gastos del juicio) van al perdedor.',
       practicalEffects: [
         'La sentencia es ejecutable: si el responsable no cumple en el plazo, puede ser sancionado.',
@@ -1881,7 +1770,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-37',
           articleNumber: '37',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La sentencia que haga lugar al habeas data deberá contener: a) Identificación del archivo; b) La información a rectificar, completar, depurar, suprimir, reservar o actualizar; c) El plazo para cumplir; d) Imposición de costas al vencido.',
           plainExplanation: 'La sentencia favorable identifica el archivo, qué corregir o eliminar, el plazo de cumplimiento, y condena en costas.',
           practicalExample:
@@ -1896,11 +1785,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '38',
       title: 'Medidas conminatorias',
-      originalText:
-        'ARTICULO 38. — Cuando se declare procedente la acción, el juez podrá fijar astreintes a cargo del responsable del archivo, registro, base o banco de datos, según lo previsto en el artículo 666 bis del Código Civil, sin perjuicio de las demás responsabilidades emergentes.',
-      currentText:
-        'Declarada procedente la acción, el juez puede fijar astreintes (multas diarias) al responsable del archivo para compeler su cumplimiento.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 38. — Cuando se declare procedente la acción, el juez podrá fijar astreintes a cargo del responsable del archivo, registro, base o banco de datos, según lo previsto en el artículo 666 bis del Código Civil, sin perjuicio de las demás responsabilidades emergentes.',      plainLanguageExplanation:
         'Si el juez da lugar al habeas data, puede imponer astreintes: multas diarias que se acumulan hasta que el responsable cumpla la sentencia. Son una herramienta para forzar el cumplimiento sin necesidad de un nuevo juicio.',
       practicalEffects: [
         'Las astreintes hacen que el incumplimiento de la sentencia sea económicamente insostenible.',
@@ -1922,7 +1808,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-38',
           articleNumber: '38',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Cuando se declare procedente la acción, el juez podrá fijar astreintes a cargo del responsable del archivo, registro, base o banco de datos, sin perjuicio de las demás responsabilidades emergentes.',
           plainExplanation: 'El juez puede imponer astreintes (multas diarias) para forzar el cumplimiento de la sentencia de habeas data.',
           practicalExample:
@@ -1937,11 +1823,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '39',
       title: 'Gratuidad',
-      originalText:
-        'ARTICULO 39. — La acción de protección de los datos personales o de habeas data es gratuita cuando se deduzca por el propio afectado o sus sucesores.',
-      currentText:
-        'La acción de habeas data es gratuita cuando la deduce el afectado o sus sucesores.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 39. — La acción de protección de los datos personales o de habeas data es gratuita cuando se deduzca por el propio afectado o sus sucesores.',      plainLanguageExplanation:
         'Iniciar una acción de habeas data es gratuito: no se paga tasa de justicia. Aplica cuando lo deduce la persona afectada o sus herederos. Para personas jurídicas o abogados actuando por otros, pueden aplicarse otras reglas.',
       practicalEffects: [
         'El acceso a la justicia para proteger datos personales es gratuito.',
@@ -1964,7 +1847,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-39',
           articleNumber: '39',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La acción de protección de los datos personales o de habeas data es gratuita cuando se deduzca por el propio afectado o sus sucesores.',
           plainExplanation: 'El habeas data es gratuito cuando lo inicia el propio afectado o sus herederos.',
           practicalExample:
@@ -1979,11 +1862,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '40',
       title: 'Reglamentación',
-      originalText:
-        'ARTICULO 40. — La presente ley será reglamentada por el Poder Ejecutivo en un plazo no mayor de CIENTO OCHENTA (180) días contados a partir de su publicación en el Boletín Oficial.',
-      currentText:
-        'La ley será reglamentada por el Poder Ejecutivo en un plazo no mayor de 180 días desde su publicación en el Boletín Oficial.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 40. — La presente ley será reglamentada por el Poder Ejecutivo en un plazo no mayor de CIENTO OCHENTA (180) días contados a partir de su publicación en el Boletín Oficial.',      plainLanguageExplanation:
         'Mandato de reglamentación: el Poder Ejecutivo tenía 180 días desde la publicación de la ley para dictar su reglamentación. Fue cumplido mediante el Decreto 1558/2001.',
       practicalEffects: [
         'La reglamentación complementa y aclara los aspectos técnicos de la ley.',
@@ -2005,7 +1885,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-40',
           articleNumber: '40',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La presente ley será reglamentada por el Poder Ejecutivo en un plazo no mayor de CIENTO OCHENTA (180) días contados a partir de su publicación en el Boletín Oficial.',
           plainExplanation: 'El Poder Ejecutivo tenía 180 días para reglamentar la ley; lo hizo mediante el Decreto 1558/2001.',
           practicalExample: null,
@@ -2019,11 +1899,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '41',
       title: 'Aplicación',
-      originalText:
-        'ARTICULO 41. — Quedan derogadas todas las normas que se opongan a la presente ley. Se exceptúa de su aplicación los archivos, registros o bancos de datos regulados por leyes especiales.',
-      currentText:
-        'Quedan derogadas todas las normas que se opongan a esta ley. Se exceptúan los archivos regulados por leyes especiales.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 41. — Quedan derogadas todas las normas que se opongan a la presente ley. Se exceptúa de su aplicación los archivos, registros o bancos de datos regulados por leyes especiales.',      plainLanguageExplanation:
         'La Ley 25326 deroga toda norma previa que se le oponga. Las bases de datos reguladas por leyes especiales (como los registros del sistema financiero regulados por el BCRA) tienen sus propias reglas.',
       practicalEffects: [
         'La ley prevalece sobre cualquier norma anterior incompatible.',
@@ -2045,7 +1922,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-41',
           articleNumber: '41',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Quedan derogadas todas las normas que se opongan a la presente ley. Se exceptúa de su aplicación los archivos, registros o bancos de datos regulados por leyes especiales.',
           plainExplanation: 'La ley deroga normas previas incompatibles; las bases de datos reguladas por leyes especiales tienen sus propias reglas.',
           practicalExample: null,
@@ -2059,11 +1936,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '42',
       title: 'Incorporación al Código Penal — art. 117 bis',
-      originalText:
-        'ARTICULO 42. — Incorpórase como artículo 157 bis del Código Penal el siguiente texto: "Será reprimido con la pena de prisión de un mes a dos años el que: 1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales; 2. Ilegítimamente proporcionare o revelare a otro información registrada en un archivo o en un banco de datos personales cuyo secreto estuviere obligado a preservar por disposición de la ley. 3. Ilegítimamente insertare o hiciere insertar datos en un archivo de datos personales. Cuando el autor sea funcionario público sufrirá, además, pena de inhabilitación especial de un a cuatro años."',
-      currentText:
-        'Incorpora el art. 157 bis al CP: 1-2 años de prisión por acceder ilegítimamente a una base de datos, revelar información de una base cuyo secreto se está obligado a guardar, o insertar datos ilegítimamente. Si es funcionario público, inhabilitación adicional de 1 a 4 años.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 42. — Incorpórase como artículo 157 bis del Código Penal el siguiente texto: "Será reprimido con la pena de prisión de un mes a dos años el que: 1. A sabiendas e ilegítimamente, o violando sistemas de confidencialidad y seguridad de datos, accediere, de cualquier forma, a un banco de datos personales; 2. Ilegítimamente proporcionare o revelare a otro información registrada en un archivo o en un banco de datos personales cuyo secreto estuviere obligado a preservar por disposición de la ley. 3. Ilegítimamente insertare o hiciere insertar datos en un archivo de datos personales. Cuando el autor sea funcionario público sufrirá, además, pena de inhabilitación especial de un a cuatro años."',      plainLanguageExplanation:
         'Incorpora al Código Penal el delito de violación de datos personales: hackear una base de datos (art. 157 bis CP). Es delito: acceder sin autorización a una base de datos (hacking), revelar datos confidenciales de una base que se tiene acceso legítimo, o insertar datos falsos. El funcionario público también pierde su cargo.',
       practicalEffects: [
         'El acceso no autorizado a bases de datos es un delito penal en Argentina.',
@@ -2087,7 +1961,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-42',
           articleNumber: '42',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Será reprimido con la pena de prisión de un mes a dos años el que: 1. A sabiendas e ilegítimamente accediere a un banco de datos personales. 2. Ilegítimamente proporcionare o revelare información registrada en un archivo cuyo secreto estuviere obligado a preservar. 3. Ilegítimamente insertare datos en un archivo de datos personales.',
           plainExplanation: 'El art. 157 bis CP penaliza el acceso no autorizado, la revelación y la inserción ilegítima de datos personales.',
           practicalExample:
@@ -2102,11 +1976,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '43',
       title: 'Vigencia',
-      originalText:
-        'ARTICULO 43. — La presente ley entrará en vigencia a los seis meses de su publicación en el Boletín Oficial. Sin perjuicio de ello, las acciones de protección de datos personales podrán interponerse desde el momento de su publicación.',
-      currentText:
-        'La ley entró en vigencia a los 6 meses de su publicación. Las acciones de habeas data pudieron interponerse desde su publicación.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 43. — La presente ley entrará en vigencia a los seis meses de su publicación en el Boletín Oficial. Sin perjuicio de ello, las acciones de protección de datos personales podrán interponerse desde el momento de su publicación.',      plainLanguageExplanation:
         'La ley tuvo un período de vacancia de 6 meses para que los responsables de bases de datos pudieran adaptarse. Sin embargo, las acciones de habeas data pudieron iniciarse desde el mismo día de publicación.',
       practicalEffects: [
         'Los registros y bases de datos tuvieron 6 meses para cumplir con los requisitos de la ley.',
@@ -2128,7 +1999,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-43',
           articleNumber: '43',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'La presente ley entrará en vigencia a los seis meses de su publicación en el Boletín Oficial. Sin perjuicio de ello, las acciones de protección de datos personales podrán interponerse desde el momento de su publicación.',
           plainExplanation: 'La ley rigió 6 meses después de publicarse, pero el habeas data estuvo disponible desde el primer día.',
           practicalExample: null,
@@ -2142,11 +2013,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '44',
       title: 'Adecuación de los archivos existentes',
-      originalText:
-        'ARTICULO 44. — Los archivos, registros o bancos de datos existentes al momento de la sanción de la presente ley que no se adecuen a las disposiciones de la misma en el plazo previsto en el artículo anterior, quedarán sujetos al régimen sancionatorio de la presente ley.',
-      currentText:
-        'Los archivos existentes al momento de la ley que no se adecuen en el plazo de 6 meses quedan sujetos al régimen sancionatorio.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 44. — Los archivos, registros o bancos de datos existentes al momento de la sanción de la presente ley que no se adecuen a las disposiciones de la misma en el plazo previsto en el artículo anterior, quedarán sujetos al régimen sancionatorio de la presente ley.',      plainLanguageExplanation:
         'Las bases de datos que existían antes de la ley tenían 6 meses para adaptarse. Si no lo hicieron, pueden ser sancionadas como cualquier base de datos creada después de la ley.',
       practicalEffects: [
         'No hay protección para bases de datos antiguas que no se adecuaron.',
@@ -2168,7 +2036,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-44',
           articleNumber: '44',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Los archivos, registros o bancos de datos existentes al momento de la sanción de la presente ley que no se adecuen a las disposiciones de la misma en el plazo previsto, quedarán sujetos al régimen sancionatorio de la presente ley.',
           plainExplanation: 'Los archivos preexistentes que no se adecuaron en el plazo de 6 meses están sujetos a las mismas sanciones que los nuevos.',
           practicalExample: null,
@@ -2182,11 +2050,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '45',
       title: 'Comunicación al Congreso',
-      originalText:
-        'ARTICULO 45. — El Poder Ejecutivo Nacional deberá informar anualmente al Congreso de la Nación sobre las medidas adoptadas para el cumplimiento de la presente ley y los resultados obtenidos.',
-      currentText:
-        'El Poder Ejecutivo debe informar anualmente al Congreso sobre las medidas adoptadas para el cumplimiento de la ley y los resultados obtenidos.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 45. — El Poder Ejecutivo Nacional deberá informar anualmente al Congreso de la Nación sobre las medidas adoptadas para el cumplimiento de la presente ley y los resultados obtenidos.',      plainLanguageExplanation:
         'El Poder Ejecutivo tiene la obligación de rendir cuentas al Congreso anualmente sobre la aplicación de la ley de datos personales: qué hizo la DNPDP, cuántas sanciones impuso, qué mejoras implementó.',
       practicalEffects: [
         'El Congreso puede controlar la efectividad de la política de protección de datos.',
@@ -2208,7 +2073,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-45',
           articleNumber: '45',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'El Poder Ejecutivo Nacional deberá informar anualmente al Congreso de la Nación sobre las medidas adoptadas para el cumplimiento de la presente ley y los resultados obtenidos.',
           plainExplanation: 'El Poder Ejecutivo debe informar al Congreso anualmente sobre la aplicación de la ley.',
           practicalExample: null,
@@ -2222,11 +2087,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '46',
       title: 'Derogación de leyes',
-      originalText:
-        'ARTICULO 46. — Deróganse las leyes 18.331 y 21.044.',
-      currentText:
-        'Deróganse las leyes 18.331 y 21.044.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 46. — Deróganse las leyes 18.331 y 21.044.',      plainLanguageExplanation:
         'La ley 25326 derogó las normas previas sobre protección de datos (ley 18.331 de habeas data y ley 21.044). La nueva ley las reemplaza íntegramente con un marco más completo.',
       practicalEffects: [
         'Las leyes anteriores de habeas data quedaron reemplazadas por la ley 25326.',
@@ -2248,7 +2110,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-46',
           articleNumber: '46',
           segmentType: 'PARAGRAPH',
-          originalText: 'Deróganse las leyes 18.331 y 21.044.',
+          text: 'Deróganse las leyes 18.331 y 21.044.',
           plainExplanation: 'Deroga las leyes previas de habeas data y las reemplaza con el nuevo marco integral de la ley 25326.',
           practicalExample: null,
           references: [],
@@ -2261,10 +2123,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '47',
       title: 'Disposición complementaria',
-      originalText:
-        'ARTICULO 47. — Comuníquese al Poder Ejecutivo.',
-      currentText: 'Comuníquese al Poder Ejecutivo.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 47. — Comuníquese al Poder Ejecutivo.',      plainLanguageExplanation:
         'Cláusula de cierre formal estándar de las leyes sancionadas por el Congreso: ordena comunicar el texto al Poder Ejecutivo para su promulgación.',
       practicalEffects: [
         'Es la instrucción formal al Senado/Cámara de Diputados para enviar la ley al Ejecutivo para su promulgación.',
@@ -2283,7 +2143,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-47',
           articleNumber: '47',
           segmentType: 'PARAGRAPH',
-          originalText: 'Comuníquese al Poder Ejecutivo.',
+          text: 'Comuníquese al Poder Ejecutivo.',
           plainExplanation: 'Cláusula formal de cierre que ordena comunicar la ley al Poder Ejecutivo para su promulgación.',
           practicalExample: null,
           references: [],
@@ -2296,10 +2156,8 @@ export const LEY_25326: Law = {
       lawId: LAW_ID,
       number: '48',
       title: 'Publicación y vigencia',
-      originalText:
-        'ARTICULO 48. — Publíquese en el Boletín Oficial.',
-      currentText: 'Publíquese en el Boletín Oficial.',
-      plainLanguageExplanation:
+      text:
+        'ARTICULO 48. — Publíquese en el Boletín Oficial.',      plainLanguageExplanation:
         'Cláusula formal de publicación: ordena publicar la ley en el Boletín Oficial, lo que le otorga publicidad y hace correr los plazos de vigencia.',
       practicalEffects: [
         'La publicación en el Boletín Oficial es el acto que le da publicidad a la ley y desde cuando empieza a contarse el plazo de vigencia.',
@@ -2319,7 +2177,7 @@ export const LEY_25326: Law = {
           articleId: 'art-25326-48',
           articleNumber: '48',
           segmentType: 'PARAGRAPH',
-          originalText: 'Publíquese en el Boletín Oficial.',
+          text: 'Publíquese en el Boletín Oficial.',
           plainExplanation: 'Ordena la publicación en el Boletín Oficial, que le da vigencia pública a la ley.',
           practicalExample: null,
           references: [],

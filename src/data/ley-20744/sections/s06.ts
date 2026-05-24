@@ -10,11 +10,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '150',
     title: 'Extensión de las vacaciones',
-    originalText:
-      'El trabajador gozará de un período mínimo y continuado de descanso anual remunerado por los siguientes plazos:\na) De catorce (14) días hábiles cuando la antigüedad en el empleo no exceda de cinco (5) años.\nb) De veintiún (21) días hábiles cuando siendo la antigüedad mayor de cinco (5) años no exceda de diez (10).\nc) De veintiocho (28) días hábiles cuando la antigüedad siendo mayor de diez (10) años no exceda de veinte (20).\nd) De treinta y cinco (35) días hábiles cuando la antigüedad exceda de veinte (20) años.',
-    currentText:
-      'El trabajador gozará de un período mínimo y continuado de descanso anual remunerado por los siguientes plazos:\na) De catorce (14) días hábiles cuando la antigüedad en el empleo no exceda de cinco (5) años.\nb) De veintiún (21) días hábiles cuando siendo la antigüedad mayor de cinco (5) años no exceda de diez (10).\nc) De veintiocho (28) días hábiles cuando la antigüedad siendo mayor de diez (10) años no exceda de veinte (20).\nd) De treinta y cinco (35) días hábiles cuando la antigüedad exceda de veinte (20) años.',
-    plainLanguageExplanation:
+    text:
+      'El trabajador gozará de un período mínimo y continuado de descanso anual remunerado por los siguientes plazos:\na) De catorce (14) días hábiles cuando la antigüedad en el empleo no exceda de cinco (5) años.\nb) De veintiún (21) días hábiles cuando siendo la antigüedad mayor de cinco (5) años no exceda de diez (10).\nc) De veintiocho (28) días hábiles cuando la antigüedad siendo mayor de diez (10) años no exceda de veinte (20).\nd) De treinta y cinco (35) días hábiles cuando la antigüedad exceda de veinte (20) años.',    plainLanguageExplanation:
       'Las vacaciones mínimas son 14 días hábiles al año (en realidad casi 3 semanas). Aumentan con la antigüedad: 5 años → 21 días; 10 años → 28 días; 20 años → 35 días. Son días hábiles, no corridos.',
     practicalEffects: [
       '14 días hábiles = aproximadamente 18/19 días corridos',
@@ -37,11 +34,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '151',
     title: 'Condiciones para su goce — Requisitos',
-    originalText:
-      'Para tener derecho cada año al beneficio establecido en el artículo 150 de esta ley, el trabajador deberá haber prestado servicios durante la mitad, como mínimo, de los días hábiles comprendidos en el año calendario o aniversario respectivo.\nA este efecto se computarán como hábiles los días feriados en que el trabajador debiera normalmente prestar servicios.',
-    currentText:
-      'Para tener derecho cada año al beneficio establecido en el artículo 150 de esta ley, el trabajador deberá haber prestado servicios durante la mitad, como mínimo, de los días hábiles comprendidos en el año calendario o aniversario respectivo.\nA este efecto se computarán como hábiles los días feriados en que el trabajador debiera normalmente prestar servicios.',
-    plainLanguageExplanation: '',
+    text:
+      'Para tener derecho cada año al beneficio establecido en el artículo 150 de esta ley, el trabajador deberá haber prestado servicios durante la mitad, como mínimo, de los días hábiles comprendidos en el año calendario o aniversario respectivo.\nA este efecto se computarán como hábiles los días feriados en que el trabajador debiera normalmente prestar servicios.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-150'],
@@ -57,11 +51,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '152',
     title: 'Tiempo trabajado — Su cómputo',
-    originalText:
-      'Sin perjuicio de lo dispuesto en el artículo anterior, se computarán como trabajados los días en que el trabajador no preste servicios por gozar de una licencia legal o convencional, o por estar enfermo o accidentado o por otras causas no imputables al mismo.',
-    currentText:
-      'Sin perjuicio de lo dispuesto en el artículo anterior, se computarán como trabajados los días en que el trabajador no preste servicios por gozar de una licencia legal o convencional, o por estar enfermo o accidentado o por otras causas no imputables al mismo.',
-    plainLanguageExplanation: '',
+    text:
+      'Sin perjuicio de lo dispuesto en el artículo anterior, se computarán como trabajados los días en que el trabajador no preste servicios por gozar de una licencia legal o convencional, o por estar enfermo o accidentado o por otras causas no imputables al mismo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-151'],
@@ -77,11 +68,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '153',
     title: 'Antigüedad — Su cómputo',
-    originalText:
-      'Para determinar la extensión de las vacaciones atendiendo a la antigüedad en el empleo, se computará como tal aquélla que tendría el trabajador al 31 de diciembre del año que correspondan las mismas.',
-    currentText:
-      'Para determinar la extensión de las vacaciones atendiendo a la antigüedad en el empleo, se computará como tal aquélla que tendría el trabajador al 31 de diciembre del año que correspondan las mismas.',
-    plainLanguageExplanation: '',
+    text:
+      'Para determinar la extensión de las vacaciones atendiendo a la antigüedad en el empleo, se computará como tal aquélla que tendría el trabajador al 31 de diciembre del año que correspondan las mismas.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-150'],
@@ -97,11 +85,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '154',
     title: 'Época de otorgamiento — Comunicación',
-    originalText:
-      'El empleador deberá conceder el goce de vacaciones de cada año dentro del período comprendido entre el 1º de octubre y el 30 de abril del año siguiente. La fecha de iniciación de las vacaciones deberá ser comunicada por escrito, con una antelación no menor de cuarenta y cinco (45) días al trabajador, ello sin perjuicio de que las convenciones colectivas puedan instituir sistemas distintos acordes con las modalidades de cada actividad.',
-    currentText:
-      'El empleador deberá conceder el goce de vacaciones de cada año dentro del período comprendido entre el 1º de octubre y el 30 de abril del año siguiente. La fecha de iniciación de las vacaciones deberá ser comunicada por escrito, con una antelación no menor de cuarenta y cinco (45) días al trabajador, ello sin perjuicio de que las convenciones colectivas puedan instituir sistemas distintos acordes con las modalidades de cada actividad.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador deberá conceder el goce de vacaciones de cada año dentro del período comprendido entre el 1º de octubre y el 30 de abril del año siguiente. La fecha de iniciación de las vacaciones deberá ser comunicada por escrito, con una antelación no menor de cuarenta y cinco (45) días al trabajador, ello sin perjuicio de que las convenciones colectivas puedan instituir sistemas distintos acordes con las modalidades de cada actividad.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-150'],
@@ -117,11 +102,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '155',
     title: 'Retribución — Oportunidad de pago',
-    originalText:
-      'El trabajador percibirá retribución durante el período de vacaciones, la que se abonará a la iniciación del mismo.\nEl importe se determinará de acuerdo con los criterios establecidos en el artículo 114 de esta ley.',
-    currentText:
-      'El trabajador percibirá retribución durante el período de vacaciones, la que se abonará a la iniciación del mismo.\nEl importe se determinará de acuerdo con los criterios establecidos en el artículo 114 de esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador percibirá retribución durante el período de vacaciones, la que se abonará a la iniciación del mismo.\nEl importe se determinará de acuerdo con los criterios establecidos en el artículo 114 de esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-114'],
@@ -137,11 +119,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '156',
     title: 'Indemnización — Extinción del contrato',
-    originalText:
-      'Cuando por cualquier causa se produjera la extinción del contrato de trabajo, el trabajador tendrá derecho a percibir una indemnización equivalente al salario correspondiente al período de descanso proporcional a la fracción del año trabajada.\nSi la extinción del contrato de trabajo se produjera por muerte del trabajador, los causahabientes del mismo tendrán derecho a percibir la indemnización prevista en el presente artículo.',
-    currentText:
-      'Cuando por cualquier causa se produjera la extinción del contrato de trabajo, el trabajador tendrá derecho a percibir una indemnización equivalente al salario correspondiente al período de descanso proporcional a la fracción del año trabajada.\nSi la extinción del contrato de trabajo se produjera por muerte del trabajador, los causahabientes del mismo tendrán derecho a percibir la indemnización prevista en el presente artículo.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando por cualquier causa se produjera la extinción del contrato de trabajo, el trabajador tendrá derecho a percibir una indemnización equivalente al salario correspondiente al período de descanso proporcional a la fracción del año trabajada.\nSi la extinción del contrato de trabajo se produjera por muerte del trabajador, los causahabientes del mismo tendrán derecho a percibir la indemnización prevista en el presente artículo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-150'],
@@ -157,11 +136,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '157',
     title: 'Omisión del otorgamiento',
-    originalText:
-      'Si vencido el plazo para otorgar las vacaciones, el empleador no las hubiera concedido, el trabajador hará uso de ese derecho previa notificación fehaciente de ello, de modo que aquéllas concluyan antes del 31 de mayo.',
-    currentText:
-      'Si vencido el plazo para otorgar las vacaciones, el empleador no las hubiera concedido, el trabajador hará uso de ese derecho previa notificación fehaciente de ello, de modo que aquéllas concluyan antes del 31 de mayo.',
-    plainLanguageExplanation: '',
+    text:
+      'Si vencido el plazo para otorgar las vacaciones, el empleador no las hubiera concedido, el trabajador hará uso de ese derecho previa notificación fehaciente de ello, de modo que aquéllas concluyan antes del 31 de mayo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-154'],
@@ -178,11 +154,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '158',
     title: 'Clases de licencias especiales',
-    originalText:
-      'El trabajador gozará de las siguientes licencias especiales:\na) Por nacimiento de hijo, dos (2) días corridos.\nb) Por matrimonio, diez (10) días corridos.\nc) Por fallecimiento del cónyuge o de la persona con la cual estuviese unido en aparente matrimonio, en las condiciones establecidas en la presente ley; de hijo o de padres, tres (3) días corridos.\nd) Por fallecimiento de hermano, un (1) día.\ne) Para rendir examen en la enseñanza media o universitaria, dos (2) días corridos por examen, con un máximo de diez (10) días por año calendario.',
-    currentText:
-      'El trabajador gozará de las siguientes licencias especiales:\na) Por nacimiento de hijo, dos (2) días corridos.\nb) Por matrimonio, diez (10) días corridos.\nc) Por fallecimiento del cónyuge o de la persona con la cual estuviese unido en aparente matrimonio, en las condiciones establecidas en la presente ley; de hijo o de padres, tres (3) días corridos.\nd) Por fallecimiento de hermano, un (1) día.\ne) Para rendir examen en la enseñanza media o universitaria, dos (2) días corridos por examen, con un máximo de diez (10) días por año calendario.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador gozará de las siguientes licencias especiales:\na) Por nacimiento de hijo, dos (2) días corridos.\nb) Por matrimonio, diez (10) días corridos.\nc) Por fallecimiento del cónyuge o de la persona con la cual estuviese unido en aparente matrimonio, en las condiciones establecidas en la presente ley; de hijo o de padres, tres (3) días corridos.\nd) Por fallecimiento de hermano, un (1) día.\ne) Para rendir examen en la enseñanza media o universitaria, dos (2) días corridos por examen, con un máximo de diez (10) días por año calendario.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -198,11 +171,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '159',
     title: 'Salario durante las licencias especiales',
-    originalText:
-      'Durante las licencias previstas en este capítulo los trabajadores percibirán su remuneración habitual.',
-    currentText:
-      'Durante las licencias previstas en este capítulo los trabajadores percibirán su remuneración habitual.',
-    plainLanguageExplanation: '',
+    text:
+      'Durante las licencias previstas en este capítulo los trabajadores percibirán su remuneración habitual.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-158'],
@@ -218,11 +188,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '160',
     title: 'Comienzo de las licencias especiales',
-    originalText:
-      'En las licencias referidas en los incisos a), b), c) y d) del artículo 158, las mismas deberán comenzar a correr a partir del día hábil inmediato posterior al evento que las motiva.',
-    currentText:
-      'En las licencias referidas en los incisos a), b), c) y d) del artículo 158, las mismas deberán comenzar a correr a partir del día hábil inmediato posterior al evento que las motiva.',
-    plainLanguageExplanation: '',
+    text:
+      'En las licencias referidas en los incisos a), b), c) y d) del artículo 158, las mismas deberán comenzar a correr a partir del día hábil inmediato posterior al evento que las motiva.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-158'],
@@ -238,11 +205,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '161',
     title: 'Licencia por examen',
-    originalText:
-      'A los efectos de lo establecido en el inciso e) del artículo 158, se probará la realización del examen mediante la presentación del certificado respectivo en el plazo de cuarenta y ocho (48) horas de reintegrado al trabajo.',
-    currentText:
-      'A los efectos de lo establecido en el inciso e) del artículo 158, se probará la realización del examen mediante la presentación del certificado respectivo en el plazo de cuarenta y ocho (48) horas de reintegrado al trabajo.',
-    plainLanguageExplanation: '',
+    text:
+      'A los efectos de lo establecido en el inciso e) del artículo 158, se probará la realización del examen mediante la presentación del certificado respectivo en el plazo de cuarenta y ocho (48) horas de reintegrado al trabajo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-158'],
@@ -258,11 +222,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '162',
     title: 'Licencias para trabajadores de entre dieciséis y dieciocho años',
-    originalText:
-      'Los trabajadores menores de dieciocho (18) años y mayores de dieciséis (16) años tendrán derecho a las mismas licencias que los trabajadores adultos, sin perjuicio de las normas específicas que regulen su contratación.',
-    currentText:
-      'Los trabajadores menores de dieciocho (18) años y mayores de dieciséis (16) años tendrán derecho a las mismas licencias que los trabajadores adultos, sin perjuicio de las normas específicas que regulen su contratación.',
-    plainLanguageExplanation: '',
+    text:
+      'Los trabajadores menores de dieciocho (18) años y mayores de dieciséis (16) años tendrán derecho a las mismas licencias que los trabajadores adultos, sin perjuicio de las normas específicas que regulen su contratación.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-187'],
@@ -274,19 +235,16 @@ export const ARTICLES_LCT_06: Article[] = [
     segments: [],
   },
   // ── Arts. 163-164: Derogados por Ley 21.297/1976 ──────────────────────────
-  { id: 'art-20744-163', lawId: 'ley-20744', number: '163', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 150.3, amendments: [], segments: [] },
-  { id: 'art-20744-164', lawId: 'ley-20744', number: '164', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 150.6, amendments: [], segments: [] },
+  { id: 'art-20744-163', lawId: 'ley-20744', number: '163', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 150.3, amendments: [], segments: [] },
+  { id: 'art-20744-164', lawId: 'ley-20744', number: '164', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 150.6, amendments: [], segments: [] },
   // ── Título V — Feriados obligatorios y días no laborables ─────────────────
   {
     id: 'art-20744-165',
     lawId: 'ley-20744',
     number: '165',
     title: 'Feriados nacionales — Días no laborables',
-    originalText:
-      'Los trabajadores que presten servicios en los días feriados nacionales establecidos por ley, cobrarán la remuneración normal de los días laborables más una cantidad igual.',
-    currentText:
-      'Los trabajadores que presten servicios en los días feriados nacionales establecidos por ley, cobrarán la remuneración normal de los días laborables más una cantidad igual.',
-    plainLanguageExplanation: '',
+    text:
+      'Los trabajadores que presten servicios en los días feriados nacionales establecidos por ley, cobrarán la remuneración normal de los días laborables más una cantidad igual.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -302,11 +260,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '166',
     title: 'Días no laborables — Opción',
-    originalText:
-      'En los días no laborables, el trabajo será optativo para el empleador, salvo en bancos, seguros y actividades afines, rigiendo las normas sobre trabajo en días feriados en el caso en que se preste el servicio.',
-    currentText:
-      'En los días no laborables, el trabajo será optativo para el empleador, salvo en bancos, seguros y actividades afines, rigiendo las normas sobre trabajo en días feriados en el caso en que se preste el servicio.',
-    plainLanguageExplanation: '',
+    text:
+      'En los días no laborables, el trabajo será optativo para el empleador, salvo en bancos, seguros y actividades afines, rigiendo las normas sobre trabajo en días feriados en el caso en que se preste el servicio.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-165'],
@@ -322,11 +277,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '167',
     title: 'Salario en días feriados',
-    originalText:
-      'En los días feriados nacionales los trabajadores que no gozaren de remuneración variable percibirán su jornal habitual, y los que la percibieran variable cobrarán el promedio de lo percibido en los treinta (30) días anteriores al feriado.',
-    currentText:
-      'En los días feriados nacionales los trabajadores que no gozaren de remuneración variable percibirán su jornal habitual, y los que la percibieran variable cobrarán el promedio de lo percibido en los treinta (30) días anteriores al feriado.',
-    plainLanguageExplanation: '',
+    text:
+      'En los días feriados nacionales los trabajadores que no gozaren de remuneración variable percibirán su jornal habitual, y los que la percibieran variable cobrarán el promedio de lo percibido en los treinta (30) días anteriores al feriado.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-165'],
@@ -342,11 +294,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '168',
     title: 'Trabajo en feriados — Pago',
-    originalText:
-      'Cuando se tratase de días feriados nacionales y el trabajador prestase servicios, el empleador deberá abonar el salario habitual más una cantidad igual, excepto que el trabajador opte por un descanso compensatorio, caso en el cual sólo cobrará el salario habitual.',
-    currentText:
-      'Cuando se tratase de días feriados nacionales y el trabajador prestase servicios, el empleador deberá abonar el salario habitual más una cantidad igual, excepto que el trabajador opte por un descanso compensatorio, caso en el cual sólo cobrará el salario habitual.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando se tratase de días feriados nacionales y el trabajador prestase servicios, el empleador deberá abonar el salario habitual más una cantidad igual, excepto que el trabajador opte por un descanso compensatorio, caso en el cual sólo cobrará el salario habitual.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-165'],
@@ -362,11 +311,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '169',
     title: 'Trabajo por equipos',
-    originalText:
-      'Cuando se trabaje en equipo, el descanso semanal podrá otorgarse en forma escalonada en días que no sean domingo, en cuyo caso los trabajadores percibirán el jornal correspondiente a ese día.',
-    currentText:
-      'Cuando se trabaje en equipo, el descanso semanal podrá otorgarse en forma escalonada en días que no sean domingo, en cuyo caso los trabajadores percibirán el jornal correspondiente a ese día.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando se trabaje en equipo, el descanso semanal podrá otorgarse en forma escalonada en días que no sean domingo, en cuyo caso los trabajadores percibirán el jornal correspondiente a ese día.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-101'],
@@ -382,11 +328,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '170',
     title: 'Feriados — Determinación',
-    originalText:
-      'Se considerarán feriados nacionales o días no laborables los que determine la legislación nacional correspondiente.',
-    currentText:
-      'Se considerarán feriados nacionales o días no laborables los que determine la legislación nacional correspondiente.',
-    plainLanguageExplanation: '',
+    text:
+      'Se considerarán feriados nacionales o días no laborables los que determine la legislación nacional correspondiente.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-165'],
@@ -402,11 +345,8 @@ export const ARTICLES_LCT_06: Article[] = [
     lawId: 'ley-20744',
     number: '171',
     title: 'Sábados — Actividades en conventillos o negocios',
-    originalText:
-      'Los trabajadores que por razones de su trabajo deban trabajar los sábados después de las 13 horas, domingos o feriados, cobrarán el recargo del ciento por ciento (100%) sobre el valor hora ordinaria. Quedan excluidos de este recargo los casos en que el convenio colectivo o las normas aplicables ya prevean una compensación específica.',
-    currentText:
-      'Los trabajadores que por razones de su trabajo deban trabajar los sábados después de las 13 horas, domingos o feriados, cobrarán el recargo del ciento por ciento (100%) sobre el valor hora ordinaria. Quedan excluidos de este recargo los casos en que el convenio colectivo o las normas aplicables ya prevean una compensación específica.',
-    plainLanguageExplanation: '',
+    text:
+      'Los trabajadores que por razones de su trabajo deban trabajar los sábados después de las 13 horas, domingos o feriados, cobrarán el recargo del ciento por ciento (100%) sobre el valor hora ordinaria. Quedan excluidos de este recargo los casos en que el convenio colectivo o las normas aplicables ya prevean una compensación específica.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-201'],

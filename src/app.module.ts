@@ -12,7 +12,7 @@ import { HealthModule } from './health/health.module';
 import { PagesModule }  from './pages/pages.module';
 import { EventsModule }    from './events/events.module';
 import { AdminModule }       from './admin/admin.module';
-import { SupabaseModule }    from './supabase/supabase.module';
+import { PrismaModule }      from './common/prisma/prisma.module';
 import { PostDraftsModule }  from './post-drafts/post-drafts.module';
 import { ExportsModule }         from './exports/exports.module';
 import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.module';
@@ -21,7 +21,7 @@ import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.mo
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     ScheduleModule.forRoot(),
-    SupabaseModule,
+    PrismaModule,
     // Rate limiting por IP — cada IP tiene su propia ventana
     ThrottlerModule.forRoot([{
       name:  'global',

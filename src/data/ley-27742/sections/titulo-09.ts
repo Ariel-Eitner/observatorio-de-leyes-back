@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '234',
 		title: 'Control parlamentario de los decretos delegados',
-		originalText:
+		text:
 			'Los decretos dictados en ejercicio de las facultades delegadas por el Congreso de la Nación en la presente ley, estarán sujetos al control de la Comisión Bicameral Permanente de conformidad con lo dispuesto en el artículo 100, inciso 12 de la Constitución Nacional.',
-		currentText:
-			'Los decretos que dicte el PEN en ejercicio de la delegación legislativa de esta ley son controlados por la Comisión Bicameral Permanente (art. 100, inc. 12 CN).',
 		plainLanguageExplanation:
 			'Toda delegación legislativa tiene como contrapeso el control parlamentario posterior. La Comisión Bicameral Permanente recibe los decretos delegados y puede formular observaciones, aunque no tiene poder de veto: solo puede elevar sus observaciones al pleno del Congreso.',
 		practicalEffects: [
@@ -40,10 +38,8 @@ export const ARTICLES_TITULO_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '235',
 		title: 'Invitación a las provincias a adherir',
-		originalText:
+		text:
 			'Invítase a las provincias y a la Ciudad Autónoma de Buenos Aires a dictar las normas que resulten necesarias para el establecimiento de procedimientos congruentes con los propósitos de esta ley.',
-		currentText:
-			'Se invita a las provincias y CABA a dictar normas provinciales que sean coherentes con los objetivos de la Ley de Bases.',
 		plainLanguageExplanation:
 			'Las provincias tienen sus propias competencias constitucionales: el Congreso no puede obligarlas a seguir estas reformas en materia provincial. El art. 235° "invita" (no obliga) a que las provincias adapten sus marcos normativos. Esta invitación es especialmente relevante para el RIGI (Título VII), donde la adhesión provincial al régimen amplía la cobertura de las garantías.',
 		practicalEffects: [
@@ -64,10 +60,8 @@ export const ARTICLES_TITULO_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '236',
 		title: 'Plazo de reglamentación — 90 días',
-		originalText:
+		text:
 			'Salvo para los casos en que se establezca un plazo específico, el Poder Ejecutivo nacional reglamentará la presente ley en un plazo máximo de noventa (90) días a partir de su entrada en vigencia y dictará las normas complementarias, interpretativas o aclaratorias que resulten necesarias para su aplicación.',
-		currentText:
-			'El PEN tiene 90 días desde la vigencia de la ley para reglamentarla. El RIGI tiene plazo propio (30 días, art. 226).',
 		plainLanguageExplanation:
 			'El plazo de 90 días para reglamentar es el estándar general. Sin reglamentación, muchas disposiciones no son operativas en la práctica (aunque algunas, como el RIGI, son operativas de inmediato según el art. 227).',
 		practicalEffects: [
@@ -88,10 +82,8 @@ export const ARTICLES_TITULO_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '237',
 		title: 'Vigencia de la ley',
-		originalText:
+		text:
 			'Las disposiciones de la presente ley entrarán en vigor el día siguiente al de su publicación en el Boletín Oficial de la República Argentina, salvo en los capítulos o títulos en donde se señala lo contrario.',
-		currentText:
-			'La ley entró en vigor el día siguiente a su publicación en el Boletín Oficial (publicada el 8 de julio de 2024, vigente desde el 9 de julio de 2024). Excepciones: las secciones que tienen su propia regla de entrada en vigencia.',
 		plainLanguageExplanation:
 			'La ley Nº 27.742 fue publicada en el Boletín Oficial el 8 de julio de 2024 y entró en vigencia el 9 de julio de 2024. Algunas secciones tienen reglas propias: el RIGI entra en vigencia el mismo día de publicación (art. 228), y el "silencio positivo" de la ley de procedimiento administrativo requería reglamentación previa.',
 		practicalEffects: [
@@ -112,8 +104,7 @@ export const ARTICLES_TITULO_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '238',
 		title: 'Comunicación al Poder Ejecutivo',
-		originalText: 'Comuníquese al Poder Ejecutivo nacional.',
-		currentText: 'Cláusula de promulgación: el Congreso comunica la ley sancionada al PEN para su promulgación.',
+		text: 'Comuníquese al Poder Ejecutivo nacional.',
 		plainLanguageExplanation: 'Fórmula protocolar de cierre de toda ley nacional argentina: el Congreso instruye al PEN a promulgar y publicar la ley. La ley fue promulgada el 5 de julio de 2024 y publicada el 8 de julio de 2024.',
 		practicalEffects: [],
 		examples: [],

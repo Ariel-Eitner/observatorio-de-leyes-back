@@ -16,8 +16,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '82',
 		title: 'Registración laboral electrónica e inmediata — modificación art. 7° ley 24.013',
-		originalText: 'Sustitúyese el artículo 7° de la ley 24.013. La registración de la relación laboral debe efectuarse de manera simple, electrónica e inmediata, comunicando los datos exigidos a la entidad recaudadora y al Sistema Único de Registro Laboral.',
-		currentText: 'Modifica art. 7° ley 24.013: el empleador da de alta a un empleado de forma electrónica e inmediata ante la AFIP y el SURL. La registración debe ser simple y expeditiva.',
+		text: 'Sustitúyese el artículo 7° de la ley 24.013. La registración de la relación laboral debe efectuarse de manera simple, electrónica e inmediata, comunicando los datos exigidos a la entidad recaudadora y al Sistema Único de Registro Laboral.',
 		plainLanguageExplanation: 'Moderniza el trámite de "dar de alta" a un empleado: todo se hace online, sin papel, en el mismo momento de la contratación. Simplifica un proceso que antes podía demorar días.',
 		practicalEffects: [
 			'El alta laboral debe realizarse antes o al momento de inicio de la relación laboral',
@@ -37,8 +36,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '83',
 		title: 'Sistema simplificado para microempresas — incorporación art. 7° bis ley 24.013',
-		originalText: 'Incorpórase el artículo 7° bis a la ley 24.013. Las empresas con hasta doce (12) trabajadores tendrán acceso a un sistema simplificado de registro y pago de obligaciones laborales y previsionales, mediante el pago de un importe único que determine el PEN, que incluirá los aportes y contribuciones al sistema de seguridad social.',
-		currentText: 'Crea el art. 7° bis ley 24.013: las empresas de hasta 12 trabajadores pueden usar un sistema simplificado con "importe único" que concentra todos los aportes y contribuciones en un solo pago mensual.',
+		text: 'Incorpórase el artículo 7° bis a la ley 24.013. Las empresas con hasta doce (12) trabajadores tendrán acceso a un sistema simplificado de registro y pago de obligaciones laborales y previsionales, mediante el pago de un importe único que determine el PEN, que incluirá los aportes y contribuciones al sistema de seguridad social.',
 		plainLanguageExplanation: 'Para las micro y pequeñas empresas, pagar las cargas sociales podía ser un laberinto de formularios. Este artículo crea un "pago único" que simplifica enormemente la liquidación de sueldos para empleadores con pocos trabajadores.',
 		practicalEffects: [
 			'Un kiosco con 3 empleados puede liquidar sueldos con un solo pago mensual en lugar de múltiples formularios',
@@ -58,8 +56,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '84',
 		title: 'Denuncia electrónica de trabajo no registrado — incorporación art. 7° ter ley 24.013',
-		originalText: 'Incorpórase el artículo 7° ter a la ley 24.013. El trabajador podrá efectuar ante la autoridad de aplicación o ante la AFIP, en forma electrónica, la denuncia de una relación laboral no registrada o deficientemente registrada.',
-		currentText: 'Crea el art. 7° ter ley 24.013: el trabajador puede denunciar electrónicamente su propia situación de trabajo en negro o mal registrado ante la autoridad laboral o la AFIP.',
+		text: 'Incorpórase el artículo 7° ter a la ley 24.013. El trabajador podrá efectuar ante la autoridad de aplicación o ante la AFIP, en forma electrónica, la denuncia de una relación laboral no registrada o deficientemente registrada.',
 		plainLanguageExplanation: 'Facilita que el trabajador en negro denuncie su situación sin necesidad de ir a una oficina. La denuncia electrónica es más accesible y reduce la barrera para regularizar situaciones de informalidad.',
 		practicalEffects: [
 			'El trabajador puede denunciar desde su celular o computadora',
@@ -79,8 +76,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '85',
 		title: 'Obligación del juez de informar a la AFIP — incorporación art. 7° quáter ley 24.013',
-		originalText: 'Incorpórase el artículo 7° quáter a la ley 24.013. En toda sentencia que condene a un empleador por infracción a la obligación de registración laboral, el juez actuante deberá remitir copia a la AFIP a fin de que ésta determine la deuda previsional correspondiente.',
-		currentText: 'Crea el art. 7° quáter ley 24.013: cuando un juez condena a un empleador por trabajo en negro, debe enviar copia de la sentencia a la AFIP para que reclame los aportes impagos al sistema previsional.',
+		text: 'Incorpórase el artículo 7° quáter a la ley 24.013. En toda sentencia que condene a un empleador por infracción a la obligación de registración laboral, el juez actuante deberá remitir copia a la AFIP a fin de que ésta determine la deuda previsional correspondiente.',
 		plainLanguageExplanation: 'Cierra el circuito entre la justicia laboral y la seguridad social: si un empleado gana un juicio por trabajo en negro, la sentencia llega automáticamente a la AFIP, que puede cobrar los aportes al sistema jubilatorio que el empleador nunca ingresó.',
 		practicalEffects: [
 			'Garantiza que la ANSES reciba los aportes que el empleador infractor debió haber ingresado',
@@ -100,8 +96,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '86',
 		title: 'Actualización del rótulo del Capítulo 2 — modificación ley 24.013',
-		originalText: 'Sustitúyese el rótulo del Capítulo 2 del Título II de la ley 24.013, el que quedará redactado de la siguiente forma: "Capítulo 2 — De las Multas por Infracción a la Obligación de Registración".',
-		currentText: 'Modificación de forma: actualiza el nombre del Capítulo 2 del Título II de la ley 24.013 para reflejar los cambios normativos del contexto.',
+		text: 'Sustitúyese el rótulo del Capítulo 2 del Título II de la ley 24.013, el que quedará redactado de la siguiente forma: "Capítulo 2 — De las Multas por Infracción a la Obligación de Registración".',
 		plainLanguageExplanation: 'Cambio formal de denominación de un capítulo de la ley 24.013, coherente con las reformas de fondo introducidas por los artículos anteriores.',
 		practicalEffects: ['Cambio de denominación sin efecto sustantivo autónomo'],
 		examples: [],
@@ -118,8 +113,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '87',
 		title: 'Sistema Único de Registro Laboral (SURL) — modificación art. 18 ley 24.013',
-		originalText: 'Sustitúyese el artículo 18 de la ley 24.013. El Sistema Único de Registro Laboral (SURL) concentra la información sobre el personal en relación de dependencia. La registración del empleador ante el SURL produce efectos ante todos los organismos de seguridad social. El PEN determinará la información requerida y los plazos.',
-		currentText: 'Modifica art. 18 ley 24.013: el SURL centraliza el registro de todos los empleados en relación de dependencia. Una sola registración ante el SURL vale para todos los organismos: ANSES, obra social, ART.',
+		text: 'Sustitúyese el artículo 18 de la ley 24.013. El Sistema Único de Registro Laboral (SURL) concentra la información sobre el personal en relación de dependencia. La registración del empleador ante el SURL produce efectos ante todos los organismos de seguridad social. El PEN determinará la información requerida y los plazos.',
 		plainLanguageExplanation: 'Consolida la "ventanilla única" laboral: el empleador registra al trabajador una sola vez y esa registración vale para todos los sistemas de seguridad social, sin necesidad de trámites paralelos con distintos organismos.',
 		practicalEffects: [
 			'El empleador no necesita notificar a ANSES, obra social y ART por separado: con registrar en el SURL alcanza',
@@ -139,8 +133,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '88',
 		title: 'Ámbito de aplicación LCT — exclusión de contratos civiles formalizados (art. 2° LCT)',
-		originalText: 'Sustitúyese el artículo 2° de la ley 20.744: La ley se aplica a todos los trabajadores en relación de dependencia. Las contrataciones de obras o servicios que encubran relaciones de dependencia bajo formas civiles o comerciales quedan comprendidas. Se excluyen las contrataciones formalizadas como contratos de obra o de servicios con personas que emitan facturas o recibos conforme a la legislación vigente, siempre que no configure fraude laboral.',
-		currentText: 'Modifica art. 2° LCT: la LCT aplica a relaciones de dependencia. No aplica automáticamente cuando hay un contrato de servicios formalizado con emisión de facturas, salvo fraude laboral probado.',
+		text: 'Sustitúyese el artículo 2° de la ley 20.744: La ley se aplica a todos los trabajadores en relación de dependencia. Las contrataciones de obras o servicios que encubran relaciones de dependencia bajo formas civiles o comerciales quedan comprendidas. Se excluyen las contrataciones formalizadas como contratos de obra o de servicios con personas que emitan facturas o recibos conforme a la legislación vigente, siempre que no configure fraude laboral.',
 		plainLanguageExplanation: 'Antes, el trabajo dependiente se presumía aunque hubiera factura. Ahora, si hay contrato de servicios y factura, la presunción de dependencia no opera automáticamente. El trabajador debe probar que la relación era en realidad de dependencia disfrazada.',
 		practicalEffects: [
 			'Los monotributistas y autónomos con contratos de servicios tienen menos margen para reclamar dependencia laboral si emitieron facturas regularmente',
@@ -160,8 +153,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '89',
 		title: 'Presunción del contrato de trabajo — excepción con factura (art. 23 LCT)',
-		originalText: 'Sustitúyese el artículo 23 de la ley 20.744: El hecho de la prestación de servicios hace presumir la existencia de un contrato de trabajo. Esta presunción no opera cuando la prestación de servicios se encuentre respaldada con un contrato escrito más la emisión y cobro de facturas o recibos equivalentes conforme a la legislación vigente.',
-		currentText: 'Modifica art. 23 LCT: la prestación de servicios presume relación laboral, EXCEPTO cuando hay contrato escrito más facturas o recibos. En ese caso, quien alega dependencia debe probarla.',
+		text: 'Sustitúyese el artículo 23 de la ley 20.744: El hecho de la prestación de servicios hace presumir la existencia de un contrato de trabajo. Esta presunción no opera cuando la prestación de servicios se encuentre respaldada con un contrato escrito más la emisión y cobro de facturas o recibos equivalentes conforme a la legislación vigente.',
 		plainLanguageExplanation: 'La "presunción del contrato" del art. 23 era la principal herramienta para que un trabajador informal reclamara sus derechos laborales. La modificación la debilita: si el trabajador firmó un contrato de servicios y emitió facturas, esa presunción no aplica y debe probar dependencia de otra manera.',
 		practicalEffects: [
 			'Un diseñador gráfico que trabajó exclusivamente para una empresa 3 años pero emitió facturas tiene más dificultad para probar dependencia laboral',
@@ -183,8 +175,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '90',
 		title: 'Intermediación laboral — solidaridad acotada al período de prestación (art. 29 LCT)',
-		originalText: 'Sustitúyese el artículo 29 de la ley 20.744: Los trabajadores contratados por terceros para ser proporcionados a empresas usuarias serán considerados empleados directos de la empresa usuaria. La empresa usuaria y el contratista son solidariamente responsables por las obligaciones emergentes durante el tiempo en que el trabajador preste servicios en la empresa usuaria.',
-		currentText: 'Modifica art. 29 LCT: en la triangulación laboral, la empresa usuaria es empleadora directa y solidariamente responsable junto al contratista, pero SOLO durante el período en que el trabajador efectivamente prestó servicios.',
+		text: 'Sustitúyese el artículo 29 de la ley 20.744: Los trabajadores contratados por terceros para ser proporcionados a empresas usuarias serán considerados empleados directos de la empresa usuaria. La empresa usuaria y el contratista son solidariamente responsables por las obligaciones emergentes durante el tiempo en que el trabajador preste servicios en la empresa usuaria.',
 		plainLanguageExplanation: 'Cuando una empresa contrata trabajadores a través de una agencia o tercero, la empresa usuaria responde solidariamente. La modificación aclara que esa solidaridad es temporal: cubre solo el período de prestación efectiva, no períodos anteriores o posteriores ajenos a la relación.',
 		practicalEffects: [
 			'La empresa usuaria no responde por deudas del contratista anteriores a la incorporación del trabajador',
@@ -204,8 +195,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '91',
 		title: 'Período de prueba ampliado a 6-12 meses (art. 92 bis LCT)',
-		originalText: 'Sustitúyese el artículo 92 bis de la ley 20.744: El contrato de trabajo por tiempo indeterminado se entenderá celebrado a prueba durante los primeros seis (6) meses. En empresas de seis (6) a cien (100) trabajadores el período se extiende a ocho (8) meses. En empresas de hasta cinco (5) trabajadores, a doce (12) meses. Los convenios colectivos de trabajo podrán ampliar hasta el doble estos plazos. Durante el período de prueba cualquiera de las partes puede extinguir la relación sin obligación de pagar indemnización.',
-		currentText: 'Modifica art. 92 bis LCT: el período de prueba pasa de 3 meses a 6 meses (base), 8 meses (empresas 6-100 trabajadores) o 12 meses (empresas hasta 5 trabajadores). Los CCT pueden duplicarlo. Durante la prueba se puede despedir sin indemnización.',
+		text: 'Sustitúyese el artículo 92 bis de la ley 20.744: El contrato de trabajo por tiempo indeterminado se entenderá celebrado a prueba durante los primeros seis (6) meses. En empresas de seis (6) a cien (100) trabajadores el período se extiende a ocho (8) meses. En empresas de hasta cinco (5) trabajadores, a doce (12) meses. Los convenios colectivos de trabajo podrán ampliar hasta el doble estos plazos. Durante el período de prueba cualquiera de las partes puede extinguir la relación sin obligación de pagar indemnización.',
 		plainLanguageExplanation: 'El período de prueba es el tiempo inicial en que cualquiera de las partes puede terminar la relación laboral sin consecuencias económicas. Antes era 3 meses para todos. Ahora depende del tamaño de la empresa: hasta 12 meses en las más pequeñas. Defensores lo ven como incentivo a contratar; críticos, como precarización del empleo.',
 		practicalEffects: [
 			'En una empresa de 4 empleados, el nuevo trabajador puede ser despedido sin indemnización durante el primer año',
@@ -228,8 +218,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '92',
 		title: 'Contratistas e intermediarios — solidaridad y retención (art. 136 LCT)',
-		originalText: 'Sustitúyese el artículo 136 de la ley 20.744: El comitente que encomiende trabajos de su actividad normal y específica a contratistas se considera empleador directo, solidariamente responsable junto al contratista. El comitente puede retener de los importes que adeude al contratista el monto de las obligaciones laborales y previsionales que éste adeude a sus trabajadores, debiendo depositarlos en la cuenta bancaria del trabajador afectado.',
-		currentText: 'Modifica art. 136 LCT: el comitente responde solidariamente con el contratista por los trabajadores de éste. El comitente puede (y debe si corresponde) retener de lo que le debe al contratista los salarios y aportes impagos a los trabajadores.',
+		text: 'Sustitúyese el artículo 136 de la ley 20.744: El comitente que encomiende trabajos de su actividad normal y específica a contratistas se considera empleador directo, solidariamente responsable junto al contratista. El comitente puede retener de los importes que adeude al contratista el monto de las obligaciones laborales y previsionales que éste adeude a sus trabajadores, debiendo depositarlos en la cuenta bancaria del trabajador afectado.',
 		plainLanguageExplanation: 'Si una empresa contrata otra para hacer trabajos de su actividad principal (limpieza de fábrica, seguridad, mantenimiento) y el contratista no paga los sueldos, la empresa principal responde. Además, puede descontarle al contratista lo que le adeuda en concepto de salarios impagos y depositarlo directamente a los trabajadores.',
 		practicalEffects: [
 			'El mecanismo de retención protege a los trabajadores subcontratados sin necesidad de un juicio',
@@ -249,8 +238,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '93',
 		title: 'Licencia por maternidad — lenguaje inclusivo (art. 177 LCT)',
-		originalText: 'Sustitúyese el artículo 177 de la ley 20.744: Queda prohibido el trabajo de la persona gestante durante los cuarenta y cinco (45) días anteriores al parto y hasta cuarenta y cinco (45) días después del mismo. La interesada podrá optar por reducir el período preparto a no menos de treinta (30) días, ampliando el posparto en consecuencia.',
-		currentText: 'Modifica art. 177 LCT: reemplaza "mujer" por "persona gestante". Mantiene la licencia de 45 días antes y 45 después del parto, con opción de reducir el preparto a 30 días.',
+		text: 'Sustitúyese el artículo 177 de la ley 20.744: Queda prohibido el trabajo de la persona gestante durante los cuarenta y cinco (45) días anteriores al parto y hasta cuarenta y cinco (45) días después del mismo. La interesada podrá optar por reducir el período preparto a no menos de treinta (30) días, ampliando el posparto en consecuencia.',
 		plainLanguageExplanation: 'Cambio de lenguaje inclusivo: la licencia por maternidad ahora protege a toda "persona gestante", no solo a "la mujer". La duración y condiciones son idénticas: 45+45 días con opción de redistribuir hasta 30/60. Es el único cambio favorable a los trabajadores en la reforma laboral.',
 		practicalEffects: [
 			'Incluye a personas trans gestantes en el ámbito de protección de la licencia',
@@ -270,8 +258,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '94',
 		title: 'Bloqueo o toma de establecimiento como justa causa de despido (art. 242 LCT)',
-		originalText: 'Sustitúyese el artículo 242 de la ley 20.744: Una de las partes podrá hacer denuncia del contrato en caso de inobservancia de obligaciones que configuren injuria grave. Se considera injuria laboral grave, sin necesidad de intimación previa, la participación del trabajador en actos que importen la toma o bloqueo de establecimientos, la afectación de la libertad de trabajo de quienes no adhieran a una medida de fuerza, la producción intencional de daños en el establecimiento, o la causación de lesiones a personas.',
-		currentText: 'Modifica art. 242 LCT: incorpora como justa causa de despido (sin intimación previa) participar en toma o bloqueo de establecimiento, impedir trabajar a quienes no adhieren a una huelga, causar daños intencionales o lesiones.',
+		text: 'Sustitúyese el artículo 242 de la ley 20.744: Una de las partes podrá hacer denuncia del contrato en caso de inobservancia de obligaciones que configuren injuria grave. Se considera injuria laboral grave, sin necesidad de intimación previa, la participación del trabajador en actos que importen la toma o bloqueo de establecimientos, la afectación de la libertad de trabajo de quienes no adhieran a una medida de fuerza, la producción intencional de daños en el establecimiento, o la causación de lesiones a personas.',
 		plainLanguageExplanation: 'La toma o bloqueo de fábricas es una medida de fuerza sindical histórica en Argentina. Este artículo los convierte en causal automática de despido con justa causa, sin que el empleador deba intimar previamente. Esto endurece la posición legal de los empleadores ante conflictos gremiales y debilita esta herramienta sindical.',
 		practicalEffects: [
 			'Un trabajador que participa en el bloqueo de su fábrica puede ser despedido con justa causa, perdiendo la indemnización',
@@ -294,8 +281,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '95',
 		title: 'Despido discriminatorio — indemnización agravada e inversión de la carga probatoria (art. 245 bis LCT)',
-		originalText: 'Incorpórase el artículo 245 bis a la ley 20.744: Será considerado despido discriminatorio el originado en motivos de raza, etnia, sexo, género, orientación sexual, identidad de género, religión, ideología, u opinión política o gremial. El trabajador tendrá derecho a percibir, además de la indemnización por despido, un importe equivalente al cincuenta por ciento (50%) al ciento por ciento (100%) según la gravedad acreditada. La carga de acreditar los hechos que configuran el despido discriminatorio recaerá sobre el trabajador.',
-		currentText: 'Incorpora art. 245 bis LCT: el despido discriminatorio por raza, género, orientación sexual, religión, ideología o actividad sindical genera una indemnización adicional del 50% al 100%. PERO la prueba de la discriminación la debe aportar el trabajador (antes se invertía la carga al empleador).',
+		text: 'Incorpórase el artículo 245 bis a la ley 20.744: Será considerado despido discriminatorio el originado en motivos de raza, etnia, sexo, género, orientación sexual, identidad de género, religión, ideología, u opinión política o gremial. El trabajador tendrá derecho a percibir, además de la indemnización por despido, un importe equivalente al cincuenta por ciento (50%) al ciento por ciento (100%) según la gravedad acreditada. La carga de acreditar los hechos que configuran el despido discriminatorio recaerá sobre el trabajador.',
 		plainLanguageExplanation: 'Crea una categoría específica de "despido discriminatorio" en la LCT con indemnización agravada. El problema según los críticos: la carga de la prueba recae en el trabajador despedido. Antes, bajo la ley antidiscriminatoria 23.592, bastaba con que el trabajador alegara discriminación para que el empleador deba probar que no fue así. Ahora el trabajador tiene que probarla, lo que es mucho más difícil.',
 		practicalEffects: [
 			'El trabajador que cree fue despedido por su actividad sindical debe aportar prueba concreta: testigos, comunicaciones, o indicios claros',
@@ -318,10 +304,8 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '96',
 		title: 'Fondo de cese laboral — alternativa a la indemnización por antigüedad',
-		originalText:
+		text:
 			'Mediante convenio colectivo de trabajo, las partes podrán sustituir la indemnización prevista en el artículo 245 de la ley 20.744 por un fondo o sistema de cese laboral conforme los parámetros que disponga el Poder Ejecutivo nacional. Los empleadores podrán optar por contratar un sistema privado a su costo, a fin de solventar la indemnización y/o la suma que libremente se pacte para el supuesto de desvinculación por mutuo acuerdo. En todos los casos, las empresas podrán auto-asegurarse en el sistema que se defina.',
-		currentText:
-			'Los convenios colectivos pueden reemplazar la indemnización por antigüedad (art. 245 LCT) por un Fondo de Cese Laboral. El empleador puede contratar un sistema privado de ahorro para solventar la indemnización. También se puede pactar en convenio el monto por mutuo acuerdo.',
 		plainLanguageExplanation:
 			'El Fondo de Cese es el modelo de la Uocra (construcción) aplicado potencialmente a todo el mercado laboral. En lugar de acumular una "deuda" creciente con cada empleado por años de antigüedad, el empleador deposita mensualmente en un fondo privado (tipo AFJP individual) que el trabajador cobra al desvincularse, independientemente de si fue despedido o renunció. La gran diferencia: en el sistema actual, si renunciás no cobrás indemnización; con el fondo, cobrás lo acumulado siempre.',
 		practicalEffects: [
@@ -346,10 +330,8 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '97',
 		title: 'Trabajadores independientes con colaboradores',
-		originalText:
+		text:
 			'El trabajador independiente podrá contar con hasta otros tres (3) trabajadores independientes para llevar adelante un emprendimiento productivo y podrá acogerse a un régimen especial unificado que reglamentará el PEN. Basado en la relación autónoma, sin vínculo de dependencia. Incluye aporte individual de una cuota mensual (jubilación, obra social, riesgos del trabajo). Prohibido fragmentar establecimientos para obtener beneficios en fraude a la ley.',
-		currentText:
-			'Un trabajador autónomo puede asociarse con hasta 3 colaboradores independientes bajo un régimen especial (no de dependencia). Todos pagan una cuota mensual unificada que cubre jubilación, obra social y ART. No hay relación de dependencia entre ellos.',
 		plainLanguageExplanation:
 			'Crea un nuevo tipo de relación laboral para el trabajo colaborativo informal: un plomero con tres ayudantes, un artesano con colaboradores, un programador freelance con subcontratados. Ya no son empleados en relación de dependencia ni autónomos sin nada: hay un sistema intermedio con protección social básica (jubilación, salud, ART) pero sin las obligaciones de un contrato de trabajo tradicional.',
 		practicalEffects: [
@@ -373,9 +355,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '98',
 		title: 'Modificaciones al trabajo agrario — ley 26.727',
-		originalText: 'Sustitúyanse los artículos 16 y 69 de la ley 26.727: Art. 16: el contrato agrario permanente se aplica el período de prueba del art. 92 bis LCT (ampliado). Art. 69: las bolsas de trabajo sindicales pueden proponer candidatos pero el empleador puede contratar a quien quiera (se deroga la exclusividad de las bolsas de trabajo sindicales).',
-		currentText:
-			'Dos cambios en el régimen de trabajo agrario: (1) se aplica el período de prueba ampliado de la LCT (hasta 6 meses) al trabajo rural permanente; (2) se elimina la exclusividad de las bolsas de trabajo sindicales para tareas temporarias: el empleador puede contratar libremente aunque el sindicato proponga candidatos.',
+		text: 'Sustitúyanse los artículos 16 y 69 de la ley 26.727: Art. 16: el contrato agrario permanente se aplica el período de prueba del art. 92 bis LCT (ampliado). Art. 69: las bolsas de trabajo sindicales pueden proponer candidatos pero el empleador puede contratar a quien quiera (se deroga la exclusividad de las bolsas de trabajo sindicales).',
 		plainLanguageExplanation:
 			'Dos modificaciones al trabajo en el campo: el período de prueba más largo también aplica en el agro; y la "bolsa de trabajo" sindical deja de tener la última palabra en la contratación de temporeros. Antes los empleadores rurales debían contratar a los candidatos que propusiera el sindicato; ahora pueden elegir libremente.',
 		practicalEffects: [
@@ -396,9 +376,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '99',
 		title: 'Derogaciones en materia laboral',
-		originalText: 'Deróganse los artículos 8° a 17 y 120, inciso a), de la ley 24.013; el artículo 9° de la ley 25.013; los artículos 43 a 48 de la ley 25.345; el artículo 15 de la ley 26.727 y el artículo 50 de la ley 26.844.',
-		currentText:
-			'Deroga: arts. 8-17 y 120a de ley 24.013 (multas por trabajo no registrado — la famosa "doble indemnización" y similares); art. 9° ley 25.013; arts. 43-48 ley 25.345 (cheques y pagos laborales); art. 15 ley 26.727 (trabajo agrario); art. 50 ley 26.844 (trabajo doméstico).',
+		text: 'Deróganse los artículos 8° a 17 y 120, inciso a), de la ley 24.013; el artículo 9° de la ley 25.013; los artículos 43 a 48 de la ley 25.345; el artículo 15 de la ley 26.727 y el artículo 50 de la ley 26.844.',
 		plainLanguageExplanation:
 			'El cambio más polémico del Título V: deroga las multas de la ley 24.013 por trabajo en negro. Antes, un trabajador que probaba que había estado no registrado podía cobrar el doble de indemnización y multas adicionales. Con la nueva ley, esas multas adicionales desaparecen. Los defensores dicen que esas multas incentivaban la "industria del juicio"; los críticos dicen que eran el principal desincentivo a la informalidad laboral.',
 		practicalEffects: [
@@ -421,9 +399,7 @@ export const ARTICLES_TITULO_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '100',
 		title: 'Derogación de ley 25.323',
-		originalText: 'Derógase la ley 25.323 y toda norma que se oponga o resultare incompatible con el contenido del presente título.',
-		currentText:
-			'Deroga la ley 25.323 completa (agravamiento indemnizatorio por despido de trabajador no registrado o con datos incorrectos en el registro).',
+		text: 'Derógase la ley 25.323 y toda norma que se oponga o resultare incompatible con el contenido del presente título.',
 		plainLanguageExplanation:
 			'La ley 25.323 imponía que si un empleador despedía a un trabajador que estaba mal registrado y no le pagaba la indemnización, la misma se duplicaba. Era otra "multa" sobre la informalidad y la falta de pago. Con su derogación, desaparece este agravamiento automático. El trabajador sigue teniendo derecho a la indemnización base, pero ya no puede reclamar el doble automáticamente.',
 		practicalEffects: [

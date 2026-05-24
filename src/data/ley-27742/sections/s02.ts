@@ -16,9 +16,7 @@ export const ARTICLES_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '167',
 		title: 'Sectores alcanzados',
-		originalText:
-			'El RIGI resultará aplicable a las Grandes Inversiones en proyectos de los sectores de forestoindustria, turismo, infraestructura, minería, tecnología, siderurgia, energía, petróleo y gas que cumplan con los requisitos previstos en el presente título.',
-		currentText:
+		text:
 			'El RIGI resultará aplicable a las Grandes Inversiones en proyectos de los sectores de forestoindustria, turismo, infraestructura, minería, tecnología, siderurgia, energía, petróleo y gas que cumplan con los requisitos previstos en el presente título.',
 		plainLanguageExplanation:
 			'El RIGI aplica a nueve sectores: forestoindustria, turismo, infraestructura, minería, tecnología, siderurgia, energía, petróleo y gas. El Decreto 749/2024 define qué actividades específicas encuadran en cada uno.',
@@ -45,10 +43,8 @@ export const ARTICLES_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '168',
 		title: 'Plazo de adhesión',
-		originalText:
+		text:
 			'El plazo para adherirse al RIGI será de dos (2) años, contados a partir de la entrada en vigencia del presente régimen.\n\nEl Poder Ejecutivo nacional podrá prorrogar por única vez la vigencia del plazo para acogerse al RIGI por un período de hasta un (1) año a contar desde el vencimiento del plazo anterior.\n\n(Nota Infoleg: por art. 1° del Decreto N° 105/2026 B.O. 19/2/2026 se prorroga la vigencia del plazo para acogerse al Régimen de Incentivo de Grandes Inversiones (RIGI) por el período de UN (1) año a contar desde el 8 de julio de 2026.)',
-		currentText:
-			'El plazo para adherirse al RIGI fue de dos (2) años desde el 8 de julio de 2024. El Poder Ejecutivo ejerció su facultad de prórroga única mediante Decreto 105/2026, extendiendo el plazo hasta el 8 de julio de 2027.',
 		plainLanguageExplanation:
 			'Originalmente el RIGI tenía 2 años de ventana de adhesión (julio 2024 - julio 2026). El Poder Ejecutivo usó su única facultad de prórroga y extendió el plazo hasta julio de 2027 mediante Decreto 105/2026. Una vez que vence ese plazo, no se pueden presentar nuevas solicitudes de adhesión.',
 		practicalEffects: [
@@ -71,10 +67,8 @@ export const ARTICLES_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '169',
 		title: 'Vehículos de Proyecto Único (VPU): sujetos habilitados',
-		originalText:
+		text:
 			'Podrán solicitar su adhesión al RIGI los Vehículos de Proyecto Único (VPU) titulares de una o más fases de un proyecto que califique como Gran Inversión.\n\nLos VPU deberán tener por único y exclusivo objeto llevar a cabo una o más fases de un único proyecto de inversión admitido en el RIGI.\n\nSerán considerados VPU los siguientes entes:\na) Las sociedades anónimas, incluidas las sociedades anónimas unipersonales y las sociedades de responsabilidad limitada;\nb) Las sucursales establecidas por sociedades constituidas en el extranjero de conformidad con el artículo 118 de la Ley General de Sociedades;\nc) Las Sucursales Dedicadas previstas en el artículo 170 de la presente ley; y\nd) Las uniones transitorias y otros contratos asociativos.',
-		currentText:
-			'Podrán solicitar su adhesión al RIGI los Vehículos de Proyecto Único (VPU) titulares de una o más fases de un proyecto que califique como Gran Inversión.\n\nLos VPU deberán tener por único y exclusivo objeto llevar a cabo una o más fases de un único proyecto de inversión admitido en el RIGI.\n\nSerán considerados VPU: a) sociedades anónimas (incluidas SAU y SRL); b) sucursales de empresas extranjeras (art. 118 LGS); c) Sucursales Dedicadas (art. 170); d) uniones transitorias y contratos asociativos.',
 		plainLanguageExplanation:
 			'Sólo puede adherirse al RIGI una entidad cuyo único objeto sea ese proyecto de inversión. Puede ser una SA, SRL, sucursal de empresa extranjera, una "Sucursal Dedicada" (parte de una empresa mayor separada contablemente) o una UTE. No puede adherir una empresa que tenga ese proyecto entre varios otros negocios, a menos que use el mecanismo de Sucursal Dedicada del art. 170.',
 		practicalEffects: [
@@ -99,10 +93,8 @@ export const ARTICLES_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '170',
 		title: 'Sucursal Dedicada',
-		originalText:
+		text:
 			'En los casos en los que una sociedad anónima, una sociedad de responsabilidad limitada o una sucursal de una sociedad constituida en el extranjero desee adherir al RIGI y desarrolle una o más actividades que no formarán parte del proyecto de inversión, o posea uno (1) o más activos que no serán afectados a dicho proyecto, podrá optar, al sólo efecto de su adhesión, por establecer una sucursal que deberá cumplir con los siguientes requisitos:\na) Estar inscripta en el registro público;\nb) Obtener CUIT e inscribirse en los tributos correspondientes en forma independiente;\nc) Tener un capital asignado;\nd) Tener como único objeto el desarrollo del proyecto;\ne) Tener asignados únicamente los activos, pasivos y personal afectados al proyecto;\nf) Llevar contabilidad separada.\n\nLa adhesión al RIGI y los incentivos únicamente resultarán aplicables con relación a dicha sucursal.',
-		currentText:
-			'En los casos en los que una sociedad anónima, una sociedad de responsabilidad limitada o una sucursal de una sociedad constituida en el extranjero desee adherir al RIGI y desarrolle una o más actividades que no formarán parte del proyecto de inversión, o posea uno (1) o más activos que no serán afectados a dicho proyecto, podrá optar, al sólo efecto de su adhesión, por establecer una sucursal que deberá cumplir con los siguientes requisitos:\na) Estar inscripta en el registro público;\nb) Obtener CUIT e inscribirse en los tributos en forma independiente;\nc) Tener un capital asignado;\nd) Tener como único objeto el desarrollo del proyecto;\ne) Tener asignados únicamente los activos, pasivos y personal afectados al proyecto;\nf) Llevar contabilidad separada.\n\nLa adhesión al RIGI y los incentivos únicamente resultarán aplicables con relación a dicha sucursal.',
 		plainLanguageExplanation:
 			'Una empresa grande que tiene múltiples negocios puede crear una "Sucursal Dedicada" —una rama jurídicamente separada dentro de la misma empresa— para adherir al RIGI sólo con esa parte de su negocio. La sucursal debe tener contabilidad propia, CUIT propio y estar inscripta como entidad independiente. Los beneficios RIGI sólo aplican a la sucursal, no al resto de la empresa.',
 		practicalEffects: [
@@ -126,9 +118,7 @@ export const ARTICLES_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '171',
 		title: 'Causales de exclusión',
-		originalText:
-			'No podrán solicitar su inclusión en el RIGI quienes, a la fecha de adhesión y/o a la fecha en la cual la autoridad de aplicación deba resolver la aprobación del plan de inversión, conformen e integren un VPU y se encuentren incluidos en uno o más de los siguientes supuestos:\na) Los condenados, con condena confirmada en segunda instancia, por cualquier tipo de delito en virtud de la ley 27.401 (anticorrupción), o cuyos socios o accionistas se encuentren en dicha situación;\nb) Los declarados en estado de quiebra;\nc) Los condenados por delitos penales tributarios o aduaneros;\nd) Quienes registren deudas firmes, exigibles e impagas de carácter fiscal, aduanero o previsional;\ne) Las personas jurídicas en las que sus socios, administradores o directores hayan sido condenados por los mismos delitos.',
-		currentText:
+		text:
 			'No podrán solicitar su inclusión en el RIGI quienes, a la fecha de adhesión y/o a la fecha en la cual la autoridad de aplicación deba resolver la aprobación del plan de inversión, conformen e integren un VPU y se encuentren incluidos en uno o más de los siguientes supuestos:\na) Los condenados, con condena confirmada en segunda instancia, por cualquier tipo de delito en virtud de la ley 27.401 (anticorrupción), o cuyos socios o accionistas se encuentren en dicha situación;\nb) Los declarados en estado de quiebra;\nc) Los condenados por delitos penales tributarios o aduaneros;\nd) Quienes registren deudas firmes, exigibles e impagas de carácter fiscal, aduanero o previsional;\ne) Las personas jurídicas en las que sus socios, administradores o directores hayan sido condenados por los mismos delitos.',
 		plainLanguageExplanation:
 			'Están excluidos del RIGI los condenados por corrupción (ley anticorrupción), empresas en quiebra, condenados por delitos tributarios o aduaneros, y quienes tengan deudas impositivas o previsionales exigibles. La exclusión aplica tanto a la empresa como a sus accionistas y directivos.',

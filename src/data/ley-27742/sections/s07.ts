@@ -16,10 +16,8 @@ export const ARTICLES_07: Article[] = [
 		lawId: 'ley-27742',
 		number: '209',
 		title: 'Causas de terminación de los incentivos',
-		originalText:
+		text:
 			'Los incentivos y derechos de un VPU adherido al RIGI cesarán sin efecto retroactivo —dejando de revestir dicho carácter— por las siguientes causas:\na) Finalización del proyecto por fin de su vida útil;\nb) Quiebra del VPU;\nc) Baja voluntaria solicitada por el VPU, a partir de la fecha de su aprobación por la autoridad de aplicación; o\nd) Cese como sanción por infracción al RIGI.',
-		currentText:
-			'Los incentivos y derechos RIGI cesan (sin efecto retroactivo) por: a) fin de la vida útil del proyecto; b) quiebra del VPU; c) baja voluntaria aprobada por la Autoridad de Aplicación; d) cese sancionatorio por infracción.',
 		plainLanguageExplanation:
 			'El RIGI termina en 4 situaciones: cuando el proyecto llega al final de su vida útil (por ejemplo, una mina agotada), si el VPU quiebra, si el propio VPU solicita darse de baja, o como sanción por incumplimiento. En todos los casos el cese es "sin efecto retroactivo": lo hecho bajo el régimen queda firme, los beneficios ya utilizados no se devuelven.',
 		practicalEffects: [
@@ -43,10 +41,8 @@ export const ARTICLES_07: Article[] = [
 		lawId: 'ley-27742',
 		number: '210',
 		title: 'Baja voluntaria del RIGI',
-		originalText:
+		text:
 			'Los VPU podrán darse de baja voluntariamente del RIGI en los siguientes casos:\na) Una vez cumplidas las obligaciones previstas en los incisos a) y b) del artículo 172 (monto mínimo e inversión en los primeros 2 años); o\nb) Si ofrecen abonar voluntariamente el mínimo de la multa prevista en el inciso e) del artículo 213 (5% del monto mínimo pendiente), y dicho pago se efectiviza en el plazo que establezca la reglamentación.\n\nLa solicitud de baja debe ser presentada y aprobada por la autoridad de aplicación mediante acto administrativo. Una vez aprobada, el VPU queda liberado de sus obligaciones bajo el RIGI desde la fecha de solicitud, perdiendo los derechos e incentivos del régimen sin efecto retroactivo.',
-		currentText:
-			'El VPU puede pedir la baja voluntaria del RIGI si: a) ya cumplió las obligaciones de monto mínimo e inversión de los primeros 2 años; o b) paga voluntariamente el 5% del monto mínimo pendiente como multa. La baja libera de obligaciones futuras pero el VPU pierde los beneficios del régimen desde esa fecha.',
 		plainLanguageExplanation:
 			'Un inversor puede decidir salirse del RIGI voluntariamente si ya cumplió sus compromisos básicos de inversión, o si prefiere pagar una multa del 5% del monto pendiente para salir antes. Es una "salida ordenada" que protege tanto al Estado (que recibe la multa si el compromiso no se cumplió) como al inversor (que puede reestructurar el proyecto sin sanciones graves).',
 		practicalEffects: [

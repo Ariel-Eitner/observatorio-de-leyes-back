@@ -12,11 +12,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '103',
     title: 'Concepto de remuneración',
-    originalText:
-      'A los fines de esta ley, se entiende por remuneración la contraprestación que debe percibir el trabajador como consecuencia del contrato de trabajo. Dicha remuneración no podrá ser inferior al salario mínimo vital y móvil, salario mínimo profesional o al salario de la categoría del convenio colectivo aplicable.\nEl empleador debe al trabajador la remuneración, aunque éste no preste servicios, por la mera circunstancia de haber puesto su fuerza de trabajo a disposición de aquél.',
-    currentText:
-      'A los fines de esta ley, se entiende por remuneración la contraprestación que debe percibir el trabajador como consecuencia del contrato de trabajo. Dicha remuneración no podrá ser inferior al salario mínimo vital y móvil, salario mínimo profesional o al salario de la categoría del convenio colectivo aplicable.\nEl empleador debe al trabajador la remuneración, aunque éste no preste servicios, por la mera circunstancia de haber puesto su fuerza de trabajo a disposición de aquél.',
-    plainLanguageExplanation:
+    text:
+      'A los fines de esta ley, se entiende por remuneración la contraprestación que debe percibir el trabajador como consecuencia del contrato de trabajo. Dicha remuneración no podrá ser inferior al salario mínimo vital y móvil, salario mínimo profesional o al salario de la categoría del convenio colectivo aplicable.\nEl empleador debe al trabajador la remuneración, aunque éste no preste servicios, por la mera circunstancia de haber puesto su fuerza de trabajo a disposición de aquél.',    plainLanguageExplanation:
       'El salario es todo lo que recibís como consecuencia del contrato de trabajo. El empleador te debe pagar aunque no trabajes si estás a su disposición. El piso es el salario mínimo vital y móvil o el del convenio colectivo aplicable.',
     practicalEffects: [
       'Si el empleador te manda a casa sin trabajo, igual te debe el salario',
@@ -36,11 +33,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '103 bis',
     title: 'Beneficios sociales',
-    originalText:
-      'Se denominan beneficios sociales a las prestaciones de naturaleza jurídica de seguridad social, no remunerativas, no dinerarias, no acumulables ni sustituibles en dinero, que brinda el empleador al trabajador por sí o por medio de terceros, que tiene por objeto mejorar la calidad de vida del dependiente o de su familia a cargo.\nSon beneficios sociales las siguientes prestaciones:\na) Los servicios de comedor de la empresa;\nb) Los vales alimentarios y las canastas de alimentos otorgados a través de empresas habilitadas por la autoridad de aplicación;\nc) Los vales o tickets de guardería y/o sala maternal, que utilicen los trabajadores padres de familia;\nd) Los reintegros de gastos de medicamentos y gastos médicos y odontológicos del trabajador y su familia que asistiera el empleador;\ne) La provisión de ropa de trabajo y de cualquier otro elemento vinculado a la indumentaria y al equipamiento del trabajador para uso exclusivo en el desempeño de sus tareas;\nf) Los reintegros documentados con comprobantes de gastos de guardería y/o sala maternal;\ng) La provisión de útiles escolares y guardapolvos para los hijos del trabajador;\nh) El otorgamiento o pago debidamente documentado de cursos o seminarios de capacitación o especialización;\ni) El pago de gastos de sepelio de familiares a cargo del trabajador debidamente documentado.',
-    currentText:
-      'Se denominan beneficios sociales a las prestaciones de naturaleza jurídica de seguridad social, no remunerativas, no dinerarias, no acumulables ni sustituibles en dinero, que brinda el empleador al trabajador por sí o por medio de terceros, que tiene por objeto mejorar la calidad de vida del dependiente o de su familia a cargo.\nSon beneficios sociales las siguientes prestaciones:\na) Los servicios de comedor de la empresa;\nb) Los vales alimentarios y las canastas de alimentos otorgados a través de empresas habilitadas por la autoridad de aplicación;\nc) Los vales o tickets de guardería y/o sala maternal, que utilicen los trabajadores padres de familia;\nd) Los reintegros de gastos de medicamentos y gastos médicos y odontológicos del trabajador y su familia que asistiera el empleador;\ne) La provisión de ropa de trabajo y de cualquier otro elemento vinculado a la indumentaria y al equipamiento del trabajador para uso exclusivo en el desempeño de sus tareas;\nf) Los reintegros documentados con comprobantes de gastos de guardería y/o sala maternal;\ng) La provisión de útiles escolares y guardapolvos para los hijos del trabajador;\nh) El otorgamiento o pago debidamente documentado de cursos o seminarios de capacitación o especialización;\ni) El pago de gastos de sepelio de familiares a cargo del trabajador debidamente documentado.',
-    plainLanguageExplanation: '',
+    text:
+      'Se denominan beneficios sociales a las prestaciones de naturaleza jurídica de seguridad social, no remunerativas, no dinerarias, no acumulables ni sustituibles en dinero, que brinda el empleador al trabajador por sí o por medio de terceros, que tiene por objeto mejorar la calidad de vida del dependiente o de su familia a cargo.\nSon beneficios sociales las siguientes prestaciones:\na) Los servicios de comedor de la empresa;\nb) Los vales alimentarios y las canastas de alimentos otorgados a través de empresas habilitadas por la autoridad de aplicación;\nc) Los vales o tickets de guardería y/o sala maternal, que utilicen los trabajadores padres de familia;\nd) Los reintegros de gastos de medicamentos y gastos médicos y odontológicos del trabajador y su familia que asistiera el empleador;\ne) La provisión de ropa de trabajo y de cualquier otro elemento vinculado a la indumentaria y al equipamiento del trabajador para uso exclusivo en el desempeño de sus tareas;\nf) Los reintegros documentados con comprobantes de gastos de guardería y/o sala maternal;\ng) La provisión de útiles escolares y guardapolvos para los hijos del trabajador;\nh) El otorgamiento o pago debidamente documentado de cursos o seminarios de capacitación o especialización;\ni) El pago de gastos de sepelio de familiares a cargo del trabajador debidamente documentado.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -56,11 +50,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '104',
     title: 'Formas de determinar la remuneración',
-    originalText:
-      'El salario puede fijarse por tiempo o por rendimiento del trabajo, y en este último caso por unidad de obra, comisión individual o colectiva, habilitación, gratificación o participación en las utilidades e integrarse con premios en cualquiera de sus formas o modalidades.',
-    currentText:
-      'El salario puede fijarse por tiempo o por rendimiento del trabajo, y en este último caso por unidad de obra, comisión individual o colectiva, habilitación, gratificación o participación en las utilidades e integrarse con premios en cualquiera de sus formas o modalidades.',
-    plainLanguageExplanation: '',
+    text:
+      'El salario puede fijarse por tiempo o por rendimiento del trabajo, y en este último caso por unidad de obra, comisión individual o colectiva, habilitación, gratificación o participación en las utilidades e integrarse con premios en cualquiera de sus formas o modalidades.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -76,11 +67,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '105',
     title: 'Formas de pago — Prestaciones complementarias',
-    originalText:
-      'El salario debe ser satisfecho en dinero, especie, habitación, alimentos o mediante la oportunidad de obtener beneficios o ganancias.\nLas prestaciones complementarias, sean en dinero o en especie, integran la remuneración del trabajador, con excepción de:\na) Los retiros de socios gerentes de sociedades de responsabilidad limitada, a cuenta de las utilidades del ejercicio debidamente contabilizadas en el balance;\nb) Los reintegros de gastos sin comprobante hasta la cantidad fijada por la convención colectiva de trabajo correspondiente al convenio de la actividad.',
-    currentText:
-      'El salario debe ser satisfecho en dinero, especie, habitación, alimentos o mediante la oportunidad de obtener beneficios o ganancias.\nLas prestaciones complementarias, sean en dinero o en especie, integran la remuneración del trabajador, con excepción de:\na) Los retiros de socios gerentes de sociedades de responsabilidad limitada, a cuenta de las utilidades del ejercicio debidamente contabilizadas en el balance;\nb) Los reintegros de gastos sin comprobante hasta la cantidad fijada por la convención colectiva de trabajo correspondiente al convenio de la actividad.',
-    plainLanguageExplanation: '',
+    text:
+      'El salario debe ser satisfecho en dinero, especie, habitación, alimentos o mediante la oportunidad de obtener beneficios o ganancias.\nLas prestaciones complementarias, sean en dinero o en especie, integran la remuneración del trabajador, con excepción de:\na) Los retiros de socios gerentes de sociedades de responsabilidad limitada, a cuenta de las utilidades del ejercicio debidamente contabilizadas en el balance;\nb) Los reintegros de gastos sin comprobante hasta la cantidad fijada por la convención colectiva de trabajo correspondiente al convenio de la actividad.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -96,11 +84,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '106',
     title: 'Viáticos',
-    originalText:
-      'Los viáticos serán considerados como remuneración, excepto en la parte efectivamente gastada y acreditada por medio de comprobantes, salvo lo que en particular dispongan los estatutos profesionales y convenciones colectivas de trabajo.',
-    currentText:
-      'Los viáticos serán considerados como remuneración, excepto en la parte efectivamente gastada y acreditada por medio de comprobantes, salvo lo que en particular dispongan los estatutos profesionales y convenciones colectivas de trabajo.',
-    plainLanguageExplanation: '',
+    text:
+      'Los viáticos serán considerados como remuneración, excepto en la parte efectivamente gastada y acreditada por medio de comprobantes, salvo lo que en particular dispongan los estatutos profesionales y convenciones colectivas de trabajo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -116,11 +101,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '107',
     title: 'Prohibición de pago en mercaderías, vales, fichas o similares',
-    originalText:
-      'Está prohibido el pago de salarios en mercaderías, vales, fichas o cualquier otro signo representativo de moneda. El salario deberá abonarse en moneda de curso legal, mediante depósito en cuenta bancaria del trabajador, en cheque o en efectivo.',
-    currentText:
-      'Está prohibido el pago de salarios en mercaderías, vales, fichas o cualquier otro signo representativo de moneda. El salario deberá abonarse en moneda de curso legal, mediante depósito en cuenta bancaria del trabajador, en cheque o en efectivo.',
-    plainLanguageExplanation: '',
+    text:
+      'Está prohibido el pago de salarios en mercaderías, vales, fichas o cualquier otro signo representativo de moneda. El salario deberá abonarse en moneda de curso legal, mediante depósito en cuenta bancaria del trabajador, en cheque o en efectivo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-124'],
@@ -136,11 +118,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '108',
     title: 'Comisiones — Carácter individual',
-    originalText:
-      'Cuando el trabajador sea remunerado en base a comisión, ésta se liquidará sobre las operaciones concertadas.',
-    currentText:
-      'Cuando el trabajador sea remunerado en base a comisión, ésta se liquidará sobre las operaciones concertadas.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando el trabajador sea remunerado en base a comisión, ésta se liquidará sobre las operaciones concertadas.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-104'],
@@ -156,11 +135,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '109',
     title: 'Comisiones colectivas — Habilitación',
-    originalText:
-      'Si se estipulasen comisiones o porcentajes colectivos sobre ventas, para ser distribuidos entre la totalidad del personal, esa distribución deberá hacerse de modo que cada trabajador participe de una parte proporcional a su remuneración.',
-    currentText:
-      'Si se estipulasen comisiones o porcentajes colectivos sobre ventas, para ser distribuidos entre la totalidad del personal, esa distribución deberá hacerse de modo que cada trabajador participe de una parte proporcional a su remuneración.',
-    plainLanguageExplanation: '',
+    text:
+      'Si se estipulasen comisiones o porcentajes colectivos sobre ventas, para ser distribuidos entre la totalidad del personal, esa distribución deberá hacerse de modo que cada trabajador participe de una parte proporcional a su remuneración.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-108'],
@@ -176,11 +152,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '110',
     title: 'Habilitación o participación en las utilidades',
-    originalText:
-      'Si se hubiese pactado una participación en las utilidades, habilitación o formas similares, éstas se liquidarán sobre utilidades netas.',
-    currentText:
-      'Si se hubiese pactado una participación en las utilidades, habilitación o formas similares, éstas se liquidarán sobre utilidades netas.',
-    plainLanguageExplanation: '',
+    text:
+      'Si se hubiese pactado una participación en las utilidades, habilitación o formas similares, éstas se liquidarán sobre utilidades netas.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-104'],
@@ -196,11 +169,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '111',
     title: 'Verificación — Derecho del trabajador',
-    originalText:
-      'En todos los casos en que el trabajador esté total o parcialmente remunerado con comisiones o porcentajes sobre ventas o utilidades, se le deberá reconocer el derecho de inspeccionar la documentación que fuere necesaria para la verificación de sus acreencias. Dicho derecho podrá ser ejercido directamente por el trabajador, o a través de la asociación profesional que lo represente.',
-    currentText:
-      'En todos los casos en que el trabajador esté total o parcialmente remunerado con comisiones o porcentajes sobre ventas o utilidades, se le deberá reconocer el derecho de inspeccionar la documentación que fuere necesaria para la verificación de sus acreencias. Dicho derecho podrá ser ejercido directamente por el trabajador, o a través de la asociación profesional que lo represente.',
-    plainLanguageExplanation: '',
+    text:
+      'En todos los casos en que el trabajador esté total o parcialmente remunerado con comisiones o porcentajes sobre ventas o utilidades, se le deberá reconocer el derecho de inspeccionar la documentación que fuere necesaria para la verificación de sus acreencias. Dicho derecho podrá ser ejercido directamente por el trabajador, o a través de la asociación profesional que lo represente.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-108', 'art-20744-110'],
@@ -216,11 +186,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '112',
     title: 'Salario de temporada',
-    originalText:
-      'En el contrato de trabajo de temporada, el salario del trabajador y sus accesorios se pagarán en forma íntegra al vencimiento de cada período de prestación de servicios.',
-    currentText:
-      'En el contrato de trabajo de temporada, el salario del trabajador y sus accesorios se pagarán en forma íntegra al vencimiento de cada período de prestación de servicios.',
-    plainLanguageExplanation: '',
+    text:
+      'En el contrato de trabajo de temporada, el salario del trabajador y sus accesorios se pagarán en forma íntegra al vencimiento de cada período de prestación de servicios.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-96'],
@@ -236,11 +203,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '113',
     title: 'Propinas',
-    originalText:
-      'Cuando el trabajador, con motivo del trabajo que preste, tuviese oportunidad de obtener beneficios o ganancias que estuvieran sujetos a una distribución usual o a una percepción directa, formarán parte de la remuneración, si revistieran el carácter de habituales y no estuviesen prohibidas.',
-    currentText:
-      'Cuando el trabajador, con motivo del trabajo que preste, tuviese oportunidad de obtener beneficios o ganancias que estuvieran sujetos a una distribución usual o a una percepción directa, formarán parte de la remuneración, si revistieran el carácter de habituales y no estuviesen prohibidas.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando el trabajador, con motivo del trabajo que preste, tuviese oportunidad de obtener beneficios o ganancias que estuvieran sujetos a una distribución usual o a una percepción directa, formarán parte de la remuneración, si revistieran el carácter de habituales y no estuviesen prohibidas.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -256,11 +220,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '114',
     title: 'Remuneración en las vacaciones',
-    originalText:
-      'El trabajador percibirá retribución durante el período de vacaciones, la que se determinará de la siguiente manera:\na) Tratándose de trabajos remunerados con sueldo mensual, dividiendo por veinticinco (25) el importe del sueldo que perciba en el momento de su otorgamiento.\nb) Si la remuneración se hubiere fijado por día o por hora, se abonará por cada día de vacaciones el importe que le hubiere correspondido percibir al trabajador en la jornada anterior a la fecha en que comience a gozar de ellas, tomando a tal efecto la remuneración que deba abonarse conforme a las normas legales o convencionales o a lo pactado, si esto último fuera más favorable.',
-    currentText:
-      'El trabajador percibirá retribución durante el período de vacaciones, la que se determinará de la siguiente manera:\na) Tratándose de trabajos remunerados con sueldo mensual, dividiendo por veinticinco (25) el importe del sueldo que perciba en el momento de su otorgamiento.\nb) Si la remuneración se hubiere fijado por día o por hora, se abonará por cada día de vacaciones el importe que le hubiere correspondido percibir al trabajador en la jornada anterior a la fecha en que comience a gozar de ellas, tomando a tal efecto la remuneración que deba abonarse conforme a las normas legales o convencionales o a lo pactado, si esto último fuera más favorable.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador percibirá retribución durante el período de vacaciones, la que se determinará de la siguiente manera:\na) Tratándose de trabajos remunerados con sueldo mensual, dividiendo por veinticinco (25) el importe del sueldo que perciba en el momento de su otorgamiento.\nb) Si la remuneración se hubiere fijado por día o por hora, se abonará por cada día de vacaciones el importe que le hubiere correspondido percibir al trabajador en la jornada anterior a la fecha en que comience a gozar de ellas, tomando a tal efecto la remuneración que deba abonarse conforme a las normas legales o convencionales o a lo pactado, si esto último fuera más favorable.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-150'],
@@ -276,11 +237,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '115',
     title: 'Proporcionalidad',
-    originalText:
-      'La remuneración que debe abonarse durante las vacaciones es la correspondiente al número de días de vacaciones de que goza el trabajador. Al trabajador que durante las vacaciones percibiere también remuneración, le corresponde durante ese lapso el doble de la remuneración normal en el caso que la misma fuera superior a la que percibiría en caso de no trabajar.',
-    currentText:
-      'La remuneración que debe abonarse durante las vacaciones es la correspondiente al número de días de vacaciones de que goza el trabajador. Al trabajador que durante las vacaciones percibiere también remuneración, le corresponde durante ese lapso el doble de la remuneración normal en el caso que la misma fuera superior a la que percibiría en caso de no trabajar.',
-    plainLanguageExplanation: '',
+    text:
+      'La remuneración que debe abonarse durante las vacaciones es la correspondiente al número de días de vacaciones de que goza el trabajador. Al trabajador que durante las vacaciones percibiere también remuneración, le corresponde durante ese lapso el doble de la remuneración normal en el caso que la misma fuera superior a la que percibiría en caso de no trabajar.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-114'],
@@ -296,11 +254,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '116',
     title: 'Salario mínimo vital y móvil',
-    originalText:
-      'Salario mínimo vital, es la menor remuneración que debe percibir en efectivo el trabajador sin cargas de familia, en su jornada legal de trabajo, de modo que le asegure alimentación adecuada, vivienda digna, educación, vestuario, asistencia sanitaria, transporte y esparcimiento, vacaciones y previsión.',
-    currentText:
-      'Salario mínimo vital, es la menor remuneración que debe percibir en efectivo el trabajador sin cargas de familia, en su jornada legal de trabajo, de modo que le asegure alimentación adecuada, vivienda digna, educación, vestuario, asistencia sanitaria, transporte y esparcimiento, vacaciones y previsión.',
-    plainLanguageExplanation: '',
+    text:
+      'Salario mínimo vital, es la menor remuneración que debe percibir en efectivo el trabajador sin cargas de familia, en su jornada legal de trabajo, de modo que le asegure alimentación adecuada, vivienda digna, educación, vestuario, asistencia sanitaria, transporte y esparcimiento, vacaciones y previsión.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -316,11 +271,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '117',
     title: 'Beneficiarios',
-    originalText:
-      'Todo trabajador mayor de dieciocho (18) años, tendrá derecho a percibir una remuneración no inferior al salario mínimo vital que se establezca, conforme a la ley y por los organismos respectivos. Igual derecho tendrá el trabajador menor de dieciocho (18) años que tenga las cargas de familia que impone la ley.',
-    currentText:
-      'Todo trabajador mayor de dieciocho (18) años, tendrá derecho a percibir una remuneración no inferior al salario mínimo vital que se establezca, conforme a la ley y por los organismos respectivos. Igual derecho tendrá el trabajador menor de dieciocho (18) años que tenga las cargas de familia que impone la ley.',
-    plainLanguageExplanation: '',
+    text:
+      'Todo trabajador mayor de dieciocho (18) años, tendrá derecho a percibir una remuneración no inferior al salario mínimo vital que se establezca, conforme a la ley y por los organismos respectivos. Igual derecho tendrá el trabajador menor de dieciocho (18) años que tenga las cargas de familia que impone la ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-116'],
@@ -336,11 +288,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '118',
     title: 'Pago en período de licencia',
-    originalText:
-      'El pago de la remuneración deberá realizarse en uno de los siguientes períodos:\na) Al personal mensualizado, al vencimiento de cada mes calendario.\nb) Al personal remunerado a jornal o por hora, por semana o quincena.\nc) Al personal remunerado por pieza o medida, cada semana o quincena respecto de los trabajos concluidos en los referidos períodos, y uno igual al del inciso a) respecto de los que se hallaren en curso de ejecución al vencimiento de cada mes calendario.',
-    currentText:
-      'El pago de la remuneración deberá realizarse en uno de los siguientes períodos:\na) Al personal mensualizado, al vencimiento de cada mes calendario.\nb) Al personal remunerado a jornal o por hora, por semana o quincena.\nc) Al personal remunerado por pieza o medida, cada semana o quincena respecto de los trabajos concluidos en los referidos períodos, y uno igual al del inciso a) respecto de los que se hallaren en curso de ejecución al vencimiento de cada mes calendario.',
-    plainLanguageExplanation: '',
+    text:
+      'El pago de la remuneración deberá realizarse en uno de los siguientes períodos:\na) Al personal mensualizado, al vencimiento de cada mes calendario.\nb) Al personal remunerado a jornal o por hora, por semana o quincena.\nc) Al personal remunerado por pieza o medida, cada semana o quincena respecto de los trabajos concluidos en los referidos períodos, y uno igual al del inciso a) respecto de los que se hallaren en curso de ejecución al vencimiento de cada mes calendario.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-126'],
@@ -356,11 +305,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '119',
     title: 'Prohibición de abonar salarios inferiores al mínimo',
-    originalText:
-      'Por ninguna causa podrán abonarse salarios inferiores a los que resulten de la aplicación de las leyes o de los estatutos, convenios colectivos o laudos, cuando los hubiere. Únicamente para los trabajadores a tiempo parcial el salario será proporcional al tiempo trabajado.',
-    currentText:
-      'Por ninguna causa podrán abonarse salarios inferiores a los que resulten de la aplicación de las leyes o de los estatutos, convenios colectivos o laudos, cuando los hubiere. Únicamente para los trabajadores a tiempo parcial el salario será proporcional al tiempo trabajado.',
-    plainLanguageExplanation: '',
+    text:
+      'Por ninguna causa podrán abonarse salarios inferiores a los que resulten de la aplicación de las leyes o de los estatutos, convenios colectivos o laudos, cuando los hubiere. Únicamente para los trabajadores a tiempo parcial el salario será proporcional al tiempo trabajado.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-116', 'art-20744-92-ter'],
@@ -376,11 +322,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '120',
     title: 'Inembargabilidad del salario mínimo',
-    originalText:
-      'Las remuneraciones debidas a los trabajadores serán inembargables en la proporción resultante de la aplicación del artículo 147, salvo por deudas alimentarias.',
-    currentText:
-      'Las remuneraciones debidas a los trabajadores serán inembargables en la proporción resultante de la aplicación del artículo 147, salvo por deudas alimentarias.',
-    plainLanguageExplanation: '',
+    text:
+      'Las remuneraciones debidas a los trabajadores serán inembargables en la proporción resultante de la aplicación del artículo 147, salvo por deudas alimentarias.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-147'],
@@ -397,11 +340,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '121',
     title: 'Concepto del SAC',
-    originalText:
-      'Se entiende por sueldo anual complementario la doceava parte del total de las remuneraciones definidas en el artículo 103 de esta ley, percibidas por el trabajador en el respectivo año calendario.',
-    currentText:
-      'Se entiende por sueldo anual complementario la doceava parte del total de las remuneraciones definidas en el artículo 103 de esta ley, percibidas por el trabajador en el respectivo año calendario.',
-    plainLanguageExplanation:
+    text:
+      'Se entiende por sueldo anual complementario la doceava parte del total de las remuneraciones definidas en el artículo 103 de esta ley, percibidas por el trabajador en el respectivo año calendario.',    plainLanguageExplanation:
       'El SAC es la doceava parte de todo lo que ganaste en el año. En la práctica es equivalente a un "medio aguinaldo" cada 6 meses. Se calcula sobre el total de remuneraciones incluyendo horas extra y bonificaciones.',
     practicalEffects: [
       'Se paga en dos cuotas: al 30 de junio y al 31 de diciembre',
@@ -422,11 +362,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '122',
     title: 'Épocas de pago del SAC',
-    originalText:
-      'El sueldo anual complementario será abonado en dos cuotas: la primera de ellas con vencimiento el 30 de junio y la segunda con vencimiento el 31 de diciembre de cada año.\nEl importe a abonar en cada semestre será igual a la doceava parte de las remuneraciones devengadas en el semestre que corresponda.',
-    currentText:
-      'El sueldo anual complementario será abonado en dos cuotas: la primera de ellas con vencimiento el 30 de junio y la segunda con vencimiento el 31 de diciembre de cada año.\nEl importe a abonar en cada semestre será igual a la doceava parte de las remuneraciones devengadas en el semestre que corresponda.',
-    plainLanguageExplanation: '',
+    text:
+      'El sueldo anual complementario será abonado en dos cuotas: la primera de ellas con vencimiento el 30 de junio y la segunda con vencimiento el 31 de diciembre de cada año.\nEl importe a abonar en cada semestre será igual a la doceava parte de las remuneraciones devengadas en el semestre que corresponda.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-121'],
@@ -442,11 +379,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '123',
     title: 'Proporcionalidad del SAC en la extinción del contrato',
-    originalText:
-      'Cuando se opere la extinción del contrato de trabajo por cualquier causa, el trabajador o sus derechohabientes tendrán derecho a percibir la parte del sueldo anual complementario que correspondiere al período trabajado en el semestre respectivo.',
-    currentText:
-      'Cuando se opere la extinción del contrato de trabajo por cualquier causa, el trabajador o sus derechohabientes tendrán derecho a percibir la parte del sueldo anual complementario que correspondiere al período trabajado en el semestre respectivo.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando se opere la extinción del contrato de trabajo por cualquier causa, el trabajador o sus derechohabientes tendrán derecho a percibir la parte del sueldo anual complementario que correspondiere al período trabajado en el semestre respectivo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-121', 'art-20744-122'],
@@ -463,11 +397,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '124',
     title: 'Medios de pago',
-    originalText:
-      'El pago de las remuneraciones deberá realizarse en días hábiles, en el lugar de trabajo y durante las horas de prestación de servicios, quedando prohibido realizarlo en lugares donde se vendan bebidas alcohólicas o en lugares de recreo, a menos que se trate de personal ocupado en esos establecimientos.',
-    currentText:
-      'El pago de las remuneraciones deberá realizarse en días hábiles, en el lugar de trabajo y durante las horas de prestación de servicios, quedando prohibido realizarlo en lugares donde se vendan bebidas alcohólicas o en lugares de recreo, a menos que se trate de personal ocupado en esos establecimientos.',
-    plainLanguageExplanation: '',
+    text:
+      'El pago de las remuneraciones deberá realizarse en días hábiles, en el lugar de trabajo y durante las horas de prestación de servicios, quedando prohibido realizarlo en lugares donde se vendan bebidas alcohólicas o en lugares de recreo, a menos que se trate de personal ocupado en esos establecimientos.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-126'],
@@ -483,11 +414,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '125',
     title: 'Recibos y otros comprobantes de pago',
-    originalText:
-      'El pago de las remuneraciones contra recibo. El empleador no podrá exigir al trabajador que suscriba recibos en blanco o que devuelva recibos ya firmados, bajo apercibimiento de las sanciones correspondientes.',
-    currentText:
-      'El pago de las remuneraciones contra recibo. El empleador no podrá exigir al trabajador que suscriba recibos en blanco o que devuelva recibos ya firmados, bajo apercibimiento de las sanciones correspondientes.',
-    plainLanguageExplanation: '',
+    text:
+      'El pago de las remuneraciones contra recibo. El empleador no podrá exigir al trabajador que suscriba recibos en blanco o que devuelva recibos ya firmados, bajo apercibimiento de las sanciones correspondientes.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-135', 'art-20744-138'],
@@ -503,11 +431,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '126',
     title: 'Períodos de pago',
-    originalText:
-      'El pago de las remuneraciones de los trabajadores se efectuará de la siguiente manera:\na) Al personal mensualizado, al vencimiento de cada mes calendario.\nb) Al personal remunerado a jornal o por hora, por semana o quincena.\nc) Al personal remunerado por pieza o medida, cada semana o quincena respecto de los trabajos concluidos en los referidos períodos y uno igual al del inciso a) respecto de los que se hallaren en curso de ejecución al vencimiento de cada mes calendario.',
-    currentText:
-      'El pago de las remuneraciones de los trabajadores se efectuará de la siguiente manera:\na) Al personal mensualizado, al vencimiento de cada mes calendario.\nb) Al personal remunerado a jornal o por hora, por semana o quincena.\nc) Al personal remunerado por pieza o medida, cada semana o quincena respecto de los trabajos concluidos en los referidos períodos y uno igual al del inciso a) respecto de los que se hallaren en curso de ejecución al vencimiento de cada mes calendario.',
-    plainLanguageExplanation: '',
+    text:
+      'El pago de las remuneraciones de los trabajadores se efectuará de la siguiente manera:\na) Al personal mensualizado, al vencimiento de cada mes calendario.\nb) Al personal remunerado a jornal o por hora, por semana o quincena.\nc) Al personal remunerado por pieza o medida, cada semana o quincena respecto de los trabajos concluidos en los referidos períodos y uno igual al del inciso a) respecto de los que se hallaren en curso de ejecución al vencimiento de cada mes calendario.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-118'],
@@ -523,11 +448,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '127',
     title: 'Pago insuficiente',
-    originalText:
-      'El pago de una suma inferior a la que corresponda por aplicación de esta ley, de los estatutos profesionales o de las convenciones colectivas de trabajo, efectuado por un empleador en concepto de salarios, habilitará al trabajador a considerarlo como entrega a cuenta del total adeudado aunque se reciba sin reservas, quedando expedita en su favor la acción para reclamar el pago de la diferencia que correspondiere.',
-    currentText:
-      'El pago de una suma inferior a la que corresponda por aplicación de esta ley, de los estatutos profesionales o de las convenciones colectivas de trabajo, efectuado por un empleador en concepto de salarios, habilitará al trabajador a considerarlo como entrega a cuenta del total adeudado aunque se reciba sin reservas, quedando expedita en su favor la acción para reclamar el pago de la diferencia que correspondiere.',
-    plainLanguageExplanation: '',
+    text:
+      'El pago de una suma inferior a la que corresponda por aplicación de esta ley, de los estatutos profesionales o de las convenciones colectivas de trabajo, efectuado por un empleador en concepto de salarios, habilitará al trabajador a considerarlo como entrega a cuenta del total adeudado aunque se reciba sin reservas, quedando expedita en su favor la acción para reclamar el pago de la diferencia que correspondiere.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],
@@ -543,11 +465,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '128',
     title: 'Retención, depósito y acreditación de remuneraciones',
-    originalText:
-      'La mora en el pago de las remuneraciones se produce de pleno derecho. Cuando la remuneración se deba depositar en cuenta del trabajador, la mora se produce si el empleador no efectúa el depósito en el plazo establecido en el artículo 126, sin necesidad de intimación previa.',
-    currentText:
-      'La mora en el pago de las remuneraciones se produce de pleno derecho. Cuando la remuneración se deba depositar en cuenta del trabajador, la mora se produce si el empleador no efectúa el depósito en el plazo establecido en el artículo 126, sin necesidad de intimación previa.',
-    plainLanguageExplanation: '',
+    text:
+      'La mora en el pago de las remuneraciones se produce de pleno derecho. Cuando la remuneración se deba depositar en cuenta del trabajador, la mora se produce si el empleador no efectúa el depósito en el plazo establecido en el artículo 126, sin necesidad de intimación previa.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-126'],
@@ -563,11 +482,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '129',
     title: 'Adelantos de sueldo',
-    originalText:
-      'El empleador podrá realizar adelantos de remuneraciones al trabajador hasta un cincuenta por ciento (50%) de las mismas, correspondientes a no más de un período de pago.',
-    currentText:
-      'El empleador podrá realizar adelantos de remuneraciones al trabajador hasta un cincuenta por ciento (50%) de las mismas, correspondientes a no más de un período de pago.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador podrá realizar adelantos de remuneraciones al trabajador hasta un cincuenta por ciento (50%) de las mismas, correspondientes a no más de un período de pago.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-131'],
@@ -583,11 +499,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '130',
     title: 'Retenciones — Porcentaje máximo',
-    originalText:
-      'El empleador podrá retener en concepto de adelantos de sueldo y cualquier forma de préstamos u otros créditos, hasta el treinta por ciento (30%) de la remuneración del trabajador, quedando siempre a salvo el salario mínimo vital e inembargable.',
-    currentText:
-      'El empleador podrá retener en concepto de adelantos de sueldo y cualquier forma de préstamos u otros créditos, hasta el treinta por ciento (30%) de la remuneración del trabajador, quedando siempre a salvo el salario mínimo vital e inembargable.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador podrá retener en concepto de adelantos de sueldo y cualquier forma de préstamos u otros créditos, hasta el treinta por ciento (30%) de la remuneración del trabajador, quedando siempre a salvo el salario mínimo vital e inembargable.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-131'],
@@ -603,11 +516,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '131',
     title: 'Retenciones — Prohibición general',
-    originalText:
-      'El empleador no podrá retener, compensar ni hacer pagar al trabajador suma alguna que rebaje el monto de las remuneraciones. Queda prohibida la "cuenta corriente" entre empleador y trabajador.',
-    currentText:
-      'El empleador no podrá retener, compensar ni hacer pagar al trabajador suma alguna que rebaje el monto de las remuneraciones. Queda prohibida la "cuenta corriente" entre empleador y trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador no podrá retener, compensar ni hacer pagar al trabajador suma alguna que rebaje el monto de las remuneraciones. Queda prohibida la "cuenta corriente" entre empleador y trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-130'],
@@ -623,11 +533,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '132',
     title: 'Retenciones — Casos especiales permitidos',
-    originalText:
-      'El empleador podrá efectuar retenciones, deductions, compensaciones en los siguientes supuestos:\na) Por pago de adelantos de haberes efectuados en el mes a liquidar;\nb) Por descuentos establecidos en las cuotas de afiliación a organizaciones sindicales;\nc) Por aportes previsionales a cargo del trabajador;\nd) Por cuotas de créditos u operaciones realizadas con entidades bancarias u otras autorizadas;\ne) Por cuotas de pago de seguros u otras prestaciones convenidas con el trabajador.',
-    currentText:
-      'El empleador podrá efectuar retenciones, deductions, compensaciones en los siguientes supuestos:\na) Por pago de adelantos de haberes efectuados en el mes a liquidar;\nb) Por descuentos establecidos en las cuotas de afiliación a organizaciones sindicales;\nc) Por aportes previsionales a cargo del trabajador;\nd) Por cuotas de créditos u operaciones realizadas con entidades bancarias u otras autorizadas;\ne) Por cuotas de pago de seguros u otras prestaciones convenidas con el trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador podrá efectuar retenciones, deductions, compensaciones en los siguientes supuestos:\na) Por pago de adelantos de haberes efectuados en el mes a liquidar;\nb) Por descuentos establecidos en las cuotas de afiliación a organizaciones sindicales;\nc) Por aportes previsionales a cargo del trabajador;\nd) Por cuotas de créditos u operaciones realizadas con entidades bancarias u otras autorizadas;\ne) Por cuotas de pago de seguros u otras prestaciones convenidas con el trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-131'],
@@ -643,11 +550,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '133',
     title: 'Autorización al empleador para los casos de cuotas de crédito',
-    originalText:
-      'El empleador podrá retener, en concepto de pago de cuotas por préstamos que hubiere otorgado al trabajador, hasta un máximo del treinta por ciento (30%) de la remuneración mensual del trabajador, quedando siempre a salvo el salario mínimo vital e inembargable.',
-    currentText:
-      'El empleador podrá retener, en concepto de pago de cuotas por préstamos que hubiere otorgado al trabajador, hasta un máximo del treinta por ciento (30%) de la remuneración mensual del trabajador, quedando siempre a salvo el salario mínimo vital e inembargable.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador podrá retener, en concepto de pago de cuotas por préstamos que hubiere otorgado al trabajador, hasta un máximo del treinta por ciento (30%) de la remuneración mensual del trabajador, quedando siempre a salvo el salario mínimo vital e inembargable.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-130', 'art-20744-131'],
@@ -663,11 +567,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '134',
     title: 'Deudas del trabajador — Daños',
-    originalText:
-      'En caso de daños graves e intencionales causados al empleador, éste podrá demandar al trabajador la reparación del perjuicio y compensar la deuda con las remuneraciones. Siempre deberá quedar a salvo el importe correspondiente a un mes de sueldo del trabajador.',
-    currentText:
-      'En caso de daños graves e intencionales causados al empleador, éste podrá demandar al trabajador la reparación del perjuicio y compensar la deuda con las remuneraciones. Siempre deberá quedar a salvo el importe correspondiente a un mes de sueldo del trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'En caso de daños graves e intencionales causados al empleador, éste podrá demandar al trabajador la reparación del perjuicio y compensar la deuda con las remuneraciones. Siempre deberá quedar a salvo el importe correspondiente a un mes de sueldo del trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-86'],
@@ -683,11 +584,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '135',
     title: 'Recibo de pago — Contenido necesario',
-    originalText:
-      'El recibo de pago deberá necesariamente contener como mínimo las siguientes enunciaciones:\na) Nombre íntegro o razón social del empleador y su domicilio y su C.U.I.T.;\nb) Nombre y apellido del trabajador y su calificación profesional y su C.U.I.L.;\nc) Todo tipo de remuneración que perciba, con indicación sustancial de su determinación;\nd) Total bruto de la remuneración básica o fija y porcentual devengada y tiempo que corresponda.\ne) Importe de las deducciones que se efectúan por aportes jubilatorios y otras retenciones autorizadas;\nf) Importe neto percibido, expresado en números y letras;\ng) Constancia de la recepción del duplicado por el trabajador;\nh) Lugar y fecha que deberán corresponder al pago real y efectivo de la remuneración al trabajador;\ni) En el caso de los artículo 124 y 129 de esta ley, firma y sello del empleador o representante.',
-    currentText:
-      'El recibo de pago deberá necesariamente contener como mínimo las siguientes enunciaciones:\na) Nombre íntegro o razón social del empleador y su domicilio y su C.U.I.T.;\nb) Nombre y apellido del trabajador y su calificación profesional y su C.U.I.L.;\nc) Todo tipo de remuneración que perciba, con indicación sustancial de su determinación;\nd) Total bruto de la remuneración básica o fija y porcentual devengada y tiempo que corresponda.\ne) Importe de las deducciones que se efectúan por aportes jubilatorios y otras retenciones autorizadas;\nf) Importe neto percibido, expresado en números y letras;\ng) Constancia de la recepción del duplicado por el trabajador;\nh) Lugar y fecha que deberán corresponder al pago real y efectivo de la remuneración al trabajador;\ni) En el caso de los artículo 124 y 129 de esta ley, firma y sello del empleador o representante.',
-    plainLanguageExplanation: '',
+    text:
+      'El recibo de pago deberá necesariamente contener como mínimo las siguientes enunciaciones:\na) Nombre íntegro o razón social del empleador y su domicilio y su C.U.I.T.;\nb) Nombre y apellido del trabajador y su calificación profesional y su C.U.I.L.;\nc) Todo tipo de remuneración que perciba, con indicación sustancial de su determinación;\nd) Total bruto de la remuneración básica o fija y porcentual devengada y tiempo que corresponda.\ne) Importe de las deducciones que se efectúan por aportes jubilatorios y otras retenciones autorizadas;\nf) Importe neto percibido, expresado en números y letras;\ng) Constancia de la recepción del duplicado por el trabajador;\nh) Lugar y fecha que deberán corresponder al pago real y efectivo de la remuneración al trabajador;\ni) En el caso de los artículo 124 y 129 de esta ley, firma y sello del empleador o representante.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-138'],
@@ -703,11 +601,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '136',
     title: 'Doble ejemplar',
-    originalText:
-      'El recibo será confeccionado por el empleador en doble ejemplar, debiendo hacer entrega del duplicado al trabajador.',
-    currentText:
-      'El recibo será confeccionado por el empleador en doble ejemplar, debiendo hacer entrega del duplicado al trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'El recibo será confeccionado por el empleador en doble ejemplar, debiendo hacer entrega del duplicado al trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-135'],
@@ -723,11 +618,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '137',
     title: 'Validez — Irrenunciabilidad',
-    originalText:
-      'El recibo que no reúna los requisitos exigidos por el artículo 135 de esta ley, no tendrá carácter liberatorio para el empleador, salvo prueba en contrario.',
-    currentText:
-      'El recibo que no reúna los requisitos exigidos por el artículo 135 de esta ley, no tendrá carácter liberatorio para el empleador, salvo prueba en contrario.',
-    plainLanguageExplanation: '',
+    text:
+      'El recibo que no reúna los requisitos exigidos por el artículo 135 de esta ley, no tendrá carácter liberatorio para el empleador, salvo prueba en contrario.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-135'],
@@ -743,11 +635,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '138',
     title: 'Recibos y otros comprobantes — Valor liberatorio',
-    originalText:
-      'Todo pago en dinero deberá efectuarse mediante recibo firmado por el trabajador, o constancia de depósito bancario, siendo inadmisible la firma a ruego o el signo no ológrafo. El pago en efectivo podrá ser reemplazado por el depósito bancario en cuenta del trabajador. Dicho depósito hará las veces de recibo de pago, el cual deberá entregarse al trabajador.',
-    currentText:
-      'Todo pago en dinero deberá efectuarse mediante recibo firmado por el trabajador, o constancia de depósito bancario, siendo inadmisible la firma a ruego o el signo no ológrafo. El pago en efectivo podrá ser reemplazado por el depósito bancario en cuenta del trabajador. Dicho depósito hará las veces de recibo de pago, el cual deberá entregarse al trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'Todo pago en dinero deberá efectuarse mediante recibo firmado por el trabajador, o constancia de depósito bancario, siendo inadmisible la firma a ruego o el signo no ológrafo. El pago en efectivo podrá ser reemplazado por el depósito bancario en cuenta del trabajador. Dicho depósito hará las veces de recibo de pago, el cual deberá entregarse al trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-135', 'art-20744-137'],
@@ -763,11 +652,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '139',
     title: 'Cesión — Embargo',
-    originalText:
-      'El trabajador no podrá ceder ni afectar en garantía sus créditos laborales. Tampoco podrá ceder ni comprometer sus remuneraciones en favor del empleador, excepto en los casos de adelantos autorizados por esta ley.',
-    currentText:
-      'El trabajador no podrá ceder ni afectar en garantía sus créditos laborales. Tampoco podrá ceder ni comprometer sus remuneraciones en favor del empleador, excepto en los casos de adelantos autorizados por esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador no podrá ceder ni afectar en garantía sus créditos laborales. Tampoco podrá ceder ni comprometer sus remuneraciones en favor del empleador, excepto en los casos de adelantos autorizados por esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-140'],
@@ -783,11 +669,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '140',
     title: 'Inembargabilidad',
-    originalText:
-      'Las remuneraciones debidas a los trabajadores serán inembargables en la proporción resultante de la aplicación de la escala prevista en el artículo 147, salvo por deudas alimentarias.',
-    currentText:
-      'Las remuneraciones debidas a los trabajadores serán inembargables en la proporción resultante de la aplicación de la escala prevista en el artículo 147, salvo por deudas alimentarias.',
-    plainLanguageExplanation: '',
+    text:
+      'Las remuneraciones debidas a los trabajadores serán inembargables en la proporción resultante de la aplicación de la escala prevista en el artículo 147, salvo por deudas alimentarias.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-147'],
@@ -803,11 +686,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '141',
     title: 'Embargabilidad parcial',
-    originalText:
-      'No obstante lo dispuesto en el artículo anterior, las remuneraciones podrán ser embargadas hasta en un veinte por ciento (20%) por deudas que no sean alimentarias y hasta un cincuenta por ciento (50%) por deudas alimentarias o que deriven de litisexpensas.',
-    currentText:
-      'No obstante lo dispuesto en el artículo anterior, las remuneraciones podrán ser embargadas hasta en un veinte por ciento (20%) por deudas que no sean alimentarias y hasta un cincuenta por ciento (50%) por deudas alimentarias o que deriven de litisexpensas.',
-    plainLanguageExplanation: '',
+    text:
+      'No obstante lo dispuesto en el artículo anterior, las remuneraciones podrán ser embargadas hasta en un veinte por ciento (20%) por deudas que no sean alimentarias y hasta un cincuenta por ciento (50%) por deudas alimentarias o que deriven de litisexpensas.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-140'],
@@ -823,11 +703,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '142',
     title: 'Ejercicio de las acciones por cobro de créditos laborales',
-    originalText:
-      'Los créditos provenientes de las relaciones laborales gozan del privilegio general previsto en la ley de concursos y quiebras. Los créditos por salarios e indemnizaciones laborales son de carácter alimentario.',
-    currentText:
-      'Los créditos provenientes de las relaciones laborales gozan del privilegio general previsto en la ley de concursos y quiebras. Los créditos por salarios e indemnizaciones laborales son de carácter alimentario.',
-    plainLanguageExplanation: '',
+    text:
+      'Los créditos provenientes de las relaciones laborales gozan del privilegio general previsto en la ley de concursos y quiebras. Los créditos por salarios e indemnizaciones laborales son de carácter alimentario.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -843,11 +720,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '143',
     title: 'Privilegio de los créditos',
-    originalText:
-      'Los créditos emergentes de la relación laboral tienen privilegio sobre los bienes del empleador para ser satisfechos con preferencia a los demás créditos, salvo los derivados de tributos o disposiciones de carácter fiscal.',
-    currentText:
-      'Los créditos emergentes de la relación laboral tienen privilegio sobre los bienes del empleador para ser satisfechos con preferencia a los demás créditos, salvo los derivados de tributos o disposiciones de carácter fiscal.',
-    plainLanguageExplanation: '',
+    text:
+      'Los créditos emergentes de la relación laboral tienen privilegio sobre los bienes del empleador para ser satisfechos con preferencia a los demás créditos, salvo los derivados de tributos o disposiciones de carácter fiscal.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-142'],
@@ -863,11 +737,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '144',
     title: 'Garantía de los créditos',
-    originalText:
-      'La garantía de los créditos salariales e indemnizatorios emergentes de la relación laboral, se extiende a los bienes propios de los socios ilimitadamente responsables y de los gerentes o administradores de las sociedades en caso de dolo o culpa grave.',
-    currentText:
-      'La garantía de los créditos salariales e indemnizatorios emergentes de la relación laboral, se extiende a los bienes propios de los socios ilimitadamente responsables y de los gerentes o administradores de las sociedades en caso de dolo o culpa grave.',
-    plainLanguageExplanation: '',
+    text:
+      'La garantía de los créditos salariales e indemnizatorios emergentes de la relación laboral, se extiende a los bienes propios de los socios ilimitadamente responsables y de los gerentes o administradores de las sociedades en caso de dolo o culpa grave.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-143'],
@@ -883,11 +754,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '145',
     title: 'Extensión del privilegio',
-    originalText:
-      'El privilegio de los créditos salariales se extiende a las costas y a los honorarios de los profesionales que hayan representado o asistido al trabajador en el juicio respectivo.',
-    currentText:
-      'El privilegio de los créditos salariales se extiende a las costas y a los honorarios de los profesionales que hayan representado o asistido al trabajador en el juicio respectivo.',
-    plainLanguageExplanation: '',
+    text:
+      'El privilegio de los créditos salariales se extiende a las costas y a los honorarios de los profesionales que hayan representado o asistido al trabajador en el juicio respectivo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-143'],
@@ -903,11 +771,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '146',
     title: 'Alcance de los privilegios — Créditos comprendidos',
-    originalText:
-      'Gozarán del privilegio especial los créditos por remuneraciones debidas al trabajador por los últimos seis (6) meses, y los provenientes de indemnizaciones por accidentes de trabajo, despido, preaviso, vacaciones no gozadas y licencias.',
-    currentText:
-      'Gozarán del privilegio especial los créditos por remuneraciones debidas al trabajador por los últimos seis (6) meses, y los provenientes de indemnizaciones por accidentes de trabajo, despido, preaviso, vacaciones no gozadas y licencias.',
-    plainLanguageExplanation: '',
+    text:
+      'Gozarán del privilegio especial los créditos por remuneraciones debidas al trabajador por los últimos seis (6) meses, y los provenientes de indemnizaciones por accidentes de trabajo, despido, preaviso, vacaciones no gozadas y licencias.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-143'],
@@ -923,11 +788,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '147',
     title: 'Limitación de los embargos',
-    originalText:
-      'Las remuneraciones de los trabajadores serán inembargables en la proporción que resulte del nivel del salario mínimo vital. Cuando la remuneración supere dicho nivel, la embargabilidad será del veinte por ciento (20%) del importe que exceda de aquél. En caso de deudas alimentarias, el porcentaje de embargo podrá ser del cincuenta por ciento (50%) de las remuneraciones totales.',
-    currentText:
-      'Las remuneraciones de los trabajadores serán inembargables en la proporción que resulte del nivel del salario mínimo vital. Cuando la remuneración supere dicho nivel, la embargabilidad será del veinte por ciento (20%) del importe que exceda de aquél. En caso de deudas alimentarias, el porcentaje de embargo podrá ser del cincuenta por ciento (50%) de las remuneraciones totales.',
-    plainLanguageExplanation: '',
+    text:
+      'Las remuneraciones de los trabajadores serán inembargables en la proporción que resulte del nivel del salario mínimo vital. Cuando la remuneración supere dicho nivel, la embargabilidad será del veinte por ciento (20%) del importe que exceda de aquél. En caso de deudas alimentarias, el porcentaje de embargo podrá ser del cincuenta por ciento (50%) de las remuneraciones totales.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-140', 'art-20744-141'],
@@ -943,11 +805,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '148',
     title: 'Intransferibilidad de los derechos',
-    originalText:
-      'Los derechos acordados por esta ley no pueden ser objeto de renuncia, transacción, cesión, gravamen ni otra forma de disposición legal, ya sea al tiempo de su vigencia o al de la extinción del contrato.',
-    currentText:
-      'Los derechos acordados por esta ley no pueden ser objeto de renuncia, transacción, cesión, gravamen ni otra forma de disposición legal, ya sea al tiempo de su vigencia o al de la extinción del contrato.',
-    plainLanguageExplanation: '',
+    text:
+      'Los derechos acordados por esta ley no pueden ser objeto de renuncia, transacción, cesión, gravamen ni otra forma de disposición legal, ya sea al tiempo de su vigencia o al de la extinción del contrato.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-12'],
@@ -963,11 +822,8 @@ export const ARTICLES_LCT_05: Article[] = [
     lawId: 'ley-20744',
     number: '149',
     title: 'Oponibilidad a terceros de la cesión de créditos',
-    originalText:
-      'Para ser oponible a terceros, la cesión de créditos laborales deberá cumplir con los requisitos establecidos en el Código Civil y Comercial para este tipo de actos.',
-    currentText:
-      'Para ser oponible a terceros, la cesión de créditos laborales deberá cumplir con los requisitos establecidos en el Código Civil y Comercial para este tipo de actos.',
-    plainLanguageExplanation: '',
+    text:
+      'Para ser oponible a terceros, la cesión de créditos laborales deberá cumplir con los requisitos establecidos en el Código Civil y Comercial para este tipo de actos.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-139'],

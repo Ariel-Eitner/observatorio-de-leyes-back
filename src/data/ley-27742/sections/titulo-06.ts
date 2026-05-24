@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '101',
 		title: 'Dominio de los hidrocarburos — reforma art. 2° ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 2° de la ley 17.319: los yacimientos de hidrocarburos líquidos y gaseosos situados en el territorio de la República Argentina y en su plataforma continental son bienes del dominio público, de la Nación o de las provincias, según el territorio en que se encuentren.',
-		currentText:
-			'Reforma el art. 2° de la ley 17.319: confirma que los yacimientos de hidrocarburos son bienes del dominio público de la Nación (en territorio nacional y plataforma continental) o de las provincias (en sus territorios). La exploración y explotación se hace mediante permisos y concesiones.',
 		plainLanguageExplanation:
 			'Los hidrocarburos bajo el suelo argentino son del Estado (Nación o provincias), no de quien los encuentra. Las empresas privadas explotan mediante concesiones: pagan regalías y tienen plazo fijo para explotar. Al terminar la concesión, todo vuelve al Estado.',
 		practicalEffects: ['Base constitucional para el sistema de concesiones y regalías', 'Define qué hidrocarburos son de la Nación y cuáles de las provincias (según territorialidad)'],
@@ -37,10 +35,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '102',
 		title: 'Actividades reguladas — reforma art. 3° ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 3° de la ley 17.319: las actividades de exploración, explotación, industrialización, transporte y comercialización de hidrocarburos son de interés general. Se mantiene la distinción entre actividades upstream (exploración/explotación) y downstream (industrialización/comercialización).',
-		currentText:
-			'Reforma el art. 3° de la ley 17.319: declara de interés general las actividades de exploración, explotación, industrialización, transporte y comercialización de hidrocarburos. Distingue entre upstream (requiere concesión) y downstream (es libre, salvo transporte por ductos).',
 		plainLanguageExplanation:
 			'El sector hidrocarburos es estratégico y está regulado, pero no todas las actividades del mismo modo. La extracción requiere concesión del Estado; la industrialización y venta son libres (lo nuevo de la reforma).',
 		practicalEffects: ['Establece qué actividades requieren permiso/concesión y cuáles son libres', 'Diferencia el upstream regulado del downstream liberalizado'],
@@ -58,10 +54,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '103',
 		title: 'Permisos de exploración y concesiones — reforma art. 4° ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 4° de la ley 17.319: la exploración se realiza mediante permiso de exploración otorgado por la autoridad concedente; la explotación mediante concesión de explotación. Se incorporan los tipos de concesiones: convencional, no convencional y offshore.',
-		currentText:
-			'Reforma el art. 4° de la ley 17.319: formaliza los tres tipos de concesiones: convencional (explotación tradicional), no convencional (shale, tight, fracking) y offshore (plataforma marina). Cada tipo tiene condiciones y plazos distintos.',
 		plainLanguageExplanation:
 			'Define los tipos de concesiones posibles. Las concesiones no convencionales (shale, fracking) son el tipo relevante para Vaca Muerta y tienen su propio régimen de plazos y condiciones.',
 		practicalEffects: ['Crea categoría formal de concesión no convencional, regulada por art. 111', 'Reconoce las diferencias técnicas entre explotación convencional y fracking'],
@@ -79,10 +73,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '104',
 		title: 'Áreas reservadas al Estado — reforma art. 5° ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 5° de la ley 17.319: las áreas reservadas al Estado (antes asignadas a YPF y ENARSA exclusivamente) ahora pueden liberarse para concesión a privados por decisión del Poder Ejecutivo, sin necesidad de una ley específica.',
-		currentText:
-			'Reforma el art. 5° de la ley 17.319: flexibiliza el régimen de áreas reservadas. El PEN puede abrir al concurso áreas que antes estaban reservadas exclusivamente para YPF o ENARSA, ampliando el universo de bloques disponibles para exploración.',
 		plainLanguageExplanation:
 			'Antes, grandes áreas estaban "bloqueadas" para las empresas estatales. Ahora el gobierno puede abrirlas a concurso privado. Esto amplía el universo de bloques para exploración en Argentina.',
 		practicalEffects: ['Aumenta el número de áreas disponibles para concesión privada', 'YPF ya no tiene monopolio sobre la exploración de áreas reservadas'],
@@ -100,10 +92,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '105',
 		title: 'Dominio sobre lo extraído y libre comercialización — reforma art. 6° ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 6° de la ley 17.319: los concesionarios tienen el dominio sobre los hidrocarburos que extraigan. Pueden comercializarlos libremente, tanto en el mercado interno como en el externo. El Poder Ejecutivo nacional no podrá fijar precios ni establecer restricciones a la comercialización, salvo que una situación de emergencia declarada por ley lo habilite.',
-		currentText:
-			'Reforma el art. 6° de la ley 17.319: el concesionario es dueño del petróleo y gas que extrae. Puede venderlo libremente, incluso exportarlo. El Estado no puede fijar precios ni limitar las ventas. Solo una emergencia declarada por ley puede habilitar restricciones.',
 		plainLanguageExplanation:
 			'El cambio más importante del capítulo energético: el petróleo y gas extraído es propiedad de la empresa concesionaria, no del Estado. La empresa puede venderlo a quien quiera y al precio que quiera, incluso exportarlo. El Estado sólo puede intervenir si hay una emergencia declarada por ley del Congreso.',
 		practicalEffects: [
@@ -127,10 +117,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '106',
 		title: 'Libre comercio internacional de hidrocarburos — reforma art. 7° ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 7° de la ley 17.319: el comercio internacional de hidrocarburos es libre. Las exportaciones e importaciones no requieren autorización previa, salvo la comunicación técnica a la Secretaría de Energía dentro de los 30 días de la operación. Las empresas pueden contratar libremente con compradores del exterior.',
-		currentText:
-			'Reforma el art. 7° de la ley 17.319: exportaciones e importaciones de hidrocarburos son libres. Solo requieren comunicación técnica a la Secretaría de Energía (no autorización). La empresa puede contratar con compradores externos sin intervención estatal.',
 		plainLanguageExplanation:
 			'Complementa al art. 105: no sólo el concesionario es dueño del hidrocarburo, sino que puede exportarlo sin trámites burocráticos. La "comunicación técnica" no es un permiso: el Estado no puede bloquearlo, solo debe estar informado.',
 		practicalEffects: [
@@ -151,10 +139,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '107',
 		title: 'Regalías — reforma art. 12 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 12 de la ley 17.319: el concesionario paga regalías sobre la producción de hidrocarburos. La regalía mínima es del doce por ciento (12%) del valor del hidrocarburo en boca de pozo. Las provincias reciben el 100% de las regalías de sus territorios. El PEN puede reducir la regalía hasta el cinco por ciento (5%) en áreas de difícil explotación o para promover el desarrollo de áreas marginales.',
-		currentText:
-			'Reforma el art. 12 de la ley 17.319: regalía mínima del 12% en boca de pozo para las provincias. El PEN puede reducirla al 5% para áreas marginales o de difícil explotación. Toda la regalía va a la provincia donde se produce.',
 		plainLanguageExplanation:
 			'Por cada barril de petróleo o metro cúbico de gas que se extrae, la empresa paga el 12% del valor al Estado provincial. Es el "canon" de extracción. Para incentivar pozos difíciles (shale profundo, cuencas lejanas), el gobierno puede bajar ese porcentaje.',
 		practicalEffects: [
@@ -177,10 +163,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '108',
 		title: 'Yacimientos reservados al Estado — reforma art. 14 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 14 de la ley 17.319: el PEN puede reservar determinadas áreas para la explotación directa del Estado o de empresas controladas por el Estado, cuando existan razones de interés nacional o defensa.',
-		currentText:
-			'Reforma el art. 14 de la ley 17.319: el PEN puede reservar áreas para explotación directa del Estado (YPF, ENARSA u otras empresas estatales) cuando existan razones de interés nacional. Estas reservas deben justificarse y son de carácter excepcional.',
 		plainLanguageExplanation:
 			'El Estado puede "apartar" ciertos yacimientos para explotarlos él mismo o a través de YPF, cuando sea necesario para la seguridad energética. Con la liberalización de la ley, esto pasa a ser excepcional: la regla es concesionar a privados.',
 		practicalEffects: ['Limita las reservas estatales al mínimo necesario por razones de interés nacional', 'YPF ya no tiene "derecho preferente" general sobre las áreas sin justificación expresa'],
@@ -198,10 +182,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '109',
 		title: 'Plazo de la concesión de explotación — reforma art. 19 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 19 de la ley 17.319: el plazo de la concesión de explotación convencional es de veinticinco (25) años, prorrogables por diez (10) años adicionales si se cumplen los compromisos de inversión y producción.',
-		currentText:
-			'Reforma el art. 19 de la ley 17.319: la concesión de explotación convencional dura 25 años, prorrogable por 10 años más. Para la prórroga, el concesionario debe haber cumplido los compromisos de inversión y producción. La concesión no convencional tiene plazo distinto (ver art. 111).',
 		plainLanguageExplanation:
 			'Una empresa que obtiene una concesión convencional puede explotarla por 25 años (más 10 si se portó bien). Al vencer la concesión, el yacimiento vuelve al Estado. Las concesiones no convencionales (shale) tienen su propio plazo de 35 años.',
 		practicalEffects: ['La certeza del plazo es fundamental para que los inversores puedan financiar proyectos', 'La prórroga de 10 años incentiva el cumplimiento de los compromisos durante los primeros 25'],
@@ -219,10 +201,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '110',
 		title: 'Prórroga de la concesión de explotación — reforma art. 21 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 21 de la ley 17.319 sobre prórroga de la concesión de explotación. La prórroga se otorga por solicitud del concesionario con 2 años de anticipación, si se acredita el cumplimiento de los compromisos de inversión y producción. El concesionario debe presentar un plan de inversión para el período de prórroga.',
-		currentText:
-			'Reforma el art. 21 de la ley 17.319: la prórroga (10 años) se solicita 2 años antes del vencimiento y requiere plan de inversión para el período de prórroga y acreditación del cumplimiento previo. La autoridad debe resolver en 180 días.',
 		plainLanguageExplanation:
 			'Para que una empresa pueda seguir explotando un yacimiento más allá de los 25 años, debe pedirlo con anticipación y demostrar que invirtió bien durante los primeros 25. No es automática: el Estado evalúa si conviene o no otorgar la prórroga.',
 		practicalEffects: ['La anticipación de 2 años da previsibilidad a las operadoras para planificar inversiones futuras', 'El Estado puede negar la prórroga y relicitar el área si el concesionario no cumplió'],
@@ -240,10 +220,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '111',
 		title: 'Concesión de Explotación No Convencional — reforma art. 27 bis ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 27 bis de la ley 17.319: las concesiones de explotación no convencional (hidrocarburos en reservorios de baja permeabilidad: shale, tight, coal bed methane) tienen un plazo de treinta y cinco (35) años. El concesionario con área convencional puede solicitar su reconversión a no convencional hasta el 31 de diciembre de 2028; la reconversión requiere presentar plan de desarrollo y aprobación de la autoridad en 60 días.',
-		currentText:
-			'Reforma el art. 27 bis de la ley 17.319: concesiones no convencionales (shale, tight, fracking) por 35 años. Los titulares de concesiones convencionales pueden pedir reconversión a no convencional hasta el 31/12/2028. La provincia aprueba en 60 días hábiles.',
 		plainLanguageExplanation:
 			'La explotación no convencional (fracking, shale) es más costosa y requiere más inversión. Por eso tiene un plazo más largo (35 años vs 25 años convencional). La ventana hasta 2028 para reconvertir áreas permite a las empresas que ya tienen concesiones convencionales en Vaca Muerta pasar al régimen de no convencional con mayor plazo.',
 		practicalEffects: [
@@ -267,10 +245,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '112',
 		title: 'Condiciones de la concesión de explotación — reforma art. 28 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 28 de la ley 17.319: las condiciones básicas de toda concesión de explotación incluyen: plan de desarrollo aprobado, compromisos mínimos de inversión, cronograma de producción estimado y constitución de garantía.',
-		currentText:
-			'Reforma el art. 28 de la ley 17.319: toda concesión de explotación requiere plan de desarrollo aprobado, compromisos de inversión mínimos, cronograma de producción y garantías de cumplimiento. El incumplimiento puede dar lugar a la rescisión.',
 		plainLanguageExplanation:
 			'Al otorgarse una concesión, la empresa se compromete a un plan: cuánto invertir, cuándo producir, cuánto producir. No se puede obtener la concesión y "guardarla" sin explotar.',
 		practicalEffects: ['Obliga a las empresas a un compromiso real de inversión como condición de la concesión', 'El incumplimiento del plan es causal de rescisión (ver art. 123)'],
@@ -288,10 +264,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '113',
 		title: 'Obligaciones del concesionario — reforma art. 29 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 29 de la ley 17.319: las obligaciones principales del concesionario son: extraer los hidrocarburos conforme al plan; pagar las regalías en tiempo y forma; informar la producción mensualmente; mantener los pozos en condiciones de seguridad; y cumplir las normas ambientales aplicables.',
-		currentText:
-			'Reforma el art. 29 de la ley 17.319: el concesionario debe extraer según el plan, pagar regalías en plazo, informar producción mensualmente, mantener los pozos seguros y cumplir las normas ambientales.',
 		plainLanguageExplanation:
 			'Las obligaciones básicas del que tiene una concesión: producir, pagar, informar y no dañar el ambiente. Si no cumple, el Estado puede rescindir.',
 		practicalEffects: ['El informe mensual de producción es la base de cálculo de las regalías', 'El incumplimiento ambiental es causal de sanción y eventualmente de rescisión'],
@@ -309,10 +283,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '114',
 		title: 'Régimen de regalías — detalle y reducción por área marginal, reforma art. 30 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 30 de la ley 17.319: detalla el cálculo de las regalías sobre hidrocarburos. Para gas natural, la regalía se calcula sobre el volumen en boca de pozo a precio de referencia. Para petróleo, sobre el precio en boca de pozo o precio de referencia internacional si fuera mayor. La reducción al 5% para áreas marginales requiere decreto del PEN.',
-		currentText:
-			'Reforma el art. 30 de la ley 17.319: detalla el cálculo de regalías para petróleo (precio en boca de pozo o referencia internacional) y gas (volumen a precio de referencia). La reducción al 5% para áreas marginales la decide el PEN por decreto.',
 		plainLanguageExplanation:
 			'El detalle técnico del cálculo de regalías importa porque define cuánto cobra cada provincia. El precio de referencia internacional protege a las provincias de que las empresas subfacturen el valor del crudo para pagar menos regalías.',
 		practicalEffects: ['Las provincias pueden auditar el cálculo de regalías comparando con precios de referencia internacionales', 'La reducción al 5% debe ser decretada por el PEN: no es automática ni discrecional de la empresa'],
@@ -330,10 +302,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '115',
 		title: 'Trabajos mínimos — reforma art. 31 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 31 de la ley 17.319: los permisos de exploración establecen trabajos mínimos obligatorios por período. Si el permisionario no ejecuta los trabajos mínimos, la autoridad puede intimar a su cumplimiento. El incumplimiento reiterado produce la caducidad del permiso.',
-		currentText:
-			'Reforma el art. 31 de la ley 17.319: los permisos de exploración tienen compromisos mínimos de trabajos (perforaciones, estudios sísmicos, etc.) por período. No ejecutarlos puede producir la caducidad del permiso.',
 		plainLanguageExplanation:
 			'El que tiene un permiso de exploración no puede "guardar" el bloque sin explorarlo. Debe hacer los trabajos prometidos (perforaciones, estudios). Si no los hace, el Estado puede quitarle el permiso.',
 		practicalEffects: ['Evita que empresas bloqueen áreas prometedoras sin explorarlas ("acaparar y esperar")', 'Los trabajos mínimos son negociados caso a caso en la licitación'],
@@ -351,10 +321,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '116',
 		title: 'Fiscalización de operaciones — reforma art. 32 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 32 de la ley 17.319: la autoridad de aplicación tiene facultades de fiscalización e inspección de todas las operaciones de los permisionarios y concesionarios. Puede inspeccionar en cualquier momento, requerir documentación y tomar muestras.',
-		currentText:
-			'Reforma el art. 32 de la ley 17.319: la Secretaría de Energía puede inspeccionar en cualquier momento las operaciones de los concesionarios, requerir documentación técnica y financiera, y tomar muestras de producción para auditar las regalías.',
 		plainLanguageExplanation:
 			'El Estado tiene el derecho a controlar lo que hacen las empresas en sus concesiones: que estén pagando las regalías correctas, que estén cumpliendo el plan de trabajo, que no estén dañando el ambiente. Las empresas deben abrir sus instalaciones y libros a los inspectores.',
 		practicalEffects: ['La inspección sorpresiva sin aviso previo es una herramienta de control efectiva', 'La toma de muestras independiente permite auditar el volumen declarado de producción'],
@@ -372,10 +340,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '117',
 		title: 'Permisos de exploración — contenido y plazos, reforma art. 34 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 34 de la ley 17.319: los permisos de exploración son por área determinada y plazo fijo. Se estructura en períodos: primer período de exploración (3 años), segundo período (2 años) y tercer período (2 años). En cada período se establecen trabajos mínimos crecientes.',
-		currentText:
-			'Reforma el art. 34 de la ley 17.319: los permisos de exploración duran hasta 7 años divididos en 3 períodos (3+2+2 años), con compromisos de trabajo crecientes en cada período. El permisionario puede renunciar al área al final de cada período sin penalidad.',
 		plainLanguageExplanation:
 			'La exploración tiene fases: primero estudios sísmicos, luego perforaciones exploratorias, luego confirmación de reservas. Cada fase tiene su plazo y compromisos. El permisionario puede "salir" al final de cada período si decide que el área no tiene potencial.',
 		practicalEffects: ['La estructura en períodos da flexibilidad al explorador para salir sin penalidad si el área no tiene potencial', 'Los compromisos crecientes aseguran que quien sigue lo hace en serio'],
@@ -393,10 +359,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '118',
 		title: 'Obligaciones del permisionario de exploración — reforma art. 35 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 35 de la ley 17.319: el permisionario debe ejecutar los trabajos mínimos de cada período, informar a la autoridad el resultado de las exploraciones, y en caso de descubrir yacimientos, comunicarlos en un plazo máximo de 30 días.',
-		currentText:
-			'Reforma el art. 35 de la ley 17.319: el permisionario debe ejecutar los trabajos comprometidos, informar resultados a la autoridad y comunicar descubrimientos en 30 días. El secreto sobre descubrimientos se penaliza con caducidad.',
 		plainLanguageExplanation:
 			'Si una empresa encuentra petróleo o gas en un área de exploración, debe decirlo inmediatamente. No puede guardarse la información para luego negociar mejor con el Estado. La transparencia es obligatoria.',
 		practicalEffects: ['La comunicación obligatoria del descubrimiento activa el proceso de otorgamiento de la concesión de explotación', 'Ocultar un descubrimiento produce la caducidad del permiso'],
@@ -414,10 +378,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '119',
 		title: 'Conversión de permiso en concesión — reforma art. 36 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 36 de la ley 17.319: al descubrir un yacimiento comercialmente explotable, el permisionario tiene el derecho a obtener la concesión de explotación sobre el área descubridora, siempre que haya cumplido los compromisos del permiso. Debe solicitarla dentro de los 180 días del descubrimiento.',
-		currentText:
-			'Reforma el art. 36 de la ley 17.319: el permisionario que descubre un yacimiento comercial tiene derecho preferente a la concesión de explotación del área descubridora, si cumplió el permiso y la solicita en 180 días. No necesita nueva licitación.',
 		plainLanguageExplanation:
 			'La empresa que exploró y encontró el yacimiento tiene prioridad para explotarlo. No tiene que competir en nueva licitación: su inversión en exploración le da ese derecho. Si no lo ejerce en 180 días, el área puede licitarse.',
 		practicalEffects: ['Incentiva la inversión en exploración: quien arriesga plata explorando, tiene el premio de poder explotar', 'El plazo de 180 días evita que el permisionario "congele" el área indefinidamente'],
@@ -435,10 +397,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '120',
 		title: 'Prórroga del permiso de exploración — reforma art. 37 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 37 de la ley 17.319: el permiso de exploración puede prorrogarse por hasta un período adicional si el permisionario puede demostrar hallazgos promisorios o circunstancias excepcionales que justifiquen continuar explorando.',
-		currentText:
-			'Reforma el art. 37 de la ley 17.319: el permiso de exploración puede prorrogarse por un período adicional ante hallazgos promisorios o circunstancias excepcionales. La prórroga es discrecional de la autoridad.',
 		plainLanguageExplanation:
 			'Si una empresa está explorando y encontró señales prometedoras pero necesita más tiempo para confirmarlas, puede pedir una prórroga. El Estado evalúa si hay motivos reales o si es solo una excusa para retener el bloque.',
 		practicalEffects: ['La prórroga es discrecional: el Estado puede negarla si no hay hallazgos que lo justifiquen', 'Evita que el permisionario use la prórroga como herramienta para acaparar bloques'],
@@ -456,10 +416,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '121',
 		title: 'Concesiones de transporte de hidrocarburos — reforma art. 38 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 38 de la ley 17.319: las concesiones de transporte de hidrocarburos (ductos, oleoductos, gasoductos) se otorgan por licitación pública. El concesionario de transporte debe dar acceso abierto a terceros (open access) en condiciones no discriminatorias.',
-		currentText:
-			'Reforma el art. 38 de la ley 17.319: los ductos (oleoductos, gasoductos) se concesionan por licitación. El operador del ducto debe dar acceso a terceros en condiciones no discriminatorias (open access), permitiendo que cualquier productor use la infraestructura.',
 		plainLanguageExplanation:
 			'Los ductos son infraestructura clave: quien los controla, controla el transporte de todo el gas y petróleo. El "open access" obliga al dueño del gasoducto a dejar usar el gasoducto a otras empresas que paguen la tarifa. Esto evita el monopolio del transporte.',
 		practicalEffects: ['El open access es fundamental para la competencia en el mercado de hidrocarburos', 'Una empresa pequeña que produce gas puede transportarlo por el gasoducto del gigante, pagando la tarifa regulada'],
@@ -477,10 +435,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '122',
 		title: 'Infracciones y sanciones — reforma art. 57 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 57 de la ley 17.319: las infracciones se clasifican en leves, graves y muy graves. Las multas se actualizan en función de un índice de precios. Las infracciones muy graves incluyen como sanción máxima la rescisión de la concesión.',
-		currentText:
-			'Reforma el art. 57 de la ley 17.319: actualiza el régimen de infracciones (leves, graves, muy graves) y sus sanciones. Las multas se actualizan por índice de precios. La infracción muy grave puede derivar en rescisión de la concesión.',
 		plainLanguageExplanation:
 			'El régimen de sanciones para las empresas que incumplen sus obligaciones bajo la ley. Las multas se actualizan por inflación para que no pierdan su poder disuasivo. Las infracciones muy graves (como ocultar producción) pueden costar la concesión.',
 		practicalEffects: ['La actualización por IPC mantiene las multas disuasorias ante la inflación', 'La gradación de infracciones permite proporcionalidad en la respuesta del Estado'],
@@ -498,10 +454,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '123',
 		title: 'Rescisión de la concesión — reforma art. 59 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 59 de la ley 17.319: la concesión puede rescindirse por: incumplimiento reiterado del plan de desarrollo; falta de pago de regalías; infracciones muy graves; o causas de fuerza mayor que hagan imposible la continuidad de las operaciones.',
-		currentText:
-			'Reforma el art. 59 de la ley 17.319: causales de rescisión: incumplimiento del plan de desarrollo, no pago de regalías, infracciones muy graves, o fuerza mayor insuperable. La rescisión requiere proceso administrativo previo con derecho de defensa.',
 		plainLanguageExplanation:
 			'El Estado puede quitarle la concesión a una empresa que no cumple. Pero antes tiene que darle la oportunidad de defenderse y corregir. La rescisión es el último recurso, no el primero.',
 		practicalEffects: ['El proceso previo a la rescisión da garantías al concesionario de poder corregir', 'La rescisión libera el área para una nueva licitación'],
@@ -519,10 +473,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '124',
 		title: 'Reversión de bienes — reforma art. 61 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 61 de la ley 17.319: al término de la concesión (por vencimiento o rescisión), los pozos, instalaciones y equipos que no puedan retirarse sin dañar el yacimiento revierten al Estado. El concesionario puede retirar el equipamiento removible. El abandono de pozos debe hacerse conforme a las normas técnicas.',
-		currentText:
-			'Reforma el art. 61 de la ley 17.319: al terminar la concesión, los pozos e instalaciones fijas revierten al Estado. El concesionario puede retirar equipos móviles. Los pozos deben abandonarse según normas técnicas de seguridad ambiental.',
 		plainLanguageExplanation:
 			'Al terminar la concesión, el yacimiento y los pozos vuelven al Estado. La empresa puede llevarse las máquinas y equipos que trajo, pero no puede "tapar mal" los pozos: debe cerrarlos correctamente para evitar contaminación.',
 		practicalEffects: ['El Estado hereda pozos en condiciones operativas al vencer la concesión', 'Las normas de abandono de pozos protegen el ambiente de contaminación post-operación'],
@@ -540,10 +492,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '125',
 		title: 'Concesiones de elaboración y refinación — reforma art. 63 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyese el artículo 63 de la ley 17.319: la instalación y operación de refinerías, plantas de procesamiento de gas y facilidades de industrialización de hidrocarburos requiere habilitación de la autoridad de aplicación, con libre acceso a terceros para el servicio de procesamiento.',
-		currentText:
-			'Reforma el art. 63 de la ley 17.319: las refinerías y plantas de procesamiento de gas requieren habilitación de la autoridad. Al igual que en el transporte (art. 121), se aplica el principio de open access para el servicio de procesamiento.',
 		plainLanguageExplanation:
 			'El dueño de una refinería o planta de gas no puede negarse a procesar el crudo o gas de otros productores: debe dar acceso en igualdad de condiciones. Esto evita la concentración vertical del sector.',
 		practicalEffects: ['El open access en refinación complementa el del transporte para garantizar competencia aguas abajo', 'Los productores independientes no dependen de una refinería propia para colocar su producción'],
@@ -561,10 +511,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '126',
 		title: 'Disposiciones finales de hidrocarburos — reforma arts. 65 y 93 ley 17.319',
-		originalText:
+		text:
 			'Sustitúyense los artículos 65 y 93 de la ley 17.319: disposiciones sobre la autoridad de aplicación de la ley de hidrocarburos y delegación al PEN para fijar la estructura administrativa del sector.',
-		currentText:
-			'Reforma los arts. 65 y 93 de la ley 17.319: actualiza disposiciones sobre la autoridad de aplicación y estructura administrativa del sector hidrocarburos. El PEN designa la autoridad de aplicación de la ley.',
 		plainLanguageExplanation:
 			'Artículos de implementación: actualizan qué organismo (la Secretaría de Energía o la que el PEN designe) aplica la ley de hidrocarburos, sin modificar el fondo de los derechos y obligaciones.',
 		practicalEffects: ['La autoridad de aplicación puede cambiar si el gobierno reorganiza el sector energético', 'Permite alinear la estructura administrativa con los cambios del gobierno sin necesitar otra ley'],
@@ -582,10 +530,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '127',
 		title: 'Derogación de la intervención estatal en comercialización — derogación arts. 76-81 ley 17.319',
-		originalText:
+		text:
 			'Deróganse los artículos 76, 77, 78, 79, 80 y 81 de la ley 17.319. Estos artículos habilitaban la intervención del Estado en la comercialización de hidrocarburos: fijación de precios, distribución obligatoria al mercado interno y restricciones a la exportación.',
-		currentText:
-			'Deroga los arts. 76 a 81 de la ley 17.319, que permitían al Estado intervenir en la comercialización de hidrocarburos: fijar precios, obligar a ventas al mercado interno y restringir exportaciones. La derogación es consistente con la libre comercialización del art. 105.',
 		plainLanguageExplanation:
 			'Borra del mapa legal los artículos que le daban al Estado el poder de fijar precios del petróleo y gas y de controlar el comercio. Con esta derogación, la liberalización del mercado es completa: sin los arts. 76-81, el Estado no puede intervenir en la comercialización aunque quiera.',
 		practicalEffects: [
@@ -606,10 +552,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '128',
 		title: 'Funciones del ENRE — reforma Marco Regulatorio Eléctrico ley 24.065',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065 sobre las funciones del ENRE (Ente Nacional Regulador de la Electricidad): se ajustan sus atribuciones hacia un modelo de regulación independiente, con menor intervención en precios spot y mayor foco en calidad de servicio y acceso de red.',
-		currentText:
-			'Reforma la ley 24.065: ajusta las funciones del ENRE hacia una regulación más independiente. El ENRE se focaliza en calidad de servicio, acceso a la red y protección del usuario, reduciendo su intervención en la formación de precios del mercado mayorista.',
 		plainLanguageExplanation:
 			'El ENRE es el árbitro del sistema eléctrico. La reforma reorienta su rol: en lugar de controlar precios activamente, se focaliza en garantizar que la red funcione bien y que los usuarios no sean perjudicados por el poder de mercado de las grandes generadoras.',
 		practicalEffects: ['Separa la regulación de acceso de red de la regulación de precios', 'El ENRE mantiene competencias sobre calidad de servicio y penalidades por cortes'],
@@ -627,10 +571,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '129',
 		title: 'Desregulación de generación eléctrica — ley 24.065',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: la actividad de generación de electricidad es libre. Las generadoras pueden vender directamente a grandes usuarios o comercializadoras sin pasar obligatoriamente por el mercado spot administrado por CAMMESA.',
-		currentText:
-			'Reforma la ley 24.065: liberaliza la venta de energía eléctrica por parte de los generadores. Las generadoras pueden contratar directamente con grandes usuarios (fuera del mercado CAMMESA), con precios libremente pactados.',
 		plainLanguageExplanation:
 			'Antes, toda la electricidad producida debía pasar por CAMMESA (la administradora del mercado eléctrico mayorista). Ahora, un parque eólico puede vender directamente su energía a una fábrica, a un precio acordado entre ellos. Esto permite contratos de energía verde a precios competitivos.',
 		practicalEffects: ['Los contratos bilaterales directos generadora-usuario pueden ofrecer precios más baratos que el mercado spot', 'Impulsa los contratos de energía renovable (PPA) entre parques solares y empresas'],
@@ -650,10 +592,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '130',
 		title: 'Grandes usuarios de electricidad — acceso directo al mercado',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: se amplía la categoría de "grandes usuarios" que pueden comprar energía directamente en el mercado mayorista o mediante contratos bilaterales. El umbral de consumo para ser gran usuario se actualiza.',
-		currentText:
-			'Reforma la ley 24.065: amplía la categoría de grandes usuarios (rebaja el umbral de consumo). Más empresas pueden acceder directamente al mercado mayorista o contratar bilateralmente, sin depender del precio de las distribuidoras.',
 		plainLanguageExplanation:
 			'Antes solo las industrias muy grandes podían comprar energía directamente. Con la reforma, empresas más pequeñas también pueden hacerlo. Esto les permite negociar precios y contratar energías renovables sin depender de las tarifas de Edenor/Edesur.',
 		practicalEffects: ['Más empresas tienen acceso directo al mercado mayorista', 'Amplía el mercado de contratos de energía renovable para medianas industrias'],
@@ -671,10 +611,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '131',
 		title: 'Comercializadores de energía — nuevo agente del mercado eléctrico',
-		originalText:
+		text:
 			'Incorpórase a la ley 24.065 la figura del "comercializador" de energía eléctrica: agente que compra energía en el mercado mayorista o directamente de generadores y la revende a usuarios finales. El ENRE los habilitará y regulará.',
-		currentText:
-			'Crea la figura del comercializador de energía eléctrica en la ley 24.065: agentes que compran energía (al por mayor) y la revenden a usuarios. Son un intermediario entre generadoras y usuarios finales, compitiendo con las distribuidoras para grandes consumidores.',
 		plainLanguageExplanation:
 			'Es un nuevo "tipo de empresa" energética que no existía formalmente: el comercializador actúa como intermediario o "broker" de energía. Compra barato a generadoras y le vende a empresas que no quieren lidiar con el mercado mayorista directamente.',
 		practicalEffects: ['Introduce competencia en la intermediación de energía', 'Las distribuidoras (Edenor, Edesur) ya no tienen monopolio para atender a grandes usuarios'],
@@ -692,10 +630,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '132',
 		title: 'Transporte de electricidad — acceso abierto, ley 24.065',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: el transporte de energía eléctrica (alta tensión) opera bajo el principio de acceso abierto no discriminatorio. Los transportistas deben dar paso a todos los generadores en condiciones iguales.',
-		currentText:
-			'Reforma la ley 24.065: el transporte eléctrico opera bajo open access: los dueños de las líneas de alta tensión deben dar paso a todos los generadores que lo soliciten, en condiciones no discriminatorias y a tarifas reguladas.',
 		plainLanguageExplanation:
 			'El dueño de una línea de alta tensión no puede bloquear el acceso a un generador rival. Las líneas son infraestructura esencial y deben ser de acceso abierto. El ENRE regula la tarifa de transporte.',
 		practicalEffects: ['Permite que los parques solares del norte lleguen al mercado del centro sin discriminación', 'Protege a los generadores independientes de ser bloqueados por competidores con infraestructura de red'],
@@ -713,10 +649,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '133',
 		title: 'Distribución eléctrica — concesiones y tarifas, ley 24.065',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065 sobre distribución eléctrica: se mantienen las concesiones de distribución pero se refuerzan las penalidades por calidad de servicio deficiente y se incorporan estándares de mantenimiento de red obligatorios.',
-		currentText:
-			'Reforma la ley 24.065 en materia de distribución: refuerza las penalidades por cortes e interrupciones de servicio; incorpora estándares mínimos de mantenimiento de red que las distribuidoras deben cumplir bajo pena de multa.',
 		plainLanguageExplanation:
 			'Las distribuidoras (Edenor, Edesur y el resto) tienen obligaciones de calidad de servicio. Si no cumplen (demasiados cortes, redes en mal estado), el ENRE las multa con más fuerza que antes.',
 		practicalEffects: ['Aumenta las penalidades por interrupciones de suministro', 'Las distribuidoras deben acreditar inversión en mantenimiento de red'],
@@ -734,10 +668,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '134',
 		title: 'Tarifas eléctricas — metodología de revisión, ley 24.065',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: las tarifas de distribución y transporte eléctrico se revisan periódicamente por el ENRE mediante Revisión Tarifaria Integral (RTI). La RTI debe realizarse cada 5 años y fijar las tarifas para el período siguiente.',
-		currentText:
-			'Reforma la ley 24.065: las tarifas eléctricas de distribución y transporte se revisan cada 5 años mediante RTI. La RTI calcula el ingreso necesario para que la empresa pueda mantener la red e invertir con una rentabilidad razonable.',
 		plainLanguageExplanation:
 			'Cada 5 años, el ENRE hace una revisión de costos de las distribuidoras y fija las tarifas para los 5 años siguientes. Si los costos subieron (inflación, inversión en red), las tarifas suben. La RTI da previsibilidad pero puede resultar en aumentos de tarifas.',
 		practicalEffects: ['La revisión quinquenal da certeza a las empresas y usuarios sobre la dinámica tarifaria', 'Evita la discrecionalidad política en la fijación de tarifas'],
@@ -755,10 +687,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '135',
 		title: 'Autogeneración y generación distribuida — ley 24.065',
-		originalText:
+		text:
 			'Incorpórase a la ley 24.065 régimen para autogeneración y generación distribuida: los usuarios residenciales e industriales que instalen paneles solares u otros generadores pueden inyectar sus excedentes a la red y recibir un crédito en su factura eléctrica.',
-		currentText:
-			'Incorpora a la ley 24.065 el régimen de generación distribuida: quien instala paneles solares puede vender sus excedentes a la distribuidora local. La distribuidora paga un precio por los excedentes inyectados (feed-in tariff).',
 		plainLanguageExplanation:
 			'Formaliza el "prosumer": el usuario que además de consumir también genera electricidad con sus paneles solares y le "vende" lo que le sobra a la empresa. Cada excedente inyectado a la red se descuenta de su factura.',
 		practicalEffects: ['Los paneles solares residenciales pueden acreditarse en la factura eléctrica', 'Las distribuidoras están obligadas a comprar los excedentes inyectados a la red'],
@@ -778,10 +708,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '136',
 		title: 'Infraestructura de carga eléctrica — redes y vehículos eléctricos',
-		originalText:
+		text:
 			'Incorpórase a la ley 24.065 disposiciones sobre infraestructura de carga eléctrica para vehículos: las estaciones de carga pueden instalarse como servicio público o privado, con acceso no discriminatorio a la red de distribución.',
-		currentText:
-			'Incorpora a la ley 24.065 el régimen de estaciones de carga de vehículos eléctricos. Las estaciones de carga pueden ser de acceso público o privado. Acceden a la red de distribución eléctrica en condiciones no discriminatorias.',
 		plainLanguageExplanation:
 			'Prepara el marco legal para la transición a la movilidad eléctrica. Las empresas que quieran instalar estaciones de carga de autos eléctricos tendrán acceso a la red eléctrica en igualdad de condiciones.',
 		practicalEffects: ['Habilita el mercado de electrolineras sin barreras de acceso a la red', 'Anticipa la demanda de infraestructura para el crecimiento del mercado de autos eléctricos'],
@@ -799,10 +727,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '137',
 		title: 'Almacenamiento de energía — baterías y sistemas de almacenamiento',
-		originalText:
+		text:
 			'Incorpórase a la ley 24.065 la actividad de almacenamiento de energía eléctrica como actividad regulada. Los sistemas de almacenamiento a gran escala (baterías, pumped hydro) pueden participar en el mercado mayorista proveyendo servicios de regulación de frecuencia y reserva.',
-		currentText:
-			'Incorpora a la ley 24.065 el almacenamiento de energía como actividad regulada. Los grandes sistemas de baterías pueden participar en el mercado eléctrico mayorista ofreciendo servicios de estabilización y reserva, creando un nuevo segmento de negocio.',
 		plainLanguageExplanation:
 			'Las baterías gigantes (como las de Tesla Megapack) tienen un rol en la red eléctrica: guardan energía cuando hay excedente y la devuelven cuando falta. La ley crea el marco legal para que sean remuneradas por ese servicio.',
 		practicalEffects: ['Crea el mercado de servicios de almacenamiento en Argentina', 'Las baterías pueden monetizarse proveyendo servicios de regulación de frecuencia al sistema'],
@@ -820,10 +746,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '138',
 		title: 'Sanciones en el mercado eléctrico — reforma ley 24.065',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065 sobre sanciones: el ENRE puede aplicar multas de hasta el 20% del volumen de facturación anual del infractor. Las multas se actualizan por inflación. Las infracciones graves pueden resultar en la revocación de la habilitación.',
-		currentText:
-			'Reforma la ley 24.065: aumenta las sanciones del ENRE (hasta 20% de la facturación anual) y actualiza las multas por inflación. Las infracciones graves (fraude, manipulación de mercado) pueden resultar en revocación de la habilitación.',
 		plainLanguageExplanation:
 			'Refuerza la capacidad sancionatoria del ENRE para que sus multas sean disuasorias. Una multa del 20% de la facturación anual es significativa para cualquier empresa del sector.',
 		practicalEffects: ['Las multas actualizadas por inflación no pierden poder disuasorio en el tiempo', 'La revocación de habilitación es el máximo poder coercitivo del ENRE'],
@@ -841,10 +765,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '139',
 		title: 'Concesiones de distribución eléctrica — plazos y renovación',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065 sobre plazos de concesión de distribución eléctrica: las concesiones son por 95 años, renovables. Al vencer, el ENRE evalúa el desempeño de la distribuidora y puede renovar o llamar a nuevo concurso.',
-		currentText:
-			'Reforma la ley 24.065: las concesiones de distribución (Edenor, Edesur, etc.) son por 95 años, renovables. Al vencer, el ENRE evalúa el desempeño histórico. Si la distribuidora no cumplió los estándares, el ENRE puede no renovar y llamar a concurso.',
 		plainLanguageExplanation:
 			'Las empresas distribuidoras tienen concesiones de muy largo plazo (95 años) pero no son indefinidas. Si una distribuidora tuvo mal servicio durante décadas, al vencer la concesión puede no renovársela.',
 		practicalEffects: ['Los plazos largos dan certeza para inversión en infraestructura de red', 'La posibilidad de no renovar es un incentivo de largo plazo para el buen desempeño'],
@@ -862,10 +784,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '140',
 		title: 'Autoridad de aplicación eléctrica — ENRE y Secretaría de Energía',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: el ENRE es el ente autárquico que regula el mercado eléctrico. La Secretaría de Energía define la política energética. Se define la división de competencias entre ambos organismos.',
-		currentText:
-			'Reforma la ley 24.065: clarifica la división entre ENRE (regulación técnica y tarifaria, independiente) y Secretaría de Energía (política energética, parte del Ejecutivo). El ENRE no puede ser interferido por el Ejecutivo en sus decisiones regulatorias.',
 		plainLanguageExplanation:
 			'El ENRE es como un árbitro independiente del sector eléctrico. La Secretaría de Energía define las reglas del juego, pero el ENRE las aplica de manera autónoma. Separar los roles evita que el gobierno politice las decisiones regulatorias.',
 		practicalEffects: ['La independencia del ENRE es clave para la credibilidad de la regulación tarifaria', 'El Ejecutivo no puede ordenarle al ENRE que baje tarifas por motivos políticos'],
@@ -883,10 +803,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '141',
 		title: 'Mercado eléctrico mayorista — operación y CAMMESA',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: CAMMESA (Compañía Administradora del Mercado Mayorista Eléctrico) opera el despacho de generación. Se ajustan sus funciones para acomodar los contratos bilaterales del art. 129 y el almacenamiento del art. 137.',
-		currentText:
-			'Reforma la ley 24.065: ajusta las funciones de CAMMESA para incluir la administración de contratos bilaterales y los nuevos actores (comercializadores, almacenadores). CAMMESA sigue siendo el operador del sistema pero en un mercado más diverso.',
 		plainLanguageExplanation:
 			'CAMMESA es la "sala de control" del sistema eléctrico: decide qué generadoras encienden y cuándo, en tiempo real. Con los nuevos contratos bilaterales y los comercializadores, CAMMESA debe integrar más actores en su operación.',
 		practicalEffects: ['CAMMESA debe incorporar los contratos bilaterales en su despacho para mantener el balance de la red', 'El sistema técnico de CAMMESA debe adaptarse a mayor variabilidad (renovables + almacenamiento)'],
@@ -904,10 +822,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '142',
 		title: 'Subsidios eléctricos — reducción y focalización',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.065: los subsidios eléctricos se focalizan en los usuarios de bajos ingresos (tarifa social). El subsidio a las tarifas residenciales generales se reduce gradualmente. Las empresas no reciben subsidio por el costo de la energía.',
-		currentText:
-			'Reforma la ley 24.065: focaliza los subsidios eléctricos en usuarios de tarifa social (AMBA y principales centros urbanos). Elimina los subsidios cruzados a la industria y usuarios medios. La tarifa debe reflejar el costo real de la energía para no-vulnerables.',
 		plainLanguageExplanation:
 			'Argentina subsidiaba la electricidad para casi todos los usuarios. La reforma los focaliza en los que realmente los necesitan: quienes están en los registros de vulnerabilidad. El resto paga el costo real.',
 		practicalEffects: ['Significativa reducción del gasto fiscal en subsidios energéticos', 'Los usuarios de clase media y alta verán subir sus facturas eléctricas al retirarse los subsidios'],
@@ -925,10 +841,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '143',
 		title: 'Interconexión con países limítrofes — exportación e importación eléctrica',
-		originalText:
+		text:
 			'Incorpórase a la ley 24.065 régimen de exportación e importación de energía eléctrica: los intercambios con países limítrofes son libres sujetos a disponibilidad técnica de la red. El ENRE y la Secretaría de Energía autorizan las interconexiones.',
-		currentText:
-			'Incorpora a la ley 24.065 el régimen de intercambios eléctricos internacionales: exportaciones e importaciones de electricidad son posibles, sujeto a autorización del ENRE y capacidad técnica de las interconexiones internacionales.',
 		plainLanguageExplanation:
 			'Argentina puede exportar electricidad sobrante (por ejemplo, de Vaca Muerta o de las renovables) a Brasil, Uruguay y Chile, o importar si tiene déficit. La ley crea el marco para que esto sea parte del mercado.',
 		practicalEffects: ['Permite monetizar excedentes de generación en períodos de alta oferta', 'Reduce la dependencia energética en momentos de escasez interna'],
@@ -946,10 +860,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '144',
 		title: 'Modificaciones finales al marco eléctrico — autoridad de aplicación',
-		originalText:
+		text:
 			'Disposiciones finales del capítulo eléctrico: actualiza referencias normativas en la ley 24.065, deroga artículos incompatibles con las nuevas disposiciones y designa al PEN para reglamentar las nuevas figuras (comercializadores, almacenadores).',
-		currentText:
-			'Cierra el capítulo de la ley 24.065: deroga artículos incompatibles con la nueva regulación, actualiza referencias normativas y encomienda al PEN la reglamentación de los nuevos agentes del mercado eléctrico.',
 		plainLanguageExplanation:
 			'Artículo de "limpieza" legislativa: elimina disposiciones contradictorias, actualiza referencias y da al PEN el mandato de reglamentar lo nuevo.',
 		practicalEffects: ['La derogación de artículos incompatibles previene conflictos de interpretación', 'El mandato de reglamentación es plazo para que el PEN desarrolle la normativa de los nuevos agentes'],
@@ -967,10 +879,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '145',
 		title: 'Mezcla obligatoria de biocombustibles — reforma ley 26.093',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: se mantiene la obligación de mezcla de biocombustibles en los combustibles fósiles. El porcentaje de mezcla de biodiesel en gasoil se fija en un mínimo del cinco por ciento (5%) y puede aumentarse hasta el doce por ciento (12%) por decisión del PEN.',
-		currentText:
-			'Reforma la ley 26.093: mantiene la mezcla obligatoria de biodiesel en gasoil (mínimo 5%, máximo 12% por decreto). El porcentaje puede variarse según disponibilidad de materia prima y precio internacional del petróleo.',
 		plainLanguageExplanation:
 			'Toda nafta y gasoil que se vende en Argentina contiene un porcentaje de biocombustible (bioetanol en naftas, biodiesel en gasoil). Esto es obligatorio y sostiene la industria de biocombustibles argentina, principalmente soja (biodiesel) y maíz/caña (bioetanol).',
 		practicalEffects: ['Protege el mercado doméstico de biocombustibles garantizando demanda mínima', 'La variabilidad del porcentaje permite ajustar según las condiciones del mercado'],
@@ -988,10 +898,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '146',
 		title: 'Mezcla de bioetanol en naftas — reforma ley 26.093',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: el porcentaje de bioetanol en naftas se fija en un mínimo del doce por ciento (12%). El bioetanol puede provenir de caña de azúcar (Tucumán, Jujuy, Salta) o de maíz (Córdoba, Buenos Aires). El PEN puede variar el porcentaje.',
-		currentText:
-			'Reforma la ley 26.093: el bioetanol en naftas tiene un mínimo del 12%, producido de caña o maíz. El PEN puede subir o bajar el porcentaje. Establece cuotas de origen (caña vs maíz) para equilibrar la industria azucarera del NOA con la maicera del centro.',
 		plainLanguageExplanation:
 			'El 12% de la nafta es alcohol (bioetanol). La mitad viene de la caña de azúcar tucumana y salteña; la otra mitad del maíz cordobés. Esta cuota protege a ambas regiones productoras e impulsa la demanda de esas materias primas.',
 		practicalEffects: ['Garantiza demanda mínima para la industria azucarera del NOA y la maicera del centro', 'El balance caña/maíz evita que una región concentre todo el mercado'],
@@ -1009,10 +917,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '147',
 		title: 'Exportación de biocombustibles — habilitación, ley 26.093',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: los productores de biocombustibles pueden exportar libremente sus excedentes una vez cuberta la demanda del mercado interno. No se requiere autorización previa para la exportación.',
-		currentText:
-			'Reforma la ley 26.093: habilita la exportación libre de biocombustibles (biodiesel, bioetanol) una vez cuberta la cuota del mercado interno. La exportación no requiere autorización previa.',
 		plainLanguageExplanation:
 			'Antes de esta reforma, exportar biocombustibles era complejo. Ahora, los productores pueden exportar libremente el excedente. Esto es muy relevante para el biodiesel de soja argentino, que compite en el mercado europeo.',
 		practicalEffects: ['Las aceiteras del Gran Rosario pueden exportar biodiesel sin trámites adicionales', 'Amplía los incentivos para producir biocombustibles más allá del cupo interno'],
@@ -1030,10 +936,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '148',
 		title: 'Autorización para producción de biocombustibles — simplificación',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: la habilitación para producir biocombustibles se simplifica. Las plantas ya habilitadas no requieren re-habilitación. Nuevas plantas se habilitan por declaración jurada, con inspección posterior.',
-		currentText:
-			'Reforma la ley 26.093: simplifica el trámite de habilitación de plantas productoras de biocombustibles. Las nuevas plantas se habilitan con declaración jurada más inspección posterior, sin necesidad de autorización previa.',
 		plainLanguageExplanation:
 			'En lugar de pedir autorización antes de construir la planta, las empresas pueden hacerlo con una declaración jurada y recibir la inspección después. Reduce la burocracia de entrada al sector.',
 		practicalEffects: ['Agiliza la apertura de nuevas plantas de biocombustibles', 'La inspección posterior en lugar de la autorización previa reduce el tiempo de habilitación'],
@@ -1051,10 +955,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '149',
 		title: 'Precio de los biocombustibles — metodología de determinación',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: el precio de los biocombustibles para el mercado interno se determina por la Secretaría de Energía en base a los costos de producción más una rentabilidad razonable, actualizados trimestralmente.',
-		currentText:
-			'Reforma la ley 26.093: el precio de los biocombustibles para el mercado de mezcla obligatoria se actualiza trimestralmente por la Secretaría de Energía, basado en costos de producción más rentabilidad razonable.',
 		plainLanguageExplanation:
 			'El precio al que las refinadoras deben comprar el biodiesel y bioetanol para mezclar no es libre: lo fija el gobierno trimestralmente. Esto protege a los productores de que las grandes refinadoras (YPF, Shell) no impongan precios muy bajos.',
 		practicalEffects: ['La actualización trimestral protege a los productores de la erosión inflacionaria del precio', 'Las refinadoras conocen con anticipación el costo de la mezcla que les esperará'],
@@ -1072,10 +974,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '150',
 		title: 'Registro de productores de biocombustibles — ley 26.093',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: los productores de biocombustibles deben inscribirse en el Registro de Empresas Productoras. La inscripción es condición para vender al mercado interno de mezcla obligatoria y para exportar.',
-		currentText:
-			'Reforma la ley 26.093: mantiene el Registro de Empresas Productoras de Biocombustibles. La inscripción es condición para acceder al mercado interno de mezcla y para exportar. El registro es digital y de acceso público.',
 		plainLanguageExplanation:
 			'Solo pueden producir biocombustibles para el mercado regulado las empresas habilitadas e inscriptas. El registro es la herramienta de control de quién puede vender.',
 		practicalEffects: ['El registro digital y público permite auditar quién produce y cuánto', 'La inscripción es condición para cobrar el precio regulado'],
@@ -1093,10 +993,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '151',
 		title: 'Sanciones en el mercado de biocombustibles — ley 26.093',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 26.093: las sanciones por incumplimiento de las obligaciones de mezcla o por adulteración de biocombustibles incluyen multas y revocación del registro. Las multas se actualizan por IPC.',
-		currentText:
-			'Reforma la ley 26.093: el incumplimiento de la mezcla obligatoria o la adulteración de biocombustibles se sancionan con multas (actualizadas por IPC) y revocación del registro. Las refinadoras que no cumplan la mezcla también son sancionadas.',
 		plainLanguageExplanation:
 			'Quien no cumpla con la mezcla obligatoria (la refinadora que vende gasoil sin el porcentaje de biodiesel) o adultera el biocombustible puede ser multado y perder el registro. Protege la integridad del sistema.',
 		practicalEffects: ['La multa actualizada por inflación mantiene poder disuasorio', 'La adulteración de biocombustibles daña motores y mecanismos: la sanción es severa'],
@@ -1114,10 +1012,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '152',
 		title: 'Disposiciones finales de biocombustibles — autoridad de aplicación',
-		originalText:
+		text:
 			'Disposiciones finales del capítulo de biocombustibles: la autoridad de aplicación de la ley 26.093 es la Secretaría de Energía. El PEN puede modificar los porcentajes de mezcla y los parámetros técnicos por decreto.',
-		currentText:
-			'La Secretaría de Energía es la autoridad de aplicación de la ley 26.093. El PEN puede modificar por decreto los porcentajes de mezcla y los parámetros técnicos de calidad de biocombustibles.',
 		plainLanguageExplanation:
 			'La Secretaría de Energía administra el sistema de biocombustibles. El PEN tiene la flexibilidad para ajustar los porcentajes de mezcla por decreto, sin necesitar una ley cada vez que cambia el contexto del mercado.',
 		practicalEffects: ['La flexibilidad para ajustar por decreto permite responder a cambios de precio internacional o disponibilidad de materia prima', 'La Secretaría centraliza la regulación de biocombustibles'],
@@ -1135,10 +1031,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '153',
 		title: 'Marco regulatorio del gas natural — reforma ley 24.076',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.076: el ENARGAS (Ente Nacional Regulador del Gas) ejerce la regulación independiente del transporte y distribución de gas natural. Sus funciones se alinean con las modificaciones al ENRE eléctrico para ambos mercados.',
-		currentText:
-			'Reforma la ley 24.076: ajusta las funciones del ENARGAS hacia una regulación independiente del mercado de gas. El ENARGAS se focaliza en acceso a la red, calidad de servicio y tarifas, con independencia del Ejecutivo.',
 		plainLanguageExplanation:
 			'El ENARGAS es para el gas lo que el ENRE es para la electricidad: el árbitro independiente del sector. La reforma alinea su funcionamiento con los principios aplicados al sector eléctrico.',
 		practicalEffects: ['La independencia del ENARGAS protege las tarifas de gas de la interferencia política', 'El ENARGAS regula tanto el transporte (TGN, TGS) como la distribución (Metrogas, etc.)'],
@@ -1156,10 +1050,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '154',
 		title: 'Libre acceso a ductos de gas — reforma ley 24.076',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.076: los gasoductos de transporte de gas operan bajo el principio de acceso abierto no discriminatorio. Los productores, distribuidores y grandes usuarios pueden acceder a los gasoductos pagando la tarifa regulada.',
-		currentText:
-			'Reforma la ley 24.076: los gasoductos (TGN, TGS) deben dar acceso a terceros en condiciones no discriminatorias y a tarifa regulada. Complementa el open access hidrocarburífero del art. 121 aplicado específicamente al gas.',
 		plainLanguageExplanation:
 			'Un productor de gas que no es dueño del gasoducto puede igual transportar su gas, pagando la tarifa regulada. Esto evita que las empresas de transporte bloqueen a productores independientes.',
 		practicalEffects: ['Los productores de Vaca Muerta acceden a los gasoductos sin discriminación', 'El open access es la condición necesaria para que funcione la libre comercialización del gas'],
@@ -1177,10 +1069,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '155',
 		title: 'Concesiones de transporte de gas — plazos y condiciones, ley 24.076',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.076: las concesiones de transporte de gas (gasoductos) son por 35 años, prorrogables. Las condiciones de prórroga son similares a las del sector eléctrico.',
-		currentText:
-			'Reforma la ley 24.076: las concesiones de transporte de gas (TGN, TGS) son por 35 años, prorrogables. Se alinea el plazo con los de la industria hidrocarburífera para facilitar el financiamiento de la infraestructura.',
 		plainLanguageExplanation:
 			'Los gasoductos son infraestructura de largo plazo: un gasoducto cuesta cientos de millones de dólares. Los 35 años de concesión dan tiempo suficiente para recuperar la inversión.',
 		practicalEffects: ['El plazo largo facilita el financiamiento de nuevos gasoductos (como el Néstor Kirchner)', 'La posibilidad de prórroga incentiva el mantenimiento de la infraestructura'],
@@ -1198,10 +1088,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '156',
 		title: 'Distribución de gas — concesiones y tarifas, ley 24.076',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.076: las concesiones de distribución de gas (Metrogas, distribuidoras del interior) se revisan mediante Revisión Tarifaria Integral quinquenal, similar al modelo eléctrico. Las tarifas deben cubrir costos e incluir rentabilidad razonable.',
-		currentText:
-			'Reforma la ley 24.076: las distribuidoras de gas tienen RTI quinquenal para fijar tarifas. Las tarifas deben cubrir costos de distribución y compra del gas más una rentabilidad razonable determinada por el ENARGAS.',
 		plainLanguageExplanation:
 			'Las distribuidoras de gas (Metrogas en AMBA, y otras en el interior) tienen su tarifa revisada cada 5 años. Igual que en electricidad, esto busca que las tarifas reflejen los costos reales sin que el gobierno las congele por razones políticas.',
 		practicalEffects: ['Termina con el congelamiento de tarifas de gas que rigió durante años en Argentina', 'Las distribuidoras necesitan tarifas que cubran sus costos para poder mantener e invertir en la red'],
@@ -1219,10 +1107,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '157',
 		title: 'Exportación de gas natural — liberalización, ley 24.076',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 24.076: la exportación de gas natural es libre, consistente con el art. 106 para hidrocarburos en general. Las exportaciones de gas a países limítrofes (Chile, Brasil, Uruguay) no requieren autorización previa.',
-		currentText:
-			'Reforma la ley 24.076: la exportación de gas natural es libre, sin autorización previa. Consistente con la liberalización general del sector. Se mantiene la obligación de asegurar abastecimiento interno antes de exportar si hay escasez declarada.',
 		plainLanguageExplanation:
 			'Las empresas con gas en Vaca Muerta pueden exportar a Chile o Brasil sin pedir permiso. Pero si Argentina sufre escasez de gas doméstico en invierno, el Estado puede priorizar el abastecimiento interno.',
 		practicalEffects: ['Habilita contratos de exportación de largo plazo con compradores extranjeros', 'La cláusula de seguridad de abastecimiento interno protege a los usuarios argentinos en caso de escasez'],
@@ -1240,10 +1126,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '158',
 		title: 'GNL — gas natural licuado, habilitación para exportación',
-		originalText:
+		text:
 			'Incorpórase a la ley 24.076 el régimen del gas natural licuado (GNL): la producción y exportación de GNL es libre. Los proyectos de plantas de licuefacción pueden acogerse al RIGI. Las licencias de exportación de GNL no tienen cupos ni restricciones cuantitativas.',
-		currentText:
-			'Incorpora a la ley 24.076 el régimen de GNL: producción y exportación de GNL libre, sin cupos. Los proyectos de plantas de licuefacción (como el de YPF-Petronas) pueden adherir al RIGI para obtener estabilidad fiscal por 30 años.',
 		plainLanguageExplanation:
 			'El GNL (gas natural licuado) es la forma de exportar gas en barco (como lo hace Qatar o Australia). Argentina tiene gas en Vaca Muerta pero necesita plantas de licuefacción. Este artículo habilita esos proyectos y los vincula al RIGI para dar estabilidad a la inversión.',
 		practicalEffects: ['Es el marco legal para proyectos de GNL como el de YPF-Petronas en Punta Colorada, Río Negro', 'La conexión con el RIGI da 30 años de estabilidad fiscal a los mega-proyectos de GNL'],
@@ -1263,10 +1147,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '159',
 		title: 'Disposiciones finales del marco gasífero — autoridad de aplicación',
-		originalText:
+		text:
 			'Disposiciones finales del capítulo gasífero: deroga artículos incompatibles de la ley 24.076, actualiza referencias normativas y designa al ENARGAS como autoridad de aplicación bajo la orientación política de la Secretaría de Energía.',
-		currentText:
-			'Cierra el capítulo de la ley 24.076: deroga artículos incompatibles, actualiza referencias y confirma al ENARGAS como autoridad de aplicación independiente.',
 		plainLanguageExplanation:
 			'Artículo de limpieza y confirmación institucional: el ENARGAS es el regulador del gas y actúa de manera independiente del Ejecutivo.',
 		practicalEffects: ['Clarifica el rol del ENARGAS post-reforma', 'Elimina contradicciones normativas dentro de la ley 24.076'],
@@ -1284,10 +1166,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '160',
 		title: 'Metas de energías renovables — ajuste ley 27.191',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 27.191: se mantiene la meta de participación de fuentes renovables en el consumo eléctrico nacional. La meta para 2030 se fija en el treinta por ciento (30%) de la generación eléctrica.',
-		currentText:
-			'Reforma la ley 27.191: confirma la meta del 30% de energía renovable en la matriz eléctrica para 2030. Las provincias deben contribuir al cumplimiento de la meta con sus propias concesiones.',
 		plainLanguageExplanation:
 			'Argentina se comprometió a que el 30% de su electricidad venga de fuentes renovables para 2030 (solar, eólica, hidráulica pequeña). Esta meta sigue vigente con la reforma y obliga tanto a la Nación como a las provincias.',
 		practicalEffects: ['Las distribuidoras y grandes usuarios deben incorporar porcentajes crecientes de renovables', 'Las provincias que no contribuyan a la meta pueden enfrentar sanciones federales'],
@@ -1305,10 +1185,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '161',
 		title: 'Contratos RenovAr — estabilidad y protección, ley 27.191',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 27.191: los contratos del programa RenovAr (rondas 1, 1.5, 2, 3 y Mini-Rondas) firmados antes de la promulgación de la presente ley mantienen íntegramente sus condiciones contractuales. No se pueden modificar unilateralmente.',
-		currentText:
-			'Reforma la ley 27.191: protege los contratos RenovAr existentes. Los parques solares y eólicos contratados bajo RenovAr (con CAMMESA o FODER) mantienen sus condiciones originales: precio en USD, plazo de 20 años, garantías estatales.',
 		plainLanguageExplanation:
 			'Los parques eólicos y solares ya construidos bajo RenovAr tienen contratos a 20 años en dólares con el Estado. Este artículo garantiza que la reforma no va a tocar esos contratos. Da seguridad a los inversores que ya pusieron capital.',
 		practicalEffects: ['Los inversores en proyectos RenovAr no sufren la incertidumbre de una renegociación de contratos', 'Protege la reputación de Argentina como mercado de inversión en renovables'],
@@ -1326,10 +1204,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '162',
 		title: 'Penalidades por incumplimiento de metas renovables — ley 27.191',
-		originalText:
+		text:
 			'Sustitúyese artículo de la ley 27.191: los distribuidores y grandes usuarios que no cumplan con la cuota de energía renovable en su consumo pagan un cargo compensatorio equivalente a la diferencia entre su consumo renovable real y la meta exigida, multiplicado por la tarifa de referencia.',
-		currentText:
-			'Reforma la ley 27.191: el cargo por incumplimiento de la meta renovable se actualiza. Los distribuidores o grandes usuarios que no alcanzan la cuota pagan un cargo compensatorio en USD por MWh de déficit renovable.',
 		plainLanguageExplanation:
 			'Si una distribuidora no llegó a tener el porcentaje de energía renovable que le corresponde en su mix, paga una multa. Esto incentiva a contratar energía verde aunque el precio spot del mercado sea más bajo.',
 		practicalEffects: ['Las penalidades impulsan la demanda de contratos de energía renovable', 'El cargo en USD protege su valor real frente a la inflación'],
@@ -1347,10 +1223,8 @@ export const ARTICLES_TITULO_06: Article[] = [
 		lawId: 'ley-27742',
 		number: '163',
 		title: 'Legislación ambiental armonizada para hidrocarburos — mandato al PEN',
-		originalText:
+		text:
 			'Facúltase al Poder Ejecutivo nacional a elaborar, en acuerdo con las provincias, un marco de legislación ambiental armonizado para la exploración, explotación y transporte de hidrocarburos, basado en las mejores prácticas internacionales. Dicho marco debe presentarse al Congreso dentro de los ciento ochenta (180) días de promulgada la presente ley.',
-		currentText:
-			'El PEN debe elaborar, con las provincias, un marco ambiental armonizado para la explotación de hidrocarburos (especialmente no convencional) basado en mejores prácticas internacionales, y presentarlo al Congreso en 180 días.',
 		plainLanguageExplanation:
 			'La explotación de shale y fracking genera riesgos ambientales (agua, suelo). Hoy cada provincia tiene sus propias normas (o ninguna). Este artículo obliga al gobierno a crear estándares nacionales consensuados con las provincias en 180 días. No bloquea la explotación, pero la obliga a tener un marco ambiental.',
 		practicalEffects: [

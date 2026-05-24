@@ -39,9 +39,7 @@ export const DISP_DNPDP_7_2005: Law = {
       lawId: 'disp-dnpdp-7-2005',
       number: '1',
       title: 'Infracciones leves',
-      originalText: 'Constituyen infracciones leves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta dos (2) veces y/o multas de $1.000 a $80.000, las siguientes: a) No inscribir la base de datos en el Registro Nacional de Bases de Datos; b) No notificar al titular de los datos la incorporación de sus datos a la base; c) No actualizar o rectificar los datos personales cuando fueren erróneos o inexactos; d) Recoger datos de fuentes accesibles al público sin las formalidades previstas; e) No dar cumplimiento a las obligaciones de seguridad de nivel básico.',
-      currentText: 'Constituyen infracciones leves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta dos (2) veces y/o multas de $1.000 a $80.000, las siguientes: a) No inscribir la base de datos; b) No notificar al titular; c) No actualizar o rectificar datos erróneos; d) Incumplimientos de nivel básico.',
-      plainLanguageExplanation: 'Las infracciones leves son incumplimientos menores o formales: no registrar la base de datos, no avisar a las personas que se guardaron sus datos, no corregir datos erróneos cuando se pide, o no cumplir las medidas básicas de seguridad. La sanción es una multa de $1.000 a $80.000 y/o hasta 2 apercibimientos formales.',
+      text: 'Constituyen infracciones leves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta dos (2) veces y/o multas de $1.000 a $80.000, las siguientes: a) No inscribir la base de datos en el Registro Nacional de Bases de Datos; b) No notificar al titular de los datos la incorporación de sus datos a la base; c) No actualizar o rectificar los datos personales cuando fueren erróneos o inexactos; d) Recoger datos de fuentes accesibles al público sin las formalidades previstas; e) No dar cumplimiento a las obligaciones de seguridad de nivel básico.',      plainLanguageExplanation: 'Las infracciones leves son incumplimientos menores o formales: no registrar la base de datos, no avisar a las personas que se guardaron sus datos, no corregir datos erróneos cuando se pide, o no cumplir las medidas básicas de seguridad. La sanción es una multa de $1.000 a $80.000 y/o hasta 2 apercibimientos formales.',
       practicalEffects: [
         'Multa mínima: $1.000 — máxima: $80.000',
         'Hasta 2 apercibimientos formales acumulables',
@@ -64,7 +62,7 @@ export const DISP_DNPDP_7_2005: Law = {
           articleId: 'disp-7-art-1',
           articleNumber: '1',
           segmentType: 'PARAGRAPH',
-          originalText: 'Infracciones leves — Multas de $1.000 a $80.000 y/o hasta 2 apercibimientos: a) No inscribir la base de datos en el Registro Nacional; b) No notificar al titular la incorporación de sus datos; c) No actualizar o rectificar datos erróneos cuando fuere solicitado; d) Incumplimientos de medidas de seguridad de nivel básico.',
+          text: 'Infracciones leves — Multas de $1.000 a $80.000 y/o hasta 2 apercibimientos: a) No inscribir la base de datos en el Registro Nacional; b) No notificar al titular la incorporación de sus datos; c) No actualizar o rectificar datos erróneos cuando fuere solicitado; d) Incumplimientos de medidas de seguridad de nivel básico.',
           plainExplanation: 'Nivel 1 de infracciones: las más leves. Generalmente son omisiones formales o administrativas. La multa va de $1.000 a $80.000 (monto actualizable por la DNPDP). El responsable puede acumular hasta 2 apercibimientos antes de que una nueva infracción pase a ser tratada como grave.',
           practicalExample: 'Si la DNPDP inspecciona una empresa de telemarketing y comprueba que su base de datos de prospectos no está inscripta en el Registro Nacional, le aplica una multa dentro de la escala de $1.000 a $80.000.',
           references: [],
@@ -78,9 +76,7 @@ export const DISP_DNPDP_7_2005: Law = {
       lawId: 'disp-dnpdp-7-2005',
       number: '2',
       title: 'Infracciones graves',
-      originalText: 'Constituyen infracciones graves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta cuatro (4) veces y/o multas de $80.000 a $90.000 y/o suspensión de la base de datos de uno (1) a treinta (30) días, las siguientes: a) Tratar datos de carácter personal sin recabar el consentimiento del afectado; b) Tratar datos de carácter personal con vulneración de los principios de calidad; c) No cesar en el tratamiento de datos cuando fuere requerido; d) No atender los derechos de acceso, rectificación, supresión o bloqueo; e) No cumplir con las medidas de seguridad de nivel medio.',
-      currentText: 'Infracciones graves: multas de $80.000 a $90.000, hasta 4 apercibimientos y/o suspensión de 1 a 30 días.',
-      plainLanguageExplanation: 'Las infracciones graves implican violar derechos concretos de los titulares de datos: tratar datos sin consentimiento, no responder a pedidos de acceso o eliminación, o no adoptar medidas de seguridad de nivel medio. La sanción puede incluir la suspensión temporal de la base de datos (de 1 a 30 días), lo que puede paralizar parte del negocio.',
+      text: 'Constituyen infracciones graves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta cuatro (4) veces y/o multas de $80.000 a $90.000 y/o suspensión de la base de datos de uno (1) a treinta (30) días, las siguientes: a) Tratar datos de carácter personal sin recabar el consentimiento del afectado; b) Tratar datos de carácter personal con vulneración de los principios de calidad; c) No cesar en el tratamiento de datos cuando fuere requerido; d) No atender los derechos de acceso, rectificación, supresión o bloqueo; e) No cumplir con las medidas de seguridad de nivel medio.',      plainLanguageExplanation: 'Las infracciones graves implican violar derechos concretos de los titulares de datos: tratar datos sin consentimiento, no responder a pedidos de acceso o eliminación, o no adoptar medidas de seguridad de nivel medio. La sanción puede incluir la suspensión temporal de la base de datos (de 1 a 30 días), lo que puede paralizar parte del negocio.',
       practicalEffects: [
         'Multa de $80.000 a $90.000',
         'Hasta 4 apercibimientos',
@@ -103,7 +99,7 @@ export const DISP_DNPDP_7_2005: Law = {
           articleId: 'disp-7-art-2',
           articleNumber: '2',
           segmentType: 'PARAGRAPH',
-          originalText: 'Infracciones graves — Multas de $80.000 a $90.000, hasta 4 apercibimientos y/o suspensión de 1 a 30 días: a) Tratar datos sin consentimiento del titular; b) Vulnerar principios de calidad de datos; c) No cesar en el tratamiento cuando fuere requerido; d) No atender derechos de acceso, rectificación, supresión o bloqueo; e) Incumplimiento de medidas de seguridad de nivel medio.',
+          text: 'Infracciones graves — Multas de $80.000 a $90.000, hasta 4 apercibimientos y/o suspensión de 1 a 30 días: a) Tratar datos sin consentimiento del titular; b) Vulnerar principios de calidad de datos; c) No cesar en el tratamiento cuando fuere requerido; d) No atender derechos de acceso, rectificación, supresión o bloqueo; e) Incumplimiento de medidas de seguridad de nivel medio.',
           plainExplanation: 'Nivel 2: infracciones que afectan derechos concretos de las personas. Lo más característico es tratar datos sin consentimiento o ignorar los derechos ARCO (Acceso, Rectificación, Cancelación, Oposición). La sanción puede incluir la suspensión de la base, lo que puede impedir el funcionamiento del servicio.',
           practicalExample: 'Una fintech que construyó un perfil crediticio usando datos de redes sociales sin consentimiento del usuario comete infracción grave. Si además no responde al pedido de supresión de datos, agrava la situación.',
           references: [],
@@ -117,9 +113,7 @@ export const DISP_DNPDP_7_2005: Law = {
       lawId: 'disp-dnpdp-7-2005',
       number: '3',
       title: 'Infracciones muy graves',
-      originalText: 'Constituyen infracciones muy graves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta seis (6) veces y/o multas de $90.000 a $100.000 y/o suspensión de la base de datos de treinta y uno (31) a trescientos sesenta y cinco (365) días o clausura o cancelación del archivo, registro o banco de datos personales, las siguientes: a) Recolectar datos de manera fraudulenta, desleal o ilícita; b) Comunicar datos a terceros vulnerando la prohibición de cesión; c) Transferir datos a países sin nivel de protección adecuado; d) Tratar datos especialmente protegidos (sensibles, de salud, etc.) sin cumplir los requisitos especiales; e) No cumplir con las medidas de seguridad de nivel alto.',
-      currentText: 'Infracciones muy graves: multas de $90.000 a $100.000, hasta 6 apercibimientos, suspensión de 31 a 365 días o clausura definitiva.',
-      plainLanguageExplanation: 'Las infracciones muy graves son las más serias: recolectar datos de forma fraudulenta, ceder datos prohibidos, transferir datos al exterior sin garantías, o tratar datos sensibles (salud, ideología, etc.) sin los requisitos especiales. La sanción máxima es la clausura o cancelación definitiva de la base de datos, lo que puede significar el cierre del negocio.',
+      text: 'Constituyen infracciones muy graves a la Ley N° 25.326, susceptibles de ser sancionadas con apercibimiento de hasta seis (6) veces y/o multas de $90.000 a $100.000 y/o suspensión de la base de datos de treinta y uno (31) a trescientos sesenta y cinco (365) días o clausura o cancelación del archivo, registro o banco de datos personales, las siguientes: a) Recolectar datos de manera fraudulenta, desleal o ilícita; b) Comunicar datos a terceros vulnerando la prohibición de cesión; c) Transferir datos a países sin nivel de protección adecuado; d) Tratar datos especialmente protegidos (sensibles, de salud, etc.) sin cumplir los requisitos especiales; e) No cumplir con las medidas de seguridad de nivel alto.',      plainLanguageExplanation: 'Las infracciones muy graves son las más serias: recolectar datos de forma fraudulenta, ceder datos prohibidos, transferir datos al exterior sin garantías, o tratar datos sensibles (salud, ideología, etc.) sin los requisitos especiales. La sanción máxima es la clausura o cancelación definitiva de la base de datos, lo que puede significar el cierre del negocio.',
       practicalEffects: [
         'Multa de $90.000 a $100.000',
         'Hasta 6 apercibimientos',
@@ -143,7 +137,7 @@ export const DISP_DNPDP_7_2005: Law = {
           articleId: 'disp-7-art-3',
           articleNumber: '3',
           segmentType: 'PARAGRAPH',
-          originalText: 'Infracciones muy graves — Multas de $90.000 a $100.000, hasta 6 apercibimientos, suspensión de 31 a 365 días o clausura/cancelación definitiva: a) Recolección fraudulenta o ilícita; b) Cesión de datos en violación de las prohibiciones legales; c) Transferencia internacional sin nivel de protección adecuado; d) Tratamiento de datos sensibles sin cumplir requisitos especiales; e) Incumplimiento de medidas de seguridad de nivel alto.',
+          text: 'Infracciones muy graves — Multas de $90.000 a $100.000, hasta 6 apercibimientos, suspensión de 31 a 365 días o clausura/cancelación definitiva: a) Recolección fraudulenta o ilícita; b) Cesión de datos en violación de las prohibiciones legales; c) Transferencia internacional sin nivel de protección adecuado; d) Tratamiento de datos sensibles sin cumplir requisitos especiales; e) Incumplimiento de medidas de seguridad de nivel alto.',
           plainExplanation: 'Nivel 3: las conductas más graves del sistema. Son casos donde el daño al titular es mayor o la violación es más flagrante. La clausura definitiva es la sanción máxima: la DNPDP puede ordenar el cierre permanente del archivo o base de datos, lo que en muchos casos equivale a cerrar el negocio.',
           practicalExample: 'Una empresa de seguros que vendió historiales médicos de sus asegurados a un laboratorio farmacéutico sin consentimiento ni base legal comete infracción muy grave pasible de clausura definitiva de su base de datos.',
           references: [],
@@ -157,9 +151,7 @@ export const DISP_DNPDP_7_2005: Law = {
       lawId: 'disp-dnpdp-7-2005',
       number: '4',
       title: 'Registro de infractores',
-      originalText: 'Créase el Registro de Infractores en el ámbito de la Dirección Nacional de Protección de Datos Personales, en el que se anotarán todas las resoluciones sancionatorias que adquieran firmeza. Dicho registro será tenido en cuenta para evaluar la reincidencia en la aplicación de las sanciones previstas en los artículos anteriores.',
-      currentText: 'Créase el Registro de Infractores en el ámbito de la DNPDP para registrar sanciones firmes y evaluar reincidencia.',
-      plainLanguageExplanation: 'La DNPDP lleva un registro público de todos los infractores sancionados. Si una empresa ya fue sancionada y vuelve a infringir la ley, la reincidencia se tiene en cuenta para agravar la nueva sanción. Es un incentivo para cumplir: quien ya fue multado y reincide puede pasar a una categoría superior de infracción.',
+      text: 'Créase el Registro de Infractores en el ámbito de la Dirección Nacional de Protección de Datos Personales, en el que se anotarán todas las resoluciones sancionatorias que adquieran firmeza. Dicho registro será tenido en cuenta para evaluar la reincidencia en la aplicación de las sanciones previstas en los artículos anteriores.',      plainLanguageExplanation: 'La DNPDP lleva un registro público de todos los infractores sancionados. Si una empresa ya fue sancionada y vuelve a infringir la ley, la reincidencia se tiene en cuenta para agravar la nueva sanción. Es un incentivo para cumplir: quien ya fue multado y reincide puede pasar a una categoría superior de infracción.',
       practicalEffects: [
         'Las sanciones firmes quedan anotadas en un registro público',
         'La reincidencia agrava la sanción en la nueva infracción',
@@ -181,11 +173,8 @@ export const DISP_DNPDP_7_2005: Law = {
       lawId: 'disp-dnpdp-7-2005',
       number: '5',
       title: 'Derogación y vigencia',
-      originalText:
-        'Derógase la Disposición DNPDP Nº 1/2003. La presente disposición entrará en vigencia a partir de su publicación en el Boletín Oficial.',
-      currentText:
-        'Derógase la Disposición DNPDP Nº 1/2003. La presente disposición entrará en vigencia a partir de su publicación en el Boletín Oficial.',
-      plainLanguageExplanation:
+      text:
+        'Derógase la Disposición DNPDP Nº 1/2003. La presente disposición entrará en vigencia a partir de su publicación en el Boletín Oficial.',      plainLanguageExplanation:
         'Este artículo hace dos cosas: primero, elimina la norma anterior que regulaba las sanciones (Disposición 1/2003), para que no convivan dos escalas sancionatorias distintas. Segundo, establece que la nueva escala rige desde el día de su publicación en el Boletín Oficial (14 de noviembre de 2005), sin período de gracia.',
       practicalEffects: [
         'La Disposición DNPDP 1/2003 quedó derogada desde el 14 de noviembre de 2005.',
@@ -207,7 +196,7 @@ export const DISP_DNPDP_7_2005: Law = {
           articleId: 'disp-7-art-5',
           articleNumber: '5',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Derógase la Disposición DNPDP Nº 1/2003. La presente disposición entrará en vigencia a partir de su publicación en el Boletín Oficial.',
           plainExplanation:
             'Elimina la escala sancionatoria anterior (Disposición 1/2003) y pone en vigencia esta nueva desde el día de su publicación oficial.',

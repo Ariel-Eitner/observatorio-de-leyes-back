@@ -26,7 +26,7 @@ export class CreateSegmentDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  originalText: string;
+  text: string;
 
   @ApiPropertyOptional()
   @IsOptional()

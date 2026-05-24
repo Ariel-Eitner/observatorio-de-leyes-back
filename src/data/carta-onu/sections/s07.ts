@@ -2,7 +2,7 @@ import type { Article } from '../../../common/types/law.types';
 
 const seg = (num: string, text: string, plain: string, example: string | null = null): Article['segments'][0] => ({
   id: `carta-onu-art-${num}-s1`, lawId: 'carta-onu', articleId: `carta-onu-art-${num}`,
-  articleNumber: num, segmentType: 'PARAGRAPH', originalText: text,
+  articleNumber: num, segmentType: 'PARAGRAPH', text: text,
   plainExplanation: plain, practicalExample: example, references: [], order: 1,
 });
 
@@ -10,9 +10,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-61', lawId: 'carta-onu', number: '61',
     title: 'Composición del Consejo Económico y Social',
-    originalText: '1. El Consejo Económico y Social estará integrado por cincuenta y cuatro Miembros de las Naciones Unidas elegidos por la Asamblea General.\n2. Salvo lo prescrito en el párrafo 3, dieciocho miembros del Consejo Económico y Social serán elegidos cada año por un período de tres años. Los miembros salientes serán reelegibles para el período subsiguiente.\n3. En la primera elección que se celebre después de haberse aumentado de veintisiete a cincuenta y cuatro el número de miembros del Consejo Económico y Social, además de los miembros que se elijan para sustituir a los nueve miembros cuyo mandato expire al final de ese año, se elegirán veintisiete miembros más. El mandato de nueve de estos veintisiete miembros adicionales así elegidos expirará al cabo de un año y el de otros nueve miembros una vez transcurridos dos años, conforme a las disposiciones que dicte la Asamblea General.\n4. Cada miembro del Consejo Económico y Social tendrá un representante.',
-    currentText: '1. El Consejo Económico y Social (ECOSOC) estará integrado por cincuenta y cuatro Miembros de las Naciones Unidas elegidos por la Asamblea General.\n2. Dieciocho miembros serán elegidos cada año por un período de tres años. Los miembros salientes serán reelegibles.\n3. [Disposición transitoria sobre el aumento de 27 a 54 miembros.]\n4. Cada miembro del Consejo Económico y Social tendrá un representante.',
-    plainLanguageExplanation: 'El ECOSOC está compuesto por 54 Estados elegidos por la Asamblea General por períodos de tres años, con renovación de 18 por año. Los miembros pueden ser reelegidos.',
+    text: '1. El Consejo Económico y Social estará integrado por cincuenta y cuatro Miembros de las Naciones Unidas elegidos por la Asamblea General.\n2. Salvo lo prescrito en el párrafo 3, dieciocho miembros del Consejo Económico y Social serán elegidos cada año por un período de tres años. Los miembros salientes serán reelegibles para el período subsiguiente.\n3. En la primera elección que se celebre después de haberse aumentado de veintisiete a cincuenta y cuatro el número de miembros del Consejo Económico y Social, además de los miembros que se elijan para sustituir a los nueve miembros cuyo mandato expire al final de ese año, se elegirán veintisiete miembros más. El mandato de nueve de estos veintisiete miembros adicionales así elegidos expirará al cabo de un año y el de otros nueve miembros una vez transcurridos dos años, conforme a las disposiciones que dicte la Asamblea General.\n4. Cada miembro del Consejo Económico y Social tendrá un representante.',    plainLanguageExplanation: 'El ECOSOC está compuesto por 54 Estados elegidos por la Asamblea General por períodos de tres años, con renovación de 18 por año. Los miembros pueden ser reelegidos.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-60', 'carta-onu-art-62'], jurisprudence: [], regulations: [],
     keywords: ['ECOSOC', 'composición', 'Consejo Económico y Social', '54 miembros'],
@@ -23,9 +21,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-62', lawId: 'carta-onu', number: '62',
     title: 'Funciones y poderes del ECOSOC',
-    originalText: '1. El Consejo Económico y Social podrá hacer o iniciar estudios e informes con respecto a asuntos internacionales de carácter económico, social, cultural, educativo y sanitario, y otros asuntos conexos, y hacer recomendaciones sobre tales asuntos a la Asamblea General, a los Miembros de las Naciones Unidas y a los organismos especializados interesados.\n2. El Consejo Económico y Social podrá hacer recomendaciones con el objeto de promover el respeto a los derechos humanos y a las libertades fundamentales de todos, y la efectividad de tales derechos y libertades.\n3. El Consejo Económico y Social podrá formular proyectos de convención con respecto a cuestiones de su competencia para someterlos a la Asamblea General.\n4. El Consejo Económico y Social podrá convocar, conforme a las reglas que prescriba la Organización, conferencias internacionales sobre asuntos de su competencia.',
-    currentText: '1. El Consejo Económico y Social podrá hacer o iniciar estudios e informes con respecto a asuntos internacionales de carácter económico, social, cultural, educativo y sanitario, y otros asuntos conexos, y hacer recomendaciones sobre tales asuntos a la Asamblea General, a los Miembros de las Naciones Unidas y a los organismos especializados interesados.\n2. El Consejo Económico y Social podrá hacer recomendaciones con el objeto de promover el respeto a los derechos humanos y a las libertades fundamentales de todos, y la efectividad de tales derechos y libertades.\n3. El Consejo Económico y Social podrá formular proyectos de convención con respecto a cuestiones de su competencia para someterlos a la Asamblea General.\n4. El Consejo Económico y Social podrá convocar, conforme a las reglas que prescriba la Organización, conferencias internacionales sobre asuntos de su competencia.',
-    plainLanguageExplanation: 'El ECOSOC puede elaborar estudios, hacer recomendaciones, proponer convenciones y convocar conferencias internacionales sobre temas económicos, sociales, culturales, educativos, sanitarios y de derechos humanos.',
+    text: '1. El Consejo Económico y Social podrá hacer o iniciar estudios e informes con respecto a asuntos internacionales de carácter económico, social, cultural, educativo y sanitario, y otros asuntos conexos, y hacer recomendaciones sobre tales asuntos a la Asamblea General, a los Miembros de las Naciones Unidas y a los organismos especializados interesados.\n2. El Consejo Económico y Social podrá hacer recomendaciones con el objeto de promover el respeto a los derechos humanos y a las libertades fundamentales de todos, y la efectividad de tales derechos y libertades.\n3. El Consejo Económico y Social podrá formular proyectos de convención con respecto a cuestiones de su competencia para someterlos a la Asamblea General.\n4. El Consejo Económico y Social podrá convocar, conforme a las reglas que prescriba la Organización, conferencias internacionales sobre asuntos de su competencia.',    plainLanguageExplanation: 'El ECOSOC puede elaborar estudios, hacer recomendaciones, proponer convenciones y convocar conferencias internacionales sobre temas económicos, sociales, culturales, educativos, sanitarios y de derechos humanos.',
     practicalEffects: [],
     examples: ['El ECOSOC preparó los proyectos de convención sobre derechos humanos adoptados en 1966'],
     relatedArticles: ['carta-onu-art-60', 'carta-onu-art-63'], jurisprudence: [], regulations: [],
@@ -37,9 +33,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-63', lawId: 'carta-onu', number: '63',
     title: 'Acuerdos con organismos especializados',
-    originalText: '1. El Consejo Económico y Social podrá concertar con cualquiera de los organismos especializados de que trata el Artículo 57, acuerdos por medio de los cuales se establezcan las condiciones en que dichos organismos habrán de vincularse con la Organización. Tales acuerdos estarán sujetos a la aprobación de la Asamblea General.\n2. El Consejo Económico y Social podrá coordinar las actividades de los organismos especializados mediante consultas con ellos y haciéndoles recomendaciones, como también mediante recomendaciones a la Asamblea General y a los Miembros de las Naciones Unidas.',
-    currentText: '1. El Consejo Económico y Social podrá concertar con cualquiera de los organismos especializados de que trata el Artículo 57, acuerdos por medio de los cuales se establezcan las condiciones en que dichos organismos habrán de vincularse con la Organización. Tales acuerdos estarán sujetos a la aprobación de la Asamblea General.\n2. El Consejo Económico y Social podrá coordinar las actividades de los organismos especializados mediante consultas con ellos y haciéndoles recomendaciones, como también mediante recomendaciones a la Asamblea General y a los Miembros de las Naciones Unidas.',
-    plainLanguageExplanation: 'El ECOSOC negocia los acuerdos de vinculación entre los organismos especializados y la ONU, y coordina sus actividades.',
+    text: '1. El Consejo Económico y Social podrá concertar con cualquiera de los organismos especializados de que trata el Artículo 57, acuerdos por medio de los cuales se establezcan las condiciones en que dichos organismos habrán de vincularse con la Organización. Tales acuerdos estarán sujetos a la aprobación de la Asamblea General.\n2. El Consejo Económico y Social podrá coordinar las actividades de los organismos especializados mediante consultas con ellos y haciéndoles recomendaciones, como también mediante recomendaciones a la Asamblea General y a los Miembros de las Naciones Unidas.',    plainLanguageExplanation: 'El ECOSOC negocia los acuerdos de vinculación entre los organismos especializados y la ONU, y coordina sus actividades.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-57', 'carta-onu-art-58'], jurisprudence: [], regulations: [],
     keywords: ['ECOSOC', 'acuerdos', 'organismos especializados', 'coordinación'],
@@ -50,9 +44,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-64', lawId: 'carta-onu', number: '64',
     title: 'Informes de organismos especializados',
-    originalText: '1. El Consejo Económico y Social podrá tomar las medidas apropiadas para obtener informes periódicos de los organismos especializados. También podrá hacer arreglos con los Miembros de las Naciones Unidas y con los organismos especializados para obtener informes con respecto a los medidas tomadas para hacer efectivas sus propias recomendaciones y las que haga la Asamblea General acerca de materias de la competencia del Consejo.\n2. El Consejo Económico y Social podrá comunicar a la Asamblea General sus observaciones sobre dichos informes.',
-    currentText: '1. El Consejo Económico y Social podrá tomar las medidas apropiadas para obtener informes periódicos de los organismos especializados. También podrá hacer arreglos con los Miembros de las Naciones Unidas y con los organismos especializados para obtener informes con respecto a los medidas tomadas para hacer efectivas sus propias recomendaciones y las que haga la Asamblea General acerca de materias de la competencia del Consejo.\n2. El Consejo Económico y Social podrá comunicar a la Asamblea General sus observaciones sobre dichos informes.',
-    plainLanguageExplanation: 'El ECOSOC supervisa a los organismos especializados solicitándoles informes periódicos sobre el cumplimiento de sus recomendaciones.',
+    text: '1. El Consejo Económico y Social podrá tomar las medidas apropiadas para obtener informes periódicos de los organismos especializados. También podrá hacer arreglos con los Miembros de las Naciones Unidas y con los organismos especializados para obtener informes con respecto a los medidas tomadas para hacer efectivas sus propias recomendaciones y las que haga la Asamblea General acerca de materias de la competencia del Consejo.\n2. El Consejo Económico y Social podrá comunicar a la Asamblea General sus observaciones sobre dichos informes.',    plainLanguageExplanation: 'El ECOSOC supervisa a los organismos especializados solicitándoles informes periódicos sobre el cumplimiento de sus recomendaciones.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-57', 'carta-onu-art-63'], jurisprudence: [], regulations: [],
     keywords: ['informes', 'supervisión', 'ECOSOC', 'organismos especializados'],
@@ -63,9 +55,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-65', lawId: 'carta-onu', number: '65',
     title: 'Información al Consejo de Seguridad',
-    originalText: 'El Consejo Económico y Social podrá suministrar información al Consejo de Seguridad y deberá darle la ayuda que éste le solicite.',
-    currentText: 'El Consejo Económico y Social podrá suministrar información al Consejo de Seguridad y deberá darle la ayuda que éste le solicite.',
-    plainLanguageExplanation: 'El ECOSOC puede informar al Consejo de Seguridad y debe prestarle asistencia cuando este la solicite, conectando las dimensiones económica/social con la de paz y seguridad.',
+    text: 'El Consejo Económico y Social podrá suministrar información al Consejo de Seguridad y deberá darle la ayuda que éste le solicite.',    plainLanguageExplanation: 'El ECOSOC puede informar al Consejo de Seguridad y debe prestarle asistencia cuando este la solicite, conectando las dimensiones económica/social con la de paz y seguridad.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-24', 'carta-onu-art-62'], jurisprudence: [], regulations: [],
     keywords: ['ECOSOC', 'información', 'Consejo de Seguridad', 'cooperación entre órganos'],
@@ -76,9 +66,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-66', lawId: 'carta-onu', number: '66',
     title: 'Otras funciones del ECOSOC',
-    originalText: '1. El Consejo Económico y Social desempeñará las funciones que caigan dentro de su competencia en relación con el cumplimiento de las recomendaciones de la Asamblea General.\n2. El Consejo Económico y Social podrá prestar, con aprobación de la Asamblea General, los servicios que le soliciten los Miembros de las Naciones Unidas y los organismos especializados.\n3. El Consejo Económico y Social desempeñará las demás funciones prescritas en otras partes de esta Carta o que le asignare la Asamblea General.',
-    currentText: '1. El Consejo Económico y Social desempeñará las funciones que caigan dentro de su competencia en relación con el cumplimiento de las recomendaciones de la Asamblea General.\n2. El Consejo Económico y Social podrá prestar, con aprobación de la Asamblea General, los servicios que le soliciten los Miembros de las Naciones Unidas y los organismos especializados.\n3. El Consejo Económico y Social desempeñará las demás funciones prescritas en otras partes de esta Carta o que le asignare la Asamblea General.',
-    plainLanguageExplanation: 'El ECOSOC también ejecuta las recomendaciones de la Asamblea General, presta servicios a los Estados miembros y organismos, y cumple cualquier otra función que le asigne la Asamblea.',
+    text: '1. El Consejo Económico y Social desempeñará las funciones que caigan dentro de su competencia en relación con el cumplimiento de las recomendaciones de la Asamblea General.\n2. El Consejo Económico y Social podrá prestar, con aprobación de la Asamblea General, los servicios que le soliciten los Miembros de las Naciones Unidas y los organismos especializados.\n3. El Consejo Económico y Social desempeñará las demás funciones prescritas en otras partes de esta Carta o que le asignare la Asamblea General.',    plainLanguageExplanation: 'El ECOSOC también ejecuta las recomendaciones de la Asamblea General, presta servicios a los Estados miembros y organismos, y cumple cualquier otra función que le asigne la Asamblea.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-62'], jurisprudence: [], regulations: [],
     keywords: ['ECOSOC', 'funciones', 'Asamblea General', 'servicios'],
@@ -89,9 +77,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-67', lawId: 'carta-onu', number: '67',
     title: 'Votación en el ECOSOC',
-    originalText: '1. Cada miembro del Consejo Económico y Social tendrá un voto.\n2. Las decisiones del Consejo Económico y Social se tomarán por la mayoría de los miembros presentes y votantes.',
-    currentText: '1. Cada miembro del Consejo Económico y Social tendrá un voto.\n2. Las decisiones del Consejo Económico y Social se tomarán por la mayoría de los miembros presentes y votantes.',
-    plainLanguageExplanation: 'En el ECOSOC cada Estado tiene un voto y las decisiones se toman por mayoría simple de los miembros presentes. No hay veto.',
+    text: '1. Cada miembro del Consejo Económico y Social tendrá un voto.\n2. Las decisiones del Consejo Económico y Social se tomarán por la mayoría de los miembros presentes y votantes.',    plainLanguageExplanation: 'En el ECOSOC cada Estado tiene un voto y las decisiones se toman por mayoría simple de los miembros presentes. No hay veto.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-18', 'carta-onu-art-27'], jurisprudence: [], regulations: [],
     keywords: ['votación', 'ECOSOC', 'mayoría simple', 'un Estado un voto'],
@@ -102,9 +88,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-68', lawId: 'carta-onu', number: '68',
     title: 'Comisiones del ECOSOC',
-    originalText: 'El Consejo Económico y Social establecerá comisiones de orden económico y social y para la promoción de los derechos humanos, así como las demás comisiones necesarias para el desempeño de sus funciones.',
-    currentText: 'El Consejo Económico y Social establecerá comisiones de orden económico y social y para la promoción de los derechos humanos, así como las demás comisiones necesarias para el desempeño de sus funciones.',
-    plainLanguageExplanation: 'El ECOSOC crea comisiones especializadas para sus tareas. La más importante es la Comisión de Derechos Humanos (hoy reemplazada por el Consejo de Derechos Humanos).',
+    text: 'El Consejo Económico y Social establecerá comisiones de orden económico y social y para la promoción de los derechos humanos, así como las demás comisiones necesarias para el desempeño de sus funciones.',    plainLanguageExplanation: 'El ECOSOC crea comisiones especializadas para sus tareas. La más importante es la Comisión de Derechos Humanos (hoy reemplazada por el Consejo de Derechos Humanos).',
     practicalEffects: ['Base para la creación de la Comisión de Derechos Humanos (1946-2006) y el Consejo de Derechos Humanos (2006-)'],
     examples: ['La Comisión de Derechos Humanos del ECOSOC redactó la Declaración Universal de 1948'],
     relatedArticles: ['carta-onu-art-62'], jurisprudence: [], regulations: [],
@@ -116,9 +100,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-69', lawId: 'carta-onu', number: '69',
     title: 'Participación de no miembros en el ECOSOC',
-    originalText: 'El Consejo Económico y Social invitará a cualquier Miembro de las Naciones Unidas a participar, sin derecho a voto, en sus deliberaciones sobre cualquier asunto de particular interés para dicho Miembro.',
-    currentText: 'El Consejo Económico y Social invitará a cualquier Miembro de las Naciones Unidas a participar, sin derecho a voto, en sus deliberaciones sobre cualquier asunto de particular interés para dicho Miembro.',
-    plainLanguageExplanation: 'Cualquier Estado miembro de la ONU puede participar sin voto en el ECOSOC cuando un tema le concierne directamente.',
+    text: 'El Consejo Económico y Social invitará a cualquier Miembro de las Naciones Unidas a participar, sin derecho a voto, en sus deliberaciones sobre cualquier asunto de particular interés para dicho Miembro.',    plainLanguageExplanation: 'Cualquier Estado miembro de la ONU puede participar sin voto en el ECOSOC cuando un tema le concierne directamente.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-31'], jurisprudence: [], regulations: [],
     keywords: ['participación', 'ECOSOC', 'no miembro', 'sin voto'],
@@ -129,9 +111,7 @@ export const ARTICLES_CARTA_ONU_07: Article[] = [
   {
     id: 'carta-onu-art-70', lawId: 'carta-onu', number: '70',
     title: 'Participación de organismos especializados en el ECOSOC',
-    originalText: 'El Consejo Económico y Social podrá hacer arreglos para que representantes de los organismos especializados participen, sin derecho a voto, en sus deliberaciones y en las de las comisiones que establezca, y para que sus propios representantes participen en las deliberaciones de aquellos organismos.',
-    currentText: 'El Consejo Económico y Social podrá hacer arreglos para que representantes de los organismos especializados participen, sin derecho a voto, en sus deliberaciones y en las de las comisiones que establezca, y para que sus propios representantes participen en las deliberaciones de aquellos organismos.',
-    plainLanguageExplanation: 'El ECOSOC y los organismos especializados pueden intercambiar representantes (sin derecho a voto) para coordinar sus actividades.',
+    text: 'El Consejo Económico y Social podrá hacer arreglos para que representantes de los organismos especializados participen, sin derecho a voto, en sus deliberaciones y en las de las comisiones que establezca, y para que sus propios representantes participen en las deliberaciones de aquellos organismos.',    plainLanguageExplanation: 'El ECOSOC y los organismos especializados pueden intercambiar representantes (sin derecho a voto) para coordinar sus actividades.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-57', 'carta-onu-art-63'], jurisprudence: [], regulations: [],
     keywords: ['organismos especializados', 'ECOSOC', 'representantes', 'coordinación'],

@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '229',
 		title: 'Base imponible tabaco — precio de mercado cuando hay subvaluación',
-		originalText:
+		text:
 			'Incorpórase como artículo sin número a continuación del artículo 14 de la ley de Impuestos Internos (texto sustituido por la ley 24.674 y sus modificaciones) el siguiente: "Cuando el precio de venta al consumidor declarado por el fabricante o importador fuera inferior en más de un veinte por ciento (20%) al precio de venta al consumidor que resultara del relevamiento efectuado por la AFIP, ésta podrá tomar como base imponible el precio relevado."',
-		currentText:
-			'Si el precio de venta al consumidor declarado por el fabricante es más de un 20% inferior al precio de mercado relevado por la AFIP, la AFIP puede usar el precio de mercado como base imponible para el impuesto interno al tabaco.',
 		plainLanguageExplanation:
 			'Cierra una brecha clásica de evasión: si el fabricante declara que sus cigarrillos valen $500 pero en el kiosco se venden a $700, la diferencia (40%) supera el 20% tolerado. La AFIP puede entonces cobrar el impuesto sobre $700, no sobre $500. El fraude se vuelve ineficiente porque la base real se aplica igual.',
 		practicalEffects: [
@@ -43,10 +41,8 @@ export const ARTICLES_TITULO_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '230',
 		title: 'Alícuota del impuesto interno a cigarrillos — 73%',
-		originalText:
+		text:
 			'Sustitúyese el artículo 15 de la ley de Impuestos Internos (texto sustituido por la ley 24.674 y sus modificaciones) por el siguiente: "Artículo 15: Los cigarrillos de producción nacional o importados, cualquiera sea su clase o denominación, tributarán sobre el precio de venta al consumidor, inclusive impuestos, excepto el impuesto al valor agregado, el setenta y tres por ciento (73%)."',
-		currentText:
-			'Fija la alícuota del impuesto interno a cigarrillos en el 73% del precio de venta al consumidor (incluyendo todos los impuestos excepto IVA). Aplica tanto a cigarrillos de producción nacional como importados.',
 		plainLanguageExplanation:
 			'El impuesto "cascada" sobre los cigarrillos es del 73%: de cada $100 que paga el consumidor, $73 van al Estado. Es una de las alícuotas más altas de América Latina, y es la herramienta principal para reducir el consumo de tabaco y recaudar. Este artículo confirma y consolida esa alícuota.',
 		practicalEffects: [
@@ -70,10 +66,8 @@ export const ARTICLES_TITULO_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '231',
 		title: 'Actualización trimestral por IPC del monto mínimo del impuesto',
-		originalText:
+		text:
 			'Sustitúyese el artículo 16 de la ley de Impuestos Internos (texto sustituido por la ley 24.674 y sus modificaciones) por el siguiente: "Artículo 16: El monto mínimo del impuesto se actualizará trimestralmente de acuerdo con las variaciones del Índice de Precios al Consumidor (IPC) elaborado por el INDEC, tomando como base el mes de enero de 2018. El Poder Ejecutivo nacional podrá incrementar dicho monto mínimo hasta en un veinticinco por ciento (25%) o reducirlo hasta en un diez por ciento (10%), en función de objetivos de política fiscal o de salud pública."',
-		currentText:
-			'El monto mínimo del impuesto interno al tabaco se actualiza trimestralmente por IPC (base enero 2018). El PEN puede incrementarlo hasta 25% o reducirlo hasta 10% por razones de política fiscal o salud pública.',
 		plainLanguageExplanation:
 			'El monto mínimo es un piso: si la alícuota del 73% daría un impuesto menor al mínimo, se cobra el mínimo igual. La actualización por IPC evita que la inflación erosione ese piso (en Argentina esto es crítico). El PEN tiene flexibilidad adicional de ±25%/10% para ajustes de política.',
 		practicalEffects: [
@@ -97,10 +91,8 @@ export const ARTICLES_TITULO_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '232',
 		title: 'Actualización del impuesto a cigarros y cigarritos — art. 18 ley 24.674',
-		originalText:
+		text:
 			'Sustitúyese el artículo 18 de la ley de Impuestos Internos (texto sustituido por la ley 24.674 y sus modificaciones) por el siguiente: "Artículo 18: Los cigarros, cigarritos, tabaco para armar y demás manufacturas de tabaco tributarán el impuesto conforme a lo previsto en el artículo 16 para la actualización del monto mínimo, aplicando los porcentajes que correspondan a cada categoría según la reglamentación."',
-		currentText:
-			'Actualiza el art. 18 de la ley 24.674 (cigarros, cigarritos, tabaco para armar y otras manufacturas de tabaco) para que su mecanismo de actualización quede alineado con el nuevo art. 16 (actualización trimestral por IPC del art. 231 de esta ley).',
 		plainLanguageExplanation:
 			'Los cigarros y cigarritos también pagan impuesto interno, pero sus alícuotas y mínimos son distintos a los de los cigarrillos. Este artículo los vincula al mismo mecanismo de actualización por IPC para que no queden desactualizados tampoco.',
 		practicalEffects: [
@@ -121,10 +113,8 @@ export const ARTICLES_TITULO_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '233',
 		title: 'Sanción por transporte de tabaco sin documentación',
-		originalText:
+		text:
 			'Incorpórase como artículo sin número a continuación del artículo 18 de la ley de Impuestos Internos (texto sustituido por la ley 24.674 y sus modificaciones) el siguiente: "El transporte de tabaco en cualquiera de sus formas, fuera de los establecimientos habilitados, sin la documentación respaldatoria exigida por la AFIP, dará lugar a la aplicación de una multa equivalente al impuesto que resultara de aplicar la alícuota establecida en el artículo 15 sobre el precio de mercado de los productos transportados, determinado en función de los gramos de tabaco, considerando que un cigarrillo equivale a 0,80 gramos."',
-		currentText:
-			'El transporte de tabaco fuera de establecimientos habilitados sin documentación respaldatoria exigida por AFIP se sanciona con multa. La multa equivale al impuesto que correspondería al tabaco transportado, calculado al 73% sobre el precio de mercado (1 cigarrillo = 0,80 gramos de tabaco).',
 		plainLanguageExplanation:
 			'Atacar el mercado negro de cigarrillos: si un camión lleva tabaco sin los papeles de la AFIP (guías, facturas, declaraciones de despacho), se lo multa como si hubiera evadido el impuesto de todo lo que transporta. Esto desincentiva el transporte ilegal de tabaco de contrabando o sin impuestos pagados.',
 		practicalEffects: [

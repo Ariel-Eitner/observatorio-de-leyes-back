@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '2',
 		title: 'Bases de la delegación legislativa — reorganización administrativa',
-		originalText:
+		text:
 			'Establécense, como bases de las delegaciones legislativas dispuestas en el presente capítulo las siguientes:\na) Mejorar el funcionamiento del Estado para lograr una gestión pública transparente, ágil, eficiente, eficaz y de calidad en la atención del bien común;\nb) Reducir el sobredimensionamiento de la estructura estatal a fin de disminuir el déficit, transparentar el gasto y equilibrar las cuentas públicas; y\nc) Asegurar el efectivo control interno de la administración pública nacional con el objeto de garantizar la transparencia en la administración de las finanzas públicas.',
-		currentText:
-			'Fija las bases de la delegación legislativa del capítulo: a) mejorar funcionamiento y calidad del Estado; b) reducir estructura estatal para bajar el déficit; c) fortalecer el control interno y la transparencia fiscal.',
 		plainLanguageExplanation:
 			'El art. 2° define los objetivos-marco que guían las facultades del PEN en Título II: el Congreso no delega "cualquier cosa" sino solo lo que apunte a eficiencia, reducción del tamaño del Estado y transparencia. Estos tres incisos son la "jaula constitucional" de la delegación: si el PEN actúa por fuera de estos fines, el decreto puede ser inconstitucional.',
 		practicalEffects: [
@@ -40,10 +38,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '3',
 		title: 'Facultad PEN — reorganización de organismos descentralizados',
-		originalText:
+		text:
 			'Facúltase al Poder Ejecutivo nacional a disponer, en relación con los órganos u organismos de la administración central o descentralizada contemplados en el inciso a) del artículo 8° de la ley 24.156 que hayan sido creados por ley o norma con rango equivalente: a) La modificación o eliminación de las competencias, funciones o responsabilidades dispuestas legalmente cuyo mantenimiento resulte innecesario; y b) La reorganización, modificación o transformación de su estructura jurídica, centralización, fusión, escisión, disolución total o parcial, o transferencia a las provincias o a la CABA.\n\nQuedan excluidos: universidades nacionales, organismos del Poder Judicial, Legislativo y Ministerio Público. El PEN no podrá disolver: CONICET, ANLIS, ANMAT, INPI, INCAA, ENACOM, ARN, CONAE, CNEA, CONEAU, CNV, INCUCAI, UIF, INTA, INTI, BNDG, APN, SENASA, IAA, CITEDEF, CITEFA, IGN, INPRES, SHN, SMN, INA, SEGEMAR, INIDEP, CENARD, Superintendencia de Seguros, Superintendencia de Riesgos del Trabajo, ANPIDTI, y organismos vinculados a la cultura.',
-		currentText:
-			'El PEN puede reorganizar, fusionar, disolver o transferir organismos descentralizados creados por ley (inciso a art. 8° ley 24.156). Excluidos: universidades, Poder Judicial, Legislativo y Ministerio Público. Lista de organismos intocables: CONICET, ANMAT, INTA, INTI, UIF, INCAA, y otros 28 organismos científicos, regulatorios y culturales.',
 		plainLanguageExplanation:
 			'El artículo 3° le da al PEN el poder de "rediseñar el mapa" del Estado: puede fusionar ministerios, disolver secretarías, transferir organismos a las provincias. Pero pone un escudo legal sobre los organismos científicos, regulatorios y de control más importantes: CONICET, ANMAT, INTA, INTI, la UIF (antilavado), INCAA, y otros no pueden ser disueltos, aunque sí reorganizados internamente.',
 		practicalEffects: [
@@ -67,10 +63,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '4',
 		title: 'Facultad PEN — empresas y sociedades estatales',
-		originalText:
+		text:
 			'Facúltase al Poder Ejecutivo nacional a disponer, en relación con las empresas y sociedades contempladas en el inciso b) del artículo 8° de la ley 24.156, además de lo previsto en el artículo 7° de la presente ley: a) La modificación o transformación de su estructura jurídica; y b) Su fusión, escisión, reorganización, reconformación o transferencia a las provincias o a la Ciudad Autónoma de Buenos Aires.',
-		currentText:
-			'El PEN puede modificar la estructura jurídica de las empresas estatales (inciso b art. 8° ley 24.156), fusionarlas, escindirlas, reorganizarlas o transferirlas a provincias. Esto complementa las privatizaciones del art. 7°.',
 		plainLanguageExplanation:
 			'Mientras el art. 3° cubre organismos del Estado (secretarías, entes autárquicos), el art. 4° cubre empresas: Aerolíneas, ENARSA, empresas ferroviarias, etc. El PEN puede transformar su estructura societaria o transferirlas a provincias sin ley adicional del Congreso.',
 		practicalEffects: [
@@ -91,10 +85,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '5',
 		title: 'Fondos fiduciarios públicos — modificación y liquidación',
-		originalText:
+		text:
 			'Autorízase al Poder Ejecutivo nacional a modificar, transformar, unificar, disolver o liquidar los fondos fiduciarios públicos. Si se resolviera liquidar un fondo: a) Si financiado por asignación de impuesto coparticipable, aquella se considera eliminada y el tributo vuelve a distribuirse por ley 23.548; b) Si financiado por tributo no coparticipable, la asignación se elimina y el tributo va al Tesoro; c) Si financiado por aportes obligatorios, tanto la asignación como los aportes se eliminan. Queda excluido el Fondo Fiduciario para Subsidios de Consumos Residenciales de Gas (ley 25.565).',
-		currentText:
-			'El PEN puede disolver fondos fiduciarios públicos. Al hacerlo, las asignaciones específicas de impuestos que los financiaban se eliminan (los fondos vuelven al Tesoro o la coparticipación según el caso). Excepción: el Fondo Fiduciario de Gas Residencial no puede disolverse.',
 		plainLanguageExplanation:
 			'Argentina tiene docenas de fondos fiduciarios (FIDEI) creados por ley para financiar políticas sectoriales (vivienda, transporte, energía). El art. 5° habilita al PEN a cerrar muchos de ellos. La regla sobre los impuestos evita que el dinero "quede en el aire": si el fondo se cierra, la recaudación vuelve al régimen general (coparticipación o Tesoro).',
 		practicalEffects: [
@@ -115,10 +107,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '6',
 		title: 'Intervención de organismos por parte del PEN',
-		originalText:
+		text:
 			'Autorízase al Poder Ejecutivo nacional a intervenir, por el plazo previsto en el artículo 1° (1 año), los organismos descentralizados y empresas del inciso a) y b) del art. 8° ley 24.156, con exclusión de: universidades nacionales, Poder Judicial, Legislativo, Ministerio Público, ANMAT, CONICET, INTA, ANLIS, CONEAU, UIF, INTI, BNDG, SENASA, CNEA, e instituciones de la seguridad social.\n\nEl interventor ejerce competencias del órgano de administración bajo supervisión del ministro competente. Debe realizarse auditoría de gestión al inicio y al final de la intervención.',
-		currentText:
-			'El PEN puede intervenir organismos y empresas estatales por hasta 1 año. El interventor reemplaza las autoridades del ente intervenido. Quedan excluidos los organismos científicos, regulatorios y de seguridad social más sensibles. Obligatorio: auditoría de gestión al inicio y al fin.',
 		plainLanguageExplanation:
 			'La "intervención" es una medida de control directo: el PEN designa un interventor que toma el mando del organismo. Es un instrumento de emergencia que permite al gobierno alinear rápidamente un ente con su política sin pasar por el proceso de designación de autoridades. La lista de exclusiones (CONICET, ANMAT, etc.) es similar a la del art. 3°.',
 		practicalEffects: [
@@ -140,10 +130,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '7',
 		title: 'Privatización de empresas del Anexo I',
-		originalText:
+		text:
 			'Decláranse "sujeta a privatización", en los términos y con los efectos de los capítulos II y III de la ley 23.696, las empresas y sociedades de propiedad total o mayoritaria del Estado nacional enumeradas en el anexo I que forman parte de la presente ley.\n\nPara proceder a la privatización de tales empresas y sociedades, se podrá considerar la transferencia a las provincias de contratos que se encuentren en ejecución.',
-		currentText:
-			'Declara "sujetas a privatización" (ley 23.696) a las empresas del Anexo I: ENERGÍA ARGENTINA S.A. (ENARSA), INTERCARGO SAU (privatización directa); AGUA Y SANEAMIENTOS ARGENTINOS S.A. (AySA), BELGRANO CARGAS Y LOGÍSTICA S.A., SOFSE y CORREDORES VIALES S.A. (privatización/concesión).',
 		plainLanguageExplanation:
 			'Este artículo es la declaración formal que "gatilla" el proceso de privatización para las empresas del Anexo I. Una vez declaradas "sujetas a privatización", el PEN queda habilitado para avanzar con el proceso sin nueva ley. Las empresas incluidas son emblemáticas: la distribuidora de gas y electricidad estatal (ENARSA), el servicio de agua de Buenos Aires (AySA), el ferrocarril de carga Belgrano, Sofse (operadora ferroviaria de pasajeros) y la empresa de autopistas nacionales.',
 		practicalEffects: [
@@ -167,10 +155,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '8',
 		title: 'Privatización parcial de Nucleoeléctrica Argentina (NASA)',
-		originalText:
+		text:
 			'Declárase "sujeta a privatización" a Nucleoeléctrica Argentina Sociedad Anónima (NASA). Ésta podrá únicamente: (i) organizar un programa de propiedad participada y colocar una clase de acciones; y (ii) incorporar capital privado debiendo el Estado nacional mantener el control o la participación mayoritaria.\n\nAdemás, deberá requerirse indudablemente el voto afirmativo del Estado nacional para: a) Ampliación de capacidad o construcción de nueva central nucleoeléctrica; b) Salida de servicio de una central; c) Incorporación de accionistas que otorguen el control a un tercero.',
-		currentText:
-			'NASA (la empresa de energía nuclear) puede privatizarse parcialmente: el Estado mantiene el control o la mayoría accionaria. El Estado tiene veto absoluto sobre: ampliar/construir centrales, sacarlas de servicio, o ceder el control a un privado.',
 		plainLanguageExplanation:
 			'La privatización de la empresa nuclear argentina está diseñada como una "privatización protegida": el Estado no puede perder el control. Es distinto al caso de otras empresas del Anexo I. La razón es estratégica y de seguridad nacional: las centrales nucleares (Atucha I, Atucha II, Embalse) son infraestructura crítica que no puede quedar en manos privadas sin supervisión estatal.',
 		practicalEffects: [
@@ -191,10 +177,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '9',
 		title: 'Privatización parcial de Yacimientos Carboníferos Río Turbio (YCRT)',
-		originalText:
+		text:
 			'Declárase "sujeta a privatización" al Complejo Carbonífero, Ferroviario, Portuario y Energético a cargo de Yacimientos Carboníferos Río Turbio (YCRT). Ésta podrá únicamente: (i) organizar un programa de propiedad participada; y (ii) incorporar capital privado debiendo el Estado nacional mantener el control o la participación mayoritaria.',
-		currentText:
-			'YCRT (el complejo carbonífero de Santa Cruz) puede privatizarse parcialmente: el Estado mantiene el control o la mayoría accionaria. Incluye el yacimiento de carbón, el ferrocarril, el puerto y la central eléctrica de Río Turbio.',
 		plainLanguageExplanation:
 			'YCRT es un complejo industrial en Río Turbio, Patagonia, que incluye una mina de carbón, un ferrocarril y una central eléctrica que durante décadas se mantuvo con subsidios estatales. La privatización parcial busca incorporar gestión privada pero mantener la presencia del Estado en una región con alta dependencia laboral de este empleador.',
 		practicalEffects: [
@@ -215,10 +199,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '10',
 		title: 'Procedimiento de privatización — remisión a ley 23.696',
-		originalText:
+		text:
 			'Encomiéndese al Poder Ejecutivo nacional a llevar adelante las privatizaciones autorizadas por la presente según los procedimientos y modalidades dispuestos en los capítulos II y III de la ley 23.696, debiendo cumplir, a tales efectos, con las prescripciones que surgen de dicha norma y las establecidas por la presente.',
-		currentText:
-			'El proceso de privatización sigue los procedimientos de la ley 23.696 (Reforma del Estado de 1989), con las modificaciones introducidas por los arts. 15-22 de esta ley.',
 		plainLanguageExplanation:
 			'El PEN no tiene libertad total para privatizar como quiera: debe seguir las reglas de la ley 23.696 (la ley madre de privatizaciones de la era Menem). Esa ley exige licitación, publicidad, control de la Comisión Bicameral y auditoría de la AGN.',
 		practicalEffects: [
@@ -239,10 +221,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '11',
 		title: 'Liquidación de empresas estatales',
-		originalText:
+		text:
 			'Cuando en el marco de las autorizaciones de privatización se produzca la liquidación de empresas 100% estatales: a) Solo pueden enajenarse bienes para cancelar pasivos; b) Si los bienes son insuficientes para cubrir pasivos, se requiere a la AABE la enajenación de bienes del patrimonio de afectación; c) Los bienes muebles e inmuebles del activo remanente se transfieren a la AABE; d) La AABE administra esos bienes conforme al decreto 1382/2012.',
-		currentText:
-			'Si una empresa estatal 100% del Estado entra en liquidación: solo se venden bienes para pagar deudas; el remanente va a la Agencia de Administración de Bienes del Estado (AABE).',
 		plainLanguageExplanation:
 			'Cuando el Estado decide liquidar (cerrar y distribuir activos) una empresa pública de su propiedad total, hay reglas claras: primero se pagan las deudas con los activos de la empresa, y lo que sobre pasa al Estado a través de la AABE. Así se evita que los activos de una empresa pública "desaparezcan" en el proceso.',
 		practicalEffects: [
@@ -262,10 +242,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '12',
 		title: 'Principios del proceso de privatización',
-		originalText:
+		text:
 			'El proceso de privatización deberá desarrollarse de conformidad con los principios de transparencia, competencia, máxima concurrencia, gobierno abierto, eficiencia y eficacia en la utilización de los recursos, publicidad y difusión. La reglamentación establecerá los plazos y modalidades específicas para garantizar la debida publicidad y difusión.',
-		currentText:
-			'El proceso de privatización debe regirse por: transparencia, competencia, máxima concurrencia, gobierno abierto, eficiencia, publicidad y difusión.',
 		plainLanguageExplanation:
 			'Este artículo establece los principios que deben guiar todas las privatizaciones. Son estándares exigibles judicialmente: si una privatización se hace a dedo, sin publicidad o sin competencia, cualquier interesado puede impugnarla invocando este artículo.',
 		practicalEffects: [
@@ -285,10 +263,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '13',
 		title: 'Control legislativo — Comisión Bicameral de Seguimiento de Privatizaciones',
-		originalText:
+		text:
 			'La Comisión Bicameral de Seguimiento de las Privatizaciones (art. 14 ley 23.696) intervendrá en las privatizaciones de la presente ley. Deberá ser informada de: a) modalidad y procedimiento seleccionado; b) cualquier preferencia otorgada a un potencial adquirente; c) medidas para garantizar transparencia y competencia; d) toda circunstancia relevante. La SIGEN y la AGN actuarán en colaboración permanente con esta Comisión.',
-		currentText:
-			'La Comisión Bicameral de Privatizaciones del Congreso controla todas las privatizaciones de esta ley. Recibe informes del PEN sobre el proceso. SIGEN y AGN colaboran con ella.',
 		plainLanguageExplanation:
 			'El Congreso no aprueba privatización por privatización, pero no queda al margen: la Comisión Bicameral actúa como órgano de control político y puede formular observaciones, convocar funcionarios y publicar sus conclusiones. No tiene poder de veto, pero sí de fiscalización y publicidad.',
 		practicalEffects: [
@@ -309,10 +285,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '14',
 		title: 'Auditoría de la AGN sobre cada privatización',
-		originalText:
+		text:
 			'La Auditoría General de la Nación deberá realizar un examen respecto del proceso de privatización de cada una de las empresas, evaluando el cumplimiento de los aspectos legales y financieros, una vez finalizado el mismo y dentro de un plazo de ciento veinte (120) días hábiles. Este examen deberá ser presentado ante la Comisión Bicameral prevista en el artículo 14 de la ley 23.696.',
-		currentText:
-			'La AGN audita cada privatización dentro de los 120 días hábiles de finalizada. Evalúa aspectos legales y financieros. Presenta el resultado a la Comisión Bicameral.',
 		plainLanguageExplanation:
 			'La AGN es el órgano de control externo del Poder Ejecutivo. Este artículo la pone como auditor obligatorio y post-proceso de cada privatización. La auditoría puede revelar irregularidades que justifiquen investigación judicial o parlamentaria.',
 		practicalEffects: [
@@ -333,8 +307,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '15',
 		title: 'Modificación a ley 23.696 — modalidades de privatización',
-		originalText: 'Sustitúyase el inciso 2) del artículo 17 de la ley 23.696 por el siguiente: 2) Venta o colocación de acciones, cuotas partes del capital social o, en su caso, de establecimientos o haciendas productivas en funcionamiento.',
-		currentText: '[Modificación a ley 23.696, art. 17 inc. 2) — amplía las modalidades de venta de empresas estatales para incluir "haciendas productivas en funcionamiento".]',
+		text: 'Sustitúyase el inciso 2) del artículo 17 de la ley 23.696 por el siguiente: 2) Venta o colocación de acciones, cuotas partes del capital social o, en su caso, de establecimientos o haciendas productivas en funcionamiento.',
 		plainLanguageExplanation: 'Modificación técnica a la ley 23.696 para actualizar las modalidades de privatización. Permite vender no solo acciones sino también establecimientos productivos en funcionamiento (por ejemplo, una planta industrial completa operativa).',
 		practicalEffects: [
 			'Facilita la venta de unidades de negocio operativas sin necesidad de vender toda la empresa',
@@ -353,8 +326,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '16',
 		title: 'Modificación a ley 23.696 — procedimiento de selección',
-		originalText: 'Sustitúyase el artículo 18 de la ley 23.696 (Procedimiento de selección): Los procedimientos son licitación pública, concurso público, remate público y venta de acciones en bolsa. La determinación del procedimiento debe ser justificada en cada caso mediante acto administrativo motivado. La oferta más conveniente considera no solo el precio sino distintas variables de beneficio para los intereses públicos.',
-		currentText: '[Modificación a ley 23.696, art. 18 — reemplaza el procedimiento de selección de privatización: licitación pública, concurso público, remate público o venta bursátil; con posibilidad de puntaje por criterios más amplios que el precio.]',
+		text: 'Sustitúyase el artículo 18 de la ley 23.696 (Procedimiento de selección): Los procedimientos son licitación pública, concurso público, remate público y venta de acciones en bolsa. La determinación del procedimiento debe ser justificada en cada caso mediante acto administrativo motivado. La oferta más conveniente considera no solo el precio sino distintas variables de beneficio para los intereses públicos.',
 		plainLanguageExplanation: 'Actualiza el procedimiento de selección de compradores en privatizaciones: ya no solo el que ofrezca más dinero gana, sino también el que ofrezca mejores condiciones en otras variables (inversión, empleo, planes de negocio).',
 		practicalEffects: [
 			'Permite que el gobierno privilegie compradores con mejores planes de inversión sobre los que solo ofrezcan mayor precio',
@@ -373,8 +345,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '17',
 		title: 'Modificación a ley 23.696 — control de SIGEN',
-		originalText: 'Sustitúyase el artículo 20 de la ley 23.696 (Control). La SIGEN tiene intervención previa a las contrataciones del proceso privatizador y emite informe público integral sobre cada empresa (aspectos patrimoniales, económicos, financieros y operativos). Plazo del informe: 15 días hábiles.',
-		currentText: '[Modificación a ley 23.696, art. 20 — la SIGEN emite informe previo integral sobre cada empresa a privatizar, en 15 días hábiles. Sus observaciones deben ser consideradas por el PEN y remitidas a la Comisión Bicameral.]',
+		text: 'Sustitúyase el artículo 20 de la ley 23.696 (Control). La SIGEN tiene intervención previa a las contrataciones del proceso privatizador y emite informe público integral sobre cada empresa (aspectos patrimoniales, económicos, financieros y operativos). Plazo del informe: 15 días hábiles.',
 		plainLanguageExplanation: 'La SIGEN actúa como auditora interna previa: antes de que el PEN avance con una privatización, la SIGEN inspecciona la empresa y emite un informe público. Esto evita que el gobierno venda una empresa sin saber (o sin comunicar) su estado real.',
 		practicalEffects: [
 			'El informe de la SIGEN es público y puede revelar deudas ocultas o activos subvaluados',
@@ -394,8 +365,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '18',
 		title: 'Modificación a ley 23.696 — Programa de Propiedad Participada',
-		originalText: 'Sustitúyase el artículo 22 de la ley 23.696: Podrán ser sujetos adquirentes en un Programa de Propiedad Participada los empleados del ente a privatizar de todas las jerarquías que tengan relación de dependencia. No podrá ser sujeto adquirente el personal eventual, contratado, ni funcionarios designados en representación del Gobierno.',
-		currentText: '[Modificación a ley 23.696, art. 22 — Programa de Propiedad Participada (PPP): todos los empleados en relación de dependencia pueden participar; excluidos el personal eventual, contratado y funcionarios políticos.]',
+		text: 'Sustitúyase el artículo 22 de la ley 23.696: Podrán ser sujetos adquirentes en un Programa de Propiedad Participada los empleados del ente a privatizar de todas las jerarquías que tengan relación de dependencia. No podrá ser sujeto adquirente el personal eventual, contratado, ni funcionarios designados en representación del Gobierno.',
 		plainLanguageExplanation: 'El PPP permite que los trabajadores de la empresa privatizada compren acciones de su empresa con beneficios especiales. La modificación excluye al personal temporario y a los funcionarios políticos: solo los trabajadores permanentes pueden beneficiarse.',
 		practicalEffects: [
 			'Los empleados de ENARSA, AySA o SOFSE podrían comprar acciones con descuento si se activa el PPP',
@@ -414,8 +384,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '19',
 		title: 'Modificación a ley 23.696 — coeficiente de participación en PPP',
-		originalText: 'Sustitúyese el artículo 27 de la ley 23.696: La autoridad de aplicación elaborará un coeficiente de participación representativo de la antigüedad, cargas de familia, nivel jerárquico e ingreso total anual. Los que no participen durante el período establecido perderán el derecho futuro.',
-		currentText: '[Modificación a ley 23.696, art. 27 — el coeficiente de participación en PPP considera antigüedad, cargas de familia, categoría e ingresos. Los empleados que no adhieran en el plazo pierden el derecho.]',
+		text: 'Sustitúyese el artículo 27 de la ley 23.696: La autoridad de aplicación elaborará un coeficiente de participación representativo de la antigüedad, cargas de familia, nivel jerárquico e ingreso total anual. Los que no participen durante el período establecido perderán el derecho futuro.',
 		plainLanguageExplanation: 'Detalle técnico del PPP: la cantidad de acciones que puede comprar cada empleado no es igual para todos, sino proporcional a su antigüedad, jerarquía e ingresos. Quien no se suma en el plazo establecido no puede reclamar después.',
 		practicalEffects: [
 			'Un empleado con 20 años de antigüedad recibirá un coeficiente mayor que uno con 2 años',
@@ -434,8 +403,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '20',
 		title: 'Modificación a ley 23.696 — pago de acciones del PPP',
-		originalText: 'Sustitúyese el artículo 35 de la ley 23.696: La Sociedad Anónima privatizada depositará en el banco fideicomisario los importes destinados al pago de las acciones. El banco pagará al Estado vendedor por cuenta de cada uno de los adquirentes.',
-		currentText: '[Modificación a ley 23.696, art. 35 — el mecanismo de pago de acciones del PPP: la empresa deposita los fondos en un banco fideicomisario que paga al Estado por cuenta de los empleados.]',
+		text: 'Sustitúyese el artículo 35 de la ley 23.696: La Sociedad Anónima privatizada depositará en el banco fideicomisario los importes destinados al pago de las acciones. El banco pagará al Estado vendedor por cuenta de cada uno de los adquirentes.',
 		plainLanguageExplanation: 'Mecanismo de pago del PPP: los empleados no pagan directamente al Estado sino que la propia empresa (ya privatizada) descontará de las ganancias futuras los importes correspondientes y los depositará en un banco que actúa como intermediario.',
 		practicalEffects: [
 			'El empleado puede acceder a acciones sin desembolso inmediato: paga en cuotas a través del mecanismo',
@@ -454,8 +422,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '21',
 		title: 'Derogaciones en ley 23.696',
-		originalText: 'Deróganse los incisos 3, 4 y 5 del artículo 16 y los artículos 32 y 33 de la ley 23.696.',
-		currentText: '[Deroga incisos 3, 4 y 5 del art. 16 y los arts. 32 y 33 de ley 23.696 (eliminando ciertas modalidades de privatización y restricciones procedimentales que se consideraron obsoletas).]',
+		text: 'Deróganse los incisos 3, 4 y 5 del artículo 16 y los artículos 32 y 33 de la ley 23.696.',
 		plainLanguageExplanation: 'Limpieza normativa de la ley de privatizaciones de 1989: se eliminan algunas modalidades y reglas que la práctica demostró ser innecesarias o contraproducentes.',
 		practicalEffects: [
 			'Simplifica el marco legal eliminando opciones de privatización que no se usaron en décadas',
@@ -474,8 +441,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '22',
 		title: 'Excepciones societarias en privatizaciones',
-		originalText: 'En todos los procedimientos previstos en los capítulos I y II, las empresas, sociedades u organismos involucrados: (i) Quedarán exceptuados de cumplir con el régimen dispuesto por la ley 11.867 (transferencia de fondos de comercio); y (ii) No les será exigible el monto de capital mínimo indicado en el artículo 186 de la ley 19.550.',
-		currentText: '[Las empresas a privatizar quedan exceptuadas de: (i) la ley 11.867 (hacienda y fondo de comercio) y (ii) el capital mínimo societario de la ley 19.550 durante el proceso.]',
+		text: 'En todos los procedimientos previstos en los capítulos I y II, las empresas, sociedades u organismos involucrados: (i) Quedarán exceptuados de cumplir con el régimen dispuesto por la ley 11.867 (transferencia de fondos de comercio); y (ii) No les será exigible el monto de capital mínimo indicado en el artículo 186 de la ley 19.550.',
 		plainLanguageExplanation: 'Flexibilización técnica para facilitar los procesos: se eliminan dos exigencias formales que complicarían los trámites de privatización (la ley de transferencia de fondos de comercio y los requisitos de capital mínimo societario).',
 		practicalEffects: [
 			'Facilita la creación de nuevas sociedades en el marco del proceso privatizador sin cumplir todas las formalidades societarias comunes',
@@ -494,8 +460,7 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '23',
 		title: 'Principios de gobierno corporativo para empresas estatales',
-		originalText: 'Toda empresa u organismo con participación estatal total o mayoritaria deberá respetar los siguientes principios rectores: a) Eficiencia; b) Transparencia; c) Integridad; d) Generación de valor; e) Roles diferenciados (independencia de los órganos de administración respecto de funcionarios políticos); f) Controles eficientes (auditoría y gestión de riesgos).',
-		currentText: 'Todas las empresas estatales o con participación mayoritaria del Estado deben seguir principios de gobierno corporativo: eficiencia, transparencia, integridad, generación de valor, independencia de gestión respecto de la política, y controles de auditoría.',
+		text: 'Toda empresa u organismo con participación estatal total o mayoritaria deberá respetar los siguientes principios rectores: a) Eficiencia; b) Transparencia; c) Integridad; d) Generación de valor; e) Roles diferenciados (independencia de los órganos de administración respecto de funcionarios políticos); f) Controles eficientes (auditoría y gestión de riesgos).',
 		plainLanguageExplanation: 'Más allá de la privatización, el art. 23° establece un estándar mínimo de gobernanza para todas las empresas donde el Estado tenga mayoría. Es una referencia normativa para exigir gestión profesional y transparente en empresas como YPF, ENARSA (mientras sea estatal) o Aerolíneas.',
 		practicalEffects: [
 			'Los directorios de empresas estatales pueden ser responsabilizados si no aplican estos principios',
@@ -515,10 +480,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '24',
 		title: 'Principios de buena administración — reforma art. 1° ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 1° de la ley 19.549 por el siguiente, incorporando entre los principios del procedimiento administrativo los de "buena administración", "confianza legítima", "celeridad", "economía procedimental" y "transparencia".',
-		currentText:
-			'Reforma el art. 1° de la ley 19.549 de Procedimiento Administrativo. Incorpora los principios de buena administración, confianza legítima, celeridad, economía procedimental y transparencia como rectores del procedimiento ante la Administración Pública Nacional.',
 		plainLanguageExplanation:
 			'Moderniza los principios que guían la actuación del Estado frente al ciudadano. La "buena administración" obliga al Estado a actuar de manera diligente y razonable; la "confianza legítima" impide que el Estado cambie sus criterios de manera repentina en perjuicio del administrado.',
 		practicalEffects: [
@@ -539,10 +502,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '25',
 		title: 'Digitalización del procedimiento administrativo — reforma art. 2° ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 2° de la ley 19.549 incorporando la validez plena de los trámites realizados por medios electrónicos. Los expedientes digitales tienen la misma validez jurídica que los expedientes en papel.',
-		currentText:
-			'Reforma el art. 2° de la ley 19.549: los procedimientos administrativos pueden tramitarse completamente por medios electrónicos. Los expedientes digitales son jurídicamente equivalentes a los expedientes en papel.',
 		plainLanguageExplanation:
 			'Permite que cualquier trámite ante el Estado nacional (habilitaciones, permisos, recursos) se haga completamente online, sin necesidad de presentarse en papel. El expediente electrónico tiene plena validez legal.',
 		practicalEffects: [
@@ -565,10 +526,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '26',
 		title: 'Competencia administrativa y delegación — reforma art. 3° ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 3° de la ley 19.549 sobre competencia de los órganos administrativos, ampliando las facultades de delegación y avocación para agilizar la toma de decisiones en la estructura del Estado.',
-		currentText:
-			'Reforma el art. 3° de la ley 19.549: flexibiliza las reglas de competencia y delegación dentro del aparato administrativo, permitiendo que los órganos superiores avoquen o deleguen más libremente para agilizar la gestión.',
 		plainLanguageExplanation:
 			'Permite que los funcionarios de mayor rango deleguen más fácilmente en sus subordinados y también que "avoquen" (retomen) decisiones que habían delegado. Busca agilizar la toma de decisiones en la burocracia estatal.',
 		practicalEffects: [
@@ -589,10 +548,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '27',
 		title: 'Requisitos del acto administrativo — reforma art. 7° ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 7° de la ley 19.549 sobre los requisitos esenciales del acto administrativo, simplificando los elementos formales sin reducir las garantías de los administrados.',
-		currentText:
-			'Reforma el art. 7° de la ley 19.549: simplifica los requisitos formales del acto administrativo manteniendo los elementos esenciales (competencia, causa, objeto, procedimiento, motivación, finalidad, forma).',
 		plainLanguageExplanation:
 			'Un acto administrativo (resolución, disposición, autorización) sigue requiriendo sus elementos esenciales para ser válido. La reforma simplifica aspectos formales pero no elimina garantías sustanciales del administrado.',
 		practicalEffects: [
@@ -613,10 +570,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '28',
 		title: 'Notificaciones digitales — reforma art. 11 ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 11 de la ley 19.549 incorporando la notificación electrónica como modalidad principal. Las notificaciones por medios digitales son válidas y producen todos los efectos jurídicos desde su recepción confirmada.',
-		currentText:
-			'Reforma el art. 11 de la ley 19.549: las notificaciones administrativas pueden realizarse por medios digitales con plena validez. La notificación electrónica confirmada surte los mismos efectos que la notificación en papel.',
 		plainLanguageExplanation:
 			'El Estado puede notificar resoluciones, multas, intimaciones y actos administrativos por email o plataforma digital. Si el ciudadano confirmó la recepción (o venció el plazo para hacerlo), el acto está notificado y los plazos corren.',
 		practicalEffects: [
@@ -639,10 +594,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '29',
 		title: 'Plazos administrativos — reforma art. 22 ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 22 de la ley 19.549, reduciendo los plazos procesales para la resolución de expedientes. Se establecen plazos máximos perentorios para las diferentes etapas del procedimiento administrativo.',
-		currentText:
-			'Reforma el art. 22 de la ley 19.549: reduce los plazos máximos para la resolución de trámites administrativos. Los plazos son perentorios: vencidos, el órgano pierde competencia para resolver fuera de tiempo (salvo excepciones).',
 		plainLanguageExplanation:
 			'Impone tiempos máximos al Estado para resolver expedientes. Si el Estado no resuelve en plazo, el ciudadano puede activar el silencio administrativo (positivo o negativo según el caso).',
 		practicalEffects: [
@@ -663,10 +616,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '30',
 		title: 'Vista del expediente — reforma art. 38 ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 38 de la ley 19.549 sobre el derecho de vista del expediente. Se amplía el acceso del administrado al expediente, incluyendo la vista electrónica sin necesidad de concurrir al organismo.',
-		currentText:
-			'Reforma el art. 38 de la ley 19.549: el administrado puede acceder a su expediente en cualquier momento, incluso por medios digitales. La vista electrónica tiene el mismo valor que la vista presencial.',
 		plainLanguageExplanation:
 			'Cualquier persona que tenga un expediente abierto ante el Estado puede ver su contenido sin necesidad de ir físicamente a la oficina. A través del portal del organismo se puede leer y descargar el expediente.',
 		practicalEffects: [
@@ -687,10 +638,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '31',
 		title: 'Silencio positivo — ampliación para autorizaciones y habilitaciones',
-		originalText:
+		text:
 			'Sustitúyese el artículo 10 de la ley 19.549 ampliando los supuestos de silencio positivo. Para solicitudes de autorizaciones, habilitaciones y permisos de ejercicio de actividades lícitas, el silencio de la Administración durante sesenta (60) días corridos se interpreta como aprobación. Quedan excluidos los actos que comprometan intereses de terceros o requieran evaluación técnica especializada según reglamentación.',
-		currentText:
-			'Reforma el art. 10 de la ley 19.549: para solicitudes de autorizaciones, habilitaciones y permisos de actividades lícitas, si la Administración no resuelve en 60 días corridos, se entiende que la solicitud fue aprobada (silencio positivo). Quedan excluidos los casos que afecten intereses de terceros o requieran evaluación técnica compleja.',
 		plainLanguageExplanation:
 			'El "silencio positivo" era excepcional en el derecho argentino. Ahora es la regla para autorizaciones y habilitaciones: si el Estado no responde en 60 días, el permiso se considera otorgado. Esto invierte la lógica anterior ("el que calla niega") para actividades lícitas.',
 		practicalEffects: [
@@ -714,10 +663,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '32',
 		title: 'Recursos administrativos — reforma art. 73 ley 19.549',
-		originalText:
+		text:
 			'Sustitúyese el artículo 73 de la ley 19.549 sobre los recursos administrativos: reconsideración, jerárquico y alzada. Se reducen los plazos y se simplifican los requisitos formales para interponer recursos.',
-		currentText:
-			'Reforma el art. 73 de la ley 19.549: simplifica los recursos administrativos (reconsideración, jerárquico, alzada). Reduce plazos para interponerlos y para que el organismo los resuelva.',
 		plainLanguageExplanation:
 			'Si el Estado me denegó un permiso o me aplicó una sanción, puedo recurrirlo ante el mismo organismo (reconsideración) o ante su superior jerárquico. Este artículo hace que ese proceso sea más rápido y menos burocrático.',
 		practicalEffects: [
@@ -738,10 +685,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '33',
 		title: 'Medidas cautelares en sede administrativa — nueva disposición',
-		originalText:
+		text:
 			'Incorpórase disposición sobre medidas cautelares en el procedimiento administrativo: el administrado puede solicitar la suspensión de los efectos del acto recurrido si acredita verosimilitud del derecho y peligro en la demora. El organismo debe resolver en 5 días hábiles.',
-		currentText:
-			'Incorpora la posibilidad de solicitar medidas cautelares (suspensión del acto impugnado) en sede administrativa. Si se acredita verosimilitud del derecho y peligro en la demora, el organismo debe suspender la aplicación del acto en 5 días hábiles.',
 		plainLanguageExplanation:
 			'Antes de ir a la Justicia, el administrado puede pedir directamente al organismo que "congele" el acto que lo perjudica mientras tramita su recurso. Esto evita daños irreparables sin necesidad de ir al Poder Judicial de inmediato.',
 		practicalEffects: [
@@ -762,10 +707,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '34',
 		title: 'Agotamiento de la vía administrativa — simplificación',
-		originalText:
+		text:
 			'Modifícase el régimen de agotamiento de la vía administrativa: para poder acceder a la Justicia, el administrado ya no está obligado a transitar todos los recursos administrativos en todos los casos. Para determinadas materias, puede ocurrir directamente a sede judicial.',
-		currentText:
-			'Simplifica el agotamiento de la vía administrativa: en determinadas materias (sanciones, responsabilidad patrimonial), el administrado puede optar por ir directamente a la Justicia sin tramitar todos los recursos internos previos.',
 		plainLanguageExplanation:
 			'Antes, para demandar al Estado había que agotar "todas las instancias" administrativas (a veces años de recursos). Ahora, en algunos casos se puede ir directo a la Justicia, ahorrando tiempo y costos.',
 		practicalEffects: [
@@ -786,10 +729,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '35',
 		title: 'Expediente digital y trazabilidad — disposición nueva',
-		originalText:
+		text:
 			'Establécese que todos los expedientes de la Administración Pública Nacional deberán tramitarse en formato digital a través del sistema de Gestión Documental Electrónica (GDE) o equivalente. Los expedientes en papel ya iniciados se digitalizan progresivamente.',
-		currentText:
-			'Todos los expedientes de la APN deben tramitarse en el sistema digital (GDE). Los expedientes iniciados en papel se migran progresivamente al formato digital. El sistema debe permitir el seguimiento online en tiempo real.',
 		plainLanguageExplanation:
 			'Consolida la digitalización del Estado: ya no hay expedientes en papel en los organismos nacionales. El ciudadano puede ver en tiempo real en qué "escritorio" está su expediente, quién lo tiene asignado y qué actuaciones se realizaron.',
 		practicalEffects: [
@@ -810,10 +751,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '36',
 		title: 'Principio de confianza legítima — incorporación expresa',
-		originalText:
+		text:
 			'Incorpórase el principio de confianza legítima al procedimiento administrativo nacional: la Administración no podrá frustrar las expectativas razonables que hubiere generado en el administrado mediante sus propios actos, instrucciones, comunicaciones o comportamientos previos.',
-		currentText:
-			'Incorpora expresamente el principio de confianza legítima en la ley 19.549: si el Estado generó expectativas razonables en el ciudadano a través de sus actos o comportamientos, no puede frustrarlas retroactivamente sin compensación.',
 		plainLanguageExplanation:
 			'Si la AFIP durante años interpretó que cierta operación no pagaba impuestos y luego cambia de criterio, no puede cobrar retroactivamente a quienes actuaron de buena fe siguiendo el criterio anterior. La confianza legítima protege al ciudadano de los cambios abruptos del Estado.',
 		practicalEffects: [
@@ -837,10 +776,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '37',
 		title: 'Simplificación de trámites — ventanilla única y plazos máximos',
-		originalText:
+		text:
 			'Dispónese que la Administración Pública Nacional deberá implementar mecanismos de "ventanilla única" para trámites que involucren múltiples organismos. Establécense plazos máximos de resolución para las principales categorías de trámites administrativos.',
-		currentText:
-			'Obliga a la APN a implementar "ventanilla única" para trámites multi-organismos. Fija plazos máximos de resolución según el tipo de trámite (autorizaciones, habilitaciones, recursos). El incumplimiento de los plazos habilita el silencio o la responsabilidad del organismo.',
 		plainLanguageExplanation:
 			'Fin del "peregrinaje" burocrático: si para abrir una empresa necesitás autorización de 3 ministerios, no vas a 3 ministerios distintos; presentás todo en una única ventanilla. El Estado se encarga de coordinar internamente.',
 		practicalEffects: [
@@ -861,10 +798,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '38',
 		title: 'Bases del empleo público — reforma art. 1° ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 1° de la ley 25.164 Marco de Regulación de Empleo Público Nacional. Se incorporan principios de mérito, desempeño y evaluación objetiva como rectores del empleo en el Estado.',
-		currentText:
-			'Reforma el art. 1° de la ley 25.164 (Estatuto del Empleado Público): incorpora expresamente los principios de mérito, desempeño y evaluación objetiva como pilares del empleo público nacional.',
 		plainLanguageExplanation:
 			'El empleo público debe basarse en el mérito y el desempeño, no sólo en la antigüedad o la discrecionalidad política. La reforma busca implantar una cultura de evaluación objetiva en el Estado.',
 		practicalEffects: [
@@ -885,10 +820,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '39',
 		title: 'Ámbito de aplicación del empleo público — reforma art. 2° ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 2° de la ley 25.164, precisando el ámbito de aplicación del estatuto del empleado público: excluye explícitamente al personal de la Administración Pública Nacional sujeto a otros regímenes especiales.',
-		currentText:
-			'Reforma el art. 2° de la ley 25.164: precisa qué trabajadores quedan bajo este estatuto. Se excluyen los contratos especiales, el personal con convenio colectivo propio y los designados bajo regímenes específicos.',
 		plainLanguageExplanation:
 			'Clarifica qué empleados públicos están bajo este estatuto. Los contratados por plazos fijos, los que tienen convenio propio (como los de AFIP o el BCRA) o los bajo otros regímenes, no se rigen por estos artículos.',
 		practicalEffects: [
@@ -908,10 +841,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '40',
 		title: 'Ingreso al empleo público — reforma art. 4° ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 4° de la ley 25.164: el ingreso a la Administración Pública Nacional se realiza exclusivamente por concurso público. Se incorporan mecanismos de concurso simplificado para cargos de menor jerarquía.',
-		currentText:
-			'Reforma el art. 4° de la ley 25.164: refuerza el concurso público como única vía de ingreso al empleo público. Para cargos operativos y auxiliares, habilita concursos simplificados más ágiles.',
 		plainLanguageExplanation:
 			'Nadie puede ingresar al Estado nacional "a dedo": siempre debe haber un concurso. Para cargos de menor jerarquía, el concurso puede ser más simple (menos etapas, más rápido), pero debe existir.',
 		practicalEffects: [
@@ -932,10 +863,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '41',
 		title: 'Período de prueba en el empleo público — reforma art. 8° ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 8° de la ley 25.164 sobre período de prueba: el nuevo empleado público debe cumplir un período de prueba de doce (12) meses durante el cual puede ser dado de baja sin necesidad de sumario previo.',
-		currentText:
-			'Reforma el art. 8° de la ley 25.164: amplía el período de prueba del empleado público a 12 meses. Durante ese período, el empleado puede ser dado de baja sin sumario previo si no supera la evaluación de desempeño.',
 		plainLanguageExplanation:
 			'El año de prueba es una ventana para que el Estado evalúe al nuevo empleado. Si en ese año demuestra no tener las capacidades necesarias, puede ser removido sin el costoso proceso de sumario. Pasado el año, adquiere estabilidad.',
 		practicalEffects: [
@@ -956,10 +885,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '42',
 		title: 'Derechos del empleado público — reforma art. 16 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 16 de la ley 25.164: se amplía el catálogo de derechos del empleado público, incorporando el derecho a la capacitación, a recibir retroalimentación de las evaluaciones y a conocer los criterios de evaluación.',
-		currentText:
-			'Reforma el art. 16 de la ley 25.164: amplía los derechos del empleado público. Incorpora el derecho a la capacitación continua, a conocer los criterios de evaluación de su desempeño y a recibir retroalimentación sobre sus resultados.',
 		plainLanguageExplanation:
 			'El empleado público tiene derecho no sólo a cobrar su sueldo, sino también a ser capacitado y a saber con qué criterios será evaluado. Esto equilibra la exigencia de desempeño con la obligación del Estado de dar herramientas.',
 		practicalEffects: [
@@ -980,10 +907,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '43',
 		title: 'Obligaciones del empleado público — reforma art. 17 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 17 de la ley 25.164: se refuerzan las obligaciones de los agentes, incorporando el deber de cumplir los estándares de desempeño fijados, la prohibición de ausentismo injustificado reiterado y la obligación de seguir los cursos de capacitación obligatorios.',
-		currentText:
-			'Reforma el art. 17 de la ley 25.164: refuerza las obligaciones del empleado público. Incorpora deber de cumplir estándares de desempeño, prohibición de ausentismo reiterado injustificado y obligación de realizar capacitaciones obligatorias.',
 		plainLanguageExplanation:
 			'Las obligaciones son la contracara de los derechos. El empleado público no puede ausentarse repetidamente sin justificación, debe alcanzar los estándares de desempeño exigidos y hacer los cursos de actualización que indique su organismo.',
 		practicalEffects: [
@@ -1004,10 +929,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '44',
 		title: 'Régimen disciplinario — principios generales, reforma art. 23 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 23 de la ley 25.164: se incorporan los principios de proporcionalidad, gradualidad y due process al régimen disciplinario del empleado público. Las sanciones deben ser proporcionales a la falta.',
-		currentText:
-			'Reforma el art. 23 de la ley 25.164: el régimen disciplinario se rige por los principios de proporcionalidad (sanción acorde a la falta), gradualidad (aplicar primero sanciones leves antes que las graves) y garantías procesales.',
 		plainLanguageExplanation:
 			'El Estado no puede aplicar una cesantía a un empleado que llegó tarde por primera vez: la sanción debe ser proporcional a la falta y gradual. Este artículo fija ese principio como ley, limitando la discrecionalidad del jerarca.',
 		practicalEffects: [
@@ -1028,10 +951,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '45',
 		title: 'Sanciones disciplinarias — tipos y aplicación, reforma art. 24 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 24 de la ley 25.164: se mantienen los tipos de sanciones (apercibimiento, suspensión, cesantía, exoneración) pero se simplifican los procedimientos para aplicar las de menor gravedad (apercibimiento, suspensiones cortas).',
-		currentText:
-			'Reforma el art. 24 de la ley 25.164: mantiene los tipos de sanción (apercibimiento, suspensión de hasta 30 días, cesantía, exoneración) pero simplifica el procedimiento para apercibimientos y suspensiones cortas: no requieren sumario completo.',
 		plainLanguageExplanation:
 			'Para sanciones leves (un apercibimiento, una suspensión corta), no hace falta el largo proceso del sumario. El jefe puede aplicarlas directamente siguiendo un procedimiento simplificado. Las sanciones graves (cesantía, exoneración) siguen requiriendo sumario completo.',
 		practicalEffects: [
@@ -1054,10 +975,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '46',
 		title: 'Suspensión preventiva — reforma art. 25 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 25 de la ley 25.164: se amplía la facultad de suspensión preventiva del agente imputado a 120 días (antes era de 30 días prorrogables). La suspensión preventiva se puede ordenar cuando el empleado con su presencia pueda entorpecer la investigación.',
-		currentText:
-			'Reforma el art. 25 de la ley 25.164: la suspensión preventiva durante un sumario puede extenderse hasta 120 días. El organismo puede suspender al agente de sus funciones si su presencia entorpece la investigación disciplinaria.',
 		plainLanguageExplanation:
 			'Si se inicia un sumario por corrupción a un empleado que maneja fondos, el Estado puede suspenderlo preventivamente por hasta 120 días para que no "limpie las pruebas" o intimide testigos. Esta suspensión es sin goce de sueldo si la falta imputada es grave.',
 		practicalEffects: [
@@ -1078,10 +997,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '47',
 		title: 'Cesantía — causales y procedimiento, reforma art. 26 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 26 de la ley 25.164 sobre causales de cesantía. Se incorpora como causal expresa de cesantía la obtención de evaluaciones de desempeño insuficientes en forma reiterada (calificación deficiente en dos períodos consecutivos).',
-		currentText:
-			'Reforma el art. 26 de la ley 25.164: agrega como causal de cesantía las calificaciones deficientes reiteradas (dos evaluaciones insuficientes consecutivas). Mantiene las causales clásicas (abandono del cargo, inasistencias reiteradas, condena penal).',
 		plainLanguageExplanation:
 			'Hasta ahora era casi imposible cesarar a un empleado público por "mal desempeño": no había una causal legal clara. Ahora, dos evaluaciones insuficientes consecutivas permiten iniciar el proceso de cesantía. Es uno de los cambios más polémicos de este título.',
 		practicalEffects: [
@@ -1105,10 +1022,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '48',
 		title: 'Exoneración — causales, reforma art. 27 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 27 de la ley 25.164 sobre causales de exoneración. La exoneración es la sanción más grave y conlleva la inhabilitación para reingresar a la Administración Pública por 10 años.',
-		currentText:
-			'Reforma el art. 27 de la ley 25.164: mantiene las causales de exoneración (delito doloso en ejercicio del cargo, enriquecimiento ilícito, abandono malicioso del cargo) e incorpora la condena penal firme a pena privativa de la libertad como causal automática.',
 		plainLanguageExplanation:
 			'La exoneración es la "muerte civil" del empleado público: lo deja inhabilitado para volver a trabajar en el Estado por 10 años. Las causales son las más graves: corrupción, condena penal, enriquecimiento ilícito.',
 		practicalEffects: [
@@ -1129,10 +1044,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '49',
 		title: 'Sumario administrativo — procedimiento simplificado, reforma art. 29 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 29 de la ley 25.164 sobre el sumario administrativo: se simplifican y reducen los plazos del sumario. El plazo máximo para instruirlo es de 180 días prorrogables por igual período. Se habilita el sumario digital.',
-		currentText:
-			'Reforma el art. 29 de la ley 25.164: el sumario administrativo tiene plazo máximo de 180 días (prorrogable 180 más en casos complejos). Se habilita la instrucción del sumario en formato digital, con notificaciones electrónicas.',
 		plainLanguageExplanation:
 			'El sumario es el proceso interno del Estado para investigar y sancionar empleados. Antes podía durar años. Ahora hay un plazo máximo de 180 días (prorrogable) y puede hacerse totalmente online.',
 		practicalEffects: [
@@ -1153,10 +1066,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '50',
 		title: 'Prescripción de faltas disciplinarias — reforma art. 30 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 30 de la ley 25.164: se reducen los plazos de prescripción de las faltas disciplinarias. Las faltas leves prescriben a los 2 años, las graves a los 5 años, y las muy graves (exoneración) a los 10 años desde que se tomó conocimiento.',
-		currentText:
-			'Reforma el art. 30 de la ley 25.164: nueva escala de prescripción de faltas disciplinarias: leves (2 años), graves (5 años), muy graves/exoneración (10 años). El plazo corre desde que el organismo tomó conocimiento de la falta.',
 		plainLanguageExplanation:
 			'Una falta disciplinaria no puede perseguirse indefinidamente. Si el Estado no inicia el sumario en el plazo de prescripción desde que supo de la falta, pierde la facultad de sancionar. Los plazos ahora son más claros y diferenciados por gravedad.',
 		practicalEffects: [
@@ -1177,10 +1088,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '51',
 		title: 'Evaluación de desempeño — reforma art. 32 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 32 de la ley 25.164: se establece un sistema obligatorio y periódico de evaluación de desempeño. Las evaluaciones son anuales, deben ser objetivas y documentadas, y sus resultados son vinculantes para ascensos y cesantías.',
-		currentText:
-			'Reforma el art. 32 de la ley 25.164: evaluaciones de desempeño anuales, objetivas y documentadas. Los resultados son vinculantes: las evaluaciones positivas alimentan el ascenso; las negativas reiteradas son causal de cesantía (ver art. 47).',
 		plainLanguageExplanation:
 			'Instala la cultura de evaluación anual en el Estado. Cada año, el jefe evalúa al empleado con criterios documentados y comunicados previamente. El resultado alimenta la carrera: los buenos se promueven, los malos reiterados pueden cesarase.',
 		practicalEffects: [
@@ -1201,10 +1110,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '52',
 		title: 'Carrera administrativa — reforma art. 33 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 33 de la ley 25.164: la carrera administrativa se basa en el mérito y la antigüedad, con primacía del mérito. Los ascensos requieren superar concurso interno y haber obtenido evaluaciones positivas.',
-		currentText:
-			'Reforma el art. 33 de la ley 25.164: en la carrera administrativa prima el mérito sobre la antigüedad. Los ascensos a categorías superiores requieren concurso interno y evaluaciones positivas previas.',
 		plainLanguageExplanation:
 			'Ya no basta con esperar años para ascender. Ahora hay que concursar y tener buenas evaluaciones. La antigüedad sigue pesando, pero es un factor secundario frente al mérito demostrado.',
 		practicalEffects: [
@@ -1225,10 +1132,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '53',
 		title: 'Jornada y licencias — reforma art. 35 ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 35 de la ley 25.164: se incorpora la modalidad de trabajo remoto para empleados públicos. La jornada puede cumplirse de manera presencial, remota o mixta, según las necesidades del servicio.',
-		currentText:
-			'Reforma el art. 35 de la ley 25.164: habilita formalmente el trabajo remoto en el empleo público nacional. La jornada puede ser presencial, remota o mixta. La modalidad la determina el organismo según las necesidades del servicio.',
 		plainLanguageExplanation:
 			'El teletrabajo en el Estado nacional pasa a estar regulado por el estatuto. El organismo puede permitir trabajar desde casa o en modalidad híbrida. El empleado no puede exigirlo como derecho absoluto pero puede pedirlo.',
 		practicalEffects: [
@@ -1249,10 +1154,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '54',
 		title: 'Contrataciones temporarias — reforma art. 9° ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese el artículo 9° de la ley 25.164: se amplía el uso de contrataciones temporarias (por tiempo determinado) para cubrir necesidades transitorias del Estado. El límite de los contratos temporarios es de 3 años con una prórroga de 2 años más.',
-		currentText:
-			'Reforma el art. 9° de la ley 25.164: amplía las contrataciones temporarias para cubrir necesidades transitorias. Los contratos tienen plazo máximo de 3 años, prorrogable por 2 años más. Vencido el plazo, no genera estabilidad ni indemnización.',
 		plainLanguageExplanation:
 			'El Estado puede contratar empleados por tiempo determinado (hasta 5 años en total) para cubrir necesidades específicas o temporarias. Al vencer el plazo, el contrato termina sin que el empleado adquiera estabilidad.',
 		practicalEffects: [
@@ -1273,10 +1176,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '55',
 		title: 'Reducción de estructura — reorganización con personal excedente',
-		originalText:
+		text:
 			'Cuando la reorganización de un organismo produzca excedente de personal, el Poder Ejecutivo nacional deberá reasignar al personal excedente a otros organismos. Si no fuere posible la reasignación dentro de los 180 días, se aplica el régimen de disponibilidad previsto en el art. 57.',
-		currentText:
-			'Cuando una reorganización genera excedente de personal, se intenta reasignar en 180 días. Si no es posible, el agente pasa al régimen de disponibilidad (art. 57). El PEN debe identificar los organismos con vacantes antes de declarar excedentes.',
 		plainLanguageExplanation:
 			'Al reorganizar el Estado y reducir organismos, no se puede despedir a todos los empleados de golpe. Primero hay que intentar reasignarlos en otro organismo. Si en 180 días no se logra, pasan a "disponibilidad": un período de transición antes del retiro.',
 		practicalEffects: [
@@ -1297,10 +1198,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '56',
 		title: 'Medidas de adecuación — indemnizaciones y retiro voluntario',
-		originalText:
+		text:
 			'Establécese un régimen de retiro voluntario para el personal de la Administración Pública Nacional: los agentes que opten voluntariamente por retirarse dentro de los 180 días siguientes a la promulgación de la ley recibirán una indemnización especial equivalente a un mes de sueldo por año de antigüedad.',
-		currentText:
-			'Crea un régimen de retiro voluntario con incentivo: un mes de sueldo por año de antigüedad para quienes se retiren voluntariamente en los 180 días post-promulgación. Es una medida de reducción del gasto en personal sin despidos compulsivos.',
 		plainLanguageExplanation:
 			'El Estado ofrece una "salida dorada" a quienes quieran irse voluntariamente. La indemnización es equivalente a la que corresponde por despido sin causa en el sector privado. No hay obligación de aceptarla.',
 		practicalEffects: [
@@ -1321,10 +1220,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '57',
 		title: 'Disponibilidad — régimen del agente sin destino, reforma ley 25.164',
-		originalText:
+		text:
 			'Regúlase el régimen de disponibilidad: el agente público que no pueda ser reasignado percibe durante la disponibilidad el 80% de su remuneración por un período máximo de 12 meses, al cabo del cual cesa la relación de empleo con derecho a la indemnización del art. 11 de la ley 25.164.',
-		currentText:
-			'El agente en "disponibilidad" cobra el 80% de su sueldo durante hasta 12 meses mientras se lo busca reasignar. Si vencidos los 12 meses no hay destino, cesa la relación y cobra la indemnización legal.',
 		plainLanguageExplanation:
 			'La disponibilidad es el limbo del empleado público: no tiene un puesto asignado pero sigue cobrando (el 80% del sueldo). En 12 meses, el Estado debe o reasignarlo o indemnizarlo. Es la única forma de desvincular a un empleado de planta sin sumario.',
 		practicalEffects: [
@@ -1347,10 +1244,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '58',
 		title: 'Licencias especiales — simplificación y actualización',
-		originalText:
+		text:
 			'Modifícase el régimen de licencias del personal de la Administración Pública Nacional: se simplifican los tipos de licencias, se digitalizan los trámites de solicitud y se establece control de asistencia mediante sistema informático.',
-		currentText:
-			'Reforma el régimen de licencias del personal de la APN: simplifica las categorías de licencias (ordinarias, especiales, por enfermedad), digitaliza los trámites y obliga a los organismos a implementar control de asistencia digital.',
 		plainLanguageExplanation:
 			'Moderniza el sistema de licencias del empleo público. Las solicitudes de licencia van al sistema digital, no a formularios en papel. Y los organismos deben tener registro digital de asistencia para detectar ausentismo.',
 		practicalEffects: [
@@ -1371,10 +1266,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '59',
 		title: 'Transparencia en el empleo público — declaraciones juradas y datos abiertos',
-		originalText:
+		text:
 			'Establécese que las declaraciones juradas patrimoniales de los empleados públicos de jerarquía superior (desde Directores Nacionales) serán públicas y accesibles en la plataforma digital del Estado.',
-		currentText:
-			'Las declaraciones juradas patrimoniales de los funcionarios desde el nivel de Director Nacional son públicas y deben publicarse en el portal del Estado. Amplía la transparencia a rangos intermedios (antes sólo era obligatorio para niveles superiores).',
 		plainLanguageExplanation:
 			'Cualquier ciudadano puede ver cuánto vale un Director Nacional cuando asumió y al final de su gestión. Si su patrimonio creció más que su sueldo, surge la pregunta de dónde vino el dinero. Es una herramienta de control ciudadano de la corrupción.',
 		practicalEffects: [
@@ -1395,10 +1288,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '60',
 		title: 'Incompatibilidades — reforma ley 25.164',
-		originalText:
+		text:
 			'Sustitúyese la norma sobre incompatibilidades: un agente público no puede ejercer simultáneamente dos cargos en la Administración Pública Nacional salvo excepciones expresamente enumeradas. Se actualiza el régimen a la luz de la digitalización y el trabajo remoto.',
-		currentText:
-			'Reforma el régimen de incompatibilidades del empleo público: un agente no puede tener dos cargos en la APN simultáneamente, salvo excepciones taxativas (docencia universitaria, investigación científica). Se actualiza para incluir el trabajo autónomo y el emprendedurismo.',
 		plainLanguageExplanation:
 			'Un empleado público no puede tener dos puestos en el Estado al mismo tiempo (doble cobro). Las excepciones son estrictas: dar clases en la UBA o hacer investigación en el CONICET. Con la reforma, el Estado también puede reglamentar si el empleado puede tener un emprendimiento propio.',
 		practicalEffects: [
@@ -1419,10 +1310,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '61',
 		title: 'Servicios esenciales — obligación de servicio mínimo',
-		originalText:
+		text:
 			'Establécese que los empleados públicos que presten servicios esenciales (salud, seguridad, suministro de agua, transporte de pasajeros) deberán garantizar un servicio mínimo del cincuenta por ciento (50%) durante la vigencia de cualquier medida de acción directa.',
-		currentText:
-			'Los empleados públicos en servicios esenciales (salud, seguridad, agua, transporte) deben garantizar el 50% del servicio mínimo durante huelgas u otras medidas de acción directa. El incumplimiento del servicio mínimo es causal de sanción disciplinaria.',
 		plainLanguageExplanation:
 			'En una huelga de médicos de hospital público, la mitad del servicio debe seguir funcionando. Si los trabajadores no garantizan ese mínimo, el Estado puede aplicar sanciones disciplinarias. Busca equilibrar el derecho a huelga con la protección de los usuarios de servicios esenciales.',
 		practicalEffects: [
@@ -1445,10 +1334,8 @@ export const ARTICLES_TITULO_02: Article[] = [
 		lawId: 'ley-27742',
 		number: '62',
 		title: 'Huelga en el empleo público — descuento proporcional al tiempo no trabajado',
-		originalText:
+		text:
 			'Incorpórase disposición sobre el ejercicio del derecho de huelga en el empleo público: el descuento en los haberes del empleado que ejerce el derecho de huelga será proporcional al tiempo no trabajado. No se podrán aplicar sanciones disciplinarias adicionales al descuento por el sólo hecho del ejercicio del derecho de huelga.',
-		currentText:
-			'El descuento por huelga en el empleo público es proporcional al tiempo no trabajado: si se hizo huelga 3 días, se descuentan 3 días de sueldo. No puede aplicarse ninguna sanción disciplinaria adicional por el sólo hecho de haberse plegado a la huelga.',
 		plainLanguageExplanation:
 			'Si un empleado público hace huelga, le descuentan el sueldo de los días no trabajados. Pero no pueden sancionarlo disciplinariamente además del descuento. La huelga es un derecho constitucional y este artículo lo reconoce: la consecuencia es sólo económica (descuento), no disciplinaria.',
 		practicalEffects: [

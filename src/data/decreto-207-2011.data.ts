@@ -59,11 +59,8 @@ export const DECRETO_207_2011: Law = {
       lawId: 'decreto-207-2011',
       number: '1',
       title: 'Aprobación de la reglamentación',
-      originalText:
-        'Apruébase la Reglamentación de la Ley Nº 26.639, que como Anexo I forma parte integrante del presente decreto.',
-      currentText:
-        'Apruébase la Reglamentación de la Ley Nº 26.639, que como Anexo I forma parte integrante del presente decreto.',
-      plainLanguageExplanation:
+      text:
+        'Apruébase la Reglamentación de la Ley Nº 26.639, que como Anexo I forma parte integrante del presente decreto.',      plainLanguageExplanation:
         'El artículo 1 hace una sola cosa: convierte el Anexo I del decreto en norma jurídica vinculante. Ese Anexo contiene, artículo por artículo, las aclaraciones técnicas a la Ley de Glaciares. Sin este artículo, el Anexo sería solo un documento administrativo; con él, tiene fuerza legal de reglamentación.',
       practicalEffects: [
         'El Anexo I adquiere fuerza normativa y es obligatorio para todos los organismos del Estado.',
@@ -85,7 +82,7 @@ export const DECRETO_207_2011: Law = {
           articleId: 'dec-207-art-1',
           articleNumber: '1',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Apruébase la Reglamentación de la Ley Nº 26.639, que como Anexo I forma parte integrante del presente decreto.',
           plainExplanation:
             'El decreto aprueba formalmente la reglamentación de la Ley de Glaciares y la incorpora como Anexo con igual fuerza normativa.',
@@ -102,11 +99,8 @@ export const DECRETO_207_2011: Law = {
       lawId: 'decreto-207-2011',
       number: '2',
       title: 'Designación de la Autoridad de Aplicación',
-      originalText:
-        'Desígnase a la Secretaría de Ambiente y Desarrollo Sustentable de la Jefatura de Gabinete de Ministros como Autoridad de Aplicación de la Ley Nº 26.639.',
-      currentText:
-        'Desígnase a la Secretaría de Ambiente y Desarrollo Sustentable de la Jefatura de Gabinete de Ministros como Autoridad de Aplicación de la Ley Nº 26.639.',
-      plainLanguageExplanation:
+      text:
+        'Desígnase a la Secretaría de Ambiente y Desarrollo Sustentable de la Jefatura de Gabinete de Ministros como Autoridad de Aplicación de la Ley Nº 26.639.',      plainLanguageExplanation:
         'Este artículo designa concretamente qué organismo del Estado tiene la responsabilidad de hacer cumplir la Ley de Glaciares. La Ley 26.639 ordenó al Poder Ejecutivo que lo designara (art. 9 de la ley); este decreto cumple ese mandato nombrando a la Secretaría de Ambiente. Eso significa que esa Secretaría debe coordinar el inventario, dictar normas complementarias y aplicar las sanciones del art. 12 de la ley.',
       practicalEffects: [
         'La Secretaría de Ambiente es el organismo ante el que deben presentarse los informes de impacto en zonas glaciares.',
@@ -129,7 +123,7 @@ export const DECRETO_207_2011: Law = {
           articleId: 'dec-207-art-2',
           articleNumber: '2',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Desígnase a la Secretaría de Ambiente y Desarrollo Sustentable de la Jefatura de Gabinete de Ministros como Autoridad de Aplicación de la Ley Nº 26.639.',
           plainExplanation:
             'La Secretaría de Ambiente (hoy Ministerio de Ambiente) es el organismo que hace cumplir la Ley de Glaciares a nivel nacional.',
@@ -146,11 +140,8 @@ export const DECRETO_207_2011: Law = {
       lawId: 'decreto-207-2011',
       number: '3',
       title: 'Forma, comunicación y archivo',
-      originalText:
-        'Comuníquese, publíquese, dese a la Dirección Nacional del Registro Oficial y archívese.',
-      currentText:
-        'Comuníquese, publíquese, dese a la Dirección Nacional del Registro Oficial y archívese.',
-      plainLanguageExplanation:
+      text:
+        'Comuníquese, publíquese, dese a la Dirección Nacional del Registro Oficial y archívese.',      plainLanguageExplanation:
         'Es la cláusula de cierre formal que tienen todos los decretos del Poder Ejecutivo. Ordena que el decreto sea publicado en el Boletín Oficial (lo cual le da validez erga omnes) y que quede archivado en el Registro Oficial. No tiene contenido sustantivo propio.',
       practicalEffects: [
         'La publicación en el Boletín Oficial (BO Nº 32101, 2 de marzo de 2011) es el acto que le da vigencia al decreto frente a todos.',
@@ -169,7 +160,7 @@ export const DECRETO_207_2011: Law = {
           articleId: 'dec-207-art-3',
           articleNumber: '3',
           segmentType: 'PARAGRAPH',
-          originalText:
+          text:
             'Comuníquese, publíquese, dese a la Dirección Nacional del Registro Oficial y archívese.',
           plainExplanation:
             'Cláusula formal de cierre: ordena publicar el decreto en el Boletín Oficial y archivarlo, lo que le da vigencia legal.',

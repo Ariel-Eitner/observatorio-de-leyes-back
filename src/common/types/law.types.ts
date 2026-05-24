@@ -39,7 +39,7 @@ export interface LawSegment {
   articleId: string | null;
   articleNumber: string;
   segmentType: SegmentType;
-  originalText: string;
+  text: string;
   plainExplanation: string | null;
   practicalExample: string | null;
   references: string[];
@@ -83,8 +83,7 @@ export interface Article {
   lawId: string;
   number: string;
   title: string | null;
-  originalText: string;
-  currentText: string;
+  text: string;
   plainLanguageExplanation: string | null;
   practicalEffects: string[];
   examples: string[];

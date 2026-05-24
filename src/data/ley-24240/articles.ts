@@ -6,11 +6,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '1',
     title: 'Objeto. Consumidor. Equiparación',
-    originalText:
-      'La presente ley tiene por objeto la defensa del consumidor o usuario. Se considera consumidor a la persona física o jurídica que adquiere o utiliza, en forma gratuita u onerosa, bienes o servicios como destinatario final, en beneficio propio o de su grupo familiar o social. Queda equiparado al consumidor quien, sin ser parte de una relación de consumo como consecuencia o en ocasión de ella, adquiere o utiliza bienes o servicios, en forma gratuita u onerosa, como destinatario final, en beneficio propio o de su grupo familiar o social.',
-    currentText:
-      'La presente ley tiene por objeto la defensa del consumidor o usuario. Se considera consumidor a la persona física o jurídica que adquiere o utiliza, en forma gratuita u onerosa, bienes o servicios como destinatario final, en beneficio propio o de su grupo familiar o social. Queda equiparado al consumidor quien, sin ser parte de una relación de consumo como consecuencia o en ocasión de ella, adquiere o utiliza bienes o servicios, en forma gratuita u onerosa, como destinatario final, en beneficio propio o de su grupo familiar o social.',
-    plainLanguageExplanation:
+    text:
+      'La presente ley tiene por objeto la defensa del consumidor o usuario. Se considera consumidor a la persona física o jurídica que adquiere o utiliza, en forma gratuita u onerosa, bienes o servicios como destinatario final, en beneficio propio o de su grupo familiar o social. Queda equiparado al consumidor quien, sin ser parte de una relación de consumo como consecuencia o en ocasión de ella, adquiere o utiliza bienes o servicios, en forma gratuita u onerosa, como destinatario final, en beneficio propio o de su grupo familiar o social.',    plainLanguageExplanation:
       'Esta ley protege a los consumidores y usuarios. Es consumidor quien compra o usa bienes o servicios para uso personal o familiar, no para revenderlos o usarlos en un negocio. También se protege a quien usa un bien aunque no haya comprado directamente (por ejemplo, quien recibe un regalo o usa un servicio sin ser el contratante).',
     practicalEffects: [
       'Define quiénes tienen protección bajo la ley: destinatarios finales de bienes y servicios.',
@@ -36,7 +33,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La presente ley tiene por objeto la defensa del consumidor o usuario. Se considera consumidor a la persona física o jurídica que adquiere o utiliza, en forma gratuita u onerosa, bienes o servicios como destinatario final, en beneficio propio o de su grupo familiar o social.',
         plainExplanation: 'Define el objeto de la ley y quién es consumidor.',
         practicalExample:
@@ -50,7 +47,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Queda equiparado al consumidor quien, sin ser parte de una relación de consumo como consecuencia o en ocasión de ella, adquiere o utiliza bienes o servicios, en forma gratuita u onerosa, como destinatario final, en beneficio propio o de su grupo familiar o social.',
         plainExplanation: 'Extiende la protección a quienes usan bienes o servicios aunque no hayan sido los contratantes directos.',
         practicalExample:
@@ -66,11 +63,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '2',
     title: 'Proveedor',
-    originalText:
-      'Es la persona física o jurídica de naturaleza pública o privada, que desarrolla de manera profesional, aun ocasionalmente, actividades de producción, montaje, creación, construcción, transformación, importación, concesión de marca, distribución y comercialización de bienes y servicios, destinados a consumidores o usuarios. Todo proveedor está obligado al cumplimiento de la presente ley. No están comprendidos en esta ley los servicios de profesionales liberales que requieran para su ejercicio título universitario y matrícula otorgada por colegios profesionales reconocidos oficialmente o autoridad facultada para ello, pero sí la publicidad que se haga de su ofrecimiento.',
-    currentText:
-      'Es la persona física o jurídica de naturaleza pública o privada, que desarrolla de manera profesional, aun ocasionalmente, actividades de producción, montaje, creación, construcción, transformación, importación, concesión de marca, distribución y comercialización de bienes y servicios, destinados a consumidores o usuarios. Todo proveedor está obligado al cumplimiento de la presente ley. No están comprendidos en esta ley los servicios de profesionales liberales que requieran para su ejercicio título universitario y matrícula otorgada por colegios profesionales reconocidos oficialmente o autoridad facultada para ello, pero sí la publicidad que se haga de su ofrecimiento.',
-    plainLanguageExplanation:
+    text:
+      'Es la persona física o jurídica de naturaleza pública o privada, que desarrolla de manera profesional, aun ocasionalmente, actividades de producción, montaje, creación, construcción, transformación, importación, concesión de marca, distribución y comercialización de bienes y servicios, destinados a consumidores o usuarios. Todo proveedor está obligado al cumplimiento de la presente ley. No están comprendidos en esta ley los servicios de profesionales liberales que requieran para su ejercicio título universitario y matrícula otorgada por colegios profesionales reconocidos oficialmente o autoridad facultada para ello, pero sí la publicidad que se haga de su ofrecimiento.',    plainLanguageExplanation:
       'Proveedor es cualquier empresa o persona (pública o privada) que vende, fabrica, importa o distribuye bienes o servicios. Todos están obligados por la ley. Excepción: los profesionales con título universitario y matrícula (médicos, abogados, etc.) no están cubiertos en su actividad profesional, pero sí en su publicidad.',
     practicalEffects: [
       'Incluye a comercios, empresas de servicios, importadores, fabricantes y distribuidores.',
@@ -93,7 +87,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Es la persona física o jurídica de naturaleza pública o privada, que desarrolla de manera profesional, aun ocasionalmente, actividades de producción, montaje, creación, construcción, transformación, importación, concesión de marca, distribución y comercialización de bienes y servicios, destinados a consumidores o usuarios.',
         plainExplanation: 'Define quién es proveedor a los fines de la ley.',
         practicalExample: null,
@@ -108,11 +102,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '3',
     title: 'Relación de consumo. Integración normativa. Preeminencia',
-    originalText:
-      'Relación de consumo es el vínculo jurídico entre el proveedor y el consumidor o usuario. Las disposiciones de esta ley se integran con las normas generales y especiales aplicables a las relaciones de consumo, en particular la Ley Nº 25.156 de Defensa de la Competencia y la Ley Nº 22.802 de Lealtad Comercial o las que en el futuro las reemplacen. En caso de duda sobre la interpretación de los principios que establece esta ley prevalecerá la más favorable al consumidor.',
-    currentText:
-      'Relación de consumo es el vínculo jurídico entre el proveedor y el consumidor o usuario. Las disposiciones de esta ley se integran con las normas generales y especiales aplicables a las relaciones de consumo, en particular la Ley Nº 25.156 de Defensa de la Competencia y la Ley Nº 22.802 de Lealtad Comercial o las que en el futuro las reemplacen. En caso de duda sobre la interpretación de los principios que establece esta ley prevalecerá la más favorable al consumidor.',
-    plainLanguageExplanation:
+    text:
+      'Relación de consumo es el vínculo jurídico entre el proveedor y el consumidor o usuario. Las disposiciones de esta ley se integran con las normas generales y especiales aplicables a las relaciones de consumo, en particular la Ley Nº 25.156 de Defensa de la Competencia y la Ley Nº 22.802 de Lealtad Comercial o las que en el futuro las reemplacen. En caso de duda sobre la interpretación de los principios que establece esta ley prevalecerá la más favorable al consumidor.',    plainLanguageExplanation:
       'La relación de consumo es el vínculo entre proveedor y consumidor. Esta ley se complementa con otras normas. Ante cualquier duda sobre cómo interpretar la ley, siempre se aplica la interpretación más favorable al consumidor (principio in dubio pro consumidor).',
     practicalEffects: [
       'Establece el principio in dubio pro consumidor: ante la duda, se favorece al consumidor.',
@@ -133,7 +124,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-3',
         articleNumber: '3',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En caso de duda sobre la interpretación de los principios que establece esta ley prevalecerá la más favorable al consumidor.',
         plainExplanation: 'Principio in dubio pro consumidor: ante la duda, se interpreta a favor del consumidor.',
         practicalExample:
@@ -149,11 +140,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '4',
     title: 'Información',
-    originalText:
-      'El proveedor está obligado a suministrar al consumidor en forma cierta, clara y detallada todo lo relacionado con las características esenciales de los bienes y servicios que provee, y las condiciones de su comercialización. La información debe ser siempre gratuita para el consumidor y proporcionada en soporte físico, con claridad necesaria que permita su comprensión. Solo se podrá suplantar la comunicación en soporte físico si el consumidor o usuario optase de forma expresa por utilizar cualquier otro medio alternativo de comunicación que el proveedor ponga a disposición.',
-    currentText:
-      'El proveedor está obligado a suministrar al consumidor en forma cierta, clara y detallada todo lo relacionado con las características esenciales de los bienes y servicios que provee, y las condiciones de su comercialización. La información debe ser siempre gratuita para el consumidor y proporcionada en soporte físico, con claridad necesaria que permita su comprensión. Solo se podrá suplantar la comunicación en soporte físico si el consumidor o usuario optase de forma expresa por utilizar cualquier otro medio alternativo de comunicación que el proveedor ponga a disposición.',
-    plainLanguageExplanation:
+    text:
+      'El proveedor está obligado a suministrar al consumidor en forma cierta, clara y detallada todo lo relacionado con las características esenciales de los bienes y servicios que provee, y las condiciones de su comercialización. La información debe ser siempre gratuita para el consumidor y proporcionada en soporte físico, con claridad necesaria que permita su comprensión. Solo se podrá suplantar la comunicación en soporte físico si el consumidor o usuario optase de forma expresa por utilizar cualquier otro medio alternativo de comunicación que el proveedor ponga a disposición.',    plainLanguageExplanation:
       'El proveedor debe informar al consumidor de forma clara, cierta y detallada sobre los productos y servicios y sus condiciones de venta. La información es siempre gratuita y debe darse en papel, salvo que el consumidor elija otro medio.',
     practicalEffects: [
       'Obliga a los proveedores a dar información completa y gratuita.',
@@ -176,7 +164,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El proveedor está obligado a suministrar al consumidor en forma cierta, clara y detallada todo lo relacionado con las características esenciales de los bienes y servicios que provee, y las condiciones de su comercialización.',
         plainExplanation: 'Deber de información: clara, cierta y detallada.',
         practicalExample:
@@ -192,11 +180,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '5',
     title: 'Protección al Consumidor',
-    originalText:
-      'Las cosas y servicios deben ser suministrados o prestados en forma tal que, utilizados en condiciones previsibles o normales de uso, no presenten peligro alguno para la salud o integridad física de los consumidores o usuarios.',
-    currentText:
-      'Las cosas y servicios deben ser suministrados o prestados en forma tal que, utilizados en condiciones previsibles o normales de uso, no presenten peligro alguno para la salud o integridad física de los consumidores o usuarios.',
-    plainLanguageExplanation:
+    text:
+      'Las cosas y servicios deben ser suministrados o prestados en forma tal que, utilizados en condiciones previsibles o normales de uso, no presenten peligro alguno para la salud o integridad física de los consumidores o usuarios.',    plainLanguageExplanation:
       'Los productos y servicios deben ser seguros para su uso normal. No deben representar un peligro para la salud o la integridad física del consumidor.',
     practicalEffects: [
       'Los proveedores son responsables por la seguridad de sus productos y servicios.',
@@ -218,7 +203,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-5',
         articleNumber: '5',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las cosas y servicios deben ser suministrados o prestados en forma tal que, utilizados en condiciones previsibles o normales de uso, no presenten peligro alguno para la salud o integridad física de los consumidores o usuarios.',
         plainExplanation: 'Los bienes y servicios deben ser seguros en condiciones normales de uso.',
         practicalExample:
@@ -234,11 +219,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '7',
     title: 'Oferta',
-    originalText:
-      'La oferta dirigida a consumidores potenciales indeterminados, obliga a quien la emite durante el tiempo en que se realice, debiendo contener la fecha precisa de comienzo y de finalización, así como también sus modalidades, condiciones o limitaciones. La revocación de la oferta hecha pública es eficaz una vez que haya sido difundida por medios similares a los empleados para hacerla conocer.',
-    currentText:
-      'La oferta dirigida a consumidores potenciales indeterminados, obliga a quien la emite durante el tiempo en que se realice, debiendo contener la fecha precisa de comienzo y de finalización, así como también sus modalidades, condiciones o limitaciones. La revocación de la oferta hecha pública es eficaz una vez que haya sido difundida por medios similares a los empleados para hacerla conocer.',
-    plainLanguageExplanation:
+    text:
+      'La oferta dirigida a consumidores potenciales indeterminados, obliga a quien la emite durante el tiempo en que se realice, debiendo contener la fecha precisa de comienzo y de finalización, así como también sus modalidades, condiciones o limitaciones. La revocación de la oferta hecha pública es eficaz una vez que haya sido difundida por medios similares a los empleados para hacerla conocer.',    plainLanguageExplanation:
       'Las ofertas publicitarias son vinculantes: el proveedor está obligado a cumplirlas. Deben indicar fechas de inicio y fin. Para revocarlas, deben publicitarse la revocación por los mismos medios.',
     practicalEffects: [
       'Una oferta publicada obliga al proveedor a cumplirla durante su vigencia.',
@@ -261,7 +243,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-7',
         articleNumber: '7',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La oferta dirigida a consumidores potenciales indeterminados, obliga a quien la emite durante el tiempo en que se realice.',
         plainExplanation: 'Las ofertas públicas son obligatorias para el proveedor.',
         practicalExample:
@@ -277,11 +259,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '8',
     title: 'Efectos de la publicidad',
-    originalText:
-      'Las precisiones formuladas en la publicidad o en anuncios, prospectos, circulares u otros medios de difusión se tienen por incluidas en el contrato con el consumidor y obligan al oferente.',
-    currentText:
-      'Las precisiones formuladas en la publicidad o en anuncios, prospectos, circulares u otros medios de difusión se tienen por incluidas en el contrato con el consumidor y obligan al oferente.',
-    plainLanguageExplanation:
+    text:
+      'Las precisiones formuladas en la publicidad o en anuncios, prospectos, circulares u otros medios de difusión se tienen por incluidas en el contrato con el consumidor y obligan al oferente.',    plainLanguageExplanation:
       'Lo que dice la publicidad forma parte del contrato. Si un proveedor promete algo en un aviso publicitario, está obligado a cumplirlo, aunque el contrato no lo mencione expresamente.',
     practicalEffects: [
       'La publicidad tiene efecto contractual: integra el contrato de pleno derecho.',
@@ -303,7 +282,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-8',
         articleNumber: '8',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las precisiones formuladas en la publicidad o en anuncios, prospectos, circulares u otros medios de difusión se tienen por incluidas en el contrato con el consumidor y obligan al oferente.',
         plainExplanation: 'Lo prometido en publicidad es parte del contrato.',
         practicalExample:
@@ -319,11 +298,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '11',
     title: 'Garantías',
-    originalText:
-      'Cuando se comercialicen cosas muebles no consumibles, el consumidor y los sucesivos adquirentes gozarán de garantía legal por los defectos o vicios de cualquier índole, aunque hayan sido ostensibles o manifiestos al tiempo del contrato, cuando afecten la identidad entre lo ofrecido y lo entregado, o su correcto funcionamiento. La garantía legal tendrá vigencia por TRES (3) meses cuando se trate de bienes muebles usados y por SEIS (6) meses en los demás casos a partir de la entrega, pudiendo las partes convenir un plazo mayor.',
-    currentText:
-      'Cuando se comercialicen cosas muebles no consumibles, el consumidor y los sucesivos adquirentes gozarán de garantía legal por los defectos o vicios de cualquier índole, aunque hayan sido ostensibles o manifiestos al tiempo del contrato, cuando afecten la identidad entre lo ofrecido y lo entregado, o su correcto funcionamiento. La garantía legal tendrá vigencia por TRES (3) meses cuando se trate de bienes muebles usados y por SEIS (6) meses en los demás casos a partir de la entrega, pudiendo las partes convenir un plazo mayor.',
-    plainLanguageExplanation:
+    text:
+      'Cuando se comercialicen cosas muebles no consumibles, el consumidor y los sucesivos adquirentes gozarán de garantía legal por los defectos o vicios de cualquier índole, aunque hayan sido ostensibles o manifiestos al tiempo del contrato, cuando afecten la identidad entre lo ofrecido y lo entregado, o su correcto funcionamiento. La garantía legal tendrá vigencia por TRES (3) meses cuando se trate de bienes muebles usados y por SEIS (6) meses en los demás casos a partir de la entrega, pudiendo las partes convenir un plazo mayor.',    plainLanguageExplanation:
       'Todo bien mueble no consumible (electrodomésticos, celulares, vehículos, etc.) tiene garantía legal obligatoria: 3 meses si es usado, 6 meses si es nuevo. Las partes pueden ampliarla, nunca reducirla. La garantía cubre defectos que afectan el funcionamiento.',
     practicalEffects: [
       'La garantía legal es mínima e irrenunciable: 6 meses para productos nuevos, 3 para usados.',
@@ -346,7 +322,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-11',
         articleNumber: '11',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La garantía legal tendrá vigencia por TRES (3) meses cuando se trate de bienes muebles usados y por SEIS (6) meses en los demás casos a partir de la entrega, pudiendo las partes convenir un plazo mayor.',
         plainExplanation: 'Plazos mínimos de garantía legal: 3 meses para usados, 6 meses para nuevos.',
         practicalExample:
@@ -362,11 +338,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '34',
     title: 'Revocación de aceptación',
-    originalText:
-      'En los casos previstos en los artículos 32 y 33 de la presente ley, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue el bien o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser dispensada ni renunciada.',
-    currentText:
-      'En los casos previstos en los artículos 32 y 33 de la presente ley, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue el bien o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser dispensada ni renunciada.',
-    plainLanguageExplanation:
+    text:
+      'En los casos previstos en los artículos 32 y 33 de la presente ley, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue el bien o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser dispensada ni renunciada.',    plainLanguageExplanation:
       'En ventas a domicilio y por internet/catálogo, el consumidor puede arrepentirse y devolver el producto dentro de los 10 días hábiles sin dar ninguna explicación y sin costo. Este derecho no puede ser quitado por contrato.',
     practicalEffects: [
       'Derecho de arrepentimiento de 10 días corridos en ventas a domicilio, por internet o catálogo.',
@@ -390,7 +363,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-34',
         articleNumber: '34',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue el bien o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna.',
         plainExplanation: 'Derecho de arrepentimiento de 10 días en ventas a distancia y domiciliarias.',
         practicalExample:
@@ -406,11 +379,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '37',
     title: 'Interpretación. Cláusulas abusivas',
-    originalText:
-      'Sin perjuicio de la validez del contrato, se tendrán por no convenidas: a) Las cláusulas que desnaturalicen las obligaciones o limiten la responsabilidad por daños; b) Las cláusulas que importen renuncia o restricción de los derechos del consumidor o amplíen los derechos de la otra parte; c) Las cláusulas que contengan cualquier precepto que imponga la inversión de la carga de la prueba en perjuicio del consumidor. La interpretación del contrato se hará en el sentido más favorable para el consumidor.',
-    currentText:
-      'Sin perjuicio de la validez del contrato, se tendrán por no convenidas: a) Las cláusulas que desnaturalicen las obligaciones o limiten la responsabilidad por daños; b) Las cláusulas que importen renuncia o restricción de los derechos del consumidor o amplíen los derechos de la otra parte; c) Las cláusulas que contengan cualquier precepto que imponga la inversión de la carga de la prueba en perjuicio del consumidor. La interpretación del contrato se hará en el sentido más favorable para el consumidor.',
-    plainLanguageExplanation:
+    text:
+      'Sin perjuicio de la validez del contrato, se tendrán por no convenidas: a) Las cláusulas que desnaturalicen las obligaciones o limiten la responsabilidad por daños; b) Las cláusulas que importen renuncia o restricción de los derechos del consumidor o amplíen los derechos de la otra parte; c) Las cláusulas que contengan cualquier precepto que imponga la inversión de la carga de la prueba en perjuicio del consumidor. La interpretación del contrato se hará en el sentido más favorable para el consumidor.',    plainLanguageExplanation:
       'Las cláusulas abusivas son nulas de pleno derecho, aunque el contrato siga siendo válido en el resto. Son abusivas las que limitan la responsabilidad del proveedor, reducen derechos del consumidor o invierten la carga de la prueba. Ante duda, se interpreta a favor del consumidor.',
     practicalEffects: [
       'Las cláusulas abusivas se tienen por no escritas: el contrato sigue vigente sin ellas.',
@@ -434,7 +404,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-37',
         articleNumber: '37',
         segmentType: 'INCISO',
-        originalText:
+        text:
           'a) Las cláusulas que desnaturalicen las obligaciones o limiten la responsabilidad por daños; b) Las cláusulas que importen renuncia o restricción de los derechos del consumidor o amplíen los derechos de la otra parte; c) Las cláusulas que contengan cualquier precepto que imponga la inversión de la carga de la prueba en perjuicio del consumidor.',
         plainExplanation: 'Tipos de cláusulas abusivas que se tienen por no escritas.',
         practicalExample:
@@ -450,11 +420,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '40',
     title: 'Responsabilidad solidaria por daños',
-    originalText:
-      'Si el daño al consumidor resulta del vicio o riesgo de la cosa o de la prestación del servicio, responderán el productor, el fabricante, el importador, el distribuidor, el proveedor, el vendedor y quien haya puesto su marca en la cosa o servicio. El transportista responderá por los daños ocasionados a la cosa con motivo o en ocasión del servicio. La responsabilidad es solidaria, sin perjuicio de las acciones de repetición que correspondan. Sólo se liberará total o parcialmente quien demuestre que la causa del daño le ha sido ajena.',
-    currentText:
-      'Si el daño al consumidor resulta del vicio o riesgo de la cosa o de la prestación del servicio, responderán el productor, el fabricante, el importador, el distribuidor, el proveedor, el vendedor y quien haya puesto su marca en la cosa o servicio. El transportista responderá por los daños ocasionados a la cosa con motivo o en ocasión del servicio. La responsabilidad es solidaria, sin perjuicio de las acciones de repetición que correspondan. Sólo se liberará total o parcialmente quien demuestre que la causa del daño le ha sido ajena.',
-    plainLanguageExplanation:
+    text:
+      'Si el daño al consumidor resulta del vicio o riesgo de la cosa o de la prestación del servicio, responderán el productor, el fabricante, el importador, el distribuidor, el proveedor, el vendedor y quien haya puesto su marca en la cosa o servicio. El transportista responderá por los daños ocasionados a la cosa con motivo o en ocasión del servicio. La responsabilidad es solidaria, sin perjuicio de las acciones de repetición que correspondan. Sólo se liberará total o parcialmente quien demuestre que la causa del daño le ha sido ajena.',    plainLanguageExplanation:
       'Cuando un producto causa daño, todos los que intervienen en la cadena de comercialización responden solidariamente: fabricante, importador, distribuidor, vendedor y hasta quien puso su marca. El consumidor puede reclamar a cualquiera de ellos la indemnización total.',
     practicalEffects: [
       'Responsabilidad solidaria de toda la cadena de producción y comercialización.',
@@ -477,7 +444,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-40',
         articleNumber: '40',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La responsabilidad es solidaria, sin perjuicio de las acciones de repetición que correspondan. Sólo se liberará total o parcialmente quien demuestre que la causa del daño le ha sido ajena.',
         plainExplanation: 'Responsabilidad solidaria: el consumidor puede reclamar a cualquiera de la cadena.',
         practicalExample:
@@ -493,11 +460,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '47',
     title: 'Sanciones',
-    originalText:
-      'Verificada la existencia de la infracción, quienes la hayan cometido serán pasibles de las siguientes sanciones: a) Apercibimiento; b) Multa de cero coma cinco (0,5) a dos mil cien (2.100) canastas básicas total para el hogar 3; c) Decomiso de las mercaderías y productos objeto de la infracción; d) Clausura del establecimiento o suspensión del servicio afectado por un plazo de hasta treinta (30) días; e) Suspensión de hasta cinco (5) años en los registros de proveedores que posibilitan contratar con el Estado; f) La pérdida de concesiones, privilegios, regímenes impositivos o crediticios especiales de que gozare.',
-    currentText:
-      'Verificada la existencia de la infracción, quienes la hayan cometido serán pasibles de las siguientes sanciones: a) Apercibimiento; b) Multa de cero coma cinco (0,5) a dos mil cien (2.100) canastas básicas total para el hogar 3; c) Decomiso de las mercaderías y productos objeto de la infracción; d) Clausura del establecimiento o suspensión del servicio afectado por un plazo de hasta treinta (30) días; e) Suspensión de hasta cinco (5) años en los registros de proveedores que posibilitan contratar con el Estado; f) La pérdida de concesiones, privilegios, regímenes impositivos o crediticios especiales de que gozare.',
-    plainLanguageExplanation:
+    text:
+      'Verificada la existencia de la infracción, quienes la hayan cometido serán pasibles de las siguientes sanciones: a) Apercibimiento; b) Multa de cero coma cinco (0,5) a dos mil cien (2.100) canastas básicas total para el hogar 3; c) Decomiso de las mercaderías y productos objeto de la infracción; d) Clausura del establecimiento o suspensión del servicio afectado por un plazo de hasta treinta (30) días; e) Suspensión de hasta cinco (5) años en los registros de proveedores que posibilitan contratar con el Estado; f) La pérdida de concesiones, privilegios, regímenes impositivos o crediticios especiales de que gozare.',    plainLanguageExplanation:
       'Las infracciones a la ley pueden sancionarse con advertencias, multas, decomiso de mercadería, clausura del negocio, suspensión como proveedor del Estado o pérdida de beneficios. Las multas van desde 0,5 hasta 2.100 canastas básicas totales.',
     practicalEffects: [
       'Las sanciones se pueden aplicar de forma independiente o combinadas.',
@@ -520,7 +484,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-47',
         articleNumber: '47',
         segmentType: 'INCISO',
-        originalText:
+        text:
           'a) Apercibimiento; b) Multa de cero coma cinco (0,5) a dos mil cien (2.100) canastas básicas total para el hogar 3; c) Decomiso; d) Clausura por hasta 30 días; e) Suspensión de hasta 5 años en registros de proveedores del Estado; f) Pérdida de concesiones y beneficios.',
         plainExplanation: 'Catálogo de sanciones aplicables a proveedores infractores.',
         practicalExample: null,
@@ -535,11 +499,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '52',
     title: 'Acciones Judiciales',
-    originalText:
-      'Sin perjuicio de lo dispuesto en esta ley, el consumidor y usuario podrán iniciar acciones judiciales cuando sus intereses resulten afectados o amenazados. La acción corresponderá al consumidor o usuario por su propio derecho, a las asociaciones de consumidores o usuarios autorizadas, a la autoridad de aplicación nacional o local, al Defensor del Pueblo y al Ministerio Público Fiscal. Las actuaciones judiciales que se inicien de conformidad con la presente ley en razón de un derecho o interés individual gozarán del beneficio de justicia gratuita.',
-    currentText:
-      'Sin perjuicio de lo dispuesto en esta ley, el consumidor y usuario podrán iniciar acciones judiciales cuando sus intereses resulten afectados o amenazados. La acción corresponderá al consumidor o usuario por su propio derecho, a las asociaciones de consumidores o usuarios autorizadas, a la autoridad de aplicación nacional o local, al Defensor del Pueblo y al Ministerio Público Fiscal. Las actuaciones judiciales que se inicien de conformidad con la presente ley en razón de un derecho o interés individual gozarán del beneficio de justicia gratuita.',
-    plainLanguageExplanation:
+    text:
+      'Sin perjuicio de lo dispuesto en esta ley, el consumidor y usuario podrán iniciar acciones judiciales cuando sus intereses resulten afectados o amenazados. La acción corresponderá al consumidor o usuario por su propio derecho, a las asociaciones de consumidores o usuarios autorizadas, a la autoridad de aplicación nacional o local, al Defensor del Pueblo y al Ministerio Público Fiscal. Las actuaciones judiciales que se inicien de conformidad con la presente ley en razón de un derecho o interés individual gozarán del beneficio de justicia gratuita.',    plainLanguageExplanation:
       'El consumidor puede ir a la justicia cuando sus derechos sean violados o amenazados. Pueden hacerlo: el consumidor individualmente, asociaciones de consumidores, la autoridad de aplicación, el Defensor del Pueblo y el Ministerio Público Fiscal. Las acciones individuales son gratuitas (beneficio de justicia gratuita).',
     practicalEffects: [
       'Acceso gratuito a la justicia para reclamos individuales de consumidores.',
@@ -562,7 +523,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-52',
         articleNumber: '52',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las actuaciones judiciales que se inicien de conformidad con la presente ley en razón de un derecho o interés individual gozarán del beneficio de justicia gratuita.',
         plainExplanation: 'Los reclamos individuales de consumidores son gratuitos ante la justicia.',
         practicalExample:
@@ -578,11 +539,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '52 bis',
     title: 'Daño Punitivo',
-    originalText:
-      'Al proveedor que no cumpla sus obligaciones legales o contractuales con el consumidor, a instancia del damnificado, el juez podrá aplicar una multa civil a favor del consumidor, la que se graduará en función de la gravedad del hecho y demás circunstancias del caso, independientemente de otras indemnizaciones que correspondan. La multa civil que se imponga no podrá superar el máximo de la sanción de multa prevista en el artículo 47, inciso b) de esta ley.',
-    currentText:
-      'Al proveedor que no cumpla sus obligaciones legales o contractuales con el consumidor, a instancia del damnificado, el juez podrá aplicar una multa civil a favor del consumidor, la que se graduará en función de la gravedad del hecho y demás circunstancias del caso, independientemente de otras indemnizaciones que correspondan. La multa civil que se imponga no podrá superar el máximo de la sanción de multa prevista en el artículo 47, inciso b) de esta ley.',
-    plainLanguageExplanation:
+    text:
+      'Al proveedor que no cumpla sus obligaciones legales o contractuales con el consumidor, a instancia del damnificado, el juez podrá aplicar una multa civil a favor del consumidor, la que se graduará en función de la gravedad del hecho y demás circunstancias del caso, independientemente de otras indemnizaciones que correspondan. La multa civil que se imponga no podrá superar el máximo de la sanción de multa prevista en el artículo 47, inciso b) de esta ley.',    plainLanguageExplanation:
       'Además de la indemnización por daños, el juez puede imponerle al proveedor un castigo adicional (daño punitivo) que se paga al consumidor. Es una multa civil por la conducta gravemente reprochable, para disuadir al proveedor de repetirla.',
     practicalEffects: [
       'El daño punitivo se añade a la indemnización ordinaria.',
@@ -608,7 +566,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-52bis',
         articleNumber: '52 bis',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Al proveedor que no cumpla sus obligaciones legales o contractuales con el consumidor, a instancia del damnificado, el juez podrá aplicar una multa civil a favor del consumidor.',
         plainExplanation: 'El juez puede imponer una multa civil adicional (daño punitivo) al proveedor que incumple gravemente.',
         practicalExample:
@@ -624,11 +582,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '65',
     title: 'Orden público',
-    originalText:
-      'La presente ley es de orden público, rige en todo el territorio nacional y entrará en vigencia a partir de la fecha de su publicación en el Boletín Oficial. El Poder Ejecutivo debe reglamentar la presente ley dentro de los ciento veinte (120) días a partir de su publicación.',
-    currentText:
-      'La presente ley es de orden público, rige en todo el territorio nacional y entrará en vigencia a partir de la fecha de su publicación en el Boletín Oficial. El Poder Ejecutivo debe reglamentar la presente ley dentro de los ciento veinte (120) días a partir de su publicación.',
-    plainLanguageExplanation:
+    text:
+      'La presente ley es de orden público, rige en todo el territorio nacional y entrará en vigencia a partir de la fecha de su publicación en el Boletín Oficial. El Poder Ejecutivo debe reglamentar la presente ley dentro de los ciento veinte (120) días a partir de su publicación.',    plainLanguageExplanation:
       'Esta ley es de orden público: sus disposiciones son irrenunciables y se aplican en todo el país. Ningún contrato puede dejarlas de lado en perjuicio del consumidor.',
     practicalEffects: [
       'Los derechos de esta ley son irrenunciables: no se pueden ceder por contrato.',
@@ -649,7 +604,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-65',
         articleNumber: '65',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La presente ley es de orden público, rige en todo el territorio nacional y entrará en vigencia a partir de la fecha de su publicación en el Boletín Oficial.',
         plainExplanation: 'Ley de orden público: sus derechos son irrenunciables e indisponibles.',
         practicalExample: null,
@@ -664,11 +619,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '6',
     title: 'Cosas y servicios riesgosos',
-    originalText:
-      'Las cosas y servicios, incluidos los servicios públicos domiciliarios, cuya utilización pueda suponer un riesgo para la salud o la integridad física de los consumidores o usuarios, deben comercializarse observando los mecanismos, instrucciones y normas establecidas o razonables para garantizar la seguridad de los mismos. En tales casos debe entregarse un manual en idioma nacional sobre el uso, la instalación y mantenimiento de la cosa o servicio de que se trate y brindarle adecuado asesoramiento. Igual obligación regirá en todos los casos en que se trate de artículos importados, siendo el importador responsable en sustitución del fabricante extranjero.',
-    currentText:
-      'Las cosas y servicios, incluidos los servicios públicos domiciliarios, cuya utilización pueda suponer un riesgo para la salud o la integridad física de los consumidores o usuarios, deben comercializarse observando los mecanismos, instrucciones y normas establecidas o razonables para garantizar la seguridad de los mismos. En tales casos debe entregarse un manual en idioma nacional sobre el uso, la instalación y mantenimiento de la cosa o servicio de que se trate y brindarle adecuado asesoramiento. Igual obligación regirá en todos los casos en que se trate de artículos importados, siendo el importador responsable en sustitución del fabricante extranjero.',
-    plainLanguageExplanation:
+    text:
+      'Las cosas y servicios, incluidos los servicios públicos domiciliarios, cuya utilización pueda suponer un riesgo para la salud o la integridad física de los consumidores o usuarios, deben comercializarse observando los mecanismos, instrucciones y normas establecidas o razonables para garantizar la seguridad de los mismos. En tales casos debe entregarse un manual en idioma nacional sobre el uso, la instalación y mantenimiento de la cosa o servicio de que se trate y brindarle adecuado asesoramiento. Igual obligación regirá en todos los casos en que se trate de artículos importados, siendo el importador responsable en sustitución del fabricante extranjero.',    plainLanguageExplanation:
       'Los productos y servicios peligrosos para la salud o integridad física deben venderse con mecanismos de seguridad y un manual en español. Para artículos importados, el importador asume la responsabilidad del fabricante extranjero.',
     practicalEffects: [
       'El proveedor debe entregar manual en español para productos riesgosos.',
@@ -691,7 +643,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-6',
         articleNumber: '6',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las cosas y servicios, incluidos los servicios públicos domiciliarios, cuya utilización pueda suponer un riesgo para la salud o la integridad física de los consumidores o usuarios, deben comercializarse observando los mecanismos, instrucciones y normas establecidas o razonables para garantizar la seguridad de los mismos.',
         plainExplanation: 'Los productos y servicios peligrosos deben venderse con mecanismos de seguridad.',
         practicalExample:
@@ -705,7 +657,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-6',
         articleNumber: '6',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En tales casos debe entregarse un manual en idioma nacional sobre el uso, la instalación y mantenimiento de la cosa o servicio de que se trate y brindarle adecuado asesoramiento. Igual obligación regirá en todos los casos en que se trate de artículos importados, siendo el importador responsable en sustitución del fabricante extranjero.',
         plainExplanation: 'Obligación de entregar manual en español; el importador responde por productos importados sin manual.',
         practicalExample:
@@ -721,11 +673,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '9',
     title: 'Cosas deficientes, usadas o reconstituidas',
-    originalText:
-      'Cuando se ofrezcan en forma pública a consumidores potenciales indeterminados cosas que presenten alguna deficiencia, que sean usadas o reconstituidas debe indicarse las circunstancia en forma precisa y notoria.',
-    currentText:
-      'Cuando se ofrezcan en forma pública a consumidores potenciales indeterminados cosas que presenten alguna deficiencia, que sean usadas o reconstituidas debe indicarse las circunstancia en forma precisa y notoria.',
-    plainLanguageExplanation:
+    text:
+      'Cuando se ofrezcan en forma pública a consumidores potenciales indeterminados cosas que presenten alguna deficiencia, que sean usadas o reconstituidas debe indicarse las circunstancia en forma precisa y notoria.',    plainLanguageExplanation:
       'Cuando se venden públicamente productos defectuosos, usados o reparados, el proveedor debe indicarlo de manera clara y visible. No alcanza con poner un cartel pequeño o en letras minúsculas.',
     practicalEffects: [
       'Los productos usados o con defectos deben estar etiquetados de forma prominente con esa condición.',
@@ -747,7 +696,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-9',
         articleNumber: '9',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando se ofrezcan en forma pública a consumidores potenciales indeterminados cosas que presenten alguna deficiencia, que sean usadas o reconstituidas debe indicarse las circunstancia en forma precisa y notoria.',
         plainExplanation: 'Los productos con defecto, usados o reconstruidos deben anunciarse con esa condición de forma clara.',
         practicalExample:
@@ -763,11 +712,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '10',
     title: 'Contenido del documento de venta',
-    originalText:
-      'En el documento que se extienda por la venta de cosas muebles o inmuebles, sin perjuicio de la información exigida por otras leyes o normas, deberá constar: a) La descripción y especificación del bien. b) Nombre y domicilio del vendedor. c) Nombre y domicilio del fabricante, distribuidor o importador cuando correspondiere. d) La mención de las características de la garantía conforme a lo establecido en esta ley. e) Plazos y condiciones de entrega. f) El precio y las condiciones de pago. g) Los costos adicionales, especificando precio final a pagar por el consumidor. La redacción debe ser hecha en idioma castellano, en forma completa, clara y fácilmente legible, sin reenvíos a textos o documentos que no se entreguen previa o simultáneamente. Cuando se incluyan cláusulas adicionales a las aquí indicadas o exigidas por normas vigentes, aquellas deberán ser escritas en letra destacada y suscritas por ambas partes. Deben redactarse tantos ejemplares como partes integren la relación contractual y suscribirse a un solo efecto. Un ejemplar original debe ser entregado al consumidor. La reglamentación establecerá modalidades más simples cuando la índole de la cosa objeto de la contratación así lo determine.',
-    currentText:
-      'En el documento que se extienda por la venta de cosas muebles o inmuebles, sin perjuicio de la información exigida por otras leyes o normas, deberá constar: a) La descripción y especificación del bien. b) Nombre y domicilio del vendedor. c) Nombre y domicilio del fabricante, distribuidor o importador cuando correspondiere. d) La mención de las características de la garantía conforme a lo establecido en esta ley. e) Plazos y condiciones de entrega. f) El precio y las condiciones de pago. g) Los costos adicionales, especificando precio final a pagar por el consumidor. La redacción debe ser hecha en idioma castellano, en forma completa, clara y fácilmente legible, sin reenvíos a textos o documentos que no se entreguen previa o simultáneamente. Cuando se incluyan cláusulas adicionales a las aquí indicadas o exigidas por normas vigentes, aquellas deberán ser escritas en letra destacada y suscritas por ambas partes. Deben redactarse tantos ejemplares como partes integren la relación contractual y suscribirse a un solo efecto. Un ejemplar original debe ser entregado al consumidor. La reglamentación establecerá modalidades más simples cuando la índole de la cosa objeto de la contratación así lo determine.',
-    plainLanguageExplanation:
+    text:
+      'En el documento que se extienda por la venta de cosas muebles o inmuebles, sin perjuicio de la información exigida por otras leyes o normas, deberá constar: a) La descripción y especificación del bien. b) Nombre y domicilio del vendedor. c) Nombre y domicilio del fabricante, distribuidor o importador cuando correspondiere. d) La mención de las características de la garantía conforme a lo establecido en esta ley. e) Plazos y condiciones de entrega. f) El precio y las condiciones de pago. g) Los costos adicionales, especificando precio final a pagar por el consumidor. La redacción debe ser hecha en idioma castellano, en forma completa, clara y fácilmente legible, sin reenvíos a textos o documentos que no se entreguen previa o simultáneamente. Cuando se incluyan cláusulas adicionales a las aquí indicadas o exigidas por normas vigentes, aquellas deberán ser escritas en letra destacada y suscritas por ambas partes. Deben redactarse tantos ejemplares como partes integren la relación contractual y suscribirse a un solo efecto. Un ejemplar original debe ser entregado al consumidor. La reglamentación establecerá modalidades más simples cuando la índole de la cosa objeto de la contratación así lo determine.',    plainLanguageExplanation:
       'Todo contrato de compraventa de bienes debe incluir: descripción del bien, datos del vendedor y fabricante, condiciones de garantía, plazos de entrega, precio final con todos los costos. Debe estar en castellano, ser legible, y entregarse una copia al consumidor.',
     practicalEffects: [
       'El consumidor tiene derecho a recibir un ejemplar del contrato de compra.',
@@ -791,7 +737,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-10',
         articleNumber: '10',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En el documento que se extienda por la venta de cosas muebles o inmuebles, sin perjuicio de la información exigida por otras leyes o normas, deberá constar: a) La descripción y especificación del bien. b) Nombre y domicilio del vendedor. c) Nombre y domicilio del fabricante, distribuidor o importador cuando correspondiere. d) La mención de las características de la garantía conforme a lo establecido en esta ley. e) Plazos y condiciones de entrega. f) El precio y las condiciones de pago. g) Los costos adicionales, especificando precio final a pagar por el consumidor.',
         plainExplanation: 'Lista de datos obligatorios en todo contrato de compraventa: descripción del bien, partes, garantía, entrega, precio total.',
         practicalExample:
@@ -805,7 +751,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-10',
         articleNumber: '10',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La redacción debe ser hecha en idioma castellano, en forma completa, clara y fácilmente legible, sin reenvíos a textos o documentos que no se entreguen previa o simultáneamente. Cuando se incluyan cláusulas adicionales a las aquí indicadas o exigidas por normas vigentes, aquellas deberán ser escritas en letra destacada y suscritas por ambas partes. Deben redactarse tantos ejemplares como partes integren la relación contractual y suscribirse a un solo efecto. Un ejemplar original debe ser entregado al consumidor.',
         plainExplanation: 'El contrato debe estar en castellano, ser legible, no remitir a documentos externos, y entregarse copia al consumidor.',
         practicalExample:
@@ -821,11 +767,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '12',
     title: 'Servicio técnico de garantía',
-    originalText:
-      'Los fabricantes, importadores y vendedores de las cosas mencionadas en el artículo anterior deben asegurar un servicio técnico adecuado y el suministro de partes y repuestos.',
-    currentText:
-      'Los fabricantes, importadores y vendedores de las cosas mencionadas en el artículo anterior deben asegurar un servicio técnico adecuado y el suministro de partes y repuestos.',
-    plainLanguageExplanation:
+    text:
+      'Los fabricantes, importadores y vendedores de las cosas mencionadas en el artículo anterior deben asegurar un servicio técnico adecuado y el suministro de partes y repuestos.',    plainLanguageExplanation:
       'Fabricantes, importadores y vendedores deben garantizar la existencia de servicio técnico y disponibilidad de repuestos para los productos que venden. No alcanza con vender el producto: también deben sostener la cadena de reparación y partes.',
     practicalEffects: [
       'El vendedor que no puede garantizar repuestos ni servicio técnico no puede vender legalmente el bien.',
@@ -848,7 +791,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-12',
         articleNumber: '12',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los fabricantes, importadores y vendedores de las cosas mencionadas en el artículo anterior deben asegurar un servicio técnico adecuado y el suministro de partes y repuestos.',
         plainExplanation: 'Fabricantes, importadores y vendedores deben garantizar servicio técnico y suministro de repuestos.',
         practicalExample:
@@ -864,11 +807,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '13',
     title: 'Responsabilidad solidaria',
-    originalText:
-      'Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal, los productores, importadores, distribuidores y vendedores de las cosas comprendidas en el artículo 11.',
-    currentText:
-      'Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal, los productores, importadores, distribuidores y vendedores de las cosas comprendidas en el artículo 11.',
-    plainLanguageExplanation:
+    text:
+      'Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal, los productores, importadores, distribuidores y vendedores de las cosas comprendidas en el artículo 11.',    plainLanguageExplanation:
       'Todos los integrantes de la cadena comercial —productor, importador, distribuidor y vendedor— responden conjuntamente por la garantía legal. El consumidor puede reclamar a cualquiera de ellos sin importar quién causó el defecto.',
     practicalEffects: [
       'El consumidor puede demandar al vendedor aunque el defecto sea del fabricante.',
@@ -890,7 +830,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-13',
         articleNumber: '13',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Son solidariamente responsables del otorgamiento y cumplimiento de la garantía legal, los productores, importadores, distribuidores y vendedores de las cosas comprendidas en el artículo 11.',
         plainExplanation: 'Toda la cadena comercial responde solidariamente por la garantía; el consumidor elige a quién reclamar.',
         practicalExample:
@@ -906,11 +846,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '14',
     title: 'Garantía de los servicios',
-    originalText:
-      'La garantía de los servicios prestados al consumidor no puede ser inferior a TREINTA (30) días, contados a partir de la fecha en que el consumidor los reciba o, en su caso, los resultados de los mismos.',
-    currentText:
-      'La garantía de los servicios prestados al consumidor no puede ser inferior a TREINTA (30) días, contados a partir de la fecha en que el consumidor los reciba o, en su caso, los resultados de los mismos.',
-    plainLanguageExplanation:
+    text:
+      'La garantía de los servicios prestados al consumidor no puede ser inferior a TREINTA (30) días, contados a partir de la fecha en que el consumidor los reciba o, en su caso, los resultados de los mismos.',    plainLanguageExplanation:
       'Los servicios (no bienes) tienen una garantía mínima de 30 días desde que el consumidor los recibe. Si la reparación o servicio falla dentro de ese plazo, el proveedor debe rehacerlo sin costo.',
     practicalEffects: [
       'Todo servicio tiene garantía mínima de 30 días independientemente de lo que diga el contrato.',
@@ -933,7 +870,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-14',
         articleNumber: '14',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La garantía de los servicios prestados al consumidor no puede ser inferior a TREINTA (30) días, contados a partir de la fecha en que el consumidor los reciba o, en su caso, los resultados de los mismos.',
         plainExplanation: 'Los servicios tienen garantía mínima de 30 días desde que el consumidor los recibe.',
         practicalExample:
@@ -949,11 +886,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '15',
     title: 'Constancia de la reparación',
-    originalText:
-      'Cuando el prestador del servicio deba reparar un bien, dejará constancia escrita de las deficiencias detectadas, en un ejemplar que quedará en poder del consumidor. Si el bien reparado sigue sin funcionar adecuadamente el prestador del servicio estará obligado a sustituirlo por otro de iguales o superiores características, en los plazos y condiciones establecidos para la garantía.',
-    currentText:
-      'Cuando el prestador del servicio deba reparar un bien, dejará constancia escrita de las deficiencias detectadas, en un ejemplar que quedará en poder del consumidor. Si el bien reparado sigue sin funcionar adecuadamente el prestador del servicio estará obligado a sustituirlo por otro de iguales o superiores características, en los plazos y condiciones establecidos para la garantía.',
-    plainLanguageExplanation:
+    text:
+      'Cuando el prestador del servicio deba reparar un bien, dejará constancia escrita de las deficiencias detectadas, en un ejemplar que quedará en poder del consumidor. Si el bien reparado sigue sin funcionar adecuadamente el prestador del servicio estará obligado a sustituirlo por otro de iguales o superiores características, en los plazos y condiciones establecidos para la garantía.',    plainLanguageExplanation:
       'El técnico que repara un bien debe dejar una constancia escrita de qué deficiencias encontró y qué reparó. Si después de la reparación el bien sigue sin funcionar bien, el prestador debe cambiarlo por uno de igual o mejor calidad.',
     practicalEffects: [
       'El consumidor tiene derecho a recibir un comprobante escrito de la reparación realizada.',
@@ -976,7 +910,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-15',
         articleNumber: '15',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando el prestador del servicio deba reparar un bien, dejará constancia escrita de las deficiencias detectadas, en un ejemplar que quedará en poder del consumidor.',
         plainExplanation: 'El técnico debe entregar constancia escrita de las deficiencias detectadas al reparar.',
         practicalExample:
@@ -990,7 +924,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-15',
         articleNumber: '15',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Si el bien reparado sigue sin funcionar adecuadamente el prestador del servicio estará obligado a sustituirlo por otro de iguales o superiores características, en los plazos y condiciones establecidos para la garantía.',
         plainExplanation: 'Si la reparación fracasa, el prestador debe sustituir el bien sin cargo.',
         practicalExample:
@@ -1006,11 +940,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '16',
     title: 'Prolongación del plazo de garantía',
-    originalText:
-      'El tiempo durante el cual el consumidor está privado del uso de la cosa en garantía, por cualquier causa relacionada con su reparación, debe computarse como prolongación del plazo de garantía legal.',
-    currentText:
-      'El tiempo durante el cual el consumidor está privado del uso de la cosa en garantía, por cualquier causa relacionada con su reparación, debe computarse como prolongación del plazo de garantía legal.',
-    plainLanguageExplanation:
+    text:
+      'El tiempo durante el cual el consumidor está privado del uso de la cosa en garantía, por cualquier causa relacionada con su reparación, debe computarse como prolongación del plazo de garantía legal.',    plainLanguageExplanation:
       'Si el bien está en el servicio técnico para reparación bajo garantía, esos días no cuentan para el plazo de garantía: la garantía se extiende por los días que el consumidor estuvo sin el bien.',
     practicalEffects: [
       'Si un celular pasa 20 días en el servicio técnico bajo garantía, la garantía se extiende 20 días adicionales.',
@@ -1031,7 +962,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-16',
         articleNumber: '16',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El tiempo durante el cual el consumidor está privado del uso de la cosa en garantía, por cualquier causa relacionada con su reparación, debe computarse como prolongación del plazo de garantía legal.',
         plainExplanation: 'Los días que el bien está en reparación se suman al plazo de garantía; no se "consumen".',
         practicalExample:
@@ -1047,11 +978,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '17',
     title: 'Reparación no satisfactoria',
-    originalText:
-      'En los supuestos en que la reparación efectuada no resulte satisfactoria por no reunir la cosa reparada, las condiciones óptimas para cumplir con el uso al que está destinada, el consumidor puede: a) Pedir la sustitución de la cosa adquirida por otra de idénticas características. En tal caso el plazo de la garantía legal se computa a partir de la fecha de la entrega de la nueva cosa. b) Devolver la cosa en el estado en que se encuentre a cambio de recibir el importe equivalente a las sumas pagadas, conforme el precio actual en plaza de la cosa, al momento de abonarse dicha suma o parte proporcional, si hubiere efectuado pagos parciales. c) Obtener una quita proporcional del precio. En todos los casos, la opción por parte del consumidor no impide la reclamación de los eventuales daños y perjuicios que pudieren corresponder.',
-    currentText:
-      'En los supuestos en que la reparación efectuada no resulte satisfactoria por no reunir la cosa reparada, las condiciones óptimas para cumplir con el uso al que está destinada, el consumidor puede: a) Pedir la sustitución de la cosa adquirida por otra de idénticas características. En tal caso el plazo de la garantía legal se computa a partir de la fecha de la entrega de la nueva cosa. b) Devolver la cosa en el estado en que se encuentre a cambio de recibir el importe equivalente a las sumas pagadas, conforme el precio actual en plaza de la cosa, al momento de abonarse dicha suma o parte proporcional, si hubiere efectuado pagos parciales. c) Obtener una quita proporcional del precio. En todos los casos, la opción por parte del consumidor no impide la reclamación de los eventuales daños y perjuicios que pudieren corresponder.',
-    plainLanguageExplanation:
+    text:
+      'En los supuestos en que la reparación efectuada no resulte satisfactoria por no reunir la cosa reparada, las condiciones óptimas para cumplir con el uso al que está destinada, el consumidor puede: a) Pedir la sustitución de la cosa adquirida por otra de idénticas características. En tal caso el plazo de la garantía legal se computa a partir de la fecha de la entrega de la nueva cosa. b) Devolver la cosa en el estado en que se encuentre a cambio de recibir el importe equivalente a las sumas pagadas, conforme el precio actual en plaza de la cosa, al momento de abonarse dicha suma o parte proporcional, si hubiere efectuado pagos parciales. c) Obtener una quita proporcional del precio. En todos los casos, la opción por parte del consumidor no impide la reclamación de los eventuales daños y perjuicios que pudieren corresponder.',    plainLanguageExplanation:
       'Si la reparación bajo garantía no deja el producto en condiciones óptimas de uso, el consumidor puede elegir entre tres opciones: reemplazo por un producto idéntico, devolución del dinero, o reducción proporcional del precio. Cualquiera de estas opciones es compatible con reclamar daños y perjuicios adicionales.',
     practicalEffects: [
       'El consumidor tiene poder de elegir la solución ante reparación fallida, no el proveedor.',
@@ -1074,7 +1002,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-17',
         articleNumber: '17',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En los supuestos en que la reparación efectuada no resulte satisfactoria por no reunir la cosa reparada, las condiciones óptimas para cumplir con el uso al que está destinada, el consumidor puede: a) Pedir la sustitución de la cosa adquirida por otra de idénticas características. b) Devolver la cosa en el estado en que se encuentre a cambio de recibir el importe equivalente a las sumas pagadas, conforme el precio actual en plaza. c) Obtener una quita proporcional del precio.',
         plainExplanation: 'Ante reparación fallida, el consumidor elige: sustitución, devolución del dinero o rebaja de precio.',
         practicalExample:
@@ -1090,11 +1018,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '18',
     title: 'Vicios redhibitorios',
-    originalText:
-      'La aplicación de las disposiciones precedentes, no obsta a la subsistencia de la garantía legal por vicios redhibitorios. Esta última se rige por las normas del Código Civil y Comercial de la Nación.',
-    currentText:
-      'La aplicación de las disposiciones precedentes, no obsta a la subsistencia de la garantía legal por vicios redhibitorios. Esta última se rige por las normas del Código Civil y Comercial de la Nación.',
-    plainLanguageExplanation:
+    text:
+      'La aplicación de las disposiciones precedentes, no obsta a la subsistencia de la garantía legal por vicios redhibitorios. Esta última se rige por las normas del Código Civil y Comercial de la Nación.',    plainLanguageExplanation:
       'Las garantías de esta ley (arts. 11 a 17) conviven con los vicios redhibitorios del Código Civil y Comercial. El consumidor puede elegir la vía que más le conviene: la garantía especial de consumo de esta ley o la acción por vicios ocultos del Código Civil.',
     practicalEffects: [
       'El consumidor puede optar por la garantía de esta ley (más rápida) o por la acción de vicios redhibitorios (plazos más largos del CCyC).',
@@ -1115,7 +1040,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-18',
         articleNumber: '18',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La aplicación de las disposiciones precedentes, no obsta a la subsistencia de la garantía legal por vicios redhibitorios. Esta última se rige por las normas del Código Civil y Comercial de la Nación.',
         plainExplanation: 'La garantía de esta ley coexiste con la acción por vicios ocultos del Código Civil y Comercial.',
         practicalExample:
@@ -1131,11 +1056,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '19',
     title: 'Modalidades de prestación de servicios',
-    originalText:
-      'Quienes presten servicios de cualquier naturaleza están obligados a respetar los términos, plazos, condiciones, modalidades, reservas y demás circunstancias conforme a las cuales hayan sido ofrecidos, publicitados o convenidos.',
-    currentText:
-      'Quienes presten servicios de cualquier naturaleza están obligados a respetar los términos, plazos, condiciones, modalidades, reservas y demás circunstancias conforme a las cuales hayan sido ofrecidos, publicitados o convenidos.',
-    plainLanguageExplanation:
+    text:
+      'Quienes presten servicios de cualquier naturaleza están obligados a respetar los términos, plazos, condiciones, modalidades, reservas y demás circunstancias conforme a las cuales hayan sido ofrecidos, publicitados o convenidos.',    plainLanguageExplanation:
       'Los prestadores de servicios deben cumplir exactamente lo que ofrecieron o publicitaron. Si el aviso decía "entrega en 48 horas", deben entregarla en ese plazo. La oferta pública obliga al prestador.',
     practicalEffects: [
       'La publicidad y las condiciones ofrecidas forman parte del contrato y son exigibles.',
@@ -1158,7 +1080,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-19',
         articleNumber: '19',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Quienes presten servicios de cualquier naturaleza están obligados a respetar los términos, plazos, condiciones, modalidades, reservas y demás circunstancias conforme a las cuales hayan sido ofrecidos, publicitados o convenidos.',
         plainExplanation: 'El prestador debe cumplir exactamente lo ofrecido o publicitado.',
         practicalExample:
@@ -1174,11 +1096,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '20',
     title: 'Funcionamiento de los servicios',
-    originalText:
-      'El prestador de servicios es responsable por los defectos o vicios de cualquier índole, aunque hayan sido ocasionados por los materiales utilizados, cuando éstos fueron provistos por el prestador.',
-    currentText:
-      'El prestador de servicios es responsable por los defectos o vicios de cualquier índole, aunque hayan sido ocasionados por los materiales utilizados, cuando éstos fueron provistos por el prestador.',
-    plainLanguageExplanation:
+    text:
+      'El prestador de servicios es responsable por los defectos o vicios de cualquier índole, aunque hayan sido ocasionados por los materiales utilizados, cuando éstos fueron provistos por el prestador.',    plainLanguageExplanation:
       'El prestador de servicios responde por los defectos del servicio aunque el problema venga de los materiales que él mismo proveyó. No puede excusarse diciendo "fue por los materiales".',
     practicalEffects: [
       'El prestador no puede trasladar la responsabilidad al fabricante de los materiales si fue él quien eligió y usó esos materiales.',
@@ -1200,7 +1119,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-20',
         articleNumber: '20',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El prestador de servicios es responsable por los defectos o vicios de cualquier índole, aunque hayan sido ocasionados por los materiales utilizados, cuando éstos fueron provistos por el prestador.',
         plainExplanation: 'El prestador responde por defectos del servicio incluso si provienen de los materiales que él eligió.',
         practicalExample:
@@ -1216,11 +1135,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '21',
     title: 'Presupuesto',
-    originalText:
-      'En los supuestos de reparaciones de cualquier índole, el prestador del servicio debe realizar un presupuesto que contenga como mínimo los siguientes datos: a) Nombre, domicilio y otros datos de identificación del prestador del servicio. b) La descripción del trabajo a realizar. c) Una descripción detallada de los materiales a emplear. d) Los precios de éstos y la mano de obra. e) El tiempo en que será realizado. f) Si otorga o no garantía y en su caso, el alcance y duración de ésta. g) El plazo en que el presupuesto tendrá vigencia. h) La fecha de presentación. El presupuesto debe ser suscripto por ambas partes como condición de validez. El original de dicho documento debe ser entregado al consumidor, quedando una copia en poder del prestador. El presupuesto no podrá cobrarse cuando lo requiera el consumidor para reparaciones o prestaciones de servicios de oficios vinculados a la industria de la construcción, electricidad, plomería y afines, que se realicen en el domicilio del consumidor.',
-    currentText:
-      'En los supuestos de reparaciones de cualquier índole, el prestador del servicio debe realizar un presupuesto que contenga como mínimo los siguientes datos: a) Nombre, domicilio y otros datos de identificación del prestador del servicio. b) La descripción del trabajo a realizar. c) Una descripción detallada de los materiales a emplear. d) Los precios de éstos y la mano de obra. e) El tiempo en que será realizado. f) Si otorga o no garantía y en su caso, el alcance y duración de ésta. g) El plazo en que el presupuesto tendrá vigencia. h) La fecha de presentación. El presupuesto debe ser suscripto por ambas partes como condición de validez. El original de dicho documento debe ser entregado al consumidor, quedando una copia en poder del prestador. El presupuesto no podrá cobrarse cuando lo requiera el consumidor para reparaciones o prestaciones de servicios de oficios vinculados a la industria de la construcción, electricidad, plomería y afines, que se realicen en el domicilio del consumidor.',
-    plainLanguageExplanation:
+    text:
+      'En los supuestos de reparaciones de cualquier índole, el prestador del servicio debe realizar un presupuesto que contenga como mínimo los siguientes datos: a) Nombre, domicilio y otros datos de identificación del prestador del servicio. b) La descripción del trabajo a realizar. c) Una descripción detallada de los materiales a emplear. d) Los precios de éstos y la mano de obra. e) El tiempo en que será realizado. f) Si otorga o no garantía y en su caso, el alcance y duración de ésta. g) El plazo en que el presupuesto tendrá vigencia. h) La fecha de presentación. El presupuesto debe ser suscripto por ambas partes como condición de validez. El original de dicho documento debe ser entregado al consumidor, quedando una copia en poder del prestador. El presupuesto no podrá cobrarse cuando lo requiera el consumidor para reparaciones o prestaciones de servicios de oficios vinculados a la industria de la construcción, electricidad, plomería y afines, que se realicen en el domicilio del consumidor.',    plainLanguageExplanation:
       'Para cualquier reparación, el prestador debe hacer un presupuesto escrito con: sus datos, descripción del trabajo, materiales, precios, plazos, y si hay garantía. Debe ser firmado por ambas partes. El presupuesto es gratis para reparaciones en el domicilio del consumidor vinculadas a construcción, electricidad, plomería y afines.',
     practicalEffects: [
       'El consumidor puede exigir presupuesto antes de autorizar cualquier reparación.',
@@ -1244,7 +1160,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-21',
         articleNumber: '21',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En los supuestos de reparaciones de cualquier índole, el prestador del servicio debe realizar un presupuesto que contenga como mínimo: a) Identificación del prestador. b) Descripción del trabajo. c) Materiales a emplear. d) Precios de materiales y mano de obra. e) Tiempo de realización. f) Garantía. g) Vigencia del presupuesto. h) Fecha.',
         plainExplanation: 'El prestador debe hacer un presupuesto escrito con al menos 8 datos obligatorios antes de iniciar la reparación.',
         practicalExample:
@@ -1258,7 +1174,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-21',
         articleNumber: '21',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El presupuesto no podrá cobrarse cuando lo requiera el consumidor para reparaciones o prestaciones de servicios de oficios vinculados a la industria de la construcción, electricidad, plomería y afines, que se realicen en el domicilio del consumidor.',
         plainExplanation: 'El presupuesto es gratuito para trabajos de construcción, electricidad, plomería y afines realizados en el domicilio del consumidor.',
         practicalExample:
@@ -1274,11 +1190,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '22',
     title: 'Supuestos incluidos',
-    originalText:
-      'Lo dispuesto en este capítulo es aplicable a la compraventa de cosas muebles no fungibles e inmuebles, incluida la de los lotes de terreno adquiridos con el fin de construir viviendas en ellos, cuando la oferta sea pública y dirigida a personas indeterminadas.',
-    currentText:
-      'Lo dispuesto en este capítulo es aplicable a la compraventa de cosas muebles no fungibles e inmuebles, incluida la de los lotes de terreno adquiridos con el fin de construir viviendas en ellos, cuando la oferta sea pública y dirigida a personas indeterminadas.',
-    plainLanguageExplanation:
+    text:
+      'Lo dispuesto en este capítulo es aplicable a la compraventa de cosas muebles no fungibles e inmuebles, incluida la de los lotes de terreno adquiridos con el fin de construir viviendas en ellos, cuando la oferta sea pública y dirigida a personas indeterminadas.',    plainLanguageExplanation:
       'El capítulo sobre ventas a domicilio y similares aplica a bienes muebles no fungibles (electrodomésticos, autos, etc.) e inmuebles (casas, departamentos, lotes para construir) cuando la oferta es pública y masiva.',
     practicalEffects: [
       'Los lotes para construir vivienda quedan protegidos por las mismas reglas que los bienes de consumo.',
@@ -1299,7 +1212,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-22',
         articleNumber: '22',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Lo dispuesto en este capítulo es aplicable a la compraventa de cosas muebles no fungibles e inmuebles, incluida la de los lotes de terreno adquiridos con el fin de construir viviendas en ellos, cuando la oferta sea pública y dirigida a personas indeterminadas.',
         plainExplanation: 'Este capítulo protege compras de bienes no fungibles e inmuebles cuando la oferta es pública.',
         practicalExample:
@@ -1315,11 +1228,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '23',
     title: 'Rescisión',
-    originalText:
-      'En los casos previstos en el artículo anterior, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue la cosa o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser limitada de manera alguna. La revocación debe ser notificada al proveedor por escrito o medios electrónicos, o mediante la devolución de la cosa dentro del plazo.',
-    currentText:
-      'En los casos previstos en el artículo anterior, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue la cosa o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser limitada de manera alguna. La revocación debe ser notificada al proveedor por escrito o medios electrónicos, o mediante la devolución de la cosa dentro del plazo.',
-    plainLanguageExplanation:
+    text:
+      'En los casos previstos en el artículo anterior, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue la cosa o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna. Esta facultad no puede ser limitada de manera alguna. La revocación debe ser notificada al proveedor por escrito o medios electrónicos, o mediante la devolución de la cosa dentro del plazo.',    plainLanguageExplanation:
       'El consumidor tiene 10 días desde que recibe el bien (o desde que firma el contrato, si es posterior) para arrepentirse de la compra sin pagar ningún costo. Debe notificarlo por escrito, por medios electrónicos o devolviendo el bien dentro del plazo. Esta facultad no puede ser limitada por contrato.',
     practicalEffects: [
       'El "botón de arrepentimiento" legal: el consumidor puede retractarse dentro de los 10 días sin dar razones.',
@@ -1342,7 +1252,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-23',
         articleNumber: '23',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En los casos previstos en el artículo anterior, el consumidor tiene derecho a revocar la aceptación durante el plazo de DIEZ (10) días corridos contados a partir de la fecha en que se entregue la cosa o se celebre el contrato, lo último que ocurra, sin responsabilidad alguna.',
         plainExplanation: 'El consumidor tiene 10 días para arrepentirse de la compra sin pagar nada.',
         practicalExample:
@@ -1358,11 +1268,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '24',
     title: 'Efectos de la rescisión',
-    originalText:
-      'Si el consumidor ejerciera el derecho previsto en el artículo anterior, el proveedor deberá reintegrarle el precio pagado. Si hubiere efectuado algún pago el consumidor, el vendedor debe reintegrarlo de inmediato.',
-    currentText:
-      'Si el consumidor ejerciera el derecho previsto en el artículo anterior, el proveedor deberá reintegrarle el precio pagado. Si hubiere efectuado algún pago el consumidor, el vendedor debe reintegrarlo de inmediato.',
-    plainLanguageExplanation:
+    text:
+      'Si el consumidor ejerciera el derecho previsto en el artículo anterior, el proveedor deberá reintegrarle el precio pagado. Si hubiere efectuado algún pago el consumidor, el vendedor debe reintegrarlo de inmediato.',    plainLanguageExplanation:
       'Si el consumidor ejerce el derecho de revocación (art. 23), el proveedor debe devolver el dinero de inmediato. No puede retener parte del precio ni demorar la devolución.',
     practicalEffects: [
       'La devolución del precio debe ser inmediata, no sujeta a plazos administrativos del proveedor.',
@@ -1383,7 +1290,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-24',
         articleNumber: '24',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Si el consumidor ejerciera el derecho previsto en el artículo anterior, el proveedor deberá reintegrarle el precio pagado. Si hubiere efectuado algún pago el consumidor, el vendedor debe reintegrarlo de inmediato.',
         plainExplanation: 'Al revocarse la compra, el proveedor devuelve el precio de inmediato.',
         practicalExample:
@@ -1399,11 +1306,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '25',
     title: 'Ventas por correspondencia y otras',
-    originalText:
-      'Las disposiciones de este capítulo son aplicables a las operaciones de ventas realizadas por correspondencia, telecomunicación y domicilio del consumidor; en tanto no tengan una regulación específica más favorable para el consumidor.',
-    currentText:
-      'Las disposiciones de este capítulo son aplicables a las operaciones de ventas realizadas por correspondencia, telecomunicación y domicilio del consumidor; en tanto no tengan una regulación específica más favorable para el consumidor.',
-    plainLanguageExplanation:
+    text:
+      'Las disposiciones de este capítulo son aplicables a las operaciones de ventas realizadas por correspondencia, telecomunicación y domicilio del consumidor; en tanto no tengan una regulación específica más favorable para el consumidor.',    plainLanguageExplanation:
       'Las reglas de este capítulo (ventas fuera del establecimiento) aplican también a ventas por correo, teléfono, y en el domicilio del consumidor, salvo que exista una norma específica más favorable para el consumidor.',
     practicalEffects: [
       'La venta telefónica, por catálogo y la venta a domicilio quedan protegidas por las mismas reglas.',
@@ -1424,7 +1328,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-25',
         articleNumber: '25',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las disposiciones de este capítulo son aplicables a las operaciones de ventas realizadas por correspondencia, telecomunicación y domicilio del consumidor; en tanto no tengan una regulación específica más favorable para el consumidor.',
         plainExplanation: 'Las ventas telefónicas, por correo y a domicilio tienen las mismas protecciones que las ventas fuera del establecimiento.',
         practicalExample:
@@ -1440,11 +1344,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '26',
     title: 'Reciprocidad en el trato',
-    originalText:
-      'Las empresas prestadoras de servicios públicos a domicilio deben otorgar a los usuarios reciprocidad de trato, aplicando para los reintegros o devoluciones los mismos criterios que establezcan para los cargos por mora.',
-    currentText:
-      'Las empresas prestadoras de servicios públicos a domicilio deben otorgar a los usuarios reciprocidad de trato, aplicando para los reintegros o devoluciones los mismos criterios que establezcan para los cargos por mora.',
-    plainLanguageExplanation:
+    text:
+      'Las empresas prestadoras de servicios públicos a domicilio deben otorgar a los usuarios reciprocidad de trato, aplicando para los reintegros o devoluciones los mismos criterios que establezcan para los cargos por mora.',    plainLanguageExplanation:
       'Las empresas de servicios públicos domiciliarios (luz, gas, agua, teléfono) deben aplicar los mismos intereses y criterios para devolver dinero al usuario que los que cobran al usuario cuando éste paga tarde.',
     practicalEffects: [
       'Si la empresa cobra interés del 3% mensual por mora del usuario, debe aplicar ese mismo criterio cuando le debe dinero al usuario por facturación errónea.',
@@ -1465,7 +1366,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-26',
         articleNumber: '26',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las empresas prestadoras de servicios públicos a domicilio deben otorgar a los usuarios reciprocidad de trato, aplicando para los reintegros o devoluciones los mismos criterios que establezcan para los cargos por mora.',
         plainExplanation: 'Las empresas de servicios públicos domiciliarios deben devolver con los mismos intereses que cobran por mora.',
         practicalExample:
@@ -1481,11 +1382,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '27',
     title: 'Registro de reclamos',
-    originalText:
-      'Las empresas prestadoras deben habilitar un registro de reclamos donde quedarán asentadas las presentaciones de los usuarios. Los mismos podrán efectuarse por nota escrita, correo electrónico u otras modalidades que la empresa habilite. Dichas empresas deben entregar o remitir una constancia de su recepción con indicación de los datos del reclamante, fecha de presentación, número de identificación del reclamo y plazo en que se expedirá sobre el reclamo. Los usuarios y las asociaciones de consumidores podrán requerir información sobre el estado de tramitación de los reclamos. Deben mantener el registro por un plazo de SEIS (6) meses.',
-    currentText:
-      'Las empresas prestadoras deben habilitar un registro de reclamos donde quedarán asentadas las presentaciones de los usuarios. Los mismos podrán efectuarse por nota escrita, correo electrónico u otras modalidades que la empresa habilite. Dichas empresas deben entregar o remitir una constancia de su recepción con indicación de los datos del reclamante, fecha de presentación, número de identificación del reclamo y plazo en que se expedirá sobre el reclamo. Los usuarios y las asociaciones de consumidores podrán requerir información sobre el estado de tramitación de los reclamos. Deben mantener el registro por un plazo de SEIS (6) meses.',
-    plainLanguageExplanation:
+    text:
+      'Las empresas prestadoras deben habilitar un registro de reclamos donde quedarán asentadas las presentaciones de los usuarios. Los mismos podrán efectuarse por nota escrita, correo electrónico u otras modalidades que la empresa habilite. Dichas empresas deben entregar o remitir una constancia de su recepción con indicación de los datos del reclamante, fecha de presentación, número de identificación del reclamo y plazo en que se expedirá sobre el reclamo. Los usuarios y las asociaciones de consumidores podrán requerir información sobre el estado de tramitación de los reclamos. Deben mantener el registro por un plazo de SEIS (6) meses.',    plainLanguageExplanation:
       'Las empresas de servicios públicos deben tener un registro de reclamos accesible para los usuarios. Al recibir un reclamo deben entregar un comprobante con número de identificación y plazo de respuesta. Los reclamos deben conservarse por 6 meses.',
     practicalEffects: [
       'El usuario tiene derecho a un número de reclamo y a saber cuándo le responderán.',
@@ -1507,7 +1405,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-27',
         articleNumber: '27',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las empresas prestadoras deben habilitar un registro de reclamos donde quedarán asentadas las presentaciones de los usuarios. Los mismos podrán efectuarse por nota escrita, correo electrónico u otras modalidades que la empresa habilite.',
         plainExplanation: 'Las prestadoras de servicios públicos deben tener un registro de reclamos accesible en múltiples canales.',
         practicalExample:
@@ -1523,11 +1421,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '28',
     title: 'Suministros',
-    originalText:
-      'Cuando la prestación del servicio public domiciliario sea continua o periódica, el proveedor deberá otorgar al usuario la posibilidad de revocar en cualquier momento la autorización de débito automático de pagos. El proveedor no podrá establecer cargos por esta revocación.',
-    currentText:
-      'Cuando la prestación del servicio public domiciliario sea continua o periódica, el proveedor deberá otorgar al usuario la posibilidad de revocar en cualquier momento la autorización de débito automático de pagos. El proveedor no podrá establecer cargos por esta revocación.',
-    plainLanguageExplanation:
+    text:
+      'Cuando la prestación del servicio public domiciliario sea continua o periódica, el proveedor deberá otorgar al usuario la posibilidad de revocar en cualquier momento la autorización de débito automático de pagos. El proveedor no podrá establecer cargos por esta revocación.',    plainLanguageExplanation:
       'Los usuarios de servicios públicos domiciliarios pueden cancelar el débito automático cuando quieran, sin que la empresa cobre cargos adicionales por esa cancelación.',
     practicalEffects: [
       'El usuario tiene derecho a revocar el débito automático en cualquier momento sin penalidad.',
@@ -1548,7 +1443,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-28',
         articleNumber: '28',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando la prestación del servicio public domiciliario sea continua o periódica, el proveedor deberá otorgar al usuario la posibilidad de revocar en cualquier momento la autorización de débito automático de pagos. El proveedor no podrá establecer cargos por esta revocación.',
         plainExplanation: 'El usuario puede cancelar el débito automático de servicios públicos sin costo en cualquier momento.',
         practicalExample:
@@ -1564,11 +1459,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '29',
     title: 'Términos del contrato',
-    originalText:
-      'La empresa de servicio público domiciliario deberá indicar en su publicidad, en sus facturas y en toda documentación relacionada, los datos de identificación de la autoridad de aplicación y los medios para efectuar reclamos.',
-    currentText:
-      'La empresa de servicio público domiciliario deberá indicar en su publicidad, en sus facturas y en toda documentación relacionada, los datos de identificación de la autoridad de aplicación y los medios para efectuar reclamos.',
-    plainLanguageExplanation:
+    text:
+      'La empresa de servicio público domiciliario deberá indicar en su publicidad, en sus facturas y en toda documentación relacionada, los datos de identificación de la autoridad de aplicación y los medios para efectuar reclamos.',    plainLanguageExplanation:
       'Las empresas de servicios públicos deben indicar en sus facturas y publicidades quién es la autoridad reguladora y cómo hacer reclamos. Los usuarios deben poder saber a dónde ir si la empresa no les resuelve el problema.',
     practicalEffects: [
       'Toda factura de servicios públicos debe indicar el organismo regulador (ENRE, ENARGAS, ENACOM, etc.) y cómo contactarlo.',
@@ -1589,7 +1481,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-29',
         articleNumber: '29',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La empresa de servicio público domiciliario deberá indicar en su publicidad, en sus facturas y en toda documentación relacionada, los datos de identificación de la autoridad de aplicación y los medios para efectuar reclamos.',
         plainExplanation: 'Las facturas de servicios públicos deben indicar la autoridad reguladora y cómo hacer reclamos.',
         practicalExample:
@@ -1605,11 +1497,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '30',
     title: 'Interrupción de la prestación del servicio',
-    originalText:
-      'Cuando la prestación del servicio público fuese deficiente o mediare incumplimiento de la empresa prestadora, el consumidor o usuario tendrá derecho a una quita proporcional en el precio durante el período en que el servicio no sea prestado o sea deficiente. Si el incumplimiento es reiterado, el consumidor puede solicitar la rescisión del contrato sin penalidad.',
-    currentText:
-      'Cuando la prestación del servicio público fuese deficiente o mediare incumplimiento de la empresa prestadora, el consumidor o usuario tendrá derecho a una quita proporcional en el precio durante el período en que el servicio no sea prestado o sea deficiente. Si el incumplimiento es reiterado, el consumidor puede solicitar la rescisión del contrato sin penalidad.',
-    plainLanguageExplanation:
+    text:
+      'Cuando la prestación del servicio público fuese deficiente o mediare incumplimiento de la empresa prestadora, el consumidor o usuario tendrá derecho a una quita proporcional en el precio durante el período en que el servicio no sea prestado o sea deficiente. Si el incumplimiento es reiterado, el consumidor puede solicitar la rescisión del contrato sin penalidad.',    plainLanguageExplanation:
       'Si el servicio público es deficiente o se interrumpe, el usuario tiene derecho a no pagar por ese período (quita proporcional). Si los cortes se repiten, puede rescindir el contrato sin pagar penalidades.',
     practicalEffects: [
       'El usuario puede descontar de la factura el tiempo que el servicio estuvo interrumpido o fue deficiente.',
@@ -1630,7 +1519,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-30',
         articleNumber: '30',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando la prestación del servicio público fuese deficiente o mediare incumplimiento de la empresa prestadora, el consumidor o usuario tendrá derecho a una quita proporcional en el precio durante el período en que el servicio no sea prestado o sea deficiente.',
         plainExplanation: 'Si el servicio falla o es deficiente, el usuario tiene derecho a no pagar por ese período.',
         practicalExample:
@@ -1646,11 +1535,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '31',
     title: 'Responsabilidad del proveedor de servicios públicos',
-    originalText:
-      'Cuando una empresa proveedora de servicios públicos domiciliarios realizare actos que impliquen el ejercicio abusivo de la posición dominante que posee en el mercado, o realice prácticas restrictivas de la competencia, la Secretaría de Defensa de la Competencia y del Consumidor intimará a la empresa a que cese en dichas conductas.',
-    currentText:
-      'Cuando una empresa proveedora de servicios públicos domiciliarios realizare actos que impliquen el ejercicio abusivo de la posición dominante que posee en el mercado, o realice prácticas restrictivas de la competencia, la Secretaría de Defensa de la Competencia y del Consumidor intimará a la empresa a que cese en dichas conductas.',
-    plainLanguageExplanation:
+    text:
+      'Cuando una empresa proveedora de servicios públicos domiciliarios realizare actos que impliquen el ejercicio abusivo de la posición dominante que posee en el mercado, o realice prácticas restrictivas de la competencia, la Secretaría de Defensa de la Competencia y del Consumidor intimará a la empresa a que cese en dichas conductas.',    plainLanguageExplanation:
       'Si una empresa de servicio público abusa de su posición dominante en el mercado o limita la competencia, la autoridad de defensa de la competencia puede intimarla a cesar esas prácticas.',
     practicalEffects: [
       'Las empresas monopólicas de servicios públicos no pueden abusar de su posición para imponer condiciones inequitativas.',
@@ -1671,7 +1557,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-31',
         articleNumber: '31',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando una empresa proveedora de servicios públicos domiciliarios realizare actos que impliquen el ejercicio abusivo de la posición dominante que posee en el mercado, o realice prácticas restrictivas de la competencia, la Secretaría de Defensa de la Competencia y del Consumidor intimará a la empresa a que cese en dichas conductas.',
         plainExplanation: 'El abuso de posición dominante por parte de empresas de servicios públicos puede ser intimado a cesar por la autoridad de defensa de la competencia.',
         practicalExample:
@@ -1687,11 +1573,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '32',
     title: 'Venta domiciliaria',
-    originalText:
-      'Es aquella que resulta de una oferta o propuesta realizada al consumidor fuera del establecimiento del proveedor. También integran la definición de esta modalidad las propuestas realizadas a través de correo, catálogos, con o sin orden de pedido, publicaciones, sorteos o cualquier otro medio de comunicación a distancia. Las mismas están también sujetas a lo normado en el artículo 33 de la presente ley.',
-    currentText:
-      'Es aquella que resulta de una oferta o propuesta realizada al consumidor fuera del establecimiento del proveedor. También integran la definición de esta modalidad las propuestas realizadas a través de correo, catálogos, con o sin orden de pedido, publicaciones, sorteos o cualquier otro medio de comunicación a distancia. Las mismas están también sujetas a lo normado en el artículo 33 de la presente ley.',
-    plainLanguageExplanation:
+    text:
+      'Es aquella que resulta de una oferta o propuesta realizada al consumidor fuera del establecimiento del proveedor. También integran la definición de esta modalidad las propuestas realizadas a través de correo, catálogos, con o sin orden de pedido, publicaciones, sorteos o cualquier otro medio de comunicación a distancia. Las mismas están también sujetas a lo normado en el artículo 33 de la presente ley.',    plainLanguageExplanation:
       'La venta domiciliaria incluye cualquier oferta hecha fuera del local del vendedor: visitas al domicilio, catálogos, correo, sorteos, y cualquier medio a distancia. A todas estas modalidades se les aplican las protecciones del art. 33.',
     practicalEffects: [
       'Las ventas por catálogo, por correo y por sorteos (como las que hacen algunas empresas de cosméticos o seguros) quedan incluidas.',
@@ -1713,7 +1596,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-32',
         articleNumber: '32',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Es aquella que resulta de una oferta o propuesta realizada al consumidor fuera del establecimiento del proveedor. También integran la definición de esta modalidad las propuestas realizadas a través de correo, catálogos, con o sin orden de pedido, publicaciones, sorteos o cualquier otro medio de comunicación a distancia.',
         plainExplanation: 'La venta domiciliaria incluye ofertas fuera del local, por catálogo, correo, sorteos y cualquier medio a distancia.',
         practicalExample:
@@ -1729,11 +1612,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '33',
     title: 'Venta por correspondencia y otras',
-    originalText:
-      'Es aquella en que la propuesta se efectúa por medio postal, telecomunicaciones, electrónico o similar y la aceptación se perfecciona por iguales medios. En todos los casos, el consumidor debe tener la posibilidad de obtener la muestra, indicaciones o demostraciones del producto que se ofrece.',
-    currentText:
-      'Es aquella en que la propuesta se efectúa por medio postal, telecomunicaciones, electrónico o similar y la aceptación se perfecciona por iguales medios. En todos los casos, el consumidor debe tener la posibilidad de obtener la muestra, indicaciones o demostraciones del producto que se ofrece.',
-    plainLanguageExplanation:
+    text:
+      'Es aquella en que la propuesta se efectúa por medio postal, telecomunicaciones, electrónico o similar y la aceptación se perfecciona por iguales medios. En todos los casos, el consumidor debe tener la posibilidad de obtener la muestra, indicaciones o demostraciones del producto que se ofrece.',    plainLanguageExplanation:
       'La venta por correspondencia es la que se hace y acepta por correo, teléfono, email o medios similares. El consumidor siempre tiene derecho a pedir muestras o demostraciones del producto antes de comprarlo.',
     practicalEffects: [
       'Las compras online se perfeccionan al aceptarse electrónicamente; el consumidor puede pedir información y demostraciones.',
@@ -1754,7 +1634,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-33',
         articleNumber: '33',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Es aquella en que la propuesta se efectúa por medio postal, telecomunicaciones, electrónico o similar y la aceptación se perfecciona por iguales medios. En todos los casos, el consumidor debe tener la posibilidad de obtener la muestra, indicaciones o demostraciones del producto que se ofrece.',
         plainExplanation: 'La venta por correspondencia incluye email y e-commerce; el consumidor tiene derecho a ver muestras o demostraciones.',
         practicalExample:
@@ -1770,11 +1650,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '35',
     title: 'Prohibición de envíos no solicitados',
-    originalText:
-      'Queda prohibida la realización de propuesta al consumidor, por cualquier tipo de medio, sobre una cosa o servicio que no haya sido requerida previamente y que genere un cargo automático en cualquier sistema de débito que el consumidor posea, sin que éste preste su expresa conformidad.',
-    currentText:
-      'Queda prohibida la realización de propuesta al consumidor, por cualquier tipo de medio, sobre una cosa o servicio que no haya sido requerida previamente y que genere un cargo automático en cualquier sistema de débito que el consumidor posea, sin que éste preste su expresa conformidad.',
-    plainLanguageExplanation:
+    text:
+      'Queda prohibida la realización de propuesta al consumidor, por cualquier tipo de medio, sobre una cosa o servicio que no haya sido requerida previamente y que genere un cargo automático en cualquier sistema de débito que el consumidor posea, sin que éste preste su expresa conformidad.',    plainLanguageExplanation:
       'Está prohibido enviar bienes o servicios al consumidor sin que los haya pedido y cobrarlos automáticamente. El consumidor debe dar su consentimiento expreso antes de que se le genere cualquier cargo.',
     practicalEffects: [
       'El consumidor no está obligado a pagar por productos o servicios que no solicitó.',
@@ -1797,7 +1674,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-35',
         articleNumber: '35',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Queda prohibida la realización de propuesta al consumidor, por cualquier tipo de medio, sobre una cosa o servicio que no haya sido requerida previamente y que genere un cargo automático en cualquier sistema de débito que el consumidor posea, sin que éste preste su expresa conformidad.',
         plainExplanation: 'Está prohibido cobrar automáticamente por bienes o servicios no solicitados sin consentimiento expreso.',
         practicalExample:
@@ -1813,11 +1690,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '36',
     title: 'Requisitos en operaciones de crédito',
-    originalText:
-      'En las operaciones financieras para consumo y en las de crédito para el consumo deberá consignarse de modo claro al consumidor o usuario, bajo pena de nulidad: a) La descripción del bien o servicio objeto de la compra o contratación, para los casos de adquisición de bienes o servicios. b) El precio al contado, sólo para los casos de operaciones de crédito para adquisición de bienes o servicios. c) El importe a desembolsar inicialmente —de existir— y el monto financiado. d) La tasa de interés efectiva anual. e) El total de los intereses a pagar o el costo financiero total. f) El sistema de amortización del capital y cancelación de los intereses. g) La cantidad y periodicidad de los pagos a realizar. h) Los gastos extras, seguros o adicionales, si los hubiere. Cuando el proveedor omitiere incluir alguno de estos datos en el documento que corresponda, el consumidor tendrá derecho a demandar la nulidad del contrato o de una o más cláusulas. Cuando el juez declare la nulidad parcial simultáneamente integrará el contrato, si ello fuera necesario. En las operaciones financieras para consumo y en las de crédito para el consumo se aplicará la ley de la jurisdicción del lugar de celebración del contrato o del domicilio del consumidor, optando el consumidor por la que le sea más favorable.',
-    currentText:
-      'En las operaciones financieras para consumo y en las de crédito para el consumo deberá consignarse de modo claro al consumidor o usuario, bajo pena de nulidad: a) La descripción del bien o servicio. b) El precio al contado. c) El importe a desembolsar inicialmente y el monto financiado. d) La tasa de interés efectiva anual. e) El total de los intereses a pagar o el costo financiero total. f) El sistema de amortización del capital y cancelación de los intereses. g) La cantidad y periodicidad de los pagos a realizar. h) Los gastos extras, seguros o adicionales. Cuando el proveedor omitiere incluir alguno de estos datos, el consumidor tendrá derecho a demandar la nulidad del contrato o de una o más cláusulas.',
-    plainLanguageExplanation:
+    text:
+      'En las operaciones financieras para consumo y en las de crédito para el consumo deberá consignarse de modo claro al consumidor o usuario, bajo pena de nulidad: a) La descripción del bien o servicio objeto de la compra o contratación, para los casos de adquisición de bienes o servicios. b) El precio al contado, sólo para los casos de operaciones de crédito para adquisición de bienes o servicios. c) El importe a desembolsar inicialmente —de existir— y el monto financiado. d) La tasa de interés efectiva anual. e) El total de los intereses a pagar o el costo financiero total. f) El sistema de amortización del capital y cancelación de los intereses. g) La cantidad y periodicidad de los pagos a realizar. h) Los gastos extras, seguros o adicionales, si los hubiere. Cuando el proveedor omitiere incluir alguno de estos datos en el documento que corresponda, el consumidor tendrá derecho a demandar la nulidad del contrato o de una o más cláusulas. Cuando el juez declare la nulidad parcial simultáneamente integrará el contrato, si ello fuera necesario. En las operaciones financieras para consumo y en las de crédito para el consumo se aplicará la ley de la jurisdicción del lugar de celebración del contrato o del domicilio del consumidor, optando el consumidor por la que le sea más favorable.',    plainLanguageExplanation:
       'Todo crédito al consumo debe informar en el contrato: descripción del bien, precio de contado, anticipo, monto financiado, tasa de interés efectiva anual (TEA), costo financiero total (CFT), sistema de amortización, cantidad de cuotas y gastos adicionales. Si falta alguno de estos datos, el consumidor puede pedir la nulidad del contrato.',
     practicalEffects: [
       'El contrato de crédito sin TEA o CFT es nulo a pedido del consumidor.',
@@ -1841,7 +1715,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-36',
         articleNumber: '36',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En las operaciones financieras para consumo y en las de crédito para el consumo deberá consignarse de modo claro al consumidor o usuario, bajo pena de nulidad: a) Descripción del bien o servicio. b) Precio al contado. c) Importe inicial y monto financiado. d) Tasa de interés efectiva anual. e) Total de intereses o costo financiero total. f) Sistema de amortización. g) Cantidad y periodicidad de pagos. h) Gastos extras y seguros.',
         plainExplanation: 'Todo contrato de crédito al consumo debe informar TEA, CFT, cuotas y todos los costos bajo pena de nulidad.',
         practicalExample:
@@ -1857,11 +1731,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '38',
     title: 'Contrato de adhesión',
-    originalText:
-      'La autoridad de aplicación vigilará que los contratos de adhesión o similares, no contengan cláusulas de las previstas en el artículo anterior. La misma atribución se ejercerá respecto de las cláusulas uniformes, generales o estandarizadas de los contratos hechos en formularios, reproducidos en serie y en general, cuando dichas cláusulas hayan sido redactadas unilateralmente por el proveedor de la cosa o servicio, sin que la contraparte tuviere posibilidades de discutir su contenido.',
-    currentText:
-      'La autoridad de aplicación vigilará que los contratos de adhesión o similares, no contengan cláusulas de las previstas en el artículo anterior. La misma atribución se ejercerá respecto de las cláusulas uniformes, generales o estandarizadas de los contratos hechos en formularios, reproducidos en serie y en general, cuando dichas cláusulas hayan sido redactadas unilateralmente por el proveedor de la cosa o servicio, sin que la contraparte tuviere posibilidades de discutir su contenido.',
-    plainLanguageExplanation:
+    text:
+      'La autoridad de aplicación vigilará que los contratos de adhesión o similares, no contengan cláusulas de las previstas en el artículo anterior. La misma atribución se ejercerá respecto de las cláusulas uniformes, generales o estandarizadas de los contratos hechos en formularios, reproducidos en serie y en general, cuando dichas cláusulas hayan sido redactadas unilateralmente por el proveedor de la cosa o servicio, sin que la contraparte tuviere posibilidades de discutir su contenido.',    plainLanguageExplanation:
       'La autoridad de aplicación controla que los contratos de adhesión (formularios prediseñados) no contengan cláusulas abusivas. Estos contratos son los que el consumidor no puede negociar: los acepta o no los acepta.',
     practicalEffects: [
       'La autoridad puede declarar abusivas cláusulas en formularios preimpresos.',
@@ -1883,7 +1754,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-38',
         articleNumber: '38',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La autoridad de aplicación vigilará que los contratos de adhesión o similares, no contengan cláusulas de las previstas en el artículo anterior. La misma atribución se ejercerá respecto de las cláusulas uniformes, generales o estandarizadas de los contratos hechos en formularios.',
         plainExplanation: 'La autoridad controla que los contratos de adhesión no tengan cláusulas abusivas.',
         practicalExample:
@@ -1899,11 +1770,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '39',
     title: 'Modificación contratos tipo',
-    originalText:
-      'Cuando los contratos a los que se refiere el artículo anterior requieran la aprobación de otra autoridad nacional o provincial, ésta tomará las medidas necesarias para la modificación del contrato tipo a pedido de la autoridad de aplicación de esta ley.',
-    currentText:
-      'Cuando los contratos a los que se refiere el artículo anterior requieran la aprobación de otra autoridad nacional o provincial, ésta tomará las medidas necesarias para la modificación del contrato tipo a pedido de la autoridad de aplicación de esta ley.',
-    plainLanguageExplanation:
+    text:
+      'Cuando los contratos a los que se refiere el artículo anterior requieran la aprobación de otra autoridad nacional o provincial, ésta tomará las medidas necesarias para la modificación del contrato tipo a pedido de la autoridad de aplicación de esta ley.',    plainLanguageExplanation:
       'Si el contrato tipo de una empresa requiere aprobación de otro organismo (como el BCRA para bancos o la SSN para aseguradoras), ese organismo debe coordinar con la autoridad de consumo para modificar las cláusulas abusivas.',
     practicalEffects: [
       'Regula la articulación entre la autoridad de consumo y los entes reguladores sectoriales (BCRA, ENRE, SSN).',
@@ -1924,7 +1792,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-39',
         articleNumber: '39',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando los contratos a los que se refiere el artículo anterior requieran la aprobación de otra autoridad nacional o provincial, ésta tomará las medidas necesarias para la modificación del contrato tipo a pedido de la autoridad de aplicación de esta ley.',
         plainExplanation: 'Los entes reguladores sectoriales deben coordinar con la autoridad de consumo para modificar contratos tipo abusivos.',
         practicalExample:
@@ -1940,11 +1808,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '41',
     title: 'Aplicación nacional y local',
-    originalText:
-      'La Secretaría de Comercio Interior dependiente del Ministerio de Economía y Producción, será la autoridad nacional de aplicación de esta ley. Los gobiernos provinciales y la Ciudad Autónoma de Buenos Aires actuarán como autoridades locales de aplicación ejerciendo el control, vigilancia y juzgamiento en el cumplimiento de esta ley y de sus normas reglamentarias respecto de las presuntas infracciones cometidas en sus respectivas jurisdicciones.',
-    currentText:
-      'La Secretaría de Comercio Interior dependiente del Ministerio de Economía y Producción, será la autoridad nacional de aplicación de esta ley. Los gobiernos provinciales y la Ciudad Autónoma de Buenos Aires actuarán como autoridades locales de aplicación ejerciendo el control, vigilancia y juzgamiento en el cumplimiento de esta ley y de sus normas reglamentarias respecto de las presuntas infracciones cometidas en sus respectivas jurisdicciones.',
-    plainLanguageExplanation:
+    text:
+      'La Secretaría de Comercio Interior dependiente del Ministerio de Economía y Producción, será la autoridad nacional de aplicación de esta ley. Los gobiernos provinciales y la Ciudad Autónoma de Buenos Aires actuarán como autoridades locales de aplicación ejerciendo el control, vigilancia y juzgamiento en el cumplimiento de esta ley y de sus normas reglamentarias respecto de las presuntas infracciones cometidas en sus respectivas jurisdicciones.',    plainLanguageExplanation:
       'La Secretaría de Comercio (hoy Secretaría de Comercio Interior) es la autoridad nacional de consumo. Las provincias y CABA aplican la ley en su territorio. Esto significa que podés hacer reclamos en el organismo de consumo de tu provincia, no necesariamente ante el organismo nacional.',
     practicalEffects: [
       'Los reclamos pueden tramitarse ante el organismo de consumo provincial (ej. OMIC en municipios).',
@@ -1966,7 +1831,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-41',
         articleNumber: '41',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La Secretaría de Comercio Interior dependiente del Ministerio de Economía y Producción, será la autoridad nacional de aplicación de esta ley. Los gobiernos provinciales y la Ciudad Autónoma de Buenos Aires actuarán como autoridades locales de aplicación.',
         plainExplanation: 'Autoridad nacional: Secretaría de Comercio. Autoridades locales: provincias y CABA.',
         practicalExample:
@@ -1982,11 +1847,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '42',
     title: 'Facultades concurrentes',
-    originalText:
-      'Cuando las presuntas infracciones pudieran afectar el comercio interprovincial o internacional, o la autoridad local no pudiere resolver el conflicto en forma satisfactoria, intervendrá la autoridad nacional de aplicación como autoridad de alzada.',
-    currentText:
-      'Cuando las presuntas infracciones pudieran afectar el comercio interprovincial o internacional, o la autoridad local no pudiere resolver el conflicto en forma satisfactoria, intervendrá la autoridad nacional de aplicación como autoridad de alzada.',
-    plainLanguageExplanation:
+    text:
+      'Cuando las presuntas infracciones pudieran afectar el comercio interprovincial o internacional, o la autoridad local no pudiere resolver el conflicto en forma satisfactoria, intervendrá la autoridad nacional de aplicación como autoridad de alzada.',    plainLanguageExplanation:
       'Si la infracción afecta comercio entre provincias o el exterior, o si la autoridad provincial no puede resolver el conflicto, interviene la autoridad nacional como instancia de alzada.',
     practicalEffects: [
       'Empresas nacionales con actividad en múltiples provincias pueden ser investigadas por el organismo nacional.',
@@ -2007,7 +1869,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-42',
         articleNumber: '42',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando las presuntas infracciones pudieran afectar el comercio interprovincial o internacional, o la autoridad local no pudiere resolver el conflicto en forma satisfactoria, intervendrá la autoridad nacional de aplicación como autoridad de alzada.',
         plainExplanation: 'La autoridad nacional interviene en infracciones interprovinciales o cuando la provincial no resuelve.',
         practicalExample:
@@ -2023,11 +1885,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '43',
     title: 'Asociaciones de consumidores',
-    originalText:
-      'Las asociaciones de consumidores y usuarios constituidas como personas jurídicas están legitimadas para accionar cuando resulten objetivamente afectados o amenazados intereses de los consumidores o usuarios, sin perjuicio de la intervención de éstos prevista en el segundo párrafo del artículo 58 de la presente ley. Las asociaciones de consumidores y usuarios serán habilitadas como «autoridades de aplicación» para actuar en la defensa de los intereses de sus representados ante los organismos de la Administración Pública, a cuyos fines podrán notificar de sus acciones, y se les deberá proporcionar la información necesaria para que puedan cumplir sus funciones.',
-    currentText:
-      'Las asociaciones de consumidores y usuarios constituidas como personas jurídicas están legitimadas para accionar cuando resulten objetivamente afectados o amenazados intereses de los consumidores o usuarios, sin perjuicio de la intervención de éstos prevista en el segundo párrafo del artículo 58 de la presente ley.',
-    plainLanguageExplanation:
+    text:
+      'Las asociaciones de consumidores y usuarios constituidas como personas jurídicas están legitimadas para accionar cuando resulten objetivamente afectados o amenazados intereses de los consumidores o usuarios, sin perjuicio de la intervención de éstos prevista en el segundo párrafo del artículo 58 de la presente ley. Las asociaciones de consumidores y usuarios serán habilitadas como «autoridades de aplicación» para actuar en la defensa de los intereses de sus representados ante los organismos de la Administración Pública, a cuyos fines podrán notificar de sus acciones, y se les deberá proporcionar la información necesaria para que puedan cumplir sus funciones.',    plainLanguageExplanation:
       'Las asociaciones de consumidores (como la Unión de Consumidores Argentina, Consumidores Libres, etc.) pueden actuar en justicia en nombre de los consumidores cuando hay intereses colectivos afectados o amenazados.',
     practicalEffects: [
       'Una asociación puede demandar a una empresa aunque ningún consumidor individual haya presentado reclamo individual.',
@@ -2049,7 +1908,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-43',
         articleNumber: '43',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las asociaciones de consumidores y usuarios constituidas como personas jurídicas están legitimadas para accionar cuando resulten objetivamente afectados o amenazados intereses de los consumidores o usuarios.',
         plainExplanation: 'Las asociaciones de consumidores pueden demandar judicialmente para defender intereses colectivos de los usuarios.',
         practicalExample:
@@ -2065,11 +1924,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '44',
     title: 'Requisitos para actuar',
-    originalText:
-      'Para actuar en sede administrativa o judicial, las asociaciones de consumidores y usuarios deberán cumplir los siguientes requisitos: a) Acreditar su constitución como persona jurídica con fines de defensa de los consumidores y usuarios. b) No tener vínculos con empresas ni percibir aportes de ellas. c) Registrarse ante la autoridad de aplicación.',
-    currentText:
-      'Para actuar en sede administrativa o judicial, las asociaciones de consumidores y usuarios deberán cumplir los siguientes requisitos: a) Acreditar su constitución como persona jurídica con fines de defensa de los consumidores y usuarios. b) No tener vínculos con empresas ni percibir aportes de ellas. c) Registrarse ante la autoridad de aplicación.',
-    plainLanguageExplanation:
+    text:
+      'Para actuar en sede administrativa o judicial, las asociaciones de consumidores y usuarios deberán cumplir los siguientes requisitos: a) Acreditar su constitución como persona jurídica con fines de defensa de los consumidores y usuarios. b) No tener vínculos con empresas ni percibir aportes de ellas. c) Registrarse ante la autoridad de aplicación.',    plainLanguageExplanation:
       'Para poder actuar en reclamos administrativos o judiciales, las asociaciones de consumidores deben estar constituidas como personas jurídicas, ser independientes de las empresas, y estar registradas ante la autoridad de aplicación.',
     practicalEffects: [
       'Una asociación no registrada o vinculada a empresas no puede actuar en representación de consumidores.',
@@ -2090,7 +1946,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-44',
         articleNumber: '44',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Para actuar en sede administrativa o judicial, las asociaciones de consumidores y usuarios deberán cumplir los siguientes requisitos: a) Constituirse como persona jurídica. b) No tener vínculos con empresas. c) Registrarse ante la autoridad de aplicación.',
         plainExplanation: 'Las asociaciones deben ser personas jurídicas independientes y registradas para actuar legalmente.',
         practicalExample:
@@ -2106,11 +1962,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '45',
     title: 'Procedimiento y montos',
-    originalText:
-      'La autoridad nacional de aplicación iniciará actuaciones administrativas en caso de presuntas infracciones a las disposiciones de esta ley, sus normas reglamentarias y resoluciones que en consecuencia se dicten, de oficio o por denuncia de quien invocare un interés particular o actuare en defensa del interés general de los consumidores. Previa instancia conciliatoria, la autoridad deberá dictar la resolución que corresponda, la que será notificada al denunciante y al proveedor.',
-    currentText:
-      'La autoridad nacional de aplicación iniciará actuaciones administrativas en caso de presuntas infracciones a las disposiciones de esta ley, sus normas reglamentarias y resoluciones que en consecuencia se dicten, de oficio o por denuncia de quien invocare un interés particular o actuare en defensa del interés general de los consumidores. Previa instancia conciliatoria, la autoridad deberá dictar la resolución que corresponda, la que será notificada al denunciante y al proveedor.',
-    plainLanguageExplanation:
+    text:
+      'La autoridad nacional de aplicación iniciará actuaciones administrativas en caso de presuntas infracciones a las disposiciones de esta ley, sus normas reglamentarias y resoluciones que en consecuencia se dicten, de oficio o por denuncia de quien invocare un interés particular o actuare en defensa del interés general de los consumidores. Previa instancia conciliatoria, la autoridad deberá dictar la resolución que corresponda, la que será notificada al denunciante y al proveedor.',    plainLanguageExplanation:
       'La autoridad de consumo puede iniciar investigaciones de oficio o por denuncia. Antes de sancionar, debe intentar conciliar a las partes. Luego dicta una resolución que notifica a ambas partes.',
     practicalEffects: [
       'Cualquier persona puede denunciar una infracción; no hace falta ser el afectado directo.',
@@ -2132,7 +1985,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-45',
         articleNumber: '45',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La autoridad nacional de aplicación iniciará actuaciones administrativas en caso de presuntas infracciones de oficio o por denuncia de quien invocare un interés particular o actuare en defensa del interés general. Previa instancia conciliatoria, dictará la resolución que corresponda.',
         plainExplanation: 'El procedimiento puede iniciarse de oficio o por denuncia, e incluye una instancia conciliatoria obligatoria.',
         practicalExample:
@@ -2148,11 +2001,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '46',
     title: 'Incumplimiento de acuerdos conciliatorios',
-    originalText:
-      'El incumplimiento de los acuerdos conciliatorios se considerará violación a las disposiciones de esta ley, dando lugar a las sanciones establecidas en el artículo 47 y ss., sin perjuicio del cumplimiento imperativo de las obligaciones que las partes hubieran acordado.',
-    currentText:
-      'El incumplimiento de los acuerdos conciliatorios se considerará violación a las disposiciones de esta ley, dando lugar a las sanciones establecidas en el artículo 47 y ss., sin perjuicio del cumplimiento imperativo de las obligaciones que las partes hubieran acordado.',
-    plainLanguageExplanation:
+    text:
+      'El incumplimiento de los acuerdos conciliatorios se considerará violación a las disposiciones de esta ley, dando lugar a las sanciones establecidas en el artículo 47 y ss., sin perjuicio del cumplimiento imperativo de las obligaciones que las partes hubieran acordado.',    plainLanguageExplanation:
       'Si la empresa llega a un acuerdo conciliatorio con el consumidor ante el organismo de consumo y luego no lo cumple, eso se trata como una infracción nueva a la ley, con las sanciones del art. 47. Además, igual debe cumplir lo acordado.',
     practicalEffects: [
       'El incumplimiento de un acuerdo conciliatorio es una infracción autónoma que puede ser sancionada con multa.',
@@ -2173,7 +2023,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-46',
         articleNumber: '46',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El incumplimiento de los acuerdos conciliatorios se considerará violación a las disposiciones de esta ley, dando lugar a las sanciones establecidas en el artículo 47 y ss., sin perjuicio del cumplimiento imperativo de las obligaciones que las partes hubieran acordado.',
         plainExplanation: 'No cumplir lo acordado en conciliación es una infracción adicional sancionable con multa.',
         practicalExample:
@@ -2189,11 +2039,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '48',
     title: 'Denuncias maliciosas',
-    originalText:
-      'Quienes presenten denuncias o reclamos maliciosos o de mala fe ante la autoridad de aplicación serán pasibles de las sanciones previstas en los artículos 45 y 47. Asimismo serán responsables de los daños y perjuicios que su conducta ocasionare al proveedor denunciado.',
-    currentText:
-      'Quienes presenten denuncias o reclamos maliciosos o de mala fe ante la autoridad de aplicación serán pasibles de las sanciones previstas en los artículos 45 y 47. Asimismo serán responsables de los daños y perjuicios que su conducta ocasionare al proveedor denunciado.',
-    plainLanguageExplanation:
+    text:
+      'Quienes presenten denuncias o reclamos maliciosos o de mala fe ante la autoridad de aplicación serán pasibles de las sanciones previstas en los artículos 45 y 47. Asimismo serán responsables de los daños y perjuicios que su conducta ocasionare al proveedor denunciado.',    plainLanguageExplanation:
       'Quien presenta una denuncia falsa o de mala fe contra un proveedor puede ser sancionado y debe indemnizar los daños que causó al proveedor injustamente denunciado. La ley protege al proveedor de abusos del sistema de denuncias.',
     practicalEffects: [
       'El denunciante de mala fe puede recibir una multa.',
@@ -2215,7 +2062,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-48',
         articleNumber: '48',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Quienes presenten denuncias o reclamos maliciosos o de mala fe ante la autoridad de aplicación serán pasibles de las sanciones previstas en los artículos 45 y 47 y responsables de los daños y perjuicios que su conducta ocasionare al proveedor denunciado.',
         plainExplanation: 'Las denuncias maliciosas o de mala fe son sancionables y generan responsabilidad por daños al proveedor.',
         practicalExample:
@@ -2231,11 +2078,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '49',
     title: 'Aplicación y graduación de sanciones',
-    originalText:
-      'En la aplicación y graduación de las sanciones previstas en el artículo 47 se tendrá en cuenta el perjuicio resultante de la infracción para el consumidor o usuario, la posición en el mercado del infractor, la cuantía del beneficio obtenido, el grado de intencionalidad, la gravedad de los riesgos o de los perjuicios sociales derivados de la infracción y su generalización, la reincidencia y las demás circunstancias relevantes del hecho. Se considerará reincidente a quien, habiendo sido sancionado por una infracción a esta ley, incurriere en otra dentro del término de TRES (3) años.',
-    currentText:
-      'En la aplicación y graduación de las sanciones previstas en el artículo 47 se tendrá en cuenta el perjuicio resultante de la infracción para el consumidor o usuario, la posición en el mercado del infractor, la cuantía del beneficio obtenido, el grado de intencionalidad, la gravedad de los riesgos o de los perjuicios sociales derivados de la infracción y su generalización, la reincidencia y las demás circunstancias relevantes del hecho. Se considerará reincidente a quien, habiendo sido sancionado por una infracción a esta ley, incurriere en otra dentro del término de TRES (3) años.',
-    plainLanguageExplanation:
+    text:
+      'En la aplicación y graduación de las sanciones previstas en el artículo 47 se tendrá en cuenta el perjuicio resultante de la infracción para el consumidor o usuario, la posición en el mercado del infractor, la cuantía del beneficio obtenido, el grado de intencionalidad, la gravedad de los riesgos o de los perjuicios sociales derivados de la infracción y su generalización, la reincidencia y las demás circunstancias relevantes del hecho. Se considerará reincidente a quien, habiendo sido sancionado por una infracción a esta ley, incurriere en otra dentro del término de TRES (3) años.',    plainLanguageExplanation:
       'Para calcular la multa, la autoridad considera: cuánto perjudicó al consumidor, qué posición ocupa la empresa en el mercado, cuánto ganó con la infracción, si fue intencional, qué tan grave fue el riesgo social, y si es reincidente. Reincidente es quien repite infracción dentro de los 3 años de la sanción anterior.',
     practicalEffects: [
       'Empresas grandes o con posición dominante reciben multas más altas por el mismo hecho.',
@@ -2257,7 +2101,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-49',
         articleNumber: '49',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En la aplicación y graduación de las sanciones se tendrá en cuenta el perjuicio al consumidor, la posición en el mercado, el beneficio obtenido, el grado de intencionalidad, la gravedad del riesgo y la reincidencia. Se considerará reincidente a quien incurriere en otra infracción dentro del término de TRES (3) años.',
         plainExplanation: 'La multa se gradúa según daño causado, tamaño de la empresa, ganancia obtenida, intención y reincidencia.',
         practicalExample:
@@ -2273,11 +2117,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '50',
     title: 'Prescripción',
-    originalText:
-      'Las acciones judiciales, las administrativas y las sanciones emergentes de la presente ley prescribirán en el término de TRES (3) años. Cuando por otras leyes generales o especiales se fijen plazos de prescripción distintos del establecido precedentemente se estará al más favorable al consumidor o usuario. La prescripción se interrumpirá por la comisión de nuevas infracciones o por el inicio de las actuaciones administrativas o judiciales.',
-    currentText:
-      'Las acciones judiciales, las administrativas y las sanciones emergentes de la presente ley prescribirán en el término de TRES (3) años. Cuando por otras leyes generales o especiales se fijen plazos de prescripción distintos del establecido precedentemente se estará al más favorable al consumidor o usuario. La prescripción se interrumpirá por la comisión de nuevas infracciones o por el inicio de las actuaciones administrativas o judiciales.',
-    plainLanguageExplanation:
+    text:
+      'Las acciones judiciales, las administrativas y las sanciones emergentes de la presente ley prescribirán en el término de TRES (3) años. Cuando por otras leyes generales o especiales se fijen plazos de prescripción distintos del establecido precedentemente se estará al más favorable al consumidor o usuario. La prescripción se interrumpirá por la comisión de nuevas infracciones o por el inicio de las actuaciones administrativas o judiciales.',    plainLanguageExplanation:
       'Las acciones por infracciones a la ley de consumo prescriben a los 3 años. Si otra ley prevé un plazo mayor, se aplica el más favorable al consumidor. La prescripción se interrumpe si se inicia un reclamo administrativo o judicial, o si el proveedor comete una nueva infracción.',
     practicalEffects: [
       'El consumidor tiene 3 años para reclamar desde que ocurrió la infracción.',
@@ -2299,7 +2140,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-50',
         articleNumber: '50',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las acciones judiciales, las administrativas y las sanciones emergentes de la presente ley prescribirán en el término de TRES (3) años. La prescripción se interrumpirá por la comisión de nuevas infracciones o por el inicio de las actuaciones administrativas o judiciales.',
         plainExplanation: 'Prescripción de 3 años, se interrumpe con el reclamo o con nueva infracción.',
         practicalExample:
@@ -2315,11 +2156,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '51',
     title: 'Acciones judiciales',
-    originalText:
-      'Sin perjuicio de lo expuesto, el damnificado tendrá derecho a obtener el resarcimiento de los daños y perjuicios que le fueren ocasionados como consecuencia de la violación de esta ley, de conformidad con lo normado en el artículo siguiente.',
-    currentText:
-      'Sin perjuicio de lo expuesto, el damnificado tendrá derecho a obtener el resarcimiento de los daños y perjuicios que le fueren ocasionados como consecuencia de la violación de esta ley, de conformidad con lo normado en el artículo siguiente.',
-    plainLanguageExplanation:
+    text:
+      'Sin perjuicio de lo expuesto, el damnificado tendrá derecho a obtener el resarcimiento de los daños y perjuicios que le fueren ocasionados como consecuencia de la violación de esta ley, de conformidad con lo normado en el artículo siguiente.',    plainLanguageExplanation:
       'Además de las sanciones administrativas al proveedor, el consumidor afectado tiene derecho a reclamar judicialmente la indemnización de daños y perjuicios.',
     practicalEffects: [
       'El consumidor puede reclamar daños incluso si la autoridad ya aplicó una multa al proveedor.',
@@ -2341,7 +2179,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-51',
         articleNumber: '51',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Sin perjuicio de lo expuesto, el damnificado tendrá derecho a obtener el resarcimiento de los daños y perjuicios que le fueren ocasionados como consecuencia de la violación de esta ley.',
         plainExplanation: 'El consumidor puede reclamar daños y perjuicios judicialmente, independientemente de la sanción administrativa.',
         practicalExample:
@@ -2357,11 +2195,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '53',
     title: 'Normas del proceso',
-    originalText:
-      'En las causas iniciadas por ejercicio de los derechos establecidos en esta ley regirán las siguientes normas de proceso: a) Será competente la justicia ordinaria federal o provincial según corresponda. b) Todas las partes podrán acreditar la existencia de hechos mediante todos los medios de prueba, aunque no sean periciales, ni documentales. c) Los hechos pueden acreditarse por medio de presunciones, si fueren suficientemente graves, precisas y concordantes. d) La carga de la prueba incumbirá a quien esté en mejores condiciones de probar. e) El incumplimiento de medidas cautelares o de la sentencia definitiva facultará al juez a imponer multas al proveedor. Las multas se entregarán a quien promovió la acción o a la asociación de consumidores. f) No se impondrán costas al consumidor cuando sea vencido en juicio. En casos de malicia o mala fe el juez podrá imponer las costas al consumidor.',
-    currentText:
-      'En las causas iniciadas por ejercicio de los derechos establecidos en esta ley regirán las siguientes normas de proceso: a) Será competente la justicia ordinaria federal o provincial según corresponda. b) Todas las partes podrán acreditar la existencia de hechos mediante todos los medios de prueba. c) Los hechos pueden acreditarse por medio de presunciones. d) La carga de la prueba incumbirá a quien esté en mejores condiciones de probar. e) El incumplimiento de medidas cautelares o de la sentencia definitiva facultará al juez a imponer multas al proveedor. f) No se impondrán costas al consumidor cuando sea vencido en juicio, salvo mala fe.',
-    plainLanguageExplanation:
+    text:
+      'En las causas iniciadas por ejercicio de los derechos establecidos en esta ley regirán las siguientes normas de proceso: a) Será competente la justicia ordinaria federal o provincial según corresponda. b) Todas las partes podrán acreditar la existencia de hechos mediante todos los medios de prueba, aunque no sean periciales, ni documentales. c) Los hechos pueden acreditarse por medio de presunciones, si fueren suficientemente graves, precisas y concordantes. d) La carga de la prueba incumbirá a quien esté en mejores condiciones de probar. e) El incumplimiento de medidas cautelares o de la sentencia definitiva facultará al juez a imponer multas al proveedor. Las multas se entregarán a quien promovió la acción o a la asociación de consumidores. f) No se impondrán costas al consumidor cuando sea vencido en juicio. En casos de malicia o mala fe el juez podrá imponer las costas al consumidor.',    plainLanguageExplanation:
       'El proceso judicial de consumo tiene reglas especiales: la carga de la prueba recae sobre quien esté en mejores condiciones de probar (generalmente el proveedor). Si el consumidor pierde, no paga costas (gastos del juicio), salvo que haya actuado de mala fe. Las multas por incumplimiento de sentencia van al consumidor o a la asociación que inició la acción.',
     practicalEffects: [
       'El consumidor no paga costas si pierde, lo que reduce el riesgo de litigar.',
@@ -2383,7 +2218,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-53',
         articleNumber: '53',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La carga de la prueba incumbirá a quien esté en mejores condiciones de probar. No se impondrán costas al consumidor cuando sea vencido en juicio. En casos de malicia o mala fe el juez podrá imponer las costas al consumidor.',
         plainExplanation: 'El proveedor suele cargar con la prueba; el consumidor que pierde no paga costas salvo mala fe.',
         practicalExample:
@@ -2399,11 +2234,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '54',
     title: 'Acciones de incidencia colectiva',
-    originalText:
-      'Para arribar a un acuerdo conciliatorio y para homologar toda propuesta de acuerdo conciliatorio en las acciones de incidencia colectiva, se deberá publicitar dicho acuerdo en medios masivos de comunicación. La publicación no podrá ser inferior a dos (2) días en los medios de mayor difusión y circulación. En las acciones colectivas, el juez deberá verificar que el acuerdo sea razonable para los consumidores o usuarios afectados.',
-    currentText:
-      'Para arribar a un acuerdo conciliatorio y para homologar toda propuesta de acuerdo conciliatorio en las acciones de incidencia colectiva, se deberá publicitar dicho acuerdo en medios masivos de comunicación. La publicación no podrá ser inferior a dos (2) días en los medios de mayor difusión y circulación. En las acciones colectivas, el juez deberá verificar que el acuerdo sea razonable para los consumidores o usuarios afectados.',
-    plainLanguageExplanation:
+    text:
+      'Para arribar a un acuerdo conciliatorio y para homologar toda propuesta de acuerdo conciliatorio en las acciones de incidencia colectiva, se deberá publicitar dicho acuerdo en medios masivos de comunicación. La publicación no podrá ser inferior a dos (2) días en los medios de mayor difusión y circulación. En las acciones colectivas, el juez deberá verificar que el acuerdo sea razonable para los consumidores o usuarios afectados.',    plainLanguageExplanation:
       'En los juicios colectivos de consumidores, cualquier acuerdo debe publicarse en medios masivos por al menos 2 días para que todos los afectados puedan conocerlo. El juez debe verificar que el acuerdo sea razonable y no perjudique a los consumidores representados.',
     practicalEffects: [
       'Impide acuerdos secretos que perjudiquen a los consumidores en litigios colectivos.',
@@ -2425,7 +2257,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-54',
         articleNumber: '54',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Para homologar toda propuesta de acuerdo conciliatorio en las acciones de incidencia colectiva, se deberá publicitar dicho acuerdo en medios masivos de comunicación por no menos de dos (2) días. El juez deberá verificar que el acuerdo sea razonable para los consumidores o usuarios afectados.',
         plainExplanation: 'Los acuerdos en acciones colectivas deben publicarse en medios masivos y ser verificados por el juez.',
         practicalExample:
@@ -2441,11 +2273,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '55',
     title: 'Legitimación activa',
-    originalText:
-      'Las acciones iniciadas en defensa de intereses de incidencia colectiva podrán ser ejercidas por: el afectado, el Defensor del Pueblo y las asociaciones de consumidores que propendan a esos fines, registradas conforme a la ley. Sin perjuicio de lo expuesto, el Estado nacional, los estados provinciales, los municipios y el Gobierno de la Ciudad Autónoma de Buenos Aires serán considerados legitimados activos cuando actúen en su carácter de consumidores o usuarios de bienes y servicios.',
-    currentText:
-      'Las acciones iniciadas en defensa de intereses de incidencia colectiva podrán ser ejercidas por: el afectado, el Defensor del Pueblo y las asociaciones de consumidores que propendan a esos fines, registradas conforme a la ley. Sin perjuicio de lo expuesto, el Estado nacional, los estados provinciales, los municipios y el Gobierno de la Ciudad Autónoma de Buenos Aires serán considerados legitimados activos cuando actúen en su carácter de consumidores o usuarios de bienes y servicios.',
-    plainLanguageExplanation:
+    text:
+      'Las acciones iniciadas en defensa de intereses de incidencia colectiva podrán ser ejercidas por: el afectado, el Defensor del Pueblo y las asociaciones de consumidores que propendan a esos fines, registradas conforme a la ley. Sin perjuicio de lo expuesto, el Estado nacional, los estados provinciales, los municipios y el Gobierno de la Ciudad Autónoma de Buenos Aires serán considerados legitimados activos cuando actúen en su carácter de consumidores o usuarios de bienes y servicios.',    plainLanguageExplanation:
       'Las acciones colectivas de consumidores pueden ser iniciadas por: el consumidor afectado, el Defensor del Pueblo, y las asociaciones de consumidores registradas. También puede iniciarlas el Estado cuando actúa como consumidor.',
     practicalEffects: [
       'El Defensor del Pueblo puede demandar en nombre de consumidores sin que ninguno haya presentado una denuncia individual.',
@@ -2467,7 +2296,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-55',
         articleNumber: '55',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las acciones en defensa de intereses de incidencia colectiva podrán ser ejercidas por el afectado, el Defensor del Pueblo y las asociaciones de consumidores registradas. El Estado puede actuar como legitimado activo cuando actúa como consumidor.',
         plainExplanation: 'Las acciones colectivas pueden ser iniciadas por consumidores, el Defensor del Pueblo o asociaciones registradas.',
         practicalExample:
@@ -2483,11 +2312,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '56',
     title: 'Autoridad de aplicación',
-    originalText:
-      'Créase el Registro Nacional de Asociaciones de Consumidores en el ámbito de la autoridad nacional de aplicación, en el que deberán inscribirse las asociaciones que tengan por objeto la defensa, información y educación del consumidor.',
-    currentText:
-      'Créase el Registro Nacional de Asociaciones de Consumidores en el ámbito de la autoridad nacional de aplicación, en el que deberán inscribirse las asociaciones que tengan por objeto la defensa, información y educación del consumidor.',
-    plainLanguageExplanation:
+    text:
+      'Créase el Registro Nacional de Asociaciones de Consumidores en el ámbito de la autoridad nacional de aplicación, en el que deberán inscribirse las asociaciones que tengan por objeto la defensa, información y educación del consumidor.',    plainLanguageExplanation:
       'Crea el Registro Nacional de Asociaciones de Consumidores, donde deben inscribirse todas las asociaciones dedicadas a la defensa, información y educación de los consumidores para poder actuar oficialmente.',
     practicalEffects: [
       'Sólo las asociaciones inscriptas en el Registro tienen legitimación para acciones colectivas.',
@@ -2508,7 +2334,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-56',
         articleNumber: '56',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Créase el Registro Nacional de Asociaciones de Consumidores en el que deberán inscribirse las asociaciones que tengan por objeto la defensa, información y educación del consumidor.',
         plainExplanation: 'Se crea el Registro Nacional donde deben inscribirse las asociaciones de consumidores para actuar legalmente.',
         practicalExample:
@@ -2524,11 +2350,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '57',
     title: 'Obligaciones de las asociaciones',
-    originalText:
-      'Las asociaciones de consumidores deben llevar libros de contabilidad y registros de asociados. Deben presentar memorias anuales a la autoridad de aplicación indicando las acciones realizadas durante el año en defensa de los consumidores. La autoridad de aplicación podrá solicitar información en cualquier momento.',
-    currentText:
-      'Las asociaciones de consumidores deben llevar libros de contabilidad y registros de asociados. Deben presentar memorias anuales a la autoridad de aplicación indicando las acciones realizadas durante el año en defensa de los consumidores. La autoridad de aplicación podrá solicitar información en cualquier momento.',
-    plainLanguageExplanation:
+    text:
+      'Las asociaciones de consumidores deben llevar libros de contabilidad y registros de asociados. Deben presentar memorias anuales a la autoridad de aplicación indicando las acciones realizadas durante el año en defensa de los consumidores. La autoridad de aplicación podrá solicitar información en cualquier momento.',    plainLanguageExplanation:
       'Las asociaciones de consumidores tienen obligaciones de transparencia: deben llevar contabilidad ordenada, registro de socios, y presentar una memoria anual a la autoridad de aplicación. Pueden ser auditadas en cualquier momento.',
     practicalEffects: [
       'Las asociaciones deben rendir cuentas anualmente sobre sus actividades.',
@@ -2550,7 +2373,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-57',
         articleNumber: '57',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las asociaciones de consumidores deben llevar libros de contabilidad y registros de asociados, y presentar memorias anuales a la autoridad de aplicación.',
         plainExplanation: 'Las asociaciones deben mantener contabilidad y presentar informes anuales de actividad.',
         practicalExample:
@@ -2566,11 +2389,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '58',
     title: 'Transformación de asociaciones civiles',
-    originalText:
-      'Las entidades de bien público, las cooperativas, los sindicatos, las asociaciones de defensa del consumidor inscritas, podrán constituir o participar en la constitución de personas jurídicas que tengan por objeto la protección del consumidor o la prestación de servicios a éstos, sin ánimo de lucro. Tales personas jurídicas deberán tener distinta personería e independencia administrativa respecto de las antes mencionadas.',
-    currentText:
-      'Las entidades de bien público, las cooperativas, los sindicatos, las asociaciones de defensa del consumidor inscritas, podrán constituir o participar en la constitución de personas jurídicas que tengan por objeto la protección del consumidor o la prestación de servicios a éstos, sin ánimo de lucro. Tales personas jurídicas deberán tener distinta personería e independencia administrativa respecto de las antes mencionadas.',
-    plainLanguageExplanation:
+    text:
+      'Las entidades de bien público, las cooperativas, los sindicatos, las asociaciones de defensa del consumidor inscritas, podrán constituir o participar en la constitución de personas jurídicas que tengan por objeto la protección del consumidor o la prestación de servicios a éstos, sin ánimo de lucro. Tales personas jurídicas deberán tener distinta personería e independencia administrativa respecto de las antes mencionadas.',    plainLanguageExplanation:
       'Entidades como cooperativas o sindicatos pueden crear organizaciones de defensa del consumidor sin fines de lucro, pero estas deben tener personería jurídica propia e independencia de la entidad fundadora.',
     practicalEffects: [
       'Un sindicato puede crear una asociación de consumidores, pero debe ser una entidad separada e independiente.',
@@ -2591,7 +2411,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-58',
         articleNumber: '58',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las entidades de bien público, las cooperativas, los sindicatos podrán constituir personas jurídicas que tengan por objeto la protección del consumidor. Tales personas jurídicas deberán tener distinta personería e independencia administrativa.',
         plainExplanation: 'Cooperativas y sindicatos pueden crear asociaciones de consumidores, pero deben ser entidades independientes.',
         practicalExample:
@@ -2607,11 +2427,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '59',
     title: 'Tribunales arbitrales',
-    originalText:
-      'La autoridad de aplicación propiciará la organización de tribunales arbitrales, que actuarán como amigables componedores o árbitros de derecho común, según el caso, para resolver las controversias que se susciten con motivo de lo previsto en esta ley. Podrá invitar para que integren estos tribunales arbitrales, en las condiciones que establezca la reglamentación, a las personas que tengan experiencia en la materia. Los tribunales arbitrales podrán ser integrados por representantes de los consumidores.',
-    currentText:
-      'La autoridad de aplicación propiciará la organización de tribunales arbitrales, que actuarán como amigables componedores o árbitros de derecho común, según el caso, para resolver las controversias que se susciten con motivo de lo previsto en esta ley. Podrá invitar para que integren estos tribunales arbitrales, en las condiciones que establezca la reglamentación, a las personas que tengan experiencia en la materia. Los tribunales arbitrales podrán ser integrados por representantes de los consumidores.',
-    plainLanguageExplanation:
+    text:
+      'La autoridad de aplicación propiciará la organización de tribunales arbitrales, que actuarán como amigables componedores o árbitros de derecho común, según el caso, para resolver las controversias que se susciten con motivo de lo previsto en esta ley. Podrá invitar para que integren estos tribunales arbitrales, en las condiciones que establezca la reglamentación, a las personas que tengan experiencia en la materia. Los tribunales arbitrales podrán ser integrados por representantes de los consumidores.',    plainLanguageExplanation:
       'La autoridad de consumo puede crear tribunales arbitrales para resolver conflictos entre consumidores y proveedores de forma más rápida y económica que la justicia ordinaria.',
     practicalEffects: [
       'El arbitraje es voluntario pero más rápido que la justicia ordinaria.',
@@ -2633,7 +2450,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-59',
         articleNumber: '59',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La autoridad de aplicación propiciará la organización de tribunales arbitrales para resolver las controversias que se susciten con motivo de lo previsto en esta ley. Los tribunales arbitrales podrán ser integrados por representantes de los consumidores.',
         plainExplanation: 'Se pueden crear tribunales arbitrales de consumo para resolver conflictos de forma más rápida que la justicia ordinaria.',
         practicalExample:
@@ -2649,11 +2466,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '60',
     title: 'Educación al consumidor',
-    originalText:
-      'Incumbe al Estado nacional y a los estados provinciales y municipales en sus respectivas jurisdicciones, la formación de los consumidores y usuarios, de modo que les posibilite hacer elecciones adecuadas y los estimule a adoptar comportamientos acordes con sus propios intereses. Esta formación podrá ser realizada a través de los organismos de aplicación establecidos por esta ley y a través de los organismos educativos y de difusión, tanto oficiales como privados.',
-    currentText:
-      'Incumbe al Estado nacional y a los estados provinciales y municipales en sus respectivas jurisdicciones, la formación de los consumidores y usuarios, de modo que les posibilite hacer elecciones adecuadas y los estimule a adoptar comportamientos acordes con sus propios intereses. Esta formación podrá ser realizada a través de los organismos de aplicación establecidos por esta ley y a través de los organismos educativos y de difusión, tanto oficiales como privados.',
-    plainLanguageExplanation:
+    text:
+      'Incumbe al Estado nacional y a los estados provinciales y municipales en sus respectivas jurisdicciones, la formación de los consumidores y usuarios, de modo que les posibilite hacer elecciones adecuadas y los estimule a adoptar comportamientos acordes con sus propios intereses. Esta formación podrá ser realizada a través de los organismos de aplicación establecidos por esta ley y a través de los organismos educativos y de difusión, tanto oficiales como privados.',    plainLanguageExplanation:
       'El Estado (nación, provincias y municipios) tiene la obligación de educar a los consumidores para que puedan tomar decisiones informadas. Esta educación puede hacerse a través de organismos oficiales, escuelas o medios de comunicación.',
     practicalEffects: [
       'Las escuelas pueden incluir contenidos de educación del consumidor.',
@@ -2675,7 +2489,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-60',
         articleNumber: '60',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Incumbe al Estado nacional y a los estados provinciales y municipales en sus respectivas jurisdicciones, la formación de los consumidores y usuarios.',
         plainExplanation: 'El Estado tiene la obligación de educar a los consumidores para que tomen decisiones informadas.',
         practicalExample:
@@ -2691,11 +2505,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '61',
     title: 'Formación del consumidor',
-    originalText:
-      'La formación del consumidor debe facilitar la comprensión y utilización de la información sobre: a) Salud y seguridad. b) Contaminación del ambiente y uso eficiente de la energía. c) Precios, calidad comparada y crédito. d) Medidas, pesas y evaluación de calidad. e) Condiciones de la comercialización. f) Mecanismos de defensa del consumidor.',
-    currentText:
-      'La formación del consumidor debe facilitar la comprensión y utilización de la información sobre: a) Salud y seguridad. b) Contaminación del ambiente y uso eficiente de la energía. c) Precios, calidad comparada y crédito. d) Medidas, pesas y evaluación de calidad. e) Condiciones de la comercialización. f) Mecanismos de defensa del consumidor.',
-    plainLanguageExplanation:
+    text:
+      'La formación del consumidor debe facilitar la comprensión y utilización de la información sobre: a) Salud y seguridad. b) Contaminación del ambiente y uso eficiente de la energía. c) Precios, calidad comparada y crédito. d) Medidas, pesas y evaluación de calidad. e) Condiciones de la comercialización. f) Mecanismos de defensa del consumidor.',    plainLanguageExplanation:
       'La educación al consumidor debe cubrir temas concretos: salud y seguridad de los productos, medio ambiente, comparación de precios y calidad, condiciones de venta, y cómo ejercer los derechos de consumidor.',
     practicalEffects: [
       'Los programas de educación al consumidor deben abordar todos estos temas.',
@@ -2716,7 +2527,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-61',
         articleNumber: '61',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La formación del consumidor debe facilitar la comprensión y utilización de la información sobre: a) Salud y seguridad. b) Contaminación y eficiencia energética. c) Precios y crédito. d) Medidas y calidad. e) Condiciones de comercialización. f) Mecanismos de defensa.',
         plainExplanation: 'La educación al consumidor debe cubrir salud, seguridad, precios, calidad y cómo ejercer los derechos.',
         practicalExample:
@@ -2732,11 +2543,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '62',
     title: 'Programas de educación',
-    originalText:
-      'El Estado nacional, los estados provinciales y municipales arbitrarán los medios necesarios para incluir dentro de los planes de enseñanza de todos los niveles educativos contenidos relativos a los derechos de los consumidores y usuarios. La Secretaría de Educación deberá dictar los reglamentos pertinentes.',
-    currentText:
-      'El Estado nacional, los estados provinciales y municipales arbitrarán los medios necesarios para incluir dentro de los planes de enseñanza de todos los niveles educativos contenidos relativos a los derechos de los consumidores y usuarios. La Secretaría de Educación deberá dictar los reglamentos pertinentes.',
-    plainLanguageExplanation:
+    text:
+      'El Estado nacional, los estados provinciales y municipales arbitrarán los medios necesarios para incluir dentro de los planes de enseñanza de todos los niveles educativos contenidos relativos a los derechos de los consumidores y usuarios. La Secretaría de Educación deberá dictar los reglamentos pertinentes.',    plainLanguageExplanation:
       'Los derechos del consumidor deben incluirse en los planes de estudio de todos los niveles educativos, desde la escuela primaria hasta la universidad. El Ministerio de Educación debe reglamentarlo.',
     practicalEffects: [
       'Ordena incorporar la educación del consumidor en el currículo escolar.',
@@ -2757,7 +2565,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-62',
         articleNumber: '62',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El Estado nacional, los estados provinciales y municipales arbitrarán los medios necesarios para incluir dentro de los planes de enseñanza de todos los niveles educativos contenidos relativos a los derechos de los consumidores y usuarios.',
         plainExplanation: 'Los derechos del consumidor deben incluirse en los planes de estudio de todos los niveles educativos.',
         practicalExample:
@@ -2773,11 +2581,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '63',
     title: 'Normas del código de comercio',
-    originalText:
-      'Para el supuesto de contratos celebrados fuera del establecimiento comercial y entre ausentes, la entrega de la cosa mueble objeto del contrato no será ejecutiva hasta que el plazo de revocación se haya extinguido.',
-    currentText:
-      'Para el supuesto de contratos celebrados fuera del establecimiento comercial y entre ausentes, la entrega de la cosa mueble objeto del contrato no será ejecutiva hasta que el plazo de revocación se haya extinguido.',
-    plainLanguageExplanation:
+    text:
+      'Para el supuesto de contratos celebrados fuera del establecimiento comercial y entre ausentes, la entrega de la cosa mueble objeto del contrato no será ejecutiva hasta que el plazo de revocación se haya extinguido.',    plainLanguageExplanation:
       'En contratos de venta a distancia o fuera del local, el proveedor no puede ejecutar (cobrar judicialmente) la entrega del bien hasta que hayan pasado los 10 días del derecho de revocación.',
     practicalEffects: [
       'El proveedor no puede demandar al consumidor por el precio del bien durante el período de revocación.',
@@ -2798,7 +2603,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-63',
         articleNumber: '63',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Para el supuesto de contratos celebrados fuera del establecimiento comercial y entre ausentes, la entrega de la cosa mueble objeto del contrato no será ejecutiva hasta que el plazo de revocación se haya extinguido.',
         plainExplanation: 'El proveedor no puede ejecutar judicialmente la entrega del bien durante el período de revocación.',
         practicalExample:
@@ -2814,11 +2619,8 @@ export const ARTICLES_24240: Article[] = [
     lawId: 'ley-24240',
     number: '64',
     title: 'Cláusula penal',
-    originalText:
-      'El proveedor que no cumpla sus obligaciones contractuales o legales con el consumidor debe pagar una multa al consumidor, sin perjuicio de la responsabilidad civil y penal que pudiere corresponder. La multa será determinada por la autoridad de aplicación conforme a lo dispuesto en el artículo 47.',
-    currentText:
-      'El proveedor que no cumpla sus obligaciones contractuales o legales con el consumidor debe pagar una multa al consumidor, sin perjuicio de la responsabilidad civil y penal que pudiere corresponder. La multa será determinada por la autoridad de aplicación conforme a lo dispuesto en el artículo 47.',
-    plainLanguageExplanation:
+    text:
+      'El proveedor que no cumpla sus obligaciones contractuales o legales con el consumidor debe pagar una multa al consumidor, sin perjuicio de la responsabilidad civil y penal que pudiere corresponder. La multa será determinada por la autoridad de aplicación conforme a lo dispuesto en el artículo 47.',    plainLanguageExplanation:
       'El proveedor que incumple sus obligaciones legales o contractuales frente al consumidor debe pagar una multa al consumidor (no al Estado). Esta multa es adicional a la responsabilidad civil (daños) y penal que pudiera corresponder.',
     practicalEffects: [
       'La multa va al consumidor, no al fisco, lo que incentiva los reclamos individuales.',
@@ -2840,7 +2642,7 @@ export const ARTICLES_24240: Article[] = [
         articleId: 'art-24240-64',
         articleNumber: '64',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El proveedor que no cumpla sus obligaciones contractuales o legales con el consumidor debe pagar una multa al consumidor, sin perjuicio de la responsabilidad civil y penal que pudiere corresponder.',
         plainExplanation: 'El incumplimiento genera multa al consumidor (no al Estado) además de daños y perjuicios.',
         practicalExample:

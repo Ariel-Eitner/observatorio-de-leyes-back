@@ -16,10 +16,8 @@ export const ARTICLES_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '198',
 		title: 'Libre disponibilidad de divisas de exportación',
-		originalText:
+		text:
 			'Los cobros de exportaciones de productos del Proyecto Adherido al RIGI efectuados por los VPU quedan exceptuados en los porcentajes descriptos a continuación de la obligación de ingreso y/o negociación y liquidación en el mercado de cambios:\na) Veinte por ciento (20%) luego de transcurrido dos (2) años contados desde la fecha de puesta en marcha del VPU;\nb) Cuarenta por ciento (40%) luego de transcurrido tres (3) años contados desde la fecha de puesta en marcha del VPU;\nc) Ciento por ciento (100%) luego de transcurrido cuatro (4) años contados desde la fecha de puesta en marcha del VPU.\n\nDichos fondos en los porcentajes referidos serán de libre disponibilidad.\n\nLos VPU no estarán obligados a ingresar y/o liquidar en el mercado de cambios las divisas y/o cualquier contravalor correspondiente a otros rubros o conceptos (tales como aportes de capital, préstamos o servicios) vinculados al proyecto, contando con la libre disponibilidad de los mismos.\n\nCuando se trate de cobros de exportaciones efectuadas por VPU titulares de Proyectos de Exportación Estratégica de Largo Plazo, los plazos se computan como: 20% al año 1; 40% al año 2; 100% al año 3 desde la puesta en marcha.',
-		currentText:
-			'Las divisas de exportación de proyectos RIGI se liberan progresivamente:\n- Año 2: 20% libre disponibilidad\n- Año 3: 40% libre disponibilidad\n- Año 4: 100% libre disponibilidad\n(Plazos desde la puesta en marcha, no desde la adhesión)\n\nPara proyectos de Exportación Estratégica: plazos 1 año antes.\n\nAportes de capital, préstamos y servicios: libre disponibilidad desde el inicio.',
 		plainLanguageExplanation:
 			'En Argentina, las empresas deben liquidar en el BCRA los dólares que cobran por sus exportaciones ("cepo cambiario"). El RIGI exime de esta obligación en forma progresiva: a los 4 años de empezar a operar, el 100% de lo que el proyecto gane en el exterior es de libre disponibilidad (el VPU no necesita venderlos al BCRA). Los aportes de capital y préstamos son libres desde el inicio.',
 		practicalEffects: [
@@ -44,10 +42,8 @@ export const ARTICLES_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '199',
 		title: 'Divisas de financiamiento',
-		originalText:
+		text:
 			'Las divisas provenientes de financiamientos locales o externos tomados por los VPU adheridos al RIGI, que fueran desembolsados con posterioridad a la entrada en vigencia de la presente ley, no estarán sujetas a restricciones en cuanto a su libre disponibilidad en el exterior o en el país. Dichos fondos serán de libre disponibilidad por parte del VPU y/o del Proyecto Adherido y sus montos podrán ser utilizados libremente para cualquier concepto.\n\nNo le será aplicable a los VPU adheridos al RIGI ninguna limitación a la tenencia de activos externos líquidos o no, impuesta por la normativa cambiaria.',
-		currentText:
-			'Las divisas provenientes de préstamos (nacionales o extranjeros) y aportes de capital de los VPU son de libre disponibilidad desde el inicio, sin las restricciones del régimen cambiario general. Tampoco aplican las restricciones sobre tenencia de activos externos.',
 		plainLanguageExplanation:
 			'El dinero que una empresa del exterior aporta como capital o préstamo a un proyecto RIGI puede mantenerse en el exterior o moverse libremente, sin las restricciones del "cepo" cambiario. Los VPU tampoco tienen límites para mantener activos líquidos en el exterior (como las restricciones de "posición en activos externos" que afectan al resto de las empresas).',
 		practicalEffects: [
@@ -71,10 +67,8 @@ export const ARTICLES_05: Article[] = [
 		lawId: 'ley-27742',
 		number: '200',
 		title: 'Garantías del Estado nacional',
-		originalText:
+		text:
 			'El Estado nacional garantiza a los VPU adheridos al RIGI:\na) La plena disponibilidad sobre los productos resultantes del proyecto, sin obligación de comercialización en el mercado local;\nb) La plena disponibilidad de sus activos e inversiones, que no serán objeto de actos confiscatorios o expropiatorios;\nc) El derecho a la operación continuada del proyecto sin interrupciones, salvo orden judicial con previo derecho de defensa;\nd) El derecho a pagar utilidades, dividendos e intereses mediante acceso al mercado de cambios sin restricciones;\ne) El acceso irrestricto a la justicia y demás remedios legales disponibles.',
-		currentText:
-			'El Estado nacional garantiza a los VPU RIGI: libre disponibilidad de la producción (sin obligación de vender al mercado local); no confiscación ni expropiación; continuidad operativa (sólo una orden judicial puede interrumpirla); acceso libre al mercado de cambios para pagar dividendos e intereses; y acceso irrestricto a la justicia.',
 		plainLanguageExplanation:
 			'El Estado se compromete a 5 garantías fundamentales para los inversores RIGI: (1) no obligar a vender al mercado interno, (2) no expropiar, (3) no interrumpir las operaciones salvo orden judicial, (4) permitir girar dividendos al exterior sin restricciones, y (5) garantizar acceso a la justicia. Estas garantías son parte de la "seguridad jurídica" que el RIGI promete.',
 		practicalEffects: [

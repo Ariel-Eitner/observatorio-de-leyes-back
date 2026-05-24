@@ -8,11 +8,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '90',
     title: 'Indeterminación del plazo',
-    originalText:
-      'El contrato de trabajo se entenderá celebrado por tiempo indeterminado, salvo que su término resulte de las siguientes circunstancias:\na) Que se haya fijado en forma expresa y por escrito el tiempo de su duración;\nb) Que las modalidades de las tareas o de la actividad, razonablemente apreciadas, así lo justifiquen.\nLa formalización de contratos por plazo determinado en forma sucesiva, que exceda de las exigencias previstas en el apartado b) de este artículo, convierte al contrato en uno por tiempo indeterminado.',
-    currentText:
-      'El contrato de trabajo se entenderá celebrado por tiempo indeterminado, salvo que su término resulte de las siguientes circunstancias:\na) Que se haya fijado en forma expresa y por escrito el tiempo de su duración;\nb) Que las modalidades de las tareas o de la actividad, razonablemente apreciadas, así lo justifiquen.\nLa formalización de contratos por plazo determinado en forma sucesiva, que exceda de las exigencias previstas en el apartado b) de este artículo, convierte al contrato en uno por tiempo indeterminado.',
-    plainLanguageExplanation:
+    text:
+      'El contrato de trabajo se entenderá celebrado por tiempo indeterminado, salvo que su término resulte de las siguientes circunstancias:\na) Que se haya fijado en forma expresa y por escrito el tiempo de su duración;\nb) Que las modalidades de las tareas o de la actividad, razonablemente apreciadas, así lo justifiquen.\nLa formalización de contratos por plazo determinado en forma sucesiva, que exceda de las exigencias previstas en el apartado b) de este artículo, convierte al contrato en uno por tiempo indeterminado.',    plainLanguageExplanation:
       'La regla es que los contratos son por tiempo indefinido. El plazo fijo es la excepción y debe estar por escrito con justificación real. Si se renueva reiteradamente un contrato "a plazo fijo" sin justificación, se convierte en indefinido.',
     practicalEffects: [
       'Un contrato "de prueba" de 6 meses que se renueva 3 veces: pasa a ser contrato indefinido',
@@ -32,11 +29,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '91',
     title: 'Alcance',
-    originalText:
-      'El contrato por tiempo indeterminado dura hasta que el trabajador se encuentre en condiciones de gozar de los beneficios que le asignan los regímenes de seguridad social, por límites de edad y años de servicios, salvo que se configuren algunas de las causales de extinción previstas en la presente ley.',
-    currentText:
-      'El contrato por tiempo indeterminado dura hasta que el trabajador se encuentre en condiciones de gozar de los beneficios que le asignan los regímenes de seguridad social, por límites de edad y años de servicios, salvo que se configuren algunas de las causales de extinción previstas en la presente ley.',
-    plainLanguageExplanation: '',
+    text:
+      'El contrato por tiempo indeterminado dura hasta que el trabajador se encuentre en condiciones de gozar de los beneficios que le asignan los regímenes de seguridad social, por límites de edad y años de servicios, salvo que se configuren algunas de las causales de extinción previstas en la presente ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-90', 'art-20744-252'],
@@ -52,11 +46,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '92',
     title: 'Prueba del contrato',
-    originalText:
-      'La carga de la prueba de que el contrato es por tiempo determinado estará a cargo del empleador.',
-    currentText:
-      'La carga de la prueba de que el contrato es por tiempo determinado estará a cargo del empleador.',
-    plainLanguageExplanation: '',
+    text:
+      'La carga de la prueba de que el contrato es por tiempo determinado estará a cargo del empleador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-90'],
@@ -72,11 +63,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '92 bis',
     title: 'Período de prueba',
-    originalText:
-      'El contrato de trabajo por tiempo indeterminado, excepto el referido en el artículo 96, se entenderá celebrado a prueba durante los primeros seis (6) meses de vigencia. Cualquiera de las partes podrá extinguir la relación durante ese lapso sin expresión de causa, sin derecho a indemnización con motivo de la extinción, pero con obligación de preavisar según lo establecido en los artículos 231 y 232.\nEl empleador no podrá contratar a un mismo trabajador, más de una vez, utilizando el período de prueba. El uso abusivo del período de prueba con el objeto de evitar la efectivización de trabajadores será pasible de las sanciones previstas en los regímenes sobre infracciones a las leyes de trabajo. En especial, se considerará abusiva la conducta del empleador que contratare sucesivamente a distintos trabajadores para un mismo puesto de trabajo de naturaleza permanente.\nEl trabajador tendrá derecho, durante el período de prueba, a las prestaciones por accidente o enfermedad del trabajo. También en este período gozará de los derechos sindicales.\nEl período de prueba, se computará como tiempo de servicio a todos los efectos laborales y de la seguridad social.',
-    currentText:
-      'El contrato de trabajo por tiempo indeterminado, excepto el referido en el artículo 96, se entenderá celebrado a prueba durante los primeros seis (6) meses de vigencia. Cualquiera de las partes podrá extinguir la relación durante ese lapso sin expresión de causa, sin derecho a indemnización con motivo de la extinción, pero con obligación de preavisar según lo establecido en los artículos 231 y 232.\nEl empleador no podrá contratar a un mismo trabajador, más de una vez, utilizando el período de prueba. El uso abusivo del período de prueba con el objeto de evitar la efectivización de trabajadores será pasible de las sanciones previstas en los regímenes sobre infracciones a las leyes de trabajo. En especial, se considerará abusiva la conducta del empleador que contratare sucesivamente a distintos trabajadores para un mismo puesto de trabajo de naturaleza permanente.\nEl trabajador tendrá derecho, durante el período de prueba, a las prestaciones por accidente o enfermedad del trabajo. También en este período gozará de los derechos sindicales.\nEl período de prueba, se computará como tiempo de servicio a todos los efectos laborales y de la seguridad social.',
-    plainLanguageExplanation:
+    text:
+      'El contrato de trabajo por tiempo indeterminado, excepto el referido en el artículo 96, se entenderá celebrado a prueba durante los primeros seis (6) meses de vigencia. Cualquiera de las partes podrá extinguir la relación durante ese lapso sin expresión de causa, sin derecho a indemnización con motivo de la extinción, pero con obligación de preavisar según lo establecido en los artículos 231 y 232.\nEl empleador no podrá contratar a un mismo trabajador, más de una vez, utilizando el período de prueba. El uso abusivo del período de prueba con el objeto de evitar la efectivización de trabajadores será pasible de las sanciones previstas en los regímenes sobre infracciones a las leyes de trabajo. En especial, se considerará abusiva la conducta del empleador que contratare sucesivamente a distintos trabajadores para un mismo puesto de trabajo de naturaleza permanente.\nEl trabajador tendrá derecho, durante el período de prueba, a las prestaciones por accidente o enfermedad del trabajo. También en este período gozará de los derechos sindicales.\nEl período de prueba, se computará como tiempo de servicio a todos los efectos laborales y de la seguridad social.',    plainLanguageExplanation:
       'Los primeros 6 meses de todo contrato indefinido son un período de prueba. En ese lapso cualquiera puede terminar la relación sin indemnización, pero hay que preavisar. El empleador no puede usar el período de prueba para mantener rotación permanente de trabajadores.',
     practicalEffects: [
       'Sin indemnización si te desvinculan en los primeros 6 meses, pero sí hay obligación de preaviso',
@@ -121,11 +109,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '92 ter',
     title: 'Contrato de trabajo a tiempo parcial',
-    originalText:
-      'El contrato de trabajo a tiempo parcial es aquel en virtud del cual el trabajador se obliga a prestar servicios durante un determinado número de horas al día o a la semana, inferiores a las dos terceras partes de la jornada habitual de la actividad.\nEn este caso la remuneración no podrá ser inferior a la proporcional, que le corresponda a un trabajador a tiempo completo, establecida por ley o convenio colectivo, de la misma categoría o puesto de trabajo.\nSi la jornada pactada supera los dos tercios de la jornada habitual, se considerará al trabajador como de jornada completa.',
-    currentText:
-      'El contrato de trabajo a tiempo parcial es aquel en virtud del cual el trabajador se obliga a prestar servicios durante un determinado número de horas al día o a la semana, inferiores a las dos terceras partes de la jornada habitual de la actividad.\nEn este caso la remuneración no podrá ser inferior a la proporcional, que le corresponda a un trabajador a tiempo completo, establecida por ley o convenio colectivo, de la misma categoría o puesto de trabajo.\nSi la jornada pactada supera los dos tercios de la jornada habitual, se considerará al trabajador como de jornada completa.',
-    plainLanguageExplanation: '',
+    text:
+      'El contrato de trabajo a tiempo parcial es aquel en virtud del cual el trabajador se obliga a prestar servicios durante un determinado número de horas al día o a la semana, inferiores a las dos terceras partes de la jornada habitual de la actividad.\nEn este caso la remuneración no podrá ser inferior a la proporcional, que le corresponda a un trabajador a tiempo completo, establecida por ley o convenio colectivo, de la misma categoría o puesto de trabajo.\nSi la jornada pactada supera los dos tercios de la jornada habitual, se considerará al trabajador como de jornada completa.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-90'],
@@ -141,11 +126,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '93',
     title: 'Duración del contrato a plazo fijo',
-    originalText:
-      'El contrato de trabajo a plazo fijo durará hasta el vencimiento del plazo convenido, no pudiendo ser superior a cinco (5) años.',
-    currentText:
-      'El contrato de trabajo a plazo fijo durará hasta el vencimiento del plazo convenido, no pudiendo ser superior a cinco (5) años.',
-    plainLanguageExplanation: '',
+    text:
+      'El contrato de trabajo a plazo fijo durará hasta el vencimiento del plazo convenido, no pudiendo ser superior a cinco (5) años.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-90', 'art-20744-94'],
@@ -161,11 +143,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '94',
     title: 'Deber de preavisar — Conversión del contrato',
-    originalText:
-      'Las partes deberán preavisar la extinción del contrato con antelación no menor de un (1) mes ni mayor de dos (2), respecto de la expiración del plazo convenido, salvo en aquellos casos en que el contrato sea por tiempo determinado y su duración sea inferior a un (1) mes.\nAquella de las partes que omitiera el preaviso o lo otorgara de modo insuficiente deberá abonar a la otra una indemnización substitutiva equivalente a la remuneración que correspondería al trabajador durante los plazos del artículo 231.\nLa parte que hubiere recibido un preavisos de duración menor al establecido podrá optar por considerarlo bueno, en cuyo caso el contrato se extinguirá a la fecha señalada.',
-    currentText:
-      'Las partes deberán preavisar la extinción del contrato con antelación no menor de un (1) mes ni mayor de dos (2), respecto de la expiración del plazo convenido, salvo en aquellos casos en que el contrato sea por tiempo determinado y su duración sea inferior a un (1) mes.\nAquella de las partes que omitiera el preaviso o lo otorgara de modo insuficiente deberá abonar a la otra una indemnización substitutiva equivalente a la remuneración que correspondería al trabajador durante los plazos del artículo 231.\nLa parte que hubiere recibido un preavisos de duración menor al establecido podrá optar por considerarlo bueno, en cuyo caso el contrato se extinguirá a la fecha señalada.',
-    plainLanguageExplanation: '',
+    text:
+      'Las partes deberán preavisar la extinción del contrato con antelación no menor de un (1) mes ni mayor de dos (2), respecto de la expiración del plazo convenido, salvo en aquellos casos en que el contrato sea por tiempo determinado y su duración sea inferior a un (1) mes.\nAquella de las partes que omitiera el preaviso o lo otorgara de modo insuficiente deberá abonar a la otra una indemnización substitutiva equivalente a la remuneración que correspondería al trabajador durante los plazos del artículo 231.\nLa parte que hubiere recibido un preavisos de duración menor al establecido podrá optar por considerarlo bueno, en cuyo caso el contrato se extinguirá a la fecha señalada.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-93', 'art-20744-231'],
@@ -181,11 +160,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '95',
     title: 'Despido antes del vencimiento del plazo — Indemnización',
-    originalText:
-      'En los contratos a plazo fijo, el despido injustificado dispuesto antes del vencimiento del plazo, dará derecho al trabajador, además de las indemnizaciones que correspondan por extinción del contrato en tales condiciones, a la de daños y perjuicios provenientes del derecho común, la que se fijará en función directa de los que justifique haber sufrido quien los alegue o los que, a falta de demostración, fije el juez o tribunal prudencialmente, en base a las circunstancias de cada caso.\nEl trabajador despedido antes del vencimiento del plazo sin justa causa, tendrá derecho además a la indemnización por antigüedad del artículo 245 de esta ley.',
-    currentText:
-      'En los contratos a plazo fijo, el despido injustificado dispuesto antes del vencimiento del plazo, dará derecho al trabajador, además de las indemnizaciones que correspondan por extinción del contrato en tales condiciones, a la de daños y perjuicios provenientes del derecho común, la que se fijará en función directa de los que justifique haber sufrido quien los alegue o los que, a falta de demostración, fije el juez o tribunal prudencialmente, en base a las circunstancias de cada caso.\nEl trabajador despedido antes del vencimiento del plazo sin justa causa, tendrá derecho además a la indemnización por antigüedad del artículo 245 de esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'En los contratos a plazo fijo, el despido injustificado dispuesto antes del vencimiento del plazo, dará derecho al trabajador, además de las indemnizaciones que correspondan por extinción del contrato en tales condiciones, a la de daños y perjuicios provenientes del derecho común, la que se fijará en función directa de los que justifique haber sufrido quien los alegue o los que, a falta de demostración, fije el juez o tribunal prudencialmente, en base a las circunstancias de cada caso.\nEl trabajador despedido antes del vencimiento del plazo sin justa causa, tendrá derecho además a la indemnización por antigüedad del artículo 245 de esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-93', 'art-20744-245'],
@@ -201,11 +177,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '96',
     title: 'Contrato de trabajo de temporada',
-    originalText:
-      'Habrá contrato de trabajo de temporada cuando la relación entre las partes, originada por actividades propias del giro normal de la empresa o explotación, se cumpla en determinadas épocas del año solamente y esté sujeta a repetirse por un lapso dado en cada ciclo en razón de la naturaleza de la actividad.',
-    currentText:
-      'Habrá contrato de trabajo de temporada cuando la relación entre las partes, originada por actividades propias del giro normal de la empresa o explotación, se cumpla en determinadas épocas del año solamente y esté sujeta a repetirse por un lapso dado en cada ciclo en razón de la naturaleza de la actividad.',
-    plainLanguageExplanation: '',
+    text:
+      'Habrá contrato de trabajo de temporada cuando la relación entre las partes, originada por actividades propias del giro normal de la empresa o explotación, se cumpla en determinadas épocas del año solamente y esté sujeta a repetirse por un lapso dado en cada ciclo en razón de la naturaleza de la actividad.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-90'],
@@ -221,11 +194,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '97',
     title: 'Permanencia — Equiparación',
-    originalText:
-      'El desempeño del trabajador durante el período de temporada estará regido por las disposiciones de esta ley y de las convenciones colectivas de trabajo aplicables. El trabajador adquiere los derechos que esta ley le reconoce en proporción a los servicios prestados.',
-    currentText:
-      'El desempeño del trabajador durante el período de temporada estará regido por las disposiciones de esta ley y de las convenciones colectivas de trabajo aplicables. El trabajador adquiere los derechos que esta ley le reconoce en proporción a los servicios prestados.',
-    plainLanguageExplanation: '',
+    text:
+      'El desempeño del trabajador durante el período de temporada estará regido por las disposiciones de esta ley y de las convenciones colectivas de trabajo aplicables. El trabajador adquiere los derechos que esta ley le reconoce en proporción a los servicios prestados.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-96'],
@@ -241,11 +211,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '98',
     title: 'Comportamiento de las partes al inicio de cada temporada',
-    originalText:
-      'Con una antelación no menor a treinta (30) días respecto del inicio de cada temporada, el empleador deberá notificar en forma personal o por medios públicos idóneos a los trabajadores de su voluntad de reiterar la relación o contrato en los términos del ciclo anterior. El trabajador deberá expresar su decisión de continuar o no la relación laboral en un plazo de cinco (5) días de notificado, sea por escrito u otros medios. En caso de que el empleador no cursara la notificación a que se hace referencia en el párrafo anterior, se considerará que rescinde unilateralmente el contrato y, por lo tanto, el trabajador tendrá derecho a las indemnizaciones respectivas.',
-    currentText:
-      'Con una antelación no menor a treinta (30) días respecto del inicio de cada temporada, el empleador deberá notificar en forma personal o por medios públicos idóneos a los trabajadores de su voluntad de reiterar la relación o contrato en los términos del ciclo anterior. El trabajador deberá expresar su decisión de continuar o no la relación laboral en un plazo de cinco (5) días de notificado, sea por escrito u otros medios. En caso de que el empleador no cursara la notificación a que se hace referencia en el párrafo anterior, se considerará que rescinde unilateralmente el contrato y, por lo tanto, el trabajador tendrá derecho a las indemnizaciones respectivas.',
-    plainLanguageExplanation: '',
+    text:
+      'Con una antelación no menor a treinta (30) días respecto del inicio de cada temporada, el empleador deberá notificar en forma personal o por medios públicos idóneos a los trabajadores de su voluntad de reiterar la relación o contrato en los términos del ciclo anterior. El trabajador deberá expresar su decisión de continuar o no la relación laboral en un plazo de cinco (5) días de notificado, sea por escrito u otros medios. En caso de que el empleador no cursara la notificación a que se hace referencia en el párrafo anterior, se considerará que rescinde unilateralmente el contrato y, por lo tanto, el trabajador tendrá derecho a las indemnizaciones respectivas.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-96'],
@@ -261,11 +228,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '99',
     title: 'Trabajo eventual',
-    originalText:
-      'Cualquiera sea su denominación, se considerará que media contrato de trabajo eventual cuando la actividad del trabajador se ejerce bajo la dependencia de un empleador para la satisfacción de resultados concretos, tenidos en vista por éste, en relación a servicios extraordinarios determinados de antemano o exigencias extraordinarias y transitorias de la empresa, explotación o establecimiento, toda vez que no pueda preverse un plazo cierto para la finalización del contrato.',
-    currentText:
-      'Cualquiera sea su denominación, se considerará que media contrato de trabajo eventual cuando la actividad del trabajador se ejerce bajo la dependencia de un empleador para la satisfacción de resultados concretos, tenidos en vista por éste, en relación a servicios extraordinarios determinados de antemano o exigencias extraordinarias y transitorias de la empresa, explotación o establecimiento, toda vez que no pueda preverse un plazo cierto para la finalización del contrato.',
-    plainLanguageExplanation: '',
+    text:
+      'Cualquiera sea su denominación, se considerará que media contrato de trabajo eventual cuando la actividad del trabajador se ejerce bajo la dependencia de un empleador para la satisfacción de resultados concretos, tenidos en vista por éste, en relación a servicios extraordinarios determinados de antemano o exigencias extraordinarias y transitorias de la empresa, explotación o establecimiento, toda vez que no pueda preverse un plazo cierto para la finalización del contrato.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-29'],
@@ -281,11 +245,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '100',
     title: 'Normas aplicables al trabajo eventual',
-    originalText:
-      'Los trabajadores eventuales, a través del tiempo durante el cual estén al servicio del empleador, gozarán de los mismos derechos que la ley o las convenciones colectivas reconocen a los trabajadores permanentes de igual categoría, excepto en lo relativo a la estabilidad, con las modalidades que se determinen en la reglamentación.',
-    currentText:
-      'Los trabajadores eventuales, a través del tiempo durante el cual estén al servicio del empleador, gozarán de los mismos derechos que la ley o las convenciones colectivas reconocen a los trabajadores permanentes de igual categoría, excepto en lo relativo a la estabilidad, con las modalidades que se determinen en la reglamentación.',
-    plainLanguageExplanation: '',
+    text:
+      'Los trabajadores eventuales, a través del tiempo durante el cual estén al servicio del empleador, gozarán de los mismos derechos que la ley o las convenciones colectivas reconocen a los trabajadores permanentes de igual categoría, excepto en lo relativo a la estabilidad, con las modalidades que se determinen en la reglamentación.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-99'],
@@ -301,11 +262,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '101',
     title: 'Contrato de trabajo en equipo o por grupo',
-    originalText:
-      'Habrá contrato de trabajo en equipo cuando el mismo se celebrare por un empleador con un grupo de trabajadores que, actuando por intermedio de un delegado o representante, se obligue a la prestación de servicios propios de la actividad de aquél.\nEl empleador tendrá, respecto de cada uno de los integrantes del grupo, individualmente, los mismos deberes y obligaciones previstos en esta ley, con las limitaciones que resulten de las modalidades de las tareas a realizarse y la conformación del grupo.',
-    currentText:
-      'Habrá contrato de trabajo en equipo cuando el mismo se celebrare por un empleador con un grupo de trabajadores que, actuando por intermedio de un delegado o representante, se obligue a la prestación de servicios propios de la actividad de aquél.\nEl empleador tendrá, respecto de cada uno de los integrantes del grupo, individualmente, los mismos deberes y obligaciones previstos en esta ley, con las limitaciones que resulten de las modalidades de las tareas a realizarse y la conformación del grupo.',
-    plainLanguageExplanation: '',
+    text:
+      'Habrá contrato de trabajo en equipo cuando el mismo se celebrare por un empleador con un grupo de trabajadores que, actuando por intermedio de un delegado o representante, se obligue a la prestación de servicios propios de la actividad de aquél.\nEl empleador tendrá, respecto de cada uno de los integrantes del grupo, individualmente, los mismos deberes y obligaciones previstos en esta ley, con las limitaciones que resulten de las modalidades de las tareas a realizarse y la conformación del grupo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -321,11 +279,8 @@ export const ARTICLES_LCT_04: Article[] = [
     lawId: 'ley-20744',
     number: '102',
     title: 'Contrato de trabajo en equipo — Sustitución de integrantes',
-    originalText:
-      'Si el salario fuese pactado en forma colectiva, los trabajadores tendrán derecho a exigir su pago íntegro y proporcional a cada uno, respecto del convenido para el grupo. Si el empleador hubiese sido demandado por el grupo podrá oponer, en compensación del crédito reclamado, el de sus propios créditos contra aquél, hasta concurrencia del crédito del demandante.',
-    currentText:
-      'Si el salario fuese pactado en forma colectiva, los trabajadores tendrán derecho a exigir su pago íntegro y proporcional a cada uno, respecto del convenido para el grupo. Si el empleador hubiese sido demandado por el grupo podrá oponer, en compensación del crédito reclamado, el de sus propios créditos contra aquél, hasta concurrencia del crédito del demandante.',
-    plainLanguageExplanation: '',
+    text:
+      'Si el salario fuese pactado en forma colectiva, los trabajadores tendrán derecho a exigir su pago íntegro y proporcional a cada uno, respecto del convenido para el grupo. Si el empleador hubiese sido demandado por el grupo podrá oponer, en compensación del crédito reclamado, el de sus propios créditos contra aquél, hasta concurrencia del crédito del demandante.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-101'],

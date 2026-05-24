@@ -11,7 +11,7 @@ const seg = (
   articleId: `carta-onu-art-${num}`,
   articleNumber: num,
   segmentType: 'PARAGRAPH',
-  originalText: text,
+  text: text,
   plainExplanation: plain,
   practicalExample: example,
   references: [],
@@ -24,11 +24,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '102',
     title: 'Registro de tratados internacionales',
-    originalText:
-      'Todo tratado y todo acuerdo internacional concertados por cualesquiera Miembros de las Naciones Unidas después de entrar en vigor esta Carta, serán registrados en la Secretaría y publicados por ésta a la mayor brevedad posible.\nNinguna de las partes en un tratado o acuerdo internacional que no haya sido registrado conforme a las disposiciones del párrafo 1 de este Artículo, podrá invocar dicho tratado o acuerdo ante órgano alguno de las Naciones Unidas.',
-    currentText:
-      'Todo tratado y todo acuerdo internacional concertados por cualesquiera Miembros de las Naciones Unidas después de entrar en vigor esta Carta, serán registrados en la Secretaría y publicados por ésta a la mayor brevedad posible.\nNinguna de las partes en un tratado o acuerdo internacional que no haya sido registrado conforme a las disposiciones del párrafo 1 de este Artículo, podrá invocar dicho tratado o acuerdo ante órgano alguno de las Naciones Unidas.',
-    plainLanguageExplanation:
+    text:
+      'Todo tratado y todo acuerdo internacional concertados por cualesquiera Miembros de las Naciones Unidas después de entrar en vigor esta Carta, serán registrados en la Secretaría y publicados por ésta a la mayor brevedad posible.\nNinguna de las partes en un tratado o acuerdo internacional que no haya sido registrado conforme a las disposiciones del párrafo 1 de este Artículo, podrá invocar dicho tratado o acuerdo ante órgano alguno de las Naciones Unidas.',    plainLanguageExplanation:
       'Todo tratado entre miembros de la ONU debe registrarse en la Secretaría y publicarse. Si no se registra, no puede invocarse ante ningún órgano de la ONU, lo que elimina los tratados secretos.',
     practicalEffects: [
       'Prohíbe los tratados secretos: si no se publica no tiene valor ante la ONU.',
@@ -57,11 +54,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '103',
     title: 'Primacía de la Carta sobre otros acuerdos internacionales',
-    originalText:
-      'En caso de conflicto entre las obligaciones contraídas por los Miembros de las Naciones Unidas en virtud de la presente Carta y sus obligaciones contraídas en virtud de cualquier otro convenio internacional, prevalecerán las obligaciones impuestas por la presente Carta.',
-    currentText:
-      'En caso de conflicto entre las obligaciones contraídas por los Miembros de las Naciones Unidas en virtud de la presente Carta y sus obligaciones contraídas en virtud de cualquier otro convenio internacional, prevalecerán las obligaciones impuestas por la presente Carta.',
-    plainLanguageExplanation:
+    text:
+      'En caso de conflicto entre las obligaciones contraídas por los Miembros de las Naciones Unidas en virtud de la presente Carta y sus obligaciones contraídas en virtud de cualquier otro convenio internacional, prevalecerán las obligaciones impuestas por la presente Carta.',    plainLanguageExplanation:
       'La Carta de la ONU tiene jerarquía superior a cualquier otro tratado internacional. Si hay conflicto entre una obligación de la Carta y otro tratado, la Carta prevalece.',
     practicalEffects: [
       'Otorga rango constitucional a la Carta en el sistema de derecho internacional.',
@@ -90,11 +84,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '104',
     title: 'Capacidad jurídica de la Organización',
-    originalText:
-      'La Organización gozará, en el territorio de cada uno de sus Miembros, de la capacidad jurídica que sea necesaria para el ejercicio de sus funciones y la realización de sus propósitos.',
-    currentText:
-      'La Organización gozará, en el territorio de cada uno de sus Miembros, de la capacidad jurídica que sea necesaria para el ejercicio de sus funciones y la realización de sus propósitos.',
-    plainLanguageExplanation:
+    text:
+      'La Organización gozará, en el territorio de cada uno de sus Miembros, de la capacidad jurídica que sea necesaria para el ejercicio de sus funciones y la realización de sus propósitos.',    plainLanguageExplanation:
       'La ONU tiene personalidad jurídica en todos los países miembros: puede firmar contratos, adquirir bienes, iniciar acciones legales y ser demandada como cualquier persona jurídica.',
     practicalEffects: [
       'La ONU puede alquilar oficinas, contratar personal local, abrir cuentas bancarias en cualquier país miembro.',
@@ -123,11 +114,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '105',
     title: 'Privilegios e inmunidades de la Organización y sus funcionarios',
-    originalText:
-      'La Organización gozará, en el territorio de cada uno de sus Miembros, de los privilegios e inmunidades necesarios para la realización de sus propósitos.\nLos representantes de los Miembros de la Organización y los funcionarios de ésta, gozarán asimismo de los privilegios e inmunidades necesarios para desempeñar con independencia sus funciones en relación con la Organización.\nLa Asamblea General podrá hacer recomendaciones con el objeto de determinar los pormenores de la aplicación de los párrafos 1 y 2 de este Artículo, o proponer convenciones a los Miembros de las Naciones Unidas con el mismo objeto.',
-    currentText:
-      'La Organización gozará, en el territorio de cada uno de sus Miembros, de los privilegios e inmunidades necesarios para la realización de sus propósitos.\nLos representantes de los Miembros de la Organización y los funcionarios de ésta, gozarán asimismo de los privilegios e inmunidades necesarios para desempeñar con independencia sus funciones en relación con la Organización.\nLa Asamblea General podrá hacer recomendaciones con el objeto de determinar los pormenores de la aplicación de los párrafos 1 y 2 de este Artículo, o proponer convenciones a los Miembros de las Naciones Unidas con el mismo objeto.',
-    plainLanguageExplanation:
+    text:
+      'La Organización gozará, en el territorio de cada uno de sus Miembros, de los privilegios e inmunidades necesarios para la realización de sus propósitos.\nLos representantes de los Miembros de la Organización y los funcionarios de ésta, gozarán asimismo de los privilegios e inmunidades necesarios para desempeñar con independencia sus funciones en relación con la Organización.\nLa Asamblea General podrá hacer recomendaciones con el objeto de determinar los pormenores de la aplicación de los párrafos 1 y 2 de este Artículo, o proponer convenciones a los Miembros de las Naciones Unidas con el mismo objeto.',    plainLanguageExplanation:
       'La ONU, sus representantes y funcionarios gozan de inmunidades (como la diplomática) necesarias para operar independientemente. La Asamblea General puede detallar esas inmunidades en convenciones específicas.',
     practicalEffects: [
       'Base de la Convención sobre Prerrogativas e Inmunidades de la ONU (1946).',
@@ -156,11 +144,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '106',
     title: 'Disposición transitoria sobre seguridad colectiva',
-    originalText:
-      'Mientras entran en vigor los convenios especiales previstos en el Artículo 43, que a juicio del Consejo de Seguridad lo capaciten para ejercer las atribuciones a que se refiere el Artículo 42, las partes en la Declaración de las Cuatro Potencias firmada en Moscú el 30 de octubre de 1943, y Francia, deberán, conforme a las disposiciones del párrafo 5 de esa Declaración, celebrar consultas entre sí, y cuando a ello hubiere lugar, con otros miembros de la Organización, a fin de acordar en nombre de ésta la acción conjunta que fuere necesaria para mantener la paz y la seguridad internacionales.',
-    currentText:
-      'Mientras entran en vigor los convenios especiales previstos en el Artículo 43, que a juicio del Consejo de Seguridad lo capaciten para ejercer las atribuciones a que se refiere el Artículo 42, las partes en la Declaración de las Cuatro Potencias firmada en Moscú el 30 de octubre de 1943, y Francia, deberán, conforme a las disposiciones del párrafo 5 de esa Declaración, celebrar consultas entre sí, y cuando a ello hubiere lugar, con otros miembros de la Organización, a fin de acordar en nombre de ésta la acción conjunta que fuere necesaria para mantener la paz y la seguridad internacionales.',
-    plainLanguageExplanation:
+    text:
+      'Mientras entran en vigor los convenios especiales previstos en el Artículo 43, que a juicio del Consejo de Seguridad lo capaciten para ejercer las atribuciones a que se refiere el Artículo 42, las partes en la Declaración de las Cuatro Potencias firmada en Moscú el 30 de octubre de 1943, y Francia, deberán, conforme a las disposiciones del párrafo 5 de esa Declaración, celebrar consultas entre sí, y cuando a ello hubiere lugar, con otros miembros de la Organización, a fin de acordar en nombre de ésta la acción conjunta que fuere necesaria para mantener la paz y la seguridad internacionales.',    plainLanguageExplanation:
       'Disposición transitoria: hasta que los convenios del artículo 43 entren en vigor, EE.UU., Reino Unido, URSS, China y Francia deben coordinarse entre sí para actuar en nombre de la ONU en materia de paz y seguridad.',
     practicalEffects: [
       'Reconoció el papel especial de las cinco grandes potencias en la seguridad mundial en el período fundacional.',
@@ -187,11 +172,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '107',
     title: 'Acciones contra ex Estados enemigos de la Segunda Guerra Mundial',
-    originalText:
-      'Ninguna de las disposiciones de esta Carta invalidará o impedirá cualquier acción ejercida o autorizada como resultado de la segunda guerra mundial con respecto a un Estado enemigo de cualquiera de los signatarios de esta Carta durante la citada guerra, por los gobiernos responsables de dicha acción.',
-    currentText:
-      'Ninguna de las disposiciones de esta Carta invalidará o impedirá cualquier acción ejercida o autorizada como resultado de la segunda guerra mundial con respecto a un Estado enemigo de cualquiera de los signatarios de esta Carta durante la citada guerra, por los gobiernos responsables de dicha acción.',
-    plainLanguageExplanation:
+    text:
+      'Ninguna de las disposiciones de esta Carta invalidará o impedirá cualquier acción ejercida o autorizada como resultado de la segunda guerra mundial con respecto a un Estado enemigo de cualquiera de los signatarios de esta Carta durante la citada guerra, por los gobiernos responsables de dicha acción.',    plainLanguageExplanation:
       'Las acciones tomadas contra los países que fueron enemigos en la Segunda Guerra Mundial (Alemania, Japón, Italia) no quedan invalidadas por la Carta. Es una cláusula histórica que protegió las medidas de posguerra.',
     practicalEffects: [
       'Históricamente relevante para la ocupación aliada de Alemania y Japón post-1945.',
@@ -218,11 +200,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '108',
     title: 'Proceso de reforma de la Carta',
-    originalText:
-      'Las reformas a la presente Carta entrarán en vigor para todos los Miembros de las Naciones Unidas cuando hayan sido adoptadas por el voto de las dos terceras partes de los miembros de la Asamblea General y ratificadas, de conformidad con sus respectivos procedimientos constitucionales, por las dos terceras partes de los Miembros de las Naciones Unidas, incluyendo a todos los miembros permanentes del Consejo de Seguridad.',
-    currentText:
-      'Las reformas a la presente Carta entrarán en vigor para todos los Miembros de las Naciones Unidas cuando hayan sido adoptadas por el voto de las dos terceras partes de los miembros de la Asamblea General y ratificadas, de conformidad con sus respectivos procedimientos constitucionales, por las dos terceras partes de los Miembros de las Naciones Unidas, incluyendo a todos los miembros permanentes del Consejo de Seguridad.',
-    plainLanguageExplanation:
+    text:
+      'Las reformas a la presente Carta entrarán en vigor para todos los Miembros de las Naciones Unidas cuando hayan sido adoptadas por el voto de las dos terceras partes de los miembros de la Asamblea General y ratificadas, de conformidad con sus respectivos procedimientos constitucionales, por las dos terceras partes de los Miembros de las Naciones Unidas, incluyendo a todos los miembros permanentes del Consejo de Seguridad.',    plainLanguageExplanation:
       'Para reformar la Carta se necesita: 2/3 de la Asamblea General más la ratificación de 2/3 de los miembros, incluyendo los cinco permanentes del Consejo de Seguridad. Cada permanente tiene veto sobre las reformas.',
     practicalEffects: [
       'Los cinco miembros permanentes tienen veto de facto sobre cualquier reforma a la Carta.',
@@ -251,11 +230,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '109',
     title: 'Conferencia General de revisión de la Carta',
-    originalText:
-      'Se podrá celebrar una Conferencia General de los Miembros de las Naciones Unidas con el propósito de revisar esta Carta, en la fecha y lugar que se determinen por el voto de las dos terceras partes de los miembros de la Asamblea General y por el voto de cualesquiera nueve miembros del Consejo de Seguridad. Cada Miembro de las Naciones Unidas tendrá un voto en la Conferencia.\nToda modificación de esta Carta recomendada por el voto de las dos terceras partes de la Conferencia entrará en vigor al ser ratificada de acuerdo con sus respectivos procedimientos constitucionales, por las dos terceras partes de los Miembros de las Naciones Unidas, incluyendo a todos los miembros permanentes del Consejo de Seguridad.\nSi no se hubiere celebrado tal Conferencia antes de la décima reunión anual de la Asamblea General después de entrar en vigor esta Carta, la proposición de convocar tal Conferencia será puesta en la agenda de dicha reunión de la Asamblea General, y la Conferencia será celebrada si así lo decidieren la mayoría de los miembros de la Asamblea General y siete miembros cualesquiera del Consejo de Seguridad.',
-    currentText:
-      'Se podrá celebrar una Conferencia General de los Miembros de las Naciones Unidas con el propósito de revisar esta Carta, en la fecha y lugar que se determinen por el voto de las dos terceras partes de los miembros de la Asamblea General y por el voto de cualesquiera nueve miembros del Consejo de Seguridad. Cada Miembro de las Naciones Unidas tendrá un voto en la Conferencia.\nToda modificación de esta Carta recomendada por el voto de las dos terceras partes de la Conferencia entrará en vigor al ser ratificada de acuerdo con sus respectivos procedimientos constitucionales, por las dos terceras partes de los Miembros de las Naciones Unidas, incluyendo a todos los miembros permanentes del Consejo de Seguridad.\nSi no se hubiere celebrado tal Conferencia antes de la décima reunión anual de la Asamblea General después de entrar en vigor esta Carta, la proposición de convocar tal Conferencia será puesta en la agenda de dicha reunión de la Asamblea General, y la Conferencia será celebrada si así lo decidieren la mayoría de los miembros de la Asamblea General y siete miembros cualesquiera del Consejo de Seguridad.',
-    plainLanguageExplanation:
+    text:
+      'Se podrá celebrar una Conferencia General de los Miembros de las Naciones Unidas con el propósito de revisar esta Carta, en la fecha y lugar que se determinen por el voto de las dos terceras partes de los miembros de la Asamblea General y por el voto de cualesquiera nueve miembros del Consejo de Seguridad. Cada Miembro de las Naciones Unidas tendrá un voto en la Conferencia.\nToda modificación de esta Carta recomendada por el voto de las dos terceras partes de la Conferencia entrará en vigor al ser ratificada de acuerdo con sus respectivos procedimientos constitucionales, por las dos terceras partes de los Miembros de las Naciones Unidas, incluyendo a todos los miembros permanentes del Consejo de Seguridad.\nSi no se hubiere celebrado tal Conferencia antes de la décima reunión anual de la Asamblea General después de entrar en vigor esta Carta, la proposición de convocar tal Conferencia será puesta en la agenda de dicha reunión de la Asamblea General, y la Conferencia será celebrada si así lo decidieren la mayoría de los miembros de la Asamblea General y siete miembros cualesquiera del Consejo de Seguridad.',    plainLanguageExplanation:
       'Puede convocarse una conferencia general de revisión de la Carta con 2/3 de la Asamblea y 9 miembros del Consejo. Las reformas que adopte necesitan ratificación de 2/3 de los miembros incluyendo los cinco permanentes. Si no se celebraba una antes de 1955, debía ponerse en la agenda de la décima Asamblea General.',
     practicalEffects: [
       'La tercera disposición obligó a que se propusiera una conferencia de revisión en 1955; la Asamblea votó aplazarla.',
@@ -284,11 +260,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '110',
     title: 'Ratificación y entrada en vigor de la Carta',
-    originalText:
-      'La presente Carta será ratificada por los Estados signatarios de acuerdo con sus respectivos procedimientos constitucionales.\nLas ratificaciones serán entregadas para su depósito al Gobierno de los Estados Unidos de América, el cual notificará cada depósito a todos los Estados signatarios así como al Secretario General de la Organización cuando haya sido designado.\nLa presente Carta entrará en vigor tan pronto como hayan sido depositadas las ratificaciones de la República de China, Francia, la Unión de las Repúblicas Socialistas Soviéticas, el Reino Unido de la Gran Bretaña e Irlanda del Norte y los Estados Unidos de América, y por la mayoría de los demás Estados signatarios. Acto seguido se dejará constancia de las ratificaciones depositadas en un protocolo que extenderá el Gobierno de los Estados Unidos de América, y del cual transmitirá copias a todos los Estados signatarios.\nLos Estados signatarios de esta Carta que la ratifiquen después que haya entrado en vigor adquirirán la calidad de miembros originarios de las Naciones Unidas en la fecha del depósito de sus respectivas ratificaciones.',
-    currentText:
-      'La presente Carta será ratificada por los Estados signatarios de acuerdo con sus respectivos procedimientos constitucionales.\nLas ratificaciones serán entregadas para su depósito al Gobierno de los Estados Unidos de América, el cual notificará cada depósito a todos los Estados signatarios así como al Secretario General de la Organización cuando haya sido designado.\nLa presente Carta entrará en vigor tan pronto como hayan sido depositadas las ratificaciones de la República de China, Francia, la Unión de las Repúblicas Socialistas Soviéticas, el Reino Unido de la Gran Bretaña e Irlanda del Norte y los Estados Unidos de América, y por la mayoría de los demás Estados signatarios. Acto seguido se dejará constancia de las ratificaciones depositadas en un protocolo que extenderá el Gobierno de los Estados Unidos de América, y del cual transmitirá copias a todos los Estados signatarios.\nLos Estados signatarios de esta Carta que la ratifiquen después que haya entrado en vigor adquirirán la calidad de miembros originarios de las Naciones Unidas en la fecha del depósito de sus respectivas ratificaciones.',
-    plainLanguageExplanation:
+    text:
+      'La presente Carta será ratificada por los Estados signatarios de acuerdo con sus respectivos procedimientos constitucionales.\nLas ratificaciones serán entregadas para su depósito al Gobierno de los Estados Unidos de América, el cual notificará cada depósito a todos los Estados signatarios así como al Secretario General de la Organización cuando haya sido designado.\nLa presente Carta entrará en vigor tan pronto como hayan sido depositadas las ratificaciones de la República de China, Francia, la Unión de las Repúblicas Socialistas Soviéticas, el Reino Unido de la Gran Bretaña e Irlanda del Norte y los Estados Unidos de América, y por la mayoría de los demás Estados signatarios. Acto seguido se dejará constancia de las ratificaciones depositadas en un protocolo que extenderá el Gobierno de los Estados Unidos de América, y del cual transmitirá copias a todos los Estados signatarios.\nLos Estados signatarios de esta Carta que la ratifiquen después que haya entrado en vigor adquirirán la calidad de miembros originarios de las Naciones Unidas en la fecha del depósito de sus respectivas ratificaciones.',    plainLanguageExplanation:
       'La Carta debía ratificarse por los cinco permanentes y la mayoría de los demás signatarios para entrar en vigor. El depositario es EE.UU. Los que ratificaron después también obtuvieron la condición de miembros originarios.',
     practicalEffects: [
       'La Carta entró en vigor el 24 de octubre de 1945, fecha que hoy se celebra como el Día de las Naciones Unidas.',
@@ -315,11 +288,8 @@ export const CARTA_ONU_S11: Article[] = [
     lawId: 'carta-onu',
     number: '111',
     title: 'Textos auténticos y depósito de la Carta',
-    originalText:
-      'La presente Carta, cuyos textos en chino, francés, ruso, inglés y español son igualmente auténticos, será depositada en los archivos del Gobierno de los Estados Unidos de América. Dicho Gobierno enviará copias debidamente certificadas de la misma a los Gobiernos de los demás Estados signatarios.',
-    currentText:
-      'La presente Carta, cuyos textos en chino, francés, ruso, inglés y español son igualmente auténticos, será depositada en los archivos del Gobierno de los Estados Unidos de América. Dicho Gobierno enviará copias debidamente certificadas de la misma a los Gobiernos de los demás Estados signatarios.',
-    plainLanguageExplanation:
+    text:
+      'La presente Carta, cuyos textos en chino, francés, ruso, inglés y español son igualmente auténticos, será depositada en los archivos del Gobierno de los Estados Unidos de América. Dicho Gobierno enviará copias debidamente certificadas de la misma a los Gobiernos de los demás Estados signatarios.',    plainLanguageExplanation:
       'La Carta existe en cinco idiomas igualmente auténticos (chino, francés, ruso, inglés y español) y su original se guarda en los archivos del gobierno de EE.UU., que distribuye copias certificadas.',
     practicalEffects: [
       'El español es uno de los cinco textos auténticos de igual jerarquía: no es traducción.',

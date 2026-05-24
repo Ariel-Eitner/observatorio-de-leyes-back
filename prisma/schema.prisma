@@ -7,164 +7,179 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum LawStatus {
-  VIGENTE
-  DEROGADA
-  PARCIALMENTE_VIGENTE
+model TrackingEvent {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  type       String
+  sessionId  String   @map("session_id")
+  guestId    String?  @map("guest_id")
+  properties Json?
+  context    Json?
+
+  @@index([createdAt(sort: Desc)], map: "idx_te_created_at")
+  @@index([guestId], map: "idx_te_guest")
+  @@index([sessionId], map: "idx_te_session")
+  @@index([type], map: "idx_te_type")
+  @@index([type, createdAt(sort: Desc)], map: "idx_te_type_date")
+  @@map("tracking_events")
 }
 
-enum Jurisdiction {
-  NACIONAL
-  PROVINCIAL
-  MUNICIPAL
+model ExportGeneration {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  guestId   String   @map("guest_id")
+  type      String
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([guestId, type], map: "export_generations_guest_type_idx")
+  @@map("export_generations")
 }
 
-enum NormType {
-  LEY
-  DECRETO
-  RESOLUCION
-  ORDENANZA
-  DECRETO_LEY
+model PostDraft {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  platform      String   @default("twitter")
+  postText      String   @map("post_text")
+  commentText   String   @map("comment_text")
+  lawId         String   @map("law_id")
+  lawTitle      String   @map("law_title")
+  articleNumber String   @map("article_number")
+  utmContent    String   @map("utm_content")
+  templateUsed  String   @map("template_used")
+  hashtags      String   @default("")
+
+  @@index([platform, createdAt(sort: Desc)], map: "idx_post_drafts_platform")
+  @@map("post_drafts")
 }
 
-enum SegmentType {
-  PARAGRAPH
-  INCISO
-  ANNEX
-  TITLE
-  CHAPTER
+model PostedLawHistory {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  lawId         String   @map("law_id")
+  articleNumber String   @map("article_number")
+  platform      String   @default("twitter")
+  postedAt      DateTime @default(now()) @map("posted_at") @db.Timestamptz(6)
+
+  @@index([lawId, articleNumber, platform], map: "idx_posted_history_lookup")
+  @@map("posted_law_history")
 }
 
-model Law {
-  id                String       @id @default(cuid())
-  number            String       @unique
-  title             String
-  summary           String?
-  year              Int
-  sanctionDate      DateTime?
-  promulgationDate  DateTime?
-  publicationDate   DateTime?
-  boNumber          String?
-  status            LawStatus    @default(VIGENTE)
-  jurisdiction      Jurisdiction @default(NACIONAL)
-  normType          NormType     @default(LEY)
-  issuingBody       String?
-  fullText          String?
-  articleCount      Int          @default(0)
-  topics            String[]
-  keywords          String[]
-  relatedNorms      String[]
-  executiveSummary  String?
-  objective         String?
-  problemItSolves   String?
-  practicalImpact   String?
-  affectedSubjects  String[]
-  createdAt         DateTime     @default(now())
-  updatedAt         DateTime     @updatedAt
-
-  articles    Article[]
-  segments    LawSegment[]
-  annexes     Annex[]
-  amendments  Amendment[]
-  metadata    LawMetadata?
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model contact_submissions {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at        DateTime @default(now()) @db.Timestamptz(6)
+  nombre            String
+  email             String
+  tipo              String
+  mensaje           String
+  user_agent        String?
+  is_read           Boolean  @default(false)
+  apellido          String?
+  telefono          String?
+  profesion         String?
+  utm_source        String?
+  utm_medium        String?
+  utm_campaign      String?
+  utm_content       String?
+  utm_term          String?
+  empresa           String?
+  provincia         String?
+  como_nos_encontro String?
+  tipo_usuario      String?
 }
 
-model Article {
-  id                     String   @id @default(cuid())
-  lawId                  String
-  number                 String
-  title                  String?
-  originalText           String
-  currentText            String
-  plainLanguageExplanation String?
-  practicalEffects       String[]
-  examples               String[]
-  relatedArticles        String[]
-  jurisprudence          String[]
-  regulations            String[]
-  keywords               String[]
-  order                  Int
-  createdAt              DateTime @default(now())
-  updatedAt              DateTime @updatedAt
-
-  law        Law         @relation(fields: [lawId], references: [id], onDelete: Cascade)
-  segments   LawSegment[]
-  amendments ArticleAmendment[]
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model founders {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at      DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at      DateTime  @default(now()) @db.Timestamptz(6)
+  nombre          String
+  email           String    @unique
+  canal           String?
+  confirmed_at    DateTime? @db.Timestamptz(6)
+  utm_source      String?
+  utm_medium      String?
+  utm_campaign    String?
+  utm_content     String?
+  utm_term        String?
+  pagado          Boolean?  @default(false)
+  comprobante_url String?
+  comprobante_at  DateTime? @db.Timestamptz(6)
 }
 
-model LawSegment {
-  id                 String      @id @default(cuid())
-  lawId              String
-  articleId          String?
-  articleNumber      String
-  segmentType        SegmentType
-  originalText       String
-  plainExplanation   String?
-  practicalExample   String?
-  references         String[]
-  order              Int
-  createdAt          DateTime    @default(now())
-  updatedAt          DateTime    @updatedAt
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model lead_events {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  lead_id    String    @db.Uuid
+  type       String
+  payload    Json?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  leads      leads     @relation(fields: [lead_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  law     Law      @relation(fields: [lawId], references: [id], onDelete: Cascade)
-  article Article? @relation(fields: [articleId], references: [id])
+  @@index([created_at(sort: Desc)])
+  @@index([lead_id])
+  @@index([type])
 }
 
-model Annex {
-  id          String   @id @default(cuid())
-  lawId       String
-  number      String
-  title       String?
-  content     String
-  order       Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model leads {
+  id                String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email             String        @unique
+  nombre            String?
+  created_at        DateTime?     @default(now()) @db.Timestamptz(6)
+  updated_at        DateTime?     @default(now()) @db.Timestamptz(6)
+  first_source      String        @default("unknown")
+  status            String        @default("cold")
+  utm_source        String?
+  utm_medium        String?
+  utm_campaign      String?
+  utm_content       String?
+  utm_term          String?
+  notes             String?
+  tipo_usuario      String?
+  profesion         String?
+  empresa           String?
+  provincia         String?
+  telefono          String?
+  como_nos_encontro String?
+  lead_events       lead_events[]
 
-  law Law @relation(fields: [lawId], references: [id], onDelete: Cascade)
+  @@index([created_at(sort: Desc)])
+  @@index([first_source])
+  @@index([provincia])
+  @@index([status])
+  @@index([tipo_usuario])
 }
 
-model Amendment {
-  id              String   @id @default(cuid())
-  lawId           String
-  modifyingLaw    String
-  modifyingDate   DateTime?
-  description     String
-  createdAt       DateTime @default(now())
-
-  law Law @relation(fields: [lawId], references: [id], onDelete: Cascade)
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model tracking_daily_summary {
+  date          DateTime @id @db.Date
+  sessions      Int      @default(0)
+  guests        Int      @default(0)
+  page_views    Int      @default(0)
+  searches      Int      @default(0)
+  zero_searches Int      @default(0)
+  law_views     Int      @default(0)
+  art_copies    Int      @default(0)
+  amendments    Int      @default(0)
+  inline_refs   Int      @default(0)
+  contacts_sent Int      @default(0)
+  errors_404    Int      @default(0)
+  raw_total     Int      @default(0)
 }
 
-model ArticleAmendment {
-  id            String   @id @default(cuid())
-  articleId     String
-  modifyingLaw  String
-  modifyingDate DateTime?
-  previousText  String
-  newText       String
-  description   String?
-  createdAt     DateTime @default(now())
-
-  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
-}
-
-model LawMetadata {
-  id              String   @id @default(cuid())
-  lawId           String   @unique
-  mainTopic       String?
-  subtopics       String[]
-  relatedLaws     String[]
-  regulations     String[]
-  modifyingNorms  String[]
-  derogatingNorms String[]
-  jurisprudence   String[]
-  doctrine        String[]
-  obligations     String[]
-  rights          String[]
-  sanctions       String[]
-  useCases        String[]
-  faq             Json?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  law Law @relation(fields: [lawId], references: [id], onDelete: Cascade)
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model tweets_performance {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fecha           DateTime @db.Date
+  tipo            String
+  url             String?
+  texto_preview   String?
+  impresiones     Int      @default(0)
+  replies         Int      @default(0)
+  bookmarks       Int      @default(0)
+  retweets        Int      @default(0)
+  link_clicks     Int      @default(0)
+  follows_ganados Int      @default(0)
+  notas           String?
+  created_at      DateTime @default(now()) @db.Timestamptz(6)
+  subtweets       Json     @default("[]")
 }

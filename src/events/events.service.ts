@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
-import { SupabaseService } from '../supabase/supabase.service';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from '../common/prisma/prisma.service';
 
 export class TrackEventDto {
   @IsString() @IsNotEmpty() @MaxLength(100)
@@ -28,64 +29,63 @@ export interface TrackedEvent extends TrackEventDto {
 export class EventsService {
   private readonly logger = new Logger(EventsService.name);
 
-  constructor(private readonly supabase: SupabaseService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
   async track(dto: TrackEventDto): Promise<void> {
-    const { error } = await this.supabase.db
-      .from('tracking_events')
-      .insert({
-        type:       dto.type,
-        session_id: dto.sessionId,
-        guest_id:   dto.guestId   ?? null,
-        properties: dto.properties ?? null,
-        context:    dto.context    ?? null,
+    try {
+      await this.prisma.trackingEvent.create({
+        data: {
+          type:       dto.type,
+          sessionId:  dto.sessionId,
+          guestId:    dto.guestId    ?? null,
+          properties: (dto.properties ?? undefined) as Prisma.InputJsonValue | undefined,
+          context:    (dto.context    ?? undefined) as Prisma.InputJsonValue | undefined,
+        },
       });
-    if (error) this.logger.error(`track: ${error.code} ${error.message}`);
+    } catch (e) {
+      this.logger.error(`track: ${(e as Error).message}`);
+    }
   }
 
   async readAll(since?: string): Promise<TrackedEvent[]> {
     const PAGE = 1000;
     const all: TrackedEvent[] = [];
-    let from = 0;
+    let skip = 0;
 
     while (true) {
-      let q = this.supabase.db
-        .from('tracking_events')
-        .select('*')
-        .order('created_at', { ascending: true });
-      if (since) q = q.gte('created_at', since);
-      const { data, error } = await q.range(from, from + PAGE - 1);
+      const rows = await this.prisma.trackingEvent.findMany({
+        where:   since ? { createdAt: { gte: new Date(since) } } : undefined,
+        orderBy: { createdAt: 'asc' },
+        skip,
+        take: PAGE,
+      });
 
-      if (error) {
-        this.logger.error(`readAll: ${error.code} ${error.message}`);
-        break;
-      }
-      if (!data || data.length === 0) break;
-
-      for (const row of data) {
+      for (const row of rows) {
         all.push({
           id:         row.id,
           type:       row.type,
-          timestamp:  row.created_at,
-          sessionId:  row.session_id,
-          guestId:    row.guest_id   ?? undefined,
-          properties: row.properties ?? undefined,
-          context:    row.context    ?? undefined,
+          timestamp:  row.createdAt.toISOString(),
+          sessionId:  row.sessionId,
+          guestId:    row.guestId    ?? undefined,
+          properties: (row.properties as Record<string, unknown>) ?? undefined,
+          context:    (row.context    as Record<string, unknown>) ?? undefined,
         });
       }
 
-      if (data.length < PAGE) break;
-      from += PAGE;
+      if (rows.length < PAGE) break;
+      skip += PAGE;
     }
 
     return all;
   }
 
   async clear(): Promise<void> {
-    const { error } = await this.supabase.db
-      .from('tracking_events')
-      .delete()
-      .lte('created_at', new Date().toISOString());
-    if (error) this.logger.error(`clear: ${error.code} ${error.message}`);
+    try {
+      await this.prisma.trackingEvent.deleteMany({
+        where: { createdAt: { lte: new Date() } },
+      });
+    } catch (e) {
+      this.logger.error(`clear: ${(e as Error).message}`);
+    }
   }
 }

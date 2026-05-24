@@ -16,9 +16,7 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'ley-27742',
 		number: '164',
 		title: 'Creación del RIGI',
-		originalText:
-			'Créase el Régimen de Incentivo para Grandes Inversiones (RIGI) por el que se establecen, para vehículos titulares de un único proyecto que cumplan con los requisitos previstos en el presente, ciertos incentivos, certidumbre, seguridad jurídica y un sistema eficiente de protección de derechos adquiridos a su amparo.\n\nEl RIGI será de aplicación en todo el territorio de la República Argentina y regirá con los alcances y limitaciones establecidas en el presente título y en las normas reglamentarias que en su consecuencia dicte el Poder Ejecutivo nacional.',
-		currentText:
+		text:
 			'Créase el Régimen de Incentivo para Grandes Inversiones (RIGI) por el que se establecen, para vehículos titulares de un único proyecto que cumplan con los requisitos previstos en el presente, ciertos incentivos, certidumbre, seguridad jurídica y un sistema eficiente de protección de derechos adquiridos a su amparo.\n\nEl RIGI será de aplicación en todo el territorio de la República Argentina y regirá con los alcances y limitaciones establecidas en el presente título y en las normas reglamentarias que en su consecuencia dicte el Poder Ejecutivo nacional.',
 		plainLanguageExplanation:
 			'Este artículo crea el RIGI: un régimen especial que ofrece beneficios, certidumbre y protección jurídica a empresas que inviertan grandes sumas en proyectos únicos y califiquen para adherirse. Rige en todo el país, pero sólo para quienes cumplan los requisitos de la ley.',
@@ -43,9 +41,7 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'ley-27742',
 		number: '165',
 		title: 'Declaración de interés nacional e intangibilidad',
-		originalText:
-			'Declárese, en el marco del artículo 75, inciso 18 de la Constitución Nacional, que las "Grandes Inversiones" que califiquen y se concreten bajo el RIGI son de interés nacional y resultan útiles y conducentes para la prosperidad del país, el adelanto y bienestar de todas las provincias, la Ciudad Autónoma de Buenos Aires y los municipios.\n\nSin perjuicio del ejercicio legítimo de las jurisdicciones y competencias locales, cualquier norma o vía de hecho por la que se limite, restrinja, vulnere, obstaculice o desvirtúe lo establecido en el presente título por parte de la Nación como las provincias, por sí y por sus municipios, y la Ciudad Autónoma de Buenos Aires, que hubieran adherido al RIGI, será nula de nulidad absoluta e insanable y la Justicia competente deberá, en forma inmediata, impedir su aplicación.',
-		currentText:
+		text:
 			'Declárese, en el marco del artículo 75, inciso 18 de la Constitución Nacional, que las "Grandes Inversiones" que califiquen y se concreten bajo el RIGI son de interés nacional y resultan útiles y conducentes para la prosperidad del país, el adelanto y bienestar de todas las provincias, la Ciudad Autónoma de Buenos Aires y los municipios.\n\nSin perjuicio del ejercicio legítimo de las jurisdicciones y competencias locales, cualquier norma o vía de hecho por la que se limite, restrinja, vulnere, obstaculice o desvirtúe lo establecido en el presente título por parte de la Nación como las provincias, por sí y por sus municipios, y la Ciudad Autónoma de Buenos Aires, que hubieran adherido al RIGI, será nula de nulidad absoluta e insanable y la Justicia competente deberá, en forma inmediata, impedir su aplicación.',
 		plainLanguageExplanation:
 			'Las inversiones RIGI son declaradas "de interés nacional" en base al art. 75 inc. 18 de la Constitución. Lo más importante: cualquier ley, decreto o acto de una provincia, municipio o del propio Estado nacional que contradiga las garantías del RIGI es nulo de pleno derecho, y los tribunales deben frenarlo de inmediato.',
@@ -71,10 +67,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'ley-27742',
 		number: '166',
 		title: 'Objetivos prioritarios del RIGI',
-		originalText:
+		text:
 			'Los objetivos prioritarios del RIGI son indistintamente los siguientes:\n\na) Incentivar las Grandes Inversiones nacionales y extranjeras en la República Argentina a fin de garantizar la prosperidad del país;\nb) Promover el desarrollo económico;\nc) Desarrollar y fortalecer la competitividad de los diversos sectores económicos;\nd) Incrementar las exportaciones de mercaderías y servicios al exterior comprendidas en las actividades desarrolladas en el RIGI;\ne) Favorecer la creación de empleo;\nf) Generar de inmediato condiciones de previsibilidad y estabilidad para las Grandes Inversiones previstas en el RIGI y condiciones competitivas en la República Argentina para atraer inversiones y que las mismas se concreten mediante el adelantamiento temporal de las soluciones macroeconómicas de inversión sin las cuales determinadas industrias no podrían desarrollarse;\ng) Crear para las Grandes Inversiones que cumplan con los requisitos del RIGI, un régimen que otorgue certidumbre, seguridad jurídica y protección especial para el caso de eventuales desviaciones y/o incumplimiento por parte de la administración pública y el Estado al RIGI;\nh) Fomentar el desarrollo coordinado de las competencias entre el Estado Nacional, las provincias y las respectivas autoridades de aplicación en materia de recursos naturales; y\ni) Fomentar el desarrollo de las cadenas de producción locales asociadas a los proyectos de inversión comprendidos por el RIGI.',
-		currentText:
-			'Los objetivos prioritarios del RIGI son indistintamente los siguientes:\n\na) Incentivar las Grandes Inversiones nacionales y extranjeras en la República Argentina a fin de garantizar la prosperidad del país;\nb) Promover el desarrollo económico;\nc) Desarrollar y fortalecer la competitividad de los diversos sectores económicos;\nd) Incrementar las exportaciones de mercaderías y servicios al exterior;\ne) Favorecer la creación de empleo;\nf) Generar condiciones de previsibilidad y estabilidad para las Grandes Inversiones;\ng) Crear certidumbre, seguridad jurídica y protección especial ante incumplimientos estatales;\nh) Fomentar el desarrollo coordinado entre Nación, provincias y municipios en materia de recursos naturales;\ni) Fomentar las cadenas de producción locales asociadas a los proyectos RIGI.',
 		plainLanguageExplanation:
 			'Este artículo lista los nueve objetivos del RIGI: atraer inversión, promover exportaciones y empleo, dar previsibilidad, proteger al inversor de cambios estatales, y fomentar proveedores locales. El inciso f) es especialmente significativo porque reconoce implícitamente que sin el RIGI ciertas industrias "no podrían desarrollarse" en el contexto argentino.',
 		practicalEffects: [

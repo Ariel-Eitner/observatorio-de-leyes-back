@@ -6,11 +6,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '11',
     title: 'Infracciones y sanciones',
-    originalText:
-      'Las sanciones al incumplimiento de la presente ley y de las reglamentaciones que en su consecuencia se dicten, sin perjuicio de las demás responsabilidades que pudieran corresponder, serán las que se fijen en cada una de las jurisdicciones conforme el poder de policía que les corresponde, las que no podrán ser inferiores a las aquí establecidas.\n\nLas jurisdicciones que no cuenten con un régimen de sanciones aplicarán supletoriamente las siguientes sanciones que corresponden a la jurisdicción nacional:\na) Apercibimiento;\nb) Multa de CIEN (100) a CIEN MIL (100.000) sueldos básicos de la categoría inicial de la administración pública nacional;\nc) Suspensión o revocación de las autorizaciones. La suspensión de la actividad podrá ser de TREINTA (30) días hasta UN (1) año, según corresponda y atendiendo a las circunstancias del caso;\nd) Cese definitivo de la actividad.\n\nEstas sanciones serán aplicables previo sumario sustanciado en la jurisdicción en donde se realizó la infracción y se regirán por las normas de procedimiento administrativo que corresponda, asegurándose el debido proceso legal, y se graduarán de acuerdo a la naturaleza de la infracción.',
-    currentText:
-      'Las sanciones al incumplimiento de la presente ley y de las reglamentaciones que en su consecuencia se dicten, sin perjuicio de las demás responsabilidades que pudieran corresponder, serán las que se fijen en cada una de las jurisdicciones conforme el poder de policía que les corresponde, las que no podrán ser inferiores a las aquí establecidas.\n\nLas jurisdicciones que no cuenten con un régimen de sanciones aplicarán supletoriamente las siguientes sanciones que corresponden a la jurisdicción nacional:\na) Apercibimiento;\nb) Multa de CIEN (100) a CIEN MIL (100.000) sueldos básicos de la categoría inicial de la administración pública nacional;\nc) Suspensión o revocación de las autorizaciones. La suspensión de la actividad podrá ser de TREINTA (30) días hasta UN (1) año, según corresponda y atendiendo a las circunstancias del caso;\nd) Cese definitivo de la actividad.\n\nEstas sanciones serán aplicables previo sumario sustanciado en la jurisdicción en donde se realizó la infracción y se regirán por las normas de procedimiento administrativo que corresponda, asegurándose el debido proceso legal, y se graduarán de acuerdo a la naturaleza de la infracción.',
-    plainLanguageExplanation:
+    text:
+      'Las sanciones al incumplimiento de la presente ley y de las reglamentaciones que en su consecuencia se dicten, sin perjuicio de las demás responsabilidades que pudieran corresponder, serán las que se fijen en cada una de las jurisdicciones conforme el poder de policía que les corresponde, las que no podrán ser inferiores a las aquí establecidas.\n\nLas jurisdicciones que no cuenten con un régimen de sanciones aplicarán supletoriamente las siguientes sanciones que corresponden a la jurisdicción nacional:\na) Apercibimiento;\nb) Multa de CIEN (100) a CIEN MIL (100.000) sueldos básicos de la categoría inicial de la administración pública nacional;\nc) Suspensión o revocación de las autorizaciones. La suspensión de la actividad podrá ser de TREINTA (30) días hasta UN (1) año, según corresponda y atendiendo a las circunstancias del caso;\nd) Cese definitivo de la actividad.\n\nEstas sanciones serán aplicables previo sumario sustanciado en la jurisdicción en donde se realizó la infracción y se regirán por las normas de procedimiento administrativo que corresponda, asegurándose el debido proceso legal, y se graduarán de acuerdo a la naturaleza de la infracción.',    plainLanguageExplanation:
       'Las sanciones van de menor a mayor: apercibimiento → multa → suspensión → cese definitivo. Las multas se expresan en "sueldos básicos" para que no pierdan valor por la inflación. Las provincias pueden tener sanciones propias, pero no menores a las nacionales. La sanción más grave (cese definitivo) equivale a clausura permanente de la actividad. Antes de aplicar cualquier sanción, debe hacerse un sumario administrativo con derecho de defensa.',
     practicalEffects: [
       'La multa máxima (100.000 sueldos básicos) representa decenas de millones de pesos — significativa incluso para grandes empresas',
@@ -37,7 +34,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-11',
         articleNumber: '11',
         segmentType: 'INCISO',
-        originalText:
+        text:
           'b) Multa de CIEN (100) a CIEN MIL (100.000) sueldos básicos de la categoría inicial de la administración pública nacional;',
         plainExplanation:
           'La multa está expresada en "sueldos básicos" en vez de pesos para resistir la inflación. En 2024, el sueldo básico inicial de la APN rondaba $150.000-200.000. El máximo equivalía a unos $15.000-20.000 millones de pesos — una multa significativa incluso para grandes multinacionales.',
@@ -54,11 +51,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '12',
     title: 'Reincidencia',
-    originalText:
-      'En caso de reincidencia, los mínimos y máximos de las sanciones previstas en los incisos b) y c) del artículo anterior podrán triplicarse. Se considerará reincidente al que, dentro del término de CINCO (5) años anteriores a la fecha de comisión de la infracción, haya sido sancionado por otra infracción de causa ambiental.',
-    currentText:
-      'En caso de reincidencia, los mínimos y máximos de las sanciones previstas en los incisos b) y c) del artículo anterior podrán triplicarse. Se considerará reincidente al que, dentro del término de CINCO (5) años anteriores a la fecha de comisión de la infracción, haya sido sancionado por otra infracción de causa ambiental.',
-    plainLanguageExplanation:
+    text:
+      'En caso de reincidencia, los mínimos y máximos de las sanciones previstas en los incisos b) y c) del artículo anterior podrán triplicarse. Se considerará reincidente al que, dentro del término de CINCO (5) años anteriores a la fecha de comisión de la infracción, haya sido sancionado por otra infracción de causa ambiental.',    plainLanguageExplanation:
       'Si la empresa o persona ya fue sancionada por una infracción ambiental en los últimos 5 años (no necesariamente de glaciares — cualquier infracción ambiental cuenta), las multas y suspensiones pueden triplicarse. Esto crea un historial de incumplimientos ambientales que se acumula entre distintas normas.',
     practicalEffects: [
       'La reincidencia no requiere que sea la misma ley — una infracción anterior en materia de residuos, agua o aire cuenta',
@@ -81,7 +75,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-12',
         articleNumber: '12',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En caso de reincidencia, los mínimos y máximos de las sanciones previstas en los incisos b) y c) del artículo anterior podrán triplicarse. Se considerará reincidente al que, dentro del término de CINCO (5) años anteriores a la fecha de comisión de la infracción, haya sido sancionado por otra infracción de causa ambiental.',
         plainExplanation:
           'El agravante de reincidencia funciona con dos reglas clave: primero, no hace falta que la infracción anterior sea de glaciares — cualquier infracción ambiental en los últimos 5 años cuenta. Segundo, se triplican las multas y suspensiones (incisos b y c del art. 11), pero no el cese definitivo que ya es la sanción máxima.',
@@ -98,11 +92,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '13',
     title: 'Responsabilidad solidaria',
-    originalText:
-      'Cuando el infractor fuere una persona jurídica, los que tengan a su cargo la dirección, administración o gerencia, serán solidariamente responsables de las sanciones establecidas en la presente ley.',
-    currentText:
-      'Cuando el infractor fuere una persona jurídica, los que tengan a su cargo la dirección, administración o gerencia, serán solidariamente responsables de las sanciones establecidas en la presente ley.',
-    plainLanguageExplanation:
+    text:
+      'Cuando el infractor fuere una persona jurídica, los que tengan a su cargo la dirección, administración o gerencia, serán solidariamente responsables de las sanciones establecidas en la presente ley.',    plainLanguageExplanation:
       'Si la infractora es una empresa, las multas y sanciones también recaen personalmente sobre los directivos, administradores y gerentes. No pueden escudarse en la personalidad jurídica de la sociedad. Esto tiene un efecto disuasivo importante: el CEO, el presidente y los gerentes de una minera son solidariamente responsables junto con la empresa.',
     practicalEffects: [
       'Los directivos responden con su propio patrimonio, no solo la empresa',
@@ -125,7 +116,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-13',
         articleNumber: '13',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando el infractor fuere una persona jurídica, los que tengan a su cargo la dirección, administración o gerencia, serán solidariamente responsables de las sanciones establecidas en la presente ley.',
         plainExplanation:
           'Si la empresa viola la ley, los directivos también pagan —no solo la sociedad. La sanción no queda absorbida por la persona jurídica: el CEO, los directores del consejo y los gerentes responden con su patrimonio personal, solidariamente junto con la empresa. Esto apunta a la cabeza de quien tomó la decisión, no solo a la entidad corporativa.',
@@ -142,11 +133,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '14',
     title: 'Destino de los importes percibidos',
-    originalText:
-      'Los importes percibidos por las autoridades competentes, en concepto de multas, se destinarán, prioritariamente, a la protección y restauración ambiental de los glaciares afectados en cada una de las jurisdicciones.',
-    currentText:
-      'Los importes percibidos por las autoridades competentes, en concepto de multas, se destinarán, prioritariamente, a la protección y restauración ambiental de los glaciares afectados en cada una de las jurisdicciones.',
-    plainLanguageExplanation:
+    text:
+      'Los importes percibidos por las autoridades competentes, en concepto de multas, se destinarán, prioritariamente, a la protección y restauración ambiental de los glaciares afectados en cada una de las jurisdicciones.',    plainLanguageExplanation:
       'Las multas cobradas no van al fisco general — deben usarse prioritariamente para restaurar y proteger los glaciares que fueron dañados. Crea una afectación específica: quien contamina financia la restauración. Es un principio contaminador-pagador aplicado a fondos públicos.',
     practicalEffects: [
       'Las multas tienen destino específico — no pueden usarse para otras políticas aunque haya presiones presupuestarias',
@@ -168,7 +156,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-14',
         articleNumber: '14',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Los importes percibidos por las autoridades competentes, en concepto de multas, se destinarán, prioritariamente, a la protección y restauración ambiental de los glaciares afectados en cada una de las jurisdicciones.',
         plainExplanation:
           'Las multas cobradas no van al presupuesto general del Estado — deben usarse prioritariamente para restaurar los glaciares que fueron dañados. Es la aplicación del principio contaminador-pagador: quien daña financia la reparación. La palabra "prioritariamente" implica que si hay fondos sobrantes pueden ir a otro destino, pero la restauración va primero.',
@@ -185,11 +173,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '15',
     title: 'Disposición transitoria',
-    originalText:
-      'En un plazo máximo de SESENTA (60) días a partir de la sanción de la presente ley, el IANIGLA presentará a la autoridad nacional de aplicación un cronograma para la ejecución del inventario, el cual deberá comenzar de manera inmediata por aquellas zonas en las que, por la existencia de actividades contempladas en el artículo 6°, se consideren prioritarias. En estas zonas se deberá realizar el inventario definido en el artículo 3° en un plazo no mayor de CIENTO OCHENTA (180) días.\n\nAl efecto, las autoridades competentes deberán proveerle toda la información pertinente que el citado instituto le requiera.\n\nLas actividades descritas en el artículo 6°, en ejecución al momento de la sanción de la presente ley, deberán, en un plazo máximo de CIENTO OCHENTA (180) días de promulgada la presente, someterse a una auditoría ambiental en la que se identifiquen y cuantifiquen los impactos ambientales potenciales y generados. En caso de verificarse impacto significativo sobre glaciares o ambiente periglacial, contemplados en el artículo 2°, las autoridades dispondrán las medidas pertinentes para que se cumpla la presente ley, pudiendo ordenar el cese o traslado de la actividad y las medidas de protección, limpieza y restauración que correspondan.',
-    currentText:
-      'En un plazo máximo de SESENTA (60) días a partir de la sanción de la presente ley, el IANIGLA presentará a la autoridad nacional de aplicación un cronograma para la ejecución del inventario, el cual deberá comenzar de manera inmediata por aquellas zonas en las que, por la existencia de actividades contempladas en el artículo 6°, se consideren prioritarias. En estas zonas se deberá realizar el inventario definido en el artículo 3° en un plazo no mayor de CIENTO OCHENTA (180) días.\n\nAl efecto, las autoridades competentes deberán proveerle toda la información pertinente que el citado instituto le requiera.\n\nLas actividades descritas en el artículo 6°, en ejecución al momento de la sanción de la presente ley, deberán, en un plazo máximo de CIENTO OCHENTA (180) días de promulgada la presente, someterse a una auditoría ambiental en la que se identifiquen y cuantifiquen los impactos ambientales potenciales y generados. En caso de verificarse impacto significativo sobre glaciares o ambiente periglacial, contemplados en el artículo 2°, las autoridades dispondrán las medidas pertinentes para que se cumpla la presente ley, pudiendo ordenar el cese o traslado de la actividad y las medidas de protección, limpieza y restauración que correspondan.',
-    plainLanguageExplanation:
+    text:
+      'En un plazo máximo de SESENTA (60) días a partir de la sanción de la presente ley, el IANIGLA presentará a la autoridad nacional de aplicación un cronograma para la ejecución del inventario, el cual deberá comenzar de manera inmediata por aquellas zonas en las que, por la existencia de actividades contempladas en el artículo 6°, se consideren prioritarias. En estas zonas se deberá realizar el inventario definido en el artículo 3° en un plazo no mayor de CIENTO OCHENTA (180) días.\n\nAl efecto, las autoridades competentes deberán proveerle toda la información pertinente que el citado instituto le requiera.\n\nLas actividades descritas en el artículo 6°, en ejecución al momento de la sanción de la presente ley, deberán, en un plazo máximo de CIENTO OCHENTA (180) días de promulgada la presente, someterse a una auditoría ambiental en la que se identifiquen y cuantifiquen los impactos ambientales potenciales y generados. En caso de verificarse impacto significativo sobre glaciares o ambiente periglacial, contemplados en el artículo 2°, las autoridades dispondrán las medidas pertinentes para que se cumpla la presente ley, pudiendo ordenar el cese o traslado de la actividad y las medidas de protección, limpieza y restauración que correspondan.',    plainLanguageExplanation:
       'Regla de transición para lo que ya existía cuando se sancionó la ley. Las minas y actividades prohibidas que estaban en funcionamiento tenían 180 días para hacer una auditoría ambiental. Si esa auditoría detectaba impacto significativo en glaciares o periglacial, la autoridad podía ordenar el cese o traslado. Esto fue la base legal para las medidas contra Pascua-Lama y Veladero que ya operaban en 2010.',
     practicalEffects: [
       'No fue un perdón para actividades previas: si causaban daño, debían adecuarse o cesar',
@@ -212,7 +197,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-15',
         articleNumber: '15',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En un plazo máximo de SESENTA (60) días a partir de la sanción de la presente ley, el IANIGLA presentará a la autoridad nacional de aplicación un cronograma para la ejecución del inventario...',
         plainExplanation:
           'La ley arrancó dando plazos concretos: el IANIGLA tenía 60 días para presentar el cronograma del inventario, priorizando las zonas donde ya había actividades mineras. Esas zonas debían tener inventario completo en 180 días. Fue la forma de atacar primero los puntos de conflicto más urgentes.',
@@ -227,7 +212,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-15',
         articleNumber: '15',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las actividades descritas en el artículo 6°, en ejecución al momento de la sanción de la presente ley, deberán, en un plazo máximo de CIENTO OCHENTA (180) días de promulgada la presente, someterse a una auditoría ambiental...',
         plainExplanation:
           'Las minas y proyectos que ya operaban en 2010 no quedaron perdonados: tenían 180 días para hacer una auditoría que midiera si causaban daño en glaciares o periglacial. Si el daño era significativo, la autoridad podía ordenar el cese o traslado. No fue un "a lo que está, pecho": fue exigirles que demuestren que no dañan.',
@@ -244,11 +229,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '16',
     title: 'Sector Antártico Argentino',
-    originalText:
-      'En el Sector Antártico Argentino, la aplicación de la presente ley estará sujeta a las obligaciones asumidas por la República Argentina en virtud del Tratado Antártico y del Protocolo al Tratado Antártico sobre Protección del Medio Ambiente.',
-    currentText:
-      'En el Sector Antártico Argentino, la aplicación de la presente ley estará sujeta a las obligaciones asumidas por la República Argentina en virtud del Tratado Antártico y del Protocolo al Tratado Antártico sobre Protección del Medio Ambiente.',
-    plainLanguageExplanation:
+    text:
+      'En el Sector Antártico Argentino, la aplicación de la presente ley estará sujeta a las obligaciones asumidas por la República Argentina en virtud del Tratado Antártico y del Protocolo al Tratado Antártico sobre Protección del Medio Ambiente.',    plainLanguageExplanation:
       'Para los glaciares antárticos argentinos, la ley aplica pero subordinada al Tratado Antártico y su Protocolo Ambiental (Protocolo de Madrid). Esto tiene sentido porque la Antártida tiene un régimen internacional propio: la actividad minera ya está prohibida por el Protocolo de Madrid hasta 2048 y el régimen internacional prima sobre el nacional en ese territorio.',
     practicalEffects: [
       'La Antártida ya tiene protección más fuerte por el Protocolo de Madrid (que prohíbe la minería hasta 2048)',
@@ -270,7 +252,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-16',
         articleNumber: '16',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'En el Sector Antártico Argentino, la aplicación de la presente ley estará sujeta a las obligaciones asumidas por la República Argentina en virtud del Tratado Antártico y del Protocolo al Tratado Antártico sobre Protección del Medio Ambiente.',
         plainExplanation:
           'Para la Antártida argentina, la ley aplica pero subordinada al Tratado Antártico y al Protocolo de Madrid (1991). El Protocolo de Madrid ya prohíbe toda actividad minera en la Antártida hasta 2048 —una protección más fuerte que esta ley— por lo que en la práctica no hay conflicto: la norma internacional es más restrictiva y prevalece.',
@@ -287,11 +269,8 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '17',
     title: 'Reglamentación',
-    originalText:
-      'La presente ley se reglamentará en el plazo de NOVENTA (90) días a partir de su publicación en el Boletín Oficial.',
-    currentText:
-      'La presente ley se reglamentará en el plazo de NOVENTA (90) días a partir de su publicación en el Boletín Oficial.',
-    plainLanguageExplanation:
+    text:
+      'La presente ley se reglamentará en el plazo de NOVENTA (90) días a partir de su publicación en el Boletín Oficial.',    plainLanguageExplanation:
       'Obliga al Poder Ejecutivo a reglamentar la ley en 90 días. El Decreto 207/2011 lo cumplió dentro del plazo: la ley fue publicada el 28/10/2010 y el decreto fue firmado el 28/02/2011 (125 días después, aunque el decreto considera que el plazo fue cumplido dado que el decreto indica la urgencia). El decreto concluyó que la ley es en su mayor parte autosuficiente y dejó la mayoría de los artículos "sin reglamentar".',
     practicalEffects: [
       'El decreto reglamentario llegó en ~4 meses — levemente fuera del plazo pero sin consecuencias jurídicas',
@@ -311,7 +290,7 @@ export const ARTICLES_26639_03: Article[] = [
         articleId: 'art-26639-17',
         articleNumber: '17',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La presente ley se reglamentará en el plazo de NOVENTA (90) días a partir de su publicación en el Boletín Oficial.',
         plainExplanation:
           'El Congreso le ordena al Poder Ejecutivo que dicte el decreto reglamentario en 90 días. El Decreto 207/2011 llegó unos días después del plazo técnico (la ley fue publicada el 28/10/2010 y el decreto es del 28/02/2011), pero su contenido confirmó algo importante: la ley es en su mayor parte autosuficiente y no necesita desarrollo reglamentario para operar.',
@@ -328,9 +307,7 @@ export const ARTICLES_26639_03: Article[] = [
     lawId: 'ley-26639',
     number: '18',
     title: 'Comunicación al Poder Ejecutivo',
-    originalText: 'Comuníquese al Poder Ejecutivo nacional.',
-    currentText: 'Comuníquese al Poder Ejecutivo nacional.',
-    plainLanguageExplanation:
+    text: 'Comuníquese al Poder Ejecutivo nacional.',    plainLanguageExplanation:
       'Artículo de promulgación formal. El Congreso ordena que la ley sea comunicada al Poder Ejecutivo para su promulgación y publicación en el Boletín Oficial. Es el artículo final estándar de toda ley argentina.',
     practicalEffects: [],
     examples: [],

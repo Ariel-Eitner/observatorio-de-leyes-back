@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '63',
 		title: 'Fuerza mayor en contratos del Estado — renegociación y rescisión',
-		originalText:
+		text:
 			'Autorícese al Poder Ejecutivo nacional, previa intervención de la Procuración del Tesoro y la SIGEN, a disponer por razones de emergencia —que constituyen causales de fuerza mayor bajo el art. 54 ley 13.064— la renegociación o rescisión de contratos: (i) de obra pública, concesión, o construcción/provisión de bienes y servicios y sus contratos anexos; (ii) cuyos montos superen los 10.000.000 módulos del decreto 1030/2016; y (iii) celebrados con anterioridad al 10 de diciembre de 2023.\n\nSolo puede ejercerse con informe de transparencia y cuando resulte financiera o económicamente más conveniente para el interés público. Excluidos: contratos de privatización (ley 23.696) y contratos de regímenes de promoción de inversiones.',
-		currentText:
-			'El PEN puede renegociar o rescindir contratos de obra pública y servicios de más de 10 millones de módulos firmados antes del 10/12/2023, invocando emergencia como fuerza mayor. Requiere dictamen previo de la Procuración del Tesoro y la SIGEN, y debe ser más conveniente para el interés público.',
 		plainLanguageExplanation:
 			'El gobierno heredó centenares de contratos de obra pública firmados por administraciones anteriores, muchos con sobreprecios o condiciones desfavorables. El art. 63° les da una herramienta legal para renegociarlos o cancelarlos sin pagar todas las penalidades de rescisión, porque declara que la situación de emergencia constituye "fuerza mayor" (causa que no es culpa del Estado). La condición: que sea más conveniente económicamente y con controles previos.',
 		practicalEffects: [
@@ -43,10 +41,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '64',
 		title: 'Contratos con 80% de avance físico — no rescindibles',
-		originalText:
+		text:
 			'A los fines del artículo 63, se entenderá que resulta económica y financieramente inconveniente para el interés público la suspensión o rescisión de los contratos de obra pública que se encontraran físicamente ejecutadas en un ochenta por ciento (80%) a la fecha de la sanción de la presente ley; o que cuenten con financiamiento internacional para su concreción. En caso de que dichos contratos se hayan visto suspendidos, su ejecución se reanudará previo acuerdo firmado dentro de noventa (90) días desde la publicación de la presente ley.',
-		currentText:
-			'No se pueden rescindir obras que ya tenían el 80% de avance físico o financiamiento internacional al momento de la sanción de la ley. Si estaban suspendidas, deben reanudarse en 90 días.',
 		plainLanguageExplanation:
 			'Protección del sentido común: si una obra ya está al 80% de ejecución, rescindirla sale más caro que terminarla. Y si tiene financiamiento internacional (por ejemplo del Banco Mundial), cancelarla dañaría la relación con el organismo prestamista. El art. 64° impone esta restricción como salvaguarda explícita.',
 		practicalEffects: [
@@ -67,10 +63,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '65',
 		title: 'Acuerdos transaccionales con contratistas',
-		originalText:
+		text:
 			'En toda controversia o reclamo administrativo, judicial y/o arbitral que se suscite entre un contratista y cualquier órgano del Estado nacional fundado en supuestos incumplimientos de obligaciones contractuales estatales, el Poder Ejecutivo nacional estará autorizado para realizar acuerdos transaccionales (art. 1641 y ss. Código Civil y Comercial), siempre que estén debidamente fundados y sean convenientes para el Estado.\n\nRequiere dictámenes favorables previos de la Procuración del Tesoro y de la SIGEN.',
-		currentText:
-			'El PEN puede llegar a acuerdos extrajudiciales con contratistas que demandaron al Estado por incumplimientos contractuales. Requiere dictamen favorable de la Procuración del Tesoro y la SIGEN. Debe ser conveniente para el Estado.',
 		plainLanguageExplanation:
 			'El Estado argentino tiene miles de juicios pendientes con contratistas por contratos incumplidos. El art. 65° permite al PEN cerrar esos juicios mediante acuerdos (transacciones) sin necesidad de esperar la sentencia judicial. Es un mecanismo para desactivar pasivos contingentes del Estado, siempre que la Procuración del Tesoro y la SIGEN avalen que el acuerdo es conveniente.',
 		practicalEffects: [
@@ -92,10 +86,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '66',
 		title: 'Objeto de las concesiones públicas — reforma art. 1° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 1° de la ley 17.520 por el siguiente: "Artículo 1°: El Poder Ejecutivo nacional, las provincias y los municipios podrán otorgar en concesión al sector privado, bajo las modalidades previstas en esta ley, la construcción, conservación, explotación, administración y/o gestión de: a) obras públicas de infraestructura de transporte, energía, agua, saneamiento, telecomunicaciones y demás servicios públicos; b) bienes del dominio público o privado del Estado; c) servicios conexos a los anteriores. Las concesiones podrán ser onerosas o gratuitas, según lo determine el organismo concedente en función del interés público comprometido."',
-		currentText:
-			'Sustituye el art. 1° de ley 17.520, ampliando el objeto de las concesiones a toda obra pública de infraestructura (transporte, energía, agua, saneamiento, telecomunicaciones) y bienes del dominio del Estado. El PEN, provincias y municipios pueden otorgarlas. Las concesiones pueden ser onerosas o gratuitas.',
 		plainLanguageExplanation:
 			'La ley 17.520 original (1967) tenía un alcance limitado. Este artículo la moderniza: ahora el Estado puede dar en concesión no sólo rutas sino cualquier infraestructura (puertos, aeropuertos, redes de agua, plantas de energía). El concesionario opera la obra a cambio de cobrar tarifas o peajes.',
 		practicalEffects: [
@@ -119,10 +111,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '67',
 		title: 'Modalidades de concesión — reforma art. 2° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 2° de la ley 17.520 por el siguiente: "Artículo 2°: Las concesiones podrán otorgarse bajo las siguientes modalidades: a) Concesión de obra nueva: el concesionario financia, construye y explota la obra; b) Concesión de obra existente: el concesionario se hace cargo de la explotación y/o conservación de una obra ya construida; c) Concesión mixta: combina elementos de las anteriores; d) Concesión por iniciativa privada: cuando el proyecto es presentado por el sector privado de conformidad con el artículo 6°. En todos los casos, el contrato de concesión deberá establecer el plazo, las condiciones de explotación, el régimen tarifario y las causales de rescisión."',
-		currentText:
-			'Sustituye el art. 2° de ley 17.520, estableciendo cuatro modalidades de concesión: obra nueva (el privado financia y construye), obra existente (el privado opera lo ya construido), mixta, e iniciativa privada. En todos los casos el contrato debe fijar plazo, condiciones, tarifas y causales de rescisión.',
 		plainLanguageExplanation:
 			'Define los "tipos" de concesión posibles. La más novedosa es la "iniciativa privada": una empresa puede proponer una obra al Estado (antes sólo el Estado podía iniciar el proceso). Si el Estado la acepta, llama a licitación y el proponente obtiene ventaja competitiva.',
 		practicalEffects: [
@@ -146,10 +136,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '68',
 		title: 'Procedimiento de selección del concesionario — reforma art. 3° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 3° de la ley 17.520 por el siguiente: "Artículo 3°: El otorgamiento de concesiones se realizará por licitación pública o concurso público, según determine el organismo concedente. En ambos casos se garantizará publicidad, igualdad de oportunidades y transparencia. Para las concesiones originadas en iniciativas privadas, el procedimiento de selección deberá contemplar un mecanismo de preferencia a favor del proponente. La reglamentación establecerá las condiciones y el alcance de ese mecanismo de preferencia."',
-		currentText:
-			'Sustituye el art. 3° de ley 17.520. El concesionario se selecciona por licitación o concurso público. Para iniciativas privadas, el proponente tiene un mecanismo de preferencia en la licitación. La reglamentación define el alcance de esa preferencia.',
 		plainLanguageExplanation:
 			'El proceso de selección es siempre público (transparencia). Para iniciativas privadas, la empresa que propuso el proyecto tiene un "derecho de tanteo": si en la licitación otra empresa gana, el proponente puede igualar la oferta y quedarse con la concesión. Esto incentiva la inversión en estudios de viabilidad.',
 		practicalEffects: [
@@ -173,10 +161,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '69',
 		title: 'Contenido del contrato de concesión — reforma art. 4° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 4° de la ley 17.520 por el siguiente: "Artículo 4°: El contrato de concesión deberá establecer, como mínimo: a) el objeto y alcance de la concesión; b) el plazo, que podrá ser fijo o variable según la ecuación económico-financiera del proyecto; c) el régimen tarifario y los mecanismos de actualización; d) las obligaciones de inversión y mantenimiento; e) los estándares de calidad del servicio; f) las causales y procedimientos de rescisión; g) el destino de los bienes al término de la concesión (reversión); h) el régimen de supervisión y control; i) la jurisdicción y el mecanismo de resolución de controversias."',
-		currentText:
-			'Sustituye el art. 4° de ley 17.520. El contrato de concesión debe incluir: objeto, plazo (fijo o variable según la ecuación económico-financiera), régimen tarifario, obligaciones de inversión, estándares de calidad, causales de rescisión, reversión de bienes, supervisión y mecanismo de resolución de disputas.',
 		plainLanguageExplanation:
 			'Establece todos los elementos que debe tener un contrato de concesión. La novedad clave es el "plazo variable": en lugar de fijar 30 años, el contrato puede durar hasta que el concesionario recupere la inversión más una ganancia razonable. Esto da más seguridad financiera a los proyectos con flujos de caja inciertos.',
 		practicalEffects: [
@@ -200,10 +186,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '70',
 		title: 'Régimen tarifario — reforma art. 5° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 5° de la ley 17.520 por el siguiente: "Artículo 5°: Las tarifas, peajes y cánones que perciba el concesionario serán fijados en el contrato de concesión y actualizados según los mecanismos que en él se establezcan. El organismo concedente podrá aprobar, en el contrato o por resolución posterior, tarifas diferenciales por tipo de usuario, horario o condiciones especiales de uso. Las tarifas serán suficientes para cubrir los costos de inversión, operación y mantenimiento, y permitir una rentabilidad razonable al concesionario, según la ecuación económico-financiera acordada."',
-		currentText:
-			'Sustituye el art. 5° de ley 17.520. Las tarifas/peajes se fijan en el contrato y se actualizan según el mecanismo pactado. Pueden existir tarifas diferenciales por tipo de usuario u horario. Las tarifas deben cubrir costos e incluir una rentabilidad razonable según la ecuación económico-financiera.',
 		plainLanguageExplanation:
 			'Define cómo se calculan y actualizan los peajes o tarifas. La clave es que deben ser "suficientes" para que el concesionario pueda cubrir sus costos y ganar razonablemente: si el gobierno congela tarifas sin compensar al concesionario, hay desequilibrio contractual (y el concesionario puede reclamar o renegociar).',
 		practicalEffects: [
@@ -227,10 +211,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '71',
 		title: 'Iniciativa privada para concesiones — reforma art. 6° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 6° de la ley 17.520 por el siguiente: "Artículo 6°: Los particulares, empresas o consorcios podrán presentar ante el organismo concedente proyectos de iniciativa privada para la concesión de obras o servicios públicos. El organismo concedente deberá pronunciarse sobre la viabilidad de la iniciativa dentro de los ciento ochenta (180) días de su presentación. Si declara viable la iniciativa, convocará al procedimiento de selección del artículo 3°, en el que el proponente gozará del derecho de preferencia allí previsto. Los estudios y proyectos presentados que sean declarados de interés público tendrán protección de confidencialidad durante el proceso de selección."',
-		currentText:
-			'Sustituye el art. 6° de ley 17.520. Los privados pueden presentar proyectos de iniciativa privada. El Estado debe responder en 180 días. Si la declara viable, llama a licitación y el proponente tiene derecho de preferencia. Los estudios técnicos presentados gozan de confidencialidad.',
 		plainLanguageExplanation:
 			'Es el artículo más relevante para atraer inversión: cualquier empresa puede proponer una obra (una autopista, un puerto, un aeropuerto) y si el Estado dice "sí, nos interesa", hay licitación. El que propuso tiene ventaja en esa licitación. Además, sus estudios técnicos son confidenciales para que nadie "robe" su propuesta.',
 		practicalEffects: [
@@ -254,10 +236,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '72',
 		title: 'Plazo y prórroga de la concesión — reforma art. 7° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 7° de la ley 17.520 por el siguiente: "Artículo 7°: El plazo de la concesión podrá ser fijo o variable, en los términos previstos en el artículo 4°. Podrá prorrogarse por acuerdo de partes en caso de modificaciones sustanciales al objeto de la concesión que alteren la ecuación económico-financiera original. Las prórrogas no podrán exceder el cincuenta por ciento (50%) del plazo original y requerirán intervención del organismo de control. En ningún caso la suma del plazo original más la prórroga podrá superar los cincuenta (50) años."',
-		currentText:
-			'Sustituye el art. 7° de ley 17.520. El plazo puede ser fijo o variable. Se puede prorrogar si se modifican las condiciones originales del contrato (hasta el 50% del plazo original). El plazo total (original + prórroga) no puede superar 50 años. Requiere intervención del organismo de control.',
 		plainLanguageExplanation:
 			'Limita la duración máxima de una concesión a 50 años, incluyendo prórrogas. Las prórrogas sólo proceden si se cambia algo sustancial en el contrato (obra adicional, cambio de servicio). El organismo de control debe opinar sobre la prórroga para evitar favoritismos.',
 		practicalEffects: [
@@ -281,10 +261,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '73',
 		title: 'Renegociación de contratos paralizados — reforma art. 9° ley 17.520',
-		originalText:
+		text:
 			'Sustitúyese el artículo 9° de la ley 17.520 por el siguiente: "Artículo 9°: Cuando un contrato de obra pública se encuentre suspendido o paralizado por razones imputables al Estado, el Poder Ejecutivo nacional podrá transformarlo en una concesión de obra pública bajo las modalidades de la presente ley, previa conformidad del contratista. Esta transformación requerirá: a) valuación técnica de lo ejecutado; b) acuerdo sobre el valor residual a financiar por el concesionario; c) dictamen favorable de la Procuración del Tesoro y la SIGEN; d) publicación del acuerdo en el Boletín Oficial."',
-		currentText:
-			'Sustituye el art. 9° de ley 17.520. Permite transformar contratos de obra pública paralizados en concesiones: el contratista ya ejecutado se convierte en concesionario y financia el resto de la obra. Requiere valuación técnica de lo ejecutado, acuerdo sobre el valor residual, dictamen de Procuración del Tesoro y SIGEN, y publicación en el BO.',
 		plainLanguageExplanation:
 			'Solución práctica para obras paralizadas: en lugar de rescindir y relicitar todo, el Estado puede ofrecerle al contratista "terminá vos la obra y operala". El contratista financia el resto de la obra y la recupera cobrando peajes o tarifas. Así el Estado no pone plata y la obra se termina.',
 		practicalEffects: [
@@ -308,10 +286,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '74',
 		title: 'Derogación de restricciones procesales en ley 17.520',
-		originalText:
+		text:
 			'Deróganse los artículos 8° y 11 de la ley 17.520.',
-		currentText:
-			'Deroga los artículos 8° y 11 de la ley 17.520, que contenían restricciones procedimentales y limitaciones sobre el tipo de obras concesionables que resultaban obsoletas con el nuevo régimen.',
 		plainLanguageExplanation:
 			'Los artículos 8° y 11 de la ley original de 1967 imponían restricciones que ya no tenían sentido en el nuevo marco (por ejemplo, limitaciones sobre qué tipos de obras podían concesionarse, o procedimientos que quedaron reemplazados por los nuevos). Se los deroga para dejar el texto limpio.',
 		practicalEffects: [
@@ -332,10 +308,8 @@ export const ARTICLES_TITULO_03: Article[] = [
 		lawId: 'ley-27742',
 		number: '75',
 		title: 'Autoridad de aplicación de la ley 17.520',
-		originalText:
+		text:
 			'El Poder Ejecutivo nacional designará la autoridad de aplicación de la ley 17.520 y sus modificaciones.',
-		currentText:
-			'Delega en el PEN la designación de la autoridad de aplicación de la ley 17.520 de Concesiones. La reglamentación determina qué organismo (Ministerio de Infraestructura, secretaría específica u otro) ejerce la supervisión del régimen.',
 		plainLanguageExplanation:
 			'En lugar de fijarlo en la ley, se le da al PEN la flexibilidad de designar qué organismo supervisa las concesiones. Esto permite reorganizar la estructura de gobierno sin necesitar otra ley.',
 		practicalEffects: [

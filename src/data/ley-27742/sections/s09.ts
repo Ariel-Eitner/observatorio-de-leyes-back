@@ -16,10 +16,8 @@ export const ARTICLES_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '218',
 		title: 'Autoridad de aplicación y sus facultades',
-		originalText:
+		text:
 			'El Poder Ejecutivo nacional designará la autoridad de aplicación del presente título de la ley, con facultades para:\na) La evaluación y aprobación o rechazo de las solicitudes de adhesión y de los planes de inversión presentados por los VPU;\nb) La fiscalización y control del RIGI;\nc) La verificación del cumplimiento de las disposiciones de esta ley y sus normas reglamentarias y de las obligaciones a cargo de los VPU;\nd) La caducidad de los incentivos; y\ne) El dictado de las normas operativas, aclaratorias y complementarias que resulten necesarias para asegurar el adecuado cumplimiento del RIGI, el cual es considerado operativo desde su vigencia.',
-		currentText:
-			'El Poder Ejecutivo designa la Autoridad de Aplicación del RIGI (actualmente la Secretaría de Industria y Desarrollo Productivo). Sus funciones: evaluar y aprobar/rechazar solicitudes; fiscalizar; verificar cumplimiento; declarar la caducidad de incentivos; y dictar normas operativas.',
 		plainLanguageExplanation:
 			'El gobierno designa al organismo que administra el RIGI. La Autoridad de Aplicación es el árbitro central del régimen: aprueba proyectos, los controla, y puede sancionar hasta el cese del régimen. El Decreto 749/2024 designó a la Secretaría de Industria y Desarrollo Productivo como Autoridad de Aplicación.',
 		practicalEffects: [
@@ -41,10 +39,8 @@ export const ARTICLES_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '219',
 		title: 'Delegación en secretarías sectoriales',
-		originalText:
+		text:
 			'La autoridad de aplicación podrá delegar en las Secretarías de gobierno las facultades previstas en el artículo precedente en base al sector de actividad de que se trate.',
-		currentText:
-			'La Autoridad de Aplicación puede delegar sus facultades en secretarías sectoriales según el sector del proyecto (por ejemplo: Secretaría de Energía para proyectos energéticos; Secretaría de Minería para proyectos mineros).',
 		plainLanguageExplanation:
 			'El RIGI puede tener "ventanillas" diferentes según el sector: un proyecto de petróleo y gas sería evaluado por la Secretaría de Energía con criterios sectoriales específicos. Esto permite que cada área de gobierno con conocimiento técnico del sector participe en la evaluación.',
 		practicalEffects: [
@@ -65,10 +61,8 @@ export const ARTICLES_09: Article[] = [
 		lawId: 'ley-27742',
 		number: '220',
 		title: 'Obligación de informar y área específica AFIP',
-		originalText:
+		text:
 			'Los sujetos beneficiarios deberán presentar ante la autoridad de aplicación la información que les fuera requerida acerca del estado del proyecto y de los VPU. Instrúyese a la Administración Federal de Ingresos Públicos a crear un área específica cuyas funciones serán crear las CUIT asignadas a los VPU y fiscalizar el cumplimiento de las obligaciones tributarias y aduaneras por parte de tales sujetos.',
-		currentText:
-			'Los VPU deben informar periódicamente a la Autoridad de Aplicación sobre el estado del proyecto. La AFIP debe crear un área específica para atender a los VPU: emitir sus CUIT y fiscalizar sus obligaciones tributarias y aduaneras.',
 		plainLanguageExplanation:
 			'La AFIP crea una "ventanilla RIGI" especializada: los proyectos RIGI tienen una CUIT propia y un área dedicada de fiscalización. Esto permite una atención diferenciada y especializada, separando la fiscalización del RIGI de la fiscalización ordinaria.',
 		practicalEffects: [

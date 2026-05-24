@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_01: Article[] = [
 		lawId: 'ley-27742',
 		number: '1',
 		title: 'Declaración de emergencia pública y delegación legislativa',
-		originalText:
+		text:
 			'Declárase la emergencia pública en materia administrativa, económica, financiera y energética por el plazo de un (1) año.\n\nDeléganse en el Poder Ejecutivo nacional las facultades dispuestas por la presente ley, vinculadas a materias determinadas de administración y de emergencia, en los términos del artículo 76 de la Constitución Nacional, con arreglo a las bases aquí establecidas y por el plazo dispuesto en el párrafo precedente.\n\nEl Poder Ejecutivo nacional informará mensualmente y en forma detallada al Honorable Congreso de la Nación acerca del ejercicio de las facultades delegadas y los resultados obtenidos.',
-		currentText:
-			'Declara la emergencia pública en materia administrativa, económica, financiera y energética por 1 año. Delega en el PEN las facultades previstas en la ley (conforme art. 76 CN). El PEN debe informar mensualmente al Congreso sobre el ejercicio de las facultades delegadas.',
 		plainLanguageExplanation:
 			'El artículo 1° es el eje de toda la ley: declara el estado de emergencia pública en cuatro áreas clave (administración, economía, finanzas y energía) y habilita al Presidente a tomar medidas de gran alcance sin pasar por el Congreso en cada caso. Esta "delegación legislativa" está expresamente autorizada por la Constitución (art. 76), pero solo por un plazo limitado (1 año) y sobre las materias definidas en la propia ley. Como contrapeso, el PEN debe rendir cuentas al Congreso mes a mes.',
 		practicalEffects: [

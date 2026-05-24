@@ -45,11 +45,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '1',
 		title: 'Ámbito de aplicación',
-		originalText:
-			'Las disposiciones de este código rigen en todo el ámbito terrestre, acuático y aéreo sometido a la soberanía de la Nación Argentina, así como también en los enclaves constituidos a su favor.',
-		currentText:
-			'Las disposiciones de este código rigen en todo el ámbito terrestre, acuático y aéreo sometido a la soberanía de la Nación Argentina, así como también en los enclaves constituidos a su favor.',
-		plainLanguageExplanation:
+		text:
+			'Las disposiciones de este código rigen en todo el ámbito terrestre, acuático y aéreo sometido a la soberanía de la Nación Argentina, así como también en los enclaves constituidos a su favor.',		plainLanguageExplanation:
 			'El Código Aduanero rige en todo el territorio argentino (tierra, agua y aire) y también en los enclaves: zonas fuera del país donde por tratado internacional se aplica la legislación argentina.',
 		practicalEffects: [
 			'Aplica en puertos, aeropuertos, fronteras terrestres y ríos navegables internacionales',
@@ -70,11 +67,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '2',
 		title: 'Territorio aduanero',
-		originalText:
-			'1. Territorio aduanero es la parte del ámbito mencionado en el artículo 1, en la que se aplica un mismo sistema arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.\n2. Territorio aduanero general es aquél en el cual es aplicable el sistema general arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.\n3. Territorio aduanero especial o área aduanera especial es aquél en el cual es aplicable un sistema especial arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.',
-		currentText:
-			'1. Territorio aduanero es la parte del ámbito mencionado en el artículo 1, en la que se aplica un mismo sistema arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.\n2. Territorio aduanero general es aquél en el cual es aplicable el sistema general arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.\n3. Territorio aduanero especial o área aduanera especial es aquél en el cual es aplicable un sistema especial arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.',
-		plainLanguageExplanation:
+		text:
+			'1. Territorio aduanero es la parte del ámbito mencionado en el artículo 1, en la que se aplica un mismo sistema arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.\n2. Territorio aduanero general es aquél en el cual es aplicable el sistema general arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.\n3. Territorio aduanero especial o área aduanera especial es aquél en el cual es aplicable un sistema especial arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.',		plainLanguageExplanation:
 			'El "territorio aduanero" es la zona donde rige un sistema de aranceles y prohibiciones económicas. Hay dos tipos: el general (la mayor parte del país) y el especial (zonas con régimen diferenciado, como Tierra del Fuego).',
 		practicalEffects: [
 			'El territorio aduanero general tiene los aranceles comunes para importar y exportar',
@@ -102,7 +96,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-2',
 				articleNumber: '2',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. Territorio aduanero es la parte del ámbito mencionado en el artículo 1, en la que se aplica un mismo sistema arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.',
 				plainExplanation:
 					'Definición general: territorio aduanero es la zona del espacio soberano argentino donde rige un sistema uniforme de aranceles y restricciones económicas al comercio exterior.',
@@ -117,7 +111,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-2',
 				articleNumber: '2',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. Territorio aduanero general es aquél en el cual es aplicable el sistema general arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.',
 				plainExplanation:
 					'El territorio aduanero general es la mayor parte del país continental: rige el régimen arancelario común sin beneficios especiales.',
@@ -131,7 +125,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-2',
 				articleNumber: '2',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'3. Territorio aduanero especial o área aduanera especial es aquél en el cual es aplicable un sistema especial arancelario y de prohibiciones de carácter económico a las importaciones y a las exportaciones.',
 				plainExplanation:
 					'El territorio aduanero especial tiene un régimen de aranceles diferente al general. Se crea por ley para regiones específicas con fines de fomento económico.',
@@ -148,11 +142,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '3',
 		title: 'Exclusiones del territorio aduanero',
-		originalText:
-			'No constituye territorio aduanero, ni general ni especial:\na) el mar territorial argentino y los ríos internacionales;\nb) las áreas francas;\nc) los exclaves;\nd) los espacios aéreos correspondientes a los ámbitos a que se refieren los incisos precedentes;\ne) el lecho y subsuelo submarinos nacionales.\nEn estos ámbitos se aplican los regímenes aduaneros que para cada caso se contemplan en este código.',
-		currentText:
-			'No constituye territorio aduanero, ni general ni especial:\na) el mar territorial argentino y los ríos internacionales;\nb) las áreas francas;\nc) los exclaves;\nd) los espacios aéreos correspondientes a los ámbitos a que se refieren los incisos precedentes;\ne) el lecho y subsuelo submarinos nacionales.\nEn estos ámbitos se aplican los regímenes aduaneros que para cada caso se contemplan en este código.',
-		plainLanguageExplanation:
+		text:
+			'No constituye territorio aduanero, ni general ni especial:\na) el mar territorial argentino y los ríos internacionales;\nb) las áreas francas;\nc) los exclaves;\nd) los espacios aéreos correspondientes a los ámbitos a que se refieren los incisos precedentes;\ne) el lecho y subsuelo submarinos nacionales.\nEn estos ámbitos se aplican los regímenes aduaneros que para cada caso se contemplan en este código.',		plainLanguageExplanation:
 			'Hay zonas argentinas que no son "territorio aduanero" pero no están desreguladas: el propio Código tiene regímenes especiales para cada una.',
 		practicalEffects: [
 			'Las áreas francas están excluidas del régimen aduanero general',
@@ -174,7 +165,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'PARAGRAPH',
-				originalText: 'No constituye territorio aduanero, ni general ni especial:',
+				text: 'No constituye territorio aduanero, ni general ni especial:',
 				plainExplanation:
 					'Lista taxativa de ámbitos excluidos del territorio aduanero. La exclusión no implica ausencia de control: cada uno tiene su propio régimen en el Código.',
 				practicalExample: null,
@@ -187,7 +178,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'INCISO',
-				originalText: 'a) el mar territorial argentino y los ríos internacionales;',
+				text: 'a) el mar territorial argentino y los ríos internacionales;',
 				plainExplanation:
 					'El mar territorial (hasta 12 millas náuticas desde la costa) y los ríos compartidos con otros países (Paraná, Uruguay, Pilcomayo) quedan fuera del territorio aduanero.',
 				practicalExample:
@@ -201,7 +192,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'INCISO',
-				originalText: 'b) las áreas francas;',
+				text: 'b) las áreas francas;',
 				plainExplanation:
 					'Las áreas francas son zonas habilitadas donde la mercadería puede ingresar, almacenarse y transformarse sin pagar tributos aduaneros, hasta que ingrese al territorio aduanero general.',
 				practicalExample:
@@ -215,7 +206,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'INCISO',
-				originalText: 'c) los exclaves;',
+				text: 'c) los exclaves;',
 				plainExplanation:
 					'Los exclaves son zonas de soberanía argentina donde, por convenio internacional, rige la legislación aduanera de otro Estado. Por eso están fuera del territorio aduanero argentino.',
 				practicalExample:
@@ -229,7 +220,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'INCISO',
-				originalText: 'd) los espacios aéreos correspondientes a los ámbitos a que se refieren los incisos precedentes;',
+				text: 'd) los espacios aéreos correspondientes a los ámbitos a que se refieren los incisos precedentes;',
 				plainExplanation:
 					'El espacio aéreo sobre el mar territorial, ríos internacionales, áreas francas y exclaves también queda fuera del territorio aduanero.',
 				practicalExample: null,
@@ -242,7 +233,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'INCISO',
-				originalText: 'e) el lecho y subsuelo submarinos nacionales.',
+				text: 'e) el lecho y subsuelo submarinos nacionales.',
 				plainExplanation:
 					'El fondo marino y el subsuelo bajo aguas argentinas (plataforma continental) tampoco son territorio aduanero, aunque Argentina ejerce soberanía sobre los recursos allí existentes.',
 				practicalExample:
@@ -256,7 +247,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-3',
 				articleNumber: '3',
 				segmentType: 'PARAGRAPH',
-				originalText: 'En estos ámbitos se aplican los regímenes aduaneros que para cada caso se contemplan en este código.',
+				text: 'En estos ámbitos se aplican los regímenes aduaneros que para cada caso se contemplan en este código.',
 				plainExplanation:
 					'La exclusión del "territorio aduanero" no significa libre circulación: cada ámbito tiene su propio régimen específico regulado en otras secciones del Código.',
 				practicalExample: null,
@@ -271,11 +262,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '4',
 		title: 'Enclave y exclave',
-		originalText:
-			'1. Enclave es el ámbito sometido a la soberanía de otro Estado, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera nacional.\n2. Exclave es el ámbito, sometido a la soberanía de la Nación Argentina, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera de otro Estado.',
-		currentText:
-			'1. Enclave es el ámbito sometido a la soberanía de otro Estado, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera nacional.\n2. Exclave es el ámbito, sometido a la soberanía de la Nación Argentina, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera de otro Estado.',
-		plainLanguageExplanation:
+		text:
+			'1. Enclave es el ámbito sometido a la soberanía de otro Estado, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera nacional.\n2. Exclave es el ámbito, sometido a la soberanía de la Nación Argentina, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera de otro Estado.',		plainLanguageExplanation:
 			'Enclave = territorio extranjero donde Argentina aplica su aduana. Exclave = territorio argentino donde aplica la aduana de otro Estado. Ambas figuras requieren convenio internacional.',
 		practicalEffects: [
 			'Los enclaves quedan sujetos a control aduanero argentino aunque estén en suelo extranjero',
@@ -294,7 +282,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-4',
 				articleNumber: '4',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. Enclave es el ámbito sometido a la soberanía de otro Estado, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera nacional.',
 				plainExplanation:
 					'Enclave: territorio de OTRO país donde, por tratado, rige la legislación aduanera ARGENTINA. Argentina tiene jurisdicción aduanera allí aunque no tenga soberanía territorial.',
@@ -309,7 +297,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-4',
 				articleNumber: '4',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. Exclave es el ámbito, sometido a la soberanía de la Nación Argentina, en el cual, en virtud de un convenio internacional, se permite la aplicación de la legislación aduanera de otro Estado.',
 				plainExplanation:
 					'Exclave: territorio ARGENTINO donde, por tratado, rige la legislación aduanera de OTRO Estado. Argentina mantiene soberanía pero cede el control aduanero.',
@@ -326,11 +314,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '5',
 		title: 'Zona primaria aduanera',
-		originalText:
-			'1. Zona primaria aduanera es aquella parte del territorio aduanero habilitada para la ejecución de operaciones aduaneras o afectada al control de las mismas, en la que rigen normas especiales para la circulación de personas y el movimiento y disposición de la mercadería.\n2. La zona primaria aduanera comprende, en particular:\na) los locales, instalaciones, depósitos, plazoletas y demás lugares en donde se realizaren operaciones aduaneras o se ejerciere el control aduanero;\nb) los puertos, muelles, atracaderos, aeropuertos y pasos fronterizos;\nc) los espejos de agua de las radas y puertos adyacentes a los espacios enumerados en los incisos a) y b) de este artículo;\nd) los demás lugares que cumplieren una función similar a la de los mencionados en los incisos a), b) y c) de este artículo, que determinare la reglamentación;\ne) los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.',
-		currentText:
-			'1. Zona primaria aduanera es aquella parte del territorio aduanero habilitada para la ejecución de operaciones aduaneras o afectada al control de las mismas, en la que rigen normas especiales para la circulación de personas y el movimiento y disposición de la mercadería.\n2. La zona primaria aduanera comprende, en particular:\na) los locales, instalaciones, depósitos, plazoletas y demás lugares en donde se realizaren operaciones aduaneras o se ejerciere el control aduanero;\nb) los puertos, muelles, atracaderos, aeropuertos y pasos fronterizos;\nc) los espejos de agua de las radas y puertos adyacentes a los espacios enumerados en los incisos a) y b) de este artículo;\nd) los demás lugares que cumplieren una función similar a la de los mencionados en los incisos a), b) y c) de este artículo, que determinare la reglamentación;\ne) los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.',
-		plainLanguageExplanation:
+		text:
+			'1. Zona primaria aduanera es aquella parte del territorio aduanero habilitada para la ejecución de operaciones aduaneras o afectada al control de las mismas, en la que rigen normas especiales para la circulación de personas y el movimiento y disposición de la mercadería.\n2. La zona primaria aduanera comprende, en particular:\na) los locales, instalaciones, depósitos, plazoletas y demás lugares en donde se realizaren operaciones aduaneras o se ejerciere el control aduanero;\nb) los puertos, muelles, atracaderos, aeropuertos y pasos fronterizos;\nc) los espejos de agua de las radas y puertos adyacentes a los espacios enumerados en los incisos a) y b) de este artículo;\nd) los demás lugares que cumplieren una función similar a la de los mencionados en los incisos a), b) y c) de este artículo, que determinare la reglamentación;\ne) los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.',		plainLanguageExplanation:
 			'La zona primaria es la "primera línea" de control aduanero: puertos, aeropuertos, pasos fronterizos, depósitos fiscales. Aquí rigen normas estrictas sobre personas y mercaderías.',
 		practicalEffects: [
 			'En zona primaria la aduana tiene facultades de inspección directa sobre personas y mercaderías',
@@ -353,7 +338,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-5',
 				articleNumber: '5',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. Zona primaria aduanera es aquella parte del territorio aduanero habilitada para la ejecución de operaciones aduaneras o afectada al control de las mismas, en la que rigen normas especiales para la circulación de personas y el movimiento y disposición de la mercadería.',
 				plainExplanation:
 					'Definición: la zona primaria es donde físicamente se realizan las operaciones de importación y exportación, con reglas estrictas de acceso para personas y mercaderías.',
@@ -368,7 +353,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-5',
 				articleNumber: '5',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. La zona primaria aduanera comprende, en particular:\na) los locales, instalaciones, depósitos, plazoletas y demás lugares en donde se realizaren operaciones aduaneras o se ejerciere el control aduanero;\nb) los puertos, muelles, atracaderos, aeropuertos y pasos fronterizos;\nc) los espejos de agua de las radas y puertos adyacentes a los espacios enumerados en los incisos a) y b) de este artículo;\nd) los demás lugares que cumplieren una función similar a la de los mencionados en los incisos a), b) y c) de este artículo, que determinare la reglamentación;\ne) los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.',
 				plainExplanation:
 					'Enumeración (no taxativa) de qué lugares integran la zona primaria:\n— inc. a) Depósitos fiscales, playas de contenedores, oficinas de verificación\n— inc. b) Puertos, aeropuertos, pasos fronterizos\n— inc. c) Espejos de agua junto a puertos\n— inc. d) Otros lugares habilitados por reglamento\n— inc. e) Espacio aéreo sobre todos ellos',
@@ -385,9 +370,7 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '6',
 		title: 'Zona secundaria aduanera',
-		originalText: 'El territorio aduanero, excluida la zona primaria, constituye zona secundaria aduanera.',
-		currentText: 'El territorio aduanero, excluida la zona primaria, constituye zona secundaria aduanera.',
-		plainLanguageExplanation:
+		text: 'El territorio aduanero, excluida la zona primaria, constituye zona secundaria aduanera.',		plainLanguageExplanation:
 			'Todo el territorio aduanero que no es zona primaria es zona secundaria: el interior del país, ciudades, rutas. La aduana también tiene poderes de control aquí, pero menos intensos.',
 		practicalEffects: [
 			'En zona secundaria la aduana puede controlar el transporte de mercaderías en tránsito',
@@ -409,11 +392,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '7',
 		title: 'Zona de vigilancia especial',
-		originalText:
-			'1. Zona de vigilancia especial es la franja de la zona secundaria aduanera sometida a disposiciones especiales de control, que se extiende:\na) en las fronteras terrestres del territorio aduanero, entre el límite de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nb) en las fronteras acuáticas del territorio aduanero, entre la costa de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nc) entre las riberas de los ríos internacionales y nacionales de navegación internacional y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nd) en todo el curso de los ríos nacionales de navegación internacional;\ne) a los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.\n2. En los incisos a), b) y c) del apartado 1, la distancia a determinarse no podrá exceder de cien kilómetros del límite correspondiente.\n3. Salvo disposición expresa en contrario, los enclaves constituidos a favor de la Nación y sus correspondientes espacios aéreos constituyen zona de vigilancia especial, en cuanto no integraren la zona primaria aduanera.',
-		currentText:
-			'1. Zona de vigilancia especial es la franja de la zona secundaria aduanera sometida a disposiciones especiales de control, que se extiende:\na) en las fronteras terrestres del territorio aduanero, entre el límite de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nb) en las fronteras acuáticas del territorio aduanero, entre la costa de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nc) entre las riberas de los ríos internacionales y nacionales de navegación internacional y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nd) en todo el curso de los ríos nacionales de navegación internacional;\ne) a los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.\n2. En los incisos a), b) y c) del apartado 1, la distancia a determinarse no podrá exceder de cien kilómetros del límite correspondiente.\n3. Salvo disposición expresa en contrario, los enclaves constituidos a favor de la Nación y sus correspondientes espacios aéreos constituyen zona de vigilancia especial, en cuanto no integraren la zona primaria aduanera.',
-		plainLanguageExplanation:
+		text:
+			'1. Zona de vigilancia especial es la franja de la zona secundaria aduanera sometida a disposiciones especiales de control, que se extiende:\na) en las fronteras terrestres del territorio aduanero, entre el límite de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nb) en las fronteras acuáticas del territorio aduanero, entre la costa de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nc) entre las riberas de los ríos internacionales y nacionales de navegación internacional y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nd) en todo el curso de los ríos nacionales de navegación internacional;\ne) a los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.\n2. En los incisos a), b) y c) del apartado 1, la distancia a determinarse no podrá exceder de cien kilómetros del límite correspondiente.\n3. Salvo disposición expresa en contrario, los enclaves constituidos a favor de la Nación y sus correspondientes espacios aéreos constituyen zona de vigilancia especial, en cuanto no integraren la zona primaria aduanera.',		plainLanguageExplanation:
 			'Franja especial dentro de la zona secundaria que rodea los límites del territorio aduanero (hasta 100 km desde el límite). La aduana tiene poderes de control reforzados para prevenir el contrabando.',
 		practicalEffects: [
 			'La aduana puede realizar controles de vehículos y personas sin orden judicial previa',
@@ -440,7 +420,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-7',
 				articleNumber: '7',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. Zona de vigilancia especial es la franja de la zona secundaria aduanera sometida a disposiciones especiales de control, que se extiende:\na) en las fronteras terrestres del territorio aduanero, entre el límite de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nb) en las fronteras acuáticas del territorio aduanero, entre la costa de éste y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nc) entre las riberas de los ríos internacionales y nacionales de navegación internacional y una línea interna paralela trazada a una distancia que se determinará reglamentariamente;\nd) en todo el curso de los ríos nacionales de navegación internacional;\ne) a los espacios aéreos correspondientes a los lugares mencionados en los incisos precedentes.',
 				plainExplanation:
 					'Definición y ámbito: la zona de vigilancia especial es una franja de seguridad dentro de la zona secundaria que cubre:\n— inc. a) Fronteras terrestres (hasta X km hacia adentro)\n— inc. b) Costas acuáticas\n— inc. c) Riberas de ríos internacionales\n— inc. d) Todo el curso de ríos navegables internacionales\n— inc. e) Los espacios aéreos sobre todo lo anterior',
@@ -455,7 +435,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-7',
 				articleNumber: '7',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. En los incisos a), b) y c) del apartado 1, la distancia a determinarse no podrá exceder de cien kilómetros del límite correspondiente.',
 				plainExplanation:
 					'Límite máximo: la zona de vigilancia especial no puede extenderse más de 100 km desde el límite fronterizo. La distancia exacta la fija el Poder Ejecutivo por reglamento.',
@@ -470,7 +450,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-7',
 				articleNumber: '7',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'3. Salvo disposición expresa en contrario, los enclaves constituidos a favor de la Nación y sus correspondientes espacios aéreos constituyen zona de vigilancia especial, en cuanto no integraren la zona primaria aduanera.',
 				plainExplanation:
 					'Los enclaves argentinos en el exterior que no sean zona primaria son automáticamente zona de vigilancia especial, salvo norma expresa en contrario.',
@@ -486,11 +466,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '8',
 		title: 'Zona marítima aduanera',
-		originalText:
-			'Zona marítima aduanera es la franja del mar territorial argentino y de la parte de los ríos internacionales sometida a la soberanía de la Nación Argentina, comprendidos sus espacios aéreos, que se encuentra sujeta a disposiciones especiales de control y que se extiende entre la costa, medida desde la línea de las más bajas mareas, y una línea externa paralela a ella, trazada a una distancia que se determinará reglamentariamente. La distancia entre estas dos líneas, que conforman la franja, no podrá exceder de veinte kilómetros.',
-		currentText:
-			'Zona marítima aduanera es la franja del mar territorial argentino y de la parte de los ríos internacionales sometida a la soberanía de la Nación Argentina, comprendidos sus espacios aéreos, que se encuentra sujeta a disposiciones especiales de control y que se extiende entre la costa, medida desde la línea de las más bajas mareas, y una línea externa paralela a ella, trazada a una distancia que se determinará reglamentariamente. La distancia entre estas dos líneas, que conforman la franja, no podrá exceder de veinte kilómetros.',
-		plainLanguageExplanation:
+		text:
+			'Zona marítima aduanera es la franja del mar territorial argentino y de la parte de los ríos internacionales sometida a la soberanía de la Nación Argentina, comprendidos sus espacios aéreos, que se encuentra sujeta a disposiciones especiales de control y que se extiende entre la costa, medida desde la línea de las más bajas mareas, y una línea externa paralela a ella, trazada a una distancia que se determinará reglamentariamente. La distancia entre estas dos líneas, que conforman la franja, no podrá exceder de veinte kilómetros.',		plainLanguageExplanation:
 			'Franja costera (hasta 20 km desde la bajamar) del mar territorial y ríos internacionales argentinos. Equivalente marítimo de la zona de vigilancia especial terrestre.',
 		practicalEffects: [
 			'Los buques en esta franja pueden ser inspeccionados por la aduana',
@@ -511,11 +488,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '9',
 		title: 'Importación y exportación',
-		originalText:
-			'1. Importación es la introducción de cualquier mercadería a un territorio aduanero.\n2. Exportación es la extracción de cualquier mercadería de un territorio aduanero.',
-		currentText:
-			'1. Importación es la introducción de cualquier mercadería a un territorio aduanero.\n2. Exportación es la extracción de cualquier mercadería de un territorio aduanero.',
-		plainLanguageExplanation:
+		text:
+			'1. Importación es la introducción de cualquier mercadería a un territorio aduanero.\n2. Exportación es la extracción de cualquier mercadería de un territorio aduanero.',		plainLanguageExplanation:
 			'Definiciones centrales del CA: importar = meter mercadería en el territorio aduanero; exportar = sacarla. La referencia es al "territorio aduanero", no al territorio nacional.',
 		practicalEffects: [
 			'La introducción de mercadería desde un área franca al territorio aduanero general es una "importación"',
@@ -538,7 +512,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-9',
 				articleNumber: '9',
 				segmentType: 'PARAGRAPH',
-				originalText: '1. Importación es la introducción de cualquier mercadería a un territorio aduanero.',
+				text: '1. Importación es la introducción de cualquier mercadería a un territorio aduanero.',
 				plainExplanation:
 					'Importar = introducir mercadería dentro del territorio aduanero. No importa si viene del exterior del país o de una zona franca: ambos son importación.',
 				practicalExample:
@@ -552,7 +526,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-9',
 				articleNumber: '9',
 				segmentType: 'PARAGRAPH',
-				originalText: '2. Exportación es la extracción de cualquier mercadería de un territorio aduanero.',
+				text: '2. Exportación es la extracción de cualquier mercadería de un territorio aduanero.',
 				plainExplanation:
 					'Exportar = sacar mercadería del territorio aduanero. Tampoco requiere que el destino sea el extranjero: también es exportación sacar mercadería hacia una zona franca.',
 				practicalExample:
@@ -568,11 +542,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '10',
 		title: 'Concepto de mercadería',
-		originalText:
-			'1. A los fines de este Código es mercadería todo objeto que fuere susceptible de ser importado o exportado.\n2. Se consideran igualmente a los fines de este Código como si se tratare de mercadería:\na) las locaciones y prestaciones de servicios realizadas en el exterior, cuya utilización o explotación efectiva se lleve a cabo en el país, excluido todo servicio que no se suministre en condiciones comerciales ni en competencia con uno o varios proveedores de servicios;\nb) los derechos de autor y derechos de propiedad intelectual.\nc) Las prestaciones de servicios realizadas en el país, cuya utilización o explotación efectiva se lleve a cabo en el exterior.\nEl PODER EJECUTIVO NACIONAL será el encargado de establecer las normas complementarias pertinentes, como así también las disposiciones del presente código que no resultarán de aplicación.',
-		currentText:
-			'1. A los fines de este Código es mercadería todo objeto que fuere susceptible de ser importado o exportado.\n2. Se consideran igualmente a los fines de este Código como si se tratare de mercadería:\na) las locaciones y prestaciones de servicios realizadas en el exterior, cuya utilización o explotación efectiva se lleve a cabo en el país, excluido todo servicio que no se suministre en condiciones comerciales ni en competencia con uno o varios proveedores de servicios;\nb) los derechos de autor y derechos de propiedad intelectual.\nc) Las prestaciones de servicios realizadas en el país, cuya utilización o explotación efectiva se lleve a cabo en el exterior.\nEl PODER EJECUTIVO NACIONAL será el encargado de establecer las normas complementarias pertinentes, como así también las disposiciones del presente código que no resultarán de aplicación.',
-		plainLanguageExplanation:
+		text:
+			'1. A los fines de este Código es mercadería todo objeto que fuere susceptible de ser importado o exportado.\n2. Se consideran igualmente a los fines de este Código como si se tratare de mercadería:\na) las locaciones y prestaciones de servicios realizadas en el exterior, cuya utilización o explotación efectiva se lleve a cabo en el país, excluido todo servicio que no se suministre en condiciones comerciales ni en competencia con uno o varios proveedores de servicios;\nb) los derechos de autor y derechos de propiedad intelectual.\nc) Las prestaciones de servicios realizadas en el país, cuya utilización o explotación efectiva se lleve a cabo en el exterior.\nEl PODER EJECUTIVO NACIONAL será el encargado de establecer las normas complementarias pertinentes, como así también las disposiciones del presente código que no resultarán de aplicación.',		plainLanguageExplanation:
 			'Para el CA, "mercadería" es todo lo que puede importarse o exportarse. La Ley 25.063 amplió el concepto para incluir servicios y propiedad intelectual.',
 		practicalEffects: [
 			'Los servicios de software prestados desde el exterior son "mercadería" para el CA',
@@ -601,7 +572,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-10',
 				articleNumber: '10',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. A los fines de este Código es mercadería todo objeto que fuere susceptible de ser importado o exportado.',
 				plainExplanation:
 					'Definición amplia original: cualquier cosa que pueda entrar o salir del territorio aduanero es "mercadería". No requiere que sea un bien físico tradicional.',
@@ -616,7 +587,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-10',
 				articleNumber: '10',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. Se consideran igualmente a los fines de este Código como si se tratare de mercadería:\na) las locaciones y prestaciones de servicios realizadas en el exterior, cuya utilización o explotación efectiva se lleve a cabo en el país, excluido todo servicio que no se suministre en condiciones comerciales ni en competencia con uno o varios proveedores de servicios;\nb) los derechos de autor y derechos de propiedad intelectual.\nc) Las prestaciones de servicios realizadas en el país, cuya utilización o explotación efectiva se lleve a cabo en el exterior.\nEl PODER EJECUTIVO NACIONAL será el encargado de establecer las normas complementarias pertinentes, como así también las disposiciones del presente código que no resultarán de aplicación.',
 				plainExplanation:
 					'Ampliación legal (Ley 25.063 + 27.467): también son "mercadería":\n— inc. a) Servicios prestados en el exterior y usados en Argentina (ej. Netflix, software cloud)\n— inc. b) Derechos de autor y propiedad intelectual (ej. regalías, licencias)\n— inc. c) Servicios prestados en Argentina y usados en el exterior (ej. software exportado)\nEl PEN reglamenta qué disposiciones del CA se aplican a estos casos.',
@@ -654,11 +625,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '11',
 		title: 'Sistema Armonizado de clasificación',
-		originalText:
-			'1. En las normas que se dictaren para regular el tráfico internacional de mercadería, ésta se individualizará y clasificará de acuerdo con el Sistema Armonizado de Designación y Codificación de Mercancías, establecido por el Convenio Internacional del Sistema Armonizado de Designación y Codificación de Mercancías, elaborado bajo los auspicios del Consejo de Cooperación Aduanera, en Bruselas, con fecha 14 de junio de 1983 y modificado por su Protocolo de Enmienda hecho en Bruselas el 24 de junio de 1986, y sus Notas Explicativas.\n2. El Poder Ejecutivo por conducto de la Subsecretaría de Finanzas Públicas, mantendrá permanentemente actualizadas las versiones vigentes en la República, del Sistema Armonizado de Designación y Codificación de Mercancías y de sus Notas Explicativas, a medida que el Consejo de Cooperación Aduanera modificare sus textos oficiales.',
-		currentText:
-			'1. En las normas que se dictaren para regular el tráfico internacional de mercadería, ésta se individualizará y clasificará de acuerdo con el Sistema Armonizado de Designación y Codificación de Mercancías, establecido por el Convenio Internacional del Sistema Armonizado de Designación y Codificación de Mercancías, elaborado bajo los auspicios del Consejo de Cooperación Aduanera, en Bruselas, con fecha 14 de junio de 1983 y modificado por su Protocolo de Enmienda hecho en Bruselas el 24 de junio de 1986, y sus Notas Explicativas.\n2. El Poder Ejecutivo por conducto de la Subsecretaría de Finanzas Públicas, mantendrá permanentemente actualizadas las versiones vigentes en la República, del Sistema Armonizado de Designación y Codificación de Mercancías y de sus Notas Explicativas, a medida que el Consejo de Cooperación Aduanera modificare sus textos oficiales.',
-		plainLanguageExplanation:
+		text:
+			'1. En las normas que se dictaren para regular el tráfico internacional de mercadería, ésta se individualizará y clasificará de acuerdo con el Sistema Armonizado de Designación y Codificación de Mercancías, establecido por el Convenio Internacional del Sistema Armonizado de Designación y Codificación de Mercancías, elaborado bajo los auspicios del Consejo de Cooperación Aduanera, en Bruselas, con fecha 14 de junio de 1983 y modificado por su Protocolo de Enmienda hecho en Bruselas el 24 de junio de 1986, y sus Notas Explicativas.\n2. El Poder Ejecutivo por conducto de la Subsecretaría de Finanzas Públicas, mantendrá permanentemente actualizadas las versiones vigentes en la República, del Sistema Armonizado de Designación y Codificación de Mercancías y de sus Notas Explicativas, a medida que el Consejo de Cooperación Aduanera modificare sus textos oficiales.',		plainLanguageExplanation:
 			'Toda mercadería en el comercio exterior se clasifica según el Sistema Armonizado (SA): un código numérico internacional. Ese código determina qué arancel paga la mercadería.',
 		practicalEffects: [
 			'La clasificación arancelaria (posición del SA) determina el arancel al importar o exportar',
@@ -687,7 +655,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-11',
 				articleNumber: '11',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. En las normas que se dictaren para regular el tráfico internacional de mercadería, ésta se individualizará y clasificará de acuerdo con el Sistema Armonizado de Designación y Codificación de Mercancías, establecido por el Convenio Internacional del Sistema Armonizado de Designación y Codificación de Mercancías, elaborado bajo los auspicios del Consejo de Cooperación Aduanera, en Bruselas, con fecha 14 de junio de 1983 y modificado por su Protocolo de Enmienda hecho en Bruselas el 24 de junio de 1986, y sus Notas Explicativas.',
 				plainExplanation:
 					'Argentina adopta el Sistema Armonizado (SA): un código de 6 dígitos acordado internacionalmente que identifica cualquier mercadería. Es el lenguaje común del comercio exterior mundial.',
@@ -702,7 +670,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-11',
 				articleNumber: '11',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. El Poder Ejecutivo por conducto de la Subsecretaría de Finanzas Públicas, mantendrá permanentemente actualizadas las versiones vigentes en la República, del Sistema Armonizado de Designación y Codificación de Mercancías y de sus Notas Explicativas, a medida que el Consejo de Cooperación Aduanera modificare sus textos oficiales.',
 				plainExplanation:
 					'El PEN debe mantener el SA actualizado en Argentina a medida que el Consejo de Cooperación Aduanera lo modifica. Las actualizaciones ocurren generalmente cada 5 años.',
@@ -729,11 +697,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '12',
 		title: 'Facultades del Poder Ejecutivo en nomenclatura',
-		originalText:
-			'El Poder Ejecutivo podrá:\na) Desdoblar las partidas y subpartidas no subdivididas del Sistema Armonizado de Designación y Codificación de Mercancías (S.A.) mediante la creación de subpartidas e ítems, quedando igualmente facultado para sustituir, refundir y desdoblar dichas subdivisiones;\nb) Incorporar reglas generales de interpretación y notas a las Secciones, a sus Capítulos o a sus subpartidas, adicionales a las que integran el mencionado Sistema Armonizado de Designación y Codificación de Mercancías, como así también adiciones a sus Notas Explicativas, siempre que las reglas, notas y adiciones en cuestión resultaren compatibles con los textos a que se refiere el artículo 11 y con las Resoluciones del Consejo de Cooperación Aduanera en materia de nomenclatura.',
-		currentText:
-			'El Poder Ejecutivo podrá:\na) Desdoblar las partidas y subpartidas no subdivididas del Sistema Armonizado de Designación y Codificación de Mercancías (S.A.) mediante la creación de subpartidas e ítems, quedando igualmente facultado para sustituir, refundir y desdoblar dichas subdivisiones;\nb) Incorporar reglas generales de interpretación y notas a las Secciones, a sus Capítulos o a sus subpartidas, adicionales a las que integran el mencionado Sistema Armonizado de Designación y Codificación de Mercancías, como así también adiciones a sus Notas Explicativas, siempre que las reglas, notas y adiciones en cuestión resultaren compatibles con los textos a que se refiere el artículo 11 y con las Resoluciones del Consejo de Cooperación Aduanera en materia de nomenclatura.',
-		plainLanguageExplanation:
+		text:
+			'El Poder Ejecutivo podrá:\na) Desdoblar las partidas y subpartidas no subdivididas del Sistema Armonizado de Designación y Codificación de Mercancías (S.A.) mediante la creación de subpartidas e ítems, quedando igualmente facultado para sustituir, refundir y desdoblar dichas subdivisiones;\nb) Incorporar reglas generales de interpretación y notas a las Secciones, a sus Capítulos o a sus subpartidas, adicionales a las que integran el mencionado Sistema Armonizado de Designación y Codificación de Mercancías, como así también adiciones a sus Notas Explicativas, siempre que las reglas, notas y adiciones en cuestión resultaren compatibles con los textos a que se refiere el artículo 11 y con las Resoluciones del Consejo de Cooperación Aduanera en materia de nomenclatura.',		plainLanguageExplanation:
 			'El PEN puede agregar detalle al SA (más dígitos, más subdivisiones) y agregar notas interpretativas, siempre dentro del marco internacional. Así surge la Nomenclatura Común del Mercosur (NCM).',
 		practicalEffects: [
 			'El PEN crea subpartidas adicionales: de 6 dígitos internacionales a 8 o 12 dígitos nacionales',
@@ -755,7 +720,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-12',
 				articleNumber: '12',
 				segmentType: 'PARAGRAPH',
-				originalText: 'El Poder Ejecutivo podrá:',
+				text: 'El Poder Ejecutivo podrá:',
 				plainExplanation:
 					'El artículo otorga al Poder Ejecutivo dos facultades específicas para adaptar la nomenclatura internacional a las necesidades nacionales.',
 				practicalExample: null,
@@ -768,7 +733,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-12',
 				articleNumber: '12',
 				segmentType: 'INCISO',
-				originalText:
+				text:
 					'a) Desdoblar las partidas y subpartidas no subdivididas del Sistema Armonizado de Designación y Codificación de Mercancías (S.A.) mediante la creación de subpartidas e ítems, quedando igualmente facultado para sustituir, refundir y desdoblar dichas subdivisiones;',
 				plainExplanation:
 					'El PEN puede crear posiciones arancelarias más específicas que las 6 dígitos del SA, llegando a 8 (Mercosur/NCM) o más dígitos nacionales.',
@@ -783,7 +748,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-12',
 				articleNumber: '12',
 				segmentType: 'INCISO',
-				originalText:
+				text:
 					'b) Incorporar reglas generales de interpretación y notas a las Secciones, a sus Capítulos o a sus subpartidas, adicionales a las que integran el mencionado Sistema Armonizado de Designación y Codificación de Mercancías, como así también adiciones a sus Notas Explicativas, siempre que las reglas, notas y adiciones en cuestión resultaren compatibles con los textos a que se refiere el artículo 11 y con las Resoluciones del Consejo de Cooperación Aduanera en materia de nomenclatura.',
 				plainExplanation:
 					'El PEN puede agregar notas interpretativas nacionales para aclarar cómo clasificar mercaderías en casos dudosos, siempre que sean compatibles con el SA internacional.',
@@ -812,10 +777,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '13',
 		title: 'Nomenclatura Arancelaria (derogado)',
-		originalText:
-			'(Derogado por art. 4° de la Ley N° 24.206 B.O. 6/8/1993. Originalmente regulaba la Nomenclatura Arancelaria y de Avalúo, sistema de clasificación previo al Sistema Armonizado adoptado por Ley 24.206.)',
-		currentText: '(Derogado)',
-		plainLanguageExplanation:
+		text:
+			'(Derogado por art. 4° de la Ley N° 24.206 B.O. 6/8/1993. Originalmente regulaba la Nomenclatura Arancelaria y de Avalúo, sistema de clasificación previo al Sistema Armonizado adoptado por Ley 24.206.)',		plainLanguageExplanation:
 			'Derogado por la Ley 24.206 (1993), que adoptó el Sistema Armonizado. Originalmente definía la "Nomenclatura Arancelaria y de Avalúo" (NAA), el sistema de clasificación vigente al sancionarse el Código en 1981. Fue reemplazado por los (arts. 11-12) actuales.',
 		practicalEffects: [],
 		examples: [],
@@ -844,11 +807,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '14',
 		title: 'Origen de la mercadería',
-		originalText:
-			'1. En ausencia de disposiciones especiales aplicables, el origen de la mercadería importada se determina de conformidad con las siguientes reglas:\na) la mercadería que fuere un producto natural es originaria del país en cuyo suelo, agua territorial, lecho y subsuelo submarinos o espacio aéreo hubiera nacido y sido criada, o hubiera sido cosechada, recolectada, extraída o aprehendida;\nb) la mercadería extraída en alta mar o en su espacio aéreo, por buques, aeronaves y demás medios de transporte o artefactos de cualquier tipo, es originaria del país al que correspondiere el pabellón o matrícula de aquéllos. Del mismo origen se considera el producto resultante de la transformación o del perfeccionamiento de dicha mercadería en alta mar o en su espacio aéreo, siempre que no hubiese mediado aporte de materia de otro país;\nc) la mercadería que fuere un producto manufacturado en un solo país, sin el aporte de materia de otro, es originaria del país donde hubiera sido fabricada;\nd) la mercadería que fuere un producto manufacturado en un solo país, con el aporte total o parcial de materia de otro, es originaria de aquél en el cual se hubiera realizado la transformación o el perfeccionamiento, siempre que dichos procesos hubieran variado las características de la mercadería de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable;\ne) la mercadería que hubiera sufrido transformaciones o perfeccionamientos en distintos países, como consecuencia de las cuales se hubiesen variado sus características de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable, es originaria del país al cual resultare atribuible el último cambio de partida;\nf) cuando no resultaren aplicables las reglas precedentes, la mercadería es originaria de aquel lugar en el que se la hubiere sometido a un proceso que le otorgare el mayor valor relativo en aduana al producto importado, y si fueren dos o más los que se encontraren en tales condiciones, la mercadería se considera originaria del último de ellos.\n2. Aun cuando fueren de aplicación las reglas previstas en los incisos d) y e) del apartado 1 de este artículo, el Poder Ejecutivo, por motivos fundados, podrá establecer que el origen de cierta especie de mercadería se determine por cualquiera de los siguientes métodos:\na) de conformidad con la regla prevista en el inciso f) del apartado 1 de este artículo;\nb) en función de una lista de transformaciones o perfeccionamientos que se consideren especialmente relevantes;\nc) conforme a otros criterios similares que se consideren idóneos a tales fines.\nEl Poder Ejecutivo podrá delegar la facultad prevista en este apartado en el Ministerio de Economía.',
-		currentText:
-			'1. En ausencia de disposiciones especiales aplicables, el origen de la mercadería importada se determina de conformidad con las siguientes reglas:\na) la mercadería que fuere un producto natural es originaria del país en cuyo suelo, agua territorial, lecho y subsuelo submarinos o espacio aéreo hubiera nacido y sido criada, o hubiera sido cosechada, recolectada, extraída o aprehendida;\nb) la mercadería extraída en alta mar o en su espacio aéreo, por buques, aeronaves y demás medios de transporte o artefactos de cualquier tipo, es originaria del país al que correspondiere el pabellón o matrícula de aquéllos. Del mismo origen se considera el producto resultante de la transformación o del perfeccionamiento de dicha mercadería en alta mar o en su espacio aéreo, siempre que no hubiese mediado aporte de materia de otro país;\nc) la mercadería que fuere un producto manufacturado en un solo país, sin el aporte de materia de otro, es originaria del país donde hubiera sido fabricada;\nd) la mercadería que fuere un producto manufacturado en un solo país, con el aporte total o parcial de materia de otro, es originaria de aquél en el cual se hubiera realizado la transformación o el perfeccionamiento, siempre que dichos procesos hubieran variado las características de la mercadería de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable;\ne) la mercadería que hubiera sufrido transformaciones o perfeccionamientos en distintos países, como consecuencia de las cuales se hubiesen variado sus características de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable, es originaria del país al cual resultare atribuible el último cambio de partida;\nf) cuando no resultaren aplicables las reglas precedentes, la mercadería es originaria de aquel lugar en el que se la hubiere sometido a un proceso que le otorgare el mayor valor relativo en aduana al producto importado, y si fueren dos o más los que se encontraren en tales condiciones, la mercadería se considera originaria del último de ellos.\n2. Aun cuando fueren de aplicación las reglas previstas en los incisos d) y e) del apartado 1 de este artículo, el Poder Ejecutivo, por motivos fundados, podrá establecer que el origen de cierta especie de mercadería se determine por cualquiera de los siguientes métodos:\na) de conformidad con la regla prevista en el inciso f) del apartado 1 de este artículo;\nb) en función de una lista de transformaciones o perfeccionamientos que se consideren especialmente relevantes;\nc) conforme a otros criterios similares que se consideren idóneos a tales fines.\nEl Poder Ejecutivo podrá delegar la facultad prevista en este apartado en el Ministerio de Economía.',
-		plainLanguageExplanation:
+		text:
+			'1. En ausencia de disposiciones especiales aplicables, el origen de la mercadería importada se determina de conformidad con las siguientes reglas:\na) la mercadería que fuere un producto natural es originaria del país en cuyo suelo, agua territorial, lecho y subsuelo submarinos o espacio aéreo hubiera nacido y sido criada, o hubiera sido cosechada, recolectada, extraída o aprehendida;\nb) la mercadería extraída en alta mar o en su espacio aéreo, por buques, aeronaves y demás medios de transporte o artefactos de cualquier tipo, es originaria del país al que correspondiere el pabellón o matrícula de aquéllos. Del mismo origen se considera el producto resultante de la transformación o del perfeccionamiento de dicha mercadería en alta mar o en su espacio aéreo, siempre que no hubiese mediado aporte de materia de otro país;\nc) la mercadería que fuere un producto manufacturado en un solo país, sin el aporte de materia de otro, es originaria del país donde hubiera sido fabricada;\nd) la mercadería que fuere un producto manufacturado en un solo país, con el aporte total o parcial de materia de otro, es originaria de aquél en el cual se hubiera realizado la transformación o el perfeccionamiento, siempre que dichos procesos hubieran variado las características de la mercadería de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable;\ne) la mercadería que hubiera sufrido transformaciones o perfeccionamientos en distintos países, como consecuencia de las cuales se hubiesen variado sus características de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable, es originaria del país al cual resultare atribuible el último cambio de partida;\nf) cuando no resultaren aplicables las reglas precedentes, la mercadería es originaria de aquel lugar en el que se la hubiere sometido a un proceso que le otorgare el mayor valor relativo en aduana al producto importado, y si fueren dos o más los que se encontraren en tales condiciones, la mercadería se considera originaria del último de ellos.\n2. Aun cuando fueren de aplicación las reglas previstas en los incisos d) y e) del apartado 1 de este artículo, el Poder Ejecutivo, por motivos fundados, podrá establecer que el origen de cierta especie de mercadería se determine por cualquiera de los siguientes métodos:\na) de conformidad con la regla prevista en el inciso f) del apartado 1 de este artículo;\nb) en función de una lista de transformaciones o perfeccionamientos que se consideren especialmente relevantes;\nc) conforme a otros criterios similares que se consideren idóneos a tales fines.\nEl Poder Ejecutivo podrá delegar la facultad prevista en este apartado en el Ministerio de Economía.',		plainLanguageExplanation:
 			'El "origen" determina de qué país proviene la mercadería a efectos del arancel. Las reglas van de más simple a más complejo: productos naturales → su tierra; manufacturados en un país → ese país; con insumos de varios países → donde ocurrió el último cambio de posición arancelaria.',
 		practicalEffects: [
 			'El origen determina si la mercadería puede beneficiarse de preferencias arancelarias del Mercosur',
@@ -877,7 +837,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-14',
 				articleNumber: '14',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'1. En ausencia de disposiciones especiales aplicables, el origen de la mercadería importada se determina de conformidad con las siguientes reglas:\na) la mercadería que fuere un producto natural es originaria del país en cuyo suelo, agua territorial, lecho y subsuelo submarinos o espacio aéreo hubiera nacido y sido criada, o hubiera sido cosechada, recolectada, extraída o aprehendida;\nb) la mercadería extraída en alta mar o en su espacio aéreo, por buques, aeronaves y demás medios de transporte o artefactos de cualquier tipo, es originaria del país al que correspondiere el pabellón o matrícula de aquéllos. Del mismo origen se considera el producto resultante de la transformación o del perfeccionamiento de dicha mercadería en alta mar o en su espacio aéreo, siempre que no hubiese mediado aporte de materia de otro país;\nc) la mercadería que fuere un producto manufacturado en un solo país, sin el aporte de materia de otro, es originaria del país donde hubiera sido fabricada;\nd) la mercadería que fuere un producto manufacturado en un solo país, con el aporte total o parcial de materia de otro, es originaria de aquél en el cual se hubiera realizado la transformación o el perfeccionamiento, siempre que dichos procesos hubieran variado las características de la mercadería de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable;\ne) la mercadería que hubiera sufrido transformaciones o perfeccionamientos en distintos países, como consecuencia de las cuales se hubiesen variado sus características de modo tal que ello implicare un cambio de la partida de la Nomenclatura aplicable, es originaria del país al cual resultare atribuible el último cambio de partida;\nf) cuando no resultaren aplicables las reglas precedentes, la mercadería es originaria de aquel lugar en el que se la hubiere sometido a un proceso que le otorgare el mayor valor relativo en aduana al producto importado, y si fueren dos o más los que se encontraren en tales condiciones, la mercadería se considera originaria del último de ellos.',
 				plainExplanation:
 					'Las 6 reglas generales de origen (en orden de prioridad):\n— inc. a) Productos naturales: origen = donde crecieron/fueron extraídos\n— inc. b) Alta mar: origen = pabellón del barco/avión\n— inc. c) Manufactura en un solo país sin insumos extranjeros: ese país\n— inc. d) Manufactura con insumos de otro país: el país que hizo el cambio de partida\n— inc. e) Manufactura en varios países: el último en hacer cambio de partida\n— inc. f) Residual: el que agregó mayor valor en aduana',
@@ -892,7 +852,7 @@ export const ARTICLES_01: Article[] = [
 				articleId: 'ca-art-14',
 				articleNumber: '14',
 				segmentType: 'PARAGRAPH',
-				originalText:
+				text:
 					'2. Aun cuando fueren de aplicación las reglas previstas en los incisos d) y e) del apartado 1 de este artículo, el Poder Ejecutivo, por motivos fundados, podrá establecer que el origen de cierta especie de mercadería se determine por cualquiera de los siguientes métodos:\na) de conformidad con la regla prevista en el inciso f) del apartado 1 de este artículo;\nb) en función de una lista de transformaciones o perfeccionamientos que se consideren especialmente relevantes;\nc) conforme a otros criterios similares que se consideren idóneos a tales fines.\nEl Poder Ejecutivo podrá delegar la facultad prevista en este apartado en el Ministerio de Economía.',
 				plainExplanation:
 					'El PEN puede apartarse de las reglas d) y e) para determinadas mercaderías y usar criterios alternativos:\n— inc. a) Mayor valor agregado (regla f del apt. 1)\n— inc. b) Lista específica de transformaciones relevantes por tipo de producto\n— inc. c) Otros criterios equivalentes\nPuede delegar esta facultad en el Ministerio de Economía.',
@@ -909,11 +869,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '15',
 		title: 'Procedencia de la mercadería',
-		originalText:
-			'En ausencia de disposiciones especiales aplicables, la mercadería se considera procedente del lugar del cual hubiera sido expedida con destino final al lugar de importación.',
-		currentText:
-			'En ausencia de disposiciones especiales aplicables, la mercadería se considera procedente del lugar del cual hubiera sido expedida con destino final al lugar de importación.',
-		plainLanguageExplanation:
+		text:
+			'En ausencia de disposiciones especiales aplicables, la mercadería se considera procedente del lugar del cual hubiera sido expedida con destino final al lugar de importación.',		plainLanguageExplanation:
 			'La "procedencia" es diferente del "origen": es el lugar desde donde fue expedida la mercadería con destino a Argentina. Un producto puede ser de origen chino pero de procedencia brasileña.',
 		practicalEffects: [
 			'La procedencia afecta la documentación requerida y algunos regímenes de control fitosanitario',
@@ -935,11 +892,8 @@ export const ARTICLES_01: Article[] = [
 		lawId: 'codigo-aduanero',
 		number: '16',
 		title: 'Enclaves y determinación de origen',
-		originalText:
-			'A los fines de la determinación del origen, y de la procedencia de la mercadería, los enclaves se consideran parte integrante del país a cuyo favor se hubieran constituido.',
-		currentText:
-			'A los fines de la determinación del origen, y de la procedencia de la mercadería, los enclaves se consideran parte integrante del país a cuyo favor se hubieran constituido.',
-		plainLanguageExplanation:
+		text:
+			'A los fines de la determinación del origen, y de la procedencia de la mercadería, los enclaves se consideran parte integrante del país a cuyo favor se hubieran constituido.',		plainLanguageExplanation:
 			'Para determinar el origen o procedencia de la mercadería, un enclave argentino (territorio extranjero bajo régimen aduanero argentino) se considera parte de Argentina.',
 		practicalEffects: [
 			'La mercadería producida en un enclave argentino tiene origen Argentina a todos los efectos aduaneros',

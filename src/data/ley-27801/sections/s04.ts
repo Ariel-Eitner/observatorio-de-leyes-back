@@ -9,9 +9,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '37',
     title: 'Incumplimiento del plazo razonable de juzgamiento. Falta grave',
-    originalText:
-      'La dilación injustificada del proceso, normada en el segundo párrafo del artículo 5°, inciso h), de la presente ley, hará incurrir al juez y al fiscal en falta grave y se informará a sus efectos al Consejo de la Magistratura, o al área disciplinaria pertinente según la jurisdicción, a la Procuración General de la Nación y al tribunal y fiscal superiores, según corresponda.',
-    currentText:
+    text:
       'La dilación injustificada del proceso, normada en el segundo párrafo del artículo 5°, inciso h), de la presente ley, hará incurrir al juez y al fiscal en falta grave y se informará a sus efectos al Consejo de la Magistratura, o al área disciplinaria pertinente según la jurisdicción, a la Procuración General de la Nación y al tribunal y fiscal superiores, según corresponda.',
     plainLanguageExplanation:
       'Si el juez o el fiscal demoran injustificadamente el proceso penal juvenil, incurren en falta grave que se comunica al Consejo de la Magistratura, la Procuración General y los superiores jerárquicos. Es una consecuencia disciplinaria concreta y no meramente declarativa.',
@@ -36,9 +34,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '38',
     title: 'Especialización',
-    originalText:
-      'La sustanciación de los procesos penales comprendidos en esta ley, el control de las medidas y de la ejecución de las sanciones deberán estar a cargo de jueces, fiscales, defensores y órganos con capacitación especializada en el trato con jóvenes en conflicto con la ley penal y con conocimientos del espíritu y de los contenidos y alcance de la Convención sobre los Derechos del Niño, de las normas internacionales, de los pronunciamientos de la Corte Interamericana de Derechos Humanos, de la Corte Suprema de Justicia de la Nación y de los tribunales superiores y de la presente ley.\n\nLos agentes que desempeñen funciones en los institutos especializados de detención deberán contar con capacitación especializada y no podrán intervenir en ningún caso en el tratamiento de personas mayores de edad privadas de su libertad.\n\nEl Consejo de la Magistratura, la Procuración General de la Nación, la Defensoría General de la Nación y los órganos establecidos para la selección de los fiscales, defensores y jueces en cada jurisdicción local, deberán adecuar su procedimiento para la selección de magistrados, fiscales y defensores con competencia para aplicar la presente ley con el objeto de corroborar fehacientemente la especialidad, conocimiento, experiencia o capacidad de los postulantes en derecho penal juvenil.',
-    currentText:
+    text:
       'La sustanciación de los procesos penales comprendidos en esta ley, el control de las medidas y de la ejecución de las sanciones deberán estar a cargo de jueces, fiscales, defensores y órganos con capacitación especializada en el trato con jóvenes en conflicto con la ley penal y con conocimientos del espíritu y de los contenidos y alcance de la Convención sobre los Derechos del Niño, de las normas internacionales, de los pronunciamientos de la Corte Interamericana de Derechos Humanos, de la Corte Suprema de Justicia de la Nación y de los tribunales superiores y de la presente ley.\n\nLos agentes que desempeñen funciones en los institutos especializados de detención deberán contar con capacitación especializada y no podrán intervenir en ningún caso en el tratamiento de personas mayores de edad privadas de su libertad.\n\nEl Consejo de la Magistratura, la Procuración General de la Nación, la Defensoría General de la Nación y los órganos establecidos para la selección de los fiscales, defensores y jueces en cada jurisdicción local, deberán adecuar su procedimiento para la selección de magistrados, fiscales y defensores con competencia para aplicar la presente ley con el objeto de corroborar fehacientemente la especialidad, conocimiento, experiencia o capacidad de los postulantes en derecho penal juvenil.',
     plainLanguageExplanation:
       'Todos los actores del proceso — jueces, fiscales, defensores y personal de institutos — deben estar especializados en derecho penal juvenil, conocer la CDN y la jurisprudencia internacional. Los procedimientos de selección deben verificar esa especialización.',
@@ -61,9 +57,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '39',
     title: 'Medidas de coerción',
-    originalText:
-      'Las medidas de coerción impuestas en el marco de la aplicación de la presente ley solo podrán fundarse en el peligro real de fuga o de obstaculización de la investigación, en los términos del artículo 17 del Código Procesal Penal Federal (ley 27.063 y sus modificatorias).\n\nEn ningún caso el plazo de prisión preventiva podrá superar el impuesto por el artículo 1° de la ley 24.390, conforme la modificación introducida por la ley 25.430.',
-    currentText:
+    text:
       'Las medidas de coerción impuestas en el marco de la aplicación de la presente ley solo podrán fundarse en el peligro real de fuga o de obstaculización de la investigación, en los términos del artículo 17 del Código Procesal Penal Federal (ley 27.063 y sus modificatorias).\n\nEn ningún caso el plazo de prisión preventiva podrá superar el impuesto por el artículo 1° de la ley 24.390, conforme la modificación introducida por la ley 25.430.',
     plainLanguageExplanation:
       'La prisión preventiva de adolescentes solo puede dictarse para evitar que se fuguen o que obstaculicen la investigación — no por la gravedad del delito ni por peligrosidad. Y tiene un plazo máximo según la ley 24.390.',
@@ -91,9 +85,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '40',
     title: 'Derechos de las víctimas de delitos',
-    originalText:
-      'Además de los derechos y garantías previstos por la Ley de Derechos y Garantías de las Personas Víctimas de Delitos N° 27.372, las víctimas de delitos, en el marco del presente régimen, tendrán derecho a:\n\na) ser asistidas en forma especializada con el objeto de propender a su recuperación psíquica, física y social, durante el tiempo que indiquen los profesionales intervinientes; a tales efectos, se encontrarán a disposición de las víctimas psicólogos y asistentes sociales del Ministerio de Justicia;\n\nb) recibir gratuitamente el patrocinio jurídico que solicite para ejercer sus derechos y, en su caso, para querellar, si por sus circunstancias personales se encontraran imposibilitadas de solventarlo; en tales casos, deberán ser asistidas por defensores públicos de las víctimas o por abogados especializados del Ministerio de Justicia;\n\nc) participar, si es de su interés, en instancias de mediación con el adolescente imputado.',
-    currentText:
+    text:
       'Además de los derechos y garantías previstos por la Ley de Derechos y Garantías de las Personas Víctimas de Delitos N° 27.372, las víctimas de delitos, en el marco del presente régimen, tendrán derecho a:\n\na) ser asistidas en forma especializada con el objeto de propender a su recuperación psíquica, física y social, durante el tiempo que indiquen los profesionales intervinientes; a tales efectos, se encontrarán a disposición de las víctimas psicólogos y asistentes sociales del Ministerio de Justicia;\n\nb) recibir gratuitamente el patrocinio jurídico que solicite para ejercer sus derechos y, en su caso, para querellar, si por sus circunstancias personales se encontraran imposibilitadas de solventarlo; en tales casos, deberán ser asistidas por defensores públicos de las víctimas o por abogados especializados del Ministerio de Justicia;\n\nc) participar, si es de su interés, en instancias de mediación con el adolescente imputado.',
     plainLanguageExplanation:
       'Además de los derechos de la ley 27.372, las víctimas de delitos juveniles tienen tres derechos específicos: asistencia psicológica y social especializada (gratuita), patrocinio jurídico gratuito si no pueden pagarlo, y la posibilidad de participar en mediación si lo desean.',
@@ -118,9 +110,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '41',
     title: 'Criterio de oportunidad',
-    originalText:
-      'El fiscal podrá prescindir total o parcialmente del ejercicio de la acción penal respecto de un adolescente imputado solamente si el delito que se le atribuye tiene prevista una pena máxima inferior o igual a seis (6) años de prisión, siempre que ninguno de los hechos imputados haya importado la muerte de la víctima, una grave violencia física o psíquica sobre las personas o, si se tratare de delitos culposos, no existieran lesiones gravísimas ni se haya causado la muerte o un daño psíquico grave a la víctima y el adolescente imputado no registrare condenas u otros procesos en trámite con auto de procesamiento o auto procesal equivalente firme. La decisión de prescindir del ejercicio de la acción penal deberá fundamentarse en los parámetros precedentes y en las circunstancias del hecho, las causas que lo motivaron y el resarcimiento del daño, si lo hubiera.\n\nLa decisión deberá ser informada a la víctima, quien podrá intervenir en el proceso conforme lo determinado en la Ley de Derechos y Garantías de las Personas Víctimas de Delitos N° 27.372, y oponerse al criterio propiciado por el fiscal, en cuyo caso deberá resolver el fiscal superior jerárquico conforme a lo dispuesto a las leyes y resoluciones respectivas y sin perjuicio de las facultades acordadas a la querella.\n\nSin perjuicio de que el fiscal decida aplicar en un caso concreto algún criterio de oportunidad en los términos del presente artículo, podrá igualmente darle intervención a la justicia civil o a organismos especializados para su control y seguimiento.',
-    currentText:
+    text:
       'El fiscal podrá prescindir total o parcialmente del ejercicio de la acción penal respecto de un adolescente imputado solamente si el delito que se le atribuye tiene prevista una pena máxima inferior o igual a seis (6) años de prisión, siempre que ninguno de los hechos imputados haya importado la muerte de la víctima, una grave violencia física o psíquica sobre las personas o, si se tratare de delitos culposos, no existieran lesiones gravísimas ni se haya causado la muerte o un daño psíquico grave a la víctima y el adolescente imputado no registrare condenas u otros procesos en trámite con auto de procesamiento o auto procesal equivalente firme. La decisión de prescindir del ejercicio de la acción penal deberá fundamentarse en los parámetros precedentes y en las circunstancias del hecho, las causas que lo motivaron y el resarcimiento del daño, si lo hubiera.\n\nLa decisión deberá ser informada a la víctima, quien podrá intervenir en el proceso conforme lo determinado en la Ley de Derechos y Garantías de las Personas Víctimas de Delitos N° 27.372, y oponerse al criterio propiciado por el fiscal, en cuyo caso deberá resolver el fiscal superior jerárquico conforme a lo dispuesto a las leyes y resoluciones respectivas y sin perjuicio de las facultades acordadas a la querella.\n\nSin perjuicio de que el fiscal decida aplicar en un caso concreto algún criterio de oportunidad en los términos del presente artículo, podrá igualmente darle intervención a la justicia civil o a organismos especializados para su control y seguimiento.',
     plainLanguageExplanation:
       'El fiscal puede no perseguir penalmente al adolescente si el delito tiene pena máxima de hasta 6 años, no hubo muerte ni violencia grave y el adolescente no tiene antecedentes. La víctima debe ser notificada y puede oponerse — en ese caso resuelve el fiscal superior.',
@@ -146,9 +136,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '42',
     title: 'Mediación penal juvenil',
-    originalText:
-      'En cualquier etapa del proceso con anterioridad al dictado de la sentencia, el Ministerio Público Fiscal, la víctima o el imputado, cuando se cumplan los requisitos exigidos para la procedencia de la aplicación del principio de oportunidad reglado en el artículo 41, podrán solicitar que se inicie un proceso de mediación penal ante el juez para delitos cuya pena máxima no sea superior a los seis (6) años. Este procedimiento tendrá carácter confidencial, voluntario, imparcial e informal y se le deberá dar intervención a todas las partes. El consentimiento de la víctima será condición necesaria, bajo consecuencia de nulidad, para la procedencia de la mediación. La oposición del fiscal será vinculante.',
-    currentText:
+    text:
       'En cualquier etapa del proceso con anterioridad al dictado de la sentencia, el Ministerio Público Fiscal, la víctima o el imputado, cuando se cumplan los requisitos exigidos para la procedencia de la aplicación del principio de oportunidad reglado en el artículo 41, podrán solicitar que se inicie un proceso de mediación penal ante el juez para delitos cuya pena máxima no sea superior a los seis (6) años. Este procedimiento tendrá carácter confidencial, voluntario, imparcial e informal y se le deberá dar intervención a todas las partes. El consentimiento de la víctima será condición necesaria, bajo consecuencia de nulidad, para la procedencia de la mediación. La oposición del fiscal será vinculante.',
     plainLanguageExplanation:
       'La mediación penal juvenil puede pedirse en cualquier momento antes de la sentencia, para delitos con pena máxima hasta 6 años. Es confidencial y voluntaria. Sin el consentimiento de la víctima es nula. Si el fiscal se opone, no procede.',
@@ -175,9 +163,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '43',
     title: 'Suspensión del proceso a prueba',
-    originalText:
-      'Si al adolescente imputado se le atribuyera la comisión de un delito cuyo mínimo de pena no exceda de los tres (3) años de prisión y no resultare posible la mediación, el juez podrá disponer, a solicitud del imputado y con la conformidad del Ministerio Público Fiscal, la suspensión del proceso a prueba.\n\nEl adolescente imputado deberá ofrecer hacerse cargo de la reparación del daño en la medida de lo posible.\n\nEl pedido de suspensión del proceso a prueba deberá sustanciarse en audiencia oral, bajo consecuencia de nulidad, con la participación del adolescente imputado, su defensor, la asesoría tutelar, el Ministerio Público Fiscal y la víctima, que será escuchada.\n\nSerá condición que el imputado abandone en favor del Estado los bienes que, en caso de condena, serían pasibles de decomiso.\n\nNo será causa para el rechazo de la suspensión del juicio a prueba que el delito tenga prevista pena de multa conjunta o alternativa a la de prisión.\n\nLa suspensión del proceso podrá extenderse entre uno (1) y tres (3) años de acuerdo a las circunstancias concretas del hecho imputado y según las características personales del autor.\n\nLas tareas comunitarias que se impongan deberán establecerse de acuerdo con lo previsto en el artículo 12, inciso f), de la presente ley.',
-    currentText:
+    text:
       'Si al adolescente imputado se le atribuyera la comisión de un delito cuyo mínimo de pena no exceda de los tres (3) años de prisión y no resultare posible la mediación, el juez podrá disponer, a solicitud del imputado y con la conformidad del Ministerio Público Fiscal, la suspensión del proceso a prueba.\n\nEl adolescente imputado deberá ofrecer hacerse cargo de la reparación del daño en la medida de lo posible.\n\nEl pedido de suspensión del proceso a prueba deberá sustanciarse en audiencia oral, bajo consecuencia de nulidad, con la participación del adolescente imputado, su defensor, la asesoría tutelar, el Ministerio Público Fiscal y la víctima, que será escuchada.\n\nSerá condición que el imputado abandone en favor del Estado los bienes que, en caso de condena, serían pasibles de decomiso.\n\nNo será causa para el rechazo de la suspensión del juicio a prueba que el delito tenga prevista pena de multa conjunta o alternativa a la de prisión.\n\nLa suspensión del proceso podrá extenderse entre uno (1) y tres (3) años de acuerdo a las circunstancias concretas del hecho imputado y según las características personales del autor.\n\nLas tareas comunitarias que se impongan deberán establecerse de acuerdo con lo previsto en el artículo 12, inciso f), de la presente ley.',
     plainLanguageExplanation:
       'La probation juvenil aplica cuando el MÍNIMO del delito no supera 3 años y no fue posible la mediación. El adolescente debe ofrecer reparación del daño. Audiencia oral obligatoria con defensor, asesoría tutelar, fiscal y víctima. Duración de 1 a 3 años. Si cumple, se extingue la acción penal.',
@@ -204,9 +190,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '44',
     title: 'Condiciones de cumplimiento',
-    originalText:
-      'Las condiciones de cumplimiento determinadas en virtud de los institutos regulados en los artículos 42 y 43 de la presente ley podrán incluir las medidas establecidas en la Sección 1ª del Capítulo IV, si fueran necesarias para lograr que el adolescente imputado asuma compromisos que coadyuven a su educación, formación intelectual, emocional, adaptación social y trabajo. En caso de aplicarse alguna de estas medidas al suspenderse el juicio a prueba, su plazo de duración no podrá exceder de tres (3) años.',
-    currentText:
+    text:
       'Las condiciones de cumplimiento determinadas en virtud de los institutos regulados en los artículos 42 y 43 de la presente ley podrán incluir las medidas establecidas en la Sección 1ª del Capítulo IV, si fueran necesarias para lograr que el adolescente imputado asuma compromisos que coadyuven a su educación, formación intelectual, emocional, adaptación social y trabajo. En caso de aplicarse alguna de estas medidas al suspenderse el juicio a prueba, su plazo de duración no podrá exceder de tres (3) años.',
     plainLanguageExplanation:
       'Las condiciones de la mediación y la probation pueden incluir las medidas del art. 8 (asesoramiento, educación, capacitación laboral, etc.). Cuando se aplican con la probation, duran máximo 3 años.',
@@ -229,9 +213,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '45',
     title: 'Plazos y cumplimiento',
-    originalText:
-      'Si el adolescente imputado cumpliera con las obligaciones asumidas durante el plazo establecido, se extinguirá la acción penal a su respecto.\n\nSi se verificara el incumplimiento injustificado por parte del adolescente imputado de las condiciones impuestas, el juez dispondrá que se continúe con la tramitación del proceso y se reanuden los plazos suspendidos o que no se compute el tiempo que hubiera demorado ese incumplimiento.',
-    currentText:
+    text:
       'Si el adolescente imputado cumpliera con las obligaciones asumidas durante el plazo establecido, se extinguirá la acción penal a su respecto.\n\nSi se verificara el incumplimiento injustificado por parte del adolescente imputado de las condiciones impuestas, el juez dispondrá que se continúe con la tramitación del proceso y se reanuden los plazos suspendidos o que no se compute el tiempo que hubiera demorado ese incumplimiento.',
     plainLanguageExplanation:
       'Si el adolescente cumple las condiciones, la acción penal se extingue. Si incumple injustificadamente, el proceso continúa y el tiempo de incumplimiento no se computa a su favor.',
@@ -256,9 +238,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '46',
     title: 'Supervisor. Lista del Ministerio de Justicia',
-    originalText:
-      'El supervisor establecido en el Capítulo VI de esta ley deberá ser designado entre una lista de profesionales del Ministerio de Justicia y contar con conocimientos y formación académica en alguna de estas especialidades, a saber: educación, pedagogía infantojuvenil, psicología, adicciones o trabajo social.',
-    currentText:
+    text:
       'El supervisor establecido en el Capítulo VI de esta ley deberá ser designado entre una lista de profesionales del Ministerio de Justicia y contar con conocimientos y formación académica en alguna de estas especialidades, a saber: educación, pedagogía infantojuvenil, psicología, adicciones o trabajo social.',
     plainLanguageExplanation:
       'El supervisor designado en el marco de los institutos del Cap. X debe provenir de una lista oficial del Ministerio de Justicia, con formación en una de las cinco especialidades previstas.',
@@ -280,9 +260,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '47',
     title: 'Principios del CPPF aplicables',
-    originalText:
-      'En los procesos penales seguidos contra niños, niñas o adolescentes, regirán todos los principios, derechos y garantías que surgen del sistema procesal acusatorio previsto en el Código Procesal Penal Federal (ley 27.063 y sus modificatorias), de conformidad con el régimen de implementación previsto en la ley 27.150.',
-    currentText:
+    text:
       'En los procesos penales seguidos contra niños, niñas o adolescentes, regirán todos los principios, derechos y garantías que surgen del sistema procesal acusatorio previsto en el Código Procesal Penal Federal (ley 27.063 y sus modificatorias), de conformidad con el régimen de implementación previsto en la ley 27.150.',
     plainLanguageExplanation:
       'El proceso penal juvenil es acusatorio y se rige por todos los principios del CPPF (oralidad, publicidad, contradicción, etc.), conforme al régimen de implementación de la ley 27.150.',
@@ -307,9 +285,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '48',
     title: 'Derogación',
-    originalText:
-      'Derógase la ley 22.278 y sus modificatorias.',
-    currentText:
+    text:
       'Derógase la ley 22.278 y sus modificatorias.',
     plainLanguageExplanation:
       'Esta ley deroga la ley 22.278 (Régimen Penal de la Minoridad, dictada durante la última dictadura militar) y todas sus modificaciones. A partir de la vigencia de esta ley, la 22.278 deja de tener efecto.',
@@ -331,9 +307,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '49',
     title: 'Adecuación de regímenes procesales',
-    originalText:
-      'Se invita a las provincias y a la Ciudad Autónoma de Buenos Aires a adecuar la legislación procesal penal y las normas administrativas aplicables a los adolescentes desde los catorce (14) años de edad hasta los dieciocho (18) años de edad a los principios, garantías y derechos consagrados en esta ley.',
-    currentText:
+    text:
       'Se invita a las provincias y a la Ciudad Autónoma de Buenos Aires a adecuar la legislación procesal penal y las normas administrativas aplicables a los adolescentes desde los catorce (14) años de edad hasta los dieciocho (18) años de edad a los principios, garantías y derechos consagrados en esta ley.',
     plainLanguageExplanation:
       'Esta ley invita a las provincias y CABA a adaptar sus legislaciones procesales y normas administrativas para jóvenes de 14 a 18 años a los principios de esta ley. No las obliga — es una invitación.',
@@ -355,9 +329,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '50',
     title: 'Control de la implementación',
-    originalText:
-      'El control de la implementación de esta ley estará a cargo del Poder Ejecutivo nacional a través de la autoridad de aplicación que determine, el cual promoverá el trabajo coordinado con otras áreas y el desarrollo de intervenciones basadas en evidencia con el objetivo de reducir la reincidencia delictual.',
-    currentText:
+    text:
       'El control de la implementación de esta ley estará a cargo del Poder Ejecutivo nacional a través de la autoridad de aplicación que determine, el cual promoverá el trabajo coordinado con otras áreas y el desarrollo de intervenciones basadas en evidencia con el objetivo de reducir la reincidencia delictual.',
     plainLanguageExplanation:
       'El Poder Ejecutivo nacional controla la implementación de esta ley. El objetivo explícito es reducir la reincidencia mediante intervenciones basadas en evidencia.',
@@ -379,9 +351,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '51',
     title: 'Asignación presupuestaria',
-    originalText:
-      'Las erogaciones que requiere el cumplimiento de la presente ley se atenderán con los recursos que se incluyan en las leyes presupuestarias correspondientes a cada ejercicio.\n\nAl efecto de su implementación durante el ejercicio presupuestario correspondiente al año de su entrada en vigencia, destínase el monto total de pesos veintitrés mil setecientos treinta y nueve millones ciento cincuenta y cinco mil trescientos tres con ocho centavos ($23.739.155.303,08), conforme el siguiente detalle: pesos tres mil ciento treinta y un millones novecientos noventa y seis mil setecientos ochenta y cuatro con veintiocho centavos ($3.131.996.784,28), con cargo a la Jurisdicción 40 - Ministerio de Justicia, inciso 1 - gastos en personal, partida principal 1.8, fuente de financiamiento 13.a.; pesos veinte mil seiscientos siete millones ciento cincuenta y ocho mil quinientos dieciocho con ochenta centavos ($20.607.158.518,80), con cargo a la Jurisdicción 10 - Defensoría General de la Nación, programa 17, actividad 01.\n\nLa Nación, las provincias y la Ciudad Autónoma de Buenos Aires podrán celebrar convenios de colaboración y cooperación a los efectos de dar cumplimiento a todos los estándares previstos en el presente régimen.',
-    currentText:
+    text:
       'Las erogaciones que requiere el cumplimiento de la presente ley se atenderán con los recursos que se incluyan en las leyes presupuestarias correspondientes a cada ejercicio.\n\nAl efecto de su implementación durante el ejercicio presupuestario correspondiente al año de su entrada en vigencia, destínase el monto total de pesos veintitrés mil setecientos treinta y nueve millones ciento cincuenta y cinco mil trescientos tres con ocho centavos ($23.739.155.303,08), conforme el siguiente detalle: pesos tres mil ciento treinta y un millones novecientos noventa y seis mil setecientos ochenta y cuatro con veintiocho centavos ($3.131.996.784,28), con cargo a la Jurisdicción 40 - Ministerio de Justicia, inciso 1 - gastos en personal, partida principal 1.8, fuente de financiamiento 13.a.; pesos veinte mil seiscientos siete millones ciento cincuenta y ocho mil quinientos dieciocho con ochenta centavos ($20.607.158.518,80), con cargo a la Jurisdicción 10 - Defensoría General de la Nación, programa 17, actividad 01.\n\nLa Nación, las provincias y la Ciudad Autónoma de Buenos Aires podrán celebrar convenios de colaboración y cooperación a los efectos de dar cumplimiento a todos los estándares previstos en el presente régimen.',
     plainLanguageExplanation:
       'Para el año de su entrada en vigencia se asignan $23.739 millones: $3.131 millones al Ministerio de Justicia (personal) y $20.607 millones a la Defensoría General de la Nación. Los años siguientes se presupuestan en cada ley de presupuesto.',
@@ -403,9 +373,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '52',
     title: 'Vigencia',
-    originalText:
-      'La presente ley entrará en vigencia a los ciento ochenta (180) días de su publicación en el Boletín Oficial.',
-    currentText:
+    text:
       'La presente ley entrará en vigencia a los ciento ochenta (180) días de su publicación en el Boletín Oficial.',
     plainLanguageExplanation:
       'La ley entró en vigencia 180 días después de su publicación en el Boletín Oficial del 9 de marzo de 2026, es decir, el 5 de septiembre de 2026.',
@@ -428,9 +396,7 @@ export const ARTICLES_27801_04: Article[] = [
     lawId: 'ley-27801',
     number: '53',
     title: 'Comunicación al Poder Ejecutivo',
-    originalText:
-      'Comuníquese al Poder Ejecutivo nacional.',
-    currentText:
+    text:
       'Comuníquese al Poder Ejecutivo nacional.',
     plainLanguageExplanation:
       'Fórmula legislativa estándar de cierre: ordena que el texto de la ley sea comunicado al Poder Ejecutivo para su promulgación y publicación.',

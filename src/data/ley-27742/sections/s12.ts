@@ -16,10 +16,8 @@ export const ARTICLES_12: Article[] = [
 		lawId: 'ley-27742',
 		number: '226',
 		title: 'Plazo de reglamentación',
-		originalText:
+		text:
 			'El Poder Ejecutivo nacional deberá reglamentar el presente régimen en el término de treinta (30) días, a contar desde su publicación en el Boletín Oficial.',
-		currentText:
-			'El Poder Ejecutivo debe reglamentar el RIGI en 30 días desde la publicación en el BOA (publicado el 8 de julio de 2024). El Decreto 749/2024 fue publicado el 23 de agosto de 2024, cumpliendo tardíamente este mandato.',
 		plainLanguageExplanation:
 			'La ley exigía que el gobierno reglamentara el RIGI en 30 días. El Decreto 749/2024 tardó 46 días en publicarse (8 de julio al 23 de agosto de 2024). El art. 227 aclara que esta demora no impidió que el RIGI fuera operativo desde su entrada en vigencia.',
 		practicalEffects: [
@@ -40,10 +38,8 @@ export const ARTICLES_12: Article[] = [
 		lawId: 'ley-27742',
 		number: '227',
 		title: 'Operatividad inmediata del RIGI',
-		originalText:
+		text:
 			'La falta de reglamentación del presente no obstará a la plena utilización de los incentivos establecidos en el RIGI en las condiciones previstas, ya que las disposiciones del presente régimen son plenamente operativas desde su entrada en vigencia, sin perjuicio de las responsabilidades que pudieren corresponder a los funcionarios por la falta de cumplimiento de lo allí establecido.\n\nTodo funcionario que incurra en el incumplimiento injustificado de los plazos o términos establecidos en el presente Título resultará pasible de ser sancionado, previo sumario administrativo.',
-		currentText:
-			'El RIGI es plenamente operativo desde su entrada en vigencia, aunque no haya reglamentación. Los funcionarios que incumplan injustificadamente los plazos del RIGI pueden ser sancionados administrativamente.',
 		plainLanguageExplanation:
 			'Dos mensajes clave: (1) el RIGI no necesita reglamentación para ser aplicado; los inversores pueden adherir y usar los beneficios desde el primer día de vigencia; (2) los funcionarios que demoren sin justificación los trámites del RIGI pueden ser sumariados. Esto es una garantía adicional de que el Estado no puede bloquear el régimen por burocracia o inacción.',
 		practicalEffects: [
@@ -65,10 +61,8 @@ export const ARTICLES_12: Article[] = [
 		lawId: 'ley-27742',
 		number: '228',
 		title: 'Entrada en vigencia',
-		originalText:
+		text:
 			'El presente régimen entrará en vigencia el día de su publicación en el Boletín Oficial.',
-		currentText:
-			'El RIGI entró en vigencia el 8 de julio de 2024, fecha de publicación de la Ley 27.742 en el Boletín Oficial de la República Argentina.',
 		plainLanguageExplanation:
 			'El RIGI rige desde el 8 de julio de 2024. El plazo de 2 años para adherirse corre desde esa fecha (hasta el 8 de julio de 2026, prorrogado por Decreto 105/2026 hasta el 8 de julio de 2027).',
 		practicalEffects: [

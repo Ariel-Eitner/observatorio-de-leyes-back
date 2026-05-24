@@ -10,11 +10,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '38',
     title: 'Indeterminación del objeto',
-    originalText:
-      'No podrán ser objeto del contrato de trabajo las prestaciones ilícitas o las que fuesen contrarias a la moral o a las buenas costumbres.\nSin embargo, no se considerarán ilícitas las prestaciones que, aunque prohibidas para el trabajador, no lo estuviesen para el empleador, en cuyo caso subsistirá la relación de trabajo.',
-    currentText:
-      'No podrán ser objeto del contrato de trabajo las prestaciones ilícitas o las que fuesen contrarias a la moral o a las buenas costumbres.\nSin embargo, no se considerarán ilícitas las prestaciones que, aunque prohibidas para el trabajador, no lo estuviesen para el empleador, en cuyo caso subsistirá la relación de trabajo.',
-    plainLanguageExplanation: '',
+    text:
+      'No podrán ser objeto del contrato de trabajo las prestaciones ilícitas o las que fuesen contrarias a la moral o a las buenas costumbres.\nSin embargo, no se considerarán ilícitas las prestaciones que, aunque prohibidas para el trabajador, no lo estuviesen para el empleador, en cuyo caso subsistirá la relación de trabajo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-39', 'art-20744-40'],
@@ -30,11 +27,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '39',
     title: 'Trabajo ilícito',
-    originalText:
-      'Se considerará ilícito el objeto cuando fuese contrario a la moral y a las buenas costumbres, pero no se considerará tal si, pese a ser prohibido para el trabajador, fuese lícito para el empleador.\nLa ilicitud del objeto traerá aparejada la nulidad absoluta del contrato, sin perjuicio de la aplicación de las normas del derecho común sobre enriquecimiento sin causa.',
-    currentText:
-      'Se considerará ilícito el objeto cuando fuese contrario a la moral y a las buenas costumbres, pero no se considerará tal si, pese a ser prohibido para el trabajador, fuese lícito para el empleador.\nLa ilicitud del objeto traerá aparejada la nulidad absoluta del contrato, sin perjuicio de la aplicación de las normas del derecho común sobre enriquecimiento sin causa.',
-    plainLanguageExplanation: '',
+    text:
+      'Se considerará ilícito el objeto cuando fuese contrario a la moral y a las buenas costumbres, pero no se considerará tal si, pese a ser prohibido para el trabajador, fuese lícito para el empleador.\nLa ilicitud del objeto traerá aparejada la nulidad absoluta del contrato, sin perjuicio de la aplicación de las normas del derecho común sobre enriquecimiento sin causa.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-38', 'art-20744-40'],
@@ -50,11 +44,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '40',
     title: 'Objeto prohibido — Nulidad',
-    originalText:
-      'Se considerará prohibido el objeto del contrato de trabajo cuando las normas legales o reglamentarias hubieren vedado el empleo de determinadas personas o en determinadas tareas, épocas o condiciones.\nLa prohibición del objeto del contrato estará siempre dirigida al empleador o al empleador y al trabajador en forma conjunta, pero nunca al trabajador exclusivamente.\nSi el objeto del contrato fuese sólo prohibido respecto del trabajador, su incumplimiento se reputará como si se tratase de un trabajo no prohibido, siendo válido el contrato y sus estipulaciones, con excepción de aquellas que resulten contrarias a la prohibición, siempre y cuando sean más favorables al trabajador.',
-    currentText:
-      'Se considerará prohibido el objeto del contrato de trabajo cuando las normas legales o reglamentarias hubieren vedado el empleo de determinadas personas o en determinadas tareas, épocas o condiciones.\nLa prohibición del objeto del contrato estará siempre dirigida al empleador o al empleador y al trabajador en forma conjunta, pero nunca al trabajador exclusivamente.\nSi el objeto del contrato fuese sólo prohibido respecto del trabajador, su incumplimiento se reputará como si se tratase de un trabajo no prohibido, siendo válido el contrato y sus estipulaciones, con excepción de aquellas que resulten contrarias a la prohibición, siempre y cuando sean más favorables al trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'Se considerará prohibido el objeto del contrato de trabajo cuando las normas legales o reglamentarias hubieren vedado el empleo de determinadas personas o en determinadas tareas, épocas o condiciones.\nLa prohibición del objeto del contrato estará siempre dirigida al empleador o al empleador y al trabajador en forma conjunta, pero nunca al trabajador exclusivamente.\nSi el objeto del contrato fuese sólo prohibido respecto del trabajador, su incumplimiento se reputará como si se tratase de un trabajo no prohibido, siendo válido el contrato y sus estipulaciones, con excepción de aquellas que resulten contrarias a la prohibición, siempre y cuando sean más favorables al trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-38', 'art-20744-39'],
@@ -66,24 +57,21 @@ export const ARTICLES_LCT_03: Article[] = [
     segments: [],
   },
   // ── Arts. 41-47: Derogados por Ley 21.297/1976 ────────────────────────────
-  { id: 'art-20744-41', lawId: 'ley-20744', number: '41', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.1, amendments: [], segments: [] },
-  { id: 'art-20744-42', lawId: 'ley-20744', number: '42', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.2, amendments: [], segments: [] },
-  { id: 'art-20744-43', lawId: 'ley-20744', number: '43', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.3, amendments: [], segments: [] },
-  { id: 'art-20744-44', lawId: 'ley-20744', number: '44', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.4, amendments: [], segments: [] },
-  { id: 'art-20744-45', lawId: 'ley-20744', number: '45', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.5, amendments: [], segments: [] },
-  { id: 'art-20744-46', lawId: 'ley-20744', number: '46', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.6, amendments: [], segments: [] },
-  { id: 'art-20744-47', lawId: 'ley-20744', number: '47', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.7, amendments: [], segments: [] },
+  { id: 'art-20744-41', lawId: 'ley-20744', number: '41', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.1, amendments: [], segments: [] },
+  { id: 'art-20744-42', lawId: 'ley-20744', number: '42', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.2, amendments: [], segments: [] },
+  { id: 'art-20744-43', lawId: 'ley-20744', number: '43', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.3, amendments: [], segments: [] },
+  { id: 'art-20744-44', lawId: 'ley-20744', number: '44', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.4, amendments: [], segments: [] },
+  { id: 'art-20744-45', lawId: 'ley-20744', number: '45', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.5, amendments: [], segments: [] },
+  { id: 'art-20744-46', lawId: 'ley-20744', number: '46', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.6, amendments: [], segments: [] },
+  { id: 'art-20744-47', lawId: 'ley-20744', number: '47', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 38.7, amendments: [], segments: [] },
   // ── Cap. IV — Forma y prueba del contrato de trabajo ───────────────────────
   {
     id: 'art-20744-48',
     lawId: 'ley-20744',
     number: '48',
     title: 'Forma',
-    originalText:
-      'Las partes podrán escoger libremente sobre las formas a observar para la celebración del contrato de trabajo, salvo lo que dispongan las leyes o convenciones colectivas en casos particulares.',
-    currentText:
-      'Las partes podrán escoger libremente sobre las formas a observar para la celebración del contrato de trabajo, salvo lo que dispongan las leyes o convenciones colectivas en casos particulares.',
-    plainLanguageExplanation: '',
+    text:
+      'Las partes podrán escoger libremente sobre las formas a observar para la celebración del contrato de trabajo, salvo lo que dispongan las leyes o convenciones colectivas en casos particulares.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -99,11 +87,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '49',
     title: 'Nulidad por omisión de la forma',
-    originalText:
-      'Los actos del empleador para cuya validez esta ley, los estatutos profesionales o las convenciones colectivas exigieren una forma instrumental determinada, se reputarán nulos sólo cuando el trabajador no pueda ser compelido a dar cumplimiento a aquéllos.',
-    currentText:
-      'Los actos del empleador para cuya validez esta ley, los estatutos profesionales o las convenciones colectivas exigieren una forma instrumental determinada, se reputarán nulos sólo cuando el trabajador no pueda ser compelido a dar cumplimiento a aquéllos.',
-    plainLanguageExplanation: '',
+    text:
+      'Los actos del empleador para cuya validez esta ley, los estatutos profesionales o las convenciones colectivas exigieren una forma instrumental determinada, se reputarán nulos sólo cuando el trabajador no pueda ser compelido a dar cumplimiento a aquéllos.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-48'],
@@ -119,11 +104,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '50',
     title: 'Prueba del contrato de trabajo',
-    originalText:
-      'El contrato de trabajo se prueba por los modos autorizados por las leyes procesales y lo previsto en el artículo 23 de esta ley.',
-    currentText:
-      'El contrato de trabajo se prueba por los modos autorizados por las leyes procesales y lo previsto en el artículo 23 de esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'El contrato de trabajo se prueba por los modos autorizados por las leyes procesales y lo previsto en el artículo 23 de esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-23'],
@@ -139,11 +121,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '51',
     title: 'Aplicación de estatutos especiales',
-    originalText:
-      'Cuando por la ley, los estatutos profesionales o las convenciones colectivas de trabajo se exigiera algún documento, licencia o carnet para el ejercicio de una actividad determinada, su falta o irregularidad no anulará el contrato de trabajo, sin perjuicio de las sanciones que corresponda aplicar al empleador, al trabajador o a ambos.',
-    currentText:
-      'Cuando por la ley, los estatutos profesionales o las convenciones colectivas de trabajo se exigiera algún documento, licencia o carnet para el ejercicio de una actividad determinada, su falta o irregularidad no anulará el contrato de trabajo, sin perjuicio de las sanciones que corresponda aplicar al empleador, al trabajador o a ambos.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando por la ley, los estatutos profesionales o las convenciones colectivas de trabajo se exigiera algún documento, licencia o carnet para el ejercicio de una actividad determinada, su falta o irregularidad no anulará el contrato de trabajo, sin perjuicio de las sanciones que corresponda aplicar al empleador, al trabajador o a ambos.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -159,11 +138,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '52',
     title: 'Libro especial de registro',
-    originalText:
-      'Los empleadores deberán llevar un libro especial, registrado y rubricado, en las mismas condiciones que se exigen para los libros principales de comercio, en que se consignarán:\na) Individualización íntegra y actualizada del empleador.\nb) Nombre del trabajador.\nc) Estado civil.\nd) Fecha de ingreso y egreso.\ne) Remuneraciones asignadas y percibidas.\nf) Individualización de personas que generen derecho a la percepción de asignaciones familiares.\ng) Demás datos que permitan una exacta evaluación de las obligaciones a su cargo.\nSi el empleador llevar libros con sistemas de computación u hojas móviles, estará obligado a tener, además, una ficha o planilla con los datos personales de cada trabajador que permita el control de los datos consignados en los libros.',
-    currentText:
-      'Los empleadores deberán llevar un libro especial, registrado y rubricado, en las mismas condiciones que se exigen para los libros principales de comercio, en que se consignarán:\na) Individualización íntegra y actualizada del empleador.\nb) Nombre del trabajador.\nc) Estado civil.\nd) Fecha de ingreso y egreso.\ne) Remuneraciones asignadas y percibidas.\nf) Individualización de personas que generen derecho a la percepción de asignaciones familiares.\ng) Demás datos que permitan una exacta evaluación de las obligaciones a su cargo.\nSi el empleador llevar libros con sistemas de computación u hojas móviles, estará obligado a tener, además, una ficha o planilla con los datos personales de cada trabajador que permita el control de los datos consignados en los libros.',
-    plainLanguageExplanation: '',
+    text:
+      'Los empleadores deberán llevar un libro especial, registrado y rubricado, en las mismas condiciones que se exigen para los libros principales de comercio, en que se consignarán:\na) Individualización íntegra y actualizada del empleador.\nb) Nombre del trabajador.\nc) Estado civil.\nd) Fecha de ingreso y egreso.\ne) Remuneraciones asignadas y percibidas.\nf) Individualización de personas que generen derecho a la percepción de asignaciones familiares.\ng) Demás datos que permitan una exacta evaluación de las obligaciones a su cargo.\nSi el empleador llevar libros con sistemas de computación u hojas móviles, estará obligado a tener, además, una ficha o planilla con los datos personales de cada trabajador que permita el control de los datos consignados en los libros.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-55'],
@@ -179,11 +155,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '53',
     title: 'Conservación — Plazo',
-    originalText:
-      'Los empleadores deberán conservar los libros, planillas y demás documentación referente a los trabajadores por un plazo de dos (2) años a partir de la extinción del vínculo laboral, salvo que las normas especiales establezcan un plazo mayor.',
-    currentText:
-      'Los empleadores deberán conservar los libros, planillas y demás documentación referente a los trabajadores por un plazo de dos (2) años a partir de la extinción del vínculo laboral, salvo que las normas especiales establezcan un plazo mayor.',
-    plainLanguageExplanation: '',
+    text:
+      'Los empleadores deberán conservar los libros, planillas y demás documentación referente a los trabajadores por un plazo de dos (2) años a partir de la extinción del vínculo laboral, salvo que las normas especiales establezcan un plazo mayor.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-52'],
@@ -199,11 +172,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '54',
     title: 'Microfilmación y otros medios técnicos',
-    originalText:
-      'La documentación referente al contrato de trabajo, en especial los libros especiales de registro, puede ser archivada mediante sistemas de microfilmación u otros medios técnicos de procesamiento de datos, en las condiciones que establezca la reglamentación.',
-    currentText:
-      'La documentación referente al contrato de trabajo, en especial los libros especiales de registro, puede ser archivada mediante sistemas de microfilmación u otros medios técnicos de procesamiento de datos, en las condiciones que establezca la reglamentación.',
-    plainLanguageExplanation: '',
+    text:
+      'La documentación referente al contrato de trabajo, en especial los libros especiales de registro, puede ser archivada mediante sistemas de microfilmación u otros medios técnicos de procesamiento de datos, en las condiciones que establezca la reglamentación.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-52'],
@@ -219,11 +189,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '55',
     title: 'Omisión de su exhibición',
-    originalText:
-      'La falta de exhibición o requerimiento judicial o administrativo del libro, registro, planilla u otros elementos de contralor previstos por los artículos 52 y 54 de esta ley, será tenida como presunción en contra del empleador respecto de las circunstancias que debían constar en tales asientos.',
-    currentText:
-      'La falta de exhibición o requerimiento judicial o administrativo del libro, registro, planilla u otros elementos de contralor previstos por los artículos 52 y 54 de esta ley, será tenida como presunción en contra del empleador respecto de las circunstancias que debían constar en tales asientos.',
-    plainLanguageExplanation: '',
+    text:
+      'La falta de exhibición o requerimiento judicial o administrativo del libro, registro, planilla u otros elementos de contralor previstos por los artículos 52 y 54 de esta ley, será tenida como presunción en contra del empleador respecto de las circunstancias que debían constar en tales asientos.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-52', 'art-20744-54'],
@@ -235,23 +202,20 @@ export const ARTICLES_LCT_03: Article[] = [
     segments: [],
   },
   // ── Arts. 56-61: Derogados por Ley 21.297/1976 ────────────────────────────
-  { id: 'art-20744-56', lawId: 'ley-20744', number: '56', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.1, amendments: [], segments: [] },
-  { id: 'art-20744-57', lawId: 'ley-20744', number: '57', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.2, amendments: [], segments: [] },
-  { id: 'art-20744-58', lawId: 'ley-20744', number: '58', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.3, amendments: [], segments: [] },
-  { id: 'art-20744-59', lawId: 'ley-20744', number: '59', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.4, amendments: [], segments: [] },
-  { id: 'art-20744-60', lawId: 'ley-20744', number: '60', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.5, amendments: [], segments: [] },
-  { id: 'art-20744-61', lawId: 'ley-20744', number: '61', title: 'Artículo derogado', originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.6, amendments: [], segments: [] },
+  { id: 'art-20744-56', lawId: 'ley-20744', number: '56', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.1, amendments: [], segments: [] },
+  { id: 'art-20744-57', lawId: 'ley-20744', number: '57', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.2, amendments: [], segments: [] },
+  { id: 'art-20744-58', lawId: 'ley-20744', number: '58', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.3, amendments: [], segments: [] },
+  { id: 'art-20744-59', lawId: 'ley-20744', number: '59', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.4, amendments: [], segments: [] },
+  { id: 'art-20744-60', lawId: 'ley-20744', number: '60', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.5, amendments: [], segments: [] },
+  { id: 'art-20744-61', lawId: 'ley-20744', number: '61', title: 'Artículo derogado', text: 'Derogado por Ley 21.297/1976.', plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.', practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [], keywords: ['derogado', 'ley 21297'], order: 46.6, amendments: [], segments: [] },
   // ── Cap. V — Derechos y deberes de las partes ──────────────────────────────
   {
     id: 'art-20744-62',
     lawId: 'ley-20744',
     number: '62',
     title: 'Obligación genérica de las partes — Buena fe',
-    originalText:
-      'Las partes están obligadas, activa y pasivamente, no sólo a lo que resulta expresamente de los términos del contrato sino a todos aquellos comportamientos que sean consecuencia del mismo, resulten de esta ley, de los estatutos profesionales o convenciones colectivas de trabajo, apreciados con criterio de colaboración y solidaridad.',
-    currentText:
-      'Las partes están obligadas, activa y pasivamente, no sólo a lo que resulta expresamente de los términos del contrato sino a todos aquellos comportamientos que sean consecuencia del mismo, resulten de esta ley, de los estatutos profesionales o convenciones colectivas de trabajo, apreciados con criterio de colaboración y solidaridad.',
-    plainLanguageExplanation:
+    text:
+      'Las partes están obligadas, activa y pasivamente, no sólo a lo que resulta expresamente de los términos del contrato sino a todos aquellos comportamientos que sean consecuencia del mismo, resulten de esta ley, de los estatutos profesionales o convenciones colectivas de trabajo, apreciados con criterio de colaboración y solidaridad.',    plainLanguageExplanation:
       'Tanto el trabajador como el empleador deben comportarse con buena fe. El contrato de trabajo genera obligaciones implícitas más allá del texto escrito, apreciadas con criterio de colaboración y solidaridad.',
     practicalEffects: [
       'El empleador no puede cambiar arbitrariamente condiciones de trabajo aunque no estén escritas',
@@ -271,11 +235,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '63',
     title: 'Principio de la buena fe',
-    originalText:
-      'Las partes están obligadas a obrar de buena fe, ajustando su conducta a lo que es propio de un buen empleador y de un buen trabajador, tanto al celebrar, ejecutar o extinguir el contrato o la relación de trabajo.',
-    currentText:
-      'Las partes están obligadas a obrar de buena fe, ajustando su conducta a lo que es propio de un buen empleador y de un buen trabajador, tanto al celebrar, ejecutar o extinguir el contrato o la relación de trabajo.',
-    plainLanguageExplanation: '',
+    text:
+      'Las partes están obligadas a obrar de buena fe, ajustando su conducta a lo que es propio de un buen empleador y de un buen trabajador, tanto al celebrar, ejecutar o extinguir el contrato o la relación de trabajo.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-62'],
@@ -291,11 +252,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '64',
     title: 'Facultad de organización',
-    originalText:
-      'El empleador tiene facultades suficientes para organizar económica y técnicamente la empresa, explotación o establecimiento.',
-    currentText:
-      'El empleador tiene facultades suficientes para organizar económica y técnicamente la empresa, explotación o establecimiento.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador tiene facultades suficientes para organizar económica y técnicamente la empresa, explotación o establecimiento.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-65', 'art-20744-66'],
@@ -311,11 +269,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '65',
     title: 'Facultad de dirección',
-    originalText:
-      'Las facultades de dirección que asisten al empleador deberán ejercitarse con carácter funcional, atendiendo a los fines de la empresa, a las exigencias de la producción, sin perjuicio de la preservación y mejora de los derechos personales y patrimoniales del trabajador.',
-    currentText:
-      'Las facultades de dirección que asisten al empleador deberán ejercitarse con carácter funcional, atendiendo a los fines de la empresa, a las exigencias de la producción, sin perjuicio de la preservación y mejora de los derechos personales y patrimoniales del trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'Las facultades de dirección que asisten al empleador deberán ejercitarse con carácter funcional, atendiendo a los fines de la empresa, a las exigencias de la producción, sin perjuicio de la preservación y mejora de los derechos personales y patrimoniales del trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-64', 'art-20744-66'],
@@ -331,11 +286,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '66',
     title: 'Facultad de alterar las condiciones del contrato — Ius variandi',
-    originalText:
-      'El empleador está facultado para introducir todos aquellos cambios relativos a la forma y modalidades de la prestación del trabajo, en tanto esos cambios no importen un ejercicio irrazonable de esa facultad, ni alteren modalidades esenciales del contrato, ni causen perjuicio material ni moral al trabajador.\nCuando el empleador disponga medidas vedadas por este artículo, al trabajador le asistirá la posibilidad de considerarse despedido sin causa.',
-    currentText:
-      'El empleador está facultado para introducir todos aquellos cambios relativos a la forma y modalidades de la prestación del trabajo, en tanto esos cambios no importen un ejercicio irrazonable de esa facultad, ni alteren modalidades esenciales del contrato, ni causen perjuicio material ni moral al trabajador.\nCuando el empleador disponga medidas vedadas por este artículo, al trabajador le asistirá la posibilidad de considerarse despedido sin causa.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador está facultado para introducir todos aquellos cambios relativos a la forma y modalidades de la prestación del trabajo, en tanto esos cambios no importen un ejercicio irrazonable de esa facultad, ni alteren modalidades esenciales del contrato, ni causen perjuicio material ni moral al trabajador.\nCuando el empleador disponga medidas vedadas por este artículo, al trabajador le asistirá la posibilidad de considerarse despedido sin causa.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-64', 'art-20744-242'],
@@ -351,11 +303,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '67',
     title: 'Reglamento interno — Poder disciplinario',
-    originalText:
-      'El empleador está facultado para aplicar sanciones disciplinarias proporcionales a las faltas o incumplimientos demostrados por el trabajador. Dentro de los treinta (30) días corridos de notificada la medida, el trabajador podrá cuestionar su procedencia y el tipo o extensión de la misma, para que se la suprima, sustituya por otra o limite según los casos. Vencido dicho término se tendrá por consentida la sanción disciplinaria.',
-    currentText:
-      'El empleador está facultado para aplicar sanciones disciplinarias proporcionales a las faltas o incumplimientos demostrados por el trabajador. Dentro de los treinta (30) días corridos de notificada la medida, el trabajador podrá cuestionar su procedencia y el tipo o extensión de la misma, para que se la suprima, sustituya por otra o limite según los casos. Vencido dicho término se tendrá por consentida la sanción disciplinaria.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador está facultado para aplicar sanciones disciplinarias proporcionales a las faltas o incumplimientos demostrados por el trabajador. Dentro de los treinta (30) días corridos de notificada la medida, el trabajador podrá cuestionar su procedencia y el tipo o extensión de la misma, para que se la suprima, sustituya por otra o limite según los casos. Vencido dicho término se tendrá por consentida la sanción disciplinaria.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -371,11 +320,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '68',
     title: 'Modalidades de su ejercicio',
-    originalText:
-      'El empleador, en todos los casos, deberá ejercitar las facultades disciplinarias de tal forma que resulte posible al trabajador efectuar la defensa de sus derechos. El despido sin causa motivado por la conducta o rendimiento del trabajador, que culminara un proceso de sanciones disciplinarias debidamente documentado, afectará exclusivamente los derechos patrimoniales emergentes de la extinción del contrato de trabajo, sin generar para el trabajador la calificación de deshonesto.',
-    currentText:
-      'El empleador, en todos los casos, deberá ejercitar las facultades disciplinarias de tal forma que resulte posible al trabajador efectuar la defensa de sus derechos. El despido sin causa motivado por la conducta o rendimiento del trabajador, que culminara un proceso de sanciones disciplinarias debidamente documentado, afectará exclusivamente los derechos patrimoniales emergentes de la extinción del contrato de trabajo, sin generar para el trabajador la calificación de deshonesto.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador, en todos los casos, deberá ejercitar las facultades disciplinarias de tal forma que resulte posible al trabajador efectuar la defensa de sus derechos. El despido sin causa motivado por la conducta o rendimiento del trabajador, que culminara un proceso de sanciones disciplinarias debidamente documentado, afectará exclusivamente los derechos patrimoniales emergentes de la extinción del contrato de trabajo, sin generar para el trabajador la calificación de deshonesto.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-67'],
@@ -391,11 +337,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '69',
     title: 'Modificación del contrato — Suspensión',
-    originalText:
-      'La suspensión dispuesta por el empleador para investigar una falta atribuida al trabajador, no podrá exceder de treinta (30) días. El empleador deberá comunicar a éste, en forma escrita, el motivo de la suspensión.',
-    currentText:
-      'La suspensión dispuesta por el empleador para investigar una falta atribuida al trabajador, no podrá exceder de treinta (30) días. El empleador deberá comunicar a éste, en forma escrita, el motivo de la suspensión.',
-    plainLanguageExplanation: '',
+    text:
+      'La suspensión dispuesta por el empleador para investigar una falta atribuida al trabajador, no podrá exceder de treinta (30) días. El empleador deberá comunicar a éste, en forma escrita, el motivo de la suspensión.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-67', 'art-20744-218'],
@@ -411,11 +354,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '70',
     title: 'Sistemas de controles personales',
-    originalText:
-      'Los sistemas de control del personal destinados a la protección de los bienes del empleador deberán siempre salvaguardar la dignidad del trabajador y deberán practicarse con discreción y se harán por medios de selección automática destinados a la totalidad del personal.',
-    currentText:
-      'Los sistemas de control del personal destinados a la protección de los bienes del empleador deberán siempre salvaguardar la dignidad del trabajador y deberán practicarse con discreción y se harán por medios de selección automática destinados a la totalidad del personal.',
-    plainLanguageExplanation: '',
+    text:
+      'Los sistemas de control del personal destinados a la protección de los bienes del empleador deberán siempre salvaguardar la dignidad del trabajador y deberán practicarse con discreción y se harán por medios de selección automática destinados a la totalidad del personal.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -431,11 +371,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '71',
     title: 'Conocimiento',
-    originalText:
-      'Los sistemas, además, deberán ser puestos en conocimiento de la autoridad de aplicación.',
-    currentText:
-      'Los sistemas, además, deberán ser puestos en conocimiento de la autoridad de aplicación.',
-    plainLanguageExplanation: '',
+    text:
+      'Los sistemas, además, deberán ser puestos en conocimiento de la autoridad de aplicación.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-70'],
@@ -451,11 +388,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '72',
     title: 'Verificación',
-    originalText:
-      'La autoridad de aplicación está facultada para verificar que los sistemas de control empleados por la empresa no afecten en forma manifiesta y discriminada la dignidad del trabajador.',
-    currentText:
-      'La autoridad de aplicación está facultada para verificar que los sistemas de control empleados por la empresa no afecten en forma manifiesta y discriminada la dignidad del trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'La autoridad de aplicación está facultada para verificar que los sistemas de control empleados por la empresa no afecten en forma manifiesta y discriminada la dignidad del trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-70', 'art-20744-71'],
@@ -471,11 +405,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '73',
     title: 'Deber de ocupación',
-    originalText:
-      'El empleador deberá garantizar al trabajador ocupación efectiva, de acuerdo a su calificación o categoría profesional, salvo que el incumplimiento responda a motivos fundados que impidan la satisfacción de tal deber. Si el trabajador fuese destinado a tareas superiores, distintas de las que corresponden a la categoría inferior, el empleador deberá pagar la remuneración correspondiente a las primeras mientras duren.',
-    currentText:
-      'El empleador deberá garantizar al trabajador ocupación efectiva, de acuerdo a su calificación o categoría profesional, salvo que el incumplimiento responda a motivos fundados que impidan la satisfacción de tal deber. Si el trabajador fuese destinado a tareas superiores, distintas de las que corresponden a la categoría inferior, el empleador deberá pagar la remuneración correspondiente a las primeras mientras duren.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador deberá garantizar al trabajador ocupación efectiva, de acuerdo a su calificación o categoría profesional, salvo que el incumplimiento responda a motivos fundados que impidan la satisfacción de tal deber. Si el trabajador fuese destinado a tareas superiores, distintas de las que corresponden a la categoría inferior, el empleador deberá pagar la remuneración correspondiente a las primeras mientras duren.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -491,11 +422,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '74',
     title: 'Deber de pago de la remuneración',
-    originalText:
-      'El empleador está obligado a satisfacer el pago de la remuneración debida al trabajador en los plazos y condiciones previstos en esta ley.',
-    currentText:
-      'El empleador está obligado a satisfacer el pago de la remuneración debida al trabajador en los plazos y condiciones previstos en esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador está obligado a satisfacer el pago de la remuneración debida al trabajador en los plazos y condiciones previstos en esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103', 'art-20744-126'],
@@ -511,11 +439,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '75',
     title: 'Deber de seguridad',
-    originalText:
-      'El empleador está obligado a observar las normas legales sobre higiene y seguridad en el trabajo, y a hacer observar las pausas y limitaciones a la duración del trabajo establecidas en el ordenamiento legal.\nEl empleador deberá hacer observar las disposiciones legales y reglamentarias pertinentes sobre higiene y seguridad en el trabajo. El incumplimiento de esta obligación por parte del empleador lo hace responsable de las consecuencias dañosas que ese incumplimiento produjese, sin perjuicio de las demás responsabilidades que fueren procedentes.',
-    currentText:
-      'El empleador está obligado a observar las normas legales sobre higiene y seguridad en el trabajo, y a hacer observar las pausas y limitaciones a la duración del trabajo establecidas en el ordenamiento legal.\nEl empleador deberá hacer observar las disposiciones legales y reglamentarias pertinentes sobre higiene y seguridad en el trabajo. El incumplimiento de esta obligación por parte del empleador lo hace responsable de las consecuencias dañosas que ese incumplimiento produjese, sin perjuicio de las demás responsabilidades que fueren procedentes.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador está obligado a observar las normas legales sobre higiene y seguridad en el trabajo, y a hacer observar las pausas y limitaciones a la duración del trabajo establecidas en el ordenamiento legal.\nEl empleador deberá hacer observar las disposiciones legales y reglamentarias pertinentes sobre higiene y seguridad en el trabajo. El incumplimiento de esta obligación por parte del empleador lo hace responsable de las consecuencias dañosas que ese incumplimiento produjese, sin perjuicio de las demás responsabilidades que fueren procedentes.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -531,11 +456,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '76',
     title: 'Deber de protección — Alimentación y vivienda',
-    originalText:
-      'El empleador deberá prestar protección a la vida y bienes del trabajador cuando éste habite en el establecimiento. Si se le proveyese de alimentación y vivienda, aquélla deberá ser sana y suficiente, y la vivienda, adecuada a las necesidades del trabajador y su familia. Deberá efectuar a su cargo las reparaciones y refecciones indispensables, conforme a las exigencias del clima.',
-    currentText:
-      'El empleador deberá prestar protección a la vida y bienes del trabajador cuando éste habite en el establecimiento. Si se le proveyese de alimentación y vivienda, aquélla deberá ser sana y suficiente, y la vivienda, adecuada a las necesidades del trabajador y su familia. Deberá efectuar a su cargo las reparaciones y refecciones indispensables, conforme a las exigencias del clima.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador deberá prestar protección a la vida y bienes del trabajador cuando éste habite en el establecimiento. Si se le proveyese de alimentación y vivienda, aquélla deberá ser sana y suficiente, y la vivienda, adecuada a las necesidades del trabajador y su familia. Deberá efectuar a su cargo las reparaciones y refecciones indispensables, conforme a las exigencias del clima.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -551,11 +473,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '77',
     title: 'Deber de formación profesional',
-    originalText:
-      'El empleador deberá garantizar al trabajador la capacitación técnica adecuada para la función que desarrolla en la empresa, en las condiciones que fijen los reglamentos o las convenciones colectivas, sin que ello implique disminución de la remuneración.',
-    currentText:
-      'El empleador deberá garantizar al trabajador la capacitación técnica adecuada para la función que desarrolla en la empresa, en las condiciones que fijen los reglamentos o las convenciones colectivas, sin que ello implique disminución de la remuneración.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador deberá garantizar al trabajador la capacitación técnica adecuada para la función que desarrolla en la empresa, en las condiciones que fijen los reglamentos o las convenciones colectivas, sin que ello implique disminución de la remuneración.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -571,11 +490,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '78',
     title: 'Deber de diligencia — Obligación de colaborar',
-    originalText:
-      'El empleador deberá cumplir con las obligaciones que resulten de esta ley, de los estatutos profesionales, convenciones colectivas de trabajo y de los sistemas de seguridad social, de modo de posibilitar al trabajador el goce íntegro y oportuno de los beneficios que tales disposiciones le acuerdan. No podrá invocar en ningún caso el incumplimiento de parte del trabajador como justificación de la mora en que incurriera.',
-    currentText:
-      'El empleador deberá cumplir con las obligaciones que resulten de esta ley, de los estatutos profesionales, convenciones colectivas de trabajo y de los sistemas de seguridad social, de modo de posibilitar al trabajador el goce íntegro y oportuno de los beneficios que tales disposiciones le acuerdan. No podrá invocar en ningún caso el incumplimiento de parte del trabajador como justificación de la mora en que incurriera.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador deberá cumplir con las obligaciones que resulten de esta ley, de los estatutos profesionales, convenciones colectivas de trabajo y de los sistemas de seguridad social, de modo de posibilitar al trabajador el goce íntegro y oportuno de los beneficios que tales disposiciones le acuerdan. No podrá invocar en ningún caso el incumplimiento de parte del trabajador como justificación de la mora en que incurriera.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -591,11 +507,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '79',
     title: 'Deber de protección de la dignidad del trabajador',
-    originalText:
-      'El empleador está obligado a dispensar al trabajador trato digno, respetando su honor y su dignidad personal. Deberá abstenerse de realizar actos que importen trato discriminatorio o vejatorio hacia el trabajador.',
-    currentText:
-      'El empleador está obligado a dispensar al trabajador trato digno, respetando su honor y su dignidad personal. Deberá abstenerse de realizar actos que importen trato discriminatorio o vejatorio hacia el trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador está obligado a dispensar al trabajador trato digno, respetando su honor y su dignidad personal. Deberá abstenerse de realizar actos que importen trato discriminatorio o vejatorio hacia el trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-17'],
@@ -611,11 +524,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '80',
     title: 'Deber de registración — Certificado de trabajo',
-    originalText:
-      'La obligación de ingresar los fondos de seguridad social por parte del empleador y los sindicales a su cargo, ya sea como obligado directo o como agente de retención, configurará asimismo una obligación contractual.\nEl empleador, cuando así lo requiriese el trabajador, deberá darle constancia documentada de ello. Durante el tiempo indispensable, el empleador deberá conservar los recibos de sueldo y demás constancias de pago.\nAl extinguirse el contrato de trabajo, el empleador estará obligado a entregar al trabajador un certificado de trabajo, conteniendo las indicaciones sobre el tiempo de prestación de servicios, naturaleza de éstos, constancia de los sueldos percibidos y de los aportes y contribuciones efectuados con destino a los organismos de la seguridad social.',
-    currentText:
-      'La obligación de ingresar los fondos de seguridad social por parte del empleador y los sindicales a su cargo, ya sea como obligado directo o como agente de retención, configurará asimismo una obligación contractual.\nEl empleador, cuando así lo requiriese el trabajador, deberá darle constancia documentada de ello. Durante el tiempo indispensable, el empleador deberá conservar los recibos de sueldo y demás constancias de pago.\nAl extinguirse el contrato de trabajo, el empleador estará obligado a entregar al trabajador un certificado de trabajo, conteniendo las indicaciones sobre el tiempo de prestación de servicios, naturaleza de éstos, constancia de los sueldos percibidos y de los aportes y contribuciones efectuados con destino a los organismos de la seguridad social.',
-    plainLanguageExplanation:
+    text:
+      'La obligación de ingresar los fondos de seguridad social por parte del empleador y los sindicales a su cargo, ya sea como obligado directo o como agente de retención, configurará asimismo una obligación contractual.\nEl empleador, cuando así lo requiriese el trabajador, deberá darle constancia documentada de ello. Durante el tiempo indispensable, el empleador deberá conservar los recibos de sueldo y demás constancias de pago.\nAl extinguirse el contrato de trabajo, el empleador estará obligado a entregar al trabajador un certificado de trabajo, conteniendo las indicaciones sobre el tiempo de prestación de servicios, naturaleza de éstos, constancia de los sueldos percibidos y de los aportes y contribuciones efectuados con destino a los organismos de la seguridad social.',    plainLanguageExplanation:
       'Al terminar la relación laboral, el empleador debe entregarle al trabajador el certificado de trabajo y los certificados de aportes. Si no lo hace en 30 días de ser intimado, el trabajador puede reclamar una indemnización adicional.',
     practicalEffects: [
       'El certificado es fundamental para cobrar el seguro de desempleo',
@@ -636,11 +546,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '81',
     title: 'Igualdad de trato',
-    originalText:
-      'El empleador debe dispensar a todos los trabajadores igual trato en identidad de situaciones. Se considerará que existe trato desigual cuando se produzcan discriminaciones arbitrarias fundadas en razones de sexo, religión o raza, pero no cuando el diferente tratamiento responda a principios de bien común, como el que se sustente en la mayor eficacia, laboriosidad o contracción a sus tareas por parte del trabajador.',
-    currentText:
-      'El empleador debe dispensar a todos los trabajadores igual trato en identidad de situaciones. Se considerará que existe trato desigual cuando se produzcan discriminaciones arbitrarias fundadas en razones de sexo, religión o raza, pero no cuando el diferente tratamiento responda a principios de bien común, como el que se sustente en la mayor eficacia, laboriosidad o contracción a sus tareas por parte del trabajador.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador debe dispensar a todos los trabajadores igual trato en identidad de situaciones. Se considerará que existe trato desigual cuando se produzcan discriminaciones arbitrarias fundadas en razones de sexo, religión o raza, pero no cuando el diferente tratamiento responda a principios de bien común, como el que se sustente en la mayor eficacia, laboriosidad o contracción a sus tareas por parte del trabajador.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-17'],
@@ -656,11 +563,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '82',
     title: 'Invenciones del trabajador',
-    originalText:
-      'Las invenciones o descubrimientos personales del trabajador son propiedad de éste, aun cuando se hayan realizado durante el tiempo de prestación de servicios.',
-    currentText:
-      'Las invenciones o descubrimientos personales del trabajador son propiedad de éste, aun cuando se hayan realizado durante el tiempo de prestación de servicios.',
-    plainLanguageExplanation: '',
+    text:
+      'Las invenciones o descubrimientos personales del trabajador son propiedad de éste, aun cuando se hayan realizado durante el tiempo de prestación de servicios.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-83'],
@@ -676,11 +580,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '83',
     title: 'Preferencia del empleador — Equipos y materiales',
-    originalText:
-      'Las invenciones o descubrimientos que se deriven de los procedimientos industriales, métodos o instalaciones del establecimiento o de experimentaciones, investigaciones, mejoras o perfeccionamiento de los ya empleados en la empresa en que preste servicio el trabajador pertenecen al empleador. El trabajador, en tales casos, tendrá derecho a una remuneración especial si su aporte hubiese sido de mayor importancia que la tarea que desarrolla, la que se fijará de acuerdo al valor de la invención realizada.',
-    currentText:
-      'Las invenciones o descubrimientos que se deriven de los procedimientos industriales, métodos o instalaciones del establecimiento o de experimentaciones, investigaciones, mejoras o perfeccionamiento de los ya empleados en la empresa en que preste servicio el trabajador pertenecen al empleador. El trabajador, en tales casos, tendrá derecho a una remuneración especial si su aporte hubiese sido de mayor importancia que la tarea que desarrolla, la que se fijará de acuerdo al valor de la invención realizada.',
-    plainLanguageExplanation: '',
+    text:
+      'Las invenciones o descubrimientos que se deriven de los procedimientos industriales, métodos o instalaciones del establecimiento o de experimentaciones, investigaciones, mejoras o perfeccionamiento de los ya empleados en la empresa en que preste servicio el trabajador pertenecen al empleador. El trabajador, en tales casos, tendrá derecho a una remuneración especial si su aporte hubiese sido de mayor importancia que la tarea que desarrolla, la que se fijará de acuerdo al valor de la invención realizada.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-82'],
@@ -696,11 +597,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '84',
     title: 'Deberes de diligencia y colaboración del trabajador',
-    originalText:
-      'El trabajador debe prestar el servicio con puntualidad, asistencia regular y dedicación adecuada a las características de su empleo y a los medios instrumentales que se le provean.',
-    currentText:
-      'El trabajador debe prestar el servicio con puntualidad, asistencia regular y dedicación adecuada a las características de su empleo y a los medios instrumentales que se le provean.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador debe prestar el servicio con puntualidad, asistencia regular y dedicación adecuada a las características de su empleo y a los medios instrumentales que se le provean.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -716,11 +614,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '85',
     title: 'Deber de fidelidad',
-    originalText:
-      'El trabajador debe observar todos aquellos deberes de fidelidad que deriven de la índole de las tareas que tenga asignadas, guardando reserva o secreto de las informaciones a que tenga acceso y que exijan tal comportamiento de su parte.',
-    currentText:
-      'El trabajador debe observar todos aquellos deberes de fidelidad que deriven de la índole de las tareas que tenga asignadas, guardando reserva o secreto de las informaciones a que tenga acceso y que exijan tal comportamiento de su parte.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador debe observar todos aquellos deberes de fidelidad que deriven de la índole de las tareas que tenga asignadas, guardando reserva o secreto de las informaciones a que tenga acceso y que exijan tal comportamiento de su parte.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-88'],
@@ -736,11 +631,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '86',
     title: 'Responsabilidad por daños',
-    originalText:
-      'El trabajador es responsable ante el empleador de los daños que cause a los intereses de éste, por dolo o culpa grave en el ejercicio de sus funciones.',
-    currentText:
-      'El trabajador es responsable ante el empleador de los daños que cause a los intereses de éste, por dolo o culpa grave en el ejercicio de sus funciones.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador es responsable ante el empleador de los daños que cause a los intereses de éste, por dolo o culpa grave en el ejercicio de sus funciones.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -756,11 +648,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '87',
     title: 'Deber de no concurrencia',
-    originalText:
-      'El trabajador debe abstenerse de ejecutar negociaciones por cuenta propia o ajena que pudieran afectar los intereses del empleador, salvo autorización de éste.',
-    currentText:
-      'El trabajador debe abstenerse de ejecutar negociaciones por cuenta propia o ajena que pudieran afectar los intereses del empleador, salvo autorización de éste.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador debe abstenerse de ejecutar negociaciones por cuenta propia o ajena que pudieran afectar los intereses del empleador, salvo autorización de éste.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-85'],
@@ -776,11 +665,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '88',
     title: 'Deber de cumplir las órdenes e instrucciones',
-    originalText:
-      'El trabajador debe observar las órdenes e instrucciones que se le impartan sobre el modo de ejecución del trabajo, ya sea por el empleador o sus representantes. Debe conservar los instrumentos o útiles que se le provean para la realización del trabajo, sin que asuma responsabilidad por el deterioro que los mismos sufran derivado del uso.',
-    currentText:
-      'El trabajador debe observar las órdenes e instrucciones que se le impartan sobre el modo de ejecución del trabajo, ya sea por el empleador o sus representantes. Debe conservar los instrumentos o útiles que se le provean para la realización del trabajo, sin que asuma responsabilidad por el deterioro que los mismos sufran derivado del uso.',
-    plainLanguageExplanation: '',
+    text:
+      'El trabajador debe observar las órdenes e instrucciones que se le impartan sobre el modo de ejecución del trabajo, ya sea por el empleador o sus representantes. Debe conservar los instrumentos o útiles que se le provean para la realización del trabajo, sin que asuma responsabilidad por el deterioro que los mismos sufran derivado del uso.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -796,11 +682,8 @@ export const ARTICLES_LCT_03: Article[] = [
     lawId: 'ley-20744',
     number: '89',
     title: 'Prestaciones complementarias',
-    originalText:
-      'Las prestaciones complementarias, sean en dinero o en especie, integran la remuneración del trabajador, con excepción de:\na) Los retiros de socios gerentes de sociedades de responsabilidad limitada, a cuenta de las utilidades del ejercicio debidamente contabilizadas en el balance;\nb) Los reintegros de gastos sin comprobante hasta la cantidad fijada por la convención colectiva de trabajo correspondiente al convenio de la actividad.',
-    currentText:
-      'Las prestaciones complementarias, sean en dinero o en especie, integran la remuneración del trabajador, con excepción de:\na) Los retiros de socios gerentes de sociedades de responsabilidad limitada, a cuenta de las utilidades del ejercicio debidamente contabilizadas en el balance;\nb) Los reintegros de gastos sin comprobante hasta la cantidad fijada por la convención colectiva de trabajo correspondiente al convenio de la actividad.',
-    plainLanguageExplanation: '',
+    text:
+      'Las prestaciones complementarias, sean en dinero o en especie, integran la remuneración del trabajador, con excepción de:\na) Los retiros de socios gerentes de sociedades de responsabilidad limitada, a cuenta de las utilidades del ejercicio debidamente contabilizadas en el balance;\nb) Los reintegros de gastos sin comprobante hasta la cantidad fijada por la convención colectiva de trabajo correspondiente al convenio de la actividad.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-103'],

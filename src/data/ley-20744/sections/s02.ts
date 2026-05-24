@@ -6,11 +6,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '21',
     title: 'Contrato de trabajo',
-    originalText:
-      'Habrá contrato de trabajo, cualquiera sea su forma o denominación, siempre que una persona física se obligue a realizar actos, ejecutar obras o prestar servicios en favor de la otra y bajo la dependencia de ésta, durante un período determinado o indeterminado de tiempo, mediante el pago de una remuneración. Sus cláusulas, en cuanto a la forma y condiciones de la prestación, quedan sometidas a las disposiciones de orden público, los estatutos, las convenciones colectivas o los laudos con fuerza de tales y los usos y costumbres.',
-    currentText:
-      'Habrá contrato de trabajo, cualquiera sea su forma o denominación, siempre que una persona física se obligue a realizar actos, ejecutar obras o prestar servicios en favor de la otra y bajo la dependencia de ésta, durante un período determinado o indeterminado de tiempo, mediante el pago de una remuneración. Sus cláusulas, en cuanto a la forma y condiciones de la prestación, quedan sometidas a las disposiciones de orden público, los estatutos, las convenciones colectivas o los laudos con fuerza de tales y los usos y costumbres.',
-    plainLanguageExplanation:
+    text:
+      'Habrá contrato de trabajo, cualquiera sea su forma o denominación, siempre que una persona física se obligue a realizar actos, ejecutar obras o prestar servicios en favor de la otra y bajo la dependencia de ésta, durante un período determinado o indeterminado de tiempo, mediante el pago de una remuneración. Sus cláusulas, en cuanto a la forma y condiciones de la prestación, quedan sometidas a las disposiciones de orden público, los estatutos, las convenciones colectivas o los laudos con fuerza de tales y los usos y costumbres.',    plainLanguageExplanation:
       'El contrato de trabajo existe por los hechos, no por el nombre que le pongan. No importa si lo llaman "honorarios", "prestación de servicios" o "socio": si hay actividad personal, dependencia y remuneración, hay contrato de trabajo.',
     practicalEffects: [
       'La forma oral es válida: no se necesita contrato escrito',
@@ -31,11 +28,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '22',
     title: 'Relación de trabajo',
-    originalText:
-      'Habrá relación de trabajo cuando una persona realice actos, ejecute obras o preste servicio en favor de otra, bajo la dependencia de ésta en forma voluntaria y mediante el pago de una remuneración, cualquiera sea el acto que le dé origen.',
-    currentText:
-      'Habrá relación de trabajo cuando una persona realice actos, ejecute obras o preste servicio en favor de otra, bajo la dependencia de ésta en forma voluntaria y mediante el pago de una remuneración, cualquiera sea el acto que le dé origen.',
-    plainLanguageExplanation:
+    text:
+      'Habrá relación de trabajo cuando una persona realice actos, ejecute obras o preste servicio en favor de otra, bajo la dependencia de ésta en forma voluntaria y mediante el pago de una remuneración, cualquiera sea el acto que le dé origen.',    plainLanguageExplanation:
       'La relación de trabajo es el hecho: la prestación efectiva de servicios. Puede surgir de un contrato, pero también existe aunque no haya contrato escrito o aunque el contrato sea nulo.',
     practicalEffects: [
       'Aunque el contrato sea nulo, si ya hubo prestación de servicios nacen derechos laborales',
@@ -55,11 +49,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '23',
     title: 'Presunción de la existencia del contrato de trabajo',
-    originalText:
-      'El hecho de la prestación de servicios hace presumir la existencia de un contrato de trabajo, salvo que por las circunstancias, las relaciones o causas que lo motiven se demostrase lo contrario.\nEsta presunción operará igualmente aun cuando se utilicen figuras no laborales, para caracterizar al contrato, y en tanto que por las circunstancias no sea dado calificar de empresario a quien presta el servicio.',
-    currentText:
-      'El hecho de la prestación de servicios hace presumir la existencia de un contrato de trabajo, salvo que por las circunstancias, las relaciones o causas que lo motiven se demostrase lo contrario.\nEsta presunción operará igualmente aun cuando se utilicen figuras no laborales, para caracterizar al contrato, y en tanto que por las circunstancias no sea dado calificar de empresario a quien presta el servicio.',
-    plainLanguageExplanation:
+    text:
+      'El hecho de la prestación de servicios hace presumir la existencia de un contrato de trabajo, salvo que por las circunstancias, las relaciones o causas que lo motiven se demostrase lo contrario.\nEsta presunción operará igualmente aun cuando se utilicen figuras no laborales, para caracterizar al contrato, y en tanto que por las circunstancias no sea dado calificar de empresario a quien presta el servicio.',    plainLanguageExplanation:
       'Si una persona presta servicios, la ley presume que hay contrato de trabajo. El que quiera demostrar lo contrario (empleador) tiene la carga de probar que era un autónomo real. Es la base de la "primacía de la realidad".',
     practicalEffects: [
       'El trabajador solo tiene que probar que prestó servicios; el empleador debe probar que no era relación laboral',
@@ -82,11 +73,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '24',
     title: 'Efectos del contrato nulo',
-    originalText:
-      'Los efectos del contrato nulo se producirán a partir del momento en que las partes intervinientes lo ejecuten, adoptando los del contrato-tipo que corresponda. Si el contrato fuese nulo por ilicitud de su objeto, el trabajador no tendrá derecho a reclamar la aplicación de las normas que en su favor establece esta ley. En tal caso, el juez podrá reconocer la existencia de un contrato con objeto lícito entre las mismas partes, si la nulidad sólo afectare a una parte del objeto del contrato.',
-    currentText:
-      'Los efectos del contrato nulo se producirán a partir del momento en que las partes intervinientes lo ejecuten, adoptando los del contrato-tipo que corresponda. Si el contrato fuese nulo por ilicitud de su objeto, el trabajador no tendrá derecho a reclamar la aplicación de las normas que en su favor establece esta ley. En tal caso, el juez podrá reconocer la existencia de un contrato con objeto lícito entre las mismas partes, si la nulidad sólo afectare a una parte del objeto del contrato.',
-    plainLanguageExplanation: '',
+    text:
+      'Los efectos del contrato nulo se producirán a partir del momento en que las partes intervinientes lo ejecuten, adoptando los del contrato-tipo que corresponda. Si el contrato fuese nulo por ilicitud de su objeto, el trabajador no tendrá derecho a reclamar la aplicación de las normas que en su favor establece esta ley. En tal caso, el juez podrá reconocer la existencia de un contrato con objeto lícito entre las mismas partes, si la nulidad sólo afectare a una parte del objeto del contrato.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-39', 'art-20744-40'],
@@ -102,11 +90,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '25',
     title: 'Persona interpuesta — Solidaridad',
-    originalText:
-      'Si por mandato del empleador se interpusiera una persona física entre él y el trabajador, el verdadero empleador, sin perjuicio de hacer efectivos sus derechos contra el interpuesto, responderá directamente hacia el trabajador de todas las obligaciones emergentes de la relación laboral de acuerdo con lo dispuesto por esta ley.',
-    currentText:
-      'Si por mandato del empleador se interpusiera una persona física entre él y el trabajador, el verdadero empleador, sin perjuicio de hacer efectivos sus derechos contra el interpuesto, responderá directamente hacia el trabajador de todas las obligaciones emergentes de la relación laboral de acuerdo con lo dispuesto por esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'Si por mandato del empleador se interpusiera una persona física entre él y el trabajador, el verdadero empleador, sin perjuicio de hacer efectivos sus derechos contra el interpuesto, responderá directamente hacia el trabajador de todas las obligaciones emergentes de la relación laboral de acuerdo con lo dispuesto por esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-14', 'art-20744-29'],
@@ -122,11 +107,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '26',
     title: 'Trabajador',
-    originalText:
-      'Se considera "trabajador", a los fines de esta ley, a la persona física que se obligue o preste servicios en las condiciones previstas en los artículos 21 y 22 de esta ley, cualesquiera que sean las modalidades de la prestación.',
-    currentText:
-      'Se considera "trabajador", a los fines de esta ley, a la persona física que se obligue o preste servicios en las condiciones previstas en los artículos 21 y 22 de esta ley, cualesquiera que sean las modalidades de la prestación.',
-    plainLanguageExplanation:
+    text:
+      'Se considera "trabajador", a los fines de esta ley, a la persona física que se obligue o preste servicios en las condiciones previstas en los artículos 21 y 22 de esta ley, cualesquiera que sean las modalidades de la prestación.',    plainLanguageExplanation:
       'Trabajador es siempre una persona física (no puede serlo una empresa ni una IA). El concepto es amplio: incluye cualquier modalidad de prestación (presencial, remota, por horas, a destajo).',
     practicalEffects: [
       'Solo las personas humanas pueden ser trabajadores en relación de dependencia',
@@ -146,11 +128,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '27',
     title: 'Empleador',
-    originalText:
-      'Se considera "empleador" a la persona física o conjunto de ellas, o jurídica, tenga o no personalidad jurídica propia, que requiera los servicios de un trabajador.',
-    currentText:
-      'Se considera "empleador" a la persona física o conjunto de ellas, o jurídica, tenga o no personalidad jurídica propia, que requiera los servicios de un trabajador.',
-    plainLanguageExplanation:
+    text:
+      'Se considera "empleador" a la persona física o conjunto de ellas, o jurídica, tenga o no personalidad jurídica propia, que requiera los servicios de un trabajador.',    plainLanguageExplanation:
       'Empleador puede ser una persona, un grupo de personas, una sociedad, una cooperativa o cualquier ente que requiera servicios laborales, tenga o no personería jurídica formal.',
     practicalEffects: [
       'Una "unión transitoria de empresas" puede ser empleadora',
@@ -170,11 +149,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '28',
     title: 'Auxiliares del trabajador',
-    originalText:
-      'Si el trabajador estuviese autorizado a servirse de auxiliares, éstos serán considerados como en relación directa con el empleador de aquél, salvo que el trabajador sea un empresario, en cuyo caso se regirá por lo dispuesto en el artículo 5 de esta ley.',
-    currentText:
-      'Si el trabajador estuviese autorizado a servirse de auxiliares, éstos serán considerados como en relación directa con el empleador de aquél, salvo que el trabajador sea un empresario, en cuyo caso se regirá por lo dispuesto en el artículo 5 de esta ley.',
-    plainLanguageExplanation: '',
+    text:
+      'Si el trabajador estuviese autorizado a servirse de auxiliares, éstos serán considerados como en relación directa con el empleador de aquél, salvo que el trabajador sea un empresario, en cuyo caso se regirá por lo dispuesto en el artículo 5 de esta ley.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-5'],
@@ -190,11 +166,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '29',
     title: 'Intermediación — Empresa de servicios eventuales',
-    originalText:
-      'Los trabajadores que habiendo sido contratados por terceros con vistas a proporcionarlos a las empresas, serán considerados empleados directos de quien utilice su prestación. En tal supuesto, y cualquiera que sea el acto o estipulación que al efecto concierten, los terceros contratantes y la empresa para la cual los trabajadores presten o hayan prestado servicios responderán solidariamente de todas las obligaciones emergentes de la relación laboral y de las que se deriven del régimen de la seguridad social.\nLos trabajadores contratados por empresas de servicios eventuales habilitadas por la autoridad competente para desempeñarse en los términos de los artículos 99 de la presente y 77 a 80 de la Ley Nacional de Empleo, serán considerados en relación de dependencia, con carácter permanente continuo o discontinuo, con dichas empresas.',
-    currentText:
-      'Los trabajadores que habiendo sido contratados por terceros con vistas a proporcionarlos a las empresas, serán considerados empleados directos de quien utilice su prestación. En tal supuesto, y cualquiera que sea el acto o estipulación que al efecto concierten, los terceros contratantes y la empresa para la cual los trabajadores presten o hayan prestado servicios responderán solidariamente de todas las obligaciones emergentes de la relación laboral y de las que se deriven del régimen de la seguridad social.\nLos trabajadores contratados por empresas de servicios eventuales habilitadas por la autoridad competente para desempeñarse en los términos de los artículos 99 de la presente y 77 a 80 de la Ley Nacional de Empleo, serán considerados en relación de dependencia, con carácter permanente continuo o discontinuo, con dichas empresas.',
-    plainLanguageExplanation:
+    text:
+      'Los trabajadores que habiendo sido contratados por terceros con vistas a proporcionarlos a las empresas, serán considerados empleados directos de quien utilice su prestación. En tal supuesto, y cualquiera que sea el acto o estipulación que al efecto concierten, los terceros contratantes y la empresa para la cual los trabajadores presten o hayan prestado servicios responderán solidariamente de todas las obligaciones emergentes de la relación laboral y de las que se deriven del régimen de la seguridad social.\nLos trabajadores contratados por empresas de servicios eventuales habilitadas por la autoridad competente para desempeñarse en los términos de los artículos 99 de la presente y 77 a 80 de la Ley Nacional de Empleo, serán considerados en relación de dependencia, con carácter permanente continuo o discontinuo, con dichas empresas.',    plainLanguageExplanation:
       'Si una empresa te "presta" a otra, sos empleado directo de la empresa que usa tus servicios. Ambas responden solidariamente. Las empresas de servicios eventuales habilitadas son la excepción: en ese caso sos empleado de la empresa de servicios eventuales.',
     practicalEffects: [
       'Responsabilidad solidaria: podés reclamarle a cualquiera de las dos empresas',
@@ -214,11 +187,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '29 bis',
     title: 'Solidaridad de la empresa de servicios eventuales',
-    originalText:
-      'El empleador que ocupe trabajadores a través de una empresa de servicios eventuales habilitada por la autoridad competente, será solidariamente responsable con aquélla por todas las obligaciones laborales y deberá retener de los pagos que efectúe a la empresa de servicios eventuales los aportes y contribuciones respectivos para los organismos de la seguridad social y depositarlos en término. El trabajador contratado a través de una empresa de servicios eventuales estará regido por la convención colectiva, será representado por el sindicato y beneficiará de la obra social correspondiente a la actividad o categoría en la que efectivamente preste servicios en la empresa usuaria.',
-    currentText:
-      'El empleador que ocupe trabajadores a través de una empresa de servicios eventuales habilitada por la autoridad competente, será solidariamente responsable con aquélla por todas las obligaciones laborales y deberá retener de los pagos que efectúe a la empresa de servicios eventuales los aportes y contribuciones respectivos para los organismos de la seguridad social y depositarlos en término. El trabajador contratado a través de una empresa de servicios eventuales estará regido por la convención colectiva, será representado por el sindicato y beneficiará de la obra social correspondiente a la actividad o categoría en la que efectivamente preste servicios en la empresa usuaria.',
-    plainLanguageExplanation: '',
+    text:
+      'El empleador que ocupe trabajadores a través de una empresa de servicios eventuales habilitada por la autoridad competente, será solidariamente responsable con aquélla por todas las obligaciones laborales y deberá retener de los pagos que efectúe a la empresa de servicios eventuales los aportes y contribuciones respectivos para los organismos de la seguridad social y depositarlos en término. El trabajador contratado a través de una empresa de servicios eventuales estará regido por la convención colectiva, será representado por el sindicato y beneficiará de la obra social correspondiente a la actividad o categoría en la que efectivamente preste servicios en la empresa usuaria.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-29', 'art-20744-30'],
@@ -234,11 +204,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '30',
     title: 'Solidaridad — Contratistas y subcontratistas',
-    originalText:
-      'Quienes cedan total o parcialmente a otros el establecimiento o explotación habilitado a su nombre, o contraten o subcontraten, cualquiera sea el acto que le dé origen, trabajos o servicios correspondientes a la actividad normal y específica propia del establecimiento, dentro o fuera de su ámbito, deberán exigir a sus contratistas o subcontratistas el adecuado cumplimiento de las normas relativas al trabajo y los organismos de seguridad social.\nEl incumplimiento de alguno de los requisitos hará responsable solidariamente al principal por las obligaciones de los cesionarios, contratistas o subcontratistas respecto del personal de éstos, en la extensión que resulte de la condena impuesta al empleador directo.',
-    currentText:
-      'Quienes cedan total o parcialmente a otros el establecimiento o explotación habilitado a su nombre, o contraten o subcontraten, cualquiera sea el acto que le dé origen, trabajos o servicios correspondientes a la actividad normal y específica propia del establecimiento, dentro o fuera de su ámbito, deberán exigir a sus contratistas o subcontratistas el adecuado cumplimiento de las normas relativas al trabajo y los organismos de seguridad social.\nEl incumplimiento de alguno de los requisitos hará responsable solidariamente al principal por las obligaciones de los cesionarios, contratistas o subcontratistas respecto del personal de éstos, en la extensión que resulte de la condena impuesta al empleador directo.',
-    plainLanguageExplanation:
+    text:
+      'Quienes cedan total o parcialmente a otros el establecimiento o explotación habilitado a su nombre, o contraten o subcontraten, cualquiera sea el acto que le dé origen, trabajos o servicios correspondientes a la actividad normal y específica propia del establecimiento, dentro o fuera de su ámbito, deberán exigir a sus contratistas o subcontratistas el adecuado cumplimiento de las normas relativas al trabajo y los organismos de seguridad social.\nEl incumplimiento de alguno de los requisitos hará responsable solidariamente al principal por las obligaciones de los cesionarios, contratistas o subcontratistas respecto del personal de éstos, en la extensión que resulte de la condena impuesta al empleador directo.',    plainLanguageExplanation:
       'Si una empresa contrata a otra para que haga parte de su actividad principal, la empresa principal es solidariamente responsable por los derechos de los trabajadores de la contratista. Importante para tercerización de limpieza, seguridad, logística.',
     practicalEffects: [
       'Un trabajador de una empresa de limpieza puede reclamarle a la empresa principal del edificio',
@@ -262,11 +229,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '31',
     title: 'Empresas relacionadas — Solidaridad',
-    originalText:
-      'Cuando los requisitos del artículo 30 de esta ley se verificaran respecto de dos o más sociedades, serán solidariamente responsables cuando hayan mediado maniobras fraudulentas o conducción temeraria.',
-    currentText:
-      'Cuando los requisitos del artículo 30 de esta ley se verificaran respecto de dos o más sociedades, serán solidariamente responsables cuando hayan mediado maniobras fraudulentas o conducción temeraria.',
-    plainLanguageExplanation: '',
+    text:
+      'Cuando los requisitos del artículo 30 de esta ley se verificaran respecto de dos o más sociedades, serán solidariamente responsables cuando hayan mediado maniobras fraudulentas o conducción temeraria.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-30'],
@@ -282,11 +246,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '32',
     title: 'Capacidad — Representación y extinción de los contratos',
-    originalText:
-      'Las personas mayores de dieciocho (18) años, sean varones o mujeres, podrán celebrar toda clase de contrato de trabajo, acordar convenciones colectivas de trabajo, participar en su gestión y representar a sus organizaciones sindicales en todos los casos y a todos los efectos que correspondan.',
-    currentText:
-      'Las personas mayores de dieciocho (18) años, sean varones o mujeres, podrán celebrar toda clase de contrato de trabajo, acordar convenciones colectivas de trabajo, participar en su gestión y representar a sus organizaciones sindicales en todos los casos y a todos los efectos que correspondan.',
-    plainLanguageExplanation: '',
+    text:
+      'Las personas mayores de dieciocho (18) años, sean varones o mujeres, podrán celebrar toda clase de contrato de trabajo, acordar convenciones colectivas de trabajo, participar en su gestión y representar a sus organizaciones sindicales en todos los casos y a todos los efectos que correspondan.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -302,11 +263,8 @@ export const ARTICLES_LCT_02: Article[] = [
     lawId: 'ley-20744',
     number: '33',
     title: 'Facultad para acordar condiciones',
-    originalText:
-      'Las personas mayores de dieciocho (18) años tendrán libre disposición de sus bienes, incluso para cualquier convenio o contrato que implique disposición de los mismos.',
-    currentText:
-      'Las personas mayores de dieciocho (18) años tendrán libre disposición de sus bienes, incluso para cualquier convenio o contrato que implique disposición de los mismos.',
-    plainLanguageExplanation: '',
+    text:
+      'Las personas mayores de dieciocho (18) años tendrán libre disposición de sus bienes, incluso para cualquier convenio o contrato que implique disposición de los mismos.',    plainLanguageExplanation: '',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-20744-32'],
@@ -320,28 +278,28 @@ export const ARTICLES_LCT_02: Article[] = [
   // ── Arts. 34-37: Derogados por Ley 21.297/1976 ────────────────────────────
   {
     id: 'art-20744-34', lawId: 'ley-20744', number: '34', title: 'Artículo derogado',
-    originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.',
+    text: 'Derogado por Ley 21.297/1976.',
     plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.',
     practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [],
     keywords: ['derogado', 'ley 21297'], order: 35.1, amendments: [], segments: [],
   },
   {
     id: 'art-20744-35', lawId: 'ley-20744', number: '35', title: 'Artículo derogado',
-    originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.',
+    text: 'Derogado por Ley 21.297/1976.',
     plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.',
     practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [],
     keywords: ['derogado', 'ley 21297'], order: 35.2, amendments: [], segments: [],
   },
   {
     id: 'art-20744-36', lawId: 'ley-20744', number: '36', title: 'Artículo derogado',
-    originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.',
+    text: 'Derogado por Ley 21.297/1976.',
     plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.',
     practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [],
     keywords: ['derogado', 'ley 21297'], order: 35.3, amendments: [], segments: [],
   },
   {
     id: 'art-20744-37', lawId: 'ley-20744', number: '37', title: 'Artículo derogado',
-    originalText: 'Derogado por Ley 21.297/1976.', currentText: 'Derogado por Ley 21.297/1976.',
+    text: 'Derogado por Ley 21.297/1976.',
     plainLanguageExplanation: 'Derogado por la Ley 21.297/1976 (texto ordenado). La numeración se conserva para mantener la coherencia original de la ley.',
     practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [], regulations: [],
     keywords: ['derogado', 'ley 21297'], order: 35.4, amendments: [], segments: [],

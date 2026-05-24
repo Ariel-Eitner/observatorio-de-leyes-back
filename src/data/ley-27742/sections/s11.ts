@@ -16,10 +16,8 @@ export const ARTICLES_11: Article[] = [
 		lawId: 'ley-27742',
 		number: '224',
 		title: 'Invitación a provincias y municipios a adherir al RIGI',
-		originalText:
+		text:
 			'Invítase a las provincias, a la Ciudad Autónoma de Buenos Aires y a los municipios a adherir al RIGI en todos sus términos y condiciones.',
-		currentText:
-			'Las provincias, la CABA y los municipios son invitados (no obligados) a adherir al RIGI.',
 		plainLanguageExplanation:
 			'El RIGI national no obliga a las provincias a participar. Las invita a adherir, lo que significa que si una provincia adhiere, sus impuestos provinciales y los de sus municipios también quedan sujetos a la estabilidad del art. 225. Las provincias que no adhieran no están vinculadas por el RIGI en su jurisdicción fiscal local.',
 		practicalEffects: [
@@ -43,10 +41,8 @@ export const ARTICLES_11: Article[] = [
 		lawId: 'ley-27742',
 		number: '225',
 		title: 'Restricciones tributarias para provincias adheridas',
-		originalText:
+		text:
 			'Déjase establecido que las provincias, la Ciudad Autónoma de Buenos Aires y los municipios que adhieran al RIGI no podrán imponer a los VPU nuevos gravámenes locales, salvo las tasas retributivas por servicios efectivamente prestados.\n\nSe entenderá que existe un nuevo gravamen local cuando se cree un nuevo hecho imponible o cuando se modifique el hecho imponible, la base imponible, la alícuota, las deducciones, las exenciones y/o desgravaciones de los tributos existentes al 31 de diciembre de 2023, que en los hechos implique una mayor carga fiscal.\n\nLas tasas retributivas por servicios no podrán exceder el costo específico del servicio efectivamente prestado. Si la base imponible de la tasa se determina sobre ventas, ingresos brutos o ganancias, se presume que excede el costo del servicio.\n\nCualquier incumplimiento de este artículo viola el artículo 165.',
-		currentText:
-			'Las provincias adheridas al RIGI no pueden crear nuevos impuestos ni subir los existentes a los VPU. Sólo pueden cobrar tasas retributivas por servicios reales a costo. La situación tributaria provincial queda "congelada" al 31 de diciembre de 2023 para los VPU adheridos. Cualquier violación es nula e inconstitucional (art. 165).',
 		plainLanguageExplanation:
 			'Si una provincia adhiere al RIGI, se compromete a que los impuestos provinciales y municipales que aplican a los VPU RIGI no aumenten ni se expandan. No pueden crear un nuevo impuesto, subir alícuotas de ingresos brutos, ni establecer "tasas de inspección" infladas. El único impuesto "nuevo" posible es el cobro exacto del costo de un servicio real (recolección de residuos, inspección de seguridad, etc.), sin usar ventas o ganancias como base imponible.',
 		practicalEffects: [

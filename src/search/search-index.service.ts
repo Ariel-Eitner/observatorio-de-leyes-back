@@ -105,7 +105,7 @@ function buildDocs(law: Law): SearchDoc[] {
 
   // Article-level documents
   for (const article of law.articles) {
-    const segmentTexts = article.segments.map((s) => s.originalText).join(' ');
+    const segmentTexts = article.segments.map((s) => s.text).join(' ');
     const segmentExplanations = article.segments.map((s) => s.plainExplanation ?? '').join(' ');
 
     docs.push({
@@ -123,7 +123,7 @@ function buildDocs(law: Law): SearchDoc[] {
       articleTitle: article.title ?? undefined,
       number: `${law.number} art ${article.number}`,
       title: article.title ?? `Art. ${article.number}`,
-      text: [article.originalText, segmentTexts, article.jurisprudence.join(' ')].filter(Boolean).join(' '),
+      text: [article.text, segmentTexts, article.jurisprudence.join(' ')].filter(Boolean).join(' '),
       explanation: [article.plainLanguageExplanation, segmentExplanations].filter(Boolean).join(' '),
       keywords: article.keywords.join(' '),
       topics: article.regulations.join(' '),

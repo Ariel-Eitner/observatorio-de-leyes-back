@@ -22,9 +22,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: '1',
     title: 'Aprobación de la reglamentación',
-    originalText:
-      'ARTÍCULO 1°.- Apruébanse la Reglamentación de la Ley N° 27.642 de PROMOCIÓN DE LA ALIMENTACIÓN SALUDABLE y su Anexo I (IF-2022-24355802-APN-DNAIENT#MS) que como tales forman parte integrante del presente decreto.',
-    currentText:
+    text:
       'ARTÍCULO 1°.- Apruébanse la Reglamentación de la Ley N° 27.642 de PROMOCIÓN DE LA ALIMENTACIÓN SALUDABLE y su Anexo I (IF-2022-24355802-APN-DNAIENT#MS) que como tales forman parte integrante del presente decreto.',
     plainLanguageExplanation:
       'El Poder Ejecutivo aprueba formalmente la reglamentación de la Ley 27.642. El Anexo I contiene los 22 artículos con las reglas operativas detalladas.',
@@ -46,7 +44,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: '1',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Apruébanse la Reglamentación de la Ley N° 27.642 y su Anexo I.',
+        text: 'Apruébanse la Reglamentación de la Ley N° 27.642 y su Anexo I.',
         plainExplanation: 'Acto formal de aprobación: el decreto "da vida" a la reglamentación como norma jurídica vigente y obligatoria.',
         practicalExample: 'Desde el 23 de marzo de 2022, los fabricantes tienen las reglas técnicas precisas para implementar los sellos.',
         references: [],
@@ -59,9 +57,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: '2',
     title: 'Aprobación de especificaciones técnicas (Anexo II)',
-    originalText:
-      'ARTÍCULO 2°.- Apruébanse las Especificaciones Técnicas del Sello de Advertencia y Leyendas Precautorias de la Ley N° 27.642 de PROMOCIÓN DE LA ALIMENTACIÓN SALUDABLE y su Anexo II (IF-2022-24456831-APN-DNAIENT#MS) que como tales forman parte integrante del presente decreto.',
-    currentText:
+    text:
       'ARTÍCULO 2°.- Apruébanse las Especificaciones Técnicas del Sello de Advertencia y Leyendas Precautorias de la Ley N° 27.642 de PROMOCIÓN DE LA ALIMENTACIÓN SALUDABLE y su Anexo II (IF-2022-24456831-APN-DNAIENT#MS) que como tales forman parte integrante del presente decreto.',
     plainLanguageExplanation:
       'El Anexo II contiene las especificaciones técnicas visuales exactas: tamaños, proporciones, tipografía, colores y modelos gráficos de cada sello. Es el manual de diseño oficial.',
@@ -85,7 +81,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: '2',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Apruébanse las Especificaciones Técnicas del Sello de Advertencia (Anexo II).',
+        text: 'Apruébanse las Especificaciones Técnicas del Sello de Advertencia (Anexo II).',
         plainExplanation: 'El Anexo II contiene las imágenes técnicas del diseño oficial del sello. No es texto sino archivos gráficos con medidas exactas.',
         practicalExample: 'Un fabricante que dibuja el octágono con proporciones incorrectas o usa gris en vez de negro viola el Anexo II aunque el texto diga lo correcto.',
         references: [],
@@ -98,9 +94,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: '3',
     title: 'Autoridad de aplicación — Ministerio de Salud',
-    originalText:
-      'ARTÍCULO 3°.- Desígnase al MINISTERIO DE SALUD como Autoridad de Aplicación de la Ley N° 27.642 de PROMOCIÓN DE LA ALIMENTACIÓN SALUDABLE y su reglamentación, facultándolo a dictar las normas complementarias y/o aclaratorias que resulten necesarias para la efectiva aplicación de la Ley N° 27.642 y sus normas reglamentarias.',
-    currentText:
+    text:
       'ARTÍCULO 3°.- Desígnase al MINISTERIO DE SALUD como Autoridad de Aplicación de la Ley N° 27.642 de PROMOCIÓN DE LA ALIMENTACIÓN SALUDABLE y su reglamentación, facultándolo a dictar las normas complementarias y/o aclaratorias que resulten necesarias para la efectiva aplicación de la Ley N° 27.642 y sus normas reglamentarias.',
     plainLanguageExplanation:
       'El Ministerio de Salud es el organismo nacional responsable de la ley. Puede dictar resoluciones, disposiciones y aclaraciones sin necesidad de decreto presidencial.',
@@ -123,7 +117,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: '3',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Desígnase al MINISTERIO DE SALUD como Autoridad de Aplicación, facultándolo a dictar normas complementarias y/o aclaratorias.',
+        text: 'Desígnase al MINISTERIO DE SALUD como Autoridad de Aplicación, facultándolo a dictar normas complementarias y/o aclaratorias.',
         plainExplanation: 'La designación del Ministerio de Salud (y no de Comercio o de Agricultura) refuerza que el foco de la ley es la salud pública, no el comercio.',
         practicalExample: 'Una empresa que quiere saber si su nuevo producto necesita sello puede consultar al Ministerio de Salud, que debe responder y puede emitir una interpretación oficial.',
         references: [],
@@ -136,9 +130,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: '4',
     title: 'Vigencia del decreto',
-    originalText:
-      'ARTÍCULO 4°.- El presente decreto entrará en vigencia a partir de la fecha de su publicación en el BOLETÍN OFICIAL DE LA REPÚBLICA ARGENTINA.',
-    currentText:
+    text:
       'ARTÍCULO 4°.- El presente decreto entrará en vigencia a partir de la fecha de su publicación en el BOLETÍN OFICIAL DE LA REPÚBLICA ARGENTINA.',
     plainLanguageExplanation:
       'El Decreto 151/2022 entró en vigencia el 23 de marzo de 2022, día de su publicación en el Boletín Oficial.',
@@ -160,7 +152,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: '4',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'El presente decreto entrará en vigencia a partir de la fecha de su publicación en el BOLETÍN OFICIAL.',
+        text: 'El presente decreto entrará en vigencia a partir de la fecha de su publicación en el BOLETÍN OFICIAL.',
         plainExplanation: 'A diferencia de la ley (que dio 180 días de plazo), el decreto rige desde su publicación porque es la herramienta reglamentaria, no la obligación directa.',
         practicalExample: 'El 23 de marzo de 2022, los fabricantes pudieron acceder al texto definitivo del decreto y al Anexo II con las especificaciones exactas del sello.',
         references: [],
@@ -173,9 +165,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: '5',
     title: 'Comunicación y archivo',
-    originalText:
-      'ARTÍCULO 5°.- Comuníquese, publíquese, dese a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.',
-    currentText:
+    text:
       'ARTÍCULO 5°.- Comuníquese, publíquese, dese a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.',
     plainLanguageExplanation:
       'Cláusula protocolar de cierre de todo decreto, que ordena su comunicación a los organismos competentes y su publicación oficial.',
@@ -194,7 +184,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: '5',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Comuníquese, publíquese, dese a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.',
+        text: 'Comuníquese, publíquese, dese a la DIRECCIÓN NACIONAL DEL REGISTRO OFICIAL y archívese.',
         plainExplanation: 'Cláusula formal de cierre sin contenido sustancial.',
         practicalExample: null,
         references: [],
@@ -209,8 +199,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 1',
     title: 'Objeto — sin reglamentar',
-    originalText: 'ARTÍCULO 1°.- Sin reglamentar.',
-    currentText: 'ARTÍCULO 1°.- Sin reglamentar.',
+    text: 'ARTÍCULO 1°.- Sin reglamentar.',
     plainLanguageExplanation:
       'El Poder Ejecutivo optó por no reglamentar el artículo 1° de la ley (objeto), dado que su texto es suficientemente claro y autoejecutable.',
     practicalEffects: [],
@@ -228,7 +217,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 1',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Sin reglamentar.',
+        text: 'Sin reglamentar.',
         plainExplanation: 'La declaración de objeto de la ley (garantizar el derecho a la salud, advertir sobre excesos de nutrientes) no requiere aclaraciones adicionales.',
         practicalExample: null,
         references: [],
@@ -241,9 +230,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 2',
     title: 'Definiciones reglamentadas',
-    originalText:
-      'ARTÍCULO 2°.- A los efectos del presente decreto y su Anexo I se entiende por:\na) Alimentación saludable: aquella que, cuantitativa y cualitativamente, es adecuada y suficiente;\nb) Nutrientes críticos: azúcares totales y azúcares añadidos, sodio, grasas saturadas y grasas totales;\nc) Rotulado nutricional: toda descripción destinada a informar al consumidor sobre las propiedades nutricionales de un alimento;\nd) Publicidad: toda forma de comunicación dirigida al público en general realizada por cualquier medio;\ne) Promoción: toda comunicación destinada a incrementar la venta o a incentivar el consumo;\nf) Patrocinio: toda contribución pública o privada a cualquier evento o actividad;\ng) Sello de advertencia: símbolo de forma octogonal de color negro, con borde y letras de color blanco;\nh) Alimento envasado: todo alimento que se presenta envuelto, encerrado o contenido en un envase listo para ofrecerse al consumidor;\ni) Claim: toda mención, representación, imagen o señal que afirme o sugiera que un producto posee propiedades especiales.',
-    currentText:
+    text:
       'ARTÍCULO 2°.- A los efectos del presente decreto y su Anexo I se entiende por:\na) Alimentación saludable: aquella que, cuantitativa y cualitativamente, es adecuada y suficiente;\nb) Nutrientes críticos: azúcares totales y azúcares añadidos, sodio, grasas saturadas y grasas totales;\nc) Rotulado nutricional: toda descripción destinada a informar al consumidor sobre las propiedades nutricionales de un alimento;\nd) Publicidad: toda forma de comunicación dirigida al público en general realizada por cualquier medio;\ne) Promoción: toda comunicación destinada a incrementar la venta o a incentivar el consumo;\nf) Patrocinio: toda contribución pública o privada a cualquier evento o actividad;\ng) Sello de advertencia: símbolo de forma octogonal de color negro, con borde y letras de color blanco;\nh) Alimento envasado: todo alimento que se presenta envuelto, encerrado o contenido en un envase listo para ofrecerse al consumidor;\ni) Claim: toda mención, representación, imagen o señal que afirme o sugiera que un producto posee propiedades especiales.',
     plainLanguageExplanation:
       'El decreto amplía y precisa las definiciones de la ley. Importante: los "nutrientes críticos" incluyen azúcares TOTALES y azúcares AÑADIDOS, no solo los libres de la ley. Esto es más amplio.',
@@ -265,7 +252,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 2',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Nutrientes críticos: azúcares totales y azúcares añadidos, sodio, grasas saturadas y grasas totales.',
+        text: 'Nutrientes críticos: azúcares totales y azúcares añadidos, sodio, grasas saturadas y grasas totales.',
         plainExplanation: 'La definición en el decreto es más precisa que en la ley: separa azúcares totales de añadidos, lo cual es relevante para la Tabla 1 de valores máximos.',
         practicalExample: 'Un jugo de fruta 100% natural puede tener muchos azúcares totales (fructosa natural) pero cero azúcares añadidos, lo que define si lleva o no el sello.',
         references: [],
@@ -278,9 +265,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 3',
     title: 'Sujetos obligados — alcance ampliado',
-    originalText:
-      'ARTÍCULO 3°.- Los sujetos obligados son todas las personas humanas o jurídicas que fabriquen, produzcan, elaboren, fraccionen, envasen, transporten, almacenen, distribuyan, importen, exporten, comercialicen o pongan a disposición de los consumidores en el país alimentos envasados y bebidas analcohólicas, cualquiera sea su procedencia o lugar de elaboración. Quedan incluidos los establecimientos de comercio electrónico y plataformas de ventas digitales.',
-    currentText:
+    text:
       'ARTÍCULO 3°.- Los sujetos obligados son todas las personas humanas o jurídicas que fabriquen, produzcan, elaboren, fraccionen, envasen, transporten, almacenen, distribuyan, importen, exporten, comercialicen o pongan a disposición de los consumidores en el país alimentos envasados y bebidas analcohólicas, cualquiera sea su procedencia o lugar de elaboración. Quedan incluidos los establecimientos de comercio electrónico y plataformas de ventas digitales.',
     plainLanguageExplanation:
       'El decreto añade expresamente el comercio electrónico y plataformas digitales a la lista de obligados. Mercado Libre, PedidosYa, Rappi y similares deben cumplir cuando venden alimentos envasados.',
@@ -304,7 +289,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 3',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Quedan incluidos los establecimientos de comercio electrónico y plataformas de ventas digitales.',
+        text: 'Quedan incluidos los establecimientos de comercio electrónico y plataformas de ventas digitales.',
         plainExplanation: 'La inclusión expresa del e-commerce cierra el vacío que podría haberse argumentado para ventas online donde el consumidor no ve el envase físico antes de comprar.',
         practicalExample: 'Una tienda online que vende galletitas debe mostrar en su web los sellos del producto tal como aparecen en el envase físico.',
         references: [],
@@ -317,9 +302,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 4',
     title: 'Sello en cara principal — criterios técnicos',
-    originalText:
-      'ARTÍCULO 4°.- Los alimentos envasados y las bebidas analcohólicas que contengan cantidades iguales o superiores a los valores de nutrientes críticos establecidos en el artículo 6° deberán incluir en la cara principal del envase los sellos de advertencia correspondientes. La cara principal es la parte del envase que normalmente se presenta o exhibe al consumidor en condiciones habituales de venta.',
-    currentText:
+    text:
       'ARTÍCULO 4°.- Los alimentos envasados y las bebidas analcohólicas que contengan cantidades iguales o superiores a los valores de nutrientes críticos establecidos en el artículo 6° deberán incluir en la cara principal del envase los sellos de advertencia correspondientes. La cara principal es la parte del envase que normalmente se presenta o exhibe al consumidor en condiciones habituales de venta.',
     plainLanguageExplanation:
       'El decreto define qué es la "cara principal": la parte visible al consumidor en la góndola. Esto es importante para envases irregulares o con múltiples caras.',
@@ -342,7 +325,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 4',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La cara principal es la parte del envase que normalmente se presenta o exhibe al consumidor en condiciones habituales de venta.',
+        text: 'La cara principal es la parte del envase que normalmente se presenta o exhibe al consumidor en condiciones habituales de venta.',
         plainExplanation: 'La definición es funcional (lo que ve el consumidor), no estructural (la cara más grande). Esto evita que fabricantes argumenten que su "cara principal" es una cara pequeña donde el sello apenas se ve.',
         practicalExample: 'Un pack de galletitas cuadrado exhibido de canto en la góndola: la cara principal es la que mira al consumidor, no la más ancha.',
         references: [],
@@ -355,9 +338,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 5',
     title: 'Características técnicas del sello — remite al Anexo II',
-    originalText:
-      'ARTÍCULO 5°.- Las especificaciones técnicas del sello de advertencia y leyendas precautorias se realizarán de conformidad a las pautas indicadas en el documento que como ANEXO II forma parte integrante del presente decreto.',
-    currentText:
+    text:
       'ARTÍCULO 5°.- Las especificaciones técnicas del sello de advertencia y leyendas precautorias se realizarán de conformidad a las pautas indicadas en el documento que como ANEXO II forma parte integrante del presente decreto.',
     plainLanguageExplanation:
       'Las especificaciones exactas de diseño (tamaño, tipografía, proporciones del octágono) están en el Anexo II del decreto, que son archivos gráficos técnicos.',
@@ -379,7 +360,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 5',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Las especificaciones técnicas se realizarán de conformidad a las pautas del ANEXO II.',
+        text: 'Las especificaciones técnicas se realizarán de conformidad a las pautas del ANEXO II.',
         plainExplanation: 'El Anexo II incluye archivos gráficos (vectoriales o en alta resolución) de cada variante del sello para que los fabricantes los reproduzcan fielmente.',
         practicalExample: 'Un fabricante descarga los archivos del Anexo II del sitio del Ministerio de Salud y los envía a su imprenta para reproducirlos en el packaging.',
         references: [],
@@ -392,9 +373,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 6',
     title: 'Tabla de valores máximos — Etapas 1 y 2',
-    originalText:
-      'ARTÍCULO 6°.- Los valores máximos de contenido de nutrientes críticos a partir de los cuales corresponde incluir el sello de advertencia son los establecidos en la TABLA 1, que forma parte del presente Anexo:\n\nTABLA 1 — Puntos de corte por 100ml (bebidas) o 100g (sólidos):\n\nEtapa 1:\n- Azúcares añadidos: ≥10g/100ml o ≥5g/100g\n- Grasas saturadas: ≥4g/100ml o ≥4g/100g\n- Grasas totales: ≥3g/100ml o ≥10g/100g\n- Sodio: ≥100mg/100ml o ≥400mg/100g\n\nEtapa 2:\n- Azúcares añadidos: ≥6g/100ml o ≥3g/100g\n- Grasas saturadas: ≥3g/100ml o ≥3g/100g\n- Grasas totales: ≥1,5g/100ml o ≥8g/100g\n- Sodio: ≥50mg/100ml o ≥300mg/100g',
-    currentText:
+    text:
       'ARTÍCULO 6°.- Los valores máximos de contenido de nutrientes críticos a partir de los cuales corresponde incluir el sello de advertencia son los establecidos en la TABLA 1, que forma parte del presente Anexo:\n\nTABLA 1 — Puntos de corte por 100ml (bebidas) o 100g (sólidos):\n\nEtapa 1:\n- Azúcares añadidos: ≥10g/100ml o ≥5g/100g\n- Grasas saturadas: ≥4g/100ml o ≥4g/100g\n- Grasas totales: ≥3g/100ml o ≥10g/100g\n- Sodio: ≥100mg/100ml o ≥400mg/100g\n\nEtapa 2:\n- Azúcares añadidos: ≥6g/100ml o ≥3g/100g\n- Grasas saturadas: ≥3g/100ml o ≥3g/100g\n- Grasas totales: ≥1,5g/100ml o ≥8g/100g\n- Sodio: ≥50mg/100ml o ≥300mg/100g',
     plainLanguageExplanation:
       'La Tabla 1 es el corazón operativo del sistema: da los números exactos que determinan si un producto necesita sello. La Etapa 2 (vigente para grandes empresas desde ~mayo 2023) tiene umbrales entre 25% y 50% más estrictos que la Etapa 1.',
@@ -421,7 +400,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 6',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Etapa 1 — Azúcares añadidos: ≥10g/100ml o ≥5g/100g; Grasas saturadas: ≥4g/100ml o ≥4g/100g; Grasas totales: ≥3g/100ml o ≥10g/100g; Sodio: ≥100mg/100ml o ≥400mg/100g.',
+        text: 'Etapa 1 — Azúcares añadidos: ≥10g/100ml o ≥5g/100g; Grasas saturadas: ≥4g/100ml o ≥4g/100g; Grasas totales: ≥3g/100ml o ≥10g/100g; Sodio: ≥100mg/100ml o ≥400mg/100g.',
         plainExplanation: 'Los valores de Etapa 1 son los umbrales iniciales más permisivos. Para los consumidores son el primer filtro para identificar productos problemáticos.',
         practicalExample: 'Una galletita con 12g de grasas totales/100g supera el límite de Etapa 1 (10g) y debe llevar el sello "EXCESO EN GRASAS TOTALES".',
         references: [],
@@ -433,7 +412,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 6',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText: 'Etapa 2 — Azúcares añadidos: ≥6g/100ml o ≥3g/100g; Grasas saturadas: ≥3g/100ml o ≥3g/100g; Grasas totales: ≥1,5g/100ml o ≥8g/100g; Sodio: ≥50mg/100ml o ≥300mg/100g.',
+        text: 'Etapa 2 — Azúcares añadidos: ≥6g/100ml o ≥3g/100g; Grasas saturadas: ≥3g/100ml o ≥3g/100g; Grasas totales: ≥1,5g/100ml o ≥8g/100g; Sodio: ≥50mg/100ml o ≥300mg/100g.',
         plainExplanation: 'Los valores de Etapa 2 son más estrictos y entraron en vigencia ~12 meses después de la Etapa 1. Provocaron que muchos productos nuevamente tuvieran que agregar sellos.',
         practicalExample: 'Un snack que en Etapa 1 tenía 3,5g de grasas saturadas/100g (sin sello), en Etapa 2 supera el límite de 3g y debe agregar el sello.',
         references: [],
@@ -446,9 +425,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 7',
     title: 'Excepciones — concordancia con perfil OPS',
-    originalText:
-      'ARTÍCULO 7°.- Quedan exceptuados de la obligación de incluir los sellos de advertencia el azúcar común, los aceites vegetales, los frutos secos y la sal común de mesa, cuando se traten de esos productos en su estado puro, sin mezclas ni preparaciones que incluyan otros ingredientes que modifiquen su perfil nutricional.',
-    currentText:
+    text:
       'ARTÍCULO 7°.- Quedan exceptuados de la obligación de incluir los sellos de advertencia el azúcar común, los aceites vegetales, los frutos secos y la sal común de mesa, cuando se traten de esos productos en su estado puro, sin mezclas ni preparaciones que incluyan otros ingredientes que modifiquen su perfil nutricional.',
     plainLanguageExplanation:
       'El decreto aclara que la excepción aplica solo a productos "en estado puro". Si se mezclan o procesan con otros ingredientes, la excepción no aplica.',
@@ -472,7 +449,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 7',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La excepción aplica cuando se traten de esos productos en su estado puro, sin mezclas ni preparaciones que incluyan otros ingredientes que modifiquen su perfil nutricional.',
+        text: 'La excepción aplica cuando se traten de esos productos en su estado puro, sin mezclas ni preparaciones que incluyan otros ingredientes que modifiquen su perfil nutricional.',
         plainExplanation: 'La condición de "estado puro" es la clave: cualquier procesamiento que combine el ingrediente base con otros elementos elimina la excepción.',
         practicalExample: 'Una marca que vende "frutos secos mixtos con sal y aceite de coco" no puede invocar la excepción de frutos secos ni de aceites.',
         references: [],
@@ -485,9 +462,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 8',
     title: 'Declaración de azúcares — posición en tabla',
-    originalText:
-      'ARTÍCULO 8°.- Los alimentos envasados y las bebidas analcohólicas deben declarar el contenido de azúcares totales y de azúcares añadidos en el rotulado nutricional. Esta declaración deberá realizarse inmediatamente después de la declaración de carbohidratos, en líneas separadas.',
-    currentText:
+    text:
       'ARTÍCULO 8°.- Los alimentos envasados y las bebidas analcohólicas deben declarar el contenido de azúcares totales y de azúcares añadidos en el rotulado nutricional. Esta declaración deberá realizarse inmediatamente después de la declaración de carbohidratos, en líneas separadas.',
     plainLanguageExplanation:
       'El decreto agrega el detalle "en líneas separadas" que no estaba en la ley. Cada tipo de azúcar (total y añadido) debe estar en su propia línea de la tabla nutricional.',
@@ -508,7 +483,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 8',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La declaración deberá realizarse inmediatamente después de la declaración de carbohidratos, en líneas separadas.',
+        text: 'La declaración deberá realizarse inmediatamente después de la declaración de carbohidratos, en líneas separadas.',
         plainExplanation: 'El requisito de "líneas separadas" evita que fabricantes fusionen los dos valores en una sola línea confusa.',
         practicalExample: 'Una tabla nutricional correcta: "Carbohidratos 30g | Azúcares totales 12g | de los cuales Azúcares añadidos 8g".',
         references: [],
@@ -521,9 +496,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 9',
     title: 'Prohibiciones en envases — alcance de personajes',
-    originalText:
-      'ARTÍCULO 9°.- Los alimentos envasados y las bebidas analcohólicas que deban incluir los sellos de advertencia no podrán:\na) Incluir en sus envases declaraciones nutricionales, de salud, o de propiedades beneficiosas;\nb) Presentar logos o avales de instituciones o asociaciones científicas o de profesionales de la salud;\nc) Incluir personajes de dibujos animados, animales, deportistas, personajes de ficción o personajes reconocidos que resulten atractivos para menores de dieciséis (16) años;\nd) Incluir juguetes, regalos, concursos, sorteos, aplicaciones y cualquier otro incentivo que estimule la compra por parte del público infantil;\ne) Incluir cualquier otro elemento que pueda inducir al consumidor a error respecto de las propiedades del producto.',
-    currentText:
+    text:
       'ARTÍCULO 9°.- Los alimentos envasados y las bebidas analcohólicas que deban incluir los sellos de advertencia no podrán:\na) Incluir en sus envases declaraciones nutricionales, de salud, o de propiedades beneficiosas;\nb) Presentar logos o avales de instituciones o asociaciones científicas o de profesionales de la salud;\nc) Incluir personajes de dibujos animados, animales, deportistas, personajes de ficción o personajes reconocidos que resulten atractivos para menores de dieciséis (16) años;\nd) Incluir juguetes, regalos, concursos, sorteos, aplicaciones y cualquier otro incentivo que estimule la compra por parte del público infantil;\ne) Incluir cualquier otro elemento que pueda inducir al consumidor a error respecto de las propiedades del producto.',
     plainLanguageExplanation:
       'El decreto agrega un inciso e) de "cajón" que prohíbe cualquier otro elemento engañoso no listado específicamente en los incisos anteriores. Es una cláusula de cierre.',
@@ -544,7 +517,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 9',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'No podrán incluir cualquier otro elemento que pueda inducir al consumidor a error respecto de las propiedades del producto.',
+        text: 'No podrán incluir cualquier otro elemento que pueda inducir al consumidor a error respecto de las propiedades del producto.',
         plainExplanation: 'El inciso e) es una cláusula residual: si algo no está listado expresamente pero igual engaña, también está prohibido.',
         practicalExample: 'Un envase con la imagen de una persona delgada y en forma podría considerarse un elemento que "induce a error" sobre las propiedades del producto aunque no sea un claim explícito.',
         references: [],
@@ -557,9 +530,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 10',
     title: 'Publicidad — fiscalización por ANMAT y ENACOM',
-    originalText:
-      'ARTÍCULO 10°.- Toda publicidad, promoción y/o patrocinio de alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia quedará bajo la fiscalización y el control de la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT) y de la ENTIDAD NACIONAL DE COMUNICACIONES (ENACOM).',
-    currentText:
+    text:
       'ARTÍCULO 10°.- Toda publicidad, promoción y/o patrocinio de alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia quedará bajo la fiscalización y el control de la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT) y de la ENTIDAD NACIONAL DE COMUNICACIONES (ENACOM).',
     plainLanguageExplanation:
       'La publicidad es controlada por dos organismos: ANMAT (por el contenido alimentario) y ENACOM (por los medios de comunicación). Ambos pueden actuar e imponer sanciones.',
@@ -582,7 +553,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 10',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La publicidad quedará bajo la fiscalización y el control de ANMAT y de ENACOM.',
+        text: 'La publicidad quedará bajo la fiscalización y el control de ANMAT y de ENACOM.',
         plainExplanation: 'La doble jurisdicción ANMAT-ENACOM cubre tanto el contenido como el medio de difusión, creando un sistema de control integral.',
         practicalExample: 'Un spot de TV que publicita una gaseosa con sello en horario de dibujos animados puede ser sancionado por ENACOM (por el medio) y por ANMAT (por el contenido).',
         references: [],
@@ -595,9 +566,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 11',
     title: 'Educación alimentaria — Guías Alimentarias (GAPA)',
-    originalText:
-      'ARTÍCULO 11°.- El Consejo Federal de Educación, en conjunto con la autoridad de aplicación de la presente ley, promoverá la inclusión de contenidos de educación alimentaria nutricional en los diferentes niveles del sistema educativo. Los contenidos deberán basarse en las Guías Alimentarias para la Población Argentina (GAPA) y las Guías Alimentarias para la Población Infantil Argentina (GAPI).',
-    currentText:
+    text:
       'ARTÍCULO 11°.- El Consejo Federal de Educación, en conjunto con la autoridad de aplicación de la presente ley, promoverá la inclusión de contenidos de educación alimentaria nutricional en los diferentes niveles del sistema educativo. Los contenidos deberán basarse en las Guías Alimentarias para la Población Argentina (GAPA) y las Guías Alimentarias para la Población Infantil Argentina (GAPI).',
     plainLanguageExplanation:
       'El decreto especifica que el contenido educativo debe basarse en las GAPA (Guías Alimentarias Para Adultos) y GAPI (Guías para niños). Esto da un marco científico oficial a la educación alimentaria.',
@@ -616,7 +585,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 11',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Los contenidos deberán basarse en las Guías Alimentarias para la Población Argentina (GAPA) y las Guías Alimentarias para la Población Infantil Argentina (GAPI).',
+        text: 'Los contenidos deberán basarse en las Guías Alimentarias para la Población Argentina (GAPA) y las Guías Alimentarias para la Población Infantil Argentina (GAPI).',
         plainExplanation: 'Las GAPA y GAPI son los documentos oficiales del Ministerio de Salud sobre alimentación saludable. Al referirlos, el decreto fija un estándar científico actualizable sin modificar la norma.',
         practicalExample: 'Si el Ministerio de Salud actualiza las GAPA, el contenido educativo en escuelas debe actualizarse en consonancia.',
         references: [],
@@ -629,9 +598,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 12',
     title: 'Entornos escolares — incluye kioscos y máquinas',
-    originalText:
-      'ARTÍCULO 12°.- Queda prohibido ofrecer, comercializar, publicitar o patrocinar alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia en los establecimientos educativos de los niveles inicial, primario y secundario, incluidos los espacios dentro de los establecimientos como kioscos, buffets, cantinas, comedores y máquinas expendedoras.',
-    currentText:
+    text:
       'ARTÍCULO 12°.- Queda prohibido ofrecer, comercializar, publicitar o patrocinar alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia en los establecimientos educativos de los niveles inicial, primario y secundario, incluidos los espacios dentro de los establecimientos como kioscos, buffets, cantinas, comedores y máquinas expendedoras.',
     plainLanguageExplanation:
       'El decreto detalla que la prohibición abarca kioscos, buffets, cantinas, comedores y máquinas expendedoras dentro de la escuela. No hay espacio físico dentro del establecimiento que quede exento.',
@@ -653,7 +620,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 12',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La prohibición incluye los espacios dentro de los establecimientos como kioscos, buffets, cantinas, comedores y máquinas expendedoras.',
+        text: 'La prohibición incluye los espacios dentro de los establecimientos como kioscos, buffets, cantinas, comedores y máquinas expendedoras.',
         plainExplanation: 'La enumeración cierra cualquier interpretación restrictiva: no hay un rincón del establecimiento escolar donde puedan venderse productos con sello.',
         practicalExample: 'Una máquina de gaseosas en el pasillo de una secundaria debe retirarse o reconvertirse a aguas y jugos sin sello.',
         references: [],
@@ -666,9 +633,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 13',
     title: 'Autoridad de aplicación — coordinación entre organismos',
-    originalText:
-      'ARTÍCULO 13°.- El MINISTERIO DE SALUD, como Autoridad de Aplicación, coordinará sus funciones con la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT), la ENTIDAD NACIONAL DE COMUNICACIONES (ENACOM), el MINISTERIO DE EDUCACIÓN y el MINISTERIO DE AGRICULTURA, GANADERÍA Y PESCA.',
-    currentText:
+    text:
       'ARTÍCULO 13°.- El MINISTERIO DE SALUD, como Autoridad de Aplicación, coordinará sus funciones con la ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT), la ENTIDAD NACIONAL DE COMUNICACIONES (ENACOM), el MINISTERIO DE EDUCACIÓN y el MINISTERIO DE AGRICULTURA, GANADERÍA Y PESCA.',
     plainLanguageExplanation:
       'La implementación de la ley involucra cuatro ministerios/organismos: Salud (autoridad principal), ANMAT (control de alimentos), ENACOM (control de publicidad en medios) y Educación (escuelas) y Agricultura (sector productor).',
@@ -687,7 +652,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 13',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'El MINISTERIO DE SALUD coordinará sus funciones con ANMAT, ENACOM, el MINISTERIO DE EDUCACIÓN y el MINISTERIO DE AGRICULTURA.',
+        text: 'El MINISTERIO DE SALUD coordinará sus funciones con ANMAT, ENACOM, el MINISTERIO DE EDUCACIÓN y el MINISTERIO DE AGRICULTURA.',
         plainExplanation: 'La coordinación multi-organismo refleja que la alimentación saludable involucra producción, distribución, comunicación y educación simultáneamente.',
         practicalExample: 'ANMAT puede hacer inspecciones en fábricas; ENACOM puede monitorear publicidades en TV; Educación puede supervisar kioscos escolares.',
         references: [],
@@ -700,9 +665,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 14',
     title: 'Facultades de fiscalización — declaración jurada',
-    originalText:
-      'ARTÍCULO 14°.- La autoridad de aplicación podrá:\na) Elaborar y difundir campañas educativas sobre alimentación saludable;\nb) Determinar el procedimiento para las denuncias e infracciones;\nc) Exigir declaración jurada de nutrientes críticos a los sujetos obligados;\nd) Implementar un sistema de monitoreo del cumplimiento.',
-    currentText:
+    text:
       'ARTÍCULO 14°.- La autoridad de aplicación podrá:\na) Elaborar y difundir campañas educativas sobre alimentación saludable;\nb) Determinar el procedimiento para las denuncias e infracciones;\nc) Exigir declaración jurada de nutrientes críticos a los sujetos obligados;\nd) Implementar un sistema de monitoreo del cumplimiento.',
     plainLanguageExplanation:
       'El decreto agrega al poder de la autoridad la capacidad de crear un sistema de monitoreo permanente del cumplimiento. Esto habilita inspecciones regulares, no solo por denuncia.',
@@ -724,7 +687,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 14',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La autoridad de aplicación podrá implementar un sistema de monitoreo del cumplimiento.',
+        text: 'La autoridad de aplicación podrá implementar un sistema de monitoreo del cumplimiento.',
         plainExplanation: 'El monitoreo sistemático permite detectar incumplimientos proactivamente, no solo cuando hay denuncias.',
         practicalExample: 'La autoridad puede designar inspectores que recorran supermercados regularmente verificando que los productos en góndola tengan los sellos correctos.',
         references: [],
@@ -737,9 +700,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 19',
     title: 'Cronograma de implementación en dos etapas',
-    originalText:
-      'ARTÍCULO 19°.- Se establece el siguiente cronograma de implementación:\nPrimera Etapa: a los nueve (9) meses de la vigencia de la ley para las grandes empresas; a los quince (15) meses para las MiPyMEs Tramo 1, cooperativas y proveedores de agricultura familiar. Se aplicarán los valores de la Etapa 1 de la TABLA 1.\nSegunda Etapa: a los dieciocho (18) meses de la vigencia de la ley para las grandes empresas; a los veinticuatro (24) meses para las MiPyMEs Tramo 1, cooperativas y proveedores de agricultura familiar. Se aplicarán los valores de la Etapa 2 de la TABLA 1.',
-    currentText:
+    text:
       'ARTÍCULO 19°.- Se establece el siguiente cronograma de implementación:\nPrimera Etapa: a los nueve (9) meses de la vigencia de la ley para las grandes empresas; a los quince (15) meses para las MiPyMEs Tramo 1, cooperativas y proveedores de agricultura familiar. Se aplicarán los valores de la Etapa 1 de la TABLA 1.\nSegunda Etapa: a los dieciocho (18) meses de la vigencia de la ley para las grandes empresas; a los veinticuatro (24) meses para las MiPyMEs Tramo 1, cooperativas y proveedores de agricultura familiar. Se aplicarán los valores de la Etapa 2 de la TABLA 1.',
     plainLanguageExplanation:
       'El decreto divide la implementación en dos etapas con plazos distintos según el tamaño de la empresa. Las grandes empresas tuvieron 9 meses para la Etapa 1 y 18 para la Etapa 2. Las MiPyMEs tuvieron 15 y 24 meses respectivamente.',
@@ -763,7 +724,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 19',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Primera Etapa: 9 meses para grandes empresas, 15 meses para MiPyMEs. Segunda Etapa: 18 meses para grandes empresas, 24 meses para MiPyMEs.',
+        text: 'Primera Etapa: 9 meses para grandes empresas, 15 meses para MiPyMEs. Segunda Etapa: 18 meses para grandes empresas, 24 meses para MiPyMEs.',
         plainExplanation: 'El cronograma escalonado es la herramienta de política pública que hace viable la implementación sin colapsar a las empresas más pequeñas.',
         practicalExample: 'Una empresa multinacional de alimentos tuvo que cumplir con la Etapa 1 ~8 meses antes que una pequeña empresa familiar del mismo rubro.',
         references: [],
@@ -776,9 +737,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
     lawId: LAW_ID,
     number: 'Anexo I - Art. 22',
     title: 'Incorporación al Código Alimentario Argentino',
-    originalText:
-      'ARTÍCULO 22°.- La ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT) en conjunto con el SERVICIO NACIONAL DE SANIDAD Y CALIDAD AGROALIMENTARIA (SENASA) dictarán en un plazo de noventa (90) días la Resolución Conjunta que incorpore al CÓDIGO ALIMENTARIO ARGENTINO las modificaciones necesarias para adecuarlo a las disposiciones de la Ley Nº 27.642 y su reglamentación.',
-    currentText:
+    text:
       'ARTÍCULO 22°.- La ADMINISTRACIÓN NACIONAL DE MEDICAMENTOS, ALIMENTOS Y TECNOLOGÍA MÉDICA (ANMAT) en conjunto con el SERVICIO NACIONAL DE SANIDAD Y CALIDAD AGROALIMENTARIA (SENASA) dictarán en un plazo de noventa (90) días la Resolución Conjunta que incorpore al CÓDIGO ALIMENTARIO ARGENTINO las modificaciones necesarias para adecuarlo a las disposiciones de la Ley Nº 27.642 y su reglamentación.',
     plainLanguageExplanation:
       'ANMAT y SENASA tienen 90 días desde la vigencia del decreto para emitir una resolución conjunta que incorpore los cambios al Código Alimentario Argentino, el cuerpo normativo principal de alimentos en Argentina.',
@@ -800,7 +759,7 @@ export const DECRETO_151_ARTICLES: Article[] = [
         articleNumber: 'Anexo I - Art. 22',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'ANMAT en conjunto con SENASA dictarán en 90 días la Resolución Conjunta que incorpore al CAA las modificaciones necesarias.',
+        text: 'ANMAT en conjunto con SENASA dictarán en 90 días la Resolución Conjunta que incorpore al CAA las modificaciones necesarias.',
         plainExplanation: 'La doble firma ANMAT-SENASA (uno para alimentos de consumo humano, otro para producción agropecuaria) refleja la cadena completa de control alimentario.',
         practicalExample: 'La Resolución Conjunta actualiza el CAA para incluir como obligatorio el sistema de sellos octogonales en toda la normativa alimentaria argentina.',
         references: [],

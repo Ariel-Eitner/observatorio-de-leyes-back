@@ -21,12 +21,7 @@ export class CreateArticleDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  originalText: string;
-
-  @ApiProperty()
-  @IsString()
-  @IsNotEmpty()
-  currentText: string;
+  text: string;
 
   @ApiPropertyOptional()
   @IsOptional()

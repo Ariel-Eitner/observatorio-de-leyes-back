@@ -6,11 +6,8 @@ export const ARTICLES_26639_01: Article[] = [
     lawId: 'ley-26639',
     number: '1',
     title: 'Objeto',
-    originalText:
-      'La presente ley establece los presupuestos mínimos para la protección de los glaciares y del ambiente periglacial con el objeto de preservarlos como reservas estratégicas de recursos hídricos para el consumo humano; para la agricultura y como proveedores de agua para la recarga de cuencas hidrográficas; para la protección de la biodiversidad; como fuente de información científica y como atractivo turístico. Los glaciares constituyen bienes de carácter público.',
-    currentText:
-      'La presente ley establece los presupuestos mínimos para la protección de los glaciares y del ambiente periglacial con el objeto de preservarlos como reservas estratégicas de recursos hídricos para el consumo humano; para la agricultura y como proveedores de agua para la recarga de cuencas hidrográficas; para la protección de la biodiversidad; como fuente de información científica y como atractivo turístico. Los glaciares constituyen bienes de carácter público.',
-    plainLanguageExplanation:
+    text:
+      'La presente ley establece los presupuestos mínimos para la protección de los glaciares y del ambiente periglacial con el objeto de preservarlos como reservas estratégicas de recursos hídricos para el consumo humano; para la agricultura y como proveedores de agua para la recarga de cuencas hidrográficas; para la protección de la biodiversidad; como fuente de información científica y como atractivo turístico. Los glaciares constituyen bienes de carácter público.',    plainLanguageExplanation:
       'Esta ley protege los glaciares y las zonas periglaciales (suelos congelados que los rodean) como reservas estratégicas de agua. Define que los glaciares son bienes públicos —no pueden ser de propiedad privada— y los protege para garantizar agua dulce para consumo, agricultura y biodiversidad. Como "ley de presupuestos mínimos" (art. 41 CN), fija un piso de protección que ninguna provincia puede bajar, aunque sí pueden ser más estrictas.',
     practicalEffects: [
       'Los glaciares son bienes públicos: no pueden ser apropiados, concesionados ni privatizados',
@@ -35,7 +32,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La presente ley establece los presupuestos mínimos para la protección de los glaciares y del ambiente periglacial...',
         plainExplanation:
           '"Presupuestos mínimos" significa que esta ley fija el piso más bajo permitido de protección. Las provincias pueden ser más estrictas, pero nunca relajar estas reglas.',
@@ -50,7 +47,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText: 'Los glaciares constituyen bienes de carácter público.',
+        text: 'Los glaciares constituyen bienes de carácter público.',
         plainExplanation:
           'Esta frase es corta pero poderosa. Los glaciares son de todos, no de nadie en particular. No pueden comprarse, alquilarse ni usarse como si fueran un recurso privado.',
         practicalExample:
@@ -66,11 +63,8 @@ export const ARTICLES_26639_01: Article[] = [
     lawId: 'ley-26639',
     number: '2',
     title: 'Definición',
-    originalText:
-      'A los efectos de la presente ley, se entiende por glaciar toda masa de hielo perenne estable o que fluye lentamente, con o sin agua intersticial, formado por la recristalización de nieve, ubicado en diferentes ecosistemas, cualquiera sea su forma, dimensión y estado de conservación. Son parte constituyente de cada glaciar el material detrítico rocoso y los cursos internos y superficiales de agua.\n\nAsimismo, se entiende por ambiente periglacial en la alta montaña, al área con suelos congelados que actúa como regulador del recurso hídrico. En la media y baja montaña al área que funciona como regulador de recursos hídricos con suelos saturados en hielo.',
-    currentText:
-      'A los efectos de la presente ley, se entiende por glaciar toda masa de hielo perenne estable o que fluye lentamente, con o sin agua intersticial, formado por la recristalización de nieve, ubicado en diferentes ecosistemas, cualquiera sea su forma, dimensión y estado de conservación. Son parte constituyente de cada glaciar el material detrítico rocoso y los cursos internos y superficiales de agua.\n\nAsimismo, se entiende por ambiente periglacial en la alta montaña, al área con suelos congelados que actúa como regulador del recurso hídrico. En la media y baja montaña al área que funciona como regulador de recursos hídricos con suelos saturados en hielo.',
-    plainLanguageExplanation:
+    text:
+      'A los efectos de la presente ley, se entiende por glaciar toda masa de hielo perenne estable o que fluye lentamente, con o sin agua intersticial, formado por la recristalización de nieve, ubicado en diferentes ecosistemas, cualquiera sea su forma, dimensión y estado de conservación. Son parte constituyente de cada glaciar el material detrítico rocoso y los cursos internos y superficiales de agua.\n\nAsimismo, se entiende por ambiente periglacial en la alta montaña, al área con suelos congelados que actúa como regulador del recurso hídrico. En la media y baja montaña al área que funciona como regulador de recursos hídricos con suelos saturados en hielo.',    plainLanguageExplanation:
       'Define qué es un glaciar: cualquier masa de hielo permanente, sin importar su tamaño, forma o estado. No hace falta que sea un gran glaciar de montaña: cualquier masa de hielo perenne cuenta. Crucialmente, también define el "ambiente periglacial" — las zonas de suelos congelados alrededor de los glaciares — y las protege igual. Esta definición amplia fue el centro de la controversia: muchas minas operan en zonas periglaciales aunque no estén sobre glaciares propiamente dichos.',
     practicalEffects: [
       'La definición de glaciar es amplia: incluye pequeños cuerpos de hielo (glaciares de escombros, nevizas, campos de hielo)',
@@ -97,7 +91,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           '...se entiende por glaciar toda masa de hielo perenne estable o que fluye lentamente, con o sin agua intersticial, formado por la recristalización de nieve, ubicado en diferentes ecosistemas, cualquiera sea su forma, dimensión y estado de conservación.',
         plainExplanation:
           'Glaciar = cualquier masa de hielo permanente. No importa si está creciendo o retrocediendo, si es enorme o pequeño, si está en los Andes o en la Patagonia. La definición es intencionalmente amplia.',
@@ -112,7 +106,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'se entiende por ambiente periglacial en la alta montaña, al área con suelos congelados que actúa como regulador del recurso hídrico...',
         plainExplanation:
           'El ambiente periglacial es el área que rodea al glaciar, con suelos congelados (permafrost). También regula el agua, liberándola gradualmente. Protegerlo es tan importante como proteger el glaciar: si se destruye el periglacial, el agua de deshielo llega de golpe en vez de fluir regularmente.',
@@ -129,11 +123,8 @@ export const ARTICLES_26639_01: Article[] = [
     lawId: 'ley-26639',
     number: '3',
     title: 'Inventario Nacional de Glaciares',
-    originalText:
-      'Créase el Inventario Nacional de Glaciares, donde se individualizarán todos los glaciares y geoformas periglaciares que actúan como reservas hídricas existentes en el territorio nacional con toda la información necesaria para su adecuada protección, control y monitoreo.',
-    currentText:
-      'Créase el Inventario Nacional de Glaciares, donde se individualizarán todos los glaciares y geoformas periglaciares que actúan como reservas hídricas existentes en el territorio nacional con toda la información necesaria para su adecuada protección, control y monitoreo.',
-    plainLanguageExplanation:
+    text:
+      'Créase el Inventario Nacional de Glaciares, donde se individualizarán todos los glaciares y geoformas periglaciares que actúan como reservas hídricas existentes en el territorio nacional con toda la información necesaria para su adecuada protección, control y monitoreo.',    plainLanguageExplanation:
       'Crea el Inventario Nacional de Glaciares (ING): un registro exhaustivo de todos los glaciares y formas periglaciales del país. El inventario no es solo un listado — incluye toda la información necesaria para controlar y monitorear el estado de cada cuerpo de hielo. Es la herramienta clave para saber qué existe y poder fiscalizar si está siendo afectado.',
     practicalEffects: [
       'El IANIGLA completó el primer inventario en 2018: identificó más de 16.000 glaciares en Argentina',
@@ -157,7 +148,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-3',
         articleNumber: '3',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Créase el Inventario Nacional de Glaciares, donde se individualizarán todos los glaciares y geoformas periglaciares que actúan como reservas hídricas existentes en el territorio nacional con toda la información necesaria para su adecuada protección, control y monitoreo.',
         plainExplanation:
           'Se crea un registro oficial de todos los glaciares y formas periglaciales del país. No alcanza con saber que existen: el inventario debe tener suficiente información para poder controlarlos y monitorear si algo los está dañando. Es el instrumento de fiscalización base de toda la ley.',
@@ -174,11 +165,8 @@ export const ARTICLES_26639_01: Article[] = [
     lawId: 'ley-26639',
     number: '4',
     title: 'Información registrada',
-    originalText:
-      'El Inventario Nacional de Glaciares deberá contener la información de los glaciares y del ambiente periglacial por cuenca hidrográfica, ubicación, superficie y clasificación morfológica de los glaciares y del ambiente periglacial. Este inventario deberá actualizarse con una periodicidad no mayor de CINCO (5) años, verificando los cambios en superficie de los glaciares y del ambiente periglacial, su estado de avance o retroceso y otros factores que sean relevantes para su conservación.',
-    currentText:
-      'El Inventario Nacional de Glaciares deberá contener la información de los glaciares y del ambiente periglacial por cuenca hidrográfica, ubicación, superficie y clasificación morfológica de los glaciares y del ambiente periglacial. Este inventario deberá actualizarse con una periodicidad no mayor de CINCO (5) años, verificando los cambios en superficie de los glaciares y del ambiente periglacial, su estado de avance o retroceso y otros factores que sean relevantes para su conservación.',
-    plainLanguageExplanation:
+    text:
+      'El Inventario Nacional de Glaciares deberá contener la información de los glaciares y del ambiente periglacial por cuenca hidrográfica, ubicación, superficie y clasificación morfológica de los glaciares y del ambiente periglacial. Este inventario deberá actualizarse con una periodicidad no mayor de CINCO (5) años, verificando los cambios en superficie de los glaciares y del ambiente periglacial, su estado de avance o retroceso y otros factores que sean relevantes para su conservación.',    plainLanguageExplanation:
       'Define qué información debe tener el inventario: ubicación por cuenca, superficie, tipo morfológico (qué clase de glaciar es). Y obliga a actualizarlo cada 5 años como máximo, midiendo si el glaciar avanza o retrocede. Esto permite detectar si un glaciar está siendo dañado y en qué medida el cambio climático lo está afectando.',
     practicalEffects: [
       'La actualización cada 5 años es obligatoria, no discrecional',
@@ -200,7 +188,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El Inventario Nacional de Glaciares deberá contener la información de los glaciares y del ambiente periglacial por cuenca hidrográfica, ubicación, superficie y clasificación morfológica...',
         plainExplanation:
           'El inventario no es solo una lista de nombres — debe incluir datos georreferenciados: en qué cuenca está el glaciar, cuánto mide, y de qué tipo es (glaciar de valle, de circo, de escombros, etc.). Estos datos son los que permiten vincular el glaciar con los ríos y comunidades que dependen de él.',
@@ -215,7 +203,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Este inventario deberá actualizarse con una periodicidad no mayor de CINCO (5) años, verificando los cambios en superficie de los glaciares y del ambiente periglacial, su estado de avance o retroceso...',
         plainExplanation:
           'La actualización cada 5 años es obligatoria. No se trata solo de actualizar datos: hay que medir si el glaciar creció o retrocedió. Esa variación en el tiempo es la evidencia científica clave para detectar si una actividad cercana lo está dañando.',
@@ -232,11 +220,8 @@ export const ARTICLES_26639_01: Article[] = [
     lawId: 'ley-26639',
     number: '5',
     title: 'Realización del Inventario',
-    originalText:
-      'El inventario y monitoreo del estado de los glaciares y del ambiente periglacial será realizado y de responsabilidad del Instituto Argentino de Nivología, Glaciología y Ciencias Ambientales (IANIGLA) con la coordinación de la autoridad nacional de aplicación de la presente ley.\n\nSe dará intervención al Ministerio de Relaciones Exteriores, Comercio Internacional y Culto cuando se trate de zonas fronterizas pendientes de demarcación del límite internacional previo al registro del inventario.',
-    currentText:
-      'El inventario y monitoreo del estado de los glaciares y del ambiente periglacial será realizado y de responsabilidad del Instituto Argentino de Nivología, Glaciología y Ciencias Ambientales (IANIGLA) con la coordinación de la autoridad nacional de aplicación de la presente ley.\n\nSe dará intervención al Ministerio de Relaciones Exteriores, Comercio Internacional y Culto cuando se trate de zonas fronterizas pendientes de demarcación del límite internacional previo al registro del inventario.',
-    plainLanguageExplanation:
+    text:
+      'El inventario y monitoreo del estado de los glaciares y del ambiente periglacial será realizado y de responsabilidad del Instituto Argentino de Nivología, Glaciología y Ciencias Ambientales (IANIGLA) con la coordinación de la autoridad nacional de aplicación de la presente ley.\n\nSe dará intervención al Ministerio de Relaciones Exteriores, Comercio Internacional y Culto cuando se trate de zonas fronterizas pendientes de demarcación del límite internacional previo al registro del inventario.',    plainLanguageExplanation:
       'Asigna al IANIGLA (Instituto Argentino de Nivología, Glaciología y Ciencias Ambientales) la responsabilidad exclusiva de hacer y mantener el inventario. El IANIGLA es el organismo científico del CONICET especializado en glaciología. La elección de un organismo científico independiente (y no uno político) fue deliberada para garantizar objetividad. Para glaciares en zonas de frontera sin demarcación, la Cancillería debe intervenir antes de registrarlos.',
     practicalEffects: [
       'El IANIGLA —no el gobierno de turno— determina técnicamente qué es glaciar y qué no',
@@ -259,7 +244,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-5',
         articleNumber: '5',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El inventario y monitoreo del estado de los glaciares y del ambiente periglacial será realizado y de responsabilidad del Instituto Argentino de Nivología, Glaciología y Ciencias Ambientales (IANIGLA)...',
         plainExplanation:
           'El IANIGLA es el brazo científico del CONICET especializado en glaciología. La ley le asigna la responsabilidad exclusiva de hacer y mantener el inventario — no el Ministerio de Minería ni el de Ambiente. Esta elección fue deliberada para garantizar objetividad técnica frente a presiones políticas o económicas.',
@@ -274,7 +259,7 @@ export const ARTICLES_26639_01: Article[] = [
         articleId: 'art-26639-5',
         articleNumber: '5',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Se dará intervención al Ministerio de Relaciones Exteriores, Comercio Internacional y Culto cuando se trate de zonas fronterizas pendientes de demarcación del límite internacional previo al registro del inventario.',
         plainExplanation:
           'Para glaciares en zonas de frontera sin demarcación internacional, la Cancillería debe intervenir antes de que el IANIGLA los registre oficialmente. Esto evita que el inventario de un glaciar en zona disputada genere un conflicto diplomático con Chile u otros países vecinos.',

@@ -5,6 +5,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci --ignore-scripts
 
+COPY prisma ./prisma
+RUN npx prisma generate
+
 COPY tsconfig*.json nest-cli.json ./
 COPY src ./src
 
@@ -23,6 +26,7 @@ ENV NODE_ENV=production
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/prisma ./prisma
 
 EXPOSE 3600
 

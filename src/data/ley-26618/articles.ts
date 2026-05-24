@@ -6,11 +6,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '1',
     title: 'Modificación del artículo 144 del Código Civil (curatela del cónyuge)',
-    originalText:
-      'Modifíquese el inciso 1 del artículo 144 del Código Civil, el que quedará redactado de la siguiente forma: 1. Cualquiera de los cónyuges no separado personalmente o divorciado vincularmente.',
-    currentText:
-      'Modifíquese el inciso 1 del artículo 144 del Código Civil, el que quedará redactado de la siguiente forma: 1. Cualquiera de los cónyuges no separado personalmente o divorciado vincularmente.',
-    plainLanguageExplanation:
+    text:
+      'Modifíquese el inciso 1 del artículo 144 del Código Civil, el que quedará redactado de la siguiente forma: 1. Cualquiera de los cónyuges no separado personalmente o divorciado vincularmente.',    plainLanguageExplanation:
       'Adapta el art. 144 CC sobre quién puede ejercer la curatela de una persona declarada incapaz, usando el término neutro "cualquiera de los cónyuges" en lugar de referencias genérizadas al marido o la mujer.',
     practicalEffects: ['Ambos cónyuges tienen iguales derechos para ser curadores del otro, independientemente del sexo'],
     examples: [],
@@ -26,7 +23,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-1',
         articleNumber: '1',
         segmentType: 'PARAGRAPH',
-        originalText: 'Modifíquese el inciso 1 del artículo 144 del Código Civil.',
+        text: 'Modifíquese el inciso 1 del artículo 144 del Código Civil.',
         plainExplanation: 'Adapta el art. 144 CC para que cualquier cónyuge (no solo el marido) pueda ser curador.',
         practicalExample: null,
         references: [],
@@ -40,11 +37,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '2',
     title: 'Sustitución del artículo 172 del Código Civil (definición de matrimonio)',
-    originalText:
-      'Sustitúyese el artículo 172 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 172: Es indispensable para la existencia del matrimonio el pleno y libre consentimiento expresado personalmente por ambos contrayentes ante la autoridad competente para celebrarlo. El matrimonio tendrá los mismos requisitos y efectos, con independencia de que los contrayentes sean del mismo o de diferente sexo. El acto que careciere de alguno de estos requisitos no producirá efectos civiles aunque las partes hubieran obrado de buena fe, salvo lo dispuesto en el artículo siguiente.',
-    currentText:
-      'Sustitúyese el artículo 172 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 172: Es indispensable para la existencia del matrimonio el pleno y libre consentimiento expresado personalmente por ambos contrayentes ante la autoridad competente para celebrarlo. El matrimonio tendrá los mismos requisitos y efectos, con independencia de que los contrayentes sean del mismo o de diferente sexo. El acto que careciere de alguno de estos requisitos no producirá efectos civiles aunque las partes hubieran obrado de buena fe, salvo lo dispuesto en el artículo siguiente.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 172 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 172: Es indispensable para la existencia del matrimonio el pleno y libre consentimiento expresado personalmente por ambos contrayentes ante la autoridad competente para celebrarlo. El matrimonio tendrá los mismos requisitos y efectos, con independencia de que los contrayentes sean del mismo o de diferente sexo. El acto que careciere de alguno de estos requisitos no producirá efectos civiles aunque las partes hubieran obrado de buena fe, salvo lo dispuesto en el artículo siguiente.',    plainLanguageExplanation:
       'Es el artículo central de la ley. Reemplaza la definición de matrimonio del Código Civil para que sea igual "con independencia de que los contrayentes sean del mismo o de diferente sexo". El matrimonio sigue requiriendo consentimiento libre y personal ante autoridad competente, pero deja de exigir diferencia de sexo.',
     practicalEffects: [
       'Dos personas del mismo sexo pueden casarse con los mismos derechos y efectos que parejas de distinto sexo',
@@ -65,7 +59,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-2',
         articleNumber: '2',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El matrimonio tendrá los mismos requisitos y efectos, con independencia de que los contrayentes sean del mismo o de diferente sexo.',
         plainExplanation:
           'El matrimonio es igual para parejas del mismo sexo o de distinto sexo. No hay diferencia jurídica.',
@@ -82,11 +76,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '3',
     title: 'Sustitución del artículo 188 del Código Civil (celebración del matrimonio)',
-    originalText:
-      'Sustitúyese el artículo 188 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 188: El matrimonio deberá celebrarse ante el oficial público encargado del Registro del Estado Civil y Capacidad de las Personas que corresponda al domicilio de cualquiera de los contrayentes, en su oficina, públicamente, compareciendo los futuros esposos en presencia de dos testigos y con las formalidades legales. Si alguno de los contrayentes estuviere imposibilitado de concurrir, el matrimonio podrá celebrarse en el domicilio del impedido o en su residencia actual, ante cuatro testigos. En el acto de la celebración del matrimonio, el oficial público leerá a los futuros esposos los artículos 198, 199 y 200 de este Código, recibiendo de cada uno de ellos, uno después del otro, la declaración de que quieren respectivamente constituirse en cónyuges, y pronunciará en nombre de la ley que quedan unidos en matrimonio. El oficial público no podrá oponerse a que los esposos, después de prestar su consentimiento, hagan bendecir su unión en el mismo acto por un ministro de su culto.',
-    currentText:
-      'Sustitúyese el artículo 188 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 188: El matrimonio deberá celebrarse ante el oficial público encargado del Registro del Estado Civil y Capacidad de las Personas que corresponda al domicilio de cualquiera de los contrayentes, en su oficina, públicamente, compareciendo los futuros esposos en presencia de dos testigos y con las formalidades legales. Si alguno de los contrayentes estuviere imposibilitado de concurrir, el matrimonio podrá celebrarse en el domicilio del impedido o en su residencia actual, ante cuatro testigos. En el acto de la celebración del matrimonio, el oficial público leerá a los futuros esposos los artículos 198, 199 y 200 de este Código, recibiendo de cada uno de ellos, uno después del otro, la declaración de que quieren respectivamente constituirse en cónyuges, y pronunciará en nombre de la ley que quedan unidos en matrimonio. El oficial público no podrá oponerse a que los esposos, después de prestar su consentimiento, hagan bendecir su unión en el mismo acto por un ministro de su culto.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 188 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 188: El matrimonio deberá celebrarse ante el oficial público encargado del Registro del Estado Civil y Capacidad de las Personas que corresponda al domicilio de cualquiera de los contrayentes, en su oficina, públicamente, compareciendo los futuros esposos en presencia de dos testigos y con las formalidades legales. Si alguno de los contrayentes estuviere imposibilitado de concurrir, el matrimonio podrá celebrarse en el domicilio del impedido o en su residencia actual, ante cuatro testigos. En el acto de la celebración del matrimonio, el oficial público leerá a los futuros esposos los artículos 198, 199 y 200 de este Código, recibiendo de cada uno de ellos, uno después del otro, la declaración de que quieren respectivamente constituirse en cónyuges, y pronunciará en nombre de la ley que quedan unidos en matrimonio. El oficial público no podrá oponerse a que los esposos, después de prestar su consentimiento, hagan bendecir su unión en el mismo acto por un ministro de su culto.',    plainLanguageExplanation:
       'Adapta el procedimiento de celebración del matrimonio para ser neutral en género: el oficial civil lee el acta y declara "quedan unidos en matrimonio". Permite la bendición religiosa pero no la exige. El oficial civil no puede negarse a celebrar el matrimonio ni impedir la bendición religiosa posterior.',
     practicalEffects: [
       'El oficial civil no puede negarse a casar a dos personas del mismo sexo',
@@ -105,7 +96,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-3',
         articleNumber: '3',
         segmentType: 'PARAGRAPH',
-        originalText: 'El oficial público no podrá oponerse a que los esposos, después de prestar su consentimiento, hagan bendecir su unión en el mismo acto por un ministro de su culto.',
+        text: 'El oficial público no podrá oponerse a que los esposos, después de prestar su consentimiento, hagan bendecir su unión en el mismo acto por un ministro de su culto.',
         plainExplanation: 'El oficial civil no puede negarse al matrimonio ni impedir que luego lo bendiga un ministro religioso.',
         practicalExample: null,
         references: [],
@@ -119,11 +110,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '4',
     title: 'Sustitución del artículo 206 del Código Civil (guarda de hijos en separación)',
-    originalText:
-      'Sustitúyese el artículo 206 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 206: Separados por sentencia firme, cada uno de los cónyuges podrá fijar libremente su domicilio o residencia. Si tuviese hijos de ambos a su cargo, se aplicarán las disposiciones relativas al régimen de patria potestad. Los hijos menores de CINCO (5) años quedarán a cargo de la madre, salvo causas graves que afecten el interés del menor. En casos de matrimonios constituidos por ambos cónyuges del mismo sexo, a falta de acuerdo, el juez resolverá teniendo en cuenta el interés del menor. Los mayores de esa edad, a falta de acuerdo de los cónyuges, quedarán a cargo de aquel a quien el juez considere más idóneo.',
-    currentText:
-      'Sustitúyese el artículo 206 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 206: Separados por sentencia firme, cada uno de los cónyuges podrá fijar libremente su domicilio o residencia. Si tuviese hijos de ambos a su cargo, se aplicarán las disposiciones relativas al régimen de patria potestad. Los hijos menores de CINCO (5) años quedarán a cargo de la madre, salvo causas graves que afecten el interés del menor. En casos de matrimonios constituidos por ambos cónyuges del mismo sexo, a falta de acuerdo, el juez resolverá teniendo en cuenta el interés del menor. Los mayores de esa edad, a falta de acuerdo de los cónyuges, quedarán a cargo de aquel a quien el juez considere más idóneo.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 206 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 206: Separados por sentencia firme, cada uno de los cónyuges podrá fijar libremente su domicilio o residencia. Si tuviese hijos de ambos a su cargo, se aplicarán las disposiciones relativas al régimen de patria potestad. Los hijos menores de CINCO (5) años quedarán a cargo de la madre, salvo causas graves que afecten el interés del menor. En casos de matrimonios constituidos por ambos cónyuges del mismo sexo, a falta de acuerdo, el juez resolverá teniendo en cuenta el interés del menor. Los mayores de esa edad, a falta de acuerdo de los cónyuges, quedarán a cargo de aquel a quien el juez considere más idóneo.',    plainLanguageExplanation:
       'Regula la guarda de los hijos menores en caso de separación. Para matrimonios del mismo sexo, ante falta de acuerdo, el juez resuelve según el interés del menor (no existe la presunción de maternidad de los 5 años).',
     practicalEffects: ['En matrimonios del mismo sexo, la guarda de menores de 5 años la decide el juez por interés superior del niño'],
     examples: [],
@@ -139,7 +127,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-4',
         articleNumber: '4',
         segmentType: 'PARAGRAPH',
-        originalText: 'En casos de matrimonios constituidos por ambos cónyuges del mismo sexo, a falta de acuerdo, el juez resolverá teniendo en cuenta el interés del menor.',
+        text: 'En casos de matrimonios constituidos por ambos cónyuges del mismo sexo, a falta de acuerdo, el juez resolverá teniendo en cuenta el interés del menor.',
         plainExplanation: 'En matrimonios del mismo sexo sin acuerdo, el juez decide la guarda por el interés del menor.',
         practicalExample: null,
         references: [],
@@ -153,11 +141,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '5',
     title: 'Sustitución del artículo 212 del Código Civil (revocación de donaciones)',
-    originalText:
-      'Sustitúyese el artículo 212 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 212: El cónyuge que no dio causa a la separación personal, y que no demandó ésta en los supuestos que prevén los artículos 203 y 204, podrá revocar las donaciones hechas al otro cónyuge en convención matrimonial.',
-    currentText:
-      'Sustitúyese el artículo 212 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 212: El cónyuge que no dio causa a la separación personal, y que no demandó ésta en los supuestos que prevén los artículos 203 y 204, podrá revocar las donaciones hechas al otro cónyuge en convención matrimonial.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 212 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 212: El cónyuge que no dio causa a la separación personal, y que no demandó ésta en los supuestos que prevén los artículos 203 y 204, podrá revocar las donaciones hechas al otro cónyuge en convención matrimonial.',    plainLanguageExplanation:
       'El cónyuge inocente en una separación puede revocar las donaciones que hizo al otro en la convención matrimonial.',
     practicalEffects: ['Aplica igualmente a matrimonios del mismo sexo'],
     examples: [],
@@ -173,7 +158,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-5',
         articleNumber: '5',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 212 del Código Civil.',
+        text: 'Sustitúyese el artículo 212 del Código Civil.',
         plainExplanation: 'Actualiza el art. 212 CC sobre revocación de donaciones en la separación.',
         practicalExample: null,
         references: [],
@@ -187,11 +172,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '6',
     title: 'Modificación del artículo 220 del Código Civil (nulidad de matrimonio)',
-    originalText:
-      'Sustitúyese el inciso 1 del artículo 220 del Código Civil, el que quedará redactado de la siguiente forma: 1. Cuando fuere celebrado con el impedimento establecido en el inciso 5 del artículo 166. La nulidad puede ser demandada por el cónyuge incapaz y por los que en su representación podrían haberse opuesto a la celebración del matrimonio. No podrá demandarse la nulidad después de que el cónyuge o los cónyuges hubieren llegado a la edad legal si hubiesen continuado la cohabitación, o, cualquiera fuese la edad, si hubieren concebido.',
-    currentText:
-      'Sustitúyese el inciso 1 del artículo 220 del Código Civil, el que quedará redactado de la siguiente forma: 1. Cuando fuere celebrado con el impedimento establecido en el inciso 5 del artículo 166. La nulidad puede ser demandada por el cónyuge incapaz y por los que en su representación podrían haberse opuesto a la celebración del matrimonio. No podrá demandarse la nulidad después de que el cónyuge o los cónyuges hubieren llegado a la edad legal si hubiesen continuado la cohabitación, o, cualquiera fuese la edad, si hubieren concebido.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el inciso 1 del artículo 220 del Código Civil, el que quedará redactado de la siguiente forma: 1. Cuando fuere celebrado con el impedimento establecido en el inciso 5 del artículo 166. La nulidad puede ser demandada por el cónyuge incapaz y por los que en su representación podrían haberse opuesto a la celebración del matrimonio. No podrá demandarse la nulidad después de que el cónyuge o los cónyuges hubieren llegado a la edad legal si hubiesen continuado la cohabitación, o, cualquiera fuese la edad, si hubieren concebido.',    plainLanguageExplanation:
       'Adapta las causales de nulidad del matrimonio (art. 220 CC) al nuevo sistema. La nulidad por minoría de edad aplica igual para matrimonios del mismo o distinto sexo.',
     practicalEffects: [],
     examples: [],
@@ -207,7 +189,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-6',
         articleNumber: '6',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el inciso 1 del artículo 220 del Código Civil.',
+        text: 'Sustitúyese el inciso 1 del artículo 220 del Código Civil.',
         plainExplanation: 'Actualiza la causal de nulidad por minoría de edad para matrimonios del mismo sexo.',
         practicalExample: null,
         references: [],
@@ -221,11 +203,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '7',
     title: 'Modificación del artículo 264 del Código Civil (patria potestad)',
-    originalText:
-      'Modifíquese el inciso 1 del artículo 264 del Código Civil, el que quedará redactado de la siguiente forma: 1. En el caso de los hijos matrimoniales, a los cónyuges conjuntamente, en tanto no estén separados o divorciados, o su matrimonio fuese anulado. Se presumirá que los actos realizados por uno de ellos cuenta con el consentimiento del otro, salvo en los supuestos contemplados en el artículo 264 quáter, o cuando mediare expresa oposición.',
-    currentText:
-      'Modifíquese el inciso 1 del artículo 264 del Código Civil, el que quedará redactado de la siguiente forma: 1. En el caso de los hijos matrimoniales, a los cónyuges conjuntamente, en tanto no estén separados o divorciados, o su matrimonio fuese anulado. Se presumirá que los actos realizados por uno de ellos cuenta con el consentimiento del otro, salvo en los supuestos contemplados en el artículo 264 quáter, o cuando mediare expresa oposición.',
-    plainLanguageExplanation:
+    text:
+      'Modifíquese el inciso 1 del artículo 264 del Código Civil, el que quedará redactado de la siguiente forma: 1. En el caso de los hijos matrimoniales, a los cónyuges conjuntamente, en tanto no estén separados o divorciados, o su matrimonio fuese anulado. Se presumirá que los actos realizados por uno de ellos cuenta con el consentimiento del otro, salvo en los supuestos contemplados en el artículo 264 quáter, o cuando mediare expresa oposición.',    plainLanguageExplanation:
       'Adapta la patria potestad conjunta para matrimonios del mismo sexo: ambos cónyuges tienen la patria potestad conjunta de los hijos matrimoniales.',
     practicalEffects: ['Ambas madres o ambos padres ejercen la patria potestad conjunta'],
     examples: ['En un matrimonio de dos mujeres, ambas tienen patria potestad conjunta de los hijos matrimoniales'],
@@ -241,7 +220,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-7',
         articleNumber: '7',
         segmentType: 'PARAGRAPH',
-        originalText: 'En el caso de los hijos matrimoniales, a los cónyuges conjuntamente...',
+        text: 'En el caso de los hijos matrimoniales, a los cónyuges conjuntamente...',
         plainExplanation: 'Ambos cónyuges (cualquiera sea su sexo) tienen patria potestad conjunta.',
         practicalExample: null,
         references: [],
@@ -255,11 +234,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '8',
     title: 'Sustitución del artículo 264 ter del Código Civil (desacuerdo en patria potestad)',
-    originalText:
-      'Sustitúyese el artículo 264 ter del Código Civil, el que quedará redactado de la siguiente forma: Artículo 264 ter: En caso de desacuerdo entre los padres, cualquiera de ellos podrá acudir al juez competente, quien resolverá lo más conveniente para el interés del hijo, por el procedimiento más breve previsto por la ley local, previa audiencia de los padres con intervención del Ministerio Pupilar.',
-    currentText:
-      'Sustitúyese el artículo 264 ter del Código Civil, el que quedará redactado de la siguiente forma: Artículo 264 ter: En caso de desacuerdo entre los padres, cualquiera de ellos podrá acudir al juez competente, quien resolverá lo más conveniente para el interés del hijo, por el procedimiento más breve previsto por la ley local, previa audiencia de los padres con intervención del Ministerio Pupilar.',
-    plainLanguageExplanation: 'Adapta el art. 264 ter CC al uso neutral de "padres" para incluir matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el artículo 264 ter del Código Civil, el que quedará redactado de la siguiente forma: Artículo 264 ter: En caso de desacuerdo entre los padres, cualquiera de ellos podrá acudir al juez competente, quien resolverá lo más conveniente para el interés del hijo, por el procedimiento más breve previsto por la ley local, previa audiencia de los padres con intervención del Ministerio Pupilar.',    plainLanguageExplanation: 'Adapta el art. 264 ter CC al uso neutral de "padres" para incluir matrimonios del mismo sexo.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-7'],
@@ -274,7 +250,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-8',
         articleNumber: '8',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 264 ter del Código Civil.',
+        text: 'Sustitúyese el artículo 264 ter del Código Civil.',
         plainExplanation: 'Adapta el art. 264 ter CC para incluir matrimonios del mismo sexo.',
         practicalExample: null,
         references: [],
@@ -288,11 +264,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '9',
     title: 'Sustitución del artículo 272 del Código Civil (alimentos de los hijos)',
-    originalText:
-      'Sustitúyese el artículo 272 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 272: Si cualquiera de los padres faltare a esta obligación, podrá ser demandado por la prestación de alimentos por el propio hijo, si fuese adulto, asistido por un tutor especial, por cualquiera de los parientes, o por el ministerio de menores.',
-    currentText:
-      'Sustitúyese el artículo 272 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 272: Si cualquiera de los padres faltare a esta obligación, podrá ser demandado por la prestación de alimentos por el propio hijo, si fuese adulto, asistido por un tutor especial, por cualquiera de los parientes, o por el ministerio de menores.',
-    plainLanguageExplanation: 'Adapta el art. 272 CC sobre alimentos para usar el término neutro "cualquiera de los padres".',
+    text:
+      'Sustitúyese el artículo 272 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 272: Si cualquiera de los padres faltare a esta obligación, podrá ser demandado por la prestación de alimentos por el propio hijo, si fuese adulto, asistido por un tutor especial, por cualquiera de los parientes, o por el ministerio de menores.',    plainLanguageExplanation: 'Adapta el art. 272 CC sobre alimentos para usar el término neutro "cualquiera de los padres".',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-7'],
@@ -307,7 +280,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-9',
         articleNumber: '9',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 272 del Código Civil.',
+        text: 'Sustitúyese el artículo 272 del Código Civil.',
         plainExplanation: 'Adapta el art. 272 CC para incluir matrimonios del mismo sexo en la obligación alimentaria.',
         practicalExample: null,
         references: [],
@@ -321,11 +294,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '10',
     title: 'Sustitución del artículo 287 del Código Civil (usufructo de bienes de los hijos)',
-    originalText:
-      'Sustitúyese el artículo 287 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 287: Los padres tienen el usufructo de los bienes de sus hijos matrimoniales o extramatrimoniales voluntariamente reconocidos, que estén bajo su autoridad.',
-    currentText:
-      'Sustitúyese el artículo 287 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 287: Los padres tienen el usufructo de los bienes de sus hijos matrimoniales o extramatrimoniales voluntariamente reconocidos, que estén bajo su autoridad.',
-    plainLanguageExplanation: 'Adapta el art. 287 CC sobre usufructo de bienes de los hijos para incluir matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el artículo 287 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 287: Los padres tienen el usufructo de los bienes de sus hijos matrimoniales o extramatrimoniales voluntariamente reconocidos, que estén bajo su autoridad.',    plainLanguageExplanation: 'Adapta el art. 287 CC sobre usufructo de bienes de los hijos para incluir matrimonios del mismo sexo.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-7'],
@@ -340,7 +310,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-10',
         articleNumber: '10',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 287 del Código Civil.',
+        text: 'Sustitúyese el artículo 287 del Código Civil.',
         plainExplanation: 'Adapta el art. 287 CC para matrimonios del mismo sexo.',
         practicalExample: null,
         references: [],
@@ -354,11 +324,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '11',
     title: 'Sustitución del artículo 291 del Código Civil (cargas del usufructo legal)',
-    originalText:
-      'Sustitúyese el artículo 291 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 291: Las cargas del usufructo legal de los padres son: 1. Las que pesan sobre todo usufructuario, excepto la de afianzar. 2. Los gastos de subsistencia y educación de los hijos, en proporción a la importancia del usufructo. 3. El pago de los intereses de los capitales que venzan durante el usufructo. 4. Los gastos de enfermedad y entierro del hijo.',
-    currentText:
-      'Sustitúyese el artículo 291 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 291: Las cargas del usufructo legal de los padres son: 1. Las que pesan sobre todo usufructuario, excepto la de afianzar. 2. Los gastos de subsistencia y educación de los hijos, en proporción a la importancia del usufructo. 3. El pago de los intereses de los capitales que venzan durante el usufructo. 4. Los gastos de enfermedad y entierro del hijo.',
-    plainLanguageExplanation: 'Adapta el art. 291 CC sobre cargas del usufructo parental.',
+    text:
+      'Sustitúyese el artículo 291 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 291: Las cargas del usufructo legal de los padres son: 1. Las que pesan sobre todo usufructuario, excepto la de afianzar. 2. Los gastos de subsistencia y educación de los hijos, en proporción a la importancia del usufructo. 3. El pago de los intereses de los capitales que venzan durante el usufructo. 4. Los gastos de enfermedad y entierro del hijo.',    plainLanguageExplanation: 'Adapta el art. 291 CC sobre cargas del usufructo parental.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-10'],
@@ -373,7 +340,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-11',
         articleNumber: '11',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 291 del Código Civil.',
+        text: 'Sustitúyese el artículo 291 del Código Civil.',
         plainExplanation: 'Adapta el art. 291 CC al sistema del matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -387,11 +354,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '12',
     title: 'Sustitución del artículo 294 del Código Civil (administración de bienes de hijos)',
-    originalText:
-      'Sustitúyese el artículo 294 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 294: La administración de los bienes de los hijos será ejercida en común por los padres cuando ambos estén en ejercicio de la patria potestad.',
-    currentText:
-      'Sustitúyese el artículo 294 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 294: La administración de los bienes de los hijos será ejercida en común por los padres cuando ambos estén en ejercicio de la patria potestad.',
-    plainLanguageExplanation: 'Adapta el art. 294 CC para que ambos cónyuges (de igual o distinto sexo) administren conjuntamente los bienes de los hijos.',
+    text:
+      'Sustitúyese el artículo 294 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 294: La administración de los bienes de los hijos será ejercida en común por los padres cuando ambos estén en ejercicio de la patria potestad.',    plainLanguageExplanation: 'Adapta el art. 294 CC para que ambos cónyuges (de igual o distinto sexo) administren conjuntamente los bienes de los hijos.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-10'],
@@ -406,7 +370,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-12',
         articleNumber: '12',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 294 del Código Civil.',
+        text: 'Sustitúyese el artículo 294 del Código Civil.',
         plainExplanation: 'Ambos cónyuges administran conjuntamente los bienes de los hijos.',
         practicalExample: null,
         references: [],
@@ -420,11 +384,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '13',
     title: 'Sustitución del artículo 296 del Código Civil (inventario de bienes)',
-    originalText:
-      'Sustitúyese el artículo 296 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 296: En los TRES (3) meses subsiguientes al fallecimiento de uno de los padres, el sobreviviente debe hacer inventario judicial de los bienes del matrimonio, y determinarse en él los bienes que correspondan a los hijos, so pena de no tener el usufructo de los bienes de los hijos menores.',
-    currentText:
-      'Sustitúyese el artículo 296 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 296: En los TRES (3) meses subsiguientes al fallecimiento de uno de los padres, el sobreviviente debe hacer inventario judicial de los bienes del matrimonio, y determinarse en él los bienes que correspondan a los hijos, so pena de no tener el usufructo de los bienes de los hijos menores.',
-    plainLanguageExplanation: 'Actualiza el art. 296 CC sobre inventario de bienes tras el fallecimiento de uno de los padres.',
+    text:
+      'Sustitúyese el artículo 296 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 296: En los TRES (3) meses subsiguientes al fallecimiento de uno de los padres, el sobreviviente debe hacer inventario judicial de los bienes del matrimonio, y determinarse en él los bienes que correspondan a los hijos, so pena de no tener el usufructo de los bienes de los hijos menores.',    plainLanguageExplanation: 'Actualiza el art. 296 CC sobre inventario de bienes tras el fallecimiento de uno de los padres.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-10'],
@@ -439,7 +400,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-13',
         articleNumber: '13',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 296 del Código Civil.',
+        text: 'Sustitúyese el artículo 296 del Código Civil.',
         plainExplanation: 'Adapta el art. 296 CC al nuevo sistema.',
         practicalExample: null,
         references: [],
@@ -453,11 +414,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '14',
     title: 'Sustitución del artículo 307 del Código Civil (privación de la patria potestad)',
-    originalText:
-      'Sustitúyese el artículo 307 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 307: Cualquiera de los padres queda privado de la patria potestad: 1. Por ser condenado como autor, coautor, instigador o cómplice de un delito doloso contra la persona o los bienes de alguno de sus hijos. 2. Por el abandono que hiciere de alguno de sus hijos. 3. Por poner en peligro la seguridad, la salud física o psíquica o la moralidad del hijo.',
-    currentText:
-      'Sustitúyese el artículo 307 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 307: Cualquiera de los padres queda privado de la patria potestad: 1. Por ser condenado como autor, coautor, instigador o cómplice de un delito doloso contra la persona o los bienes de alguno de sus hijos. 2. Por el abandono que hiciere de alguno de sus hijos. 3. Por poner en peligro la seguridad, la salud física o psíquica o la moralidad del hijo.',
-    plainLanguageExplanation: 'Adapta el art. 307 CC sobre privación de la patria potestad usando lenguaje neutro.',
+    text:
+      'Sustitúyese el artículo 307 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 307: Cualquiera de los padres queda privado de la patria potestad: 1. Por ser condenado como autor, coautor, instigador o cómplice de un delito doloso contra la persona o los bienes de alguno de sus hijos. 2. Por el abandono que hiciere de alguno de sus hijos. 3. Por poner en peligro la seguridad, la salud física o psíquica o la moralidad del hijo.',    plainLanguageExplanation: 'Adapta el art. 307 CC sobre privación de la patria potestad usando lenguaje neutro.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-7'],
@@ -472,7 +430,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-14',
         articleNumber: '14',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 307 del Código Civil.',
+        text: 'Sustitúyese el artículo 307 del Código Civil.',
         plainExplanation: 'Actualiza el art. 307 CC sobre privación de la patria potestad.',
         practicalExample: null,
         references: [],
@@ -486,11 +444,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '15',
     title: 'Sustitución del artículo 324 del Código Civil (adopción y guarda)',
-    originalText:
-      'Sustitúyese el artículo 324 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 324: Cuando la guarda del menor se hubiese otorgado durante el matrimonio y el período legal se completara después de la muerte de uno de los cónyuges, podrá otorgarse la adopción al sobreviviente y el hijo adoptivo lo será del matrimonio.',
-    currentText:
-      'Sustitúyese el artículo 324 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 324: Cuando la guarda del menor se hubiese otorgado durante el matrimonio y el período legal se completara después de la muerte de uno de los cónyuges, podrá otorgarse la adopción al sobreviviente y el hijo adoptivo lo será del matrimonio.',
-    plainLanguageExplanation: 'Habilita la adopción póstuma para matrimonios del mismo sexo: si el período de guarda se completa después del fallecimiento de uno de los cónyuges, el adoptado lo es del matrimonio.',
+    text:
+      'Sustitúyese el artículo 324 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 324: Cuando la guarda del menor se hubiese otorgado durante el matrimonio y el período legal se completara después de la muerte de uno de los cónyuges, podrá otorgarse la adopción al sobreviviente y el hijo adoptivo lo será del matrimonio.',    plainLanguageExplanation: 'Habilita la adopción póstuma para matrimonios del mismo sexo: si el período de guarda se completa después del fallecimiento de uno de los cónyuges, el adoptado lo es del matrimonio.',
     practicalEffects: ['En matrimonios del mismo sexo, la adopción puede consumarse aunque uno de los cónyuges haya fallecido durante el período de guarda'],
     examples: [],
     relatedArticles: ['art-26618-16', 'art-26618-42'],
@@ -505,7 +460,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-15',
         articleNumber: '15',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 324 del Código Civil.',
+        text: 'Sustitúyese el artículo 324 del Código Civil.',
         plainExplanation: 'Habilita la adopción póstuma también en matrimonios del mismo sexo.',
         practicalExample: null,
         references: [],
@@ -519,11 +474,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '16',
     title: 'Sustitución del artículo 326 del Código Civil (apellido del hijo adoptivo)',
-    originalText:
-      'Sustitúyese el artículo 326 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 326: El hijo adoptivo llevará el primer apellido del adoptante, o su apellido compuesto si éste solicita su agregación. En caso que los adoptantes sean cónyuges de distinto sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del padre adoptivo o agregar al primero de éste, el primero de la madre adoptiva. En caso que los cónyuges sean de un mismo sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregar al primero de éste, el primero del otro.',
-    currentText:
-      'Sustitúyese el artículo 326 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 326: El hijo adoptivo llevará el primer apellido del adoptante, o su apellido compuesto si éste solicita su agregación. En caso que los adoptantes sean cónyuges de distinto sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del padre adoptivo o agregar al primero de éste, el primero de la madre adoptiva. En caso que los cónyuges sean de un mismo sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregar al primero de éste, el primero del otro.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 326 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 326: El hijo adoptivo llevará el primer apellido del adoptante, o su apellido compuesto si éste solicita su agregación. En caso que los adoptantes sean cónyuges de distinto sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del padre adoptivo o agregar al primero de éste, el primero de la madre adoptiva. En caso que los cónyuges sean de un mismo sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregar al primero de éste, el primero del otro.',    plainLanguageExplanation:
       'Regula el apellido del hijo adoptivo en matrimonios del mismo sexo: puede llevar el apellido compuesto de cualquiera de los cónyuges o una combinación. Si no hay acuerdo, los apellidos se ordenan alfabéticamente.',
     practicalEffects: ['En matrimonios del mismo sexo, los adoptados pueden llevar el apellido de cualquiera de los cónyuges o combinarlos'],
     examples: [],
@@ -539,7 +491,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-16',
         articleNumber: '16',
         segmentType: 'PARAGRAPH',
-        originalText: 'En caso que los cónyuges sean de un mismo sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregar al primero de éste, el primero del otro.',
+        text: 'En caso que los cónyuges sean de un mismo sexo, a pedido de éstos podrá el adoptado llevar el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregar al primero de éste, el primero del otro.',
         plainExplanation: 'Hijo adoptivo de matrimonio del mismo sexo: puede combinar apellidos de ambos cónyuges.',
         practicalExample: null,
         references: [],
@@ -553,11 +505,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '17',
     title: 'Sustitución del artículo 332 del Código Civil (adopción simple y apellido)',
-    originalText:
-      'Sustitúyese el artículo 332 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 332: La adopción simple impone al adoptado el apellido del adoptante, pero aquél podrá agregar el suyo propio a partir de los DIECIOCHO (18) años.',
-    currentText:
-      'Sustitúyese el artículo 332 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 332: La adopción simple impone al adoptado el apellido del adoptante, pero aquél podrá agregar el suyo propio a partir de los DIECIOCHO (18) años.',
-    plainLanguageExplanation: 'Adapta el art. 332 CC sobre apellido en adopción simple para matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el artículo 332 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 332: La adopción simple impone al adoptado el apellido del adoptante, pero aquél podrá agregar el suyo propio a partir de los DIECIOCHO (18) años.',    plainLanguageExplanation: 'Adapta el art. 332 CC sobre apellido en adopción simple para matrimonios del mismo sexo.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-16'],
@@ -572,7 +521,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-17',
         articleNumber: '17',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 332 del Código Civil.',
+        text: 'Sustitúyese el artículo 332 del Código Civil.',
         plainExplanation: 'Adapta el art. 332 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -586,11 +535,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '18',
     title: 'Sustitución del artículo 354 del Código Civil (primera línea colateral)',
-    originalText:
-      'Sustitúyese el artículo 354 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 354: La primera línea colateral parte de los ascendientes en el primer grado, es decir de cada uno de los padres de la persona de que se trate, y comprende a sus hermanos y hermanas y a su posteridad.',
-    currentText:
-      'Sustitúyese el artículo 354 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 354: La primera línea colateral parte de los ascendientes en el primer grado, es decir de cada uno de los padres de la persona de que se trate, y comprende a sus hermanos y hermanas y a su posteridad.',
-    plainLanguageExplanation: 'Adapta el art. 354 CC sobre líneas de parentesco usando el término neutro "padres" en lugar de "padre y madre".',
+    text:
+      'Sustitúyese el artículo 354 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 354: La primera línea colateral parte de los ascendientes en el primer grado, es decir de cada uno de los padres de la persona de que se trate, y comprende a sus hermanos y hermanas y a su posteridad.',    plainLanguageExplanation: 'Adapta el art. 354 CC sobre líneas de parentesco usando el término neutro "padres" en lugar de "padre y madre".',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-42'],
@@ -605,7 +551,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-18',
         articleNumber: '18',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 354 del Código Civil.',
+        text: 'Sustitúyese el artículo 354 del Código Civil.',
         plainExplanation: 'Adapta el art. 354 CC para usar el término neutro "padres".',
         practicalExample: null,
         references: [],
@@ -619,11 +565,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '19',
     title: 'Sustitución del artículo 355 del Código Civil (segunda línea colateral)',
-    originalText:
-      'Sustitúyese el artículo 355 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 355: La segunda, parte de los ascendientes en segundo grado, es decir de cada uno de los abuelos de la persona de que se trate, y comprende al tío, el primo hermano, y así los demás.',
-    currentText:
-      'Sustitúyese el artículo 355 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 355: La segunda, parte de los ascendientes en segundo grado, es decir de cada uno de los abuelos de la persona de que se trate, y comprende al tío, el primo hermano, y así los demás.',
-    plainLanguageExplanation: 'Adapta el art. 355 CC sobre segunda línea colateral de parentesco.',
+    text:
+      'Sustitúyese el artículo 355 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 355: La segunda, parte de los ascendientes en segundo grado, es decir de cada uno de los abuelos de la persona de que se trate, y comprende al tío, el primo hermano, y así los demás.',    plainLanguageExplanation: 'Adapta el art. 355 CC sobre segunda línea colateral de parentesco.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-18'],
@@ -638,7 +581,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-19',
         articleNumber: '19',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 355 del Código Civil.',
+        text: 'Sustitúyese el artículo 355 del Código Civil.',
         plainExplanation: 'Adapta el art. 355 CC al nuevo sistema.',
         practicalExample: null,
         references: [],
@@ -652,11 +595,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '20',
     title: 'Sustitución del artículo 356 del Código Civil (tercera línea colateral)',
-    originalText:
-      'Sustitúyese el artículo 356 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 356: La tercera línea colateral parte de los ascendientes en tercer grado, es decir de cada uno de los bisabuelos de la persona de que se trate, y comprende sus descendientes.',
-    currentText:
-      'Sustitúyese el artículo 356 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 356: La tercera línea colateral parte de los ascendientes en tercer grado, es decir de cada uno de los bisabuelos de la persona de que se trate, y comprende sus descendientes.',
-    plainLanguageExplanation: 'Adapta el art. 356 CC sobre tercera línea colateral de parentesco.',
+    text:
+      'Sustitúyese el artículo 356 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 356: La tercera línea colateral parte de los ascendientes en tercer grado, es decir de cada uno de los bisabuelos de la persona de que se trate, y comprende sus descendientes.',    plainLanguageExplanation: 'Adapta el art. 356 CC sobre tercera línea colateral de parentesco.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-18', 'art-26618-19'],
@@ -671,7 +611,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-20',
         articleNumber: '20',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 356 del Código Civil.',
+        text: 'Sustitúyese el artículo 356 del Código Civil.',
         plainExplanation: 'Adapta el art. 356 CC al nuevo sistema.',
         practicalExample: null,
         references: [],
@@ -685,11 +625,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '21',
     title: 'Sustitución del artículo 360 del Código Civil (hermanos bilaterales y unilaterales)',
-    originalText:
-      'Sustitúyese el artículo 360 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 360: Los hermanos se distinguen en bilaterales y unilaterales. Son hermanos bilaterales los que proceden de los mismos padres. Son hermanos unilaterales los que proceden de un mismo ascendiente en primer grado, difiriendo en el otro.',
-    currentText:
-      'Sustitúyese el artículo 360 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 360: Los hermanos se distinguen en bilaterales y unilaterales. Son hermanos bilaterales los que proceden de los mismos padres. Son hermanos unilaterales los que proceden de un mismo ascendiente en primer grado, difiriendo en el otro.',
-    plainLanguageExplanation: 'Adapta el art. 360 CC sobre hermanos bilaterales y unilaterales usando el término neutro "padres" en lugar de "padre y madre".',
+    text:
+      'Sustitúyese el artículo 360 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 360: Los hermanos se distinguen en bilaterales y unilaterales. Son hermanos bilaterales los que proceden de los mismos padres. Son hermanos unilaterales los que proceden de un mismo ascendiente en primer grado, difiriendo en el otro.',    plainLanguageExplanation: 'Adapta el art. 360 CC sobre hermanos bilaterales y unilaterales usando el término neutro "padres" en lugar de "padre y madre".',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-18'],
@@ -704,7 +641,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-21',
         articleNumber: '21',
         segmentType: 'PARAGRAPH',
-        originalText: 'Son hermanos bilaterales los que proceden de los mismos padres.',
+        text: 'Son hermanos bilaterales los que proceden de los mismos padres.',
         plainExplanation: 'Adapta la definición de hermanos para incluir a hijos de dos padres o dos madres del mismo sexo.',
         practicalExample: null,
         references: [],
@@ -718,11 +655,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '22',
     title: 'Sustitución del artículo 476 del Código Civil (curatela del cónyuge)',
-    originalText:
-      'Sustitúyese el artículo 476 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 476: El cónyuge es el curador legítimo y necesario de su consorte, declarado incapaz.',
-    currentText:
-      'Sustitúyese el artículo 476 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 476: El cónyuge es el curador legítimo y necesario de su consorte, declarado incapaz.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 476 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 476: El cónyuge es el curador legítimo y necesario de su consorte, declarado incapaz.',    plainLanguageExplanation:
       'El cónyuge —de cualquier sexo— es curador legítimo de su cónyuge declarado incapaz. Antes el texto usaba "el marido" y "la mujer" de forma diferenciada.',
     practicalEffects: ['En un matrimonio del mismo sexo, el cónyuge tiene derecho automático a ser curador del otro si este es declarado incapaz'],
     examples: ['Si uno de los cónyuges de un matrimonio entre dos hombres es declarado incapaz, el otro es automáticamente su curador legal'],
@@ -738,7 +672,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-22',
         articleNumber: '22',
         segmentType: 'PARAGRAPH',
-        originalText: 'El cónyuge es el curador legítimo y necesario de su consorte, declarado incapaz.',
+        text: 'El cónyuge es el curador legítimo y necesario de su consorte, declarado incapaz.',
         plainExplanation: 'El cónyuge (de cualquier sexo) es automáticamente curador del otro si es declarado incapaz.',
         practicalExample: 'Si uno de los cónyuges de un matrimonio entre dos mujeres es declarado incapaz, la otra es su curadora automática.',
         references: [],
@@ -752,11 +686,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '23',
     title: 'Sustitución del artículo 478 del Código Civil (curatela de hijos)',
-    originalText:
-      'Sustitúyese el artículo 478 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 478: Cualquiera de los padres es curador de sus hijos solteros, divorciados o viudos que no tengan hijos mayores de edad, que puedan desempeñar la curatela.',
-    currentText:
-      'Sustitúyese el artículo 478 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 478: Cualquiera de los padres es curador de sus hijos solteros, divorciados o viudos que no tengan hijos mayores de edad, que puedan desempeñar la curatela.',
-    plainLanguageExplanation: 'Adapta el art. 478 CC sobre curatela de los padres sobre hijos incapaces usando lenguaje neutro.',
+    text:
+      'Sustitúyese el artículo 478 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 478: Cualquiera de los padres es curador de sus hijos solteros, divorciados o viudos que no tengan hijos mayores de edad, que puedan desempeñar la curatela.',    plainLanguageExplanation: 'Adapta el art. 478 CC sobre curatela de los padres sobre hijos incapaces usando lenguaje neutro.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-22'],
@@ -771,7 +702,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-23',
         articleNumber: '23',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 478 del Código Civil.',
+        text: 'Sustitúyese el artículo 478 del Código Civil.',
         plainExplanation: 'Adapta el art. 478 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -785,11 +716,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '24',
     title: 'Sustitución del artículo 1.217 del Código Civil (donaciones en convención matrimonial)',
-    originalText:
-      'Sustitúyese el inciso 3 del artículo 1.217, el que quedará redactado de la siguiente forma: 3. Las donaciones que un futuro cónyuge hiciere al otro.',
-    currentText:
-      'Sustitúyese el inciso 3 del artículo 1.217, el que quedará redactado de la siguiente forma: 3. Las donaciones que un futuro cónyuge hiciere al otro.',
-    plainLanguageExplanation: 'Adapta el art. 1.217 CC sobre donaciones en convención matrimonial con lenguaje neutro.',
+    text:
+      'Sustitúyese el inciso 3 del artículo 1.217, el que quedará redactado de la siguiente forma: 3. Las donaciones que un futuro cónyuge hiciere al otro.',    plainLanguageExplanation: 'Adapta el art. 1.217 CC sobre donaciones en convención matrimonial con lenguaje neutro.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-5'],
@@ -804,7 +732,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-24',
         articleNumber: '24',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el inciso 3 del artículo 1.217.',
+        text: 'Sustitúyese el inciso 3 del artículo 1.217.',
         plainExplanation: 'Adapta el art. 1.217 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -818,11 +746,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '25',
     title: 'Sustitución del artículo 1.275 del Código Civil (cargas de la sociedad conyugal)',
-    originalText:
-      'Sustitúyese el inciso 2 del artículo 1.275, el que quedará redactado de la siguiente forma: 2. Los reparos y conservación en buen estado de los bienes particulares de cualquiera de los cónyuges.',
-    currentText:
-      'Sustitúyese el inciso 2 del artículo 1.275, el que quedará redactado de la siguiente forma: 2. Los reparos y conservación en buen estado de los bienes particulares de cualquiera de los cónyuges.',
-    plainLanguageExplanation: 'Adapta el art. 1.275 CC sobre cargas de la sociedad conyugal con lenguaje neutro.',
+    text:
+      'Sustitúyese el inciso 2 del artículo 1.275, el que quedará redactado de la siguiente forma: 2. Los reparos y conservación en buen estado de los bienes particulares de cualquiera de los cónyuges.',    plainLanguageExplanation: 'Adapta el art. 1.275 CC sobre cargas de la sociedad conyugal con lenguaje neutro.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-42'],
@@ -837,7 +762,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-25',
         articleNumber: '25',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el inciso 2 del artículo 1.275.',
+        text: 'Sustitúyese el inciso 2 del artículo 1.275.',
         plainExplanation: 'Adapta el art. 1.275 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -851,11 +776,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '26',
     title: 'Sustitución del artículo 1.299 del Código Civil (liquidación de sociedad conyugal)',
-    originalText:
-      'Sustitúyese el artículo 1.299, el que quedará redactado de la siguiente forma: Artículo 1.299: Decretada la separación de bienes, queda extinguida la sociedad conyugal. Cada uno de los integrantes de la misma recibirán los suyos propios, y los que por gananciales les correspondan, liquidada la sociedad.',
-    currentText:
-      'Sustitúyese el artículo 1.299, el que quedará redactado de la siguiente forma: Artículo 1.299: Decretada la separación de bienes, queda extinguida la sociedad conyugal. Cada uno de los integrantes de la misma recibirán los suyos propios, y los que por gananciales les correspondan, liquidada la sociedad.',
-    plainLanguageExplanation: 'Adapta el art. 1.299 CC sobre liquidación de la sociedad conyugal para incluir matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el artículo 1.299, el que quedará redactado de la siguiente forma: Artículo 1.299: Decretada la separación de bienes, queda extinguida la sociedad conyugal. Cada uno de los integrantes de la misma recibirán los suyos propios, y los que por gananciales les correspondan, liquidada la sociedad.',    plainLanguageExplanation: 'Adapta el art. 1.299 CC sobre liquidación de la sociedad conyugal para incluir matrimonios del mismo sexo.',
     practicalEffects: ['La liquidación de gananciales aplica igualmente a matrimonios del mismo sexo'],
     examples: [],
     relatedArticles: ['art-26618-29'],
@@ -870,7 +792,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-26',
         articleNumber: '26',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 1.299 del Código Civil.',
+        text: 'Sustitúyese el artículo 1.299 del Código Civil.',
         plainExplanation: 'La liquidación de gananciales aplica igualmente a matrimonios del mismo sexo.',
         practicalExample: null,
         references: [],
@@ -884,11 +806,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '27',
     title: 'Sustitución del artículo 1.300 del Código Civil (contribución durante separación)',
-    originalText:
-      'Sustitúyese el artículo 1.300, el que quedará redactado de la siguiente forma: Artículo 1.300: Durante la separación, cada uno de los cónyuges debe contribuir a su propio mantenimiento, y a los alimentos y educación de los hijos, en proporción a sus respectivos bienes.',
-    currentText:
-      'Sustitúyese el artículo 1.300, el que quedará redactado de la siguiente forma: Artículo 1.300: Durante la separación, cada uno de los cónyuges debe contribuir a su propio mantenimiento, y a los alimentos y educación de los hijos, en proporción a sus respectivos bienes.',
-    plainLanguageExplanation: 'Adapta el art. 1.300 CC sobre contribución de los cónyuges durante la separación de bienes.',
+    text:
+      'Sustitúyese el artículo 1.300, el que quedará redactado de la siguiente forma: Artículo 1.300: Durante la separación, cada uno de los cónyuges debe contribuir a su propio mantenimiento, y a los alimentos y educación de los hijos, en proporción a sus respectivos bienes.',    plainLanguageExplanation: 'Adapta el art. 1.300 CC sobre contribución de los cónyuges durante la separación de bienes.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-26'],
@@ -903,7 +822,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-27',
         articleNumber: '27',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 1.300 del Código Civil.',
+        text: 'Sustitúyese el artículo 1.300 del Código Civil.',
         plainExplanation: 'Adapta el art. 1.300 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -917,11 +836,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '28',
     title: 'Sustitución del artículo 1.301 del Código Civil (gananciales tras separación)',
-    originalText:
-      'Sustitúyese el artículo 1.301, el que quedará redactado de la siguiente forma: Artículo 1.301: Después de la separación de bienes, los cónyuges no tendrán parte alguna en lo que en adelante ganare el otro cónyuge.',
-    currentText:
-      'Sustitúyese el artículo 1.301, el que quedará redactado de la siguiente forma: Artículo 1.301: Después de la separación de bienes, los cónyuges no tendrán parte alguna en lo que en adelante ganare el otro cónyuge.',
-    plainLanguageExplanation: 'Adapta el art. 1.301 CC: tras la separación de bienes, cada cónyuge conserva sus propias ganancias futuras.',
+    text:
+      'Sustitúyese el artículo 1.301, el que quedará redactado de la siguiente forma: Artículo 1.301: Después de la separación de bienes, los cónyuges no tendrán parte alguna en lo que en adelante ganare el otro cónyuge.',    plainLanguageExplanation: 'Adapta el art. 1.301 CC: tras la separación de bienes, cada cónyuge conserva sus propias ganancias futuras.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-26'],
@@ -936,7 +852,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-28',
         articleNumber: '28',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 1.301 del Código Civil.',
+        text: 'Sustitúyese el artículo 1.301 del Código Civil.',
         plainExplanation: 'Adapta el art. 1.301 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -950,11 +866,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '29',
     title: 'Sustitución del artículo 1.315 del Código Civil (división de gananciales)',
-    originalText:
-      'Sustitúyese el artículo 1.315, el que quedará redactado de la siguiente forma: Artículo 1.315: Los gananciales de la sociedad conyugal se dividirán por iguales partes entre los cónyuges, o sus herederos, sin consideración alguna al capital propio de los cónyuges, y aunque alguno de ellos no hubiese llevado a la sociedad bienes algunos.',
-    currentText:
-      'Sustitúyese el artículo 1.315, el que quedará redactado de la siguiente forma: Artículo 1.315: Los gananciales de la sociedad conyugal se dividirán por iguales partes entre los cónyuges, o sus herederos, sin consideración alguna al capital propio de los cónyuges, y aunque alguno de ellos no hubiese llevado a la sociedad bienes algunos.',
-    plainLanguageExplanation: 'Los gananciales se dividen en partes iguales, sin importar qué aportó cada cónyuge ni el sexo de ambos.',
+    text:
+      'Sustitúyese el artículo 1.315, el que quedará redactado de la siguiente forma: Artículo 1.315: Los gananciales de la sociedad conyugal se dividirán por iguales partes entre los cónyuges, o sus herederos, sin consideración alguna al capital propio de los cónyuges, y aunque alguno de ellos no hubiese llevado a la sociedad bienes algunos.',    plainLanguageExplanation: 'Los gananciales se dividen en partes iguales, sin importar qué aportó cada cónyuge ni el sexo de ambos.',
     practicalEffects: ['En matrimonios del mismo sexo, la división de gananciales es 50/50 igual que en los heterosexuales'],
     examples: [],
     relatedArticles: ['art-26618-26'],
@@ -969,7 +882,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-29',
         articleNumber: '29',
         segmentType: 'PARAGRAPH',
-        originalText: 'Los gananciales de la sociedad conyugal se dividirán por iguales partes entre los cónyuges.',
+        text: 'Los gananciales de la sociedad conyugal se dividirán por iguales partes entre los cónyuges.',
         plainExplanation: 'Los gananciales se dividen 50/50 en matrimonios del mismo sexo igual que en los heterosexuales.',
         practicalExample: null,
         references: [],
@@ -983,11 +896,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '30',
     title: 'Sustitución del artículo 1.358 del Código Civil (venta entre cónyuges)',
-    originalText:
-      'Sustitúyese el artículo 1.358 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 1.358: El contrato de venta no puede tener lugar entre cónyuges, aunque hubiese separación judicial de los bienes de ellos.',
-    currentText:
-      'Sustitúyese el artículo 1.358 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 1.358: El contrato de venta no puede tener lugar entre cónyuges, aunque hubiese separación judicial de los bienes de ellos.',
-    plainLanguageExplanation: 'Adapta el art. 1.358 CC sobre prohibición de venta entre cónyuges. La prohibición aplica también a matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el artículo 1.358 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 1.358: El contrato de venta no puede tener lugar entre cónyuges, aunque hubiese separación judicial de los bienes de ellos.',    plainLanguageExplanation: 'Adapta el art. 1.358 CC sobre prohibición de venta entre cónyuges. La prohibición aplica también a matrimonios del mismo sexo.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-42'],
@@ -1002,7 +912,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-30',
         articleNumber: '30',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 1.358 del Código Civil.',
+        text: 'Sustitúyese el artículo 1.358 del Código Civil.',
         plainExplanation: 'Los cónyuges del mismo sexo tampoco pueden venderse bienes entre sí.',
         practicalExample: null,
         references: [],
@@ -1016,11 +926,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '31',
     title: 'Sustitución del artículo 1.807 del Código Civil (donación de bienes raíces)',
-    originalText:
-      'Sustitúyese el inciso 2 del artículo 1.807 del Código Civil, el que quedará redactado de la siguiente forma: 2. El cónyuge, sin el consentimiento del otro, o autorización suplementaria del juez, de los bienes raíces del matrimonio.',
-    currentText:
-      'Sustitúyese el inciso 2 del artículo 1.807 del Código Civil, el que quedará redactado de la siguiente forma: 2. El cónyuge, sin el consentimiento del otro, o autorización suplementaria del juez, de los bienes raíces del matrimonio.',
-    plainLanguageExplanation: 'Adapta el art. 1.807 CC: ningún cónyuge puede donar bienes raíces del matrimonio sin el consentimiento del otro. Aplica igual a matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el inciso 2 del artículo 1.807 del Código Civil, el que quedará redactado de la siguiente forma: 2. El cónyuge, sin el consentimiento del otro, o autorización suplementaria del juez, de los bienes raíces del matrimonio.',    plainLanguageExplanation: 'Adapta el art. 1.807 CC: ningún cónyuge puede donar bienes raíces del matrimonio sin el consentimiento del otro. Aplica igual a matrimonios del mismo sexo.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-29'],
@@ -1035,7 +942,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-31',
         articleNumber: '31',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el inciso 2 del artículo 1.807 del Código Civil.',
+        text: 'Sustitúyese el inciso 2 del artículo 1.807 del Código Civil.',
         plainExplanation: 'Ningún cónyuge (de cualquier sexo) puede donar bienes raíces del matrimonio sin el otro.',
         practicalExample: null,
         references: [],
@@ -1049,11 +956,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '32',
     title: 'Sustitución del artículo 2.560 del Código Civil (tesoro encontrado por cónyuge)',
-    originalText:
-      'Sustitúyese el artículo 2.560 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 2.560: El tesoro encontrado por uno de los cónyuges en predio del otro, o la parte que correspondiese al propietario del tesoro hallado por un tercero en predio de uno de los cónyuges, corresponde a ambos como ganancial.',
-    currentText:
-      'Sustitúyese el artículo 2.560 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 2.560: El tesoro encontrado por uno de los cónyuges en predio del otro, o la parte que correspondiese al propietario del tesoro hallado por un tercero en predio de uno de los cónyuges, corresponde a ambos como ganancial.',
-    plainLanguageExplanation: 'El tesoro hallado en terreno del otro cónyuge es ganancial del matrimonio. Aplica a matrimonios del mismo sexo.',
+    text:
+      'Sustitúyese el artículo 2.560 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 2.560: El tesoro encontrado por uno de los cónyuges en predio del otro, o la parte que correspondiese al propietario del tesoro hallado por un tercero en predio de uno de los cónyuges, corresponde a ambos como ganancial.',    plainLanguageExplanation: 'El tesoro hallado en terreno del otro cónyuge es ganancial del matrimonio. Aplica a matrimonios del mismo sexo.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-29'],
@@ -1068,7 +972,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-32',
         articleNumber: '32',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 2.560 del Código Civil.',
+        text: 'Sustitúyese el artículo 2.560 del Código Civil.',
         plainExplanation: 'El tesoro hallado en terreno del cónyuge es ganancial en matrimonios del mismo sexo también.',
         practicalExample: null,
         references: [],
@@ -1082,11 +986,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '33',
     title: 'Sustitución del artículo 3.292 del Código Civil (indignidad sucesoria)',
-    originalText:
-      'Sustitúyese el artículo 3.292 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.292: Es también indigno de suceder, el heredero mayor de edad que es sabedor de la muerte violenta del autor de la sucesión y que no la denuncia a los jueces en el término de UN (1) mes, cuando sobre ella no se hubiese procedido de oficio. Si los homicidas fuesen ascendientes o descendientes, cónyuge o hermanos del heredero, cesará en éste la obligación de denunciar.',
-    currentText:
-      'Sustitúyese el artículo 3.292 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.292: Es también indigno de suceder, el heredero mayor de edad que es sabedor de la muerte violenta del autor de la sucesión y que no la denuncia a los jueces en el término de UN (1) mes, cuando sobre ella no se hubiese procedido de oficio. Si los homicidas fuesen ascendientes o descendientes, cónyuge o hermanos del heredero, cesará en éste la obligación de denunciar.',
-    plainLanguageExplanation: 'Adapta el art. 3.292 CC sobre indignidad sucesoria: el cónyuge (de cualquier sexo) está exento de denunciar si el homicida es familiar.',
+    text:
+      'Sustitúyese el artículo 3.292 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.292: Es también indigno de suceder, el heredero mayor de edad que es sabedor de la muerte violenta del autor de la sucesión y que no la denuncia a los jueces en el término de UN (1) mes, cuando sobre ella no se hubiese procedido de oficio. Si los homicidas fuesen ascendientes o descendientes, cónyuge o hermanos del heredero, cesará en éste la obligación de denunciar.',    plainLanguageExplanation: 'Adapta el art. 3.292 CC sobre indignidad sucesoria: el cónyuge (de cualquier sexo) está exento de denunciar si el homicida es familiar.',
     practicalEffects: ['El cónyuge del mismo sexo tiene las mismas exenciones de denuncia que el cónyuge heterosexual'],
     examples: [],
     relatedArticles: ['art-26618-42'],
@@ -1101,7 +1002,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-33',
         articleNumber: '33',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 3.292 del Código Civil.',
+        text: 'Sustitúyese el artículo 3.292 del Código Civil.',
         plainExplanation: 'Adapta el art. 3.292 CC al matrimonio igualitario.',
         practicalExample: null,
         references: [],
@@ -1115,11 +1016,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '34',
     title: 'Sustitución del artículo 3.969 del Código Civil (prescripción entre cónyuges)',
-    originalText:
-      'Sustitúyese el artículo 3.969 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.969: La prescripción no corre entre cónyuges, aunque estén separados de bienes, y aunque estén divorciados por autoridad competente.',
-    currentText:
-      'Sustitúyese el artículo 3.969 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.969: La prescripción no corre entre cónyuges, aunque estén separados de bienes, y aunque estén divorciados por autoridad competente.',
-    plainLanguageExplanation: 'La prescripción (el vencimiento de los plazos legales para reclamar) no corre entre cónyuges del mismo sexo, igual que entre cónyuges de distinto sexo.',
+    text:
+      'Sustitúyese el artículo 3.969 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.969: La prescripción no corre entre cónyuges, aunque estén separados de bienes, y aunque estén divorciados por autoridad competente.',    plainLanguageExplanation: 'La prescripción (el vencimiento de los plazos legales para reclamar) no corre entre cónyuges del mismo sexo, igual que entre cónyuges de distinto sexo.',
     practicalEffects: ['Las acciones entre cónyuges del mismo sexo no prescriben mientras dure el matrimonio'],
     examples: [],
     relatedArticles: ['art-26618-35'],
@@ -1134,7 +1032,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-34',
         articleNumber: '34',
         segmentType: 'PARAGRAPH',
-        originalText: 'La prescripción no corre entre cónyuges.',
+        text: 'La prescripción no corre entre cónyuges.',
         plainExplanation: 'Las acciones judiciales entre cónyuges del mismo sexo tampoco prescriben durante el matrimonio.',
         practicalExample: null,
         references: [],
@@ -1148,11 +1046,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '35',
     title: 'Sustitución del artículo 3.970 del Código Civil (suspensión de prescripción)',
-    originalText:
-      'Sustitúyese el artículo 3.970 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.970: La prescripción es igualmente suspendida durante el matrimonio, cuando la acción de uno de los cónyuges hubiere de recaer contra el otro, sea por un recurso de garantía, o sea porque lo expusiere a pleitos, o a satisfacer daños e intereses.',
-    currentText:
-      'Sustitúyese el artículo 3.970 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.970: La prescripción es igualmente suspendida durante el matrimonio, cuando la acción de uno de los cónyuges hubiere de recaer contra el otro, sea por un recurso de garantía, o sea porque lo expusiere a pleitos, o a satisfacer daños e intereses.',
-    plainLanguageExplanation: 'Adapta el art. 3.970 CC: la prescripción se suspende durante el matrimonio cuando la acción de un cónyuge es contra el otro.',
+    text:
+      'Sustitúyese el artículo 3.970 del Código Civil, el que quedará redactado de la siguiente forma: Artículo 3.970: La prescripción es igualmente suspendida durante el matrimonio, cuando la acción de uno de los cónyuges hubiere de recaer contra el otro, sea por un recurso de garantía, o sea porque lo expusiere a pleitos, o a satisfacer daños e intereses.',    plainLanguageExplanation: 'Adapta el art. 3.970 CC: la prescripción se suspende durante el matrimonio cuando la acción de un cónyuge es contra el otro.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['art-26618-34'],
@@ -1167,7 +1062,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-35',
         articleNumber: '35',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 3.970 del Código Civil.',
+        text: 'Sustitúyese el artículo 3.970 del Código Civil.',
         plainExplanation: 'La prescripción se suspende durante el matrimonio del mismo sexo igual que en el heterosexual.',
         practicalExample: null,
         references: [],
@@ -1181,11 +1076,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '36',
     title: 'Modificación del artículo 36 de la Ley 26.413 (inscripción de nacimientos)',
-    originalText:
-      'Sustitúyese el inciso c) del artículo 36 de la Ley 26.413, el que quedará redactado de la siguiente forma: c) El nombre y apellido del padre y de la madre o, en el caso de hijos de matrimonios entre personas del mismo sexo, el nombre y apellido de la madre y su cónyuge, y tipo y número de los respectivos documentos de identidad.',
-    currentText:
-      'Sustitúyese el inciso c) del artículo 36 de la Ley 26.413, el que quedará redactado de la siguiente forma: c) El nombre y apellido del padre y de la madre o, en el caso de hijos de matrimonios entre personas del mismo sexo, el nombre y apellido de la madre y su cónyuge, y tipo y número de los respectivos documentos de identidad.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el inciso c) del artículo 36 de la Ley 26.413, el que quedará redactado de la siguiente forma: c) El nombre y apellido del padre y de la madre o, en el caso de hijos de matrimonios entre personas del mismo sexo, el nombre y apellido de la madre y su cónyuge, y tipo y número de los respectivos documentos de identidad.',    plainLanguageExplanation:
       'Adapta los formularios de inscripción de nacimientos para que los hijos de matrimonios del mismo sexo puedan ser inscriptos con los datos de sus dos madres o dos padres.',
     practicalEffects: [
       'Los hijos de matrimonios del mismo sexo pueden ser inscriptos con el nombre de ambos progenitores',
@@ -1204,7 +1096,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-36',
         articleNumber: '36',
         segmentType: 'PARAGRAPH',
-        originalText: 'En el caso de hijos de matrimonios entre personas del mismo sexo, el nombre y apellido de la madre y su cónyuge.',
+        text: 'En el caso de hijos de matrimonios entre personas del mismo sexo, el nombre y apellido de la madre y su cónyuge.',
         plainExplanation: 'La partida de nacimiento de un hijo de dos madres lleva el nombre de ambas.',
         practicalExample: 'Dos mujeres casadas inscriben a su hijo con el nombre de ambas en la partida de nacimiento.',
         references: [],
@@ -1218,11 +1110,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '37',
     title: 'Sustitución del artículo 4º de la Ley 18.248 (apellido de los hijos matrimoniales)',
-    originalText:
-      'Sustitúyese el artículo 4º de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 4º: Los hijos matrimoniales de cónyuges de distinto sexo llevarán el primer apellido del padre. A pedido de los progenitores podrá inscribirse el apellido compuesto del padre o agregarse el de la madre. Los hijos matrimoniales de cónyuges del mismo sexo llevarán el primer apellido de alguno de ellos. A pedido de éstos podrá inscribirse el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregarse el del otro cónyuge. Si no hubiera acuerdo acerca de qué apellido llevará el adoptado, si ha de ser compuesto, o sobre cómo se integrará, los apellidos se ordenarán alfabéticamente.',
-    currentText:
-      'Sustitúyese el artículo 4º de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 4º: Los hijos matrimoniales de cónyuges de distinto sexo llevarán el primer apellido del padre. A pedido de los progenitores podrá inscribirse el apellido compuesto del padre o agregarse el de la madre. Los hijos matrimoniales de cónyuges del mismo sexo llevarán el primer apellido de alguno de ellos. A pedido de éstos podrá inscribirse el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregarse el del otro cónyuge. Si no hubiera acuerdo acerca de qué apellido llevará el adoptado, si ha de ser compuesto, o sobre cómo se integrará, los apellidos se ordenarán alfabéticamente.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 4º de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 4º: Los hijos matrimoniales de cónyuges de distinto sexo llevarán el primer apellido del padre. A pedido de los progenitores podrá inscribirse el apellido compuesto del padre o agregarse el de la madre. Los hijos matrimoniales de cónyuges del mismo sexo llevarán el primer apellido de alguno de ellos. A pedido de éstos podrá inscribirse el apellido compuesto del cónyuge del cual tuviera el primer apellido o agregarse el del otro cónyuge. Si no hubiera acuerdo acerca de qué apellido llevará el adoptado, si ha de ser compuesto, o sobre cómo se integrará, los apellidos se ordenarán alfabéticamente.',    plainLanguageExplanation:
       'Para hijos de matrimonios del mismo sexo: llevan el primer apellido de cualquiera de los cónyuges. Si hay desacuerdo sobre cuál va primero, se ordenan alfabéticamente.',
     practicalEffects: [
       'El hijo de dos madres puede llevar el apellido de cualquiera de ellas como primero',
@@ -1241,7 +1130,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-37',
         articleNumber: '37',
         segmentType: 'PARAGRAPH',
-        originalText: 'Los hijos matrimoniales de cónyuges del mismo sexo llevarán el primer apellido de alguno de ellos. Si no hubiera acuerdo... los apellidos se ordenarán alfabéticamente.',
+        text: 'Los hijos matrimoniales de cónyuges del mismo sexo llevarán el primer apellido de alguno de ellos. Si no hubiera acuerdo... los apellidos se ordenarán alfabéticamente.',
         plainExplanation: 'Hijo de matrimonio del mismo sexo: apellido de cualquier cónyuge. Si no hay acuerdo: orden alfabético.',
         practicalExample: 'Dos madres (López y Martín) sin acuerdo: el hijo se llama López Martín.',
         references: [],
@@ -1255,11 +1144,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '38',
     title: 'Sustitución del artículo 8º de la Ley 18.248 (apellido del cónyuge)',
-    originalText:
-      'Sustitúyese el artículo 8º de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 8º: Será optativo para la mujer casada con un hombre añadir a su apellido el del marido, precedido por la preposición "de". En caso de matrimonio entre personas del mismo sexo, será optativo para cada cónyuge añadir a su apellido el de su cónyuge, precedido por la preposición "de".',
-    currentText:
-      'Sustitúyese el artículo 8º de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 8º: Será optativo para la mujer casada con un hombre añadir a su apellido el del marido, precedido por la preposición "de". En caso de matrimonio entre personas del mismo sexo, será optativo para cada cónyuge añadir a su apellido el de su cónyuge, precedido por la preposición "de".',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 8º de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 8º: Será optativo para la mujer casada con un hombre añadir a su apellido el del marido, precedido por la preposición "de". En caso de matrimonio entre personas del mismo sexo, será optativo para cada cónyuge añadir a su apellido el de su cónyuge, precedido por la preposición "de".',    plainLanguageExplanation:
       'En matrimonios del mismo sexo, cualquier cónyuge puede opcionalmente añadir el apellido del otro precedido de "de". Es siempre optativo, nunca obligatorio.',
     practicalEffects: ['Cualquier cónyuge del mismo sexo puede adoptar el apellido "de [apellido del otro]" si lo desea'],
     examples: ['Si dos mujeres se llaman García y López, cualquiera puede llamarse "García de López" o "López de García" de forma optativa'],
@@ -1275,7 +1161,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-38',
         articleNumber: '38',
         segmentType: 'PARAGRAPH',
-        originalText: 'En caso de matrimonio entre personas del mismo sexo, será optativo para cada cónyuge añadir a su apellido el de su cónyuge, precedido por la preposición "de".',
+        text: 'En caso de matrimonio entre personas del mismo sexo, será optativo para cada cónyuge añadir a su apellido el de su cónyuge, precedido por la preposición "de".',
         plainExplanation: 'Cualquier cónyuge del mismo sexo puede optativamente usar el apellido del otro precedido de "de".',
         practicalExample: null,
         references: [],
@@ -1289,11 +1175,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '39',
     title: 'Sustitución del artículo 9º de la Ley 18.248 (apellido tras separación o divorcio)',
-    originalText:
-      'Sustitúyese el artículo 9º de la Ley 18.248, el que quedará redactado de la siguiente forma: Decretada la separación personal, será optativo para cada cónyuge de un matrimonio entre personas del mismo sexo llevar el apellido del otro. Cuando existieren motivos graves, los jueces, a pedido de uno de los cónyuges, podrán prohibir al otro separado el uso del apellido marital. Si el cónyuge hubiere optado por usarlo, decretado el divorcio vincular perderá tal derecho, salvo acuerdo en contrario o que por el ejercicio de su industria, comercio o profesión fuese conocida/o por aquél y solicitare conservarlo para sus actividades.',
-    currentText:
-      'Sustitúyese el artículo 9º de la Ley 18.248, el que quedará redactado de la siguiente forma: Decretada la separación personal, será optativo para cada cónyuge de un matrimonio entre personas del mismo sexo llevar el apellido del otro. Cuando existieren motivos graves, los jueces, a pedido de uno de los cónyuges, podrán prohibir al otro separado el uso del apellido marital. Si el cónyuge hubiere optado por usarlo, decretado el divorcio vincular perderá tal derecho, salvo acuerdo en contrario o que por el ejercicio de su industria, comercio o profesión fuese conocida/o por aquél y solicitare conservarlo para sus actividades.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 9º de la Ley 18.248, el que quedará redactado de la siguiente forma: Decretada la separación personal, será optativo para cada cónyuge de un matrimonio entre personas del mismo sexo llevar el apellido del otro. Cuando existieren motivos graves, los jueces, a pedido de uno de los cónyuges, podrán prohibir al otro separado el uso del apellido marital. Si el cónyuge hubiere optado por usarlo, decretado el divorcio vincular perderá tal derecho, salvo acuerdo en contrario o que por el ejercicio de su industria, comercio o profesión fuese conocida/o por aquél y solicitare conservarlo para sus actividades.',    plainLanguageExplanation:
       'Tras la separación o divorcio en matrimonios del mismo sexo: el uso del apellido del ex cónyuge es optativo pero puede prohibirse por el juez a pedido del interesado. Con el divorcio se pierde el derecho al apellido del otro, salvo acuerdo o actividad profesional reconocida por ese apellido.',
     practicalEffects: ['Tras el divorcio en matrimonios del mismo sexo, el apellido adoptado se pierde salvo excepciones'],
     examples: [],
@@ -1309,7 +1192,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-39',
         articleNumber: '39',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 9º de la Ley 18.248.',
+        text: 'Sustitúyese el artículo 9º de la Ley 18.248.',
         plainExplanation: 'Tras el divorcio del matrimonio del mismo sexo, el apellido del otro se pierde salvo acuerdo o uso profesional.',
         practicalExample: null,
         references: [],
@@ -1323,11 +1206,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '40',
     title: 'Sustitución del artículo 10 de la Ley 18.248 (apellido de la viuda/viudo)',
-    originalText:
-      'Sustitúyese el artículo 10 de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 10: La viuda o el viudo está autorizada/o para requerir ante el Registro del Estado Civil la supresión del apellido marital. Si contrajere nuevas nupcias, perderá el apellido de su anterior cónyuge.',
-    currentText:
-      'Sustitúyese el artículo 10 de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 10: La viuda o el viudo está autorizada/o para requerir ante el Registro del Estado Civil la supresión del apellido marital. Si contrajere nuevas nupcias, perderá el apellido de su anterior cónyuge.',
-    plainLanguageExplanation: 'El viudo o viuda (cualquier sexo) puede pedir la supresión del apellido del cónyuge fallecido. Si se casa nuevamente, pierde automáticamente el apellido del anterior cónyuge.',
+    text:
+      'Sustitúyese el artículo 10 de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 10: La viuda o el viudo está autorizada/o para requerir ante el Registro del Estado Civil la supresión del apellido marital. Si contrajere nuevas nupcias, perderá el apellido de su anterior cónyuge.',    plainLanguageExplanation: 'El viudo o viuda (cualquier sexo) puede pedir la supresión del apellido del cónyuge fallecido. Si se casa nuevamente, pierde automáticamente el apellido del anterior cónyuge.',
     practicalEffects: ['El cónyuge supérstite del mismo sexo tiene los mismos derechos sobre su apellido que el heterosexual'],
     examples: [],
     relatedArticles: ['art-26618-38', 'art-26618-39'],
@@ -1342,7 +1222,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-40',
         articleNumber: '40',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 10 de la Ley 18.248.',
+        text: 'Sustitúyese el artículo 10 de la Ley 18.248.',
         plainExplanation: 'El viudo o viuda de un matrimonio del mismo sexo puede pedir la supresión del apellido del cónyuge fallecido.',
         practicalExample: null,
         references: [],
@@ -1356,11 +1236,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '41',
     title: 'Sustitución del artículo 12 de la Ley 18.248 (apellido de hijos adoptivos)',
-    originalText:
-      'Sustitúyese el artículo 12 de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 12: Los hijos adoptivos llevarán el apellido del adoptante, pudiendo a pedido de éste, agregarse el de origen. Si se tratare de una mujer o un hombre casada/o con una persona del mismo sexo cuyo cónyuge no adoptare al menor, llevará el apellido de soltera/o del adoptante, a menos que el cónyuge autorizare expresamente a imponerle su apellido.',
-    currentText:
-      'Sustitúyese el artículo 12 de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 12: Los hijos adoptivos llevarán el apellido del adoptante, pudiendo a pedido de éste, agregarse el de origen. Si se tratare de una mujer o un hombre casada/o con una persona del mismo sexo cuyo cónyuge no adoptare al menor, llevará el apellido de soltera/o del adoptante, a menos que el cónyuge autorizare expresamente a imponerle su apellido.',
-    plainLanguageExplanation:
+    text:
+      'Sustitúyese el artículo 12 de la Ley 18.248, el que quedará redactado de la siguiente forma: Artículo 12: Los hijos adoptivos llevarán el apellido del adoptante, pudiendo a pedido de éste, agregarse el de origen. Si se tratare de una mujer o un hombre casada/o con una persona del mismo sexo cuyo cónyuge no adoptare al menor, llevará el apellido de soltera/o del adoptante, a menos que el cónyuge autorizare expresamente a imponerle su apellido.',    plainLanguageExplanation:
       'Si solo uno de los cónyuges del mismo sexo adopta, el hijo lleva el apellido de soltero/a del adoptante (no el apellido "de casado"), salvo que el otro cónyuge autorice usar su apellido.',
     practicalEffects: [],
     examples: [],
@@ -1376,7 +1253,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-41',
         articleNumber: '41',
         segmentType: 'PARAGRAPH',
-        originalText: 'Sustitúyese el artículo 12 de la Ley 18.248.',
+        text: 'Sustitúyese el artículo 12 de la Ley 18.248.',
         plainExplanation: 'Si solo uno de los cónyuges del mismo sexo adopta, el hijo lleva su apellido de soltero/a.',
         practicalExample: null,
         references: [],
@@ -1390,11 +1267,8 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '42',
     title: 'Aplicación (Cláusula de igualdad)',
-    originalText:
-      'Todas las referencias a la institución del matrimonio que contiene nuestro ordenamiento jurídico se entenderán aplicables tanto al matrimonio constituido por DOS (2) personas del mismo sexo como al constituido por DOS (2) personas de distinto sexo. Los integrantes de las familias cuyo origen sea un matrimonio constituido por DOS (2) personas del mismo sexo, así como un matrimonio constituido por personas de distinto sexo, tendrán los mismos derechos y obligaciones. Ninguna norma del ordenamiento jurídico argentino podrá ser interpretada ni aplicada en el sentido de limitar, restringir, excluir o suprimir el ejercicio o goce de los mismos derechos y obligaciones, tanto al matrimonio constituido por personas del mismo sexo como al formado por DOS (2) personas de distinto sexo.',
-    currentText:
-      'Todas las referencias a la institución del matrimonio que contiene nuestro ordenamiento jurídico se entenderán aplicables tanto al matrimonio constituido por DOS (2) personas del mismo sexo como al constituido por DOS (2) personas de distinto sexo. Los integrantes de las familias cuyo origen sea un matrimonio constituido por DOS (2) personas del mismo sexo, así como un matrimonio constituido por personas de distinto sexo, tendrán los mismos derechos y obligaciones. Ninguna norma del ordenamiento jurídico argentino podrá ser interpretada ni aplicada en el sentido de limitar, restringir, excluir o suprimir el ejercicio o goce de los mismos derechos y obligaciones, tanto al matrimonio constituido por personas del mismo sexo como al formado por DOS (2) personas de distinto sexo.',
-    plainLanguageExplanation:
+    text:
+      'Todas las referencias a la institución del matrimonio que contiene nuestro ordenamiento jurídico se entenderán aplicables tanto al matrimonio constituido por DOS (2) personas del mismo sexo como al constituido por DOS (2) personas de distinto sexo. Los integrantes de las familias cuyo origen sea un matrimonio constituido por DOS (2) personas del mismo sexo, así como un matrimonio constituido por personas de distinto sexo, tendrán los mismos derechos y obligaciones. Ninguna norma del ordenamiento jurídico argentino podrá ser interpretada ni aplicada en el sentido de limitar, restringir, excluir o suprimir el ejercicio o goce de los mismos derechos y obligaciones, tanto al matrimonio constituido por personas del mismo sexo como al formado por DOS (2) personas de distinto sexo.',    plainLanguageExplanation:
       'Esta es la cláusula general de igualdad: todas las leyes argentinas que hablan de "matrimonio" se aplican igual a matrimonios del mismo sexo que a los de distinto sexo. Ninguna norma puede interpretarse para discriminar. Es la garantía de que no haya ningún resquicio legal que permita un trato diferenciado.',
     practicalEffects: [
       'Todo beneficio que da el matrimonio (pensión, herencia, obra social, permiso parental) aplica igual al mismo sexo',
@@ -1417,7 +1291,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-42',
         articleNumber: '42',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Ninguna norma del ordenamiento jurídico argentino podrá ser interpretada ni aplicada en el sentido de limitar, restringir, excluir o suprimir el ejercicio o goce de los mismos derechos y obligaciones, tanto al matrimonio constituido por personas del mismo sexo como al formado por DOS (2) personas de distinto sexo.',
         plainExplanation:
           'Ninguna ley puede interpretarse para dar menos derechos a matrimonios del mismo sexo. Es la garantía general de igualdad.',
@@ -1434,9 +1308,7 @@ export const ARTICLES_26618: Article[] = [
     lawId: 'ley-26618',
     number: '43',
     title: 'Comuníquese',
-    originalText: 'Comuníquese al Poder Ejecutivo nacional.',
-    currentText: 'Comuníquese al Poder Ejecutivo nacional.',
-    plainLanguageExplanation: 'Cláusula de promulgación. Ordena comunicar la ley al Poder Ejecutivo para su promulgación y publicación en el Boletín Oficial.',
+    text: 'Comuníquese al Poder Ejecutivo nacional.',    plainLanguageExplanation: 'Cláusula de promulgación. Ordena comunicar la ley al Poder Ejecutivo para su promulgación y publicación en el Boletín Oficial.',
     practicalEffects: [],
     examples: [],
     relatedArticles: [],
@@ -1451,7 +1323,7 @@ export const ARTICLES_26618: Article[] = [
         articleId: 'art-26618-43',
         articleNumber: '43',
         segmentType: 'PARAGRAPH',
-        originalText: 'Comuníquese al Poder Ejecutivo nacional.',
+        text: 'Comuníquese al Poder Ejecutivo nacional.',
         plainExplanation: 'Cláusula de promulgación.',
         practicalExample: null,
         references: [],

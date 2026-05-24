@@ -16,10 +16,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '211',
 		title: 'Infracciones sancionables',
-		originalText:
+		text:
 			'Serán sancionables los siguientes incumplimientos:\na) Omitir o demorar la presentación de información requerida;\nb) Presentar información o declaraciones juradas falsas o inexactas;\nc) Omitir la autorización previa expresa de la autoridad de aplicación cuando sea necesaria;\nd) Desafectar bienes introducidos con franquicias RIGI antes del vencimiento de los plazos;\ne) Desarrollar actividades que no correspondan al objeto único del VPU;\nf) Incumplir injustificadamente las obligaciones de inversión de los incisos a) y b) del art. 172;\ng) Goce indebido de las franquicias tributarias, aduaneras y cambiarias.',
-		currentText:
-			'Son infracciones RIGI: a) no presentar información en plazo; b) información falsa; c) no pedir autorización cuando corresponde; d) vender bienes importados con franquicia RIGI a terceros no-RIGI antes del plazo; e) desarrollar actividades fuera del objeto único; f) incumplir el cronograma de inversión; g) uso indebido de beneficios.',
 		plainLanguageExplanation:
 			'El RIGI tiene su propio régimen de infracciones: si el VPU no cumple con el plan de inversión, usa los beneficios (arancel 0%, ganancias reducidas) para proyectos distintos al declarado, vende a terceros equipos importados con franquicia, o da información falsa, puede ser sancionado. Las sanciones van desde apercibimiento hasta el cese del régimen.',
 		practicalEffects: [
@@ -41,10 +39,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '212',
 		title: 'Procedimiento sumarial',
-		originalText:
+		text:
 			'Verificado un incumplimiento, la autoridad de aplicación debe intimar al VPU a subsanarlo en 30 días hábiles. Si no subsana o si no es subsanable, se instruye el sumario infraccional. El procedimiento garantiza: notificación de la imputación; 15 días hábiles para descargo y prueba; plazo para producción de prueba (mínimo 20 días hábiles); alegato en 5 días hábiles; resolución en 30 días hábiles desde el cierre del período probatorio.',
-		currentText:
-			'Ante un incumplimiento: primero intimación de 30 días hábiles para subsanar. Si no se subsana: apertura del sumario. El procedimiento garantiza: 15 días para descargo + prueba; 20 días para producir prueba; 5 días para alegato; resolución en 30 días.',
 		plainLanguageExplanation:
 			'Antes de sancionar al VPU, la Autoridad de Aplicación debe seguir un proceso formal que garantiza la defensa: primero da plazo para corregir, luego si no corrige abre un sumario con notificación, plazo para presentar descargo y pruebas, y resolución fundada. No hay sanciones automáticas ni sin audiencia previa.',
 		practicalEffects: [
@@ -66,10 +62,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '213',
 		title: 'Sanciones',
-		originalText:
+		text:
 			'Concluido el procedimiento sumarial, si se verifica el incumplimiento, la autoridad de aplicación aplica una o más de las siguientes sanciones:\na) Apercibimiento, para omisión de información;\nb) Multa de $10M a $30M, para omisión de información;\nc) Multa de $100M a $400M, para información falsa, omisión de autorización y desafectación de bienes;\nd) Multa de 1% a 3% del monto mínimo de inversión, para actividades fuera del objeto único;\ne) Multa de 5% a 15% del monto mínimo pendiente, por incumplimiento de cronograma;\nf) Cese del RIGI, por incumplimiento grave del cronograma;\ng) Cese del RIGI, por goce indebido de franquicias.',
-		currentText:
-			'Sanciones RIGI: apercibimiento; multas en pesos (de $10M a $400M según la gravedad); multas de 1-3% o 5-15% del monto mínimo; y cese del régimen (la sanción máxima, para incumplimiento grave de inversión o goce indebido de franquicias).',
 		plainLanguageExplanation:
 			'Las sanciones van de menor a mayor: el apercibimiento es una advertencia formal; las multas en pesos son económicas pero no implican perder el régimen; la multa del 5-15% del monto pendiente es significativa para proyectos grandes; y el cese del RIGI —la sanción máxima— significa perder todos los beneficios del régimen hacia adelante.',
 		practicalEffects: [
@@ -93,10 +87,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '214',
 		title: 'Efecto del cese sobre las garantías',
-		originalText:
+		text:
 			'En la misma resolución en la que la autoridad de aplicación disponga el cese del RIGI como sanción, deberá disponer también la ejecución de las garantías previstas en el artículo 182, sin perjuicio de los daños y perjuicios que pudieran corresponder al Estado.',
-		currentText:
-			'Cuando se dispone el cese del RIGI como sanción, en la misma resolución se ordena ejecutar las garantías del art. 182 (caución, fianza o similar constituida por el VPU al adherirse). El Estado puede también reclamar daños y perjuicios adicionales.',
 		plainLanguageExplanation:
 			'Si el VPU es sancionado con el cese del RIGI, el Estado ejecuta inmediatamente las garantías que el inversor constituyó al adherirse (art. 182). Esto es el "seguro" del Estado frente a incumplimientos: si el proyecto fracasa o incumple deliberadamente, el Estado cobra esas garantías.',
 		practicalEffects: [
@@ -117,10 +109,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '215',
 		title: 'Prescripción de la acción penal en infracciones RIGI',
-		originalText:
+		text:
 			'La acción penal en las infracciones del artículo 211 prescribe a los cinco (5) años de haber sido cometida la infracción. La acción de repetición prescribe a los cinco (5) años de que la autoridad de aplicación haya tomado conocimiento de la infracción.',
-		currentText:
-			'Las infracciones RIGI prescriben a los 5 años de cometidas. La acción de repetición (para recuperar beneficios indebidamente gozados) prescribe a los 5 años desde que la Autoridad de Aplicación tomó conocimiento.',
 		plainLanguageExplanation:
 			'El plazo para que el Estado persiga infracciones al RIGI es de 5 años. Si la Autoridad de Aplicación no actúa dentro de ese plazo, pierde el derecho a sancionar. La prescripción para recuperar beneficios tributarios o aduaneros usados indebidamente también es de 5 años, pero corre desde que el Estado se enteró (no desde la infracción).',
 		practicalEffects: [
@@ -141,10 +131,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '216',
 		title: 'Resolución de cese',
-		originalText:
+		text:
 			'El cese será dispuesto por la autoridad de aplicación mediante resolución fundada, en la que se especifiquen las causales del incumplimiento que dan lugar al cese, los efectos del mismo y la forma en que operará la ejecución de las garantías. El cese produce efectos desde la fecha de su notificación al VPU.',
-		currentText:
-			'El cese del RIGI requiere resolución fundada de la Autoridad de Aplicación, que especifique causas, efectos y ejecución de garantías. El cese produce efectos desde la notificación al VPU.',
 		plainLanguageExplanation:
 			'La pérdida del régimen RIGI no puede ser arbitraria: la Autoridad de Aplicación debe dictar una resolución que explique por qué se aplica el cese, qué efectos tiene y cómo se ejecutan las garantías. El VPU pierde los beneficios desde el día en que recibe esa notificación.',
 		practicalEffects: [
@@ -165,10 +153,8 @@ export const ARTICLES_08: Article[] = [
 		lawId: 'ley-27742',
 		number: '217',
 		title: 'Recursos contra sanciones',
-		originalText:
+		text:
 			'Las sanciones dispuestas por la autoridad de aplicación podrán ser recurridas por el VPU ante la Cámara Nacional de Apelaciones en lo Contencioso Administrativo Federal, dentro de los treinta (30) días hábiles de su notificación. La interposición del recurso suspenderá la ejecución de la sanción, salvo en lo que respecta al cese del régimen que producirá efectos desde la notificación de la resolución de la autoridad de aplicación.',
-		currentText:
-			'Las sanciones RIGI pueden apelarse ante la Cámara Nacional de Apelaciones en lo Contencioso Administrativo Federal, dentro de los 30 días hábiles de notificada. La apelación suspende la sanción, excepto el cese del régimen que produce efectos desde la notificación (pero puede pedirse medida cautelar judicial).',
 		plainLanguageExplanation:
 			'Si el VPU no está de acuerdo con la sanción, puede apelarla ante la justicia federal en 30 días. Mientras dure la apelación, la sanción no se ejecuta (excepto el cese del régimen, que sí opera aunque puede pedirse una medida cautelar para suspenderlo durante el juicio).',
 		practicalEffects: [

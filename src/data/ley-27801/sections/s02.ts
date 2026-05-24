@@ -9,9 +9,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '11',
     title: 'Sustitución de la pena privativa de libertad',
-    originalText:
-      'Cuando la pena prevista para el delito o concurso de delitos imputados sea de hasta tres (3) años de prisión y se cumplieran las demás condiciones del título III del Libro Primero del Código Penal de la Nación, se deberá reemplazar la pena de prisión por alguna de las penas previstas en el artículo 12.\n\nCuando la pena prevista para el delito o concurso de delitos imputados supere los tres (3) años de prisión y hasta un máximo de diez (10) años de prisión y ninguno de los hechos reprochados haya implicado la muerte de la víctima, una grave violencia física o psíquica sobre las personas o, si se tratare de delitos culposos, no existieran lesiones gravísimas ni se haya causado la muerte o un daño psíquico grave a la víctima y el adolescente imputado no registrare condenas u otros procesos en trámite con auto de procesamiento o auto procesal equivalente firme, el tribunal, previo dictamen pericial con la conformidad del Ministerio Público Fiscal y habiendo escuchado a la víctima, podrá reemplazar la pena privativa de la libertad por alguna de las penas previstas en el artículo 12.',
-    currentText:
+    text:
       'Cuando la pena prevista para el delito o concurso de delitos imputados sea de hasta tres (3) años de prisión y se cumplieran las demás condiciones del título III del Libro Primero del Código Penal de la Nación, se deberá reemplazar la pena de prisión por alguna de las penas previstas en el artículo 12.\n\nCuando la pena prevista para el delito o concurso de delitos imputados supere los tres (3) años de prisión y hasta un máximo de diez (10) años de prisión y ninguno de los hechos reprochados haya implicado la muerte de la víctima, una grave violencia física o psíquica sobre las personas o, si se tratare de delitos culposos, no existieran lesiones gravísimas ni se haya causado la muerte o un daño psíquico grave a la víctima y el adolescente imputado no registrare condenas u otros procesos en trámite con auto de procesamiento o auto procesal equivalente firme, el tribunal, previo dictamen pericial con la conformidad del Ministerio Público Fiscal y habiendo escuchado a la víctima, podrá reemplazar la pena privativa de la libertad por alguna de las penas previstas en el artículo 12.',
     plainLanguageExplanation:
       'Para delitos con pena de hasta 3 años, el reemplazo por penas alternativas es obligatorio (deberá). Para delitos de 3 a 10 años, el reemplazo es posible (podrá) pero solo si no hubo muerte ni violencia grave, el adolescente no tiene condenas, y el tribunal cuenta con dictamen pericial y conformidad del fiscal.',
@@ -37,7 +35,7 @@ export const ARTICLES_27801_02: Article[] = [
         articleId: 'art-27801-11',
         articleNumber: '11',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando la pena prevista para el delito o concurso de delitos imputados sea de hasta tres (3) años de prisión y se cumplieran las demás condiciones del título III del Libro Primero del Código Penal de la Nación, se deberá reemplazar la pena de prisión por alguna de las penas previstas en el artículo 12.',
         plainExplanation:
           'Para los delitos más leves (pena máxima hasta 3 años), el reemplazo es OBLIGATORIO ("se deberá"), no discrecional. El juez no puede optar por el encierro si no hay razones excepcionales.',
@@ -52,7 +50,7 @@ export const ARTICLES_27801_02: Article[] = [
         articleId: 'art-27801-11',
         articleNumber: '11',
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Cuando la pena prevista para el delito o concurso de delitos imputados supere los tres (3) años de prisión y hasta un máximo de diez (10) años de prisión y ninguno de los hechos reprochados haya implicado la muerte de la víctima, una grave violencia física o psíquica sobre las personas...',
         plainExplanation:
           'Para delitos de 3 a 10 años, el reemplazo es posible pero condicionado a cuatro requisitos: (1) no hubo muerte ni violencia grave, (2) el adolescente no tiene condenas previas, (3) hay dictamen pericial, (4) el fiscal consiente.',
@@ -69,9 +67,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '12',
     title: 'Enunciación de penas',
-    originalText:
-      'Podrán imponerse al adolescente las siguientes penas:\n\na) Amonestación, en los términos establecidos en el artículo 13 de esta ley;\n\nb) Prohibición de contacto o de aproximarse a la víctima, su familia u otras personas que el juez estime corresponder o de relacionarse con determinadas personas;\n\nc) Prohibición de conducción de vehículos, si el delito imputado se vincula con la conducción de vehículos motorizados de cualquier naturaleza, el juez o tribunal podrá prohibirle la conducción de uno (1) o más tipos de vehículos;\n\nd) Prohibición de concurrir a determinados lugares, establecimientos o espectáculos, inclusive deportivos, musicales o culturales;\n\ne) Prohibición de salir del país o del lugar en el cual reside o del ámbito territorial que el juez determine;\n\nf) Prestación de servicios a la comunidad. La prestación de servicios a la comunidad consiste en la realización de tareas de interés social en entidades de asistencia, públicas o privadas sin fines de lucro como hospitales, escuelas, sociedades o fundaciones destinadas al bien común y con fines sociales u otros establecimientos similares. Dichos servicios deberán ser determinados con estricta observancia de las regulaciones que en materia laboral se establecen respecto del trabajo de las personas menores de dieciocho (18) años de edad en cuanto al tipo de tareas. Las tareas deberán asignarse según las aptitudes del adolescente imputado y no deberán afectar ni perjudicar su concurrencia a establecimientos educativos o laborales;\n\ng) Monitoreo electrónico. El monitoreo electrónico consiste en la aplicación de un dispositivo electrónico para rastrear y registrar la ubicación y actividades del adolescente, a fin de garantizar el cumplimiento de alguna de las penas impuestas o bien como pena en sí misma. El monitoreo electrónico podrá imponerse de forma autónoma o como complemento de las otras penas previstas en este artículo y en el artículo 17 de la presente ley;\n\nh) Reparación integral del daño a la víctima;\n\ni) Penas privativas de libertad.',
-    currentText:
+    text:
       'Podrán imponerse al adolescente las siguientes penas:\n\na) Amonestación, en los términos establecidos en el artículo 13 de esta ley;\n\nb) Prohibición de contacto o de aproximarse a la víctima, su familia u otras personas que el juez estime corresponder o de relacionarse con determinadas personas;\n\nc) Prohibición de conducción de vehículos, si el delito imputado se vincula con la conducción de vehículos motorizados de cualquier naturaleza, el juez o tribunal podrá prohibirle la conducción de uno (1) o más tipos de vehículos;\n\nd) Prohibición de concurrir a determinados lugares, establecimientos o espectáculos, inclusive deportivos, musicales o culturales;\n\ne) Prohibición de salir del país o del lugar en el cual reside o del ámbito territorial que el juez determine;\n\nf) Prestación de servicios a la comunidad. La prestación de servicios a la comunidad consiste en la realización de tareas de interés social en entidades de asistencia, públicas o privadas sin fines de lucro como hospitales, escuelas, sociedades o fundaciones destinadas al bien común y con fines sociales u otros establecimientos similares. Dichos servicios deberán ser determinados con estricta observancia de las regulaciones que en materia laboral se establecen respecto del trabajo de las personas menores de dieciocho (18) años de edad en cuanto al tipo de tareas. Las tareas deberán asignarse según las aptitudes del adolescente imputado y no deberán afectar ni perjudicar su concurrencia a establecimientos educativos o laborales;\n\ng) Monitoreo electrónico. El monitoreo electrónico consiste en la aplicación de un dispositivo electrónico para rastrear y registrar la ubicación y actividades del adolescente, a fin de garantizar el cumplimiento de alguna de las penas impuestas o bien como pena en sí misma. El monitoreo electrónico podrá imponerse de forma autónoma o como complemento de las otras penas previstas en este artículo y en el artículo 17 de la presente ley;\n\nh) Reparación integral del daño a la víctima;\n\ni) Penas privativas de libertad.',
     plainLanguageExplanation:
       'Este artículo lista las 9 penas posibles para adolescentes. Van desde la más leve (amonestación) hasta la más grave (privación de libertad del art. 17). Las penas a) a h) no implican encierro; la i) remite a las tres modalidades del art. 17.',
@@ -98,9 +94,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '13',
     title: 'Amonestación',
-    originalText:
-      'La amonestación consiste en un llamado de atención, reproche oral y recomendaciones sobre formas de conducta comunitaria formulado personalmente, bajo consecuencia de nulidad, por el juez o tribunal al adolescente imputado en audiencia privada y en presencia del defensor, del fiscal, de los padres o representantes legales y de la víctima, si ella así lo desea.\n\nEn la citada audiencia, el magistrado interviniente deberá hacer saber al imputado, de forma clara y en lenguaje sencillo, la ilegalidad y gravedad del hecho cometido y su responsabilidad, y promover su determinación a no cometer nuevos delitos.\n\nPodrá también convocar en otra audiencia a los padres o responsables y advertirlos sobre la conducta ilícita del adolescente imputado, su necesidad de enmienda y de procurar que aquella no se repita en el futuro.\n\nLa amonestación deberá ser impuesta de forma conjunta con al menos una (1) de las demás penas previstas en el artículo 12.',
-    currentText:
+    text:
       'La amonestación consiste en un llamado de atención, reproche oral y recomendaciones sobre formas de conducta comunitaria formulado personalmente, bajo consecuencia de nulidad, por el juez o tribunal al adolescente imputado en audiencia privada y en presencia del defensor, del fiscal, de los padres o representantes legales y de la víctima, si ella así lo desea.\n\nEn la citada audiencia, el magistrado interviniente deberá hacer saber al imputado, de forma clara y en lenguaje sencillo, la ilegalidad y gravedad del hecho cometido y su responsabilidad, y promover su determinación a no cometer nuevos delitos.\n\nPodrá también convocar en otra audiencia a los padres o responsables y advertirlos sobre la conducta ilícita del adolescente imputado, su necesidad de enmienda y de procurar que aquella no se repita en el futuro.\n\nLa amonestación deberá ser impuesta de forma conjunta con al menos una (1) de las demás penas previstas en el artículo 12.',
     plainLanguageExplanation:
       'La amonestación es una reprimenda oral formal del juez al adolescente, en audiencia privada con el defensor, el fiscal y los padres. Es la pena más leve, pero no puede aplicarse sola: siempre debe acompañarse de al menos otra pena del art. 12. Si el juez no la formula personalmente, la pena es nula.',
@@ -126,9 +120,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '14',
     title: 'Límites a las prohibiciones',
-    originalText:
-      'Salvo cuando fuera necesario para la protección de la víctima o de testigos, las penas establecidas en el artículo 12, incisos b), d) y e) no podrán impedir u obstaculizar vínculos afectivos de importancia, la asistencia a lugares para su formación educativa o laboral o a su lugar de trabajo o de educación, o el acceso a servicios de salud.',
-    currentText:
+    text:
       'Salvo cuando fuera necesario para la protección de la víctima o de testigos, las penas establecidas en el artículo 12, incisos b), d) y e) no podrán impedir u obstaculizar vínculos afectivos de importancia, la asistencia a lugares para su formación educativa o laboral o a su lugar de trabajo o de educación, o el acceso a servicios de salud.',
     plainLanguageExplanation:
       'Las prohibiciones de contacto, de concurrir a lugares y las restricciones territoriales (incisos b, d y e del art. 12) no pueden bloquear la educación, el trabajo ni la salud del adolescente, salvo que sea estrictamente necesario para proteger a la víctima o testigos.',
@@ -152,9 +144,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '15',
     title: 'Plazo máximo de las penas alternativas',
-    originalText:
-      'Las penas determinadas en el artículo 12, con excepción de las establecidas en los incisos a), h) e i), no podrán exceder de tres (3) años.',
-    currentText:
+    text:
       'Las penas determinadas en el artículo 12, con excepción de las establecidas en los incisos a), h) e i), no podrán exceder de tres (3) años.',
     plainLanguageExplanation:
       'Las penas de los incisos b) a g) del art. 12 (prohibiciones, servicios comunitarios, monitoreo) tienen un techo de 3 años. La amonestación (a), la reparación del daño (h) y las privativas de libertad (i) no tienen ese límite específico de este artículo.',
@@ -177,9 +167,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '16',
     title: 'Verificación de cumplimiento de las penas',
-    originalText:
-      'El cumplimiento de las penas referidas en el artículo 12, incisos a) a h) deberá ser controlado periódicamente por el juez interviniente, atendiendo a los informes que presenten las partes y los organismos cuyo objeto sea controlar el cumplimiento de las sanciones impuestas. Podrá participar la víctima, si es su deseo. En caso de verificarse su incumplimiento, se deberá revocar la pena y disponerse una pena privativa de la libertad.',
-    currentText:
+    text:
       'El cumplimiento de las penas referidas en el artículo 12, incisos a) a h) deberá ser controlado periódicamente por el juez interviniente, atendiendo a los informes que presenten las partes y los organismos cuyo objeto sea controlar el cumplimiento de las sanciones impuestas. Podrá participar la víctima, si es su deseo. En caso de verificarse su incumplimiento, se deberá revocar la pena y disponerse una pena privativa de la libertad.',
     plainLanguageExplanation:
       'El juez controla periódicamente el cumplimiento de las penas no privativas de libertad. Si el adolescente incumple, el juez DEBE revocar la pena y disponer privación de libertad — no tiene discrecionalidad para omitirlo.',
@@ -204,9 +192,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '17',
     title: 'Penas privativas de libertad. Enunciación',
-    originalText:
-      'Las penas privativas de la libertad son las siguientes:\n\na) privación de la libertad en domicilio;\n\nb) privación de la libertad en un instituto abierto;\n\nc) privación de la libertad en un instituto especializado de detención.\n\nLa decisión deberá ser tomada por el tribunal o juez en una resolución en la que se expongan los motivos que justifican la privación de la libertad y deberá indicarse el lugar de cumplimiento, conforme a los parámetros de esta ley.',
-    currentText:
+    text:
       'Las penas privativas de la libertad son las siguientes:\n\na) privación de la libertad en domicilio;\n\nb) privación de la libertad en un instituto abierto;\n\nc) privación de la libertad en un instituto especializado de detención.\n\nLa decisión deberá ser tomada por el tribunal o juez en una resolución en la que se expongan los motivos que justifican la privación de la libertad y deberá indicarse el lugar de cumplimiento, conforme a los parámetros de esta ley.',
     plainLanguageExplanation:
       'Hay tres tipos de privación de libertad para adolescentes: domiciliaria, en instituto abierto o en instituto especializado. La ley no contempla cárcel de adultos. Cualquiera que sea la modalidad, el juez debe fundar la decisión y precisar dónde se cumple.',
@@ -232,9 +218,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '18',
     title: 'Otras medidas durante la privación de libertad',
-    originalText:
-      'En todos los casos, se deberán imponer al adolescente, conjuntamente, medidas específicas tendientes a desarrollar su educación, el trabajo y la conciencia de la gravedad del hecho cometido, con vistas a lograr su resocialización y desarrollo de su vida.',
-    currentText:
+    text:
       'En todos los casos, se deberán imponer al adolescente, conjuntamente, medidas específicas tendientes a desarrollar su educación, el trabajo y la conciencia de la gravedad del hecho cometido, con vistas a lograr su resocialización y desarrollo de su vida.',
     plainLanguageExplanation:
       'Toda privación de libertad debe acompañarse de medidas de educación y formación laboral. No es posible una detención sin componente educativo-resocializador.',
@@ -256,9 +240,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '19',
     title: 'Prohibición y plazo máximo de detención',
-    originalText:
-      'Respecto de los adolescentes alcanzados por la presente ley, queda prohibida la imposición de las penas privativas de la libertad de reclusión perpetua y de prisión perpetua.\n\nEl plazo máximo de las penas privativas de la libertad respecto de personas adolescentes será de quince (15) años. La regla es aplicable aun si la escala penal fuera más elevada, producto de la concurrencia real de varios hechos independientes.\n\nCuando el adolescente condenado cumpla dos tercios (2/3) de la pena impuesta en detención y se dieran las circunstancias previstas en el Código Penal para otorgar la libertad condicional, el tribunal podrá disponer que el resto de la pena sea cumplida mediante las restantes penas establecidas en esta ley, de modo conjunto o alternativo. Previamente a la decisión se requerirá el dictamen pericial favorable, la conformidad del Ministerio Público Fiscal y la opinión de la víctima, que deberá ser notificada al efecto.\n\nSon de aplicación los beneficios establecidos por las leyes de estímulo educativo vigentes o por las que se dicten en el ámbito nacional o en las jurisdicciones locales.',
-    currentText:
+    text:
       'Respecto de los adolescentes alcanzados por la presente ley, queda prohibida la imposición de las penas privativas de la libertad de reclusión perpetua y de prisión perpetua.\n\nEl plazo máximo de las penas privativas de la libertad respecto de personas adolescentes será de quince (15) años. La regla es aplicable aun si la escala penal fuera más elevada, producto de la concurrencia real de varios hechos independientes.\n\nCuando el adolescente condenado cumpla dos tercios (2/3) de la pena impuesta en detención y se dieran las circunstancias previstas en el Código Penal para otorgar la libertad condicional, el tribunal podrá disponer que el resto de la pena sea cumplida mediante las restantes penas establecidas en esta ley, de modo conjunto o alternativo. Previamente a la decisión se requerirá el dictamen pericial favorable, la conformidad del Ministerio Público Fiscal y la opinión de la víctima, que deberá ser notificada al efecto.\n\nSon de aplicación los beneficios establecidos por las leyes de estímulo educativo vigentes o por las que se dicten en el ámbito nacional o en las jurisdicciones locales.',
     plainLanguageExplanation:
       'Ningún adolescente puede ser condenado a prisión o reclusión perpetua. El máximo es 15 años, aunque haya concurso real de delitos. Al cumplir 2/3 de la pena, el tribunal puede sustituir el resto por penas alternativas. También aplican las leyes de estímulo educativo (reducción de pena por estudio).',
@@ -284,9 +266,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '20',
     title: 'Imposición de múltiples medidas y penas',
-    originalText:
-      'Cuando no corresponda aplicar una pena privativa de libertad o cuando ésta sea sustituida conforme lo establecido en el artículo 11, el tribunal podrá imponer una (1) o más de las medidas y penas previstas en las Secciones 1ª y 2ª de este Capítulo, en forma simultánea o sucesiva.',
-    currentText:
+    text:
       'Cuando no corresponda aplicar una pena privativa de libertad o cuando ésta sea sustituida conforme lo establecido en el artículo 11, el tribunal podrá imponer una (1) o más de las medidas y penas previstas en las Secciones 1ª y 2ª de este Capítulo, en forma simultánea o sucesiva.',
     plainLanguageExplanation:
       'Cuando no aplica la privación de libertad (o cuando se reemplaza conforme al art. 11), el tribunal puede combinar varias penas del art. 12 y medidas complementarias del art. 8, de manera simultánea o una después de la otra.',
@@ -311,9 +291,7 @@ export const ARTICLES_27801_02: Article[] = [
     lawId: 'ley-27801',
     number: '21',
     title: 'Incumplimiento de la pena',
-    originalText:
-      'Ante el incumplimiento injustificado de una pena alternativa impuesta como condena, el juez deberá sustituirla por otra pena más severa, conforme lo dispuesto en el artículo 12.',
-    currentText:
+    text:
       'Ante el incumplimiento injustificado de una pena alternativa impuesta como condena, el juez deberá sustituirla por otra pena más severa, conforme lo dispuesto en el artículo 12.',
     plainLanguageExplanation:
       'Si el adolescente incumple injustificadamente una pena alternativa, el juez DEBE reemplazarla por una pena más severa dentro de las del art. 12. No hay discrecionalidad: la sustitución es obligatoria.',

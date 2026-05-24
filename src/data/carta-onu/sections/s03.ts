@@ -2,7 +2,7 @@ import type { Article } from '../../../common/types/law.types';
 
 const seg = (num: string, text: string, plain: string, example: string | null = null): Article['segments'][0] => ({
   id: `carta-onu-art-${num}-s1`, lawId: 'carta-onu', articleId: `carta-onu-art-${num}`,
-  articleNumber: num, segmentType: 'PARAGRAPH', originalText: text,
+  articleNumber: num, segmentType: 'PARAGRAPH', text: text,
   plainExplanation: plain, practicalExample: example, references: [], order: 1,
 });
 
@@ -10,9 +10,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-21', lawId: 'carta-onu', number: '21',
     title: 'Reglamento y Presidente de la Asamblea General',
-    originalText: 'La Asamblea General dictará su propio reglamento y elegirá su Presidente para cada periodo de sesiones.',
-    currentText: 'La Asamblea General dictará su propio reglamento y elegirá su Presidente para cada periodo de sesiones.',
-    plainLanguageExplanation: 'La Asamblea General se autorregula y elige un Presidente diferente para cada período de sesiones anual.',
+    text: 'La Asamblea General dictará su propio reglamento y elegirá su Presidente para cada periodo de sesiones.',    plainLanguageExplanation: 'La Asamblea General se autorregula y elige un Presidente diferente para cada período de sesiones anual.',
     practicalEffects: [], examples: [],
     relatedArticles: ['carta-onu-art-20'], jurisprudence: [], regulations: [],
     keywords: ['reglamento', 'Presidente', 'Asamblea General'],
@@ -23,9 +21,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-22', lawId: 'carta-onu', number: '22',
     title: 'Organismos subsidiarios de la Asamblea General',
-    originalText: 'La Asamblea General podrá establecer los organismos subsidiarios que estime necesarios para el desempeño de sus funciones.',
-    currentText: 'La Asamblea General podrá establecer los organismos subsidiarios que estime necesarios para el desempeño de sus funciones.',
-    plainLanguageExplanation: 'La Asamblea puede crear órganos auxiliares según sus necesidades.',
+    text: 'La Asamblea General podrá establecer los organismos subsidiarios que estime necesarios para el desempeño de sus funciones.',    plainLanguageExplanation: 'La Asamblea puede crear órganos auxiliares según sus necesidades.',
     practicalEffects: ['Base para la creación del PNUD, UNICEF, ACNUR y otros organismos de la ONU'],
     examples: ['UNICEF fue creado por la Asamblea General en 1946 como organismo subsidiario'],
     relatedArticles: ['carta-onu-art-7'], jurisprudence: [], regulations: [],
@@ -37,9 +33,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-23', lawId: 'carta-onu', number: '23',
     title: 'Composición del Consejo de Seguridad',
-    originalText: '1. El Consejo de Seguridad se compondrá de quince miembros de las Naciones Unidas. La República de China, Francia, la Unión de las Repúblicas Socialistas Soviéticas, el Reino Unido de la Gran Bretaña e Irlanda del Norte y los Estados Unidos de América, serán miembros permanentes del Consejo de Seguridad. La Asamblea General elegirá otros diez Miembros de las Naciones Unidas que serán miembros no permanentes del Consejo de Seguridad, prestando especial atención, en primer término, a la contribución de los Miembros de las Naciones Unidas al mantenimiento de la paz y la seguridad internacionales y a los demás propósitos de la Organización, como también a una distribución geográfica equitativa.\n2. Los miembros no permanentes del Consejo de Seguridad serán elegidos por un periodo de dos años. En la primera elección de los miembros no permanentes que se celebre después de haberse aumentado de once a quince el número de miembros del Consejo de Seguridad, dos de los cuatro miembros nuevos serán elegidos por un periodo de un año. Los miembros salientes no serán reelegibles para el periodo subsiguiente.\n3. Cada miembro del Consejo de Seguridad tendrá un representante.',
-    currentText: '1. El Consejo de Seguridad se compondrá de quince miembros de las Naciones Unidas. China, Francia, Rusia, el Reino Unido y los Estados Unidos son miembros permanentes. La Asamblea General elegirá otros diez Miembros no permanentes por períodos de dos años, con distribución geográfica equitativa.\n2. Los miembros no permanentes serán elegidos por un período de dos años y no serán reelegibles para el período subsiguiente.\n3. Cada miembro del Consejo de Seguridad tendrá un representante.',
-    plainLanguageExplanation: 'El Consejo de Seguridad tiene 15 miembros: 5 permanentes (China, Francia, Rusia, Reino Unido, EE.UU.) con derecho a veto, y 10 elegidos por la Asamblea General por períodos de dos años.',
+    text: '1. El Consejo de Seguridad se compondrá de quince miembros de las Naciones Unidas. La República de China, Francia, la Unión de las Repúblicas Socialistas Soviéticas, el Reino Unido de la Gran Bretaña e Irlanda del Norte y los Estados Unidos de América, serán miembros permanentes del Consejo de Seguridad. La Asamblea General elegirá otros diez Miembros de las Naciones Unidas que serán miembros no permanentes del Consejo de Seguridad, prestando especial atención, en primer término, a la contribución de los Miembros de las Naciones Unidas al mantenimiento de la paz y la seguridad internacionales y a los demás propósitos de la Organización, como también a una distribución geográfica equitativa.\n2. Los miembros no permanentes del Consejo de Seguridad serán elegidos por un periodo de dos años. En la primera elección de los miembros no permanentes que se celebre después de haberse aumentado de once a quince el número de miembros del Consejo de Seguridad, dos de los cuatro miembros nuevos serán elegidos por un periodo de un año. Los miembros salientes no serán reelegibles para el periodo subsiguiente.\n3. Cada miembro del Consejo de Seguridad tendrá un representante.',    plainLanguageExplanation: 'El Consejo de Seguridad tiene 15 miembros: 5 permanentes (China, Francia, Rusia, Reino Unido, EE.UU.) con derecho a veto, y 10 elegidos por la Asamblea General por períodos de dos años.',
     practicalEffects: ['Los 5 miembros permanentes (P5) tienen poder de veto sobre las resoluciones sustantivas del Consejo'],
     examples: ['Argentina fue miembro no permanente del Consejo de Seguridad en varios períodos (ej. 2013-2014)'],
     relatedArticles: ['carta-onu-art-27', 'carta-onu-art-24'], jurisprudence: [], regulations: [],
@@ -51,9 +45,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-24', lawId: 'carta-onu', number: '24',
     title: 'Funciones y poderes del Consejo de Seguridad',
-    originalText: '1. A fin de asegurar acción rápida y eficaz por parte de las Naciones Unidas, sus Miembros confieren al Consejo de Seguridad la responsabilidad primordial de mantener la paz y la seguridad internacionales, y reconocen que el Consejo de Seguridad actúa a nombre de ellos al desempeñar las funciones que le impone aquella responsabilidad.\n2. En el desempeño de estas funciones, el Consejo de Seguridad procederá de acuerdo con los Propósitos y Principios de las Naciones Unidas. Los poderes otorgados al Consejo de Seguridad para el desempeño de dichas funciones quedan definidos en los Capítulos VI, VII, VIII y XII.\n3. El Consejo de Seguridad presentará a la Asamblea General para su consideración informes anuales y, cuando fuere necesario, informes especiales.',
-    currentText: '1. A fin de asegurar acción rápida y eficaz por parte de las Naciones Unidas, sus Miembros confieren al Consejo de Seguridad la responsabilidad primordial de mantener la paz y la seguridad internacionales, y reconocen que el Consejo de Seguridad actúa a nombre de ellos al desempeñar las funciones que le impone aquella responsabilidad.\n2. En el desempeño de estas funciones, el Consejo de Seguridad procederá de acuerdo con los Propósitos y Principios de las Naciones Unidas. Los poderes otorgados al Consejo de Seguridad para el desempeño de dichas funciones quedan definidos en los Capítulos VI, VII, VIII y XII.\n3. El Consejo de Seguridad presentará a la Asamblea General para su consideración informes anuales y, cuando fuere necesario, informes especiales.',
-    plainLanguageExplanation: 'El Consejo de Seguridad tiene la responsabilidad principal de mantener la paz mundial, actúa en nombre de todos los Estados miembros y rinde cuentas a la Asamblea General mediante informes.',
+    text: '1. A fin de asegurar acción rápida y eficaz por parte de las Naciones Unidas, sus Miembros confieren al Consejo de Seguridad la responsabilidad primordial de mantener la paz y la seguridad internacionales, y reconocen que el Consejo de Seguridad actúa a nombre de ellos al desempeñar las funciones que le impone aquella responsabilidad.\n2. En el desempeño de estas funciones, el Consejo de Seguridad procederá de acuerdo con los Propósitos y Principios de las Naciones Unidas. Los poderes otorgados al Consejo de Seguridad para el desempeño de dichas funciones quedan definidos en los Capítulos VI, VII, VIII y XII.\n3. El Consejo de Seguridad presentará a la Asamblea General para su consideración informes anuales y, cuando fuere necesario, informes especiales.',    plainLanguageExplanation: 'El Consejo de Seguridad tiene la responsabilidad principal de mantener la paz mundial, actúa en nombre de todos los Estados miembros y rinde cuentas a la Asamblea General mediante informes.',
     practicalEffects: ['Sus resoluciones bajo el Capítulo VII son vinculantes para todos los Estados miembros'],
     examples: ['La Resolución 1441 (2002) sobre Iraq fue adoptada por el Consejo de Seguridad bajo el Capítulo VII'],
     relatedArticles: ['carta-onu-art-25', 'carta-onu-art-39', 'carta-onu-art-42'], jurisprudence: [], regulations: [],
@@ -65,9 +57,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-25', lawId: 'carta-onu', number: '25',
     title: 'Obligatoriedad de las decisiones del Consejo de Seguridad',
-    originalText: 'Los Miembros de las Naciones Unidas convienen en aceptar y cumplir las decisiones del Consejo de Seguridad de acuerdo con esta Carta.',
-    currentText: 'Los Miembros de las Naciones Unidas convienen en aceptar y cumplir las decisiones del Consejo de Seguridad de acuerdo con esta Carta.',
-    plainLanguageExplanation: 'Todos los Estados miembros están obligados a cumplir las decisiones del Consejo de Seguridad. Es la base de la obligatoriedad de las resoluciones del Consejo bajo el Capítulo VII.',
+    text: 'Los Miembros de las Naciones Unidas convienen en aceptar y cumplir las decisiones del Consejo de Seguridad de acuerdo con esta Carta.',    plainLanguageExplanation: 'Todos los Estados miembros están obligados a cumplir las decisiones del Consejo de Seguridad. Es la base de la obligatoriedad de las resoluciones del Consejo bajo el Capítulo VII.',
     practicalEffects: ['A diferencia de las recomendaciones de la Asamblea General, las resoluciones del Consejo bajo el Capítulo VII son vinculantes'],
     examples: ['Las sanciones impuestas a Irán por su programa nuclear (Resoluciones 1737, 1747, 1803) eran obligatorias para todos los Estados'],
     relatedArticles: ['carta-onu-art-24', 'carta-onu-art-39', 'carta-onu-art-41'], jurisprudence: [], regulations: [],
@@ -79,9 +69,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-26', lawId: 'carta-onu', number: '26',
     title: 'Sistema de regulación de armamentos',
-    originalText: 'A fin de promover el establecimiento y mantenimiento de la paz y la seguridad internacionales con la menor desviación posible de los recursos humanos y económicos del mundo hacia los armamentos, el Consejo de Seguridad tendrá a su cargo, con la ayuda del Comité de Estado Mayor a que se refiere el Artículo 47, la elaboración de planes que se someterán a los Miembros de las Naciones Unidas para el establecimiento de un sistema de regulación de los armamentos.',
-    currentText: 'A fin de promover el establecimiento y mantenimiento de la paz y la seguridad internacionales con la menor desviación posible de los recursos humanos y económicos del mundo hacia los armamentos, el Consejo de Seguridad tendrá a su cargo, con la ayuda del Comité de Estado Mayor a que se refiere el Artículo 47, la elaboración de planes que se someterán a los Miembros de las Naciones Unidas para el establecimiento de un sistema de regulación de los armamentos.',
-    plainLanguageExplanation: 'El Consejo de Seguridad, con ayuda del Comité de Estado Mayor, debe elaborar planes para regular los armamentos y limitar el gasto militar mundial.',
+    text: 'A fin de promover el establecimiento y mantenimiento de la paz y la seguridad internacionales con la menor desviación posible de los recursos humanos y económicos del mundo hacia los armamentos, el Consejo de Seguridad tendrá a su cargo, con la ayuda del Comité de Estado Mayor a que se refiere el Artículo 47, la elaboración de planes que se someterán a los Miembros de las Naciones Unidas para el establecimiento de un sistema de regulación de los armamentos.',    plainLanguageExplanation: 'El Consejo de Seguridad, con ayuda del Comité de Estado Mayor, debe elaborar planes para regular los armamentos y limitar el gasto militar mundial.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['carta-onu-art-47'], jurisprudence: [], regulations: [],
@@ -93,9 +81,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-27', lawId: 'carta-onu', number: '27',
     title: 'Votación en el Consejo de Seguridad',
-    originalText: '1. Cada miembro del Consejo de Seguridad tendrá un voto.\n2. Las decisiones del Consejo de Seguridad sobre cuestiones de procedimiento serán tomadas por el voto afirmativo de nueve miembros.\n3. Las decisiones del Consejo de Seguridad sobre todas las demás cuestiones serán tomadas por el voto afirmativo de nueve miembros, incluso los votos afirmativos de todos los miembros permanentes; pero en las decisiones tomadas en virtud del Capítulo VI y del párrafo 3 del Artículo 52, la parte en una controversia se abstendrá de votar.',
-    currentText: '1. Cada miembro del Consejo de Seguridad tendrá un voto.\n2. Las decisiones del Consejo de Seguridad sobre cuestiones de procedimiento serán tomadas por el voto afirmativo de nueve miembros.\n3. Las decisiones del Consejo de Seguridad sobre todas las demás cuestiones serán tomadas por el voto afirmativo de nueve miembros, incluso los votos afirmativos de todos los miembros permanentes; pero en las decisiones tomadas en virtud del Capítulo VI y del párrafo 3 del Artículo 52, la parte en una controversia se abstendrá de votar.',
-    plainLanguageExplanation: 'Para cuestiones de procedimiento se necesitan 9 votos. Para cuestiones sustantivas se necesitan 9 votos incluyendo los 5 permanentes — cualquier "no" de un miembro permanente es un veto.',
+    text: '1. Cada miembro del Consejo de Seguridad tendrá un voto.\n2. Las decisiones del Consejo de Seguridad sobre cuestiones de procedimiento serán tomadas por el voto afirmativo de nueve miembros.\n3. Las decisiones del Consejo de Seguridad sobre todas las demás cuestiones serán tomadas por el voto afirmativo de nueve miembros, incluso los votos afirmativos de todos los miembros permanentes; pero en las decisiones tomadas en virtud del Capítulo VI y del párrafo 3 del Artículo 52, la parte en una controversia se abstendrá de votar.',    plainLanguageExplanation: 'Para cuestiones de procedimiento se necesitan 9 votos. Para cuestiones sustantivas se necesitan 9 votos incluyendo los 5 permanentes — cualquier "no" de un miembro permanente es un veto.',
     practicalEffects: ['El veto (poder de un P5 de bloquear cualquier resolución sustantiva) es el mecanismo político más influyente del sistema ONU'],
     examples: ['Rusia vetó decenas de resoluciones sobre Siria (2011-2023); China y EE.UU. también han usado el veto numerosas veces'],
     relatedArticles: ['carta-onu-art-23', 'carta-onu-art-25'], jurisprudence: [], regulations: [],
@@ -107,9 +93,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-28', lawId: 'carta-onu', number: '28',
     title: 'Organización y funcionamiento del Consejo de Seguridad',
-    originalText: '1. El Consejo de Seguridad será organizado de modo que pueda funcionar continuamente. Con tal fin, cada miembro del Consejo de Seguridad tendrá en todo momento su representante en la sede de la Organización.\n2. El Consejo de Seguridad celebrará reuniones periódicas en las cuales cada uno de sus miembros podrá, si lo desea, hacerse representar por un miembro de su Gobierno o por otro representante especialmente designado.\n3. El Consejo de Seguridad podrá celebrar reuniones en cualesquiera lugares, fuera de la sede de la Organización, que juzgue más apropiados para facilitar sus labores.',
-    currentText: '1. El Consejo de Seguridad será organizado de modo que pueda funcionar continuamente. Con tal fin, cada miembro del Consejo de Seguridad tendrá en todo momento su representante en la sede de la Organización.\n2. El Consejo de Seguridad celebrará reuniones periódicas en las cuales cada uno de sus miembros podrá, si lo desea, hacerse representar por un miembro de su Gobierno o por otro representante especialmente designado.\n3. El Consejo de Seguridad podrá celebrar reuniones en cualesquiera lugares, fuera de la sede de la Organización, que juzgue más apropiados para facilitar sus labores.',
-    plainLanguageExplanation: 'El Consejo de Seguridad funciona de manera permanente, con representantes siempre presentes en Nueva York, para poder reaccionar a cualquier crisis internacional de inmediato.',
+    text: '1. El Consejo de Seguridad será organizado de modo que pueda funcionar continuamente. Con tal fin, cada miembro del Consejo de Seguridad tendrá en todo momento su representante en la sede de la Organización.\n2. El Consejo de Seguridad celebrará reuniones periódicas en las cuales cada uno de sus miembros podrá, si lo desea, hacerse representar por un miembro de su Gobierno o por otro representante especialmente designado.\n3. El Consejo de Seguridad podrá celebrar reuniones en cualesquiera lugares, fuera de la sede de la Organización, que juzgue más apropiados para facilitar sus labores.',    plainLanguageExplanation: 'El Consejo de Seguridad funciona de manera permanente, con representantes siempre presentes en Nueva York, para poder reaccionar a cualquier crisis internacional de inmediato.',
     practicalEffects: [],
     examples: [],
     relatedArticles: ['carta-onu-art-23'], jurisprudence: [], regulations: [],
@@ -121,9 +105,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-29', lawId: 'carta-onu', number: '29',
     title: 'Organismos subsidiarios del Consejo de Seguridad',
-    originalText: 'El Consejo de Seguridad podrá establecer los organismos subsidiarios que estime necesarios para el desempeño de sus funciones.',
-    currentText: 'El Consejo de Seguridad podrá establecer los organismos subsidiarios que estime necesarios para el desempeño de sus funciones.',
-    plainLanguageExplanation: 'El Consejo puede crear comités y grupos de trabajo auxiliares para sus tareas específicas.',
+    text: 'El Consejo de Seguridad podrá establecer los organismos subsidiarios que estime necesarios para el desempeño de sus funciones.',    plainLanguageExplanation: 'El Consejo puede crear comités y grupos de trabajo auxiliares para sus tareas específicas.',
     practicalEffects: [],
     examples: ['El Comité de Sanciones y los grupos de expertos son organismos subsidiarios del Consejo de Seguridad'],
     relatedArticles: ['carta-onu-art-7', 'carta-onu-art-22'], jurisprudence: [], regulations: [],
@@ -135,9 +117,7 @@ export const ARTICLES_CARTA_ONU_03: Article[] = [
   {
     id: 'carta-onu-art-30', lawId: 'carta-onu', number: '30',
     title: 'Reglamento del Consejo de Seguridad',
-    originalText: 'El Consejo de Seguridad dictará su propio reglamento, el cual establecerá el método de elegir su Presidente.',
-    currentText: 'El Consejo de Seguridad dictará su propio reglamento, el cual establecerá el método de elegir su Presidente.',
-    plainLanguageExplanation: 'El Consejo de Seguridad se autorregula y establece cómo elige a su Presidente (que rota mensualmente entre sus miembros).',
+    text: 'El Consejo de Seguridad dictará su propio reglamento, el cual establecerá el método de elegir su Presidente.',    plainLanguageExplanation: 'El Consejo de Seguridad se autorregula y establece cómo elige a su Presidente (que rota mensualmente entre sus miembros).',
     practicalEffects: [],
     examples: ['La presidencia del Consejo de Seguridad rota alfabéticamente entre sus 15 miembros, con períodos de un mes'],
     relatedArticles: ['carta-onu-art-21'], jurisprudence: [], regulations: [],

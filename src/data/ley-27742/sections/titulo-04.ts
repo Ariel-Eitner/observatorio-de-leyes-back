@@ -16,10 +16,8 @@ export const ARTICLES_TITULO_04: Article[] = [
 		lawId: 'ley-27742',
 		number: '76',
 		title: 'Regularización de relaciones laborales no registradas',
-		originalText:
+		text:
 			'Los empleadores podrán regularizar las relaciones laborales vigentes del sector privado iniciadas con anterioridad a la fecha de promulgación de la presente ley. La regularización podrá comprender relaciones laborales no registradas o relaciones laborales deficientemente registradas.',
-		currentText:
-			'Los empleadores del sector privado pueden blanquear relaciones laborales no registradas o mal registradas que existían antes de la promulgación de la ley.',
 		plainLanguageExplanation:
 			'Argentina tiene un problema crónico de empleo informal: millones de trabajadores que no están registrados ante la AFIP y la seguridad social, lo que los priva de obra social, jubilación y asignaciones. El art. 76° abre una ventana de regularización: los empleadores pueden declarar esos trabajadores "en blanco" con beneficios importantes (condonación de deudas, extinción de acciones penales).',
 		practicalEffects: [
@@ -43,10 +41,8 @@ export const ARTICLES_TITULO_04: Article[] = [
 		lawId: 'ley-27742',
 		number: '77',
 		title: 'Efectos de la regularización laboral',
-		originalText:
+		text:
 			'El Poder Ejecutivo nacional reglamentará los efectos que producirá la regularización de las relaciones laborales indicadas en el artículo precedente. Esos efectos podrán comprender: a) Extinción de la acción penal y condonación de multas e infracciones laborales y previsionales; b) Baja del REPSAL respecto de infracciones hasta la entrada en vigencia; c) Condonación de deuda por capital e intereses de aportes y contribuciones a la seguridad social (SIPA, PAMI, salud, desempleo, asignaciones familiares), con condonación mínima del 70%; d) La reglamentación podrá establecer incentivos para pago de contado y beneficios para PyMES.',
-		currentText:
-			'Los empleadores que regularicen obtienen: extinción de la acción penal laboral; condonación de multas e infracciones; baja del REPSAL (registro de infractores); condonación de deuda de seguridad social con al menos 70% de quita. Las PyMES tienen beneficios adicionales.',
 		plainLanguageExplanation:
 			'La zanahoria de la regularización: los empleadores que se "blanquean" voluntariamente no van a juicio, se les perdonan las multas acumuladas y se les condona gran parte de lo que debían en aportes (mínimo 70% de quita). Es un esquema tipo "amnistía laboral" que los gobiernos usan para achicar la informalidad sin esperar resultados judiciales.',
 		practicalEffects: [
@@ -70,10 +66,8 @@ export const ARTICLES_TITULO_04: Article[] = [
 		lawId: 'ley-27742',
 		number: '78',
 		title: 'Cómputo de años de servicio regularizados para jubilación',
-		originalText:
+		text:
 			'Los trabajadores incluidos en la regularización tendrán derecho a computar hasta sesenta (60) meses de servicios con aportes (o la menor cantidad regularizada), calculados sobre el salario mínimo vital y móvil, únicamente a fin de cumplir con los años de servicios requeridos por la ley 24.241 para la Prestación Básica Universal y el beneficio de desempleo (art. 113 ley 24.013). Los meses regularizados no se consideran para la Prestación Compensatoria ni la Prestación Adicional por Permanencia.',
-		currentText:
-			'Los trabajadores regularizados pueden computar hasta 60 meses de aportes (sobre el SMVM) para alcanzar los años exigidos para la jubilación básica y el seguro de desempleo. Pero esos meses NO se computan para calcular el monto de la jubilación (prestación compensatoria ni permanencia).',
 		plainLanguageExplanation:
 			'El beneficio para el trabajador: con la regularización puede "sumar" hasta 5 años de aportes que antes no existían en su historia previsional, ayudándolo a alcanzar los 30 años de aportes necesarios para jubilarse. Pero hay un límite importante: esos años extras solo sirven para "llegar al mínimo", no para aumentar el monto de la jubilación.',
 		practicalEffects: [
@@ -95,10 +89,8 @@ export const ARTICLES_TITULO_04: Article[] = [
 		lawId: 'ley-27742',
 		number: '79',
 		title: 'Plazo para regularizar — 90 días desde la reglamentación',
-		originalText:
+		text:
 			'La regularización de las relaciones laborales deberá efectivizarse dentro de los noventa (90) días corridos, contados desde la fecha de entrada en vigencia de la reglamentación del presente título de la ley.',
-		currentText:
-			'El empleador tiene 90 días desde que el PEN reglamente el Título IV para adherir al régimen de regularización.',
 		plainLanguageExplanation:
 			'El blanqueo laboral tiene ventana acotada: 90 días desde que se publique la reglamentación. Pasado ese plazo, un empleador no puede acceder a los beneficios de la regularización.',
 		practicalEffects: [
@@ -119,10 +111,8 @@ export const ARTICLES_TITULO_04: Article[] = [
 		lawId: 'ley-27742',
 		number: '80',
 		title: 'Deudas controvertidas judicialmente — adhesión posible',
-		originalText:
+		text:
 			'Podrán incluirse en el presente régimen las deudas que se encuentren controvertidas en sede administrativa, contencioso administrativa o judicial, a la fecha de publicación de la presente ley en el Boletín Oficial, en tanto el empleador se allane incondicionalmente y, en su caso, desista y renuncie a toda acción y derecho, incluso al de repetición, asumiendo el pago de las costas y gastos causídicos.',
-		currentText:
-			'Empleadores con juicios en curso (laborales, administrativos o judiciales) pueden adherir al régimen de regularización. Condición: allanarse incondicionalmente, desistir del litigio y pagar las costas del juicio.',
 		plainLanguageExplanation:
 			'Si un empleador está peleando en la justicia con la AFIP o un trabajador por deudas laborales, puede "bajar los brazos" y adherir al blanqueo laboral. La contrapartida: renuncia a ganar el juicio y paga las costas. Es una forma de resolver litigios laborales masivos sin seguir años de proceso judicial.',
 		practicalEffects: [
@@ -143,10 +133,8 @@ export const ARTICLES_TITULO_04: Article[] = [
 		lawId: 'ley-27742',
 		number: '81',
 		title: 'Suspensión de fiscalizaciones y ajustes durante la regularización',
-		originalText:
+		text:
 			'La Administración Federal de Ingresos Públicos y las instituciones de la seguridad social se abstendrán de formular, de oficio, determinaciones de deuda y de labrar actas de infracción por las mismas causas y períodos comprendidos en la regularización correspondiente a los subsistemas de la seguridad social, así como de formular ajustes impositivos, todo ello con causa en las relaciones laborales regularizadas en el marco de este título.',
-		currentText:
-			'Mientras rige el régimen de regularización, la AFIP y los organismos de seguridad social no pueden iniciar de oficio nuevas determinaciones de deuda ni labrar actas de infracción por los mismos períodos y causas que están siendo regularizados.',
 		plainLanguageExplanation:
 			'Protección durante el proceso: si un empleador se está regularizando, la AFIP no puede salir al mismo tiempo a determinarle deuda o multarlo por los mismos hechos. Sería contradictorio: el Estado no puede ofrecer blanqueo con una mano y multar con la otra.',
 		practicalEffects: [

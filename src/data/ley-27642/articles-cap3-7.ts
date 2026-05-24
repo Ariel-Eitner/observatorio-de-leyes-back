@@ -9,9 +9,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '10',
     title: 'Prohibiciones en publicidad',
-    originalText:
-      'ARTÍCULO 10.- Prohibiciones. Queda prohibida toda publicidad, promoción y/o patrocinio de alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia cuando estén dirigidas a menores de dieciséis (16) años en programas, publicaciones, sitios web o cualquier otro tipo de espacio de comunicación cuya audiencia esté conformada en más de un treinta y cinco por ciento (35%) por personas menores de dieciséis (16) años.',
-    currentText:
+    text:
       'ARTÍCULO 10.- Prohibiciones. Queda prohibida toda publicidad, promoción y/o patrocinio de alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia cuando estén dirigidas a menores de dieciséis (16) años en programas, publicaciones, sitios web o cualquier otro tipo de espacio de comunicación cuya audiencia esté conformada en más de un treinta y cinco por ciento (35%) por personas menores de dieciséis (16) años.',
     plainLanguageExplanation:
       'Los productos con sellos no se pueden anunciar en medios donde más del 35% de la audiencia sean menores de 16 años. Esto incluye programas de TV infantiles, canales de YouTube para chicos, apps educativas y redes sociales con audiencia joven.',
@@ -38,7 +36,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '10',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Queda prohibida toda publicidad de alimentos con sellos cuando esté dirigida a menores de 16 años en espacios de comunicación cuya audiencia esté conformada en más de un 35% por personas menores de dieciséis (16) años.',
         plainExplanation:
           'El umbral del 35% es clave: no se requiere que la audiencia sea mayoritariamente menor, basta con que más de un tercio lo sea.',
@@ -56,9 +54,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '11',
     title: 'Hábitos saludables en educación',
-    originalText:
-      'ARTÍCULO 11.- Hábitos de alimentación saludable. El Consejo Federal de Educación, en conjunto con la autoridad de aplicación de la presente ley, promoverá la inclusión de contenidos de educación alimentaria nutricional en los diferentes niveles del sistema educativo.',
-    currentText:
+    text:
       'ARTÍCULO 11.- Hábitos de alimentación saludable. El Consejo Federal de Educación, en conjunto con la autoridad de aplicación de la presente ley, promoverá la inclusión de contenidos de educación alimentaria nutricional en los diferentes niveles del sistema educativo.',
     plainLanguageExplanation:
       'Las escuelas de todo el país deben incorporar contenidos sobre alimentación saludable en el currículum, no solo como una materia sino transversalmente en los distintos niveles. El Consejo Federal de Educación debe coordinar esto con el Ministerio de Salud.',
@@ -81,7 +77,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '11',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'El Consejo Federal de Educación promoverá la inclusión de contenidos de educación alimentaria nutricional en los diferentes niveles del sistema educativo.',
         plainExplanation:
           'Esta obligación es de resultado: los contenidos deben incorporarse efectivamente al currículo, no solo ser "promovidos" sin seguimiento.',
@@ -97,9 +93,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '12',
     title: 'Prohibición de venta en establecimientos educativos',
-    originalText:
-      'ARTÍCULO 12.- Entornos escolares. Queda prohibido ofrecer, comercializar, publicitar o patrocinar alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia en los establecimientos educativos de los niveles inicial, primario y secundario.',
-    currentText:
+    text:
       'ARTÍCULO 12.- Entornos escolares. Queda prohibido ofrecer, comercializar, publicitar o patrocinar alimentos envasados y bebidas analcohólicas que deban incluir los sellos de advertencia en los establecimientos educativos de los niveles inicial, primario y secundario.',
     plainLanguageExplanation:
       'En jardines de infantes, primarias y secundarias queda prohibido vender, regalar o publicitar cualquier producto con sello de advertencia. Esto aplica a kioscos, cantinas, máquinas expendedoras y cualquier evento o patrocinio escolar.',
@@ -126,7 +120,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '12',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Queda prohibido ofrecer, comercializar, publicitar o patrocinar alimentos envasados con sellos en los establecimientos educativos de los niveles inicial, primario y secundario.',
         plainExplanation:
           'La prohibición cubre todo el espacio escolar y toda modalidad de disposición del producto: no solo la venta sino también la distribución gratuita y el patrocinio.',
@@ -144,9 +138,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '13',
     title: 'Determinación de la autoridad de aplicación',
-    originalText:
-      'ARTÍCULO 13.- Determinación. El Poder Ejecutivo debe determinar la autoridad de aplicación de la presente ley. Las provincias y la Ciudad Autónoma de Buenos Aires son las autoridades locales de aplicación, ejerciendo el control y vigilancia de la presente ley y sus normas reglamentarias en sus respectivas jurisdicciones.',
-    currentText:
+    text:
       'ARTÍCULO 13.- Determinación. El Poder Ejecutivo debe determinar la autoridad de aplicación de la presente ley. Las provincias y la Ciudad Autónoma de Buenos Aires son las autoridades locales de aplicación, ejerciendo el control y vigilancia de la presente ley y sus normas reglamentarias en sus respectivas jurisdicciones.',
     plainLanguageExplanation:
       'El Poder Ejecutivo Nacional designa quién aplica la ley a nivel nacional (el Decreto 151/2022 designó al Ministerio de Salud). Pero cada provincia y CABA también tiene autoridad para controlar el cumplimiento en su territorio.',
@@ -170,7 +162,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '13',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las provincias y la Ciudad Autónoma de Buenos Aires son las autoridades locales de aplicación, ejerciendo el control y vigilancia en sus respectivas jurisdicciones.',
         plainExplanation:
           'El federalismo de la ley implica que los controles se ejercen en dos niveles: el nacional (ANMAT y Ministerio de Salud) y el local (secretarías de salud provinciales).',
@@ -186,9 +178,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '14',
     title: 'Facultades de la autoridad de aplicación',
-    originalText:
-      'ARTÍCULO 14.- Facultades. La autoridad de aplicación tendrá las siguientes competencias:\na) Difundir información sobre la importancia de la alimentación saludable;\nb) Implementar acciones de coordinación para la promoción del consumo de alimentos no procesados;\nc) Fiscalizar el cumplimiento de la presente ley;\nd) Requerir declaraciones juradas a los responsables del rotulado sobre los nutrientes críticos;\ne) Cualquier otra función necesaria para la implementación de esta ley.',
-    currentText:
+    text:
       'ARTÍCULO 14.- Facultades. La autoridad de aplicación tendrá las siguientes competencias:\na) Difundir información sobre la importancia de la alimentación saludable;\nb) Implementar acciones de coordinación para la promoción del consumo de alimentos no procesados;\nc) Fiscalizar el cumplimiento de la presente ley;\nd) Requerir declaraciones juradas a los responsables del rotulado sobre los nutrientes críticos;\ne) Cualquier otra función necesaria para la implementación de esta ley.',
     plainLanguageExplanation:
       'La autoridad puede hacer campañas de concientización, hacer inspecciones, pedir a las empresas que declaren por escrito qué nutrientes tienen sus productos, y cualquier otra acción necesaria para que la ley funcione.',
@@ -211,7 +201,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '14',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'La autoridad de aplicación podrá requerir declaraciones juradas a los responsables del rotulado sobre el contenido de nutrientes críticos.',
         plainExplanation:
           'Las declaraciones juradas crean responsabilidad penal si son falsas, lo que desincentiva a los fabricantes de sub-declarar nutrientes críticos.',
@@ -229,9 +219,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '15',
     title: 'Sanciones por infracciones',
-    originalText:
-      'ARTÍCULO 15.- Sanciones. Las infracciones a las disposiciones de la presente ley serán pasibles de las sanciones establecidas en el Capítulo III del Título IV del decreto 274/2019, de Lealtad Comercial, según corresponda.',
-    currentText:
+    text:
       'ARTÍCULO 15.- Sanciones. Las infracciones a las disposiciones de la presente ley serán pasibles de las sanciones establecidas en el Capítulo III del Título IV del decreto 274/2019, de Lealtad Comercial, según corresponda.',
     plainLanguageExplanation:
       'Las multas y sanciones por no cumplir la ley son las del Decreto de Lealtad Comercial (274/2019), que va desde apercibimientos hasta multas de hasta 5 millones de pesos (actualizables), cierre del establecimiento y secuestro de productos.',
@@ -256,7 +244,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '15',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText:
+        text:
           'Las infracciones serán pasibles de las sanciones establecidas en el Capítulo III del Título IV del decreto 274/2019, de Lealtad Comercial.',
         plainExplanation:
           'La ley no fija sus propias sanciones sino que remite al régimen de Lealtad Comercial, que ya tiene un sistema de infracciones consolidado con graduación según la gravedad.',
@@ -272,9 +260,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '16',
     title: 'Integración con Defensa del Consumidor',
-    originalText:
-      'ARTÍCULO 16.- Las disposiciones de la presente ley se integran con la ley 24.240 de Defensa del Consumidor y el decreto 274/2019 de Lealtad Comercial.',
-    currentText:
+    text:
       'ARTÍCULO 16.- Las disposiciones de la presente ley se integran con la ley 24.240 de Defensa del Consumidor y el decreto 274/2019 de Lealtad Comercial.',
     plainLanguageExplanation:
       'La Ley 27.642 no reemplaza sino que se suma al sistema de protección del consumidor. Los derechos del consumidor (información veraz, buenas prácticas) se aplican conjuntamente con las obligaciones de etiquetado.',
@@ -297,7 +283,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '16',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Las disposiciones de la presente ley se integran con la ley 24.240 de Defensa del Consumidor y el decreto 274/2019 de Lealtad Comercial.',
+        text: 'Las disposiciones de la presente ley se integran con la ley 24.240 de Defensa del Consumidor y el decreto 274/2019 de Lealtad Comercial.',
         plainExplanation: 'La integración normativa significa que se aplican todas las normas en conjunto: no hay que elegir una sola.',
         practicalExample:
           'Un consumidor que compra un producto sin sello que debía tenerlo puede reclamar por Ley 24.240 (violación al deber de información) y también bajo esta ley (incumplimiento de etiquetado).',
@@ -313,9 +299,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '17',
     title: 'Compras del Estado — priorizar sin sellos',
-    originalText:
-      'ARTÍCULO 17.- Disposición complementaria. El Estado nacional priorizará ante igual conveniencia, de acuerdo a la forma que establezca la reglamentación, las contrataciones de los alimentos y bebidas analcohólicas que no cuenten con sellos de advertencia.',
-    currentText:
+    text:
       'ARTÍCULO 17.- Disposición complementaria. El Estado nacional priorizará ante igual conveniencia, de acuerdo a la forma que establezca la reglamentación, las contrataciones de los alimentos y bebidas analcohólicas que no cuenten con sellos de advertencia.',
     plainLanguageExplanation:
       'Cuando el Estado compra alimentos para comedores escolares, hospitales, fuerzas armadas y otros organismos, debe preferir productos sin sello de advertencia cuando precio y calidad sean similares.',
@@ -337,7 +321,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '17',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'El Estado nacional priorizará las contrataciones de alimentos que no cuenten con sellos de advertencia ante igual conveniencia.',
+        text: 'El Estado nacional priorizará las contrataciones de alimentos que no cuenten con sellos de advertencia ante igual conveniencia.',
         plainExplanation: 'La condición "ante igual conveniencia" implica que el Estado no está obligado a pagar más por un producto sin sello — solo debe preferirlo si el precio y condiciones son equivalentes.',
         practicalExample: 'Si dos ofertas de galletitas tienen el mismo precio, el hospital público debe elegir la que no tenga sello de "EXCESO EN SODIO".',
         references: [],
@@ -350,9 +334,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '18',
     title: 'Independencia del etiquetado nutricional',
-    originalText:
-      'ARTÍCULO 18.- Disposición final. El sistema de etiquetado de advertencias dispuesto en el artículo 5° de la presente ley debe hacerse en forma separada e independiente a la declaración de ingredientes e información nutricional establecida en el Código Alimentario Argentino.',
-    currentText:
+    text:
       'ARTÍCULO 18.- Disposición final. El sistema de etiquetado de advertencias dispuesto en el artículo 5° de la presente ley debe hacerse en forma separada e independiente a la declaración de ingredientes e información nutricional establecida en el Código Alimentario Argentino.',
     plainLanguageExplanation:
       'Los sellos octogonales de advertencia deben ir ADEMÁS de la tabla nutricional del Código Alimentario, no en reemplazo. Un producto debe tener tanto la tabla nutricional en el dorso como los sellos en el frente.',
@@ -375,7 +357,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '18',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'El sistema de etiquetado de advertencias debe hacerse en forma separada e independiente a la declaración de ingredientes e información nutricional establecida en el Código Alimentario Argentino.',
+        text: 'El sistema de etiquetado de advertencias debe hacerse en forma separada e independiente a la declaración de ingredientes e información nutricional establecida en el Código Alimentario Argentino.',
         plainExplanation: 'Los sellos no reemplazan ninguna información nutricional existente. Son información adicional y complementaria.',
         practicalExample: 'Un paquete de galletitas debe tener: (dorso) tabla nutricional completa con ingredientes según el CAA + (frente) los sellos octogonales que correspondan.',
         references: [],
@@ -388,9 +370,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '19',
     title: 'Plazos de implementación — dos etapas',
-    originalText:
-      'ARTÍCULO 19.- Disposición transitoria. La presente ley entrará en vigencia a los ciento ochenta (180) días corridos de su promulgación. Para las Micro, Pequeñas y Medianas Empresas correspondientes al Tramo 1 determinado en la ley 25.300, las cooperativas en el marco de la economía popular, y los proveedores de productos del sector de la agricultura familiar, el plazo será de doce (12) meses corridos desde la promulgación de la presente ley.',
-    currentText:
+    text:
       'ARTÍCULO 19.- Disposición transitoria. La presente ley entrará en vigencia a los ciento ochenta (180) días corridos de su promulgación. Para las Micro, Pequeñas y Medianas Empresas correspondientes al Tramo 1 determinado en la ley 25.300, las cooperativas en el marco de la economía popular, y los proveedores de productos del sector de la agricultura familiar, el plazo será de doce (12) meses corridos desde la promulgación de la presente ley.',
     plainLanguageExplanation:
       'Las grandes empresas tuvieron 180 días (6 meses) desde la promulgación para comenzar a usar los sellos. Las MiPyMEs Tramo 1, cooperativas y productores de agricultura familiar tuvieron 12 meses. Esto permitió que los más pequeños tuvieran más tiempo para adaptar sus envases sin costos prohibitivos.',
@@ -416,7 +396,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '19',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'La presente ley entrará en vigencia a los 180 días corridos de su promulgación.',
+        text: 'La presente ley entrará en vigencia a los 180 días corridos de su promulgación.',
         plainExplanation: 'El plazo de 180 días corridos desde el 12/11/2021 equivale aproximadamente al 10 de mayo de 2022.',
         practicalExample: 'Desde el 10 de mayo de 2022, las grandes empresas tienen la obligación de comercializar solo productos con los sellos que correspondan.',
         references: [],
@@ -428,7 +408,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '19',
         order: 1,
         segmentType: 'PARAGRAPH',
-        originalText: 'Para las MiPyMEs Tramo 1, cooperativas y proveedores de agricultura familiar, el plazo será de doce (12) meses corridos desde la promulgación.',
+        text: 'Para las MiPyMEs Tramo 1, cooperativas y proveedores de agricultura familiar, el plazo será de doce (12) meses corridos desde la promulgación.',
         plainExplanation: 'El plazo extendido reconoce que adaptar el packaging y reformular productos es más costoso y difícil para empresas pequeñas.',
         practicalExample: 'Una cooperativa de mermeladas artesanales tuvo hasta el 12 de noviembre de 2022 para cumplir con el etiquetado.',
         references: [],
@@ -441,9 +421,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '20',
     title: 'Prórroga de plazos',
-    originalText:
-      'ARTÍCULO 20.- El Poder Ejecutivo podrá disponer, en caso de que el sujeto obligado pueda justificar motivos pertinentes, una prórroga de ciento ochenta (180) días a los plazos previstos en el artículo anterior.',
-    currentText:
+    text:
       'ARTÍCULO 20.- El Poder Ejecutivo podrá disponer, en caso de que el sujeto obligado pueda justificar motivos pertinentes, una prórroga de ciento ochenta (180) días a los plazos previstos en el artículo anterior.',
     plainLanguageExplanation:
       'Si una empresa tiene razones fundadas (problemas de abastecimiento de packaging, reformulación compleja, etc.), puede pedir al Poder Ejecutivo una prórroga de 6 meses adicionales.',
@@ -466,7 +444,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '20',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'El Poder Ejecutivo podrá disponer una prórroga de 180 días en caso de motivos pertinentes justificados por el sujeto obligado.',
+        text: 'El Poder Ejecutivo podrá disponer una prórroga de 180 días en caso de motivos pertinentes justificados por el sujeto obligado.',
         plainExplanation: 'La prórroga es una válvula de escape para situaciones excepcionales, no una habilitación general para posponer el cumplimiento.',
         practicalExample: 'Una empresa que importa envases desde China y tuvo un corte en la cadena de suministro podría pedir prórroga documentando el problema.',
         references: [],
@@ -479,9 +457,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '21',
     title: 'Stock anterior — productos elaborados antes de la vigencia',
-    originalText:
-      'ARTÍCULO 21.- Los alimentos y bebidas analcohólicas cuya fecha de elaboración sea anterior a la entrada en vigencia de la presente ley no se retirarán del mercado, pudiendo permanecer a la venta hasta agotar su stock.',
-    currentText:
+    text:
       'ARTÍCULO 21.- Los alimentos y bebidas analcohólicas cuya fecha de elaboración sea anterior a la entrada en vigencia de la presente ley no se retirarán del mercado, pudiendo permanecer a la venta hasta agotar su stock.',
     plainLanguageExplanation:
       'Los productos ya fabricados antes de que la ley entrara en vigor no tienen que retirarse de las góndolas aunque no tengan los sellos. Esto evita que las empresas tengan que destruir stock existente.',
@@ -506,7 +482,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '21',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Los alimentos cuya fecha de elaboración sea anterior a la entrada en vigencia no se retirarán del mercado, pudiendo permanecer a la venta hasta agotar su stock.',
+        text: 'Los alimentos cuya fecha de elaboración sea anterior a la entrada en vigencia no se retirarán del mercado, pudiendo permanecer a la venta hasta agotar su stock.',
         plainExplanation: 'La norma respeta la inversión ya realizada en packaging y producción existente al momento de la entrada en vigor.',
         practicalExample: 'Una empresa que tenía 100.000 unidades de cereal en depósito al momento de la vigencia pudo venderlas sin el nuevo sello hasta terminar esa partida.',
         references: [],
@@ -519,9 +495,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '22',
     title: 'Reformulación del Código Alimentario Argentino',
-    originalText:
-      'ARTÍCULO 22.- Encomiéndase al Poder Ejecutivo la reforma del Código Alimentario Argentino a fin de adecuarlo a las disposiciones de la presente ley.',
-    currentText:
+    text:
       'ARTÍCULO 22.- Encomiéndase al Poder Ejecutivo la reforma del Código Alimentario Argentino a fin de adecuarlo a las disposiciones de la presente ley.',
     plainLanguageExplanation:
       'El Poder Ejecutivo debe actualizar el Código Alimentario Argentino (CAA) para que sea consistente con esta ley. Esto incluye incorporar los parámetros de nutrientes críticos y los requisitos de etiquetado como parte permanente del Código.',
@@ -543,7 +517,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '22',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Encomiéndase al Poder Ejecutivo la reforma del Código Alimentario Argentino a fin de adecuarlo a las disposiciones de la presente ley.',
+        text: 'Encomiéndase al Poder Ejecutivo la reforma del Código Alimentario Argentino a fin de adecuarlo a las disposiciones de la presente ley.',
         plainExplanation: 'La ley ordena su propia integración al cuerpo normativo alimentario vigente para evitar contradicciones entre el CAA y los nuevos requisitos de etiquetado.',
         practicalExample: 'Antes de la reforma, el CAA podía exigir cierta información en el frente que ahora puede estar en conflicto con el espacio necesario para los sellos octogonales.',
         references: [],
@@ -556,9 +530,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '23',
     title: 'Plazo de reglamentación',
-    originalText:
-      'ARTÍCULO 23.- Reglamentación. El Poder Ejecutivo debe reglamentar la presente ley dentro de los noventa (90) días de promulgada y debe dictar las normas complementarias que resulten necesarias para su aplicación.',
-    currentText:
+    text:
       'ARTÍCULO 23.- Reglamentación. El Poder Ejecutivo debe reglamentar la presente ley dentro de los noventa (90) días de promulgada y debe dictar las normas complementarias que resulten necesarias para su aplicación.',
     plainLanguageExplanation:
       'El Congreso le dio al Poder Ejecutivo 90 días para reglamentar la ley. El Decreto 151/2022 fue dictado el 22 de marzo de 2022, dentro de ese plazo (130 días después de la promulgación del 12/11/2021 — se demoró levemente más de los 90 días pero fue aceptado).',
@@ -580,7 +552,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '23',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'El Poder Ejecutivo debe reglamentar la presente ley dentro de los noventa (90) días de promulgada.',
+        text: 'El Poder Ejecutivo debe reglamentar la presente ley dentro de los noventa (90) días de promulgada.',
         plainExplanation: 'El Decreto 151/2022 fue el instrumento reglamentario. Contiene las definiciones técnicas, los valores concretos de nutrientes y las especificaciones de diseño de los sellos.',
         practicalExample: 'Sin la reglamentación, la ley no podría aplicarse porque no define los valores exactos de los nutrientes que activan la obligación de colocar el sello.',
         references: [],
@@ -593,8 +565,7 @@ export const ARTICLES_CAP3_7: Article[] = [
     lawId: LAW_ID,
     number: '24',
     title: 'Cláusula de comunicación al Poder Ejecutivo',
-    originalText: 'ARTÍCULO 24.- Comuníquese al Poder Ejecutivo nacional.',
-    currentText: 'ARTÍCULO 24.- Comuníquese al Poder Ejecutivo nacional.',
+    text: 'ARTÍCULO 24.- Comuníquese al Poder Ejecutivo nacional.',
     plainLanguageExplanation:
       'Es la cláusula formal de cierre de toda ley sancionada por el Congreso, indicando que la ley se comunica al Poder Ejecutivo para su promulgación y publicación en el Boletín Oficial.',
     practicalEffects: [],
@@ -612,7 +583,7 @@ export const ARTICLES_CAP3_7: Article[] = [
         articleNumber: '24',
         order: 0,
         segmentType: 'PARAGRAPH',
-        originalText: 'Comuníquese al Poder Ejecutivo nacional.',
+        text: 'Comuníquese al Poder Ejecutivo nacional.',
         plainExplanation: 'Cláusula de cierre protocolar de toda ley argentina, sin contenido sustancial.',
         practicalExample: null,
         references: [],

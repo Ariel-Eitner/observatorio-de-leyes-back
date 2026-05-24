@@ -211,11 +211,11 @@ export function analyzeLaw(law: Law): LawReport {
 
   for (const a of law.articles) {
     if (!a.title)                    artNoTitle++;
-    if (!a.originalText?.trim())     artNoOriginal++;
+    if (!a.text?.trim())              artNoOriginal++;
     if (!a.plainLanguageExplanation) artNoExplanation++;
     for (const seg of a.segments) {
       segTotal++;
-      if (!seg.originalText?.trim())     segNoText++;
+      if (!seg.text?.trim())             segNoText++;
       if (!seg.plainExplanation?.trim()) segNoExplanation++;
       if (seg.practicalExample === null || seg.practicalExample === undefined) segNoExample++;
     }
@@ -246,7 +246,7 @@ export function analyzeLaw(law: Law): LawReport {
 export const NORM_RULE_ORDER = ['R01','R02','R03','R04','R05','R06','R07','R08','R09','R10'];
 
 const NORM_SKIP_SYNTAX   = /^\s*(?:import |export (?:type |interface |const [A-Z_])|\/\/|\*|from ')/;
-const NORM_SKIP_OFFICIAL = /\b(?:originalText|currentText)\s*:/;
+const NORM_SKIP_OFFICIAL = /\b(?:text)\s*:/;
 
 export function normExcerpt(line: string, idx: number, len: number, pad = 35): string {
   const start = Math.max(0, idx - pad);
@@ -325,8 +325,8 @@ export function scanFileNorm(filePath: string, out: NormViolation[]): void {
     if (NORM_SKIP_SYNTAX.test(line)) return;
     // R01–R09: solo en líneas que no sean texto oficial verbatim
     if (!NORM_SKIP_OFFICIAL.test(line)) checkNormLine(rel, lineNum, line, out);
-    // R10: solo en líneas de originalText (evita duplicado con currentText, que suele ser idéntico)
-    if (/\boriginalText\s*:/.test(line)) checkInlineIncises(rel, lineNum, line, out);
+    // R10: solo en líneas de texto oficial
+    if (/\btext\s*:/.test(line)) checkInlineIncises(rel, lineNum, line, out);
   });
 }
 
