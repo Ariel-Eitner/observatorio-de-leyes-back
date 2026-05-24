@@ -16,6 +16,7 @@ import { PrismaModule }      from './common/prisma/prisma.module';
 import { PostDraftsModule }  from './post-drafts/post-drafts.module';
 import { ExportsModule }         from './exports/exports.module';
 import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.module';
+import { FinanzasModule }         from './finanzas/finanzas.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.mo
     PostDraftsModule,
     ExportsModule,
     ContractAnalyzerModule,
+    FinanzasModule,
   ],
   providers: [
     // Aplicar rate limiting globalmente por IP (ThrottlerGuard usa IP por defecto)

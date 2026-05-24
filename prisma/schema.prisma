@@ -166,6 +166,48 @@ model tracking_daily_summary {
   raw_total     Int      @default(0)
 }
 
+model Egreso {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fecha       DateTime @db.Date
+  proveedor   String
+  categoria   String   // INFRA | HERRAMIENTAS | HONORARIOS | PUBLICIDAD | EQUIPO | IMPUESTOS | OTRO
+  descripcion String?
+  monto       Float
+  moneda      String   @default("USD") // ARS | USD
+  tipoCambio  Float?   @map("tipo_cambio")
+  montoArs    Float?   @map("monto_ars")
+  comprobante String?
+  deducible   Boolean  @default(true)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([fecha(sort: Desc)], map: "idx_egresos_fecha")
+  @@index([categoria], map: "idx_egresos_categoria")
+  @@map("egresos")
+}
+
+model Ingreso {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fecha       DateTime @db.Date
+  tipo        String   // SUSCRIPCION | DONACION | SERVICIO | OTRO
+  plan        String?
+  cliente     String?
+  descripcion String?
+  monto       Float
+  moneda      String   @default("USD") // ARS | USD
+  tipoCambio  Float?   @map("tipo_cambio")
+  montoArs    Float?   @map("monto_ars")
+  medioCobro  String   @default("STRIPE") @map("medio_cobro") // MERCADOPAGO | STRIPE | TRANSFERENCIA | EFECTIVO | OTRO
+  facturaAfip String?  @map("factura_afip")
+  periodo     String?  // "2026-05"
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([fecha(sort: Desc)], map: "idx_ingresos_fecha")
+  @@index([tipo], map: "idx_ingresos_tipo")
+  @@map("ingresos")
+}
+
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model tweets_performance {
   id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
