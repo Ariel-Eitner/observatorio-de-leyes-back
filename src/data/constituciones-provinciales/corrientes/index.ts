@@ -10,6 +10,8 @@ export const CONST_CORRIENTES: Law = {
   sanctionDate: '2007-06-08',
   promulgationDate: null,
   publicationDate: null,
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -75,6 +77,7 @@ export const CONST_CORRIENTES: Law = {
   articles: ARTICLES_CONST_CORRIENTES,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-corrientes-meta',

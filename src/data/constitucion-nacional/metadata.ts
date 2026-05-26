@@ -12,6 +12,8 @@ export const CONSTITUCION_NACIONAL_METADATA: LawBase = {
   sanctionDate: '1853-05-01',
   promulgationDate: '1994-08-22',
   publicationDate: '1995-01-03',
+  effectiveDate: '1853-05-25',
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -45,6 +47,64 @@ export const CONSTITUCION_NACIONAL_METADATA: LawBase = {
   ],
   segments: [],
   annexes: [],
+  relations: [
+    // Tratados con jerarquía constitucional (art. 75 inc. 22 — reforma 1994)
+    {
+      type: 'COMPLEMENTA' as const,
+      targetLawId: 'cadh',
+      targetLawLabel: 'Convención Americana sobre Derechos Humanos (CADH)',
+      description: 'Jerarquía constitucional otorgada por el art. 75 inc. 22 CN (reforma 1994). Opera como estándar complementario de los derechos reconocidos en la Constitución.',
+    },
+    {
+      type: 'COMPLEMENTA' as const,
+      targetLawId: 'carta-onu',
+      targetLawLabel: 'Carta de las Naciones Unidas',
+      description: 'Jerarquía constitucional otorgada por el art. 75 inc. 22 CN. Argentina es Estado parte desde 1945.',
+    },
+    // Leyes que implementan derechos constitucionales
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'ley-20744',
+      targetLawLabel: 'Ley de Contrato de Trabajo (LCT)',
+      description: 'Implementa los derechos laborales del art. 14 bis CN: estabilidad, salario justo, vacaciones, agremiación y protección contra el despido arbitrario.',
+    },
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'ley-26206',
+      targetLawLabel: 'Ley de Educación Nacional',
+      description: 'Implementa el derecho a la educación pública y gratuita garantizado por el art. 14 CN y el mandato del art. 5 CN a las provincias.',
+    },
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'ley-26485',
+      targetLawLabel: 'Ley de Violencia contra la Mujer',
+      description: 'Implementa el mandato de igualdad real de oportunidades del art. 75 inc. 23 CN y los compromisos de la CEDAW con jerarquía constitucional.',
+    },
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'ley-26639',
+      targetLawLabel: 'Ley de Glaciares',
+      description: 'Implementa el derecho a un ambiente sano del art. 41 CN y el mandato de preservación del patrimonio natural.',
+    },
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'ley-27275',
+      targetLawLabel: 'Ley de Acceso a la Información Pública',
+      description: 'Implementa el derecho a la información y la transparencia del Estado, derivados del art. 1 CN (forma republicana) y el art. 43 CN (habeas data).',
+    },
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'codigo-penal',
+      targetLawLabel: 'Código Penal',
+      description: 'Implementa las garantías del art. 18 CN (nullum crimen sine lege, defensa en juicio, prohibición de tortura) y el principio de legalidad penal.',
+    },
+    {
+      type: 'RELACIONADA' as const,
+      targetLawId: 'codigo-civil-comercial',
+      targetLawLabel: 'Código Civil y Comercial',
+      description: 'Implementa los derechos de propiedad (art. 17 CN), libertad de contratar (art. 14 CN) y protección de la persona humana en sus relaciones privadas.',
+    },
+  ],
   amendments: [
     {
       id: 'cn-reform-1860',

@@ -12,6 +12,8 @@ export const LEY_20744_METADATA: LawBase = {
   sanctionDate: '1974-09-05',
   promulgationDate: '1974-09-20',
   publicationDate: '1974-09-27',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '23003',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -75,6 +77,7 @@ export const LEY_20744_METADATA: LawBase = {
   ],
   createdAt: '1974-09-27T00:00:00.000Z',
   updatedAt: '2026-03-06T00:00:00.000Z',
+  relations: [],
   amendments: [
     {
       id: 'amd-20744-1',

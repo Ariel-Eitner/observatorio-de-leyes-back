@@ -10,6 +10,8 @@ export const CONST_TIERRA_DEL_FUEGO: Law = {
   sanctionDate: '1991-05-15',
   promulgationDate: null,
   publicationDate: '1991-05-15',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -121,6 +123,7 @@ export const CONST_TIERRA_DEL_FUEGO: Law = {
   articles: ARTICLES_CONST_TIERRA_DEL_FUEGO,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-tierra-del-fuego-meta',

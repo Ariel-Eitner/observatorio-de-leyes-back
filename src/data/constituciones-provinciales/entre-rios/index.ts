@@ -10,6 +10,8 @@ export const CONST_ENTRE_RIOS: Law = {
   sanctionDate: '2008-09-30',
   promulgationDate: null,
   publicationDate: '2008-11-01',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -130,6 +132,7 @@ export const CONST_ENTRE_RIOS: Law = {
   articles: ARTICLES_CONST_ENTRE_RIOS,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-entre-rios-meta',

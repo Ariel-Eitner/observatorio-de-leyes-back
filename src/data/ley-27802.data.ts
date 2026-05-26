@@ -19,6 +19,8 @@ export const LEY_27802: Law = {
   sanctionDate: '2026-02-26',
   promulgationDate: '2026-03-06',
   publicationDate: '2026-03-06',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '339128',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -82,6 +84,7 @@ export const LEY_27802: Law = {
   updatedAt: '2026-03-06T00:00:00.000Z',
 
   // ── Amendments ────────────────────────────────────────────────────────────
+  relations: [],
   amendments: [],
 
   // ── Annexes ───────────────────────────────────────────────────────────────

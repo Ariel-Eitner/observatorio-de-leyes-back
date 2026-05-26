@@ -10,6 +10,8 @@ export const CONST_SANTIAGO_DEL_ESTERO: Law = {
   sanctionDate: '2005-11-26',
   promulgationDate: null,
   publicationDate: '2005-11-26',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -121,6 +123,7 @@ export const CONST_SANTIAGO_DEL_ESTERO: Law = {
   articles: ARTICLES_CONST_SANTIAGO_DEL_ESTERO,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-santiago-del-estero-meta',

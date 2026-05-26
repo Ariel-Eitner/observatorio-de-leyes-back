@@ -10,6 +10,8 @@ export const CONST_SANTA_CRUZ: Law = {
   sanctionDate: '1998-11-11',
   promulgationDate: null,
   publicationDate: '1998-11-11',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -130,6 +132,7 @@ export const CONST_SANTA_CRUZ: Law = {
   articles: ARTICLES_CONST_SANTA_CRUZ,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-santa-cruz-meta',

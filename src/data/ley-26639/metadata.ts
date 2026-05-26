@@ -13,6 +13,8 @@ export const LEY_26639_METADATA: LawBase = {
   sanctionDate: '2010-09-30',
   promulgationDate: '2010-10-28',
   publicationDate: '2010-10-28',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '32016',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -72,6 +74,7 @@ export const LEY_26639_METADATA: LawBase = {
   ],
   createdAt: '2010-10-28T00:00:00.000Z',
   updatedAt: '2011-03-01T00:00:00.000Z',
+  relations: [],
   amendments: [
     {
       id: 'amd-26639-1',

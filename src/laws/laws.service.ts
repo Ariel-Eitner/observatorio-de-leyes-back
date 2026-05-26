@@ -284,6 +284,7 @@ export class LawsService {
 				frontendPath: computeFrontendPath(law),
 				apiPath: meta.apiPath,
 				available: !!meta.shortCode,
+				status: law.status,
 				aliases: meta.aliases ?? [],
 				isDestacada: meta.isDestacada ?? false,
 				category: meta.category ?? law.category ?? null,

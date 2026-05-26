@@ -13,6 +13,8 @@ export const LEY_23592_METADATA: LawBase = {
   sanctionDate: '1988-08-03',
   promulgationDate: '1988-08-20',
   publicationDate: '1988-08-23',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '26439',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -48,6 +50,7 @@ export const LEY_23592_METADATA: LawBase = {
     'CADH art. 1 (no discriminación)',
     'Convención Internacional sobre la Eliminación de todas las Formas de Discriminación Racial',
   ],
+  relations: [],
   executiveSummary:
     'La Ley 23.592 prohíbe cualquier acto u omisión que impida, obstruya, restrinja o de algún modo menoscabe el pleno ejercicio de derechos y garantías fundamentales con motivo de raza, religión, nacionalidad, ideología, opinión política o gremial, sexo, posición económica, condición social o caracteres físicos. Quien lo cometa debe hacer cesar el acto y reparar el daño. Además, agrava hasta el doble la pena de delitos comunes cuando son cometidos por motivos discriminatorios.',
   objective:

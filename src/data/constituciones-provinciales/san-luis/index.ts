@@ -10,6 +10,8 @@ export const CONST_SAN_LUIS: Law = {
   sanctionDate: '1987-03-23',
   promulgationDate: null,
   publicationDate: '1987-03-23',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -121,6 +123,7 @@ export const CONST_SAN_LUIS: Law = {
   articles: ARTICLES_CONST_SAN_LUIS,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-san-luis-meta',

@@ -15,6 +15,8 @@ export const LEY_27642: Law = {
   sanctionDate: '2021-10-26',
   promulgationDate: '2021-11-12',
   publicationDate: '2021-11-12',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '34793',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -56,6 +58,7 @@ export const LEY_27642: Law = {
     'Código Alimentario Argentino',
     'Ley 25.300 (MiPyMes)',
   ],
+  relations: [],
   executiveSummary:
     'La Ley 27.642 obliga a que todos los alimentos envasados y bebidas analcohólicas que vendan en Argentina lleven sellos octogonales negros cuando superen ciertos límites de azúcares, grasas, sodio o calorías. También prohíbe la venta de estos productos en escuelas y restringe su publicidad dirigida a menores.',
   objective:

@@ -12,6 +12,30 @@ export type SegmentType = (typeof SegmentType)[keyof typeof SegmentType];
 
 export type AmendmentType = 'MODIFICATION' | 'REGULATION' | 'PARTIAL_REPEAL' | 'VETO';
 
+export const ArticleStatus = { VIGENTE: 'VIGENTE', DEROGADO: 'DEROGADO', MODIFICADO: 'MODIFICADO' } as const;
+export type ArticleStatus = (typeof ArticleStatus)[keyof typeof ArticleStatus];
+
+export const RelationType = {
+  MODIFICA:            'MODIFICA',            // A modifica parcialmente B
+  DEROGA:              'DEROGA',              // A deroga totalmente B
+  DEROGA_PARCIALMENTE: 'DEROGA_PARCIALMENTE', // A deroga algunos artículos de B
+  REGLAMENTA:          'REGLAMENTA',          // A reglamenta B (decreto → ley)
+  IMPLEMENTA:          'IMPLEMENTA',          // A implementa o baja B (ley → tratado; reglamento → ley)
+  RATIFICA:            'RATIFICA',            // A ratifica B (Congreso → tratado internacional)
+  COMPLEMENTA:         'COMPLEMENTA',         // A complementa B sin modificarla; conviven
+  SUPLETORIA:          'SUPLETORIA',          // A se aplica supletoriamente cuando B no regula
+  ESPECIALIZA:         'ESPECIALIZA',         // A es estatuto especial que prevalece sobre B para un sector
+  RELACIONADA:         'RELACIONADA',         // relación genérica para el grafo
+} as const;
+export type RelationType = (typeof RelationType)[keyof typeof RelationType];
+
+export interface LawRelation {
+  type: RelationType;
+  targetLawId: string;
+  targetLawLabel: string;
+  description: string | null;
+}
+
 export interface LawAmendment {
   id: string;
   lawId: string;
@@ -95,6 +119,10 @@ export interface Article {
   segments: LawSegment[];
   amendments: ArticleAmendment[];
   visualContent?: VisualItem[];
+  // Estado individual del artículo (relevante para leyes PARCIALMENTE_VIGENTE)
+  status?: ArticleStatus;
+  effectiveDate?: string | null;
+  derogatedDate?: string | null;
 }
 
 export interface Annex {
@@ -136,6 +164,8 @@ export interface Law {
   sanctionDate: string | null;
   promulgationDate: string | null;
   publicationDate: string | null;
+  effectiveDate: string | null;    // entrada en vigor (puede diferir de publicación)
+  derogatedDate: string | null;    // fecha en que quedó derogada (null si no aplica)
   boNumber: string | null;
   status: LawStatus;
   jurisdiction: Jurisdiction;
@@ -147,6 +177,7 @@ export interface Law {
   topics: string[];
   keywords: string[];
   relatedNorms: string[];
+  relations: LawRelation[];        // relaciones tipadas con otras normas
   executiveSummary: string | null;
   objective: string | null;
   problemItSolves: string | null;

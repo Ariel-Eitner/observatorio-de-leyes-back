@@ -11,6 +11,8 @@ export const CONST_BUENOS_AIRES: Law = {
   sanctionDate: '1994-09-13',
   promulgationDate: '1994-09-13',
   publicationDate: '1994-09-15',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -159,6 +161,7 @@ export const CONST_BUENOS_AIRES: Law = {
   articles: ARTICLES_CONST_BUENOS_AIRES,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'cba-original-1934',

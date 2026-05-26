@@ -9,6 +9,8 @@ export const DISP_DNPDP_7_2005: Law = {
   sanctionDate: '2005-11-08',
   promulgationDate: '2005-11-08',
   publicationDate: '2005-11-14',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -32,6 +34,7 @@ export const DISP_DNPDP_7_2005: Law = {
   ],
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   articles: [
     {

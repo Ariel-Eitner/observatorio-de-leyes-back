@@ -11,6 +11,8 @@ export const CONST_CORDOBA: Law = {
   sanctionDate: '1987-04-26',
   promulgationDate: '2001-09-14',
   publicationDate: '2001-12-10',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -156,6 +158,7 @@ export const CONST_CORDOBA: Law = {
   articles: ARTICLES_CONST_CORDOBA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'ccor-meta',

@@ -12,6 +12,8 @@ export const CODIGO_ADUANERO_METADATA: LawBase = {
   sanctionDate: '1981-02-05',
   promulgationDate: '1981-03-23',
   publicationDate: '1981-03-26',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -70,6 +72,7 @@ export const CODIGO_ADUANERO_METADATA: LawBase = {
   updatedAt: '2026-04-26T00:00:00.000Z',
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'ca-mod-decreto618',

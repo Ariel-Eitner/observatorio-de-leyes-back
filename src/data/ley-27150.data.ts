@@ -9,6 +9,8 @@ export const LEY_27150: Law = {
   sanctionDate: '2015-06-03',
   promulgationDate: '2015-06-16',
   publicationDate: '2015-06-18',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -58,6 +60,7 @@ export const LEY_27150: Law = {
   updatedAt: '2026-04-26T00:00:00.000Z',
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'ley27150-mod-2019',

@@ -10,6 +10,8 @@ export const CONST_TUCUMAN: Law = {
   sanctionDate: '2006-06-06',
   promulgationDate: null,
   publicationDate: '2006-06-06',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -130,6 +132,7 @@ export const CONST_TUCUMAN: Law = {
   articles: ARTICLES_CONST_TUCUMAN,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-tucuman-meta',

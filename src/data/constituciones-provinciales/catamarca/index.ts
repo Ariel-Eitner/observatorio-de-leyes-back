@@ -11,6 +11,8 @@ export const CONST_CATAMARCA: Law = {
   sanctionDate: '1988-09-05',
   promulgationDate: '1988-09-05',
   publicationDate: '1988-09-05',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -244,6 +246,7 @@ export const CONST_CATAMARCA: Law = {
   articles: ARTICLES_CONST_CATAMARCA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'ccat-meta',

@@ -11,6 +11,8 @@ export const CODIGO_PENAL_METADATA: LawBase = {
   sanctionDate: '1921-09-30',
   promulgationDate: '1921-09-30',
   publicationDate: '1921-10-03',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -43,6 +45,7 @@ export const CODIGO_PENAL_METADATA: LawBase = {
   ],
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'cp-reform-1984',

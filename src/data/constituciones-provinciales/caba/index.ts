@@ -11,6 +11,8 @@ export const CONST_CABA: Law = {
   sanctionDate: '1996-10-01',
   promulgationDate: '1996-10-01',
   publicationDate: '1996-10-03',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: 'BOCBA N° 80',
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -195,6 +197,7 @@ export const CONST_CABA: Law = {
   articles: ARTICLES_CONST_CABA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'caba-original-1996',

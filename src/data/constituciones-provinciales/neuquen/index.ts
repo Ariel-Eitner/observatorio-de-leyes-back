@@ -10,6 +10,8 @@ export const CONST_NEUQUEN: Law = {
   sanctionDate: '2006-03-17',
   promulgationDate: null,
   publicationDate: '2006-03-17',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -140,6 +142,7 @@ export const CONST_NEUQUEN: Law = {
   articles: ARTICLES_CONST_NEUQUEN,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-neuquen-meta',

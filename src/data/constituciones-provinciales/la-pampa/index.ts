@@ -10,6 +10,8 @@ export const CONST_LA_PAMPA: Law = {
   sanctionDate: '1960-10-06',
   promulgationDate: null,
   publicationDate: '1960-10-06',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -121,6 +123,7 @@ export const CONST_LA_PAMPA: Law = {
   articles: ARTICLES_CONST_LA_PAMPA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-la-pampa-meta',

@@ -14,6 +14,8 @@ export const DECRETO_151_2022: Law = {
   sanctionDate: '2022-03-22',
   promulgationDate: '2022-03-22',
   publicationDate: '2022-03-23',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '34879',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -50,6 +52,7 @@ export const DECRETO_151_2022: Law = {
     'Código Alimentario Argentino',
     'Ley 24.240 (Defensa del Consumidor)',
   ],
+  relations: [],
   executiveSummary:
     'El Decreto 151/2022 es la reglamentación operativa de la Ley 27.642. Define los números concretos: cuánto azúcar, sodio, grasa o calorías activa el sello (Tabla 1), en dos etapas progresivamente más estrictas. También aprueba las especificaciones gráficas del octágono negro (Anexo II) y fija los plazos reales de implementación para grandes empresas y MiPyMEs.',
   objective:

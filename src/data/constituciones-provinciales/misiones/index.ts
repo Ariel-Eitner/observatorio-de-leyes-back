@@ -10,6 +10,8 @@ export const CONST_MISIONES: Law = {
   sanctionDate: '1958-04-21',
   promulgationDate: null,
   publicationDate: '1958-04-21',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -112,6 +114,7 @@ export const CONST_MISIONES: Law = {
   articles: ARTICLES_CONST_MISIONES,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-misiones-meta',

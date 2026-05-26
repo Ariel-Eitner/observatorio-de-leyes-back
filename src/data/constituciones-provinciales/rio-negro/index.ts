@@ -10,6 +10,8 @@ export const CONST_RIO_NEGRO: Law = {
   sanctionDate: '1988-06-03',
   promulgationDate: null,
   publicationDate: '1988-06-03',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -112,6 +114,7 @@ export const CONST_RIO_NEGRO: Law = {
   articles: ARTICLES_CONST_RIO_NEGRO,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-rio-negro-meta',

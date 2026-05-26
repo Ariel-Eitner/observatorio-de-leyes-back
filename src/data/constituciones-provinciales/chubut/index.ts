@@ -11,6 +11,8 @@ export const CONST_CHUBUT: Law = {
   sanctionDate: '1994-10-15',
   promulgationDate: '1994-10-15',
   publicationDate: '1994-10-15',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -238,6 +240,7 @@ export const CONST_CHUBUT: Law = {
   articles: ARTICLES_CONST_CHUBUT,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'cchub-meta',

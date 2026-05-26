@@ -10,6 +10,8 @@ export const CONST_SALTA: Law = {
   sanctionDate: '1998-04-07',
   promulgationDate: null,
   publicationDate: '1998-04-07',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -86,6 +88,7 @@ export const CONST_SALTA: Law = {
   articles: ARTICLES_CONST_SALTA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-salta-meta',

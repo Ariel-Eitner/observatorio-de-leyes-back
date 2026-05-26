@@ -10,6 +10,8 @@ export const CONST_JUJUY: Law = {
   sanctionDate: '1986-10-22',
   promulgationDate: null,
   publicationDate: '1986-10-22',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -130,6 +132,7 @@ export const CONST_JUJUY: Law = {
   articles: ARTICLES_CONST_JUJUY,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-jujuy-meta',

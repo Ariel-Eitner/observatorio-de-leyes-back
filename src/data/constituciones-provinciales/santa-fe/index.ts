@@ -10,6 +10,8 @@ export const CONST_SANTA_FE: Law = {
   sanctionDate: '2025-09-10',
   promulgationDate: '2025-09-12',
   publicationDate: '2025-09-12',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -85,6 +87,7 @@ export const CONST_SANTA_FE: Law = {
   articles: ARTICLES_CONST_SANTA_FE,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'amend-const-santa-fe-2025',

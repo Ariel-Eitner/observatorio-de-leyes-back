@@ -12,6 +12,8 @@ export const LEY_25326: Law = {
   sanctionDate: '2000-10-04',
   promulgationDate: '2000-10-30',
   publicationDate: '2000-11-02',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '29517',
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -59,6 +61,7 @@ export const LEY_25326: Law = {
   ],
   createdAt: '2000-11-02T00:00:00.000Z',
   updatedAt: '2024-01-01T00:00:00.000Z',
+  relations: [],
   amendments: [
     {
       id: 'amd-25326-1',

@@ -10,6 +10,8 @@ export const CONST_MENDOZA: Law = {
   sanctionDate: '1916-02-11',
   promulgationDate: null,
   publicationDate: '1916-02-11',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -121,6 +123,7 @@ export const CONST_MENDOZA: Law = {
   articles: ARTICLES_CONST_MENDOZA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-mendoza-meta',

@@ -10,6 +10,8 @@ export const CONST_LA_RIOJA: Law = {
   sanctionDate: '2008-06-14',
   promulgationDate: null,
   publicationDate: '2008-06-14',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -112,6 +114,7 @@ export const CONST_LA_RIOJA: Law = {
   articles: ARTICLES_CONST_LA_RIOJA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-la-rioja-meta',

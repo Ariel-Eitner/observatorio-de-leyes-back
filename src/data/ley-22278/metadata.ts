@@ -13,6 +13,8 @@ export const LEY_22278_METADATA: LawBase = {
   sanctionDate: '1980-08-25',
   promulgationDate: '1980-08-25',
   publicationDate: '1980-08-28',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: '24491',
   status: 'DEROGADA',
   jurisdiction: 'NACIONAL',
@@ -47,6 +49,7 @@ export const LEY_22278_METADATA: LawBase = {
     'Convención sobre los Derechos del Niño (arts. 37 y 40)',
     'Ley 26.061 (Protección Integral de NNyA)',
   ],
+  relations: [],
   executiveSummary:
     'La Ley 22.278 fue el marco legal central del sistema penal juvenil argentino desde 1980. Distingue entre menores no punibles (menores de 16 años) y menores punibles (16 y 17 años). Para los no punibles solo procede la disposición tutelar; para los punibles, el proceso penal puede derivar en sanción o en sobreseimiento con medidas tutelares. Fue sancionada durante la dictadura y criticada por su modelo tutelar-discrecional. La Ley 27.801 la derogó en 2026.',
   objective:

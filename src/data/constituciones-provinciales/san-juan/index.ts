@@ -10,6 +10,8 @@ export const CONST_SAN_JUAN: Law = {
   sanctionDate: '1986-04-23',
   promulgationDate: null,
   publicationDate: '1986-04-23',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -166,6 +168,7 @@ export const CONST_SAN_JUAN: Law = {
   articles: ARTICLES_CONST_SAN_JUAN,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-san-juan-meta',

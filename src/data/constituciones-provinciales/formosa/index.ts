@@ -10,6 +10,8 @@ export const CONST_FORMOSA: Law = {
   sanctionDate: '2003-06-18',
   promulgationDate: null,
   publicationDate: '2003-07-01',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -93,6 +95,7 @@ export const CONST_FORMOSA: Law = {
   articles: ARTICLES_CONST_FORMOSA,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'const-formosa-meta',

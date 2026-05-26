@@ -8,11 +8,13 @@ export const LEY_11544_METADATA: LawBase = {
   title: 'Jornada de Trabajo',
   commonName: 'Ley de Jornada de Trabajo',
   summary:
-    'Establece la jornada máxima de trabajo de 8 horas diarias o 48 horas semanales, regula la jornada nocturna (7 horas), el trabajo en condiciones insalubres (6 horas) y el régimen de horas extraordinarias. El artículo 6 fue derogado por la Ley 27.802.',
+    'Establece la jornada máxima de trabajo de 8 horas diarias o 48 horas semanales, regula la jornada nocturna (7 horas), el trabajo en condiciones insalubres (6 horas) y el régimen de horas extraordinarias. El artículo 3° fue sustituido por la Ley 27.802 (2026), flexibilizando el trabajo por equipos y los empleos de dirección.',
   year: 1929,
   sanctionDate: '1929-09-11',
   promulgationDate: '1929-09-17',
   publicationDate: '1929-09-27',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -41,10 +43,11 @@ export const LEY_11544_METADATA: LawBase = {
   ],
   relatedNorms: [
     'Ley 20.744 (Ley de Contrato de Trabajo — arts. 196 a 207)',
-    'Ley 27.802 (derogó el art. 6)',
+    'Ley 27.802 (sustituyó el art. 3° — BO 06-03-2026)',
     'Decreto 16.115/1933 (reglamentario)',
     'Convenio OIT N° 1 (horas de trabajo, 1919)',
   ],
+  relations: [],
   executiveSummary:
     'La Ley 11.544 es la norma fundacional del derecho a la limitación de la jornada laboral en Argentina. Fija 8 horas diarias y 48 semanales como techo legal, reducidas a 7 horas para el trabajo nocturno y a 6 para el trabajo insalubre. Regula el pago recargado de horas extras (50% en días hábiles, 100% en días inhábiles y feriados). La LCT de 1974 absorbió muchos de sus principios pero la ley sigue vigente como norma de fondo.',
   objective:
@@ -62,13 +65,14 @@ export const LEY_11544_METADATA: LawBase = {
   updatedAt: '2024-01-01T00:00:00.000Z',
   amendments: [
     {
-      id: 'amend-11544-27802',
+      id: 'amend-11544-27802-art3',
       lawId: 'ley-11544',
-      modifyingLaw: 'Ley 27.802 (Modernización Laboral)',
-      modifyingDate: '2024-01-01',
-      description: 'Derogó el artículo 6 de la Ley 11.544.',
-      type: 'PARTIAL_REPEAL' as const,
-      createdAt: '2024-01-01T00:00:00.000Z',
+      modifyingLaw: 'Ley 27.802 (Modernización Laboral) — Art. 100',
+      modifyingDate: '2026-03-06',
+      description:
+        'Sustituyó íntegramente el artículo 3° de la Ley 11.544. Incorporó los empleos de dirección y vigilancia como excepción expresa, flexibilizó el trabajo por equipos sin fijar techo máximo, y eliminó la excepción por aumento extraordinario de trabajo.',
+      type: 'MODIFICATION' as const,
+      createdAt: '2026-03-06T00:00:00.000Z',
     },
   ],
   annexes: [],
@@ -89,7 +93,7 @@ export const LEY_11544_METADATA: LawBase = {
       'Ley 27.802 — Modernización Laboral (derogó art. 6)',
     ],
     regulations: ['Decreto 16.115/1933 (reglamentario)'],
-    modifyingNorms: ['Ley 27.802 (derogó art. 6)'],
+    modifyingNorms: ['Ley 27.802 (sustituyó art. 3°)'],
     derogatingNorms: [],
     jurisprudence: [],
     doctrine: [],
@@ -124,9 +128,14 @@ export const LEY_11544_METADATA: LawBase = {
           'Sí. La jornada se puede distribuir de forma desigual entre los días de la semana, siempre que el total semanal no supere las 48 horas y que ningún día exceda las 9 horas. Los convenios colectivos pueden establecer distribuciones diferentes.',
       },
       {
+        question: '¿Qué cambió con la Ley 27.802 de 2026?',
+        answer:
+          'La Ley 27.802 (Modernización Laboral, BO 06-03-2026) sustituyó íntegramente el artículo 3° de la Ley 11.544. El nuevo texto incorpora expresamente los empleos de dirección y vigilancia como excepción al límite horario, flexibiliza el trabajo por equipos sin fijar un techo máximo de horas, y elimina la excepción que existía para picos extraordinarios de trabajo.',
+      },
+      {
         question: '¿Qué pasó con el artículo 6?',
         answer:
-          'El artículo 6 regulaba el trabajo de mujeres y menores. Fue derogado por la Ley 27.802 (Modernización Laboral). Las normas sobre trabajo de menores quedaron en la LCT y en legislación específica.',
+          'El artículo 6 regulaba restricciones al trabajo de mujeres y menores. Sus disposiciones quedaron absorbidas por la Ley de Contrato de Trabajo 20.744 (1974), que regula el trabajo femenino en los arts. 172-186 y el trabajo de menores en los arts. 187-195.',
       },
     ],
     createdAt: '1929-09-27T00:00:00.000Z',

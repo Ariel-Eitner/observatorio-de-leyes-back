@@ -12,6 +12,8 @@ export const CODIGO_CIVIL_COMERCIAL_METADATA: LawBase = {
   sanctionDate: '2014-10-01',
   promulgationDate: '2014-10-07',
   publicationDate: '2014-10-08',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'NACIONAL',
@@ -79,6 +81,7 @@ export const CODIGO_CIVIL_COMERCIAL_METADATA: LawBase = {
   updatedAt: '2026-05-03T00:00:00.000Z',
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [
     {
       id: 'ccyc-mod-27077',

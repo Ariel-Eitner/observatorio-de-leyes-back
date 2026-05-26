@@ -11,6 +11,8 @@ export const CONST_CHACO: Law = {
   sanctionDate: '1994-10-27',
   promulgationDate: '1994-10-27',
   publicationDate: '1994-10-27',
+  effectiveDate: null,
+  derogatedDate: null,
   boNumber: null,
   status: 'VIGENTE',
   jurisdiction: 'PROVINCIAL',
@@ -199,6 +201,7 @@ export const CONST_CHACO: Law = {
   articles: ARTICLES_CONST_CHACO,
   segments: [],
   annexes: [],
+  relations: [],
   amendments: [],
   metadata: {
     id: 'cchac-meta',
