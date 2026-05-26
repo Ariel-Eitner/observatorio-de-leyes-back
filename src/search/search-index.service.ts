@@ -186,6 +186,7 @@ export class SearchIndexService {
     query: string,
     opts: {
       type?: 'law' | 'article';
+      lawId?: string;
       normType?: string;
       status?: string;
       jurisdiction?: string;
@@ -194,10 +195,11 @@ export class SearchIndexService {
       limit?: number;
     } = {},
   ) {
-    const { type, normType, status, jurisdiction, yearFrom, yearTo, limit = 20 } = opts;
+    const { type, lawId, normType, status, jurisdiction, yearFrom, yearTo, limit = 20 } = opts;
 
     const filter = (result: { [key: string]: unknown }) => {
       if (type && result['type'] !== type) return false;
+      if (lawId && result['lawId'] !== lawId) return false;
       if (normType && result['normType'] !== normType) return false;
       if (status && result['status'] !== status) return false;
       if (jurisdiction && result['jurisdiction'] !== jurisdiction) return false;

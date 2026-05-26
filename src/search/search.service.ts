@@ -61,6 +61,7 @@ export class SearchService {
     rawQuery: string,
     opts: {
       type?: 'law' | 'article';
+      lawId?: string;
       normType?: string;
       status?: string;
       jurisdiction?: string;
@@ -75,6 +76,7 @@ export class SearchService {
 
     const merged = {
       type: opts.type ?? parsed.type,
+      lawId: opts.lawId,
       normType: opts.normType ?? parsed.normType,
       status: opts.status,
       jurisdiction: opts.jurisdiction,

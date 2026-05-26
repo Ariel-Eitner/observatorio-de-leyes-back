@@ -13,6 +13,7 @@ export class SearchController {
   @ApiOperation({ summary: 'Búsqueda full-text con lenguaje natural' })
   @ApiQuery({ name: 'q', required: true })
   @ApiQuery({ name: 'type', required: false, enum: ['law', 'article'] })
+  @ApiQuery({ name: 'lawId', required: false })
   @ApiQuery({ name: 'normType', required: false })
   @ApiQuery({ name: 'status', required: false })
   @ApiQuery({ name: 'jurisdiction', required: false })
@@ -22,6 +23,7 @@ export class SearchController {
   search(
     @Query('q') q: string,
     @Query('type') type?: 'law' | 'article',
+    @Query('lawId') lawId?: string,
     @Query('normType') normType?: string,
     @Query('status') status?: string,
     @Query('jurisdiction') jurisdiction?: string,
@@ -33,6 +35,7 @@ export class SearchController {
     const safeLimit = Math.min(Math.max(parseInt(limit ?? '30') || 30, 1), 50);
     return this.searchService.search(safeQ, {
       type,
+      lawId,
       normType,
       status,
       jurisdiction,
