@@ -4,6 +4,7 @@ import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales
 import { Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath } from '../common/utils/law-url.util';
+import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 
 // Metadata estática que no puede derivarse de los data files solos
 const LAW_STATIC_META: Record<
@@ -275,6 +276,7 @@ export class LawsService {
 		const laws = unique.map((law) => {
 			const meta: { shortCode?: string; apiPath: string; aliases?: string[]; isDestacada?: boolean; category?: string } =
 				LAW_STATIC_META[law.id] ?? { apiPath: `/laws/${law.id}` };
+			const infoleg = INFOLEG_MAP[law.id] ?? null;
 			return {
 				id: law.id,
 				number: law.number,
@@ -288,6 +290,10 @@ export class LawsService {
 				aliases: meta.aliases ?? [],
 				isDestacada: meta.isDestacada ?? false,
 				category: meta.category ?? law.category ?? null,
+				infolegId: infoleg?.infolegId ?? null,
+				infolegUrl: infoleg ? `${INFOLEG_BASE_URL}${infoleg.infolegId}` : null,
+				digestoAnexo: infoleg?.digestoAnexo ?? null,
+				digestoCategoria: infoleg?.digestoCategoria ?? null,
 			};
 		});
 
