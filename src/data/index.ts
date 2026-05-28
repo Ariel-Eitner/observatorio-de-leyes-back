@@ -27,6 +27,8 @@ import { LEY_24240 } from './ley-24240/index';
 import { LEY_26061 } from './ley-26061/index';
 import { LEY_26206 } from './ley-26206/index';
 import { CARTA_ONU } from './carta-onu/index';
+import { CONVENCION_DERECHOS_NINO } from './convencion-derechos-nino/index';
+import { LEY_26842 } from './ley-26842/index';
 import { LEY_27801 } from './ley-27801/index';
 import { LEY_27742 } from './ley-27742/index';
 import { LEY_27802 } from './ley-27802.data';
@@ -39,7 +41,8 @@ import type { Law } from '../common/types/law.types';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
 export const NORMAS_CLAVE: Law[] = [
-  CARTA_ONU,                 // Carta de las Naciones Unidas
+  CARTA_ONU,                      // Carta de las Naciones Unidas
+  CONVENCION_DERECHOS_NINO,       // Convención sobre los Derechos del Niño
   CODIGO_ADUANERO,          // Código Aduanero
   CODIGO_CIVIL_COMERCIAL,   // Código Civil y Comercial
   CODIGO_PENAL,             // Código Penal
@@ -71,4 +74,5 @@ export const ALL_LAWS: Law[] = [
   LEY_23592,         // Ley Antidiscriminatoria
   LEY_11544,         // Ley de Jornada de Trabajo
   LEY_22278,         // Régimen Penal de la Minoridad (derogada por Ley 27.801)
+  LEY_26842,         // Ley de Trata de Personas
 ];

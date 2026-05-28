@@ -8,6 +8,7 @@ const TIPO_SLUG: Record<string, string> = {
   'ley-20744':              '/leyes/ley-de-contrato-laboral',
   'ley-27150':              '/codigos/procesal-penal',
   'carta-onu':              '/tratados/carta-onu',
+  'convencion-derechos-nino': '/tratados/convencion-derechos-nino',
   'ley-26639':              '/leyes/ley-26639',
   'ley-27801':              '/leyes/ley-27801',
   'ley-27742':              '/leyes/ley-de-bases',

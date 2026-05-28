@@ -106,6 +106,20 @@ const LAW_STATIC_META: Record<
 		isDestacada: true,
 		category: 'internacional',
 	},
+	'convencion-derechos-nino': {
+		shortCode: 'CDN',
+		apiPath: '/laws/convencion-derechos-nino',
+		aliases: ['CDN', '23.849', 'Convención sobre los Derechos del Niño', 'Derechos del Niño', 'CIDN'],
+		isDestacada: true,
+		category: 'ninez',
+	},
+	'ley-26842': {
+		shortCode: 'Ley 26.842',
+		apiPath: '/laws/ley-26842',
+		aliases: ['26.842', 'trata de personas', 'trata', 'Ley Trata', 'COFETRATA'],
+		isDestacada: true,
+		category: 'derechos-humanos',
+	},
 	'ley-27801': {
 		shortCode: 'LPJ',
 		apiPath: '/laws/ley-27801',
