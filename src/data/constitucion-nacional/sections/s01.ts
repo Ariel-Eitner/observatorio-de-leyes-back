@@ -1,4 +1,4 @@
-import type { Article } from '../../../common/types/law.types';
+﻿import type { Article } from '../../../common/types/law.types';
 
 export const ARTICLES_CN_01: Article[] = [
 	{
@@ -195,7 +195,19 @@ export const ARTICLES_CN_01: Article[] = [
 			'A lo largo de la historia argentina hubo más de 200 intervenciones federales. Una de las más recientes fue la intervención a la Provincia de Santiago del Estero en 2004, para restablecer la institucionalidad democrática.',
 		],
 		relatedArticles: ['cn-art-1', 'cn-art-5', 'cn-art-75', 'cn-art-99'],
-		jurisprudence: ['CSJN — Las intervenciones federales son actos políticos no judiciables en su oportunidad'],
+		jurisprudence: ['Corte Suprema (1893) — las intervenciones federales son decisiones políticas que los jueces no pueden revisar'],
+		jurisprudenceRefs: [
+			{
+				id: 'cn-art6-cullen-llerena',
+				slug: 'cullen-llerena',
+				tribunal: 'CSJN',
+				caratula: 'Cullen c/ Llerena',
+				year: 1893,
+				citation: 'Fallos: 53:420',
+				holding: 'Las intervenciones federales son actos políticos no judiciables. El Poder Judicial carece de jurisdicción para revisar la oportunidad, los motivos o la conveniencia de una intervención federal decretada por el Congreso o el Poder Ejecutivo, por tratarse de una cuestión política no susceptible de control jurisdiccional.',
+				url: 'https://www.saij.gob.ar/corte-suprema-justicia-nacion-federal-ciudad-autonoma-buenos-aires-cullen-joaquin-llerena-baldomero-fa93998068-1893-09-07/123456789-860-8993-9ots-eupmocsollaf',
+			},
+		],
 		regulations: [],
 		keywords: ['intervención federal', 'provincias', 'forma republicana', 'sedición', 'autonomía provincial'],
 		order: 6,

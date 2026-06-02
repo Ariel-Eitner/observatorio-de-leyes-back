@@ -4711,7 +4711,7 @@ export const ARTICLES_14: Article[] = [
     {
       id: 'ca-art-1151bis',
       lawId: 'codigo-aduanero',
-      number: '...',
+      number: '1151 bis',
       title: 'Plazo de prueba ante el Tribunal Fiscal – 60 días prorrogables',
       text: 'Si hubiese prueba a producir, el vocal resolverá dentro de los diez (10) días sobre la pertinencia y la admisibilidad de la prueba, fijando un término que no podrá exceder de sesenta (60) días para su producción. A pedido de cualesquiera de las partes, el vocal podrá ampliar dicho término por otro período que no podrá exceder de treinta (30) días. Mediando acuerdo de partes la ampliación no podrá exceder del término de cuarenta y cinco (45) días.',      plainLanguageExplanation: 'Cuando hay prueba a producir, el vocal resuelve sobre su admisibilidad en 10 días y fija un plazo de prueba de hasta 60 días. Puede ampliarse 30 días más a pedido de parte, o 45 días si hay acuerdo de partes.',
       practicalEffects: ['Plazo de prueba: hasta 60 días', 'Prórroga posible: 30 días a pedido de parte, o 45 días con acuerdo de partes', 'El vocal resuelve admisibilidad de la prueba en 10 días'],

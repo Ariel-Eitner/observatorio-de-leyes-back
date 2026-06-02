@@ -2192,6 +2192,6 @@ export const LEY_25326: Law = {
 };
 
 import { DISP_DNPDP_7_2005 } from './disp-dnpdp-7-2005.data';
-import { LEY_27802 } from './ley-27802.data';
 
-export const ALL_LAWS: Law[] = [LEY_25326, DISP_DNPDP_7_2005, LEY_27802];
+// LEY_27802 se registra en data/index.ts (ALL_LAWS); no duplicar acá.
+export const ALL_LAWS: Law[] = [LEY_25326, DISP_DNPDP_7_2005];

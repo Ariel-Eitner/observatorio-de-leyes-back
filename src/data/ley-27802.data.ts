@@ -27,7 +27,7 @@ export const LEY_27802: Law = {
   normType: 'LEY',
   issuingBody: 'Honorable Congreso de la Nación Argentina',
   fullText: null,
-  sourceUrl: 'https://www.argentina.gob.ar/normativa/nacional/ley-27802-339128/texto',
+  sourceUrl: 'https://www.argentina.gob.ar/normativa/nacional/ley-27802-423680/texto',
   articleCount: 102,
   topics: [
     'Derecho laboral',

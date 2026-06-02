@@ -98,6 +98,9 @@ const LAW_STATIC_META: Record<
 	'ley-26061': { shortCode: 'Ley 26.061', apiPath: '/laws/ley-26061', aliases: ['26.061'], category: 'ninez' },
 	'ley-26206': { shortCode: 'Ley 26.206', apiPath: '/laws/ley-26206', aliases: ['26.206'], category: 'educacion' },
 	'ley-27802': { shortCode: 'Ley 27.802', apiPath: '/laws/number/27802', aliases: ['27.802'] },
+	'decreto-315-2026': { shortCode: 'Decreto 315/2026', apiPath: '/laws/decreto-315-2026', aliases: ['315/2026'] },
+	'rg-arca-5844-2026': { shortCode: 'RG ARCA 5844/2026', apiPath: '/laws/rg-arca-5844-2026', aliases: ['5844/2026', 'RG 5844'] },
+	'decreto-407-2026': { shortCode: 'Decreto 407/2026', apiPath: '/laws/decreto-407-2026', aliases: ['407/2026'] },
 	'decreto-207-2011': { shortCode: 'Decreto 207/2011', apiPath: '/laws/decreto-207-2011' },
 	'carta-onu': {
 		shortCode: 'Carta ONU',

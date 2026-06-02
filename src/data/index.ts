@@ -32,6 +32,9 @@ import { LEY_26842 } from './ley-26842/index';
 import { LEY_27801 } from './ley-27801/index';
 import { LEY_27742 } from './ley-27742/index';
 import { LEY_27802 } from './ley-27802.data';
+import { DECRETO_315_2026 } from './decreto-315-2026.data';
+import { RG_ARCA_5844_2026 } from './rg-arca-5844-2026.data';
+import { DECRETO_407_2026 } from './decreto-407-2026.data';
 import { LEY_27642 } from './ley-27642/index';
 import { DECRETO_151_2022 } from './decreto-151-2022/index';
 import { LEY_23592 } from './ley-23592/index';
@@ -71,6 +74,9 @@ export const ALL_LAWS: Law[] = [
   DECRETO_151_2022,  // Reglamentación Etiquetado Frontal
   LEY_27801,         // Ley Penal Juvenil
   LEY_27802,         // Ley de Modernización Laboral
+  DECRETO_315_2026,  // Reglamentación del RIFL (Título XX Ley 27.802)
+  RG_ARCA_5844_2026, // RG ARCA 5844/2026 — procedimiento operativo del RIFL
+  DECRETO_407_2026,  // Reglamentación LCT (recibo de sueldo) — Ley 27.802
   LEY_23592,         // Ley Antidiscriminatoria
   LEY_11544,         // Ley de Jornada de Trabajo
   LEY_22278,         // Régimen Penal de la Minoridad (derogada por Ley 27.801)

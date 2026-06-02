@@ -102,6 +102,56 @@ export interface VisualItem {
   data: Record<string, unknown>;
 }
 
+export interface JurisprudenceRef {
+  id: string;
+  slug: string;           // slug de la página interna: "cullen-llerena"
+  tribunal: string;
+  caratula?: string;
+  year?: number;
+  citation?: string;
+  holding: string;        // resumen corto para el modal
+  url?: string;           // link a SAIJ (fuente oficial)
+}
+
+export type FalloStatus = 'VIGENTE' | 'SUPERADO' | 'MODIFICADO';
+
+export type FalloSectionType =
+  | 'hechos'
+  | 'cuestion'
+  | 'ratio'
+  | 'fundamentos'
+  | 'obiter'
+  | 'disidencia';
+
+export interface FalloSection {
+  id: string;
+  type: FalloSectionType;
+  title: string;
+  content: string;
+  plainLanguage?: string;
+}
+
+export interface Fallo {
+  id: string;
+  slug: string;
+  tribunal: string;
+  caratula: string;
+  date: string;
+  citation: string;
+  summary: string;
+  status: FalloStatus;
+  superadoBy?: string;
+  sections: FalloSection[];
+  articlesInterpreted: string[];
+  relatedNorms: string[];
+  relatedFallos: string[];
+  keywords: string[];
+  topics: string[];
+  sourceUrl?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Article {
   id: string;
   lawId: string;
@@ -113,6 +163,7 @@ export interface Article {
   examples: string[];
   relatedArticles: string[];
   jurisprudence: string[];
+  jurisprudenceRefs?: JurisprudenceRef[];   // índice paralelo a jurisprudence[]
   regulations: string[];
   keywords: string[];
   order: number;

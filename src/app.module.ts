@@ -17,6 +17,7 @@ import { PostDraftsModule }  from './post-drafts/post-drafts.module';
 import { ExportsModule }         from './exports/exports.module';
 import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.module';
 import { FinanzasModule }         from './finanzas/finanzas.module';
+import { JurisprudenciaModule }   from './jurisprudencia/jurisprudencia.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { FinanzasModule }         from './finanzas/finanzas.module';
     ExportsModule,
     ContractAnalyzerModule,
     FinanzasModule,
+    JurisprudenciaModule,
   ],
   providers: [
     // Aplicar rate limiting globalmente por IP (ThrottlerGuard usa IP por defecto)

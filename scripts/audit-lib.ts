@@ -151,7 +151,10 @@ export interface NormViolation {
 // ─── File structure check ─────────────────────────────────────────────────────
 
 const SINGLE_FILE_PATTERN = /\.data\.ts$/;
-const EXCLUDED_DIRS       = new Set(['constituciones-provinciales']);
+// constituciones-provinciales: se auditan aparte.
+// jurisprudencia (fallos) y pages (páginas estáticas) no son leyes y tienen
+// otra estructura — no aplican al chequeo de estructura de norma.
+const EXCLUDED_DIRS       = new Set(['constituciones-provinciales', 'jurisprudencia', 'pages']);
 
 export function checkFileStructure(): Map<string, FileReport> {
   const reports = new Map<string, FileReport>();
@@ -160,13 +163,19 @@ export function checkFileStructure(): Map<string, FileReport> {
     const full = path.join(DATA_DIR, entry);
     const stat = fs.statSync(full);
     if (stat.isDirectory()) {
+      const inner = fs.readdirSync(full);
+      const hasIndex = inner.includes('index.ts');
       reports.set(entry, {
         id: entry, isDirectory: true,
-        hasIndex:    fs.existsSync(path.join(full, 'index.ts')),
-        hasMetadata: fs.existsSync(path.join(full, 'metadata.ts')),
-        hasArticles: fs.existsSync(path.join(full, 'articles.ts')) ||
-                     fs.existsSync(path.join(full, 'sections'))    ||
-                     fs.existsSync(path.join(full, 'sections.ts')),
+        hasIndex,
+        // La metadata puede vivir en metadata.ts o inline en index.ts.
+        hasMetadata: inner.includes('metadata.ts') || hasIndex,
+        // Artículos: articles.ts, articles/ , articles-*.ts (split por capítulos)
+        // o sections.
+        hasArticles: inner.some((e) => /^articles.*\.ts$/.test(e)) ||
+                     inner.includes('articles')  ||
+                     inner.includes('sections')  ||
+                     inner.includes('sections.ts'),
       });
     } else if (SINGLE_FILE_PATTERN.test(entry)) {
       const id = entry.replace(/\.data\.ts$/, '');
