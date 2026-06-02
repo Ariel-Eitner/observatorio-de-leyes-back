@@ -117,6 +117,18 @@ export const DECRETO_407_2026: Law = {
       regulations: [],
       keywords: ['aprobación', 'reglamentación', 'LCT', 'anexo I', 'anexo III', 'recibo'],
       order: 1,
+      visualContent: [
+        {
+          id: 'dec-407-modelo-recibo',
+          type: 'imagen',
+          title: 'Modelo oficial del recibo de sueldo',
+          description:
+            'Modelo del nuevo recibo de haberes (Anexo III del Decreto 407/2026). Tiene cuatro secciones obligatorias (datos; contribuciones del empleador; remuneración bruta y deducciones; remuneración neta) y, en el anverso, un resumen de la composición total del costo laboral agrupado en siete rubros: sindical, seguridad social, obra social, INSSJP (PAMI), ART, cámaras empresariales y otros.',
+          sourceUrl: 'https://servicios.infoleg.gob.ar/infolegInternet/anexos/425000-429999/426270/dec407anexo3.jpg',
+          sourcePage: 'https://www.boletinoficial.gob.ar/detalleAviso/primera/342620/20260601',
+          data: {},
+        },
+      ],
       segments: [
         {
           id: 'dec-407-art-1-seg-1',
@@ -240,8 +252,7 @@ export const DECRETO_407_2026: Law = {
       number: 'III',
       title: 'Modelo oficial del recibo de sueldo',
       content:
-        'ANEXO III — «El recibo de sueldo deberá ajustarse al modelo previsto en el presente anexo.» El modelo es una imagen oficial (no texto). Refleja las cuatro secciones del art. 5 del Anexo I y el resumen del costo laboral en siete rubros (sindical, seguridad social, obra social, INSSJP, ART, cámaras empresariales y otros), que suele representarse como un gráfico de torta en el anverso.\n\n' +
-        'Imagen oficial del modelo (Anexo III, IF-2026-53626708-APN-STEYSS#MCH): https://servicios.infoleg.gob.ar/infolegInternet/anexos/425000-429999/426270/dec407anexo3.jpg',
+        'ANEXO III — «El recibo de sueldo deberá ajustarse al modelo previsto en el presente anexo.» El modelo es una imagen oficial (IF-2026-53626708-APN-STEYSS#MCH). Refleja las cuatro secciones del art. 5 del Anexo I y el resumen de la composición del costo laboral en siete rubros (sindical, seguridad social, obra social, INSSJP, ART, cámaras empresariales y otros), que se incorpora en el anverso. El modelo oficial puede verse y descargarse desde el contenido visual del artículo 1 de esta ficha.',
       order: 2,
     },
   ],
