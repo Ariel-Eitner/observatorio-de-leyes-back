@@ -41,6 +41,8 @@ import { LEY_23592 } from './ley-23592/index';
 import { LEY_11544 } from './ley-11544/index';
 import { LEY_22278 } from './ley-22278/index';
 import type { Law } from '../common/types/law.types';
+import { applyCuratedRelations } from './relations-curadas';
+import { CONSTITUCIONES_PROVINCIALES } from './constituciones-provinciales/index';
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
 export const NORMAS_CLAVE: Law[] = [
@@ -82,3 +84,6 @@ export const ALL_LAWS: Law[] = [
   LEY_22278,         // Régimen Penal de la Minoridad (derogada por Ley 27.801)
   LEY_26842,         // Ley de Trata de Personas
 ];
+
+// Merge de relaciones curadas → grafo legal determinístico (dedup por type+target).
+applyCuratedRelations([...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES]);

@@ -40,7 +40,14 @@ export const DECRETO_207_2011: Law = {
     'evaluación ambiental estratégica',
   ],
   relatedNorms: ['Ley 26.639', 'Ley 25.675 (Ley General del Ambiente)'],
-  relations: [],
+  relations: [
+    {
+      type: 'REGLAMENTA' as const,
+      targetLawId: 'ley-26639',
+      targetLawLabel: 'Ley de Glaciares (Ley 26.639)',
+      description: 'Aprueba la reglamentación de la Ley de Glaciares: metodología del Inventario Nacional y Autoridad de Aplicación.',
+    },
+  ],
   executiveSummary:
     'El Decreto 207/2011 reglamenta la Ley de Glaciares (26.639). Su conclusión principal es que la ley es autosuficiente: la mayoría de sus artículos se declaran "sin reglamentar" porque operan directamente. El decreto sí reglamenta los artículos técnicos: define la metodología del Inventario Nacional de Glaciares en tres niveles escalonados y cinco regiones geográficas (Andes Desérticos, Centrales, Norte de Patagonia, Sur de Patagonia y Tierra del Fuego), y define la Evaluación Ambiental Estratégica. También designa formalmente a la Secretaría de Ambiente y Desarrollo Sustentable como Autoridad de Aplicación (art. 9 de la ley).',
   objective:

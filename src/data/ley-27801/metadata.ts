@@ -58,7 +58,14 @@ export const LEY_27801_METADATA: LawBase = {
     'Ley 26.657 — Salud Mental',
     'Ley 24.390 (plazos de prisión preventiva)',
   ],
-  relations: [],
+  relations: [
+    {
+      type: 'DEROGA' as const,
+      targetLawId: 'ley-22278',
+      targetLawLabel: 'Régimen Penal de la Minoridad (Ley 22.278)',
+      description: 'Deroga totalmente el Régimen Penal de la Minoridad (Ley 22.278 y sus modificatorias), conforme su art. 48.',
+    },
+  ],
   executiveSummary:
     'La Ley Penal Juvenil crea un régimen de responsabilidad penal específico para adolescentes de 14 a 18 años. Reemplaza el viejo sistema de la ley 22.278, que permitía detener menores sin condena. El nuevo régimen establece un catálogo de penas propias (amonestación, tareas comunitarias, privación de libertad domiciliaria, en instituto especializado), prohíbe la prisión perpetua y limita la pena máxima a 15 años. Crea la figura del "supervisor" especializado que acompaña al adolescente, regula la mediación penal y la suspensión del proceso a prueba, y garantiza institutos de detención separados de los adultos.',
   objective:

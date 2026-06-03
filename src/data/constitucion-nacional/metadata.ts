@@ -49,12 +49,9 @@ export const CONSTITUCION_NACIONAL_METADATA: LawBase = {
   annexes: [],
   relations: [
     // Tratados con jerarquía constitucional (art. 75 inc. 22 — reforma 1994)
-    {
-      type: 'COMPLEMENTA' as const,
-      targetLawId: 'cadh',
-      targetLawLabel: 'Convención Americana sobre Derechos Humanos (CADH)',
-      description: 'Jerarquía constitucional otorgada por el art. 75 inc. 22 CN (reforma 1994). Opera como estándar complementario de los derechos reconocidos en la Constitución.',
-    },
+    // TODO: re-agregar la CADH (Pacto de San José) como COMPLEMENTA cuando se
+    // cargue esa norma. Se quitó por ahora porque 'cadh' no existe en el sistema
+    // (arista colgada detectada por legal-graph-integrity.spec).
     {
       type: 'COMPLEMENTA' as const,
       targetLawId: 'carta-onu',

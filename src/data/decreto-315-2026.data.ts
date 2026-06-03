@@ -61,7 +61,14 @@ export const DECRETO_315_2026: Law = {
     'Ley 19.032 (INSSJP)',
     'Resolución General ARCA 5844/2026',
   ],
-  relations: [],
+  relations: [
+    {
+      type: 'REGLAMENTA',
+      targetLawId: 'ley-27802',
+      targetLawLabel: 'Ley 27.802 (Modernización Laboral)',
+      description: 'Reglamenta el Título XX (Régimen de Incentivo a la Formalización Laboral) de la Ley 27.802.',
+    },
+  ],
   executiveSummary:
     'El Decreto 315/2026 pone en marcha el Régimen de Incentivo a la Formalización Laboral (RIFL) creado por el Título XX de la Ley 27.802. El RIFL reduce las contribuciones patronales para las nuevas relaciones laborales registradas ante ARCA entre el 1° de mayo de 2026 y el 30 de abril de 2027, por los primeros 48 meses. El decreto precisa quiénes son los empleadores y trabajadores que pueden acceder, cómo se distribuyen las contribuciones reducidas (2% entre SIPA, Fondo de Empleo y Asignaciones; 3% al INSSJP), la incompatibilidad con la reducción del art. 76, la subsistencia de la contribución al Fondo de Asistencia Laboral (FAL) y las causales de pérdida del beneficio.',
   objective:

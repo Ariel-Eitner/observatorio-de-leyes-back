@@ -29,8 +29,9 @@ function slugify(text: string): string {
 export function computeFrontendPath(law: Law): string {
   if (TIPO_SLUG[law.id]) return TIPO_SLUG[law.id];
   if (law.id.startsWith('const-')) return `/constituciones/${law.id.slice('const-'.length)}`;
-  if (law.id.startsWith('decreto-')) return `/leyes/${law.id}`;
-  const cleanNumber = law.number.replace(/\./g, '');
+  if (law.id.startsWith('decreto-') || law.id.startsWith('rg-')) return `/leyes/${law.id}`;
+  // saca puntos y barras (ej. "5844/2026") para no romper la ruta
+  const cleanNumber = law.number.replace(/\./g, '').replace(/\//g, '-');
   const cleanTitle = law.title.replace(/^Ley\s+(de\s+la[s]?\s+|de\s+los?\s+|del\s+|de\s+)?/i, '').trim();
   return `/leyes/${cleanNumber}-${slugify(cleanTitle)}`;
 }

@@ -75,7 +75,14 @@ export const DECRETO_407_2026: Law = {
     'Decreto 315/2026',
     'Resolución General ARCA 5844/2026',
   ],
-  relations: [],
+  relations: [
+    {
+      type: 'REGLAMENTA',
+      targetLawId: 'ley-27802',
+      targetLawLabel: 'Ley 27.802 (Modernización Laboral)',
+      description: 'Reglamenta artículos de la LCT (recibo de sueldo, registración, licencias) modificados por la Ley 27.802.',
+    },
+  ],
   executiveSummary:
     'El Decreto 407/2026 reglamenta varios artículos de la LCT modificados por la Ley 27.802. Lo más visible para el trabajador es el NUEVO RECIBO DE SUELDO (Anexo I, art. 5, que reglamenta el art. 140 LCT): debe tener cuatro secciones (datos; contribuciones del empleador; remuneración bruta y deducciones; remuneración neta) y, en el anverso, un resumen de la composición total del COSTO LABORAL discriminado como mínimo en siete rubros (sindical, seguridad social, obra social, INSSJP, ART, cámaras empresariales y otros). El recibo debe ajustarse al modelo del Anexo III (imagen oficial). El decreto también dispone que la registración laboral del art. 52 LCT se cumple con el alta/baja en los sistemas de ARCA, reemplazando los libros de sueldos. IMPORTANTE: el decreto completo tiene 24 artículos dispositivos y 3 Anexos; esta ficha cubre la reglamentación de la LCT (arts. 1-3 + Anexos I y III). Los arts. 4-22 (modificatorios de los decretos sindicales 199/1988 y 467/1988 y de convenios colectivos) y el Anexo II (Empresas de Servicios Eventuales) no están incluidos en esta ficha.',
   objective:

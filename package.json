@@ -23,6 +23,7 @@
     "audit:coverage": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-coverage.ts",
     "audit:quality": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-quality.ts",
     "audit:norm": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-norm.ts",
+    "audit:graph": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-graph.ts",
     "tracking:e2e": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts",
     "tracking:e2e:docker": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts http://localhost:4000 http://localhost:4600/api"
   },

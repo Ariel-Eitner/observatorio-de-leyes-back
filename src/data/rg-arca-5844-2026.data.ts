@@ -61,7 +61,20 @@ export const RG_ARCA_5844_2026: Law = {
     'Resolución General ARCA 3.960 (Declaración en línea)',
     'Ley 19.032 (INSSJP)',
   ],
-  relations: [],
+  relations: [
+    {
+      type: 'REGLAMENTA',
+      targetLawId: 'ley-27802',
+      targetLawLabel: 'Ley 27.802 (Modernización Laboral)',
+      description: 'Procedimiento operativo del RIFL previsto en el Título XX de la Ley 27.802.',
+    },
+    {
+      type: 'COMPLEMENTA',
+      targetLawId: 'decreto-315-2026',
+      targetLawLabel: 'Decreto 315/2026',
+      description: 'Implementa operativamente el RIFL reglamentado por el Decreto 315/2026 (código 710, alícuotas, liquidación).',
+    },
+  ],
   executiveSummary:
     'La RG ARCA 5844/2026 es la norma operativa que hace funcionar el RIFL en la práctica. Indica al empleador cómo dar de alta a un trabajador bajo el régimen: mediante el código de modalidad de contratación 710 en "Simplificación Registral", liquidando las contribuciones con el release 7 de la versión 47 del sistema "Declaración en línea", que aplica automáticamente la tabla de alícuotas reducidas (SIPA 1,31 %, Asignaciones Familiares 0,57 %, Fondo Nacional de Empleo 0,12 % e INSSJP 3 %, total 5 %). El beneficio rige por el período fiscal del alta más los 47 siguientes (48 en total). Fija las exclusiones (estar en el REPSAL o incurrir en uso abusivo) y los efectos del decaimiento (rectificar declaraciones juradas y pagar diferencias, intereses y multas).',
   objective:

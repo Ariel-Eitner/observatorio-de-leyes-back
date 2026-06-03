@@ -84,7 +84,20 @@ export const LEY_27802: Law = {
   updatedAt: '2026-03-06T00:00:00.000Z',
 
   // ── Amendments ────────────────────────────────────────────────────────────
-  relations: [],
+  relations: [
+    {
+      type: 'MODIFICA' as const,
+      targetLawId: 'ley-20744',
+      targetLawLabel: 'Ley de Contrato de Trabajo (Ley 20.744)',
+      description: 'Reforma de fondo: sustituye y modifica más de 50 artículos de la LCT (registración, recibo, indemnizaciones, modalidades, plataformas).',
+    },
+    {
+      type: 'MODIFICA' as const,
+      targetLawId: 'ley-11544',
+      targetLawLabel: 'Ley de Jornada de Trabajo (Ley 11.544)',
+      description: 'Sustituye el art. 3° de la Ley de Jornada de Trabajo.',
+    },
+  ],
   amendments: [],
 
   // ── Annexes ───────────────────────────────────────────────────────────────
