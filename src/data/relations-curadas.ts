@@ -108,19 +108,31 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
  * Muta `law.relations` — los objetos son singletons compartidos, así que el grafo
  * y los tests ven las relaciones combinadas.
  */
+// Labels de normas ya migradas a la BD (ya no están en los arrays de código,
+// pero las relaciones que las apuntan deben conservar su nombre para el grafo).
+// Exportado para que la validación de integridad las reconozca como nodos válidos.
+export const MIGRATED_LABELS: Record<string, string> = {
+  'constitucion-nacional': 'Constitución Nacional',
+};
+
 export function applyCuratedRelations(laws: Law[]): void {
   const byId = new Map(laws.map((l) => [l.id, l]));
+  const labelOf = (id: string): string | null => {
+    const t = byId.get(id);
+    return t ? (t.commonName ?? t.title) : (MIGRATED_LABELS[id] ?? null);
+  };
+
   for (const [srcId, edges] of Object.entries(RELACIONES_CURADAS)) {
     const src = byId.get(srcId);
     if (!src) continue;
     for (const e of edges) {
-      const tgt = byId.get(e.target);
-      if (!tgt || e.target === srcId) continue;
+      const tgtLabel = labelOf(e.target);
+      if (!tgtLabel || e.target === srcId) continue;
       if (src.relations.some((r) => r.type === e.type && r.targetLawId === e.target)) continue;
       const rel: LawRelation = {
         type: e.type,
         targetLawId: e.target,
-        targetLawLabel: tgt.commonName ?? tgt.title,
+        targetLawLabel: tgtLabel,
         description: e.description ?? null,
       };
       src.relations.push(rel);
@@ -128,15 +140,15 @@ export function applyCuratedRelations(laws: Law[]): void {
   }
 
   // Constituciones provinciales → Constitución Nacional (marco federal, art. 5 CN).
-  const cn = byId.get('constitucion-nacional');
-  if (cn) {
+  const cnLabel = labelOf('constitucion-nacional');
+  if (cnLabel) {
     for (const law of laws) {
       if (!law.id.startsWith('const-') || law.id === 'constitucion-nacional') continue;
       if (law.relations.some((r) => r.targetLawId === 'constitucion-nacional')) continue;
       law.relations.push({
         type: 'RELACIONADA',
         targetLawId: 'constitucion-nacional',
-        targetLawLabel: cn.commonName ?? cn.title,
+        targetLawLabel: cnLabel,
         description: 'Constitución provincial dentro del marco federal de la Constitución Nacional (art. 5 CN).',
       });
     }

@@ -8,6 +8,7 @@
  */
 import { ALL_LAWS, NORMAS_CLAVE } from './index';
 import { CONSTITUCIONES_PROVINCIALES } from './constituciones-provinciales/index';
+import { MIGRATED_LABELS } from './relations-curadas';
 import { RelationType } from '../common/types/law.types';
 
 const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES];
@@ -18,6 +19,9 @@ const UNIQUE = (() => {
 })();
 
 const byId = new Map(UNIQUE.map((l) => [l.id, l]));
+// Nodos válidos como target = los del código + los ya migrados a la BD (que ya
+// no viven en estos arrays pero siguen siendo destino legítimo de relaciones).
+const VALID_TARGET_IDS = new Set<string>([...byId.keys(), ...Object.keys(MIGRATED_LABELS)]);
 const VALID_TYPES = new Set<string>(Object.values(RelationType));
 
 interface RelRef {
@@ -32,7 +36,7 @@ const ALL_RELS: RelRef[] = UNIQUE.flatMap((l) =>
 
 describe('Grafo legal — integridad de relaciones', () => {
   test('todo targetLawId existe en el sistema (sin aristas colgadas)', () => {
-    const dangling = ALL_RELS.filter((r) => !byId.has(r.target)).map(
+    const dangling = ALL_RELS.filter((r) => !VALID_TARGET_IDS.has(r.target)).map(
       (r) => `${r.src} --${r.type}--> ${r.target} (target inexistente)`,
     );
     expect(dangling).toEqual([]);
@@ -75,7 +79,8 @@ describe('Grafo legal — integridad de relaciones', () => {
   test('una relación DEROGA apunta a una norma con estado DEROGADA', () => {
     const bad: string[] = [];
     for (const r of ALL_RELS.filter((x) => x.type === 'DEROGA')) {
-      const t = byId.get(r.target)!;
+      const t = byId.get(r.target);
+      if (!t) continue; // norma migrada a BD: no está en estos arrays
       if (t.status !== 'DEROGADA') {
         bad.push(`${r.src} DEROGA ${r.target} — pero ${r.target}.status = ${t.status} (esperado DEROGADA)`);
       }
@@ -86,7 +91,8 @@ describe('Grafo legal — integridad de relaciones', () => {
   test('una relación DEROGA_PARCIALMENTE no apunta a una norma VIGENTE plena', () => {
     const bad: string[] = [];
     for (const r of ALL_RELS.filter((x) => x.type === 'DEROGA_PARCIALMENTE')) {
-      const t = byId.get(r.target)!;
+      const t = byId.get(r.target);
+      if (!t) continue; // norma migrada a BD: no está en estos arrays
       if (t.status === 'VIGENTE') {
         bad.push(`${r.src} DEROGA_PARCIALMENTE ${r.target} — pero ${r.target}.status = VIGENTE (esperado PARCIALMENTE_VIGENTE o DEROGADA)`);
       }
@@ -101,7 +107,8 @@ describe('Grafo legal — integridad de relaciones', () => {
     const RANGO_MENOR = new Set(['DECRETO', 'RESOLUCION', 'DISPOSICION']);
     const bad: string[] = [];
     for (const r of ALL_RELS.filter((x) => x.type === 'REGLAMENTA')) {
-      const t = byId.get(r.target)!;
+      const t = byId.get(r.target);
+      if (!t) continue; // norma migrada a BD: no está en estos arrays
       if (RANGO_MENOR.has(t.normType)) {
         bad.push(`${r.src} REGLAMENTA ${r.target} (${t.normType}) — dirección probablemente invertida`);
       }

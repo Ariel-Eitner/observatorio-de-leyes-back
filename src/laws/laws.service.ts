@@ -1,4 +1,5 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Logger, OnModuleInit } from '@nestjs/common';
+import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
 import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales/index';
 import { Law, LawSummary } from '../common/types/law.types';
@@ -189,9 +190,31 @@ const SLUG_ALIASES: Record<string, string> = {
 };
 
 @Injectable()
-export class LawsService {
+export class LawsService implements OnModuleInit {
+	private readonly logger = new Logger(LawsService.name);
 	private laws: Law[] = ALL_LAWS;
-	private allSources: Law[] = [...ALL_LAWS, ...NORMAS_CLAVE];
+	// Normas servidas desde la BD (migradas). Se hidratan al arrancar.
+	private dbNorms: Law[] = [];
+
+	constructor(private readonly normsDb: NormsDbService) {}
+
+	private get allSources(): Law[] {
+		return [...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms];
+	}
+
+	async onModuleInit() {
+		try {
+			const cn = await this.normsDb.loadNorm('constitucion-nacional');
+			if (cn) {
+				this.dbNorms = [cn];
+				this.logger.log('Constitución Nacional cargada desde la BD');
+			} else {
+				this.logger.warn('Constitución Nacional no encontrada en la BD');
+			}
+		} catch (e) {
+			this.logger.error(`Error hidratando normas desde la BD: ${(e as Error).message}`);
+		}
+	}
 
 	findAll(query: QueryLawDto) {
 		const {
@@ -282,7 +305,7 @@ export class LawsService {
 	}
 
 	getRegistry() {
-		const allSrcs = [...NORMAS_CLAVE, ...this.laws, ...CONSTITUCIONES_PROVINCIALES];
+		const allSrcs = [...NORMAS_CLAVE, ...this.laws, ...this.dbNorms, ...CONSTITUCIONES_PROVINCIALES];
 		const seen = new Set<string>();
 		const unique = allSrcs.filter((l) => {
 			if (seen.has(l.id)) return false;

@@ -7,7 +7,8 @@
  *   3. Listo — búsqueda, stats y referencias inline la detectan automáticamente
  */
 
-import { CONSTITUCION_NACIONAL } from './constitucion-nacional/index';
+// CONSTITUCION_NACIONAL migrada a la BD: se sirve vía NormsDbService (LawsService.onModuleInit).
+// El data file ./constitucion-nacional/ queda huérfano (sin borrar) por si hay que revertir.
 import { CODIGO_PENAL } from './codigo-penal/index';
 import { LEY_20744 } from './ley-20744/index';
 import { CODIGO_ADUANERO } from './codigo-aduanero/index';
@@ -52,7 +53,7 @@ export const NORMAS_CLAVE: Law[] = [
   CODIGO_CIVIL_COMERCIAL,   // Código Civil y Comercial
   CODIGO_PENAL,             // Código Penal
   LEY_27150,                // Código Procesal Penal Federal
-  CONSTITUCION_NACIONAL,    // Constitución Nacional
+  // CONSTITUCION_NACIONAL → migrada a la BD (se sirve desde NormsDbService)
   LEY_20744,                // Ley de Contrato de Trabajo
   LEY_27742,                // Ley del RIGI
 ];

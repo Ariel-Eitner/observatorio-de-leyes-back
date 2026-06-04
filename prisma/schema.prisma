@@ -225,3 +225,199 @@ model tweets_performance {
   created_at      DateTime @default(now()) @db.Timestamptz(6)
   subtweets       Json     @default("[]")
 }
+
+// ─── Normas migradas a BD (molde: Constitución Nacional) ──────────────────────
+
+model norms {
+  id                String                   @id
+  number            String?
+  title             String
+  common_name       String?
+  summary           String?
+  category          String?
+  year              Int?
+  sanction_date     DateTime?                @db.Date
+  promulgation_date DateTime?                @db.Date
+  publication_date  DateTime?                @db.Date
+  effective_date    DateTime?                @db.Date
+  derogated_date    DateTime?                @db.Date
+  bo_number         String?
+  status            String                   @default("VIGENTE")
+  jurisdiction      String
+  norm_type         String
+  issuing_body      String?
+  full_text         String?
+  source_url        String?
+  article_count     Int                      @default(0)
+  executive_summary String?
+  objective         String?
+  problem_it_solves String?
+  practical_impact  String?
+  topics            String[]                 @default([])
+  keywords          String[]                 @default([])
+  related_norms     String[]                 @default([])
+  affected_subjects String[]                 @default([])
+  created_at        DateTime                 @default(now()) @db.Timestamptz(6)
+  updated_at        DateTime                 @default(now()) @db.Timestamptz(6)
+  search            Unsupported("tsvector")? @default(dbgenerated("to_tsvector('spanish'::regconfig, ((((COALESCE(title, ''::text) || ' '::text) || COALESCE(common_name, ''::text)) || ' '::text) || COALESCE(summary, ''::text)))"))
+  annexes           annexes[]
+  articles          articles[]
+  norm_amendments   norm_amendments[]
+  norm_metadata     norm_metadata?
+  norm_relations    norm_relations[]
+  norm_sections     norm_sections[]
+  norm_titles       norm_titles[]
+  segments          segments[]
+
+  @@index([keywords], map: "idx_norms_keywords", type: Gin)
+  @@index([search], map: "idx_norms_search", type: Gin)
+  @@index([status], map: "idx_norms_status")
+  @@index([topics], map: "idx_norms_topics", type: Gin)
+  @@index([norm_type], map: "idx_norms_type")
+}
+
+model norm_metadata {
+  norm_id          String   @id
+  main_topic       String?
+  subtopics        String[] @default([])
+  related_laws     String[] @default([])
+  regulations      String[] @default([])
+  modifying_norms  String[] @default([])
+  derogating_norms String[] @default([])
+  jurisprudence    String[] @default([])
+  doctrine         String[] @default([])
+  obligations      String[] @default([])
+  rights           String[] @default([])
+  sanctions        String[] @default([])
+  use_cases        String[] @default([])
+  faq              Json?
+  norms            norms    @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model norm_sections {
+  id            String        @id
+  norm_id       String
+  number        String?
+  name          String
+  article_start Int?
+  article_end   Int?
+  ord           Int           @default(0)
+  norms         norms         @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  norm_titles   norm_titles[]
+
+  @@index([norm_id], map: "idx_sections_norm")
+}
+
+model norm_titles {
+  id            String        @id
+  section_id    String
+  norm_id       String
+  number        String?
+  name          String
+  article_start Int?
+  article_end   Int?
+  ord           Int           @default(0)
+  norms         norms         @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  norm_sections norm_sections @relation(fields: [section_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([section_id], map: "idx_titles_section")
+}
+
+model articles {
+  id                         String                   @id
+  norm_id                    String
+  number                     String
+  title                      String?
+  body                       String
+  plain_language_explanation String?
+  ord                        Int                      @default(0)
+  status                     String?
+  effective_date             DateTime?                @db.Date
+  derogated_date             DateTime?                @db.Date
+  practical_effects          String[]                 @default([])
+  examples                   String[]                 @default([])
+  related_articles           String[]                 @default([])
+  jurisprudence              String[]                 @default([])
+  regulations                String[]                 @default([])
+  keywords                   String[]                 @default([])
+  jurisprudence_refs         Json?
+  visual_content             Json?
+  search                     Unsupported("tsvector")? @default(dbgenerated("to_tsvector('spanish'::regconfig, ((((COALESCE(title, ''::text) || ' '::text) || body) || ' '::text) || COALESCE(plain_language_explanation, ''::text)))"))
+  article_amendments         article_amendments[]
+  norms                      norms                    @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  segments                   segments[]
+
+  @@index([norm_id], map: "idx_articles_norm")
+  @@index([search], map: "idx_articles_search", type: Gin)
+}
+
+model segments {
+  id                String   @id
+  article_id        String
+  norm_id           String
+  article_number    String?
+  segment_type      String
+  body              String
+  plain_explanation String?
+  practical_example String?
+  refs              String[] @default([])
+  ord               Int      @default(0)
+  articles          articles @relation(fields: [article_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  norms             norms    @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([article_id], map: "idx_segments_article")
+  @@index([norm_id], map: "idx_segments_norm")
+}
+
+model article_amendments {
+  id             String    @id
+  article_id     String
+  modifying_law  String?
+  modifying_date DateTime? @db.Date
+  previous_text  String?
+  new_text       String?
+  description    String?
+  created_at     DateTime? @db.Timestamptz(6)
+  articles       articles  @relation(fields: [article_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([article_id], map: "idx_art_amend_article")
+}
+
+model norm_amendments {
+  id             String    @id
+  norm_id        String
+  modifying_law  String?
+  modifying_date DateTime? @db.Date
+  description    String
+  type           String?
+  created_at     DateTime? @db.Timestamptz(6)
+  norms          norms     @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([norm_id], map: "idx_norm_amend_norm")
+}
+
+model annexes {
+  id      String  @id
+  norm_id String
+  number  String?
+  title   String?
+  content String
+  ord     Int     @default(0)
+  norms   norms   @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([norm_id], map: "idx_annexes_norm")
+}
+
+model norm_relations {
+  id           String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  source_id    String
+  target_id    String
+  type         String
+  description  String?
+  target_label String?
+  norms        norms   @relation(fields: [source_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([source_id, target_id, type])
+  @@index([source_id], map: "idx_relations_source")
+  @@index([target_id], map: "idx_relations_target")
+}
