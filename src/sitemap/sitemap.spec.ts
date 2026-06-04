@@ -4,11 +4,11 @@
  */
 
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
-import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales/index';
 import { computeFrontendPath } from '../common/utils/law-url.util';
 import { ALL_FALLOS } from '../data/jurisprudencia';
 
-const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES];
+// Constituciones migradas a la BD; ya no están en estos arrays de código.
+const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS];
 const SEEN_IDS = new Set<string>();
 const UNIQUE = ALL_SOURCES.filter((l) => {
   if (SEEN_IDS.has(l.id)) return false;
@@ -81,13 +81,6 @@ describe('Sitemap — paths de leyes', () => {
     expect(invalid).toEqual([]);
   });
 
-  test('las constituciones provinciales tienen path /constituciones/[slug]', () => {
-    for (const prov of CONSTITUCIONES_PROVINCIALES) {
-      const path = computeFrontendPath(prov);
-      expect(path).toMatch(/^\/constituciones\/.+/);
-    }
-  });
-
   test('NORMAS_CLAVE tienen paths únicos', () => {
     const paths = NORMAS_CLAVE.map(computeFrontendPath);
     const unique = new Set(paths);
@@ -143,11 +136,6 @@ describe('Registry — estructura del sistema', () => {
   test('todas las leyes en NORMAS_CLAVE tienen articles cargados', () => {
     const empty = NORMAS_CLAVE.filter((l) => l.articles.length === 0);
     expect(empty.map((l) => l.id)).toEqual([]);
-  });
-
-  test(`hay ${CONSTITUCIONES_PROVINCIALES.length} constituciones provinciales`, () => {
-    // 24 = 23 provincias + CABA
-    expect(CONSTITUCIONES_PROVINCIALES.length).toBe(24);
   });
 
   test('la CDN está en NORMAS_CLAVE', () => {

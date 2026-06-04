@@ -43,7 +43,8 @@ import { LEY_11544 } from './ley-11544/index';
 import { LEY_22278 } from './ley-22278/index';
 import type { Law } from '../common/types/law.types';
 import { applyCuratedRelations } from './relations-curadas';
-import { CONSTITUCIONES_PROVINCIALES } from './constituciones-provinciales/index';
+// CONSTITUCIONES_PROVINCIALES migradas a la BD: se sirven vía NormsDbService.
+// Data files borrados; las relaciones provincial→CN viven en norm_relations.
 
 // Leyes con página dedicada en el visor (orden alfabético por nombre visible)
 export const NORMAS_CLAVE: Law[] = [
@@ -87,4 +88,4 @@ export const ALL_LAWS: Law[] = [
 ];
 
 // Merge de relaciones curadas → grafo legal determinístico (dedup por type+target).
-applyCuratedRelations([...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES]);
+applyCuratedRelations([...NORMAS_CLAVE, ...ALL_LAWS]);

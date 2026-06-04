@@ -1,10 +1,20 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales/index';
+import { LawsService } from '../laws/laws.service';
 
 @Injectable()
 export class ConstitucionesProvincialesService {
+  constructor(private readonly laws: LawsService) {}
+
+  // Constituciones provinciales (const-*), excluyendo la nacional. Vienen de la BD
+  // vía LawsService (ya hidratadas al arrancar).
+  private provinciales() {
+    return this.laws
+      .getAllNorms()
+      .filter((c) => c.id.startsWith('const-') && c.id !== 'constitucion-nacional');
+  }
+
   getAll() {
-    return CONSTITUCIONES_PROVINCIALES.map((c) => ({
+    return this.provinciales().map((c) => ({
       id: c.id,
       title: c.title,
       year: c.year,
@@ -14,7 +24,7 @@ export class ConstitucionesProvincialesService {
   }
 
   getBySlug(slug: string) {
-    const law = CONSTITUCIONES_PROVINCIALES.find((c) => c.id === `const-${slug}`);
+    const law = this.provinciales().find((c) => c.id === `const-${slug}`);
     if (!law) throw new NotFoundException(`Constitución de '${slug}' no encontrada`);
     return law;
   }

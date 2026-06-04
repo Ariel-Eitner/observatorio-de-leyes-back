@@ -4,9 +4,10 @@
  */
 
 import { ALL_LAWS, NORMAS_CLAVE } from './index';
-import { CONSTITUCIONES_PROVINCIALES } from './constituciones-provinciales/index';
 
-const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES];
+// Las constituciones (nacional + provinciales) migraron a la BD: su integridad
+// se valida en la migración, ya no en estos tests estáticos sobre el código.
+const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS];
 
 // Dedup por id (igual que hace LawsService)
 const UNIQUE_LAWS = (() => {

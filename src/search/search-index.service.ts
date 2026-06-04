@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import MiniSearch from 'minisearch';
-import { ALL_LAWS, NORMAS_CLAVE } from '../data';
-import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales/index';
+import { LawsService } from '../laws/laws.service';
 import type { Law } from '../common/types/law.types';
 import { computeFrontendPath, computeArticleUrl } from '../common/utils/law-url.util';
 
@@ -136,11 +135,11 @@ function buildDocs(law: Law): SearchDoc[] {
 }
 
 @Injectable()
-export class SearchIndexService {
+export class SearchIndexService implements OnModuleInit {
   private readonly index: MiniSearch<SearchDoc>;
   private readonly docs: Map<string, SearchDoc> = new Map();
 
-  constructor() {
+  constructor(private readonly laws: LawsService) {
     this.index = new MiniSearch<SearchDoc>({
       fields: Object.keys(FIELD_WEIGHTS) as (keyof typeof FIELD_WEIGHTS)[],
       storeFields: [
@@ -160,12 +159,15 @@ export class SearchIndexService {
         prefix: true,
       },
     });
+  }
 
+  // Se construye al arrancar, después de que LawsService hidrató las normas de BD.
+  onModuleInit() {
     this.buildIndex();
   }
 
   private buildIndex() {
-    const allSources: Law[] = [...ALL_LAWS, ...NORMAS_CLAVE, ...CONSTITUCIONES_PROVINCIALES];
+    const allSources: Law[] = this.laws.getAllNorms();
     const allDocs: SearchDoc[] = allSources.flatMap(buildDocs);
 
     // Deduplicate by id (guard against duplicate article ids in data files)

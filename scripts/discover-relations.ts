@@ -4,12 +4,12 @@
  * según palabras clave. Es insumo para curar `relations` tipadas — no las aplica.
  */
 import { ALL_LAWS, NORMAS_CLAVE } from '../src/data/index';
-import { CONSTITUCIONES_PROVINCIALES } from '../src/data/constituciones-provinciales/index';
 import type { Law } from '../src/common/types/law.types';
 
+// Las constituciones migraron a la BD; este script estático cubre el resto.
 const SOURCES: Law[] = (() => {
   const seen = new Set<string>();
-  return [...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES].filter((l) =>
+  return [...NORMAS_CLAVE, ...ALL_LAWS].filter((l) =>
     seen.has(l.id) ? false : (seen.add(l.id), true),
   );
 })();

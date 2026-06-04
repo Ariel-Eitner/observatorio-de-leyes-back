@@ -7,11 +7,10 @@
  * que las que existen sean correctas y consistentes con el estado de la norma.
  */
 import { ALL_LAWS, NORMAS_CLAVE } from './index';
-import { CONSTITUCIONES_PROVINCIALES } from './constituciones-provinciales/index';
 import { MIGRATED_LABELS } from './relations-curadas';
 import { RelationType } from '../common/types/law.types';
 
-const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES];
+const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS];
 
 const UNIQUE = (() => {
   const seen = new Set<string>();

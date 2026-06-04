@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException, Logger, OnModuleInit } from '@nestjs/common';
 import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
-import { CONSTITUCIONES_PROVINCIALES } from '../data/constituciones-provinciales/index';
 import { Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath } from '../common/utils/law-url.util';
@@ -202,15 +201,30 @@ export class LawsService implements OnModuleInit {
 		return [...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms];
 	}
 
+	/**
+	 * Todas las normas del sistema (código + BD), deduplicadas por id.
+	 * Fuente única para search, segments, articles y constituciones provinciales.
+	 */
+	getAllNorms(): Law[] {
+		const seen = new Set<string>();
+		return this.allSources.filter((l) => (seen.has(l.id) ? false : (seen.add(l.id), true)));
+	}
+
 	async onModuleInit() {
 		try {
-			const cn = await this.normsDb.loadNorm('constitucion-nacional');
-			if (cn) {
-				this.dbNorms = [cn];
-				this.logger.log('Constitución Nacional cargada desde la BD');
-			} else {
-				this.logger.warn('Constitución Nacional no encontrada en la BD');
+			const ids = await this.normsDb.listIds();
+			const loaded: Law[] = [];
+			// Hidratación en lotes: acelera el arranque sin un pico de memoria grande
+			// (relevante con el límite de 256M / 0.2 CPU del backend).
+			const BATCH = 4;
+			for (let i = 0; i < ids.length; i += BATCH) {
+				const chunk = await Promise.all(
+					ids.slice(i, i + BATCH).map((id) => this.normsDb.loadNorm(id)),
+				);
+				for (const law of chunk) if (law) loaded.push(law);
 			}
+			this.dbNorms = loaded;
+			this.logger.log(`${loaded.length} normas hidratadas desde la BD`);
 		} catch (e) {
 			this.logger.error(`Error hidratando normas desde la BD: ${(e as Error).message}`);
 		}
@@ -292,7 +306,7 @@ export class LawsService implements OnModuleInit {
 	}
 
 	findOne(id: string): Law {
-		const all = [...this.allSources, ...CONSTITUCIONES_PROVINCIALES];
+		const all = this.allSources;
 		const law = all.find((l) => l.id === id);
 		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
 		return law;
@@ -305,7 +319,7 @@ export class LawsService implements OnModuleInit {
 	}
 
 	getRegistry() {
-		const allSrcs = [...NORMAS_CLAVE, ...this.laws, ...this.dbNorms, ...CONSTITUCIONES_PROVINCIALES];
+		const allSrcs = [...NORMAS_CLAVE, ...this.laws, ...this.dbNorms];
 		const seen = new Set<string>();
 		const unique = allSrcs.filter((l) => {
 			if (seen.has(l.id)) return false;
@@ -341,7 +355,7 @@ export class LawsService implements OnModuleInit {
 	}
 
 	getStats() {
-		const src = [...this.allSources, ...CONSTITUCIONES_PROVINCIALES];
+		const src = this.allSources;
 		const total = src.length;
 		const totalArticles = src.reduce((sum, l) => sum + l.articles.length, 0);
 

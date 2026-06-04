@@ -7,12 +7,12 @@
  * encontrar derogaciones/relaciones faltantes o inconsistentes.
  */
 import { ALL_LAWS, NORMAS_CLAVE } from '../src/data/index';
-import { CONSTITUCIONES_PROVINCIALES } from '../src/data/constituciones-provinciales/index';
 import type { Law } from '../src/common/types/law.types';
 
+// Las constituciones migraron a la BD; este audit estático cubre lo que queda en código.
 const SOURCES: Law[] = (() => {
   const seen = new Set<string>();
-  return [...NORMAS_CLAVE, ...ALL_LAWS, ...CONSTITUCIONES_PROVINCIALES].filter((l) =>
+  return [...NORMAS_CLAVE, ...ALL_LAWS].filter((l) =>
     seen.has(l.id) ? false : (seen.add(l.id), true),
   );
 })();
