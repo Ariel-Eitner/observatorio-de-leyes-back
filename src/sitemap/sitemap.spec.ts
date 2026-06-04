@@ -133,13 +133,8 @@ describe('Registry — estructura del sistema', () => {
     expect(missing.map((l) => l.id)).toEqual([]);
   });
 
-  test('todas las leyes en NORMAS_CLAVE tienen articles cargados', () => {
-    const empty = NORMAS_CLAVE.filter((l) => l.articles.length === 0);
+  test('todas las leyes en ALL_LAWS tienen articles cargados', () => {
+    const empty = ALL_LAWS.filter((l) => l.articles.length === 0);
     expect(empty.map((l) => l.id)).toEqual([]);
-  });
-
-  test('la CDN está en NORMAS_CLAVE', () => {
-    const cdn = NORMAS_CLAVE.find((l) => l.id === 'convencion-derechos-nino');
-    expect(cdn).toBeDefined();
   });
 });

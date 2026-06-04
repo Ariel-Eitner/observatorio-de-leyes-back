@@ -9,12 +9,9 @@
 
 // CONSTITUCION_NACIONAL migrada a la BD: se sirve vía NormsDbService (LawsService.onModuleInit).
 // El data file ./constitucion-nacional/ queda huérfano (sin borrar) por si hay que revertir.
-import { CODIGO_PENAL } from './codigo-penal/index';
-import { LEY_20744 } from './ley-20744/index';
-import { CODIGO_ADUANERO } from './codigo-aduanero/index';
-import { LEY_27150 } from './ley-27150/index';
+// Códigos (Penal, Civil y Comercial, Aduanero), CPPF, LCT, RIGI y tratados
+// migrados a la BD: se sirven vía NormsDbService. Data files borrados.
 import { LEY_26639 } from './ley-26639/index';
-import { CODIGO_CIVIL_COMERCIAL } from './codigo-civil-comercial/index';
 import { ALL_LAWS as LAWS_BASE } from './ley-25326.data';
 import { DECRETO_207_2011 } from './decreto-207-2011.data';
 import { LEY_27499 } from './ley-27499/index';
@@ -27,11 +24,8 @@ import { LEY_27275 } from './ley-27275/index';
 import { LEY_24240 } from './ley-24240/index';
 import { LEY_26061 } from './ley-26061/index';
 import { LEY_26206 } from './ley-26206/index';
-import { CARTA_ONU } from './carta-onu/index';
-import { CONVENCION_DERECHOS_NINO } from './convencion-derechos-nino/index';
 import { LEY_26842 } from './ley-26842/index';
 import { LEY_27801 } from './ley-27801/index';
-import { LEY_27742 } from './ley-27742/index';
 import { LEY_27802 } from './ley-27802.data';
 import { DECRETO_315_2026 } from './decreto-315-2026.data';
 import { RG_ARCA_5844_2026 } from './rg-arca-5844-2026.data';
@@ -46,18 +40,9 @@ import { applyCuratedRelations } from './relations-curadas';
 // CONSTITUCIONES_PROVINCIALES migradas a la BD: se sirven vía NormsDbService.
 // Data files borrados; las relaciones provincial→CN viven en norm_relations.
 
-// Leyes con página dedicada en el visor (orden alfabético por nombre visible)
-export const NORMAS_CLAVE: Law[] = [
-  CARTA_ONU,                      // Carta de las Naciones Unidas
-  CONVENCION_DERECHOS_NINO,       // Convención sobre los Derechos del Niño
-  CODIGO_ADUANERO,          // Código Aduanero
-  CODIGO_CIVIL_COMERCIAL,   // Código Civil y Comercial
-  CODIGO_PENAL,             // Código Penal
-  LEY_27150,                // Código Procesal Penal Federal
-  // CONSTITUCION_NACIONAL → migrada a la BD (se sirve desde NormsDbService)
-  LEY_20744,                // Ley de Contrato de Trabajo
-  LEY_27742,                // Ley del RIGI
-];
+// NORMAS_CLAVE (códigos, tratados, LCT, RIGI, CN) migradas a la BD: se sirven
+// vía NormsDbService. Quedan en código solo las leyes de ALL_LAWS (aún por migrar).
+export const NORMAS_CLAVE: Law[] = [];
 
 // Leyes del listado general /api/laws
 export const ALL_LAWS: Law[] = [

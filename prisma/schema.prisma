@@ -301,7 +301,7 @@ model norm_sections {
   name          String
   article_start Int?
   article_end   Int?
-  ord           Int           @default(0)
+  ord           Float         @default(0)
   norms         norms         @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   norm_titles   norm_titles[]
 
@@ -316,7 +316,7 @@ model norm_titles {
   name          String
   article_start Int?
   article_end   Int?
-  ord           Int           @default(0)
+  ord           Float         @default(0)
   norms         norms         @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   norm_sections norm_sections @relation(fields: [section_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
@@ -330,7 +330,7 @@ model articles {
   title                      String?
   body                       String
   plain_language_explanation String?
-  ord                        Int                      @default(0)
+  ord                        Float                    @default(0)
   status                     String?
   effective_date             DateTime?                @db.Date
   derogated_date             DateTime?                @db.Date
@@ -361,7 +361,7 @@ model segments {
   plain_explanation String?
   practical_example String?
   refs              String[] @default([])
-  ord               Int      @default(0)
+  ord               Float    @default(0)
   articles          articles @relation(fields: [article_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   norms             norms    @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
@@ -402,7 +402,7 @@ model annexes {
   number  String?
   title   String?
   content String
-  ord     Int     @default(0)
+  ord     Float   @default(0)
   norms   norms   @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([norm_id], map: "idx_annexes_norm")

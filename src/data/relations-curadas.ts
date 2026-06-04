@@ -113,6 +113,14 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
 // Exportado para que la validación de integridad las reconozca como nodos válidos.
 export const MIGRATED_LABELS: Record<string, string> = {
   'constitucion-nacional': 'Constitución Nacional',
+  'carta-onu': 'Carta de la ONU',
+  'convencion-derechos-nino': 'Convención sobre los Derechos del Niño',
+  'codigo-aduanero': 'Código Aduanero',
+  'codigo-civil-comercial': 'Código Civil y Comercial',
+  'codigo-penal': 'Código Penal',
+  'ley-27150': 'Código Procesal Penal Federal',
+  'ley-20744': 'Ley de Contrato de Trabajo (LCT)',
+  'ley-27742': 'Ley de Bases',
 };
 
 export function applyCuratedRelations(laws: Law[]): void {

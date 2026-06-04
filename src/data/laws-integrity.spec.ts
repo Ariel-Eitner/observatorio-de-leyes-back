@@ -99,40 +99,8 @@ describe('Artículos — integridad', () => {
   });
 });
 
-// ── NORMAS_CLAVE — calidad mínima garantizada ──────────────────────────────────
-
-describe('NORMAS_CLAVE — calidad mínima', () => {
-  test.each(NORMAS_CLAVE.map((l) => [l.id, l]))(
-    '%s tiene summary y keywords',
-    (_, law) => {
-      expect(law.summary).toBeTruthy();
-      expect(law.keywords.length).toBeGreaterThan(0);
-    }
-  );
-
-  test('todas las NORMAS_CLAVE tienen al menos un artículo', () => {
-    const empty = NORMAS_CLAVE.filter((l) => l.articles.length === 0);
-    expect(empty.map((l) => l.id)).toEqual([]);
-  });
-
-  test('artículos de NORMAS_CLAVE tienen plainLanguageExplanation', () => {
-    const missing: string[] = [];
-    for (const law of NORMAS_CLAVE) {
-      for (const art of law.articles) {
-        if (!art.plainLanguageExplanation?.trim()) {
-          missing.push(`${law.id} art.${art.number}`);
-        }
-      }
-    }
-    // Advertencia: muestra los faltantes pero no falla el build
-    if (missing.length > 0) {
-      console.warn(`\n⚠ ${missing.length} artículos en NORMAS_CLAVE sin plainLanguageExplanation`);
-    }
-    // Umbral: máximo 5% de artículos pueden estar sin explicación
-    const total = NORMAS_CLAVE.reduce((s, l) => s + l.articles.length, 0);
-    expect(missing.length / total).toBeLessThan(0.05);
-  });
-});
+// NORMAS_CLAVE (códigos, tratados, LCT, RIGI) migradas a la BD: su calidad se
+// validó al migrar; ya no se testean estáticamente acá (el array quedó vacío).
 
 // ── Segmentos ─────────────────────────────────────────────────────────────────
 
