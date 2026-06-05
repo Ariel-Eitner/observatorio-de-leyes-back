@@ -235,6 +235,7 @@ model norms {
   common_name       String?
   summary           String?
   category          String?
+  categories        String[]                 @default([])
   year              Int?
   sanction_date     DateTime?                @db.Date
   promulgation_date DateTime?                @db.Date

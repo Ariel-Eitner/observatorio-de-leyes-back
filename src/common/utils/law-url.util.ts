@@ -43,6 +43,8 @@ export function slugifyArticle(articleNumber: string): string {
     .replace(/[º°]/g, 'o')
     .replace(/ª/g, 'a')
     .toLowerCase()
+    // alineado con toArticleSlug del front: "142bis" → "142-bis"
+    .replace(/(\d)(bis|ter|quater)\b/g, '$1-$2')
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '')
     .replace(/-{2,}/g, '-')

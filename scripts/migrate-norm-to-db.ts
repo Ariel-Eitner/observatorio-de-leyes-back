@@ -14,12 +14,11 @@ import type { Law } from '../src/common/types/law.types';
 // Importar data/index ejecuta applyCuratedRelations y muta las relaciones de los
 // objetos compartidos. Debe ir antes de leer las normas para migrarlas con sus
 // relaciones curadas.
-import '../src/data/index';
+// Importar ../src/data ejecuta applyCuratedRelations y devuelve ALL_LAWS con sus
+// relaciones curadas ya aplicadas. Migramos TODO lo que queda en código.
+import { ALL_LAWS } from '../src/data';
 
-// Normas a migrar en esta corrida: importar arriba la(s) norma(s) y listarlas acá.
-// Ej.: import { LEY_XXXX } from '../src/data/ley-xxxx/index';  →  [LEY_XXXX]
-// (Constituciones + códigos + tratados + LCT + RIGI ya migrados y borrados.)
-const NORMS_TO_MIGRATE: Law[] = [];
+const NORMS_TO_MIGRATE: Law[] = ALL_LAWS;
 
 const URL = process.env.SUPABASE_URL;
 const KEY = process.env.SUPABASE_SERVICE_KEY;

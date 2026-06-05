@@ -108,7 +108,7 @@ export class NormsDbService {
 
     return {
       id: n.id, number: n.number ?? '', title: n.title, summary: n.summary,
-      category: n.category ?? undefined, year: n.year ?? 0,
+      category: n.category ?? undefined, categories: n.categories ?? [], year: n.year ?? 0,
       sanctionDate: dDate(n.sanction_date), promulgationDate: dDate(n.promulgation_date),
       publicationDate: dDate(n.publication_date), effectiveDate: dDate(n.effective_date),
       derogatedDate: dDate(n.derogated_date), boNumber: n.bo_number,

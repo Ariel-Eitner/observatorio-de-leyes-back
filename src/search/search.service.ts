@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { SearchIndexService } from './search-index.service';
+import { SearchDbService } from './search-db.service';
 
 export interface ParsedQuery {
   q: string;
@@ -55,9 +55,9 @@ function parseNaturalQuery(raw: string): ParsedQuery {
 
 @Injectable()
 export class SearchService {
-  constructor(private readonly index: SearchIndexService) {}
+  constructor(private readonly db: SearchDbService) {}
 
-  search(
+  async search(
     rawQuery: string,
     opts: {
       type?: 'law' | 'article';
@@ -70,7 +70,7 @@ export class SearchService {
       limit?: number;
     } = {},
   ) {
-    if (!rawQuery?.trim()) return { results: [], query: '', facets: this.index.facets() };
+    if (!rawQuery?.trim()) return { results: [], query: '', facets: await this.db.facets() };
 
     const parsed = parseNaturalQuery(rawQuery);
 
@@ -85,17 +85,19 @@ export class SearchService {
       limit: opts.limit ?? 30,
     };
 
-    const results = this.index.search(parsed.q || rawQuery, merged);
-    const facets = this.index.facets(parsed.q || rawQuery);
+    const [results, facets] = await Promise.all([
+      this.db.search(parsed.q || rawQuery, merged),
+      this.db.facets(parsed.q || rawQuery),
+    ]);
 
     return { results, query: rawQuery, parsedQuery: parsed, facets };
   }
 
   suggest(query: string) {
-    return this.index.suggest(query);
+    return this.db.suggest(query);
   }
 
   facets(query?: string) {
-    return this.index.facets(query);
+    return this.db.facets(query);
   }
 }

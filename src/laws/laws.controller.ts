@@ -26,6 +26,12 @@ export class LawsController {
     return this.lawsService.getStats();
   }
 
+  @Get('graph')
+  @ApiOperation({ summary: 'Grafo del mapa legal (nodos + relaciones tipadas), armado en el backend' })
+  getGraph() {
+    return this.lawsService.getGraphData();
+  }
+
   @Get('number/:number')
   @ApiOperation({ summary: 'Obtener ley por número (ej: 25326)' })
   findByNumber(@Param('number') number: string) {

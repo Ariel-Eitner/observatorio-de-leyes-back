@@ -1,20 +1,10 @@
 /**
- * Tests de validación del sitemap y URLs del sistema.
- * Validan la estructura estática sin necesitar un servidor corriendo.
+ * Tests del sitemap: páginas estáticas y rutas de jurisprudencia.
+ * Las normas migraron a la BD; su integridad y paths se validan en
+ * db-integrity.spec (datos) y en el endpoint del registry.
  */
 
-import { ALL_LAWS, NORMAS_CLAVE } from '../data';
-import { computeFrontendPath } from '../common/utils/law-url.util';
 import { ALL_FALLOS } from '../data/jurisprudencia';
-
-// Constituciones migradas a la BD; ya no están en estos arrays de código.
-const ALL_SOURCES = [...NORMAS_CLAVE, ...ALL_LAWS];
-const SEEN_IDS = new Set<string>();
-const UNIQUE = ALL_SOURCES.filter((l) => {
-  if (SEEN_IDS.has(l.id)) return false;
-  SEEN_IDS.add(l.id);
-  return true;
-});
 
 // ── Páginas estáticas conocidas ───────────────────────────────────────────────
 
@@ -60,48 +50,6 @@ describe('Sitemap — páginas estáticas', () => {
   });
 });
 
-// ── Frontend paths de leyes ───────────────────────────────────────────────────
-
-describe('Sitemap — paths de leyes', () => {
-  test('computeFrontendPath genera paths que empiezan con /', () => {
-    const invalidPaths: string[] = [];
-    for (const law of UNIQUE) {
-      const path = computeFrontendPath(law);
-      if (!path.startsWith('/')) invalidPaths.push(`${law.id} → "${path}"`);
-    }
-    expect(invalidPaths).toEqual([]);
-  });
-
-  test('computeFrontendPath no genera paths con doble slash', () => {
-    const invalid: string[] = [];
-    for (const law of UNIQUE) {
-      const path = computeFrontendPath(law);
-      if (path.includes('//')) invalid.push(`${law.id} → "${path}"`);
-    }
-    expect(invalid).toEqual([]);
-  });
-
-  test('NORMAS_CLAVE tienen paths únicos', () => {
-    const paths = NORMAS_CLAVE.map(computeFrontendPath);
-    const unique = new Set(paths);
-    expect(paths.length).toBe(unique.size);
-  });
-
-  test('la Convención de los Derechos del Niño tiene path /tratados/convencion-derechos-nino', () => {
-    const cdn = UNIQUE.find((l) => l.id === 'convencion-derechos-nino');
-    if (cdn) {
-      expect(computeFrontendPath(cdn)).toBe('/tratados/convencion-derechos-nino');
-    }
-  });
-
-  test('la Carta ONU tiene path /tratados/carta-onu', () => {
-    const onu = UNIQUE.find((l) => l.id === 'carta-onu');
-    if (onu) {
-      expect(computeFrontendPath(onu)).toBe('/tratados/carta-onu');
-    }
-  });
-});
-
 // ── Rutas de jurisprudencia ───────────────────────────────────────────────────
 
 describe('Sitemap — jurisprudencia', () => {
@@ -122,19 +70,5 @@ describe('Sitemap — jurisprudencia', () => {
     const fallo = ALL_FALLOS.find((f) => f.slug === 'cullen-llerena');
     expect(fallo).toBeDefined();
     expect(fallo?.tribunal).toBe('CSJN');
-  });
-});
-
-// ── Registry API ──────────────────────────────────────────────────────────────
-
-describe('Registry — estructura del sistema', () => {
-  test('todas las leyes en ALL_LAWS tienen number', () => {
-    const missing = ALL_LAWS.filter((l) => !l.number);
-    expect(missing.map((l) => l.id)).toEqual([]);
-  });
-
-  test('todas las leyes en ALL_LAWS tienen articles cargados', () => {
-    const empty = ALL_LAWS.filter((l) => l.articles.length === 0);
-    expect(empty.map((l) => l.id)).toEqual([]);
   });
 });

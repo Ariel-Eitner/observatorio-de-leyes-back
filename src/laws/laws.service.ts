@@ -246,7 +246,7 @@ export class LawsService implements OnModuleInit {
 			order = 'desc',
 		} = query;
 
-		let filtered = this.laws.filter((law) => {
+		let filtered = this.getAllNorms().filter((law) => {
 			if (status && law.status !== status) return false;
 			if (jurisdiction && law.jurisdiction !== jurisdiction) return false;
 			if (normType && law.normType !== normType) return false;
@@ -254,8 +254,11 @@ export class LawsService implements OnModuleInit {
 			if (yearFrom && law.year < yearFrom) return false;
 			if (yearTo && law.year > yearTo) return false;
 			if (category) {
-				const lawCategory = LAW_STATIC_META[law.id]?.category ?? law.category;
-				if (lawCategory !== category) return false;
+				// Una norma matchea si la categoría está entre sus categorías (principal o secundaria).
+				const cats = law.categories?.length
+					? law.categories
+					: (law.category ?? LAW_STATIC_META[law.id]?.category ? [law.category ?? LAW_STATIC_META[law.id]?.category] : []);
+				if (!cats.includes(category)) return false;
 			}
 			if (q) {
 				const lq = q.toLowerCase();
@@ -295,7 +298,8 @@ export class LawsService implements OnModuleInit {
 			topics: law.topics,
 			keywords: law.keywords,
 			articleCount: law.articleCount,
-			category: LAW_STATIC_META[law.id]?.category ?? law.category,
+			category: law.category ?? LAW_STATIC_META[law.id]?.category,
+			categories: law.categories ?? [],
 			_count: { articles: law.articles.length, amendments: law.amendments.length },
 		}));
 
@@ -313,7 +317,11 @@ export class LawsService implements OnModuleInit {
 	}
 
 	findByNumber(number: string): Law {
-		const law = this.laws.find((l) => l.number === number);
+		// Normaliza (saca puntos/espacios) y busca en todas las normas (código + BD).
+		// Antes buscaba solo en this.laws, vacío tras migrar todo a la BD.
+		const canon = (s: string) => s.replace(/\./g, '').replace(/\s+/g, '').toLowerCase();
+		const target = canon(number);
+		const law = this.getAllNorms().find((l) => canon(l.number) === target);
 		if (!law) throw new NotFoundException(`Ley N° ${number} no encontrada`);
 		return law;
 	}
@@ -343,7 +351,8 @@ export class LawsService implements OnModuleInit {
 				status: law.status,
 				aliases: meta.aliases ?? [],
 				isDestacada: meta.isDestacada ?? false,
-				category: meta.category ?? law.category ?? null,
+				category: law.category ?? meta.category ?? null,
+				categories: law.categories ?? [],
 				infolegId: infoleg?.infolegId ?? null,
 				infolegUrl: infoleg ? `${INFOLEG_BASE_URL}${infoleg.infolegId}` : null,
 				digestoAnexo: infoleg?.digestoAnexo ?? null,
@@ -352,6 +361,43 @@ export class LawsService implements OnModuleInit {
 		});
 
 		return { laws, slugAliases: SLUG_ALIASES };
+	}
+
+	/**
+	 * Grafo del mapa legal: nodos (todas las normas) + links (relaciones tipadas).
+	 * Se arma desde la memoria (código + BD) en una sola pasada, así el grafo
+	 * incluye automáticamente cualquier norma nueva sin que el front pida cada una.
+	 */
+	getGraphData() {
+		const norms = this.getAllNorms();
+		const nodeIds = new Set(norms.map((n) => n.id));
+
+		const nodes = norms.map((law) => {
+			const meta = LAW_STATIC_META[law.id];
+			return {
+				id: law.id,
+				label: law.commonName ?? law.title,
+				shortCode: meta?.shortCode ?? law.id.slice(0, 6),
+				category: law.category ?? meta?.category ?? 'default',
+				articleCount: law.articles.length,
+				frontendPath: computeFrontendPath(law),
+			};
+		});
+
+		const links: { source: string; target: string; weight: number; type: string }[] = [];
+		const seen = new Set<string>();
+		for (const law of norms) {
+			for (const rel of law.relations ?? []) {
+				const tgt = rel.targetLawId;
+				if (!nodeIds.has(tgt) || tgt === law.id) continue;
+				const key = `${rel.type}|||${law.id}|||${tgt}`;
+				if (seen.has(key)) continue;
+				seen.add(key);
+				links.push({ source: law.id, target: tgt, weight: 10, type: rel.type });
+			}
+		}
+
+		return { nodes, links };
 	}
 
 	getStats() {

@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { SearchController } from './search.controller';
 import { SearchService } from './search.service';
-import { SearchIndexService } from './search-index.service';
-import { LawsModule } from '../laws/laws.module';
+import { SearchDbService } from './search-db.service';
 
+// La búsqueda usa Postgres full-text (tsvector) vía PrismaService (módulo global).
+// Ya no se construye un índice minisearch en memoria al arrancar.
 @Module({
-  imports: [LawsModule],
   controllers: [SearchController],
-  providers: [SearchService, SearchIndexService],
+  providers: [SearchService, SearchDbService],
 })
 export class SearchModule {}

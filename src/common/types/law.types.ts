@@ -210,7 +210,8 @@ export interface Law {
   number: string;
   title: string;
   summary: string | null;
-  category?: string;
+  category?: string;          // categoría temática principal (de la BD)
+  categories?: string[];      // todas las categorías temáticas (principal + secundarias)
   year: number;
   sanctionDate: string | null;
   promulgationDate: string | null;
@@ -252,6 +253,7 @@ export interface LawSummary {
   commonName?: string;
   summary: string | null;
   category?: string;
+  categories?: string[];
   year: number;
   sanctionDate: string | null;
   status: LawStatus;
