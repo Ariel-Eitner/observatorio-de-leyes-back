@@ -38,6 +38,24 @@ export class LawsController {
     return this.lawsService.findByNumber(number);
   }
 
+  @Get('number/:number/article/:articleNumber')
+  @ApiOperation({ summary: 'Un artículo de una ley por número (sin bajar la norma entera)' })
+  findArticleByNumber(
+    @Param('number') number: string,
+    @Param('articleNumber') articleNumber: string,
+  ) {
+    return this.lawsService.findArticleByNumber(number, articleNumber);
+  }
+
+  @Get(':id/article/:articleNumber')
+  @ApiOperation({ summary: 'Un artículo de una ley por id (sin bajar la norma entera)' })
+  findArticle(
+    @Param('id') id: string,
+    @Param('articleNumber') articleNumber: string,
+  ) {
+    return this.lawsService.findArticle(id, articleNumber);
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Obtener ley por ID con todos sus detalles' })
   findOne(@Param('id') id: string) {

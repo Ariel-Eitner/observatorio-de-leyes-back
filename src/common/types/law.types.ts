@@ -1,3 +1,5 @@
+import type { RefChunk } from '../utils/inline-refs.util';
+
 export const LawStatus = { VIGENTE: 'VIGENTE', DEROGADA: 'DEROGADA', PARCIALMENTE_VIGENTE: 'PARCIALMENTE_VIGENTE' } as const;
 export type LawStatus = (typeof LawStatus)[keyof typeof LawStatus];
 
@@ -68,6 +70,10 @@ export interface LawSegment {
   practicalExample: string | null;
   references: string[];
   order: number;
+  // Referencias inline pre-parseadas por el back (el front las usa en vez de su
+  // mega-regex; si faltan, cae a parsear en el cliente). Ver inline-refs.util.
+  explanationChunks?: RefChunk[];
+  exampleChunks?: RefChunk[];
 }
 
 export interface LawTitle {
@@ -253,6 +259,7 @@ export interface LawSummary {
   commonName?: string;
   summary: string | null;
   category?: string;
+  categoryLabel?: string | null;
   categories?: string[];
   year: number;
   sanctionDate: string | null;
@@ -262,6 +269,7 @@ export interface LawSummary {
   topics: string[];
   keywords: string[];
   articleCount: number;
+  frontendPath?: string;   // ruta del front (la calcula el back; el front ya no la deriva)
   _count: { articles: number; amendments: number };
 }
 

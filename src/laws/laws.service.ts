@@ -3,7 +3,8 @@ import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
 import { Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
-import { computeFrontendPath } from '../common/utils/law-url.util';
+import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
+import { buildCombined, buildLawCodesPattern, parseRefChunks } from '../common/utils/inline-refs.util';
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 
 // Metadata estática que no puede derivarse de los data files solos
@@ -188,6 +189,47 @@ const SLUG_ALIASES: Record<string, string> = {
 	rigi: 'ley-27742',
 };
 
+// Etiqueta legible de cada categoría temática (slug en BD → label).
+// Fuente única: antes estaba duplicada y divergente en el front (home vs buscar).
+const CATEGORY_LABELS: Record<string, string> = {
+	constitucional: 'Constitucional',
+	penal: 'Penal',
+	'procesal-penal': 'Procesal penal',
+	laboral: 'Laboral',
+	civil: 'Civil y comercial',
+	comercial: 'Comercial',
+	aduanero: 'Aduanero',
+	tributario: 'Tributario',
+	'datos-personales': 'Datos personales',
+	transparencia: 'Transparencia',
+	ambiental: 'Ambiental',
+	genero: 'Género',
+	salud: 'Salud',
+	consumidor: 'Consumidor',
+	ninez: 'Niñez',
+	educacion: 'Educación',
+	internacional: 'Internacional',
+	'derechos-humanos': 'Derechos humanos',
+	economico: 'Económico',
+};
+function catLabel(slug?: string | null): string | null {
+	if (!slug) return null;
+	return CATEGORY_LABELS[slug] ?? slug;
+}
+
+// Código de ley usado como CONTEXTO al parsear referencias inline de un segmento.
+// Réplica exacta del LAW_ID_TO_CODE de SegmentRow del front (para que los chunks
+// pre-computados coincidan con lo que el front parsearía).
+const SEGMENT_LAW_CODE: Record<string, string> = {
+	'constitucion-nacional': 'CN',
+	'codigo-penal': 'CP',
+	'codigo-aduanero': 'CA',
+	'ley-20744': 'LCT',
+	'ley-27150': 'CPP',
+	'const-buenos-aires': 'CBsAs',
+	'const-caba': 'CCABA',
+};
+
 @Injectable()
 export class LawsService implements OnModuleInit {
 	private readonly logger = new Logger(LawsService.name);
@@ -299,7 +341,9 @@ export class LawsService implements OnModuleInit {
 			keywords: law.keywords,
 			articleCount: law.articleCount,
 			category: law.category ?? LAW_STATIC_META[law.id]?.category,
+			categoryLabel: catLabel(law.category ?? LAW_STATIC_META[law.id]?.category),
 			categories: law.categories ?? [],
+			frontendPath: computeFrontendPath(law),
 			_count: { articles: law.articles.length, amendments: law.amendments.length },
 		}));
 
@@ -313,6 +357,7 @@ export class LawsService implements OnModuleInit {
 		const all = this.allSources;
 		const law = all.find((l) => l.id === id);
 		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
+		this.ensureRefChunks(law);
 		return law;
 	}
 
@@ -324,6 +369,88 @@ export class LawsService implements OnModuleInit {
 		const law = this.getAllNorms().find((l) => canon(l.number) === target);
 		if (!law) throw new NotFoundException(`Ley N° ${number} no encontrada`);
 		return law;
+	}
+
+	// Un solo artículo + datos mínimos de la ley. Evita que el front baje la norma
+	// entera (cientos de artículos) solo para mostrar uno en el modal de referencia.
+	private pickArticle(law: Law, articleNumber: string) {
+		const slug = slugifyArticle(articleNumber);
+		const article = law.articles.find(
+			(a) => a.number === articleNumber || slugifyArticle(a.number) === slug,
+		);
+		if (!article) {
+			throw new NotFoundException(`Art. ${articleNumber} no encontrado en "${law.id}"`);
+		}
+		return {
+			article,
+			law: {
+				id: law.id,
+				number: law.number,
+				title: law.title,
+				commonName: law.commonName,
+				frontendPath: computeFrontendPath(law),
+			},
+		};
+	}
+
+	findArticle(id: string, articleNumber: string) {
+		return this.pickArticle(this.findOne(id), articleNumber);
+	}
+
+	findArticleByNumber(number: string, articleNumber: string) {
+		return this.pickArticle(this.findByNumber(number), articleNumber);
+	}
+
+	// ── Pre-cómputo de referencias inline (saca el mega-regex del front) ──────────
+	private refsComputed = new WeakSet<Law>();
+	private refCtx: { combined: RegExp; available: Set<string> } | null = null;
+
+	private getRefCtx() {
+		if (this.refCtx) return this.refCtx;
+		const laws = this.getRegistry().laws;
+		const shortCodes = laws.filter((l) => l.shortCode && l.available).map((l) => l.shortCode as string);
+		const available = new Set<string>();
+		for (const l of laws) {
+			if (!l.available) continue;
+			if (l.shortCode) available.add(l.shortCode);
+			for (const a of l.aliases ?? []) available.add(a);
+			if (l.number) available.add(l.number.replace(/\./g, ''));
+		}
+		this.refCtx = { combined: buildCombined(buildLawCodesPattern(shortCodes)), available };
+		return this.refCtx;
+	}
+
+	// Réplica de isLawAvailable del front (solo afecta a rangos/listas multi-artículo).
+	private refAvailable(lawCode: string): boolean {
+		const { available } = this.getRefCtx();
+		if (available.has(lawCode)) return true;
+		const m = lawCode.match(/^Ley\s+([\d.]+)$/i);
+		return m ? available.has(m[1].replace(/\./g, '')) : false;
+	}
+
+	// Pre-parsea las referencias de cada segmento (lazy, una vez por norma en RAM).
+	private ensureRefChunks(law: Law) {
+		if (this.refsComputed.has(law)) return;
+		// Nunca debe tumbar findOne: ante cualquier error, no agrega chunks y el
+		// front cae a parsear en el cliente (fallback).
+		try {
+			const { combined } = this.getRefCtx();
+			const ctxLawCode = SEGMENT_LAW_CODE[law.id] ?? '';
+			const isAvail = (lc: string) => this.refAvailable(lc);
+			for (const art of law.articles ?? []) {
+				for (const seg of art.segments ?? []) {
+					if (seg.plainExplanation) {
+						seg.explanationChunks = parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail);
+					}
+					if (seg.practicalExample) {
+						seg.exampleChunks = parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail);
+					}
+				}
+			}
+		} catch (e) {
+			this.logger.error(`Pre-cómputo de refChunks falló para "${law.id}": ${(e as Error).message}`);
+		}
+		this.refsComputed.add(law);
 	}
 
 	getRegistry() {
@@ -352,6 +479,7 @@ export class LawsService implements OnModuleInit {
 				aliases: meta.aliases ?? [],
 				isDestacada: meta.isDestacada ?? false,
 				category: law.category ?? meta.category ?? null,
+				categoryLabel: catLabel(law.category ?? meta.category),
 				categories: law.categories ?? [],
 				infolegId: infoleg?.infolegId ?? null,
 				infolegUrl: infoleg ? `${INFOLEG_BASE_URL}${infoleg.infolegId}` : null,
@@ -408,9 +536,28 @@ export class LawsService implements OnModuleInit {
 		const count = (key: string, value: string) =>
 			src.filter((l) => (l as unknown as Record<string, unknown>)[key] === value).length;
 
+		// Categorías temáticas (principal) por norma — el front ya no las recalcula
+		const catMap: Record<string, number> = {};
+		for (const l of src) {
+			const c = l.category ?? LAW_STATIC_META[l.id]?.category;
+			if (c) catMap[c] = (catMap[c] ?? 0) + 1;
+		}
+		const byCategory = Object.entries(catMap)
+			.map(([category, _count]) => ({ category, label: catLabel(category), _count }))
+			.sort((a, b) => b._count - a._count);
+		// Áreas del derecho cubiertas (categorías distintas, sin contar las constitucionales)
+		const areasCubiertas = byCategory.filter(
+			(c) => c.category !== 'constitucional' && c.category !== 'constitucion',
+		).length;
+		// Constituciones provinciales (id const-*)
+		const provincias = src.filter((l) => l.id.startsWith('const-')).length;
+
 		return {
 			total,
 			totalArticles,
+			byCategory,
+			areasCubiertas,
+			provincias,
 			byStatus: [
 				{ status: 'VIGENTE', _count: count('status', 'VIGENTE') },
 				{ status: 'DEROGADA', _count: count('status', 'DEROGADA') },
