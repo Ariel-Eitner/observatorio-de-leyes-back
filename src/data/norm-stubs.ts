@@ -89,6 +89,19 @@ export const NORM_STUBS: NormStub[] = [
   { number: '18.828', name: 'Ley de Alojamientos Turísticos' },
   { number: '18.829', name: 'Ley de Agentes de Viajes' },
   { number: '26.356', name: 'Ley de Sistemas Turísticos de Tiempo Compartido' },
+  // Citadas adicionales (decretos-ley y otras leyes referenciadas por el DNU)
+  { number: '6.582', name: 'Régimen Jurídico del Automotor' },
+  { number: '14.467', name: 'Régimen Jurídico del Automotor' },
+  { number: '12.507', name: 'Política Aeronáutica Nacional' },
+  { number: '15.349', name: 'Ley de Sociedades de Economía Mixta' },
+  { number: '17.250', name: 'Ley de Cajas Nacionales de Previsión' },
+  { number: '23.928', name: 'Ley de Convertibilidad' },
+  { number: '24.467', name: 'Ley de Pequeñas y Medianas Empresas' },
+  { number: '24.977', name: 'Ley de Monotributo' },
+  { number: '25.822', name: 'Ley del Plan Federal de Transporte Eléctrico' },
+  { number: '26.529', name: 'Ley de Derechos del Paciente' },
+  { number: '26.573', name: 'Ley del ENARD' },
+  { number: '26.992', name: 'Ley del Observatorio de Precios' },
 ];
 
 const byNumber: Record<string, NormStub> = {};
