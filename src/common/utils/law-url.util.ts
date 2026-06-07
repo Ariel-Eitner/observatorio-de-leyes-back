@@ -29,6 +29,7 @@ function slugify(text: string): string {
 export function computeFrontendPath(law: Law): string {
   if (TIPO_SLUG[law.id]) return TIPO_SLUG[law.id];
   if (law.id.startsWith('const-')) return `/constituciones/${law.id.slice('const-'.length)}`;
+  if (law.id.startsWith('dnu-')) return `/dnu/${law.id.slice('dnu-'.length)}`;
   if (law.id.startsWith('decreto-') || law.id.startsWith('rg-')) return `/leyes/${law.id}`;
   // saca puntos y barras (ej. "5844/2026") para no romper la ruta
   const cleanNumber = law.number.replace(/\./g, '').replace(/\//g, '-');

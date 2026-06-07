@@ -1,10 +1,12 @@
 import { Injectable, NotFoundException, Logger, OnModuleInit } from '@nestjs/common';
 import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
+import { applyCuratedRelations } from '../data/relations-curadas';
+import { NORM_STUBS } from '../data/norm-stubs';
 import { Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
-import { buildCombined, buildLawCodesPattern, parseRefChunks } from '../common/utils/inline-refs.util';
+import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks } from '../common/utils/inline-refs.util';
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 
 // Metadata estática que no puede derivarse de los data files solos
@@ -102,6 +104,7 @@ const LAW_STATIC_META: Record<
 	'decreto-315-2026': { shortCode: 'Decreto 315/2026', apiPath: '/laws/decreto-315-2026', aliases: ['315/2026'] },
 	'rg-arca-5844-2026': { shortCode: 'RG ARCA 5844/2026', apiPath: '/laws/rg-arca-5844-2026', aliases: ['5844/2026', 'RG 5844'] },
 	'decreto-407-2026': { shortCode: 'Decreto 407/2026', apiPath: '/laws/decreto-407-2026', aliases: ['407/2026'] },
+	'dnu-70-2023': { shortCode: 'DNU 70/2023', apiPath: '/laws/dnu-70-2023', aliases: ['70/2023', 'DNU 70', 'mega DNU', 'decreto 70/2023', 'decreto 70'], isDestacada: true, category: 'economico' },
 	'decreto-207-2011': { shortCode: 'Decreto 207/2011', apiPath: '/laws/decreto-207-2011' },
 	'carta-onu': {
 		shortCode: 'Carta ONU',
@@ -266,6 +269,11 @@ export class LawsService implements OnModuleInit {
 				for (const law of chunk) if (law) loaded.push(law);
 			}
 			this.dbNorms = loaded;
+			// Las relaciones curadas deben aplicarse a TODAS las normas (código + BD):
+			// así las normas migradas a la BD reciben aristas nuevas (p. ej. las
+			// inversas hacia el DNU 70/2023). applyCuratedRelations dedup por
+			// type+target, así que es idempotente aunque ya corriera sobre el código.
+			applyCuratedRelations([...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms]);
 			this.logger.log(`${loaded.length} normas hidratadas desde la BD`);
 		} catch (e) {
 			this.logger.error(`Error hidratando normas desde la BD: ${(e as Error).message}`);
@@ -403,7 +411,7 @@ export class LawsService implements OnModuleInit {
 
 	// ── Pre-cómputo de referencias inline (saca el mega-regex del front) ──────────
 	private refsComputed = new WeakSet<Law>();
-	private refCtx: { combined: RegExp; available: Set<string> } | null = null;
+	private refCtx: { combined: RegExp; available: Set<string>; nameToCode: Record<string, string> } | null = null;
 
 	private getRefCtx() {
 		if (this.refCtx) return this.refCtx;
@@ -416,7 +424,19 @@ export class LawsService implements OnModuleInit {
 			for (const a of l.aliases ?? []) available.add(a);
 			if (l.number) available.add(l.number.replace(/\./g, ''));
 		}
-		this.refCtx = { combined: buildCombined(buildLawCodesPattern(shortCodes)), available };
+		// Los stubs (normas referenciadas, no cargadas) también cuentan como
+		// "disponibles" para el parser y aportan su nombre al índice → así sus
+		// referencias se detectan y el front las hace clickeables (ficha mínima).
+		for (const s of NORM_STUBS) available.add(s.number.replace(/\./g, ''));
+		const namesIdx = buildLawNamesIndex([
+			...laws.filter((l) => l.available).map((l) => ({ label: l.label, shortCode: l.shortCode, number: l.number })),
+			...NORM_STUBS.map((s) => ({ label: s.name, shortCode: '', number: s.number })),
+		]);
+		this.refCtx = {
+			combined: buildCombined(buildLawCodesPattern(shortCodes), namesIdx.pattern),
+			available,
+			nameToCode: namesIdx.nameToCode,
+		};
 		return this.refCtx;
 	}
 
@@ -434,16 +454,27 @@ export class LawsService implements OnModuleInit {
 		// Nunca debe tumbar findOne: ante cualquier error, no agrega chunks y el
 		// front cae a parsear en el cliente (fallback).
 		try {
-			const { combined } = this.getRefCtx();
+			const { combined, nameToCode } = this.getRefCtx();
 			const ctxLawCode = SEGMENT_LAW_CODE[law.id] ?? '';
 			const isAvail = (lc: string) => this.refAvailable(lc);
+			// El texto oficial cita OTRAS leyes: sin ctx, para que "art. N" suelto no
+			// se enganche por error a la norma actual (solo refs explícitas).
 			for (const art of law.articles ?? []) {
+				if (art.text) {
+					art.textChunks = parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode);
+				}
+				if (art.plainLanguageExplanation) {
+					art.explanationChunks = parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode);
+				}
 				for (const seg of art.segments ?? []) {
+					if (seg.text) {
+						seg.textChunks = parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode);
+					}
 					if (seg.plainExplanation) {
-						seg.explanationChunks = parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail);
+						seg.explanationChunks = parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode);
 					}
 					if (seg.practicalExample) {
-						seg.exampleChunks = parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail);
+						seg.exampleChunks = parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode);
 					}
 				}
 			}

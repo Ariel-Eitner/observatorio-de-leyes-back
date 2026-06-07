@@ -1,12 +1,16 @@
 // ─────────────────────────────────────────────────────────────────────────────
-//  Parser de referencias inline (port EXACTO del front InlineRefText.parseChunks).
+//  Parser de referencias inline (port EXACTO del front app/lib/inlineRefs.ts).
 //  Produce los "chunks" estructurales de un texto: qué tramos son referencias y a
-//  qué ley/artículo apuntan. NO decide render (clickeable/derogada/glosario) — eso
-//  sigue en el front con el registry en runtime. Pre-computar esto en el back saca
-//  el regex más caro del cliente.
+//  qué ley/artículo apuntan. NO decide render (clickeable/opaca/glosario) — eso
+//  sigue en el front con el registry en runtime.
 //
-//  IMPORTANTE: debe producir EXACTAMENTE los mismos chunks que el front, o el
-//  fallback diverge. Hay un test que compara ambos (test-inline-refs).
+//  Usa grupos NOMBRADOS (no posicionales): agregar/reordenar patrones no rompe el
+//  switch. Reconoce: códigos cortos (CN, CP, LCT…), números ("Ley N° 25.013"),
+//  NOMBRES completos del registry ("Ley de Contrato de Trabajo"), y artículos de
+//  otra ley por número ("art. 9 de la Ley N° 25.013") o por nombre
+//  ("art. 245 bis de la Ley de Contrato de Trabajo").
+//
+//  IMPORTANTE: debe producir EXACTAMENTE los mismos chunks que el front.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type RefChunk =
@@ -20,8 +24,11 @@ const EXTRA_CODES = ['CADH', 'PIDCP', 'PIDESC', 'CDN'];
 const FALLBACK_LAW_CODES =
   'CN|CP|CA|CPP|LCT|CCyCN|CBsAs|CCABA|CCat|CChac|CChub|CCor|CCtes|CER|CFos|CJuj|CLPam|CLRio|CMza|CMis|CNqn|CRN|CSal|CSJ|CSL|CSCZ|CSF|CSTE|CTDF|CTUC';
 
+function escapeRe(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 function escapeCode(code: string): string {
-  return code.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+  return escapeRe(code).replace(/\s+/g, '\\s+');
 }
 
 export function buildLawCodesPattern(registryShortCodes: string[]): string {
@@ -30,27 +37,65 @@ export function buildLawCodesPattern(registryShortCodes: string[]): string {
   return all.length > 0 ? all.join('|') : FALLBACK_LAW_CODES;
 }
 
-export function buildCombined(lawCodesPattern: string): RegExp {
-  const lcpFull = `${lawCodesPattern}|Disp\\.\\s+[\\w-]+|Ley\\s+[\\d.,]+`;
-  const MULTI_RANGE = `\\(arts?\\.\\s+(\\d+[a-z]*)\\s*[-–/]\\s*(\\d+[a-z]*)(?:\\s+(${lcpFull}))?\\)`;
-  const MULTI_LIST = `\\(arts?\\.\\s+(\\d+[a-z]*(?:(?:\\s*,\\s*|\\s+y\\s+)\\d+[a-z]*)+)(?:\\s+(${lcpFull}))?\\)`;
-  const PAREN_ART_INC_LAW = `\\(art\\.\\s+(\\d+[a-z]*)\\s+inc\\.\\s+(\\d+)\\s+(${lcpFull})\\)`;
-  const PAREN_ART_INC = `\\(art\\.\\s+(\\d+[a-z]*)\\s+inc\\.\\s+(\\d+)\\)`;
-  const PAREN_ART = `\\(art\\.\\s+(\\d+\\s*(?:bis|ter|quater)?)\\s+(${lcpFull})\\)`;
-  const PROSE_ART = `\\bart\\.\\s+(\\d+\\s*(?:bis|ter|quater)?)\\s+(${lawCodesPattern})\\b`;
-  const LEY_ART = `\\bLey\\s+([\\d.,]+)\\s+arts?\\.\\s+(\\d+[a-z]*)\\b`;
-  const KNOWN_LAW = `\\bLey\\s+(\\d+\\.?\\d*)\\b`;
-  const NAMED_LAW_ART = `(Código\\s+Civil\\s+y\\s+Comercial(?:\\s+de\\s+la\\s+Nación)?|Código\\s+Penal|Código\\s+Aduanero|Código\\s+Procesal\\s+Penal|Constitución\\s+Nacional),\\s*[Aa]rts?\\.\\s+(\\d+[a-z]*(?:-\\d+[a-z]*)?)`;
-  const negLookahead = `(?!\\s*(?:${lawCodesPattern}|Ley\\s))`;
-  const BARE_ART = `\\barts?\\.\\s+(\\d+[a-z]*)${negLookahead}`;
-  const SPELLED_ART = `\\bartículos?\\s+(\\d+[a-z]*)${negLookahead}`;
-  const DECRETO_ART = `\\bDecreto\\s+(\\d+\\/\\d{4})\\s+arts?\\.\\s+(\\d+[a-z]*)\\b`;
-  const KNOWN_DECRETO = `\\bDecreto\\s+(\\d+\\/\\d{4})\\b`;
+// ── Índice de NOMBRES de leyes (para enlazar "Ley de Contrato de Trabajo") ──────
+// Entrada mínima de registry. `code` es lo que el chunk lleva como lawCode (debe
+// resolver en el front: shortCode o "Ley <número>").
+export interface NameIndexEntry { label: string; shortCode?: string | null; number?: string | null; }
+export interface NameIndex { pattern: string; nameToCode: Record<string, string> }
 
-  return new RegExp(
-    `${MULTI_RANGE}|${MULTI_LIST}|${PAREN_ART_INC_LAW}|${PAREN_ART_INC}|${PAREN_ART}|${PROSE_ART}|${LEY_ART}|${KNOWN_LAW}|${NAMED_LAW_ART}|${BARE_ART}|${SPELLED_ART}|${DECRETO_ART}|${KNOWN_DECRETO}`,
-    'gi',
-  );
+const NAME_OK = /^(Ley|Código|Constitución|Decreto|Régimen|Estatuto|Carta|Convención|Convenio|Pacto)\b/i;
+
+function cleanName(label: string): string {
+  // saca la sigla entre paréntesis del final: "Ley de Contrato de Trabajo (LCT)" → "…Trabajo"
+  return label.replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+/g, ' ').trim();
+}
+const normKey = (s: string) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+
+/** Construye el patrón de nombres + el mapa nombre→código desde el registry. */
+export function buildLawNamesIndex(entries: NameIndexEntry[]): NameIndex {
+  const nameToCode: Record<string, string> = {};
+  const names: string[] = [];
+  for (const e of entries) {
+    const name = cleanName(e.label);
+    if (!name || name.length < 11 || !NAME_OK.test(name)) continue;
+    const code = e.shortCode || (e.number ? `Ley ${e.number}` : '');
+    if (!code) continue;
+    const key = normKey(name);
+    if (nameToCode[key]) continue;
+    nameToCode[key] = code;
+    names.push(name);
+  }
+  // más largos primero → "…de la Nación" gana sobre "…" base
+  names.sort((a, b) => b.length - a.length);
+  const pattern = names.length ? names.map(escapeRe).join('|') : '(?!x)x'; // nunca matchea si vacío
+  return { pattern, nameToCode };
+}
+
+export function buildCombined(lawCodesPattern: string, lawNamesPattern = '(?!x)x'): RegExp {
+  const lcpFull = `${lawCodesPattern}|Disp\\.\\s+[\\w-]+|Ley\\s+[\\d.,]+`;
+  const ART = `(?:art(?:ículo)?s?\\.?)`;            // art / art. / arts / artículo(s)
+  const ARTNUM = `\\d+\\s*°?\\s*(?:bis|ter|qu[aá]ter)?`;
+
+  // Específicos primero; genéricos (BARE/SPELLED) al final.
+  const P = [
+    `\\(arts?\\.\\s+(?<mrFrom>\\d+[a-z]*)\\s*[-–/]\\s*(?<mrTo>\\d+[a-z]*)(?:\\s+(?<mrLaw>${lcpFull}))?\\)`,
+    `\\(arts?\\.\\s+(?<mlList>\\d+[a-z]*(?:(?:\\s*,\\s*|\\s+y\\s+)\\d+[a-z]*)+)(?:\\s+(?<mlLaw>${lcpFull}))?\\)`,
+    `\\(art\\.\\s+(?<pailArt>\\d+[a-z]*)\\s+inc\\.\\s+(?<pailInc>\\d+)\\s+(?<pailLaw>${lcpFull})\\)`,
+    `\\(art\\.\\s+(?<paiArt>\\d+[a-z]*)\\s+inc\\.\\s+(?<paiInc>\\d+)\\)`,
+    `\\(art\\.\\s+(?<paArt>\\d+\\s*(?:bis|ter|quater)?)\\s+(?<paLaw>${lcpFull})\\)`,
+    `\\b${ART}\\s+(?<adlnArt>\\d+)\\s*°?\\s*(?:bis|ter|qu[aá]ter)?[^.]{0,45}?\\bde\\s+la\\s+Ley\\s+(?:N[°º]\\.?\\s*)?(?<adlnLey>\\d+\\.?\\d*)`,
+    `\\b${ART}\\s+(?<adnArt>${ARTNUM})\\s+(?:(?:de\\s+la|del)\\s+)?(?<adnName>${lawNamesPattern})`,
+    `\\bart\\.\\s+(?<prArt>\\d+\\s*(?:bis|ter|quater)?)\\s+(?<prLaw>${lawCodesPattern})\\b`,
+    `\\bLey\\s+(?:N[°º]\\.?\\s*)?(?<laLey>[\\d.,]+)\\s+arts?\\.\\s+(?<laArt>\\d+[a-z]*)\\b`,
+    `\\bDecreto\\s+(?<daDec>\\d+\\/\\d{4})\\s+arts?\\.\\s+(?<daArt>\\d+[a-z]*)\\b`,
+    `(?<nlaName>Código\\s+Civil\\s+y\\s+Comercial(?:\\s+de\\s+la\\s+Nación)?|Código\\s+Penal|Código\\s+Aduanero|Código\\s+Procesal\\s+Penal|Constitución\\s+Nacional),\\s*[Aa]rts?\\.\\s+(?<nlaArt>\\d+[a-z]*(?:-\\d+[a-z]*)?)`,
+    `(?<nlName>${lawNamesPattern})`,
+    `\\bLey\\s+(?:N[°º]\\.?\\s*)?(?<klLey>\\d+\\.?\\d*)\\b`,
+    `\\bDecreto\\s+(?<kdDec>\\d+\\/\\d{4})\\b`,
+    `\\barts?\\.\\s+(?<baArt>\\d+[a-z]*)(?!\\s*(?:${lawCodesPattern}|Ley\\s|N[°º]))`,
+    `\\bartículos?\\s+(?<saArt>\\d+[a-z]*)(?!\\s*(?:${lawCodesPattern}|Ley\\s|N[°º]))`,
+  ];
+  return new RegExp(P.join('|'), 'gi');
 }
 
 function expandRange(from: string, to: string): string[] {
@@ -66,19 +111,21 @@ function isSelf(refLawCode: string, refArtNum: string, ctxLaw?: string, ctxArt?:
   return refLawCode === ctxLaw && norm(refArtNum) === norm(ctxArt);
 }
 
+// fallback de nombres conocidos → código corto (cuando no vienen en el índice)
 const LAW_NAME_TO_CODE: Record<string, string> = {
-  'Código Penal': 'CP',
-  'Constitución Nacional': 'CN',
-  'Código Civil y Comercial': 'CCyCN',
-  'Código Civil y Comercial de la Nación': 'CCyCN',
-  'Código Aduanero': 'CA',
-  'Código Procesal Penal': 'CPP',
+  'código penal': 'CP',
+  'constitución nacional': 'CN',
+  'código civil y comercial': 'CCyCN',
+  'código civil y comercial de la nación': 'CCyCN',
+  'código aduanero': 'CA',
+  'código procesal penal': 'CPP',
 };
 
+const cleanArt = (s: string) => s.replace(/\s*°/g, '').replace(/\s+/g, ' ').trim();
+
 /**
- * Parser estructural. `isAvailable(lawCode)` replica isLawAvailable del front (para
- * decidir si un rango/lista es referencia clickeable o texto). El glosario NO se
- * toca acá: lo sigue resolviendo el front sobre los chunks de tipo "text".
+ * Parser estructural. `isAvailable(lawCode)` replica isLawAvailable del front.
+ * `nameToCode` mapea nombre completo (lowercase) → código (shortCode o "Ley N").
  */
 export function parseRefChunks(
   input: string,
@@ -86,94 +133,82 @@ export function parseRefChunks(
   ctxLawCode?: string,
   ctxArtNum?: string,
   isAvailable: (lawCode: string) => boolean = () => true,
+  nameToCode: Record<string, string> = {},
 ): RefChunk[] {
   const chunks: RefChunk[] = [];
   const regex = new RegExp(combined.source, 'gi');
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
+  const resolveName = (raw: string): string | null => {
+    const key = normKey(raw);
+    return nameToCode[key] ?? LAW_NAME_TO_CODE[key] ?? null;
+  };
+
   while ((match = regex.exec(input)) !== null) {
     if (match.index > lastIndex) {
       chunks.push({ kind: 'text', text: input.slice(lastIndex, match.index) });
     }
+    const g = match.groups ?? {};
+    const raw = match[0];
 
-    if (match[1] !== undefined) {
-      const from = match[1].trim();
-      const to = match[2].trim();
-      const lawCode = match[3]?.trim() ?? ctxLawCode;
-      if (lawCode && isAvailable(lawCode)) {
-        chunks.push({ kind: 'multi', text: match[0], lawCode, articleNumbers: expandRange(from, to) });
-      } else {
-        chunks.push({ kind: 'text', text: match[0] });
-      }
-    } else if (match[4] !== undefined) {
-      const lawCode = match[5]?.trim() ?? ctxLawCode;
-      if (lawCode && isAvailable(lawCode)) {
-        const articleNumbers = match[4].split(/\s*(?:,|y)\s*/).map((s) => s.trim()).filter(Boolean);
-        chunks.push({ kind: 'multi', text: match[0], lawCode, articleNumbers });
-      } else {
-        chunks.push({ kind: 'text', text: match[0] });
-      }
-    } else if (match[6] !== undefined) {
-      const artNum = match[6].trim();
-      const inciso = parseInt(match[7], 10);
-      const lawCode = match[8].trim();
-      chunks.push({ kind: 'art', text: match[0], lawCode, articleNumber: artNum, paragraph: inciso, isSelf: false });
-    } else if (match[9] !== undefined) {
-      const artNum = match[9].trim();
-      const inciso = parseInt(match[10], 10);
-      if (ctxLawCode) {
-        chunks.push({ kind: 'art', text: match[0], lawCode: ctxLawCode, articleNumber: artNum, paragraph: inciso, isSelf: false });
-      } else {
-        chunks.push({ kind: 'text', text: match[0] });
-      }
-    } else if (match[11] !== undefined) {
-      const lawCode = match[12].trim();
-      const artNum = match[11].trim();
-      chunks.push({ kind: 'art', text: match[0], lawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(lawCode, artNum, ctxLawCode, ctxArtNum) });
-    } else if (match[13] !== undefined) {
-      const lawCode = match[14].trim();
-      const artNum = match[13].trim();
-      chunks.push({ kind: 'art', text: match[0], lawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(lawCode, artNum, ctxLawCode, ctxArtNum) });
-    } else if (match[15] !== undefined) {
-      const lawCode = `Ley ${match[15].trim()}`;
-      const artNum = match[16].trim();
-      chunks.push({ kind: 'art', text: match[0], lawCode, articleNumber: artNum, paragraph: null, isSelf: false });
-    } else if (match[17] !== undefined) {
-      chunks.push({ kind: 'law', text: match[0], lawCode: `Ley ${match[17]}` });
-    } else if (match[18] !== undefined) {
-      const rawName = match[18].replace(/\s+/g, ' ').trim();
-      const lawCode = LAW_NAME_TO_CODE[rawName] ?? rawName;
-      const artNum = match[19].split('-')[0].trim();
-      chunks.push({ kind: 'art', text: match[0], lawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(lawCode, artNum, ctxLawCode, ctxArtNum) });
-    } else if (match[20] !== undefined) {
-      const artNum = match[20].trim();
-      if (ctxLawCode) {
-        chunks.push({ kind: 'art', text: match[0], lawCode: ctxLawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(ctxLawCode, artNum, ctxLawCode, ctxArtNum) });
-      } else {
-        chunks.push({ kind: 'text', text: match[0] });
-      }
-    } else if (match[21] !== undefined) {
-      const artNum = match[21].trim();
-      if (ctxLawCode) {
-        chunks.push({ kind: 'art', text: match[0], lawCode: ctxLawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(ctxLawCode, artNum, ctxLawCode, ctxArtNum) });
-      } else {
-        chunks.push({ kind: 'text', text: match[0] });
-      }
-    } else if (match[22] !== undefined) {
-      const lawCode = `Decreto ${match[22].trim()}`;
-      const artNum = match[23].trim();
-      chunks.push({ kind: 'art', text: match[0], lawCode, articleNumber: artNum, paragraph: null, isSelf: false });
-    } else if (match[24] !== undefined) {
-      chunks.push({ kind: 'law', text: match[0], lawCode: `Decreto ${match[24]}` });
+    if (g.mrFrom !== undefined) {
+      const lawCode = g.mrLaw?.trim() ?? ctxLawCode;
+      if (lawCode && isAvailable(lawCode)) chunks.push({ kind: 'multi', text: raw, lawCode, articleNumbers: expandRange(g.mrFrom.trim(), g.mrTo!.trim()) });
+      else chunks.push({ kind: 'text', text: raw });
+    } else if (g.mlList !== undefined) {
+      const lawCode = g.mlLaw?.trim() ?? ctxLawCode;
+      if (lawCode && isAvailable(lawCode)) chunks.push({ kind: 'multi', text: raw, lawCode, articleNumbers: g.mlList.split(/\s*(?:,|y)\s*/).map((s) => s.trim()).filter(Boolean) });
+      else chunks.push({ kind: 'text', text: raw });
+    } else if (g.pailArt !== undefined) {
+      chunks.push({ kind: 'art', text: raw, lawCode: g.pailLaw!.trim(), articleNumber: g.pailArt.trim(), paragraph: parseInt(g.pailInc!, 10), isSelf: false });
+    } else if (g.paiArt !== undefined) {
+      if (ctxLawCode) chunks.push({ kind: 'art', text: raw, lawCode: ctxLawCode, articleNumber: g.paiArt.trim(), paragraph: parseInt(g.paiInc!, 10), isSelf: false });
+      else chunks.push({ kind: 'text', text: raw });
+    } else if (g.paArt !== undefined) {
+      const lawCode = g.paLaw!.trim(); const artNum = cleanArt(g.paArt);
+      chunks.push({ kind: 'art', text: raw, lawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(lawCode, artNum, ctxLawCode, ctxArtNum) });
+    } else if (g.adlnArt !== undefined) {
+      // art. N de la Ley N° NNNNN  → artículo de otra ley (por número)
+      const lawCode = `Ley ${g.adlnLey!.trim()}`; const artNum = cleanArt(g.adlnArt);
+      chunks.push({ kind: 'art', text: raw, lawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(lawCode, artNum, ctxLawCode, ctxArtNum) });
+    } else if (g.adnArt !== undefined) {
+      // art. N de la <Nombre> → artículo de otra ley (por nombre)
+      const code = resolveName(g.adnName!); const artNum = cleanArt(g.adnArt);
+      if (code) chunks.push({ kind: 'art', text: raw, lawCode: code, articleNumber: artNum, paragraph: null, isSelf: isSelf(code, artNum, ctxLawCode, ctxArtNum) });
+      else chunks.push({ kind: 'text', text: raw });
+    } else if (g.prArt !== undefined) {
+      const lawCode = g.prLaw!.trim(); const artNum = cleanArt(g.prArt);
+      chunks.push({ kind: 'art', text: raw, lawCode, articleNumber: artNum, paragraph: null, isSelf: isSelf(lawCode, artNum, ctxLawCode, ctxArtNum) });
+    } else if (g.laLey !== undefined) {
+      const lawCode = `Ley ${g.laLey.trim()}`;
+      chunks.push({ kind: 'art', text: raw, lawCode, articleNumber: g.laArt!.trim(), paragraph: null, isSelf: false });
+    } else if (g.daDec !== undefined) {
+      const lawCode = `Decreto ${g.daDec.trim()}`;
+      chunks.push({ kind: 'art', text: raw, lawCode, articleNumber: g.daArt!.trim(), paragraph: null, isSelf: false });
+    } else if (g.nlaName !== undefined) {
+      const code = resolveName(g.nlaName) ?? g.nlaName.replace(/\s+/g, ' ').trim();
+      const artNum = g.nlaArt!.split('-')[0].trim();
+      chunks.push({ kind: 'art', text: raw, lawCode: code, articleNumber: artNum, paragraph: null, isSelf: isSelf(code, artNum, ctxLawCode, ctxArtNum) });
+    } else if (g.nlName !== undefined) {
+      const code = resolveName(g.nlName);
+      if (code) chunks.push({ kind: 'law', text: raw, lawCode: code });
+      else chunks.push({ kind: 'text', text: raw });
+    } else if (g.klLey !== undefined) {
+      chunks.push({ kind: 'law', text: raw, lawCode: `Ley ${g.klLey}` });
+    } else if (g.kdDec !== undefined) {
+      chunks.push({ kind: 'law', text: raw, lawCode: `Decreto ${g.kdDec}` });
+    } else if (g.baArt !== undefined) {
+      if (ctxLawCode) chunks.push({ kind: 'art', text: raw, lawCode: ctxLawCode, articleNumber: g.baArt.trim(), paragraph: null, isSelf: isSelf(ctxLawCode, g.baArt.trim(), ctxLawCode, ctxArtNum) });
+      else chunks.push({ kind: 'text', text: raw });
+    } else if (g.saArt !== undefined) {
+      if (ctxLawCode) chunks.push({ kind: 'art', text: raw, lawCode: ctxLawCode, articleNumber: g.saArt.trim(), paragraph: null, isSelf: isSelf(ctxLawCode, g.saArt.trim(), ctxLawCode, ctxArtNum) });
+      else chunks.push({ kind: 'text', text: raw });
     }
 
-    lastIndex = match.index + match[0].length;
+    lastIndex = match.index + raw.length;
   }
 
-  if (lastIndex < input.length) {
-    chunks.push({ kind: 'text', text: input.slice(lastIndex) });
-  }
-
+  if (lastIndex < input.length) chunks.push({ kind: 'text', text: input.slice(lastIndex) });
   return chunks;
 }

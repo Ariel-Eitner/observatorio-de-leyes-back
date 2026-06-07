@@ -72,6 +72,7 @@ export interface LawSegment {
   order: number;
   // Referencias inline pre-parseadas por el back (el front las usa en vez de su
   // mega-regex; si faltan, cae a parsear en el cliente). Ver inline-refs.util.
+  textChunks?: RefChunk[];
   explanationChunks?: RefChunk[];
   exampleChunks?: RefChunk[];
 }
@@ -176,6 +177,9 @@ export interface Article {
   segments: LawSegment[];
   amendments: ArticleAmendment[];
   visualContent?: VisualItem[];
+  // Referencias inline pre-parseadas (para la página de artículo individual).
+  textChunks?: RefChunk[];
+  explanationChunks?: RefChunk[];
   // Estado individual del artículo (relevante para leyes PARCIALMENTE_VIGENTE)
   status?: ArticleStatus;
   effectiveDate?: string | null;

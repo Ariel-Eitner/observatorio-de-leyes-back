@@ -18,7 +18,10 @@ type CuratedEdge = { type: RelationType; target: string; description?: string };
 
 export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
   // ── Constitución y códigos ────────────────────────────────────────────────
-  'codigo-aduanero': [{ type: 'RELACIONADA', target: 'constitucion-nacional' }],
+  'codigo-aduanero': [
+    { type: 'RELACIONADA', target: 'constitucion-nacional' },
+    { type: 'RELACIONADA', target: 'dnu-70-2023', description: 'Modificado por el DNU 70/2023 (Título V, Comercio Exterior y Aduana).' },
+  ],
   'codigo-penal': [{ type: 'RELACIONADA', target: 'ley-27150', description: 'Código Procesal Penal Federal que instrumenta el proceso del Código Penal.' }],
   'ley-27150': [{ type: 'RELACIONADA', target: 'constitucion-nacional' }],
   'codigo-civil-comercial': [
@@ -26,6 +29,7 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'RELACIONADA', target: 'ley-24240' },
     { type: 'RELACIONADA', target: 'ley-26618' },
     { type: 'RELACIONADA', target: 'constitucion-nacional' },
+    { type: 'RELACIONADA', target: 'dnu-70-2023', description: 'Modificado por el DNU 70/2023 (Título X, Justicia).' },
   ],
 
   // ── Tratados y niñez ──────────────────────────────────────────────────────
@@ -38,7 +42,10 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
   'ley-26061': [{ type: 'RELACIONADA', target: 'ley-26657' }],
 
   // ── Laboral (reforma 2026) ────────────────────────────────────────────────
-  'ley-20744': [{ type: 'RELACIONADA', target: 'ley-11544' }],
+  'ley-20744': [
+    { type: 'RELACIONADA', target: 'ley-11544' },
+    { type: 'RELACIONADA', target: 'dnu-70-2023', description: 'Afectada por el DNU 70/2023 (Título IV, reforma laboral — suspendido judicialmente).' },
+  ],
   'ley-27742': [{ type: 'MODIFICA', target: 'ley-20744', description: 'La Ley de Bases modifica artículos de la Ley de Contrato de Trabajo.' }],
   'ley-27802': [
     { type: 'MODIFICA', target: 'ley-20744' },
@@ -53,6 +60,15 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
   'decreto-407-2026': [
     { type: 'REGLAMENTA', target: 'ley-27802' },
     { type: 'RELACIONADA', target: 'ley-20744', description: 'Reglamenta artículos de la LCT (recibo, registración, licencias).' },
+  ],
+
+  // ── DNU 70/2023 (mega-decreto Milei) — afecta normas ya cargadas ──────────
+  'dnu-70-2023': [
+    { type: 'MODIFICA', target: 'ley-20744', description: 'El DNU 70/2023 modifica la Ley de Contrato de Trabajo (Título IV, suspendido judicialmente).' },
+    { type: 'MODIFICA', target: 'codigo-aduanero', description: 'Reforma el Código Aduanero (Título V, Comercio Exterior).' },
+    { type: 'MODIFICA', target: 'codigo-civil-comercial', description: 'Modifica el Código Civil y Comercial (Título X, Justicia).' },
+    { type: 'RELACIONADA', target: 'ley-27742', description: 'La Ley de Bases retomó por vía legislativa parte de las reformas del DNU.' },
+    { type: 'RELACIONADA', target: 'ley-27802', description: 'La Modernización Laboral canalizó parte del capítulo laboral del DNU (suspendido).' },
   ],
 
   // ── Datos personales / acceso a la información ────────────────────────────
@@ -121,6 +137,8 @@ export const MIGRATED_LABELS: Record<string, string> = {
   'ley-27150': 'Código Procesal Penal Federal',
   'ley-20744': 'Ley de Contrato de Trabajo (LCT)',
   'ley-27742': 'Ley de Bases',
+  'ley-27802': 'Ley de Modernización Laboral',
+  'dnu-70-2023': 'DNU 70/2023',
 };
 
 export function applyCuratedRelations(laws: Law[]): void {

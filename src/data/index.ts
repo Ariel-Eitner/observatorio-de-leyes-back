@@ -14,7 +14,8 @@ import { applyCuratedRelations } from './relations-curadas';
 // Normas con página dedicada — migradas a la BD.
 export const NORMAS_CLAVE: Law[] = [];
 
-// Listado general — migrado a la BD.
+// Listado general. TODAS las normas (incluido el DNU 70/2023) viven en la BD;
+// acá quedarían solo las que se estén cargando en código antes de migrarlas.
 export const ALL_LAWS: Law[] = [];
 
 // No-op mientras los arrays estén vacíos; se mantiene para normas en código futuras.
