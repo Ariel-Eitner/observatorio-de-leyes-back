@@ -140,7 +140,7 @@ export class SearchDbService {
                n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories, coalesce(n.summary,'') AS summary,
                ts_rank('${RANK_WEIGHTS}', n.search, qq) AS rank,
                ts_headline('spanish'::regconfig, coalesce(n.summary,''), qq, '${HEADLINE_OPTS}') AS snippet
-        FROM norms n, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1)) qq
+        FROM norms n, to_tsquery('spanish'::regconfig, regexp_replace(trim(regexp_replace(immutable_unaccent($1), '[^a-z0-9 ]', ' ', 'gi')), '\\s+', ':* & ', 'g') || ':*') qq
         WHERE n.search @@ qq${where}
         ORDER BY rank DESC
         LIMIT $${params.length}`;
