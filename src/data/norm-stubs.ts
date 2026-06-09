@@ -26,7 +26,6 @@ export const NORM_STUBS: NormStub[] = [
   { number: '18.875', name: 'Ley de Compre Nacional' },
   { number: '26.736', name: 'Ley de Papel Prensa' },
   { number: '27.221', name: 'Ley de Locación de Inmuebles con Fines Turísticos' },
-  { number: '27.551', name: 'Ley de Alquileres' },
   { number: '25.065', name: 'Ley de Tarjetas de Crédito' },
   { number: '9.643', name: 'Ley de Warrants' },
   { number: '21.799', name: 'Carta Orgánica del Banco de la Nación Argentina' },

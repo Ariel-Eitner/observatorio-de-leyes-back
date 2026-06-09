@@ -14,8 +14,10 @@ import { applyCuratedRelations } from './relations-curadas';
 // Normas con página dedicada — migradas a la BD.
 export const NORMAS_CLAVE: Law[] = [];
 
-// Listado general. TODAS las normas (incluido el DNU 70/2023) viven en la BD;
-// acá quedarían solo las que se estén cargando en código antes de migrarlas.
+// Listado general. TODAS las normas (incluido el DNU 70/2023 y la Ley 27.551 de
+// Alquileres) viven en la BD; acá quedan solo las que se estén cargando en código
+// antes de migrarlas. La fuente versionada de la Ley 27.551 está en ./ley-27551.ts
+// (para re-migrarla, agregarla a este array y correr scripts/migrate-norm-to-db).
 export const ALL_LAWS: Law[] = [];
 
 // No-op mientras los arrays estén vacíos; se mantiene para normas en código futuras.
