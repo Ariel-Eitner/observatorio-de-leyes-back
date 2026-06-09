@@ -58,7 +58,9 @@ async function migrate(law: Law) {
     executive_summary: law.executiveSummary, objective: law.objective,
     problem_it_solves: law.problemItSolves, practical_impact: law.practicalImpact,
     topics: law.topics ?? [], keywords: law.keywords ?? [],
+    categories: law.categories ?? [],
     related_norms: law.relatedNorms ?? [], affected_subjects: law.affectedSubjects ?? [],
+    short_code: law.shortCode ?? null, aliases: law.aliases ?? [], is_destacada: law.isDestacada ?? false,
     created_at: law.createdAt, updated_at: law.updatedAt,
   })).error);
 

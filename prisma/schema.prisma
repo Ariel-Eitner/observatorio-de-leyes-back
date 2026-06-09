@@ -243,6 +243,10 @@ model norms {
   effective_date    DateTime?                @db.Date
   derogated_date    DateTime?                @db.Date
   bo_number         String?
+  short_code        String?
+  aliases           String[]                 @default([])
+  is_destacada      Boolean                  @default(false)
+  infoleg_id_meta   String?
   status            String                   @default("VIGENTE")
   jurisdiction      String
   norm_type         String
@@ -421,4 +425,30 @@ model norm_relations {
   @@unique([source_id, target_id, type])
   @@index([source_id], map: "idx_relations_source")
   @@index([target_id], map: "idx_relations_target")
+}
+
+// Normas referenciadas pero NO cargadas en detalle. Hacen clickeables las
+// referencias inline (nombre completo + link a InfoLeg) sin cargar el articulado.
+// Antes vivían hardcodeadas en src/data/norm-stubs.ts (+ espejo en el front).
+model norm_stubs {
+  number     String   @id
+  name       String
+  infoleg_id String?
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@map("norm_stubs")
+}
+
+// Categorías temáticas (slug, etiqueta, descripción, icono). Antes estaban
+// duplicadas y divergentes: CATEGORY_LABELS en laws.service (back) y CATEGORIES
+// en app/lib/categories.ts (front). Fuente única ahora.
+model categories {
+  slug        String   @id
+  label       String
+  description String?
+  icon        String?
+  ord         Int      @default(0)
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+
+  @@map("categories")
 }

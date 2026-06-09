@@ -6,6 +6,7 @@ import type {
   LawStatus, Jurisdiction, NormType, SegmentType, ArticleStatus, AmendmentType, RelationType,
   VisualItem, JurisprudenceRef,
 } from '../common/types/law.types';
+import type { NormStub } from '../data/norm-stubs';
 
 // Convierte columnas date / timestamptz (Date | null) a los strings que usa el tipo Law.
 const dDate = (d: Date | null): string | null => (d ? d.toISOString().slice(0, 10) : null);
@@ -21,6 +22,20 @@ export class NormsDbService {
   async listIds(): Promise<string[]> {
     const rows = await this.prisma.norms.findMany({ select: { id: true } });
     return rows.map((r) => r.id);
+  }
+
+  /** Stubs de normas referenciadas pero no cargadas (tabla norm_stubs). */
+  async listStubs(): Promise<NormStub[]> {
+    const rows = await this.prisma.norm_stubs.findMany({ orderBy: { number: 'asc' } });
+    return rows.map((r) => ({ number: r.number, name: r.name, infolegId: r.infoleg_id ?? undefined }));
+  }
+
+  /** Categorías temáticas (tabla categories). */
+  async listCategories(): Promise<
+    { slug: string; label: string; description: string | null; icon: string | null; ord: number }[]
+  > {
+    const rows = await this.prisma.categories.findMany({ orderBy: { ord: 'asc' } });
+    return rows.map((r) => ({ slug: r.slug, label: r.label, description: r.description, icon: r.icon, ord: r.ord }));
   }
 
   /** Reconstruye el objeto Law completo desde las tablas relacionales. */
@@ -118,6 +133,7 @@ export class NormsDbService {
       relatedNorms: n.related_norms, relations, executiveSummary: n.executive_summary,
       objective: n.objective, problemItSolves: n.problem_it_solves, practicalImpact: n.practical_impact,
       affectedSubjects: n.affected_subjects, commonName: n.common_name ?? undefined,
+      shortCode: n.short_code ?? null, aliases: n.aliases ?? [], isDestacada: n.is_destacada ?? false,
       sections, articles, segments: [], annexes, amendments, metadata,
       createdAt: dTs(n.created_at), updatedAt: dTs(n.updated_at),
     };

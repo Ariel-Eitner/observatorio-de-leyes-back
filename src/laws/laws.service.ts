@@ -2,7 +2,7 @@ import { Injectable, NotFoundException, Logger, OnModuleInit } from '@nestjs/com
 import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
 import { applyCuratedRelations } from '../data/relations-curadas';
-import { NORM_STUBS } from '../data/norm-stubs';
+import type { NormStub } from '../data/norm-stubs';
 import { Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
@@ -10,7 +10,7 @@ import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 
 // Metadata estática que no puede derivarse de los data files solos
-const LAW_STATIC_META: Record<
+export const LAW_STATIC_META: Record<
 	string,
 	{ shortCode?: string; apiPath: string; aliases?: string[]; isDestacada?: boolean; category?: string }
 > = {
@@ -215,23 +215,16 @@ const CATEGORY_LABELS: Record<string, string> = {
 	'derechos-humanos': 'Derechos humanos',
 	economico: 'Económico',
 };
+// Poblado desde la tabla `categories` al arrancar (LawsService.onModuleInit).
+// CATEGORY_LABELS queda solo como fallback defensivo si la BD no respondió aún.
+let _categoryLabels: Record<string, string> = {};
 function catLabel(slug?: string | null): string | null {
 	if (!slug) return null;
-	return CATEGORY_LABELS[slug] ?? slug;
+	return _categoryLabels[slug] ?? CATEGORY_LABELS[slug] ?? slug;
 }
 
-// Código de ley usado como CONTEXTO al parsear referencias inline de un segmento.
-// Réplica exacta del LAW_ID_TO_CODE de SegmentRow del front (para que los chunks
-// pre-computados coincidan con lo que el front parsearía).
-const SEGMENT_LAW_CODE: Record<string, string> = {
-	'constitucion-nacional': 'CN',
-	'codigo-penal': 'CP',
-	'codigo-aduanero': 'CA',
-	'ley-20744': 'LCT',
-	'ley-27150': 'CPP',
-	'const-buenos-aires': 'CBsAs',
-	'const-caba': 'CCABA',
-};
+// El código de contexto para parsear referencias inline se deriva de
+// law.shortCode (columna en BD); ya no hay un mapa hardcodeado.
 
 @Injectable()
 export class LawsService implements OnModuleInit {
@@ -239,6 +232,10 @@ export class LawsService implements OnModuleInit {
 	private laws: Law[] = ALL_LAWS;
 	// Normas servidas desde la BD (migradas). Se hidratan al arrancar.
 	private dbNorms: Law[] = [];
+	// Stubs (normas referenciadas, no cargadas) — fuente: tabla norm_stubs en BD.
+	private stubs: NormStub[] = [];
+	// Categorías temáticas — fuente: tabla categories en BD.
+	private categories: { slug: string; label: string; description: string | null; icon: string | null; ord: number }[] = [];
 
 	constructor(private readonly normsDb: NormsDbService) {}
 
@@ -269,6 +266,9 @@ export class LawsService implements OnModuleInit {
 				for (const law of chunk) if (law) loaded.push(law);
 			}
 			this.dbNorms = loaded;
+			this.stubs = await this.normsDb.listStubs();
+			this.categories = await this.normsDb.listCategories();
+			_categoryLabels = Object.fromEntries(this.categories.map((c) => [c.slug, c.label]));
 			// Las relaciones curadas deben aplicarse a TODAS las normas (código + BD):
 			// así las normas migradas a la BD reciben aristas nuevas (p. ej. las
 			// inversas hacia el DNU 70/2023). applyCuratedRelations dedup por
@@ -427,10 +427,10 @@ export class LawsService implements OnModuleInit {
 		// Los stubs (normas referenciadas, no cargadas) también cuentan como
 		// "disponibles" para el parser y aportan su nombre al índice → así sus
 		// referencias se detectan y el front las hace clickeables (ficha mínima).
-		for (const s of NORM_STUBS) available.add(s.number.replace(/\./g, ''));
+		for (const s of this.stubs) available.add(s.number.replace(/\./g, ''));
 		const namesIdx = buildLawNamesIndex([
 			...laws.filter((l) => l.available).map((l) => ({ label: l.label, shortCode: l.shortCode, number: l.number })),
-			...NORM_STUBS.map((s) => ({ label: s.name, shortCode: '', number: s.number })),
+			...this.stubs.map((s) => ({ label: s.name, shortCode: '', number: s.number })),
 		]);
 		this.refCtx = {
 			combined: buildCombined(buildLawCodesPattern(shortCodes), namesIdx.pattern),
@@ -455,7 +455,7 @@ export class LawsService implements OnModuleInit {
 		// front cae a parsear en el cliente (fallback).
 		try {
 			const { combined, nameToCode } = this.getRefCtx();
-			const ctxLawCode = SEGMENT_LAW_CODE[law.id] ?? '';
+			const ctxLawCode = law.shortCode ?? '';
 			const isAvail = (lc: string) => this.refAvailable(lc);
 			// El texto oficial cita OTRAS leyes: sin ctx, para que "art. N" suelto no
 			// se enganche por error a la norma actual (solo refs explícitas).
@@ -501,14 +501,22 @@ export class LawsService implements OnModuleInit {
 				id: law.id,
 				number: law.number,
 				normType: law.normType,
-				shortCode: meta.shortCode ?? null,
+				shortCode: law.shortCode ?? meta.shortCode ?? null,
 				label: law.commonName ?? law.title,
 				frontendPath: computeFrontendPath(law),
 				apiPath: meta.apiPath,
-				available: !!meta.shortCode,
+				// Toda norma del registry está cargada (BD o código) → disponible.
+				// (Antes dependía de tener shortCode en LAW_STATIC_META, así una norma
+				// cargada sin entrada en ese mapa quedaba como "no disponible".)
+				available: true,
 				status: law.status,
-				aliases: meta.aliases ?? [],
-				isDestacada: meta.isDestacada ?? false,
+				// Alias para resolver "Ley 27.551" / "27551" aunque no haya entrada
+				// hardcodeada: se derivan del número de la propia norma.
+				aliases: Array.from(new Set([
+					...(law.aliases ?? meta.aliases ?? []),
+					...(law.number ? [law.number, law.number.replace(/^(\d+)(\d{3})$/, '$1.$2')] : []),
+				])),
+				isDestacada: law.isDestacada ?? meta.isDestacada ?? false,
 				category: law.category ?? meta.category ?? null,
 				categoryLabel: catLabel(law.category ?? meta.category),
 				categories: law.categories ?? [],
@@ -519,7 +527,12 @@ export class LawsService implements OnModuleInit {
 			};
 		});
 
-		return { laws, slugAliases: SLUG_ALIASES };
+		return {
+			laws,
+			slugAliases: SLUG_ALIASES,
+			categories: this.categories,
+			stubs: this.stubs.map((s) => ({ number: s.number, name: s.name, infolegId: s.infolegId ?? null })),
+		};
 	}
 
 	/**

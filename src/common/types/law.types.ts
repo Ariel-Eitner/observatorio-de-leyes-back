@@ -246,6 +246,9 @@ export interface Law {
   practicalImpact: string | null;
   affectedSubjects: string[];
   commonName?: string;
+  shortCode?: string | null;   // sigla (CN, CP, LCT…) — columna en BD
+  aliases?: string[];          // sinónimos de búsqueda — columna en BD
+  isDestacada?: boolean;       // norma resaltada — columna en BD
   sections?: LawSection[];
   articles: Article[];
   segments: LawSegment[];
