@@ -25,21 +25,81 @@ export interface TrackedEvent extends TrackEventDto {
   timestamp: string;
 }
 
+interface GeoData {
+  country?: string;
+  countryCode?: string;
+  region?: string; // provincia / estado
+  city?: string;
+}
+
+// Rangos privados / loopback: no tiene sentido geolocalizarlos.
+const PRIVATE_IP =
+  /^(::1|::ffff:127\.|127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|169\.254\.|fc|fd|fe80)/i;
+
 @Injectable()
 export class EventsService {
   private readonly logger = new Logger(EventsService.name);
 
+  // Geo resuelto server-side por IP (ip-api.com). Cacheado en memoria: una sesión
+  // genera muchos eventos con la misma IP → solo el primero paga la llamada.
+  // null = IP ya consultada sin resultado (no reintentar en caliente).
+  private readonly geoCache = new Map<string, GeoData | null>();
+  private static readonly GEO_CACHE_MAX = 5000;
+
   constructor(private readonly prisma: PrismaService) {}
 
-  async track(dto: TrackEventDto): Promise<void> {
+  private async resolveGeo(ip?: string): Promise<GeoData | null> {
+    if (!ip) return null;
+    const clean = ip.trim();
+    if (!clean || PRIVATE_IP.test(clean)) return null;
+    if (this.geoCache.has(clean)) return this.geoCache.get(clean) ?? null;
+
+    let geo: GeoData | null = null;
     try {
+      const url = `http://ip-api.com/json/${encodeURIComponent(clean)}?fields=status,country,countryCode,regionName,city`;
+      const res = await fetch(url, { signal: AbortSignal.timeout(2500) });
+      if (res.ok) {
+        const d = (await res.json()) as {
+          status?: string; country?: string; countryCode?: string; regionName?: string; city?: string;
+        };
+        if (d.status === 'success') {
+          geo = { country: d.country, countryCode: d.countryCode, region: d.regionName, city: d.city };
+        }
+      }
+    } catch {
+      geo = null; // best-effort: el geo nunca debe romper el tracking
+    }
+
+    // Acotar el tamaño del caché (FIFO simple).
+    if (this.geoCache.size >= EventsService.GEO_CACHE_MAX) {
+      const first = this.geoCache.keys().next().value;
+      if (first !== undefined) this.geoCache.delete(first);
+    }
+    this.geoCache.set(clean, geo);
+    return geo;
+  }
+
+  async track(dto: TrackEventDto, ip?: string): Promise<void> {
+    try {
+      const geo = await this.resolveGeo(ip);
+      const context = {
+        ...(dto.context ?? {}),
+        ...(geo
+          ? {
+              country:     geo.country,
+              countryCode: geo.countryCode,
+              region:      geo.region,
+              city:        geo.city,
+            }
+          : {}),
+      };
       await this.prisma.trackingEvent.create({
         data: {
           type:       dto.type,
           sessionId:  dto.sessionId,
           guestId:    dto.guestId    ?? null,
           properties: (dto.properties ?? undefined) as Prisma.InputJsonValue | undefined,
-          context:    (dto.context    ?? undefined) as Prisma.InputJsonValue | undefined,
+          context:    (Object.keys(context).length ? context : undefined) as Prisma.InputJsonValue | undefined,
         },
       });
     } catch (e) {
