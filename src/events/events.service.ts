@@ -56,7 +56,8 @@ export class EventsService {
 
     let geo: GeoData | null = null;
     try {
-      const url = `http://ip-api.com/json/${encodeURIComponent(clean)}?fields=status,country,countryCode,regionName,city`;
+      // lang=es → nombres de país/provincia en español ("Estados Unidos", no "United States").
+      const url = `http://ip-api.com/json/${encodeURIComponent(clean)}?fields=status,country,countryCode,regionName,city&lang=es`;
       const res = await fetch(url, { signal: AbortSignal.timeout(2500) });
       if (res.ok) {
         const d = (await res.json()) as {
