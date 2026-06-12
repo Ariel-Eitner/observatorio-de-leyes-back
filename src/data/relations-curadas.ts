@@ -31,6 +31,10 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'RELACIONADA', target: 'constitucion-nacional' },
     { type: 'RELACIONADA', target: 'dnu-70-2023', description: 'Modificado por el DNU 70/2023 (Título X, Justicia).' },
   ],
+  'ley-24522': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'El Código Civil y Comercial rige supletoriamente las obligaciones, contratos y garantías en el concurso preventivo y la quiebra.' },
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'Los créditos laborales tienen tratamiento especial en el concurso y la quiebra: pronto pago, privilegios y efectos sobre el contrato de trabajo (arts. 16, 196-199, 241 y 246).' },
+  ],
 
   // ── Tratados y niñez ──────────────────────────────────────────────────────
   'convencion-derechos-nino': [
