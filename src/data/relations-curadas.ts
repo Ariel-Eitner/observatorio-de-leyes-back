@@ -71,6 +71,13 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'MODIFICA', target: 'ley-20744', description: 'El DNU 70/2023 modifica la Ley de Contrato de Trabajo (Título IV, suspendido judicialmente).' },
     { type: 'MODIFICA', target: 'codigo-aduanero', description: 'Reforma el Código Aduanero (Título V, Comercio Exterior).' },
     { type: 'MODIFICA', target: 'codigo-civil-comercial', description: 'Modifica el Código Civil y Comercial (Título X, Justicia).' },
+    { type: 'DEROGA', target: 'ley-20705', description: 'Deroga la Ley de Sociedades del Estado (art. 40).' },
+    { type: 'DEROGA', target: 'ley-13653', description: 'Deroga la Ley de Empresas del Estado (art. 37).' },
+    { type: 'DEROGA', target: 'ley-26992', description: 'Deroga la Ley del Observatorio de Precios (art. 5).' },
+    { type: 'DEROGA', target: 'ley-18875', description: 'Deroga la Ley de Compre Nacional (art. 38).' },
+    { type: 'MODIFICA', target: 'ley-25649', description: 'Sustituye el art. 2 de la Ley del Medicamento por su Nombre Genérico (art. 266).' },
+    { type: 'MODIFICA', target: 'ley-27553', description: 'Sustituye los arts. 1, 3 y 13 de la Ley de Recetas Electrónicas (arts. 307/308/309).' },
+    { type: 'RELACIONADA', target: 'ley-25323', description: 'Derogó la Ley 25.323 (art. 55), pero el Título IV laboral está suspendido judicialmente y se sigue aplicando.' },
     { type: 'RELACIONADA', target: 'ley-27742', description: 'La Ley de Bases retomó por vía legislativa parte de las reformas del DNU.' },
     { type: 'RELACIONADA', target: 'ley-27802', description: 'La Modernización Laboral canalizó parte del capítulo laboral del DNU (suspendido).' },
   ],
@@ -120,6 +127,32 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'RELACIONADA', target: 'ley-26061' },
     { type: 'RELACIONADA', target: 'codigo-penal' },
     { type: 'RELACIONADA', target: 'ley-26657' },
+  ],
+
+  // ── Lote verde (interconexión de las normas recién cargadas) ──────────────
+  'ley-25323': [
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'Agrava (duplica / +50%) las indemnizaciones por despido de los arts. 232, 233 y 245 de la Ley de Contrato de Trabajo.' },
+    { type: 'RELACIONADA', target: 'ley-24013', description: 'El agravamiento del art. 1 no es acumulable con las multas por empleo no registrado de la Ley Nacional de Empleo (arts. 8, 9, 10 y 15).' },
+  ],
+  'ley-25649': [
+    { type: 'RELACIONADA', target: 'ley-26529', description: 'La prescripción por nombre genérico se enmarca en los derechos a la información y autonomía del paciente.' },
+  ],
+  'ley-27553': [
+    { type: 'RELACIONADA', target: 'ley-26529', description: 'La receta electrónica y la teleasistencia se ejercen garantizando los derechos del paciente.' },
+    { type: 'RELACIONADA', target: 'ley-25326', description: 'Las plataformas de receta electrónica y teleasistencia operan bajo la protección de los datos personales.' },
+  ],
+  'ley-23928': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'El nominalismo y la prohibición de indexar (arts. 7 y 10) inciden en las obligaciones de dar dinero; su art. 11 modificó el entonces Código Civil.' },
+  ],
+  'ley-27221': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Remite al art. 1199 inc. b del Código Civil y Comercial para excluir las locaciones turísticas de corto plazo del régimen de locación.' },
+    { type: 'RELACIONADA', target: 'ley-27551', description: 'Los alquileres turísticos temporarios quedan fuera de la locación de vivienda y se rigen como hospedaje.' },
+  ],
+  'ley-26992': [
+    { type: 'RELACIONADA', target: 'ley-20680', description: 'El Observatorio podía emitir dictámenes técnicos previos al ejercicio de las potestades del art. 2 de la Ley de Abastecimiento.' },
+  ],
+  'ley-20705': [
+    { type: 'RELACIONADA', target: 'ley-13653', description: 'Figuras hermanas del Estado empresario (Sociedades del Estado y Empresas del Estado); ambas derogadas por el DNU 70/2023.' },
   ],
 };
 
