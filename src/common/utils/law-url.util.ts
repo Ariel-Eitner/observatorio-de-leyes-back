@@ -33,7 +33,13 @@ export function computeFrontendPath(law: Law): string {
   if (law.id.startsWith('decreto-') || law.id.startsWith('rg-')) return `/leyes/${law.id}`;
   // saca puntos y barras (ej. "5844/2026") para no romper la ruta
   const cleanNumber = law.number.replace(/\./g, '').replace(/\//g, '-');
-  const cleanTitle = law.title.replace(/^Ley\s+(de\s+la[s]?\s+|de\s+los?\s+|del\s+|de\s+)?/i, '').trim();
+  const cleanTitle = law.title
+    .replace(/^Ley\s+(de\s+la[s]?\s+|de\s+los?\s+|del\s+|de\s+)?/i, '')
+    // Si el título arranca con el número de la ley (ej. "Ley 6961 — Modificación…"),
+    // lo saco para no duplicarlo con el número que se antepone (evita "/leyes/6961-6961-…").
+    // El formato sigue siendo número + título (decisión SEO), solo sin duplicar el número.
+    .replace(/^N[°º]?\s*\d[\d.]*\s*[—–\-:.]*\s*/i, '')
+    .trim();
   return `/leyes/${cleanNumber}-${slugify(cleanTitle)}`;
 }
 

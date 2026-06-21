@@ -190,6 +190,8 @@ const SLUG_ALIASES: Record<string, string> = {
 	'ley-omnibus': 'ley-27742',
 	'ley-de-bases': 'ley-27742',
 	rigi: 'ley-27742',
+	// Slug viejo del 6961 (tenía el número duplicado por el título); redirige 308 al canónico.
+	'6961-6961-modificacion-del-codigo-contravencional-de-caba-servici': 'ley-caba-6961',
 };
 
 // Etiqueta legible de cada categoría temática (slug en BD → label).
