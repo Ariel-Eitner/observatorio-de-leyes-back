@@ -1,110 +1,104 @@
 /**
- * audit:graph — reporte de discrepancias del grafo legal.
+ * audit:graph — reporte del grafo legal LEÍDO DESDE LA BD (Prisma).
  *
- * No falla: descubre qué relaciones conviene curar. La fuente de verdad
- * determinística es `law.relations`. Este script cruza ese dato con el estado
- * de cada norma y con lo que cada norma DECLARA (metadata.derogatingNorms) para
- * encontrar derogaciones/relaciones faltantes o inconsistentes.
+ * Las normas migraron de código a la base; la versión vieja leía los data files
+ * (ya borrados) y reportaba 0. Esto cruza norm_relations con norms para encontrar
+ * nodos aislados, aristas colgadas, DEROGA inconsistentes y las más referenciadas.
+ *
+ * No falla (es un reporte). La validación pass/fail vive en
+ * src/data/db-integrity.spec.ts.
  */
-import { ALL_LAWS, NORMAS_CLAVE } from '../src/data/index';
-import type { Law } from '../src/common/types/law.types';
+import { PrismaClient } from '@prisma/client';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// Las constituciones migraron a la BD; este audit estático cubre lo que queda en código.
-const SOURCES: Law[] = (() => {
-  const seen = new Set<string>();
-  return [...NORMAS_CLAVE, ...ALL_LAWS].filter((l) =>
-    seen.has(l.id) ? false : (seen.add(l.id), true),
-  );
-})();
-
-const byId = new Map(SOURCES.map((l) => [l.id, l]));
-
-// Índice de relaciones entrantes: targetLawId -> [{src, type}]
-const incoming = new Map<string, { src: string; type: string }[]>();
-for (const law of SOURCES) {
-  for (const r of law.relations ?? []) {
-    if (!incoming.has(r.targetLawId)) incoming.set(r.targetLawId, []);
-    incoming.get(r.targetLawId)!.push({ src: law.id, type: r.type });
+// ts-node no carga el .env: lo leemos a mano si DATABASE_URL no está en el entorno.
+if (!process.env.DATABASE_URL) {
+  const envPath = path.resolve(__dirname, '../.env');
+  if (fs.existsSync(envPath)) {
+    const l = fs
+      .readFileSync(envPath, 'utf8')
+      .split(/\r?\n/)
+      .find((x) => x.startsWith('DATABASE_URL='));
+    if (l) process.env.DATABASE_URL = l.slice('DATABASE_URL='.length).replace(/^["']|["']$/g, '').trim();
   }
 }
 
-const totalRels = [...incoming.values()].reduce((s, v) => s + v.length, 0);
-const withRel = SOURCES.filter((l) => (l.relations ?? []).length > 0);
-
+const prisma = new PrismaClient();
 const line = (s = '') => console.log(s);
-const h = (s: string) => { line(); line(`▸ ${s}`); line('─'.repeat(78)); };
+const h = (s: string) => {
+  line();
+  line(`▸ ${s}`);
+  line('─'.repeat(78));
+};
 
-line('════════════════════════════════════════════════════════════════════');
-line('  AUDITORÍA DEL GRAFO LEGAL — discrepancias de relaciones');
-line('════════════════════════════════════════════════════════════════════');
+async function main() {
+  const norms = await prisma.norms.findMany({ select: { id: true, status: true, norm_type: true, title: true } });
+  const rels = await prisma.norm_relations.findMany({
+    select: { source_id: true, target_id: true, type: true, target_label: true },
+  });
+  const byId = new Map(norms.map((n) => [n.id, n]));
 
-h('COBERTURA');
-line(`  Normas totales            : ${SOURCES.length}`);
-line(`  Normas con relations       : ${withRel.length}  (${Math.round((withRel.length / SOURCES.length) * 100)}%)`);
-line(`  Relaciones curadas totales : ${totalRels}`);
-line(`  Normas SIN ninguna relación: ${SOURCES.length - withRel.length}`);
-
-// ── 0. Nodos aislados (sin relación entrante ni saliente) ─────────────────────
-h('NODOS AISLADOS (sin ninguna arista — flotan en el mapa)');
-const isolated = SOURCES.filter(
-  (l) => (l.relations ?? []).length === 0 && !(incoming.get(l.id)?.length),
-);
-if (isolated.length === 0) line('  ✓ Ninguno — todas las normas tienen al menos una arista.');
-else for (const l of isolated) line(`  ✗ ${l.id.padEnd(34)} [${l.status}]`);
-
-// ── 1. Normas derogadas/parciales sin quién las derogue (curado) ──────────────
-h('DEROGADAS / PARCIALES SIN DEROGA ENTRANTE (curar la relación)');
-const derogadas = SOURCES.filter((l) => l.status === 'DEROGADA' || l.status === 'PARCIALMENTE_VIGENTE');
-let faltanDerog = 0;
-for (const l of derogadas) {
-  const inDerog = (incoming.get(l.id) ?? []).filter((x) => x.type === 'DEROGA' || x.type === 'DEROGA_PARCIALMENTE');
-  if (inDerog.length === 0) {
-    faltanDerog++;
-    const declara = (l.metadata?.derogatingNorms ?? []).join(' · ') || '(no declara derogatingNorms)';
-    line(`  ✗ ${l.id.padEnd(34)} [${l.status}]  declara: ${declara}`);
+  const deg = new Map<string, number>();
+  const inDeg = new Map<string, number>();
+  for (const n of norms) {
+    deg.set(n.id, 0);
+    inDeg.set(n.id, 0);
   }
-}
-if (faltanDerog === 0) line('  ✓ Todas las normas derogadas/parciales tienen una DEROGA entrante curada.');
-
-// ── 2. Relaciones DEROGA hacia normas que NO están derogadas (inconsistente) ──
-h('DEROGA APUNTANDO A NORMAS NO DEROGADAS (relación o estado mal)');
-let derogMal = 0;
-for (const law of SOURCES) {
-  for (const r of law.relations ?? []) {
-    if (r.type === 'DEROGA' || r.type === 'DEROGA_PARCIALMENTE') {
-      const t = byId.get(r.targetLawId);
-      if (!t) continue;
-      const ok = r.type === 'DEROGA' ? t.status === 'DEROGADA' : t.status !== 'VIGENTE';
-      if (!ok) { derogMal++; line(`  ✗ ${law.id} ${r.type} ${r.targetLawId} — target.status = ${t.status}`); }
-    }
+  for (const r of rels) {
+    deg.set(r.source_id, (deg.get(r.source_id) ?? 0) + 1);
+    deg.set(r.target_id, (deg.get(r.target_id) ?? 0) + 1);
+    inDeg.set(r.target_id, (inDeg.get(r.target_id) ?? 0) + 1);
   }
-}
-if (derogMal === 0) line('  ✓ Sin inconsistencias entre relaciones DEROGA y el estado del target.');
 
-// ── 3. Normas que DECLARAN derogar/modificar pero no tienen la relación curada ─
-h('DECLARA derogatingNorms/modifyingNorms PERO SIN RELACIÓN CURADA');
-let declaraSinRel = 0;
-for (const l of SOURCES) {
-  const declaraDerog = (l.metadata?.derogatingNorms ?? []).length > 0;
-  const declaraMod = (l.metadata?.modifyingNorms ?? []).length > 0;
-  const tieneEntranteDerog = (incoming.get(l.id) ?? []).some((x) => x.type.startsWith('DEROGA'));
-  const tieneEntranteMod = (incoming.get(l.id) ?? []).some((x) => x.type === 'MODIFICA');
-  if ((declaraDerog && !tieneEntranteDerog) || (declaraMod && !tieneEntranteMod)) {
-    declaraSinRel++;
-    const piezas: string[] = [];
-    if (declaraDerog && !tieneEntranteDerog) piezas.push(`derogada por: ${l.metadata!.derogatingNorms!.join(', ')}`);
-    if (declaraMod && !tieneEntranteMod) piezas.push(`modificada por: ${l.metadata!.modifyingNorms!.join(', ')}`);
-    line(`  ⚠ ${l.id.padEnd(34)} ${piezas.join(' | ')}`);
-  }
-}
-if (declaraSinRel === 0) line('  ✓ Todo lo declarado en metadata tiene su relación tipada.');
+  line('════════════════════════════════════════════════════════════════════');
+  line('  AUDITORÍA DEL GRAFO LEGAL — desde la BD (norm_relations)');
+  line('════════════════════════════════════════════════════════════════════');
 
-// ── 4. Resumen ────────────────────────────────────────────────────────────────
-h('RESUMEN');
-line(`  Derogadas/parciales sin DEROGA curada : ${faltanDerog}`);
-line(`  DEROGA con target mal                 : ${derogMal}`);
-line(`  Declara en metadata pero sin relación  : ${declaraSinRel}`);
-line();
-line(`  Próximo paso: curar 'relations' tipadas en los data files señalados,`);
-line(`  y validar con: npm test -- legal-graph-integrity`);
-line('════════════════════════════════════════════════════════════════════');
+  h('COBERTURA');
+  const conArista = norms.filter((n) => (deg.get(n.id) ?? 0) > 0).length;
+  line(`  Normas totales       : ${norms.length}`);
+  line(`  Relaciones (aristas) : ${rels.length}`);
+  line(`  Normas con ≥1 arista : ${conArista}  (${Math.round((conArista / Math.max(norms.length, 1)) * 100)}%)`);
+
+  h('NODOS AISLADOS (sin ninguna arista — flotan en el mapa)');
+  const isolated = norms.filter((n) => (deg.get(n.id) ?? 0) === 0);
+  if (!isolated.length) line('  ✓ Ninguno — todas las normas tienen al menos una arista.');
+  else for (const n of isolated) line(`  ✗ ${n.id.padEnd(36)} [${n.status}]`);
+
+  h('ARISTAS COLGADAS (target_id inexistente)');
+  const dangling = rels.filter((r) => !byId.has(r.target_id));
+  if (!dangling.length) line('  ✓ Ninguna.');
+  else for (const r of dangling) line(`  ✗ ${r.source_id} --${r.type}--> ${r.target_id}`);
+
+  h('DEROGA APUNTANDO A NORMAS NO DEROGADAS');
+  const derogMal = rels
+    .filter((r) => r.type === 'DEROGA')
+    .filter((r) => {
+      const t = byId.get(r.target_id);
+      return t && t.status !== 'DEROGADA';
+    });
+  if (!derogMal.length) line('  ✓ Sin inconsistencias entre DEROGA y el estado del target.');
+  else for (const r of derogMal) line(`  ✗ ${r.source_id} DEROGA ${r.target_id} (${byId.get(r.target_id)?.status})`);
+
+  h('TOP 10 NORMAS MÁS REFERENCIADAS (in-degree)');
+  [...inDeg.entries()]
+    .filter(([, d]) => d > 0)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .forEach(([id, d], i) =>
+      line(`  ${String(i + 1).padStart(2)}. ${(byId.get(id)?.title ?? id).slice(0, 48).padEnd(48)} ${d} refs`),
+    );
+
+  h('RESUMEN');
+  line(`  Aisladas: ${isolated.length}  |  Colgadas: ${dangling.length}  |  DEROGA mal: ${derogMal.length}`);
+  line('  Validación pass/fail: npm test -- db-integrity');
+  line('════════════════════════════════════════════════════════════════════');
+}
+
+main()
+  .catch((e) => {
+    console.error('Error:', e instanceof Error ? e.message : e);
+    process.exitCode = 1;
+  })
+  .finally(() => prisma.$disconnect());
