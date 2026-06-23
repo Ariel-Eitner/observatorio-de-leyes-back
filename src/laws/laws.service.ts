@@ -582,11 +582,15 @@ export class LawsService implements OnModuleInit {
 		const count = (key: string, value: string) =>
 			src.filter((l) => (l as unknown as Record<string, unknown>)[key] === value).length;
 
-		// Categorías temáticas (principal) por norma — el front ya no las recalcula
+		// Categorías temáticas por norma — cuenta por TODAS las categorías de la norma
+		// (principal + secundarias del array `categories`), consistente con el filtro
+		// por categoría. Fallback a la principal si la norma no tiene array poblado.
 		const catMap: Record<string, number> = {};
 		for (const l of src) {
-			const c = l.category ?? LAW_STATIC_META[l.id]?.category;
-			if (c) catMap[c] = (catMap[c] ?? 0) + 1;
+			const cats = l.categories?.length
+				? l.categories
+				: ([l.category ?? LAW_STATIC_META[l.id]?.category].filter(Boolean) as string[]);
+			for (const c of cats) catMap[c] = (catMap[c] ?? 0) + 1;
 		}
 		const byCategory = Object.entries(catMap)
 			.map(([category, _count]) => ({ category, label: catLabel(category), _count }))

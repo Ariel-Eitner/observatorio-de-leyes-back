@@ -35,7 +35,7 @@ export const COMPLETENESS_BACKLOG = {
     // PLANAS (sin capítulos en la fuente) — exentas permanentes
     'ley-14546', 'ley-18875', 'ley-23798', 'ley-24788', 'ley-26618', 'ley-26743', 'ley-27553',
     'ley-27610', 'ley-26842', 'ley-23660', 'ley-20680', 'ley-27545', 'ley-19032', 'ley-27555',
-    'ley-9643', 'ley-20655', 'ley-17565',
+    'ley-9643', 'ley-20655', 'ley-17565', 'ley-25564', 'ley-23551', 'ley-27437', 'ley-19030', 'ley-21608', 'ley-22667', 'ley-26736', 'ley-26737', 'ley-27113', 'ley-14499', 'ley-15336', 'ley-27098', 'ley-22285', 'ley-19990', 'ley-24557', 'ley-17520', 'ley-24714', 'ley-20321', 'ley-27007', 'ley-14878', 'ley-18248', 'ley-26940', 'ley-26739', 'ley-14786', 'ley-26190', 'ley-24185',
     // DIFERIDAS (ord fraccionario/anexo → normalizar ord antes de cargar índice)
     'ley-26061', 'ley-26206', 'ley-24977', 'decreto-93-2026', 'decreto-151-2022', 'ley-13653', 'ley-26529',
   ]),
