@@ -86,7 +86,7 @@
       ["jest-html-reporters", {
         "publicPath": "./reports",
         "filename": "test-report.html",
-        "openReport": true,
+        "openReport": false,
         "pageTitle": "Observatorio de Leyes — Test Report",
         "expand": true
       }]

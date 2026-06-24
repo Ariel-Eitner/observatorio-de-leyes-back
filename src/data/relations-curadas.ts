@@ -75,6 +75,9 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'DEROGA', target: 'ley-13653', description: 'Deroga la Ley de Empresas del Estado (art. 37).' },
     { type: 'DEROGA', target: 'ley-26992', description: 'Deroga la Ley del Observatorio de Precios (art. 5).' },
     { type: 'DEROGA', target: 'ley-18875', description: 'Deroga la Ley de Compre Nacional (art. 38).' },
+    { type: 'DEROGA', target: 'decreto-ley-15349-1946', description: 'Deroga el Decreto-Ley 15.349/46 de Sociedades de Economía Mixta (art. 36).' },
+    { type: 'DEROGA', target: 'decreto-ley-12507-1956', description: 'Deroga el Decreto-Ley 12.507/56 de política aeronáutica nacional (art. 178).' },
+    { type: 'DEROGA', target: 'ley-18828', description: 'Deroga la Ley 18.828 de alojamientos turísticos (art. 348).' },
     { type: 'MODIFICA', target: 'ley-25649', description: 'Sustituye el art. 2 de la Ley del Medicamento por su Nombre Genérico (art. 266).' },
     { type: 'MODIFICA', target: 'ley-27553', description: 'Sustituye los arts. 1, 3 y 13 de la Ley de Recetas Electrónicas (arts. 307/308/309).' },
     { type: 'RELACIONADA', target: 'ley-25323', description: 'Derogó la Ley 25.323 (art. 55), pero el Título IV laboral está suspendido judicialmente y se sigue aplicando.' },
@@ -153,6 +156,63 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
   ],
   'ley-20705': [
     { type: 'RELACIONADA', target: 'ley-13653', description: 'Figuras hermanas del Estado empresario (Sociedades del Estado y Empresas del Estado); ambas derogadas por el DNU 70/2023.' },
+  ],
+
+  // ── Seguridad / Inteligencia / Defensa / Compras públicas (cluster 2026-06-23) ──
+  'ley-25520': [
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Operativiza las garantías de los arts. 18 y 19 (inviolabilidad de la correspondencia y de los papeles privados, intimidad): exige orden judicial para interceptar comunicaciones.' },
+    { type: 'MODIFICA', target: 'ley-24059', description: 'Los arts. 47 a 50 de la Ley de Inteligencia modifican la Ley de Seguridad Interior: renombran la inteligencia criminal y reformulan su Título VII de control parlamentario.' },
+  ],
+  'ley-24059': [
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Operativiza el deber del Estado de garantizar la seguridad interior y los derechos de los habitantes dentro del marco constitucional.' },
+  ],
+  'decreto-1112-2024': [
+    { type: 'RELACIONADA', target: 'ley-24059', description: 'Reglamenta el Sistema de Defensa Nacional (Ley 23.554), que se articula con la Ley de Seguridad Interior: defensa = amenazas externas, seguridad interior = orden interno.' },
+    { type: 'RELACIONADA', target: 'ley-25520', description: 'La inteligencia estratégica militar integra el Sistema de Inteligencia Nacional dentro de la defensa.' },
+  ],
+  'dnu-941-2025': [
+    { type: 'MODIFICA', target: 'ley-25520', description: 'Reestructura la SIDE y modifica numerosos artículos de la Ley de Inteligencia: crea el Servicio de Inteligencia Argentino, la Agencia Nacional de Contrainteligencia y la Agencia Federal de Ciberinteligencia.' },
+  ],
+  'decreto-1023-2001': [
+    { type: 'RELACIONADA', target: 'ley-24156', description: 'El Régimen de Contrataciones se aplica a las jurisdicciones y entidades del inciso a del art. 8 de la Ley de Administración Financiera.' },
+  ],
+
+  // ── Delitos informáticos / firma digital (cluster 2026-06-24, demanda del tracking) ──
+  'ley-26388': [
+    { type: 'MODIFICA', target: 'codigo-penal', description: 'Incorpora y sustituye artículos del Código Penal para tipificar los delitos informáticos: acceso ilegítimo a sistemas, daño y fraude informático, intercepción de comunicaciones electrónicas y delitos contra los datos personales.' },
+  ],
+  'ley-25506': [
+    { type: 'RELACIONADA', target: 'codigo-penal', description: 'El art. 51 incorporó el art. 78 bis al Código Penal equiparando la firma y el documento digital a los del papel; esa equiparación fue luego reubicada en el art. 77 por la Ley 26.388.' },
+    { type: 'RELACIONADA', target: 'ley-26388', description: 'La Ley 26.388 de delitos informáticos derogó el art. 78 bis del Código Penal que esta ley había incorporado y reformuló la equiparación de la firma digital.' },
+  ],
+
+  // ── Estado empresario / aeronáutica (derogadas por el DNU 70/2023) ────────
+  'decreto-ley-15349-1946': [
+    { type: 'RELACIONADA', target: 'ley-19550', description: 'Las sociedades de economía mixta se regían supletoriamente por el régimen de las sociedades anónimas, hoy en la Ley General de Sociedades.' },
+  ],
+  'decreto-ley-12507-1956': [
+    { type: 'RELACIONADA', target: 'codigo-aeronautico', description: 'Integraba el marco rector del sector aéreo junto con el Código Aeronáutico, que regula la aeronavegación civil.' },
+  ],
+
+  // ── Turismo ───────────────────────────────────────────────────────────────
+  'ley-18829': [
+    { type: 'RELACIONADA', target: 'ley-24240', description: 'La relación entre la agencia de viajes y el turista es una relación de consumo: la Ley de Defensa del Consumidor protege al viajero.' },
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Reglamenta el ejercicio de una actividad comercial (art. 14) sujetándola a habilitación, fondo de garantía y control.' },
+  ],
+  'ley-18828': [
+    { type: 'RELACIONADA', target: 'ley-18829', description: 'Ambas integraban el marco regulatorio del turismo: la 18.828 los alojamientos y la 18.829 las agencias de viaje.' },
+  ],
+
+  // ── Ejercicio de la abogacía ──────────────────────────────────────────────
+  'ley-23187': [
+    { type: 'RELACIONADA', target: 'ley-27423', description: 'Ambas regulan el ejercicio de la abogacía: la 23.187 la matrícula y la ética, y la 27.423 los honorarios profesionales.' },
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Reglamenta el derecho de ejercer una profesión lícita (art. 14) y organiza el control de la abogacía como institución de derecho público.' },
+  ],
+
+  // ── Registro del automotor ────────────────────────────────────────────────
+  'decreto-ley-6582-1958': [
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Reglamenta el derecho de propiedad (art. 17) sobre los automotores mediante un registro constitutivo del dominio.' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'El Código Civil y Comercial rige supletoriamente el dominio, la posesión y los contratos sobre el automotor; este régimen establece su registración constitutiva especial.' },
   ],
 };
 

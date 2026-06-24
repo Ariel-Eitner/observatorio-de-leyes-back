@@ -63,6 +63,23 @@ function norm(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9\s]/g, '').trim();
 }
 
+// Extrae el número de una norma cuando la query ES (esencialmente) un número:
+// "26.388", "26388", "ley 26.388", "decreto 1112/2024", "941/2025". Devuelve solo
+// los dígitos para un match directo por número. null si la query trae texto además
+// del número (ahí manda el tsvector). Resuelve el bug de que el tsvector parte los
+// puntos/barras ("26.388" → "26" & "388") y no matchea el token entero ("26388").
+function extractNumberDigits(q: string): string | null {
+  const cleaned = q
+    .toLowerCase()
+    .replace(/\b(ley|leyes|decreto|decretos|dnu|resoluci[oó]n|disposici[oó]n|n[°º]|nro\.?|numero|n[uú]mero)\b/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  // Si queda texto que no sea dígitos / separadores, no es una búsqueda por número.
+  if (cleaned.replace(/[\d.\/\s-]/g, '').length > 0) return null;
+  const digits = cleaned.replace(/\D/g, '');
+  return digits.length >= 3 && digits.length <= 9 ? digits : null;
+}
+
 function highlightTitle(title: string, query: string): string {
   const terms = norm(query).split(/\s+/).filter((t) => t.length > 2);
   let out = title;
@@ -148,7 +165,27 @@ export class SearchDbService {
       for (const r of rows) out.push(this.lawItem(r, q));
     }
 
-    return out.sort((a, b) => b.score - a.score).slice(0, limit);
+    // Match directo por número de norma ("26.388", "1112/2024", "ley 27742"): el
+    // tsvector parte puntos/barras y no matchea el número entero. Va con score alto.
+    const numDigits = extractNumberDigits(q);
+    if (numDigits && opts.type !== 'article') {
+      const params: unknown[] = [numDigits];
+      const where = this.filterClauses(opts, params);
+      const sql = `
+        SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title,
+               n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories,
+               coalesce(n.summary,'') AS summary, coalesce(n.summary,'') AS snippet
+        FROM norms n
+        WHERE regexp_replace(n.number, '\\D', '', 'g') = $1${where}
+        LIMIT 5`;
+      const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+      for (const r of rows) { const it = this.lawItem(r, q); it.score = 1000; out.unshift(it); }
+    }
+
+    // Dedup por id (el match por número puede coincidir con el del tsvector).
+    const seen = new Set<string>();
+    const deduped = out.filter((it) => (seen.has(it.id) ? false : (seen.add(it.id), true)));
+    return deduped.sort((a, b) => b.score - a.score).slice(0, limit);
   }
 
   async suggest(query: string, limit = 8): Promise<SearchSuggestion[]> {
@@ -174,7 +211,25 @@ export class SearchDbService {
     } catch {
       return [];
     }
-    return rows.map((r) => {
+
+    // Match directo por número al frente ("26.388", "1112/2024"): mismo bug que en search().
+    const numDigits = extractNumberDigits(q);
+    const head: SearchSuggestion[] = [];
+    if (numDigits) {
+      try {
+        const nrows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
+          `SELECT n.id, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year
+           FROM norms n WHERE regexp_replace(n.number, '\\D', '', 'g') = $1 LIMIT 3`,
+          numDigits,
+        );
+        for (const r of nrows) {
+          const i = this.lawItem({ ...r, id: r.id }, q);
+          head.push({ id: i.id, type: 'law', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' });
+        }
+      } catch { /* ignora: el match por número es un extra */ }
+    }
+
+    const mapped: SearchSuggestion[] = rows.map((r): SearchSuggestion => {
       if (r.rtype === 'law') {
         const i = this.lawItem(r, q);
         return { id: i.id, type: 'law', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' };
@@ -182,6 +237,9 @@ export class SearchDbService {
       const i = this.articleItem(r, q);
       return { id: i.id, type: 'article', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, articleId: i.articleId, articleNumber: i.articleNumber, articleTitle: i.articleTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' };
     });
+
+    const seenIds = new Set(head.map((h) => h.id));
+    return [...head, ...mapped.filter((m) => !seenIds.has(m.id))].slice(0, limit);
   }
 
   async facets(query?: string): Promise<Record<string, Record<string, number>>> {
