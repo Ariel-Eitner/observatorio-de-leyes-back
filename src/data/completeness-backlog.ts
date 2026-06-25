@@ -18,12 +18,28 @@ export const COMPLETENESS_BACKLOG = {
     'const-santa-cruz', 'const-santa-fe', 'const-santiago-del-estero', 'const-tierra-del-fuego', 'const-tucuman',
     // 2026-06-23: cargadas con texto verbatim + explicación + metadata + relaciones; epígrafe por artículo pendiente.
     'ley-25520', 'ley-24059', 'decreto-1023-2001', 'decreto-1112-2024', 'dnu-941-2025',
+    // 2026-06-25: gigantes cargadas verbatim (232/197 arts); epígrafe por artículo en tandas.
+    'ley-11683', 'ley-24241',
+    // 2026-06-25: ola "blind spots" verbatim; epígrafe por artículo en tandas. (26.773 enriquecida → removida)
+    'ley-23554', 'ley-27126', 'ley-21526', 'ley-13064', 'ley-5965', 'ley-26993',
+    'ley-25212',
+    // 2026-06-25: grupo A (alto valor) verbatim; epígrafe por artículo en tandas. (27.348/27.611/27.506 enriquecidas → removidas)
+    'ley-27430', 'ley-27349', 'ley-27260', 'ley-26831', 'ley-27440',
+    // 2026-06-25: leyes de uso cotidiano (texto actualizado) verbatim; epígrafe por artículo en tandas. (18.345 enriquecida → removida)
+    'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871',
   ]),
   // Artículos sin explicación en lenguaje claro
   sinExplicacion: new Set<string>([
     'const-jujuy', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones', 'const-neuquen',
     'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis', 'const-santa-cruz', 'const-santa-fe',
     'const-santiago-del-estero', 'const-tierra-del-fuego', 'const-tucuman',
+    // 2026-06-25: gigantes cargadas verbatim; explicación por artículo en tandas (como segments).
+    'ley-11683', 'ley-24241', 'ley-23554', 'ley-27126', 'ley-21526', 'ley-13064', 'ley-5965', 'ley-26993',
+    'ley-25212',
+    // 2026-06-25: grupo A (alto valor) verbatim; explicación por artículo en tandas. (27.348/27.611/27.506 enriquecidas → removidas)
+    'ley-27430', 'ley-27349', 'ley-27260', 'ley-26831', 'ley-27440',
+    // 2026-06-25: leyes de uso cotidiano (texto actualizado) verbatim; explicación por artículo en tandas. (18.345 enriquecida → removida)
+    'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871',
   ]),
   // Normas >= INDICE_MIN_ARTS arts sin índice (norm_sections). Se dividen en:
   //  • PLANAS: sin estructura de capítulos/títulos en la fuente oficial (modificatorias o
@@ -45,6 +61,17 @@ export const COMPLETENESS_BACKLOG = {
     'ley-25520', 'dnu-941-2025', 'ley-24059', 'decreto-1023-2001', 'decreto-1112-2024',
     // 2026-06-24: Ley 26.388 (Delitos Informáticos) — modificatoria plana del Código Penal (15 arts, sin capítulos).
     'ley-26388',
+    // 2026-06-25: Ley 11.683 (t.o. 1998) — DIFERIDA: 29 artículos "sin número" (ord fraccionario 3.1, 4.1…) rompen ord==número.
+    // 2026-06-25: Ley 24.241 (SIJP) — DIFERIDA: artículos "bis" (ord fraccionario 22.5, 27.5…) rompen ord==número.
+    'ley-11683', 'ley-24241',
+    // 2026-06-25: ola blind spots — 26.773 PLANA; 23.554/21.526/13.064/5965/26993 con capítulos (índice pendiente); 27.126 modificatoria.
+    'ley-26773', 'ley-23554', 'ley-27126', 'ley-21526', 'ley-13064', 'ley-5965', 'ley-26993',
+    // 2026-06-25: Ley 25.212 (Pacto Federal del Trabajo) — DIFERIDA: numeración reinicia por ANEXO (ord 1001/2001…) → ord != número.
+    'ley-25212',
+    // 2026-06-25: grupo A — tienen estructura (títulos/capítulos) y ord==número; índice cargable, pendiente de cargar.
+    'ley-27430', 'ley-27348', 'ley-27611', 'ley-27349', 'ley-27506', 'ley-27260', 'ley-26831', 'ley-27440',
+    // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
+    'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([

@@ -185,6 +185,95 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'RELACIONADA', target: 'codigo-penal', description: 'El art. 51 incorporó el art. 78 bis al Código Penal equiparando la firma y el documento digital a los del papel; esa equiparación fue luego reubicada en el art. 77 por la Ley 26.388.' },
     { type: 'RELACIONADA', target: 'ley-26388', description: 'La Ley 26.388 de delitos informáticos derogó el art. 78 bis del Código Penal que esta ley había incorporado y reformuló la equiparación de la firma digital.' },
   ],
+  // ── Procedimiento tributario / previsional (cluster 2026-06-25, demanda del tracking) ──
+  'ley-11683': [
+    { type: 'RELACIONADA', target: 'ley-24156', description: 'El procedimiento tributario rige sobre los recursos que integran el sistema de administración financiera del sector público nacional.' },
+  ],
+  'ley-24241': [
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Operativiza el artículo 14 bis de la Constitución: jubilaciones y pensiones móviles y el seguro social obligatorio.' },
+  ],
+  'ley-26773': [
+    { type: 'COMPLEMENTA', target: 'ley-24557', description: 'Ordena y mejora la reparación del régimen de la Ley de Riesgos del Trabajo: indemnización adicional, opción excluyente y actualización RIPTE.' },
+  ],
+  'ley-23554': [
+    { type: 'RELACIONADA', target: 'decreto-1112-2024', description: 'El Decreto 1112/2024 reglamenta el Sistema de Defensa Nacional que esta ley organiza.' },
+    { type: 'RELACIONADA', target: 'ley-24059', description: 'Separa la defensa nacional (agresiones externas) de la seguridad interior de la Ley 24.059.' },
+  ],
+  'ley-27126': [
+    { type: 'MODIFICA', target: 'ley-25520', description: 'Crea la Agencia Federal de Inteligencia (AFI) en reemplazo de la SIDE y modifica la Ley de Inteligencia Nacional.' },
+  ],
+  'ley-21526': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Las entidades financieras que regula operan los contratos bancarios previstos en el Código Civil y Comercial.' },
+  ],
+  'ley-13064': [
+    { type: 'RELACIONADA', target: 'decreto-1023-2001', description: 'La obra pública se integra con el régimen general de contrataciones del Estado.' },
+  ],
+  'ley-5965': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'La letra de cambio y el pagaré son títulos de crédito que el Código Civil y Comercial trata en el régimen de títulos valores.' },
+  ],
+  'ley-26993': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Articula el sistema de resolución de conflictos de consumo con la relación de consumo del Código Civil y Comercial.' },
+  ],
+  'ley-25212': [
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'El Régimen General de Sanciones por Infracciones Laborales (Anexo II) sanciona el incumplimiento de las normas de fondo del trabajo, entre ellas la Ley de Contrato de Trabajo.' },
+    { type: 'RELACIONADA', target: 'ley-26940', description: 'Complementa el régimen sancionatorio laboral reforzando el combate al empleo no registrado.' },
+  ],
+
+  // ── Grupo A: fiscal, laboral, societario, financiero (2026-06-25) ─────────
+  'ley-27430': [
+    { type: 'MODIFICA', target: 'ley-11683', description: 'La reforma tributaria modifica numerosos artículos de la Ley de Procedimiento Tributario (determinación de oficio, sanciones, acuerdo conclusivo voluntario).' },
+    { type: 'RELACIONADA', target: 'codigo-penal', description: 'Su Título IX establece el Régimen Penal Tributario, que reemplaza la anterior ley penal tributaria.' },
+  ],
+  'ley-27348': [
+    { type: 'COMPLEMENTA', target: 'ley-24557', description: 'Ley complementaria de Riesgos del Trabajo: instaura la instancia administrativa previa ante las comisiones médicas.' },
+    { type: 'RELACIONADA', target: 'ley-24241', description: 'Las comisiones médicas que regula son las creadas por el artículo 51 de la Ley 24.241.' },
+  ],
+  'ley-27611': [
+    { type: 'RELACIONADA', target: 'ley-26061', description: 'Refuerza la protección integral de la primera infancia consagrada en la Ley 26.061.' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Se articula con la responsabilidad parental y los derechos del niño del Código Civil y Comercial.' },
+  ],
+  'ley-27349': [
+    { type: 'RELACIONADA', target: 'ley-19550', description: 'Crea la Sociedad por Acciones Simplificada (SAS), que se rige supletoriamente por la Ley General de Sociedades.' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'La SAS y los contratos asociativos se integran con el régimen de personas jurídicas y contratos del Código Civil y Comercial.' },
+  ],
+  'ley-27506': [
+    { type: 'RELACIONADA', target: 'ley-27349', description: 'Forma parte del paquete de promoción productiva junto con la Ley de Apoyo al Capital Emprendedor.' },
+    { type: 'RELACIONADA', target: 'ley-11683', description: 'Otorga estabilidad fiscal y beneficios impositivos dentro del marco de la Ley de Procedimiento Tributario.' },
+  ],
+  'ley-27260': [
+    { type: 'RELACIONADA', target: 'ley-24241', description: 'Reajusta los haberes previsionales y cancela deudas del sistema regulado por la Ley 24.241.' },
+    { type: 'RELACIONADA', target: 'ley-11683', description: 'Crea el régimen de sinceramiento fiscal (blanqueo), administrado dentro del marco de la Ley de Procedimiento Tributario.' },
+  ],
+  'ley-26831': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Regula los valores negociables, que se integran con el régimen de títulos valores del Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'ley-19550', description: 'Las sociedades emisoras que hacen oferta pública se rigen por la Ley General de Sociedades en lo no previsto por esta ley.' },
+  ],
+  'ley-27440': [
+    { type: 'MODIFICA', target: 'ley-26831', description: 'Reforma sustancialmente la Ley de Mercado de Capitales (atribuciones de la CNV, oferta pública, agentes).' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Regula la factura de crédito electrónica y los títulos valores, integrados con el Código Civil y Comercial.' },
+  ],
+
+  // ── Leyes de uso cotidiano (2026-06-25) ──────────────────────────────────
+  'ley-11723': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Los derechos de autor y la propiedad intelectual se integran con el régimen de bienes y derechos del Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'codigo-penal', description: 'Tipifica delitos contra la propiedad intelectual (reproducción y plagio no autorizados) que se aplican junto con el Código Penal.' },
+  ],
+  'ley-24449': [
+    { type: 'RELACIONADA', target: 'codigo-penal', description: 'Las infracciones graves de tránsito se vinculan con los delitos culposos del Código Penal (homicidio y lesiones culposas).' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'La responsabilidad civil por los daños de accidentes de tránsito se rige por el Código Civil y Comercial.' },
+  ],
+  'ley-23737': [
+    { type: 'MODIFICA', target: 'codigo-penal', description: 'Sustituye e incorpora figuras penales del Código Penal y establece el régimen penal de los estupefacientes.' },
+    { type: 'RELACIONADA', target: 'codigo-aduanero', description: 'Se articula con el régimen aduanero en materia de contrabando de estupefacientes y precursores químicos.' },
+  ],
+  'ley-25871': [
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Reglamenta el derecho a migrar y los derechos de los extranjeros reconocidos por la Constitución Nacional.' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Se articula con el régimen de la persona, el domicilio y la capacidad del Código Civil y Comercial.' },
+  ],
+  'ley-18345': [
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'Es la ley procesal del fuero donde se reclaman los derechos de fondo de la Ley de Contrato de Trabajo y demás normas laborales.' },
+    { type: 'RELACIONADA', target: 'ley-27348', description: 'El recurso ante la Justicia del Trabajo, tras la instancia administrativa de las comisiones médicas, tramita conforme este procedimiento.' },
+  ],
 
   // ── Estado empresario / aeronáutica (derogadas por el DNU 70/2023) ────────
   'decreto-ley-15349-1946': [
