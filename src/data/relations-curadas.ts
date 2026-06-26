@@ -275,6 +275,20 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'RELACIONADA', target: 'ley-27348', description: 'El recurso ante la Justicia del Trabajo, tras la instancia administrativa de las comisiones médicas, tramita conforme este procedimiento.' },
   ],
 
+  // ── Tier verde citadas: financiero / laboral / penal (2026-06-26) ─────────
+  'ley-24083': [
+    { type: 'RELACIONADA', target: 'ley-26831', description: 'Los fondos comunes de inversión operan en el mercado de capitales regulado por la Ley 26.831 y controlado por la Comisión Nacional de Valores.' },
+    { type: 'RELACIONADA', target: 'ley-27440', description: 'La Ley de Financiamiento Productivo modernizó el régimen de los fondos comunes de inversión, en especial los cerrados.' },
+  ],
+  'ley-24635': [
+    { type: 'MODIFICA', target: 'ley-18345', description: 'Crea la instancia obligatoria de conciliación previa (SECLO) y modifica la Ley de Procedimiento Laboral 18.345.' },
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'La conciliación previa alcanza los reclamos sobre los derechos de fondo de la Ley de Contrato de Trabajo.' },
+  ],
+  'ley-25246': [
+    { type: 'MODIFICA', target: 'codigo-penal', description: 'Reforma el delito de encubrimiento y tipifica el lavado de activos de origen delictivo en el Código Penal.' },
+    { type: 'RELACIONADA', target: 'ley-21526', description: 'Las entidades financieras son sujetos obligados a informar operaciones sospechosas a la Unidad de Información Financiera.' },
+  ],
+
   // ── Estado empresario / aeronáutica (derogadas por el DNU 70/2023) ────────
   'decreto-ley-15349-1946': [
     { type: 'RELACIONADA', target: 'ley-19550', description: 'Las sociedades de economía mixta se regían supletoriamente por el régimen de las sociedades anónimas, hoy en la Ley General de Sociedades.' },

@@ -27,6 +27,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-27430', 'ley-27349', 'ley-27260', 'ley-26831', 'ley-27440',
     // 2026-06-25: leyes de uso cotidiano (texto actualizado) verbatim; epígrafe por artículo en tandas. (18.345 enriquecida → removida)
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871',
+    // 2026-06-26: tier verde citadas (financiero/laboral/penal) verbatim; epígrafe en tandas.
+    'ley-24083', 'ley-24635', 'ley-25246',
   ]),
   // Artículos sin explicación en lenguaje claro
   sinExplicacion: new Set<string>([
@@ -40,6 +42,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-27430', 'ley-27349', 'ley-27260', 'ley-26831', 'ley-27440',
     // 2026-06-25: leyes de uso cotidiano (texto actualizado) verbatim; explicación por artículo en tandas. (18.345 enriquecida → removida)
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871',
+    // 2026-06-26: tier verde citadas (financiero/laboral/penal) verbatim; explicación en tandas.
+    'ley-24083', 'ley-24635', 'ley-25246',
   ]),
   // Normas >= INDICE_MIN_ARTS arts sin índice (norm_sections). Se dividen en:
   //  • PLANAS: sin estructura de capítulos/títulos en la fuente oficial (modificatorias o
@@ -72,6 +76,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-27430', 'ley-27348', 'ley-27611', 'ley-27349', 'ley-27506', 'ley-27260', 'ley-26831', 'ley-27440',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
+    // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario); 24.635 con índice pendiente.
+    'ley-24083', 'ley-24635', 'ley-25246',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([
