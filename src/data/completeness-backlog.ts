@@ -20,6 +20,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-23515', 'ley-25250',
     // 2026-06-29: derogadas históricas (Matrimonio Civil 1888 / Bien de Familia / Seguridad Nacional / Adopción).
     'ley-2393', 'ley-14394', 'ley-20840', 'ley-24779',
+    // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas (derogadas por CCyC) + Defensa de la Democracia (vigente).
+    'ley-13512', 'ley-23091', 'ley-23077',
     // 2026-06-26: Código Aduanero (1198 arts) y DNU 70/2023 (366 arts) — epígrafe completado → removidos.
     'const-buenos-aires', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones',
     'const-neuquen', 'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis',
@@ -44,6 +46,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-23515', 'ley-25250',
     // 2026-06-29: derogadas históricas verbatim; explicación por artículo en tandas.
     'ley-2393', 'ley-14394', 'ley-20840', 'ley-24779',
+    // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas / Defensa de la Democracia verbatim; explicación en tandas.
+    'ley-13512', 'ley-23091', 'ley-23077',
     'const-jujuy', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones', 'const-neuquen',
     'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis', 'const-santa-cruz', 'const-santa-fe',
     'const-santiago-del-estero', 'const-tierra-del-fuego', 'const-tucuman',
@@ -135,6 +139,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-25250',
     // 2026-06-29: derogadas históricas grandes (Matrimonio Civil 1888 / Bien de Familia) verbatim; índice diferido.
     'ley-2393', 'ley-14394',
+    // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas / Defensa de la Democracia (≥15 arts) verbatim; índice diferido.
+    'ley-13512', 'ley-23091', 'ley-23077',
     // 2026-06-28: tanda Digesto/demanda para llegar a 300 normas — born-complete (título+explicación+metadata+relaciones).
     //   Índice diferido: tienen estructura (títulos/capítulos) pero varias con bis o textos sustituidos inline (ord fraccionario) → ord != número.
     'ley-22315', 'ley-22351', 'ley-22990', 'ley-23184', 'ley-23898', 'ley-24452', 'ley-24588',
