@@ -22,6 +22,12 @@ export const COMPLETENESS_BACKLOG = {
     'ley-2393', 'ley-14394', 'ley-20840', 'ley-24779',
     // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas (derogadas por CCyC) + Defensa de la Democracia (vigente).
     'ley-13512', 'ley-23091', 'ley-23077',
+    // 2026-06-29: Prehorizontalidad (19.724) + Normalizacion Locaciones Urbanas 1976 (21.342), derogadas por CCyC.
+    'ley-19724', 'ley-21342',
+    // 2026-06-29: fundacionales/procesal derogadas — Ley Saenz Pena (8871) + CPP de la Nacion 1991 (23984).
+    'ley-8871', 'ley-23984',
+    // 2026-06-29: Estupefacientes 1974 (20771, derogada por 23.737) verbatim.
+    'ley-20771',
     // 2026-06-26: Código Aduanero (1198 arts) y DNU 70/2023 (366 arts) — epígrafe completado → removidos.
     'const-buenos-aires', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones',
     'const-neuquen', 'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis',
@@ -48,6 +54,12 @@ export const COMPLETENESS_BACKLOG = {
     'ley-2393', 'ley-14394', 'ley-20840', 'ley-24779',
     // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas / Defensa de la Democracia verbatim; explicación en tandas.
     'ley-13512', 'ley-23091', 'ley-23077',
+    // 2026-06-29: Prehorizontalidad + Normalizacion Locaciones Urbanas 1976 verbatim; explicación en tandas.
+    'ley-19724', 'ley-21342',
+    // 2026-06-29: Ley Saenz Pena (8871) + CPP de la Nacion 1991 (23984, 539 arts) verbatim; explicación en tandas.
+    'ley-8871', 'ley-23984',
+    // 2026-06-29: Estupefacientes 1974 (20771) verbatim; explicación en tandas.
+    'ley-20771',
     'const-jujuy', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones', 'const-neuquen',
     'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis', 'const-santa-cruz', 'const-santa-fe',
     'const-santiago-del-estero', 'const-tierra-del-fuego', 'const-tucuman',
@@ -141,6 +153,10 @@ export const COMPLETENESS_BACKLOG = {
     'ley-2393', 'ley-14394',
     // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas / Defensa de la Democracia (≥15 arts) verbatim; índice diferido.
     'ley-13512', 'ley-23091', 'ley-23077',
+    // 2026-06-29: Prehorizontalidad (26) + Normalizacion Locaciones Urbanas 1976 (50) verbatim; índice diferido.
+    'ley-19724', 'ley-21342',
+    // 2026-06-29: Ley Saenz Pena (100) + CPP de la Nacion 1991 (539) verbatim; índice diferido.
+    'ley-8871', 'ley-23984',
     // 2026-06-28: tanda Digesto/demanda para llegar a 300 normas — born-complete (título+explicación+metadata+relaciones).
     //   Índice diferido: tienen estructura (títulos/capítulos) pero varias con bis o textos sustituidos inline (ord fraccionario) → ord != número.
     'ley-22315', 'ley-22351', 'ley-22990', 'ley-23184', 'ley-23898', 'ley-24452', 'ley-24588',
