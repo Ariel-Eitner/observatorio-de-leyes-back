@@ -19,6 +19,7 @@ export const CATEGORIES: Category[] = [
   { id: 'civil',       label: 'Civil y Comercial',         description: 'Código Civil y Comercial, contratos, familia, sucesiones',               icon: '📋' },
   { id: 'aduanero',    label: 'Aduanero y Comercio',       description: 'Código Aduanero, comercio exterior, importaciones y exportaciones',      icon: '🚢' },
   { id: 'constitucion', label: 'Constitucional',           description: 'Constitución Nacional y provinciales, derechos fundamentales',           icon: '📜' },
+  { id: 'cultura',     label: 'Cultura',                   description: 'Música, cine, patrimonio, industrias culturales',                       icon: '🎭' },
 ];
 
 export const CATEGORY_MAP = new Map<string, Category>(CATEGORIES.map(c => [c.id, c]));

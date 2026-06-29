@@ -80,6 +80,22 @@ function extractNumberDigits(q: string): string | null {
   return digits.length >= 3 && digits.length <= 9 ? digits : null;
 }
 
+// Detecta una referencia directa a un artículo dentro de una norma nombrada:
+// "Código Penal art. 79", "ley 11683 art 5", "art 14 bis constitución nacional".
+// Devuelve { artNum, lawText } con el número del artículo (con sufijo bis/ter…) y
+// el texto restante que nombra a la ley. null si no hay patrón "art N" o si no
+// queda texto de ley (un "art 79" suelto es ambiguo: no se puede resolver).
+export function extractArticleRef(q: string): { artNum: string; lawText: string } | null {
+  const m = q.match(
+    /\bart(?:[íi]culos?|\.|\b)?\s*(\d+\s*(?:bis|ter|qu[áa]ter|quater|quinquies|sexies|septies)?)/i,
+  );
+  if (!m) return null;
+  const artNum = m[1].replace(/\s+/g, ' ').trim();
+  const lawText = q.replace(m[0], ' ').replace(/\s+/g, ' ').trim();
+  if (!lawText || !/[a-z0-9]/i.test(lawText)) return null;
+  return { artNum, lawText };
+}
+
 function highlightTitle(title: string, query: string): string {
   const terms = norm(query).split(/\s+/).filter((t) => t.length > 2);
   let out = title;
@@ -182,6 +198,37 @@ export class SearchDbService {
       for (const r of rows) { const it = this.lawItem(r, q); it.score = 1000; out.unshift(it); }
     }
 
+    // Referencia directa a un artículo de una norma nombrada ("Código Penal art. 79",
+    // "ley 11683 art 5"). El tsvector falla porque exige que TODOS los términos (el
+    // nombre de la ley + el nro de artículo) convivan en un mismo registro, y no lo
+    // hacen. Se resuelve buscando el artículo por número dentro de la(s) norma(s) que
+    // matchean el texto restante. Score muy alto: es lo que el usuario pidió exacto.
+    const artRef = extractArticleRef(q);
+    if (artRef && opts.type !== 'law') {
+      const artNumKey = norm(artRef.artNum).replace(/\s+/g, '');
+      const lawDigits = artRef.lawText.replace(/\D/g, '');
+      const params: unknown[] = [artNumKey, artRef.lawText, lawDigits || '\x00'];
+      const sql = `
+        SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
+               n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
+               n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories,
+               coalesce(ts_rank('${RANK_WEIGHTS}', n.search, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))), 0) AS rank,
+               (position(immutable_unaccent(lower($2)) in immutable_unaccent(lower(
+                  coalesce(n.common_name,'') || ' ' || coalesce(n.title,'') || ' ' ||
+                  coalesce(n.short_code,'') || ' ' || coalesce(array_to_string(n.aliases,' '),'')
+               ))) > 0)::int AS phrase,
+               left(coalesce(nullif(a.plain_language_explanation, ''), a.body, ''), 240) AS snippet
+        FROM articles a
+        JOIN norms n ON n.id = a.norm_id
+        WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
+          AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))
+                OR regexp_replace(n.number, '\\D', '', 'g') = $3 )
+        ORDER BY phrase DESC, rank DESC
+        LIMIT 5`;
+      const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+      for (const r of rows) { const it = this.articleItem(r, q); it.score = 2000; out.unshift(it); }
+    }
+
     // Dedup por id (el match por número puede coincidir con el del tsvector).
     const seen = new Set<string>();
     const deduped = out.filter((it) => (seen.has(it.id) ? false : (seen.add(it.id), true)));
@@ -227,6 +274,35 @@ export class SearchDbService {
           head.push({ id: i.id, type: 'law', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' });
         }
       } catch { /* ignora: el match por número es un extra */ }
+    }
+
+    // Referencia directa a un artículo ("Código Penal art. 79"): mismo caso que en
+    // search(). Se resuelve al artículo concreto y va al frente del autocompletado.
+    const artRef = extractArticleRef(q);
+    if (artRef) {
+      try {
+        const artNumKey = norm(artRef.artNum).replace(/\s+/g, '');
+        const lawDigits = artRef.lawText.replace(/\D/g, '');
+        const arows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
+          `SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
+                  n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year
+           FROM articles a JOIN norms n ON n.id = a.norm_id
+           WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
+             AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))
+                   OR regexp_replace(n.number, '\\D', '', 'g') = $3 )
+           ORDER BY (position(immutable_unaccent(lower($2)) in immutable_unaccent(lower(
+                       coalesce(n.common_name,'') || ' ' || coalesce(n.title,'') || ' ' ||
+                       coalesce(n.short_code,'') || ' ' || coalesce(array_to_string(n.aliases,' '),'')
+                     ))) > 0)::int DESC,
+                    ts_rank('${RANK_WEIGHTS}', n.search, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))) DESC
+           LIMIT 3`,
+          artNumKey, artRef.lawText, lawDigits || '\x00',
+        );
+        for (const r of arows) {
+          const i = this.articleItem(r, q);
+          head.push({ id: i.id, type: 'article', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, articleId: i.articleId, articleNumber: i.articleNumber, articleTitle: i.articleTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' });
+        }
+      } catch { /* ignora: el match por referencia es un extra */ }
     }
 
     const mapped: SearchSuggestion[] = rows.map((r): SearchSuggestion => {

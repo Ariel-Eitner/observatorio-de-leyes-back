@@ -6,7 +6,7 @@ import type { NormStub } from '../data/norm-stubs';
 import { Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
-import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks } from '../common/utils/inline-refs.util';
+import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks, pruneDanglingSelfRefs, artNumKey } from '../common/utils/inline-refs.util';
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 
 // Metadata estática que no puede derivarse de los data files solos
@@ -190,6 +190,8 @@ const SLUG_ALIASES: Record<string, string> = {
 	'ley-omnibus': 'ley-27742',
 	'ley-de-bases': 'ley-27742',
 	rigi: 'ley-27742',
+	// Slugs viejos "de marca" (antes en TIPO_SLUG); ahora canónico = número-nombre → 308.
+	'ley-de-contrato-laboral': 'ley-20744',
 	// Slug viejo del 6961 (tenía el número duplicado por el título); redirige 308 al canónico.
 	'6961-6961-modificacion-del-codigo-contravencional-de-caba-servici': 'ley-caba-6961',
 };
@@ -459,6 +461,12 @@ export class LawsService implements OnModuleInit {
 			const { combined, nameToCode } = this.getRefCtx();
 			const ctxLawCode = law.shortCode ?? '';
 			const isAvail = (lc: string) => this.refAvailable(lc);
+			// Números de artículo que realmente existen en esta norma. Sirve para podar
+			// refs "colgantes" a la propia norma (un "artículo 140" citado en una
+			// explicación que en realidad es de otra ley, o un número que no es artículo)
+			// que el parser, sin ley explícita, engancha al artículo homónimo de esta
+			// norma → enlace 404. Ver pruneDanglingSelfRefs.
+			const validArtKeys = new Set((law.articles ?? []).map((a) => artNumKey(a.number)));
 			// El texto oficial cita OTRAS leyes: sin ctx, para que "art. N" suelto no
 			// se enganche por error a la norma actual (solo refs explícitas).
 			for (const art of law.articles ?? []) {
@@ -466,17 +474,17 @@ export class LawsService implements OnModuleInit {
 					art.textChunks = parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode);
 				}
 				if (art.plainLanguageExplanation) {
-					art.explanationChunks = parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode);
+					art.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys);
 				}
 				for (const seg of art.segments ?? []) {
 					if (seg.text) {
 						seg.textChunks = parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode);
 					}
 					if (seg.plainExplanation) {
-						seg.explanationChunks = parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode);
+						seg.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
 					}
 					if (seg.practicalExample) {
-						seg.exampleChunks = parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode);
+						seg.exampleChunks = pruneDanglingSelfRefs(parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
 					}
 				}
 			}

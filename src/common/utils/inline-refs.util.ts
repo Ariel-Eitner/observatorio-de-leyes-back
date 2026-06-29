@@ -51,11 +51,24 @@ function cleanName(label: string): string {
 }
 const normKey = (s: string) => s.replace(/\s+/g, ' ').trim().toLowerCase();
 
+// Nombres canónicos cortos de las normas troncales, sembrados SIEMPRE en el índice.
+// El registry guarda la forma larga ("Código Penal de la Nación Argentina") o el
+// título de la ley de implementación ("Ley de Implementación del CPP Federal"), así
+// que sin esto "art. 140 del Código Penal" no engancha y queda como texto. Van
+// primero: si una entrada del registry repite el nombre, gana el canónico (dedup).
+const CANONICAL_NAME_ENTRIES: NameIndexEntry[] = [
+  { label: 'Código Penal', shortCode: 'CP' },
+  { label: 'Constitución Nacional', shortCode: 'CN' },
+  { label: 'Código Civil y Comercial', shortCode: 'CCyCN' },
+  { label: 'Código Aduanero', shortCode: 'CA' },
+  { label: 'Código Procesal Penal', shortCode: 'CPP' },
+];
+
 /** Construye el patrón de nombres + el mapa nombre→código desde el registry. */
 export function buildLawNamesIndex(entries: NameIndexEntry[]): NameIndex {
   const nameToCode: Record<string, string> = {};
   const names: string[] = [];
-  for (const e of entries) {
+  for (const e of [...CANONICAL_NAME_ENTRIES, ...entries]) {
     const name = cleanName(e.label);
     if (!name || name.length < 11 || !NAME_OK.test(name)) continue;
     const code = e.shortCode || (e.number ? `Ley ${e.number}` : '');
@@ -211,4 +224,40 @@ export function parseRefChunks(
 
   if (lastIndex < input.length) chunks.push({ kind: 'text', text: input.slice(lastIndex) });
   return chunks;
+}
+
+// Clave normalizada de número de artículo para comparar refs contra los artículos
+// reales de una norma ("14 bis" → "14bis", "1°" → "1", "245 BIS" → "245bis").
+export function artNumKey(n: string): string {
+  return n.toLowerCase().replace(/[°º]/g, '').replace(/\s+/g, '');
+}
+
+/**
+ * Poda referencias "colgantes" a la PROPIA norma: convierte en texto plano las refs
+ * de tipo artículo cuyo `lawCode` es la norma de contexto pero cuyo número NO existe
+ * en ella. Cubre los falsos enlaces que producen 404 cuando una explicación cita un
+ * artículo de OTRA ley sin nombrarla de forma reconocible ("el artículo 140 del
+ * Código Penal") o cuando un número no es un artículo ("la línea es el 145"): el
+ * parser, sin ley explícita, los engancha al artículo homónimo de la norma actual.
+ *
+ * Solo toca refs que apuntan a la norma de contexto (`ctxLawCode`); las refs a otras
+ * leyes quedan intactas. No altera `parseRefChunks` (paridad con el parser del front).
+ */
+export function pruneDanglingSelfRefs(
+  chunks: RefChunk[],
+  ctxLawCode: string | undefined,
+  validArtKeys: Set<string>,
+): RefChunk[] {
+  if (!ctxLawCode) return chunks;
+  return chunks.map((c): RefChunk => {
+    if (c.kind === 'art' && c.lawCode === ctxLawCode && !validArtKeys.has(artNumKey(c.articleNumber))) {
+      return { kind: 'text', text: c.text };
+    }
+    if (c.kind === 'multi' && c.lawCode === ctxLawCode) {
+      const keep = c.articleNumbers.filter((n) => validArtKeys.has(artNumKey(n)));
+      if (keep.length === 0) return { kind: 'text', text: c.text };
+      if (keep.length !== c.articleNumbers.length) return { ...c, articleNumbers: keep };
+    }
+    return c;
+  });
 }

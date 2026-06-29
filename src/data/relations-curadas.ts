@@ -288,6 +288,96 @@ export const RELACIONES_CURADAS: Record<string, CuratedEdge[]> = {
     { type: 'MODIFICA', target: 'codigo-penal', description: 'Reforma el delito de encubrimiento y tipifica el lavado de activos de origen delictivo en el Código Penal.' },
     { type: 'RELACIONADA', target: 'ley-21526', description: 'Las entidades financieras son sujetos obligados a informar operaciones sospechosas a la Unidad de Información Financiera.' },
   ],
+  'ley-23966': [
+    { type: 'RELACIONADA', target: 'ley-11683', description: 'El Impuesto sobre los Bienes Personales y demás tributos que crea se aplican dentro del marco de la Ley de Procedimiento Tributario.' },
+    { type: 'RELACIONADA', target: 'ley-27430', description: 'La reforma tributaria y normas posteriores modificaron el Impuesto sobre los Bienes Personales de esta ley.' },
+  ],
+  'ley-26363': [
+    { type: 'MODIFICA', target: 'ley-24449', description: 'Crea la Agencia Nacional de Seguridad Vial y la Licencia Nacional de Conducir, y modifica la Ley Nacional de Tránsito.' },
+    { type: 'RELACIONADA', target: 'codigo-penal', description: 'La política de seguridad vial se vincula con los delitos culposos de tránsito del Código Penal.' },
+  ],
+  'ley-23576': [
+    { type: 'RELACIONADA', target: 'ley-26831', description: 'Las obligaciones negociables son valores negociables que se ofertan en el mercado de capitales bajo control de la Comisión Nacional de Valores.' },
+    { type: 'RELACIONADA', target: 'ley-19550', description: 'Las sociedades por acciones que emiten obligaciones negociables se rigen, en lo no previsto, por la Ley General de Sociedades.' },
+  ],
+  'ley-24441': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Creó el fideicomiso y el leasing; su régimen general fue luego incorporado al Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'ley-26831', description: 'El fideicomiso financiero opera en el mercado de capitales bajo control de la Comisión Nacional de Valores.' },
+  ],
+  'ley-24463': [
+    { type: 'RELACIONADA', target: 'ley-24241', description: 'Reforma el sistema previsional regulado por la Ley 24.241: movilidad, topes y financiamiento.' },
+    { type: 'RELACIONADA', target: 'ley-27260', description: 'Se inscribe en la cadena de normas sobre determinación y reajuste de los haberes previsionales.' },
+  ],
+  'ley-26417': [
+    { type: 'RELACIONADA', target: 'ley-24241', description: 'Establece la movilidad de las prestaciones del régimen previsional regulado por la Ley 24.241.' },
+    { type: 'RELACIONADA', target: 'ley-24463', description: 'Sucede al régimen de movilidad atado al presupuesto de la Ley de Solidaridad Previsional.' },
+  ],
+  'ley-20643': [
+    { type: 'RELACIONADA', target: 'ley-26831', description: 'Crea la Caja de Valores, depositaria central de los valores negociables del mercado de capitales.' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Se vincula con el régimen de los títulos valores del Código Civil y Comercial.' },
+  ],
+  'ley-24481': [
+    { type: 'RELACIONADA', target: 'ley-11723', description: 'Integra el sistema de propiedad intelectual e industrial junto con los derechos de autor de la Ley 11.723.' },
+    { type: 'RELACIONADA', target: 'ley-22362', description: 'Forma parte del régimen de propiedad industrial junto con la Ley de Marcas y Designaciones.' },
+  ],
+  'ley-22362': [
+    { type: 'RELACIONADA', target: 'ley-11723', description: 'Integra el sistema de propiedad intelectual e industrial junto con los derechos de autor de la Ley 11.723.' },
+    { type: 'RELACIONADA', target: 'ley-24481', description: 'Forma parte del régimen de propiedad industrial junto con la Ley de Patentes de Invención.' },
+  ],
+  'ley-24521': [
+    { type: 'RELACIONADA', target: 'ley-26206', description: 'La educación superior se articula con el sistema educativo regulado por la Ley de Educación Nacional.' },
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Reglamenta la autonomía universitaria y los principios educativos del artículo 75 inciso 19 de la Constitución Nacional.' },
+  ],
+  'ley-17418': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'El contrato de seguro se rige por esta ley especial y, supletoriamente, por el Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'ley-20091', description: 'Regula el contrato de seguro; la Ley 20.091 regula a las aseguradoras y su control por la Superintendencia de Seguros de la Nación.' },
+  ],
+  'ley-19587': [
+    { type: 'RELACIONADA', target: 'ley-24557', description: 'Fija las condiciones de higiene y seguridad cuyo incumplimiento se vincula con los accidentes y enfermedades cubiertos por la Ley de Riesgos del Trabajo.' },
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'Concreta el deber de seguridad del empleador previsto en la Ley de Contrato de Trabajo.' },
+  ],
+  'ley-11867': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'La transferencia del fondo de comercio se integra con el régimen de contratos y bienes del Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'ley-19550', description: 'La transmisión de establecimientos comerciales suele darse en operaciones societarias regidas por la Ley General de Sociedades.' },
+  ],
+
+  // ── Alto valor social: salud / género / ambiente (2026-06-26) ─────────────
+  'ley-27675': [
+    { type: 'RELACIONADA', target: 'ley-23798', description: 'Reemplaza y amplía la anterior Ley Nacional de SIDA con una respuesta integral al VIH, las hepatitis, las ITS y la tuberculosis.' },
+    { type: 'RELACIONADA', target: 'ley-26529', description: 'Garantiza la atención respetando la autonomía, la confidencialidad y los derechos del paciente.' },
+  ],
+  'ley-26862': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'La filiación derivada de las técnicas de reproducción humana asistida está regulada en el Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'ley-26529', description: 'El acceso a las técnicas se realiza con el consentimiento informado y los derechos del paciente.' },
+  ],
+  'ley-27447': [
+    { type: 'RELACIONADA', target: 'ley-26529', description: 'La donación y el trasplante se rigen por el consentimiento informado y los derechos del paciente.' },
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Se vincula con los derechos personalísimos y la disposición del propio cuerpo del Código Civil y Comercial.' },
+  ],
+  'ley-27636': [
+    { type: 'RELACIONADA', target: 'ley-26743', description: 'Profundiza los derechos de las personas travestis, transexuales y transgénero reconocidos por la Ley de Identidad de Género, en el acceso al empleo.' },
+    { type: 'RELACIONADA', target: 'ley-20744', description: 'Promueve el acceso al empleo formal, regido en el sector privado por la Ley de Contrato de Trabajo.' },
+  ],
+  'ley-27592': [
+    { type: 'RELACIONADA', target: 'ley-25675', description: 'Refuerza la educación ambiental dentro de la política ambiental nacional de la Ley General del Ambiente.' },
+    { type: 'RELACIONADA', target: 'constitucion-nacional', description: 'Operativiza el derecho a un ambiente sano del artículo 41 de la Constitución a través de la capacitación de los agentes públicos.' },
+  ],
+  'ley-26364': [
+    { type: 'MODIFICA', target: 'codigo-penal', description: 'Tipifica la trata de personas e incorpora figuras al Código Penal (artículos 145 bis y 145 ter).' },
+    { type: 'RELACIONADA', target: 'ley-26485', description: 'La trata con fines de explotación sexual se vincula con la protección contra la violencia de género de la Ley 26.485.' },
+  ],
+  'ley-17454': [
+    { type: 'RELACIONADA', target: 'codigo-civil-comercial', description: 'Es la ley procesal con la que se hacen valer ante la Justicia los derechos de fondo del Código Civil y Comercial.' },
+    { type: 'RELACIONADA', target: 'ley-27423', description: 'Los honorarios de los profesionales en los procesos regidos por este código se regulan conforme la Ley de Honorarios.' },
+  ],
+  'ley-20628': [
+    { type: 'RELACIONADA', target: 'ley-11683', description: 'El Impuesto a las Ganancias se determina, declara y recauda dentro del marco de la Ley de Procedimiento Tributario.' },
+    { type: 'RELACIONADA', target: 'ley-27430', description: 'La reforma tributaria de la Ley 27.430 modificó profundamente el Impuesto a las Ganancias.' },
+  ],
+  'ley-24674': [
+    { type: 'RELACIONADA', target: 'ley-11683', description: 'Los impuestos internos se determinan, declaran y recaudan dentro del marco de la Ley de Procedimiento Tributario.' },
+    { type: 'RELACIONADA', target: 'ley-27430', description: 'La reforma tributaria de la Ley 27.430 modificó el régimen de impuestos internos.' },
+  ],
 
   // ── Estado empresario / aeronáutica (derogadas por el DNU 70/2023) ────────
   'decreto-ley-15349-1946': [
