@@ -63,6 +63,19 @@ function norm(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9\s]/g, '').trim();
 }
 
+// Palabras genéricas que NO identifican una norma puntual (el usuario las agrega por
+// costumbre: "ley de...", "código...", "decreto..."). Se descartan al hacer el match
+// por nombre para no exigir que estén en el título (ej. la norma puede llamarse
+// "Contrato de Trabajo" sin la palabra "Ley").
+const NAME_GENERIC = new Set([
+  'ley', 'leyes', 'decreto', 'decretos', 'codigo', 'dnu', 'norma', 'normas',
+  'resolucion', 'disposicion', 'nacional', 'de', 'del', 'la', 'el', 'los', 'las',
+  'y', 'en', 'para', 'por', 'con',
+]);
+function nameTerms(q: string): string[] {
+  return norm(q).split(/\s+/).filter((t) => t.length > 2 && !NAME_GENERIC.has(t));
+}
+
 // Extrae el número de una norma cuando la query ES (esencialmente) un número:
 // "26.388", "26388", "ley 26.388", "decreto 1112/2024", "941/2025". Devuelve solo
 // los dígitos para un match directo por número. null si la query trae texto además
@@ -229,10 +242,48 @@ export class SearchDbService {
       for (const r of rows) { const it = this.articleItem(r, q); it.score = 2000; out.unshift(it); }
     }
 
-    // Dedup por id (el match por número puede coincidir con el del tsvector).
-    const seen = new Set<string>();
-    const deduped = out.filter((it) => (seen.has(it.id) ? false : (seen.add(it.id), true)));
-    return deduped.sort((a, b) => b.score - a.score).slice(0, limit);
+    // Boost por NOMBRE de norma: cuando el usuario escribe el nombre de una ley
+    // ("ley de contrato de trabajo", "código penal", "LCT"), priorizamos la norma cuyo
+    // nombre / sigla / alias contiene TODOS los términos significativos (sin los
+    // genéricos). El nombre más corto que matchea gana (el más específico). Resuelve
+    // que los artículos sueltos con esas palabras enterraran a la ley buscada.
+    const nt = nameTerms(q);
+    if (nt.length > 0 && opts.type !== 'article') {
+      try {
+        // Similaridad por trigramas (pg_trgm) sobre el NOMBRE (title/common_name) + sigla
+        // exacta. Rankea bien nombres multi-palabra ("código penal" → Código Penal) y
+        // descarta los que no se parecen (no más "Vinos"/"SIDA" por matchear un alias).
+        // Score por similaridad → la norma más parecida al nombre tipeado queda primera.
+        const params: unknown[] = [q, nt];
+        const where = this.filterClauses(opts, params);
+        const sql = `
+          SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title,
+                 n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories,
+                 coalesce(n.summary,'') AS summary, coalesce(n.summary,'') AS snippet,
+                 GREATEST(
+                   word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))),
+                   (immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]))::int::float
+                 ) AS sim
+          FROM norms n
+          WHERE ( word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))) >= 0.4
+                  OR immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]) )
+                ${where}
+          ORDER BY sim DESC, length(coalesce(n.common_name, n.title)) ASC
+          LIMIT 6`;
+        const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+        rows.forEach((r, i) => { const it = this.lawItem(r, q); it.score = 500 + Number(r.sim) * 300 - i * 0.1; out.push(it); });
+      } catch { /* el boost por nombre es un extra; nunca rompe la búsqueda */ }
+    }
+
+    // Dedup por id quedándonos con el MAYOR score: una norma puede venir del FTS (score
+    // bajo) Y del boost por nombre/número/artículo (score alto) — debe ganar el alto.
+    // (Antes el dedup se quedaba con la primera aparición = la del FTS, y enterraba el boost.)
+    const best = new Map<string, SearchResultItem>();
+    for (const it of out) {
+      const prev = best.get(it.id);
+      if (!prev || it.score > prev.score) best.set(it.id, it);
+    }
+    return [...best.values()].sort((a, b) => b.score - a.score).slice(0, limit);
   }
 
   async suggest(query: string, limit = 8): Promise<SearchSuggestion[]> {
@@ -305,6 +356,29 @@ export class SearchDbService {
       } catch { /* ignora: el match por referencia es un extra */ }
     }
 
+    // Match por NOMBRE de norma (trigramas, ver search()): "ley de contrato de trabajo" → LCT.
+    const nt = nameTerms(q);
+    if (nt.length > 0) {
+      try {
+        const nrows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
+          `SELECT n.id, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
+                  GREATEST(
+                    word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))),
+                    (immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]))::int::float
+                  ) AS sim
+           FROM norms n
+           WHERE ( word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))) >= 0.4
+                   OR immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]) )
+           ORDER BY sim DESC, length(coalesce(n.common_name, n.title)) ASC LIMIT 5`,
+          q, nt,
+        );
+        for (const r of nrows) {
+          const i = this.lawItem({ ...r, id: r.id }, q);
+          head.push({ id: i.id, type: 'law', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' });
+        }
+      } catch { /* el match por nombre es un extra */ }
+    }
+
     const mapped: SearchSuggestion[] = rows.map((r): SearchSuggestion => {
       if (r.rtype === 'law') {
         const i = this.lawItem(r, q);
@@ -314,8 +388,18 @@ export class SearchDbService {
       return { id: i.id, type: 'article', lawId: i.lawId, lawNumber: i.lawNumber, lawTitle: i.lawTitle, articleId: i.articleId, articleNumber: i.articleNumber, articleTitle: i.articleTitle, title: i.title, highlightedTitle: i.highlightedTitle, normType: i.normType, year: i.year, url: i.url, snippet: '' };
     });
 
+    // Si hubo match por NOMBRE, sacamos las LEYES del FTS (ruido: matchean una palabra
+    // suelta del cuerpo, no el nombre). Los ARTÍCULOS del FTS quedan. Sin match por
+    // nombre, el FTS de leyes sigue como fallback.
+    const nameLawIds = new Set(head.filter((h) => h.type === 'law').map((h) => h.lawId));
+    const hasNameMatch = nt.length > 0 && nameLawIds.size > 0;
     const seenIds = new Set(head.map((h) => h.id));
-    return [...head, ...mapped.filter((m) => !seenIds.has(m.id))].slice(0, limit);
+    const body = mapped.filter((m) => {
+      if (seenIds.has(m.id)) return false;
+      if (m.type === 'law' && hasNameMatch && !nameLawIds.has(m.lawId)) return false;
+      return true;
+    });
+    return [...head, ...body].slice(0, limit);
   }
 
   async facets(query?: string): Promise<Record<string, Record<string, number>>> {

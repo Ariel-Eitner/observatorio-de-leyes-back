@@ -28,6 +28,9 @@ export class CreateEgresoDto {
   @IsOptional() @IsString()
   comprobante?: string;
 
+  @IsOptional() @IsString()
+  estado?: string; // pagado | pendiente
+
   @IsOptional() @IsBoolean()
-  deducible?: boolean;
+  recurrente?: boolean;
 }

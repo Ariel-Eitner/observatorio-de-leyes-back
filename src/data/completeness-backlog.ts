@@ -12,24 +12,13 @@
 export const COMPLETENESS_BACKLOG = {
   // Artículos sin título (epígrafe)
   sinTitulo: new Set<string>([
-    // 2026-06-29: cluster electoral cargado verbatim (texto actualizado); epígrafe por artículo en tandas.
-    'ley-19945', 'ley-23298', 'ley-26571',
-    // 2026-06-29: Ley 24.769 (Régimen Penal Tributario, DEROGADA por 27.430) verbatim; epígrafe en tandas.
-    'ley-24769',
-    // 2026-06-29: derogadas icónicas modificatorias (texto verbatim, epígrafe en tandas).
-    'ley-23515', 'ley-25250',
-    // 2026-06-29: derogadas históricas (Matrimonio Civil 1888 / Bien de Familia / Seguridad Nacional / Adopción).
-    'ley-2393', 'ley-14394', 'ley-20840', 'ley-24779',
-    // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas (derogadas por CCyC) + Defensa de la Democracia (vigente).
-    'ley-13512', 'ley-23091', 'ley-23077',
-    // 2026-06-29: Prehorizontalidad (19.724) + Normalizacion Locaciones Urbanas 1976 (21.342), derogadas por CCyC.
-    'ley-19724', 'ley-21342',
-    // 2026-06-29: fundacionales/procesal derogadas — Ley Saenz Pena (8871) + CPP de la Nacion 1991 (23984).
-    'ley-8871', 'ley-23984',
-    // 2026-06-29: Estupefacientes 1974 (20771, derogada por 23.737) verbatim.
-    'ley-20771',
-    // 2026-06-30: leyes RRHH verbatim (epígrafe en tandas): trabajo adolescente, pasantías, beneficios sociales, estatuto periodista.
-    'ley-26390', 'ley-26427', 'ley-24700', 'ley-12908',
+    // 2026-06-29: cluster electoral verbatim enriquecido (epígrafe) → removidos: 19.945 Código Electoral, 23.298 Partidos, 26.571 PASO.
+    // 2026-06-30: derogadas enriquecidas (epígrafe) → removidas: 24.769, 23.515, 20.840, 24.779, 13.512, 23.091, 20.771, 25.250, 14.394, 21.342, 2.393, 8.871.
+    // Pendiente derogada: 23.984 (CPP 1991, 539, el más grande).
+    'ley-23984',
+    // BUG DE DATOS: ley-19724 ("Prehorizontalidad") tiene cargado el texto de una RG de AFIP (COTI), NO la Ley de Prehorizontalidad de 1972. Recargar texto correcto antes de enriquecer.
+    'ley-19724',
+    // 2026-06-30: RRHH + Estatuto del Periodista verbatim enriquecidas (epígrafe) → removidas: 26.390, 26.427, 24.700, 12.908.
     // 2026-06-26: Código Aduanero (1198 arts) y DNU 70/2023 (366 arts) — epígrafe completado → removidos.
     'const-buenos-aires', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones',
     'const-neuquen', 'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis',
@@ -48,22 +37,10 @@ export const COMPLETENESS_BACKLOG = {
   ]),
   // Artículos sin explicación en lenguaje claro
   sinExplicacion: new Set<string>([
-    // 2026-06-29: cluster electoral (Código Electoral 19.945 / Partidos 23.298 / PASO 26.571) verbatim; explicación por artículo en tandas.
-    'ley-19945', 'ley-23298', 'ley-26571', 'ley-24769',
-    // 2026-06-29: derogadas icónicas modificatorias verbatim; explicación por artículo en tandas.
-    'ley-23515', 'ley-25250',
-    // 2026-06-29: derogadas históricas verbatim; explicación por artículo en tandas.
-    'ley-2393', 'ley-14394', 'ley-20840', 'ley-24779',
-    // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas / Defensa de la Democracia verbatim; explicación en tandas.
-    'ley-13512', 'ley-23091', 'ley-23077',
-    // 2026-06-29: Prehorizontalidad + Normalizacion Locaciones Urbanas 1976 verbatim; explicación en tandas.
-    'ley-19724', 'ley-21342',
-    // 2026-06-29: Ley Saenz Pena (8871) + CPP de la Nacion 1991 (23984, 539 arts) verbatim; explicación en tandas.
-    'ley-8871', 'ley-23984',
-    // 2026-06-29: Estupefacientes 1974 (20771) verbatim; explicación en tandas.
-    'ley-20771',
-    // 2026-06-30: leyes RRHH verbatim; explicación por artículo en tandas.
-    'ley-26390', 'ley-26427', 'ley-24700', 'ley-12908',
+    // 2026-06-30: derogadas enriquecidas (explicación) → removidas: 24.769, 23.515, 20.840, 24.779, 13.512, 23.091, 20.771, 25.250, 14.394, 21.342, 2.393, 8.871.
+    // Pendiente derogada: 23.984 (CPP 1991, 539). BUG: 19.724 tiene texto de RG AFIP (COTI), recargar.
+    'ley-23984', 'ley-19724',
+    // 2026-06-30: RRHH + Estatuto del Periodista verbatim enriquecidas (explicación) → removidas: 26.390, 26.427, 24.700, 12.908.
     'const-jujuy', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones', 'const-neuquen',
     'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis', 'const-santa-cruz', 'const-santa-fe',
     'const-santiago-del-estero', 'const-tierra-del-fuego', 'const-tucuman',
@@ -161,7 +138,7 @@ export const COMPLETENESS_BACKLOG = {
     'ley-19724', 'ley-21342',
     // 2026-06-29: Ley Saenz Pena (100) + CPP de la Nacion 1991 (539) verbatim; índice diferido.
     'ley-8871', 'ley-23984',
-    // 2026-06-30: leyes RRHH (>=15 arts) verbatim; índice diferido.
+    // 2026-06-30: 26.390/26.427 modificatorias PLANAS (sustituyen artículos de otras leyes, sin capítulos propios) → exentas; 12.908 índice diferido.
     'ley-26390', 'ley-26427', 'ley-12908',
     // 2026-06-28: tanda Digesto/demanda para llegar a 300 normas — born-complete (título+explicación+metadata+relaciones).
     //   Índice diferido: tienen estructura (títulos/capítulos) pero varias con bis o textos sustituidos inline (ord fraccionario) → ord != número.

@@ -21,7 +21,8 @@ export class FinanzasService {
         tipoCambio: dto.tipoCambio,
         montoArs:   dto.montoArs,
         comprobante: dto.comprobante,
-        deducible:  dto.deducible ?? true,
+        estado:     dto.estado ?? 'pagado',
+        recurrente: dto.recurrente ?? false,
       },
     });
   }
@@ -51,7 +52,8 @@ export class FinanzasService {
         ...(dto.tipoCambio !== undefined ? { tipoCambio: dto.tipoCambio } : {}),
         ...(dto.montoArs   !== undefined ? { montoArs: dto.montoArs } : {}),
         ...(dto.comprobante !== undefined ? { comprobante: dto.comprobante } : {}),
-        ...(dto.deducible  !== undefined ? { deducible: dto.deducible } : {}),
+        ...(dto.estado     !== undefined ? { estado: dto.estado } : {}),
+        ...(dto.recurrente !== undefined ? { recurrente: dto.recurrente } : {}),
       },
     });
   }
@@ -125,21 +127,36 @@ export class FinanzasService {
       this.findAllIngresos(desde, hasta),
     ]);
 
-    const totalEgresosUsd = egresos.filter(e => e.moneda === 'USD').reduce((s, e) => s + e.monto, 0);
-    const totalEgresosArs = egresos.filter(e => e.moneda === 'ARS').reduce((s, e) => s + e.monto, 0);
-    const totalIngresosUsd = ingresos.filter(i => i.moneda === 'USD').reduce((s, i) => s + i.monto, 0);
-    const totalIngresosArs = ingresos.filter(i => i.moneda === 'ARS').reduce((s, i) => s + i.monto, 0);
+    // Equivalente en USD por registro: si es USD, el monto; si es ARS, monto / tipoCambio.
+    const usd = (x: { moneda: string; monto: number; tipoCambio: number | null }) =>
+      x.moneda === 'USD' ? x.monto : (x.tipoCambio ? x.monto / x.tipoCambio : 0);
+
+    const pagados    = egresos.filter(e => e.estado !== 'pendiente');
+    const pendientes = egresos.filter(e => e.estado === 'pendiente');
+
+    const pagadoUsd            = pagados.reduce((s, e) => s + usd(e), 0);
+    const pendienteUsd         = pendientes.reduce((s, e) => s + usd(e), 0);
+    const recurrenteMensualUsd = egresos.filter(e => e.recurrente).reduce((s, e) => s + usd(e), 0);
 
     const porCategoria: Record<string, number> = {};
-    for (const e of egresos) {
-      porCategoria[e.categoria] = (porCategoria[e.categoria] ?? 0) + (e.montoArs ?? e.monto);
+    for (const e of pagados) {
+      porCategoria[e.categoria] = (porCategoria[e.categoria] ?? 0) + usd(e);
     }
 
+    const totalIngresosUsd = ingresos.reduce((s, i) => s + usd(i), 0);
+    const totalIngresosArs = ingresos.filter(i => i.moneda === 'ARS').reduce((s, i) => s + i.monto, 0);
+
     return {
-      egresos:   { totalUsd: totalEgresosUsd, totalArs: totalEgresosArs, count: egresos.length, porCategoria },
-      ingresos:  { totalUsd: totalIngresosUsd, totalArs: totalIngresosArs, count: ingresos.length },
-      balanceUsd: totalIngresosUsd - totalEgresosUsd,
-      balanceArs: totalIngresosArs - totalEgresosArs,
+      egresos: {
+        pagadoUsd,
+        pendienteUsd,
+        recurrenteMensualUsd,
+        count: pagados.length,
+        countPendiente: pendientes.length,
+        porCategoria,
+      },
+      ingresos: { totalUsd: totalIngresosUsd, totalArs: totalIngresosArs, count: ingresos.length },
+      balanceUsd: totalIngresosUsd - pagadoUsd,
     };
   }
 }

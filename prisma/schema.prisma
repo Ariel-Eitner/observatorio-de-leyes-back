@@ -177,7 +177,8 @@ model Egreso {
   tipoCambio  Float?   @map("tipo_cambio")
   montoArs    Float?   @map("monto_ars")
   comprobante String?
-  deducible   Boolean  @default(true)
+  estado      String   @default("pagado") // pagado | pendiente
+  recurrente  Boolean  @default(false)
   createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
@@ -200,6 +201,7 @@ model Ingreso {
   medioCobro  String   @default("STRIPE") @map("medio_cobro") // MERCADOPAGO | STRIPE | TRANSFERENCIA | EFECTIVO | OTRO
   facturaAfip String?  @map("factura_afip")
   periodo     String?  // "2026-05"
+  sourceRef   String?  @unique @map("source_ref") // dedupe de ingresos creados desde un pago
   createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
