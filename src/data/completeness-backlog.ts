@@ -28,6 +28,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-8871', 'ley-23984',
     // 2026-06-29: Estupefacientes 1974 (20771, derogada por 23.737) verbatim.
     'ley-20771',
+    // 2026-06-30: leyes RRHH verbatim (epígrafe en tandas): trabajo adolescente, pasantías, beneficios sociales, estatuto periodista.
+    'ley-26390', 'ley-26427', 'ley-24700', 'ley-12908',
     // 2026-06-26: Código Aduanero (1198 arts) y DNU 70/2023 (366 arts) — epígrafe completado → removidos.
     'const-buenos-aires', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones',
     'const-neuquen', 'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis',
@@ -60,6 +62,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-8871', 'ley-23984',
     // 2026-06-29: Estupefacientes 1974 (20771) verbatim; explicación en tandas.
     'ley-20771',
+    // 2026-06-30: leyes RRHH verbatim; explicación por artículo en tandas.
+    'ley-26390', 'ley-26427', 'ley-24700', 'ley-12908',
     'const-jujuy', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones', 'const-neuquen',
     'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis', 'const-santa-cruz', 'const-santa-fe',
     'const-santiago-del-estero', 'const-tierra-del-fuego', 'const-tucuman',
@@ -157,6 +161,8 @@ export const COMPLETENESS_BACKLOG = {
     'ley-19724', 'ley-21342',
     // 2026-06-29: Ley Saenz Pena (100) + CPP de la Nacion 1991 (539) verbatim; índice diferido.
     'ley-8871', 'ley-23984',
+    // 2026-06-30: leyes RRHH (>=15 arts) verbatim; índice diferido.
+    'ley-26390', 'ley-26427', 'ley-12908',
     // 2026-06-28: tanda Digesto/demanda para llegar a 300 normas — born-complete (título+explicación+metadata+relaciones).
     //   Índice diferido: tienen estructura (títulos/capítulos) pero varias con bis o textos sustituidos inline (ord fraccionario) → ord != número.
     'ley-22315', 'ley-22351', 'ley-22990', 'ley-23184', 'ley-23898', 'ley-24452', 'ley-24588',
