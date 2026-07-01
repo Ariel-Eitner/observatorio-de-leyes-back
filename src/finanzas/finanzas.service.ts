@@ -23,6 +23,7 @@ export class FinanzasService {
         comprobante: dto.comprobante,
         estado:     dto.estado ?? 'pagado',
         recurrente: dto.recurrente ?? false,
+        mesesPagados: dto.mesesPagados ?? [],
       },
     });
   }
@@ -54,6 +55,7 @@ export class FinanzasService {
         ...(dto.comprobante !== undefined ? { comprobante: dto.comprobante } : {}),
         ...(dto.estado     !== undefined ? { estado: dto.estado } : {}),
         ...(dto.recurrente !== undefined ? { recurrente: dto.recurrente } : {}),
+        ...(dto.mesesPagados !== undefined ? { mesesPagados: dto.mesesPagados } : {}),
       },
     });
   }

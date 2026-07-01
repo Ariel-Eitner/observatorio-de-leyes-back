@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsNumber, IsOptional, IsBoolean, IsDateString } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, IsOptional, IsBoolean, IsDateString, IsArray } from 'class-validator';
 
 export class CreateEgresoDto {
   @IsDateString()
@@ -33,4 +33,7 @@ export class CreateEgresoDto {
 
   @IsOptional() @IsBoolean()
   recurrente?: boolean;
+
+  @IsOptional() @IsArray() @IsString({ each: true })
+  mesesPagados?: string[]; // recurrentes: meses "YYYY-MM" pagados
 }

@@ -145,6 +145,10 @@ export const COMPLETENESS_BACKLOG = {
     'ley-22315', 'ley-22351', 'ley-22990', 'ley-23184', 'ley-23898', 'ley-24452', 'ley-24588',
     'ley-24937', 'ley-25467', 'ley-26058', 'ley-26075', 'ley-26122', 'ley-26854',
     'ley-27148', 'ley-27149', 'ley-27319', 'ley-27328', 'ley-27520', 'ley-27541', 'ley-27743',
+    // 2026-07-01: cluster Modernización del Estado — Decreto 1063/2016 (TAD, 17 arts) es un decreto
+    //   plano sin capítulos en la fuente oficial → exento permanente (PLANA). (27.446/27.444/27.445 y
+    //   los otros decretos del cluster tienen índice cargado o <15 arts.)
+    'decreto-1063-2016',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([

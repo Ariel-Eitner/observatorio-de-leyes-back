@@ -179,6 +179,7 @@ model Egreso {
   comprobante String?
   estado      String   @default("pagado") // pagado | pendiente
   recurrente  Boolean  @default(false)
+  mesesPagados String[] @default([]) @map("meses_pagados") // recurrentes: meses "YYYY-MM" marcados como pagados
   createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
