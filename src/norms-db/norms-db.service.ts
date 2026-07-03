@@ -24,6 +24,16 @@ export class NormsDbService {
     return rows.map((r) => r.id);
   }
 
+  /**
+   * Id + marca de actualización de cada norma (consulta liviana, sin artículos).
+   * Sirve para refrescar el corpus en memoria de forma incremental: detecta altas,
+   * bajas y ediciones (una norma re-cargada cambia su `updated_at`).
+   */
+  async listIdStamps(): Promise<{ id: string; updatedAt: string }[]> {
+    const rows = await this.prisma.norms.findMany({ select: { id: true, updated_at: true } });
+    return rows.map((r) => ({ id: r.id, updatedAt: r.updated_at ? r.updated_at.toISOString() : '' }));
+  }
+
   /** Stubs de normas referenciadas pero no cargadas (tabla norm_stubs). */
   async listStubs(): Promise<NormStub[]> {
     const rows = await this.prisma.norm_stubs.findMany({ orderBy: { number: 'asc' } });

@@ -194,6 +194,8 @@ const SLUG_ALIASES: Record<string, string> = {
 	'ley-de-contrato-laboral': 'ley-20744',
 	// Slug viejo del 6961 (tenía el número duplicado por el título); redirige 308 al canónico.
 	'6961-6961-modificacion-del-codigo-contravencional-de-caba-servici': 'ley-caba-6961',
+	// Slug mal formado (número partido con guion) que quedó en alguna referencia; 308 al canónico.
+	'27-423': 'ley-27423',
 };
 
 // Etiqueta legible de cada categoría temática (slug en BD → label).
@@ -240,6 +242,8 @@ export class LawsService implements OnModuleInit {
 	private stubs: NormStub[] = [];
 	// Categorías temáticas — fuente: tabla categories en BD.
 	private categories: { slug: string; label: string; description: string | null; icon: string | null; ord: number }[] = [];
+	// Candado para que dos refrescos no corran a la vez.
+	private hydrating = false;
 
 	constructor(private readonly normsDb: NormsDbService) {}
 
@@ -257,19 +261,48 @@ export class LawsService implements OnModuleInit {
 	}
 
 	async onModuleInit() {
+		const r = await this.refreshFromDb();
+		if (r.ok) this.logger.log(`${r.count} normas hidratadas desde la BD`);
+	}
+
+	/**
+	 * Sincroniza las normas en memoria con la BD de forma INCREMENTAL: carga solo
+	 * las nuevas (delta) y descarta las que ya no están, sin re-hidratar todo. Así
+	 * una norma recién cargada aparece en registry / grafo / refs sin reiniciar
+	 * Render y sin duplicar el pico de memoria (relevante con el límite de 256M /
+	 * 0.2 CPU). En el arranque, `dbNorms` está vacío → carga todo el corpus.
+	 * Idempotente y protegido por un candado contra corridas concurrentes.
+	 */
+	async refreshFromDb(): Promise<{ ok: boolean; count: number; added: number; removed: number }> {
+		if (this.hydrating) return { ok: false, count: this.dbNorms.length, added: 0, removed: 0 };
+		this.hydrating = true;
 		try {
-			const ids = await this.normsDb.listIds();
+			const stamps = await this.normsDb.listIdStamps();
+			const idSet = new Set(stamps.map((s) => s.id));
+			const haveStamp = new Map(this.dbNorms.map((n) => [n.id, n.updatedAt]));
+			// A cargar: normas nuevas (no en memoria) o editadas (cambió updated_at).
+			const toLoad = stamps.filter((s) => haveStamp.get(s.id) !== s.updatedAt).map((s) => s.id);
+			const toRemove = new Set([...haveStamp.keys()].filter((id) => !idSet.has(id)));
+			const isNew = (id: string) => !haveStamp.has(id);
+			const added = toLoad.filter(isNew).length;
+
+			// Cargar SOLO el delta, en lotes (sin pico de memoria: no se sostiene una
+			// segunda copia de todo el corpus).
 			const loaded: Law[] = [];
-			// Hidratación en lotes: acelera el arranque sin un pico de memoria grande
-			// (relevante con el límite de 256M / 0.2 CPU del backend).
 			const BATCH = 4;
-			for (let i = 0; i < ids.length; i += BATCH) {
+			for (let i = 0; i < toLoad.length; i += BATCH) {
 				const chunk = await Promise.all(
-					ids.slice(i, i + BATCH).map((id) => this.normsDb.loadNorm(id)),
+					toLoad.slice(i, i + BATCH).map((id) => this.normsDb.loadNorm(id)),
 				);
 				for (const law of chunk) if (law) loaded.push(law);
 			}
-			this.dbNorms = loaded;
+
+			// Merge por id: quita las eliminadas, reemplaza las editadas, suma las nuevas.
+			const byId = new Map(this.dbNorms.map((n) => [n.id, n]));
+			for (const id of toRemove) byId.delete(id);
+			for (const law of loaded) byId.set(law.id, law);
+			this.dbNorms = [...byId.values()];
+
 			this.stubs = await this.normsDb.listStubs();
 			this.categories = await this.normsDb.listCategories();
 			_categoryLabels = Object.fromEntries(this.categories.map((c) => [c.slug, c.label]));
@@ -278,9 +311,12 @@ export class LawsService implements OnModuleInit {
 			// inversas hacia el DNU 70/2023). applyCuratedRelations dedup por
 			// type+target, así que es idempotente aunque ya corriera sobre el código.
 			applyCuratedRelations([...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms]);
-			this.logger.log(`${loaded.length} normas hidratadas desde la BD`);
+			return { ok: true, count: this.dbNorms.length, added, removed: toRemove.size };
 		} catch (e) {
 			this.logger.error(`Error hidratando normas desde la BD: ${(e as Error).message}`);
+			return { ok: false, count: this.dbNorms.length, added: 0, removed: 0 };
+		} finally {
+			this.hydrating = false;
 		}
 	}
 

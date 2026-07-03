@@ -1,7 +1,9 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { SkipThrottle } from '@nestjs/throttler';
 import { LawsService } from './laws.service';
 import { QueryLawDto } from './dto/query-law.dto';
+import { AdminHeaderGuard } from '../common/guards/admin-header.guard';
 
 @ApiTags('laws')
 @Controller('laws')
@@ -12,6 +14,17 @@ export class LawsController {
   @ApiOperation({ summary: 'Listar leyes con filtros y paginación' })
   findAll(@Query() query: QueryLawDto) {
     return this.lawsService.findAll(query);
+  }
+
+  // Re-sincroniza las normas en memoria con la BD (incremental) para que una
+  // norma recién cargada aparezca en registry / grafo / refs SIN reiniciar Render.
+  // Protegido: header x-obs-admin = ADMIN_SECRET.
+  @Post('refresh')
+  @UseGuards(AdminHeaderGuard)
+  @SkipThrottle()
+  @ApiOperation({ summary: 'Refrescar el corpus en memoria desde la BD (admin)' })
+  refresh() {
+    return this.lawsService.refreshFromDb();
   }
 
   @Get('registry')
