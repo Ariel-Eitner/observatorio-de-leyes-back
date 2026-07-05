@@ -12,6 +12,9 @@ describe('extractArticleRef', () => {
     ['art 14 bis constitucion nacional', '14 bis', 'constitucion nacional'],
     ['LCT artículo 245', '245', 'lct'],
     ['código civil y comercial art 1710', '1710', 'codigo civil y comercial'],
+    // "norma N <ley>" (uso coloquial): "norma 280 ccc" = artículo 280 del CCyC.
+    ['norma 280 ccc', '280', 'ccc'],
+    ['Norma 79 codigo penal', '79', 'codigo penal'],
   ])('reconoce "%s"', (input, artNum, lawText) => {
     const unaccent = (s: string) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
     const r = extractArticleRef(input);
@@ -25,6 +28,7 @@ describe('extractArticleRef', () => {
     'homicidio codigo penal',   // sin "art N"
     'art 79',                   // sin ley: ambiguo, no se resuelve
     'artículo 1',               // idem
+    'norma 26994',              // "norma N" sin ley: es el número de la norma, no un art
     'defensa del consumidor',   // texto puro
     '',
   ])('NO reconoce "%s"', (input) => {

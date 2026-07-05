@@ -84,7 +84,7 @@ function nameTerms(q: string): string[] {
 function extractNumberDigits(q: string): string | null {
   const cleaned = q
     .toLowerCase()
-    .replace(/\b(ley|leyes|decreto|decretos|dnu|resoluci[oó]n|disposici[oó]n|n[°º]|nro\.?|numero|n[uú]mero)\b/gi, ' ')
+    .replace(/\b(ley|leyes|decreto|decretos|dnu|norma|normas|resoluci[oó]n|disposici[oó]n|n[°º]|nro\.?|numero|n[uú]mero)\b/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
   // Si queda texto que no sea dígitos / separadores, no es una búsqueda por número.
@@ -95,12 +95,15 @@ function extractNumberDigits(q: string): string | null {
 
 // Detecta una referencia directa a un artículo dentro de una norma nombrada:
 // "Código Penal art. 79", "ley 11683 art 5", "art 14 bis constitución nacional".
+// Dispara con "art/artículo N" y también con "norma N" (uso coloquial muy común: la
+// gente escribe "norma 280 ccc" cuando quiere el artículo 280 del CCyC).
 // Devuelve { artNum, lawText } con el número del artículo (con sufijo bis/ter…) y
-// el texto restante que nombra a la ley. null si no hay patrón "art N" o si no
-// queda texto de ley (un "art 79" suelto es ambiguo: no se puede resolver).
+// el texto restante que nombra a la ley. null si no hay patrón o si no queda texto
+// de ley: un "art 79" o un "norma 26994" suelto es ambiguo (este último es el número
+// de la norma, y lo resuelve extractNumberDigits) → no se trata como ref de artículo.
 export function extractArticleRef(q: string): { artNum: string; lawText: string } | null {
   const m = q.match(
-    /\bart(?:[íi]culos?|\.|\b)?\s*(\d+\s*(?:bis|ter|qu[áa]ter|quater|quinquies|sexies|septies)?)/i,
+    /\b(?:art(?:[íi]culos?|\.|\b)?|normas?)\s*(\d+\s*(?:bis|ter|qu[áa]ter|quater|quinquies|sexies|septies)?)/i,
   );
   if (!m) return null;
   const artNum = m[1].replace(/\s+/g, ' ').trim();
@@ -218,28 +221,35 @@ export class SearchDbService {
     // matchean el texto restante. Score muy alto: es lo que el usuario pidió exacto.
     const artRef = extractArticleRef(q);
     if (artRef && opts.type !== 'law') {
-      const artNumKey = norm(artRef.artNum).replace(/\s+/g, '');
-      const lawDigits = artRef.lawText.replace(/\D/g, '');
-      const params: unknown[] = [artNumKey, artRef.lawText, lawDigits || '\x00'];
-      const sql = `
-        SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
-               n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
-               n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories,
-               coalesce(ts_rank('${RANK_WEIGHTS}', n.search, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))), 0) AS rank,
-               (position(immutable_unaccent(lower($2)) in immutable_unaccent(lower(
-                  coalesce(n.common_name,'') || ' ' || coalesce(n.title,'') || ' ' ||
-                  coalesce(n.short_code,'') || ' ' || coalesce(array_to_string(n.aliases,' '),'')
-               ))) > 0)::int AS phrase,
-               left(coalesce(nullif(a.plain_language_explanation, ''), a.body, ''), 240) AS snippet
-        FROM articles a
-        JOIN norms n ON n.id = a.norm_id
-        WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
-          AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))
-                OR regexp_replace(n.number, '\\D', '', 'g') = $3 )
-        ORDER BY phrase DESC, rank DESC
-        LIMIT 5`;
-      const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
-      for (const r of rows) { const it = this.articleItem(r, q); it.score = 2000; out.unshift(it); }
+      try {
+        const artNumKey = norm(artRef.artNum).replace(/\s+/g, '');
+        const lawDigits = artRef.lawText.replace(/\D/g, '');
+        const params: unknown[] = [artNumKey, artRef.lawText];
+        // La rama por número solo se agrega si la ley se nombró por número. Cuando se
+        // nombra por texto NO hay dígitos: antes se pasaba un byte nulo '\x00' como
+        // centinela y Postgres lo rechaza → 500 en toda búsqueda "artículo N <ley por
+        // nombre>" (código penal, constitución, CCyC…). Ahora la rama se omite.
+        let numCond = '';
+        if (lawDigits) { params.push(lawDigits); numCond = ` OR regexp_replace(n.number, '\\D', '', 'g') = $${params.length}`; }
+        const sql = `
+          SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
+                 n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
+                 n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories,
+                 coalesce(ts_rank('${RANK_WEIGHTS}', n.search, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))), 0) AS rank,
+                 (position(immutable_unaccent(lower($2)) in immutable_unaccent(lower(
+                    coalesce(n.common_name,'') || ' ' || coalesce(n.title,'') || ' ' ||
+                    coalesce(n.short_code,'') || ' ' || coalesce(array_to_string(n.aliases,' '),'')
+                 ))) > 0)::int AS phrase,
+                 left(coalesce(nullif(a.plain_language_explanation, ''), a.body, ''), 240) AS snippet
+          FROM articles a
+          JOIN norms n ON n.id = a.norm_id
+          WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
+            AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))${numCond} )
+          ORDER BY phrase DESC, rank DESC
+          LIMIT 5`;
+        const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+        for (const r of rows) { const it = this.articleItem(r, q); it.score = 2000; out.unshift(it); }
+      } catch { /* la ref a artículo es un extra; nunca debe romper la búsqueda */ }
     }
 
     // Boost por NOMBRE de norma: cuando el usuario escribe el nombre de una ley
@@ -334,20 +344,25 @@ export class SearchDbService {
       try {
         const artNumKey = norm(artRef.artNum).replace(/\s+/g, '');
         const lawDigits = artRef.lawText.replace(/\D/g, '');
+        const aparams: unknown[] = [artNumKey, artRef.lawText];
+        // Ver search(): la rama por número solo va si la ley se nombró por número; con
+        // texto se omite (el centinela '\x00' hacía fallar la query — acá el catch la
+        // tragaba y el artículo no aparecía en el autocompletado).
+        let numCond = '';
+        if (lawDigits) { aparams.push(lawDigits); numCond = ` OR regexp_replace(n.number, '\\D', '', 'g') = $${aparams.length}`; }
         const arows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
           `SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
                   n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year
            FROM articles a JOIN norms n ON n.id = a.norm_id
            WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
-             AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))
-                   OR regexp_replace(n.number, '\\D', '', 'g') = $3 )
+             AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))${numCond} )
            ORDER BY (position(immutable_unaccent(lower($2)) in immutable_unaccent(lower(
                        coalesce(n.common_name,'') || ' ' || coalesce(n.title,'') || ' ' ||
                        coalesce(n.short_code,'') || ' ' || coalesce(array_to_string(n.aliases,' '),'')
                      ))) > 0)::int DESC,
                     ts_rank('${RANK_WEIGHTS}', n.search, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))) DESC
            LIMIT 3`,
-          artNumKey, artRef.lawText, lawDigits || '\x00',
+          ...aparams,
         );
         for (const r of arows) {
           const i = this.articleItem(r, q);
