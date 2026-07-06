@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../common/prisma/prisma.service';
 import { computeFrontendPath, computeArticleUrl } from '../common/utils/law-url.util';
+import { buildFtsQuery, buildFtsFallback } from './search-query.util';
 import type { Law } from '../common/types/law.types';
 
 // Formato PLANO que espera el front (FullSearchResultItem). Los campos van en el
@@ -160,8 +161,12 @@ export class SearchDbService {
     const limit = Math.min(opts.limit ?? 30, 100);
     const out: SearchResultItem[] = [];
 
-    if (opts.type !== 'law') {
-      const params: unknown[] = [q];
+    // tsquery con sinónimos (coloquial ↔ legal). null = la query no aporta términos
+    // de texto (p. ej. es solo un número) → la resuelven los match por número/nombre.
+    const ftsQ = buildFtsQuery(q);
+
+    if (opts.type !== 'law' && ftsQ) {
+      const params: unknown[] = [ftsQ];
       const where = this.filterClauses(opts, params);
       params.push(limit);
       const sql = `
@@ -172,16 +177,18 @@ export class SearchDbService {
                ts_headline('spanish'::regconfig, a.body, qq, '${HEADLINE_OPTS}') AS snippet
         FROM articles a
         JOIN norms n ON n.id = a.norm_id,
-             websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1)) qq
+             to_tsquery('spanish'::regconfig, $1) qq
         WHERE a.search @@ qq${where}
         ORDER BY rank DESC
         LIMIT $${params.length}`;
-      const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
-      for (const r of rows) out.push(this.articleItem(r, q));
+      try {
+        const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+        for (const r of rows) out.push(this.articleItem(r, q));
+      } catch { /* un tsquery inválido nunca debe romper la búsqueda */ }
     }
 
-    if (opts.type !== 'article') {
-      const params: unknown[] = [q];
+    if (opts.type !== 'article' && ftsQ) {
+      const params: unknown[] = [ftsQ];
       const where = this.filterClauses(opts, params);
       params.push(limit);
       const sql = `
@@ -189,12 +196,14 @@ export class SearchDbService {
                n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories, coalesce(n.summary,'') AS summary,
                ts_rank('${RANK_WEIGHTS}', n.search, qq) AS rank,
                ts_headline('spanish'::regconfig, coalesce(n.summary,''), qq, '${HEADLINE_OPTS}') AS snippet
-        FROM norms n, to_tsquery('spanish'::regconfig, regexp_replace(trim(regexp_replace(immutable_unaccent($1), '[^a-z0-9 ]', ' ', 'gi')), '\\s+', ':* & ', 'g') || ':*') qq
+        FROM norms n, to_tsquery('spanish'::regconfig, $1) qq
         WHERE n.search @@ qq${where}
         ORDER BY rank DESC
         LIMIT $${params.length}`;
-      const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
-      for (const r of rows) out.push(this.lawItem(r, q));
+      try {
+        const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+        for (const r of rows) out.push(this.lawItem(r, q));
+      } catch { /* un tsquery inválido nunca debe romper la búsqueda */ }
     }
 
     // Match directo por número de norma ("26.388", "1112/2024", "ley 27742"): el
@@ -285,6 +294,79 @@ export class SearchDbService {
       } catch { /* el boost por nombre es un extra; nunca rompe la búsqueda */ }
     }
 
+    // FALLBACK: si NADA matcheó (ni FTS AND ni boosts por número/nombre/artículo),
+    // relajar el AND a OR. En vez de exigir TODOS los términos, matchea cualquiera y
+    // re-rankea por: frase-adyacente (bigrama) > cobertura (nº de términos que matchea)
+    // > ts_rank. Resuelve consultas en lenguaje natural ("amparo ajustes razonables")
+    // donde ningún registro tiene todas las palabras. Corre SOLO con `out` vacío, así
+    // nunca degrada una búsqueda que ya devolvía resultados. Candidatos acotados por
+    // ts_rank (200) para no pagar phrase/cobertura/headline sobre todo el OR.
+    if (out.length === 0) {
+      const fb = buildFtsFallback(q);
+      if (fb && opts.type !== 'law') {
+        const params: unknown[] = [fb.or, fb.bigrams, fb.groups];
+        const where = this.filterClauses(opts, params);
+        params.push(limit);
+        const sql = `
+          WITH cand AS (
+            SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, a.body, a.search,
+                   n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
+                   n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories,
+                   ts_rank('${RANK_WEIGHTS}', a.search, qq) AS rank
+            FROM articles a JOIN norms n ON n.id = a.norm_id, to_tsquery('spanish'::regconfig, $1) qq
+            WHERE a.search @@ qq${where}
+            ORDER BY rank DESC LIMIT 200
+          ), scored AS (
+            SELECT c.*,
+                   (EXISTS (SELECT 1 FROM unnest($2::text[]) bg WHERE c.search @@ phraseto_tsquery('spanish'::regconfig, bg)))::int AS phrase,
+                   (SELECT count(*) FROM unnest($3::text[]) g WHERE c.search @@ to_tsquery('spanish'::regconfig, g)) AS cov
+            FROM cand c ORDER BY phrase DESC, cov DESC, rank DESC LIMIT $${params.length}
+          )
+          SELECT aid, norm_id, art_number, art_title, law_number, law_title, law_raw_title,
+                 norm_type, jurisdiction, status, year, law_category, law_categories, rank, phrase, cov,
+                 ts_headline('spanish'::regconfig, body, to_tsquery('spanish'::regconfig, $1), '${HEADLINE_OPTS}') AS snippet
+          FROM scored`;
+        try {
+          const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+          for (const r of rows) {
+            const it = this.articleItem(r, q);
+            it.score = Number(r.phrase) * 10_000 + Number(r.cov) * 100 + Number(r.rank ?? 0);
+            out.push(it);
+          }
+        } catch { /* el fallback nunca debe romper la búsqueda */ }
+      }
+      if (fb && opts.type !== 'article') {
+        const params: unknown[] = [fb.or, fb.bigrams, fb.groups];
+        const where = this.filterClauses(opts, params);
+        params.push(limit);
+        const sql = `
+          WITH cand AS (
+            SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title, n.search,
+                   coalesce(n.summary,'') AS summary, n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories,
+                   ts_rank('${RANK_WEIGHTS}', n.search, qq) AS rank
+            FROM norms n, to_tsquery('spanish'::regconfig, $1) qq
+            WHERE n.search @@ qq${where}
+            ORDER BY rank DESC LIMIT 200
+          ), scored AS (
+            SELECT c.*,
+                   (EXISTS (SELECT 1 FROM unnest($2::text[]) bg WHERE c.search @@ phraseto_tsquery('spanish'::regconfig, bg)))::int AS phrase,
+                   (SELECT count(*) FROM unnest($3::text[]) g WHERE c.search @@ to_tsquery('spanish'::regconfig, g)) AS cov
+            FROM cand c ORDER BY phrase DESC, cov DESC, rank DESC LIMIT $${params.length}
+          )
+          SELECT id, number, title, raw_title, norm_type, jurisdiction, status, year, category, categories, summary, rank, phrase, cov,
+                 ts_headline('spanish'::regconfig, summary, to_tsquery('spanish'::regconfig, $1), '${HEADLINE_OPTS}') AS snippet
+          FROM scored`;
+        try {
+          const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
+          for (const r of rows) {
+            const it = this.lawItem(r, q);
+            it.score = Number(r.phrase) * 10_000 + Number(r.cov) * 100 + Number(r.rank ?? 0);
+            out.push(it);
+          }
+        } catch { /* el fallback nunca debe romper la búsqueda */ }
+      }
+    }
+
     // Dedup por id quedándonos con el MAYOR score: una norma puede venir del FTS (score
     // bajo) Y del boost por nombre/número/artículo (score alto) — debe ganar el alto.
     // (Antes el dedup se quedaba con la primera aparición = la del FTS, y enterraba el boost.)
@@ -299,25 +381,28 @@ export class SearchDbService {
   async suggest(query: string, limit = 8): Promise<SearchSuggestion[]> {
     const q = query?.trim();
     if (!q || q.length < 2) return [];
-    const params = [q, limit];
-    const sql = `
-      WITH tq AS (SELECT to_tsquery('spanish'::regconfig, regexp_replace(immutable_unaccent($1), '\\s+', ':* & ', 'g') || ':*') AS qq)
-      SELECT 'article' AS rtype, a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
-             n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
-             ts_rank('${RANK_WEIGHTS}', a.search, tq.qq) AS rank
-      FROM articles a JOIN norms n ON n.id = a.norm_id, tq
-      WHERE a.search @@ tq.qq
-      UNION ALL
-      SELECT 'law' AS rtype, n.id AS aid, n.id AS norm_id, NULL AS art_number, NULL AS art_title,
-             n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
-             ts_rank('${RANK_WEIGHTS}', n.search, tq.qq) * 1.5 AS rank
-      FROM norms n, tq WHERE n.search @@ tq.qq
-      ORDER BY rank DESC LIMIT $2`;
+
+    // Mismo tsquery con sinónimos que search(), para que el autocompletado también
+    // cruce coloquial ↔ legal (p. ej. "venta onl…" ya sugiere Defensa del Consumidor).
+    const ftsQ = buildFtsQuery(q);
     let rows: Record<string, unknown>[] = [];
-    try {
-      rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
-    } catch {
-      return [];
+    if (ftsQ) {
+      const sql = `
+        WITH tq AS (SELECT to_tsquery('spanish'::regconfig, $1) AS qq)
+        SELECT 'article' AS rtype, a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
+               n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
+               ts_rank('${RANK_WEIGHTS}', a.search, tq.qq) AS rank
+        FROM articles a JOIN norms n ON n.id = a.norm_id, tq
+        WHERE a.search @@ tq.qq
+        UNION ALL
+        SELECT 'law' AS rtype, n.id AS aid, n.id AS norm_id, NULL AS art_number, NULL AS art_title,
+               n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
+               ts_rank('${RANK_WEIGHTS}', n.search, tq.qq) * 1.5 AS rank
+        FROM norms n, tq WHERE n.search @@ tq.qq
+        ORDER BY rank DESC LIMIT $2`;
+      try {
+        rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ftsQ, limit);
+      } catch { rows = []; }
     }
 
     // Match directo por número al frente ("26.388", "1112/2024"): mismo bug que en search().

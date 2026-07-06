@@ -12,12 +12,14 @@
 export const COMPLETENESS_BACKLOG = {
   // Artículos sin título (epígrafe)
   sinTitulo: new Set<string>([
+    // 2026-07-06: RG IGJ 15/2024 (Normas de la IGJ, 422 arts) cargada VERBATIM + índice (24 títulos) + Tier1.
+    //   Epígrafe + explicación por artículo = enriquecimiento en tandas (el articulado no trae epígrafe individual).
+    'rg-igj-15-2024',
     // 2026-06-29: cluster electoral verbatim enriquecido (epígrafe) → removidos: 19.945 Código Electoral, 23.298 Partidos, 26.571 PASO.
     // 2026-06-30: derogadas enriquecidas (epígrafe) → removidas: 24.769, 23.515, 20.840, 24.779, 13.512, 23.091, 20.771, 25.250, 14.394, 21.342, 2.393, 8.871.
-    // Pendiente derogada: 23.984 (CPP 1991, 539, el más grande).
-    'ley-23984',
-    // BUG DE DATOS: ley-19724 ("Prehorizontalidad") tiene cargado el texto de una RG de AFIP (COTI), NO la Ley de Prehorizontalidad de 1972. Recargar texto correcto antes de enriquecer.
-    'ley-19724',
+    // 2026-07-06: 23.984 (CPP 1991, 570 arts) enriquecida (título + explicación + índice) → removida. DEUDA SALDADA.
+    // 2026-07-06: 19.724 (Prehorizontalidad) — corregido el BUG DE DATOS (tenía el texto de la RG 2439/COTI de AFIP);
+    //   recargado el texto correcto de InfoLeg (38 arts, id 189951) con título + explicación → removida. DEUDA SALDADA.
     // 2026-06-30: RRHH + Estatuto del Periodista verbatim enriquecidas (epígrafe) → removidas: 26.390, 26.427, 24.700, 12.908.
     // 2026-06-26: Código Aduanero (1198 arts) y DNU 70/2023 (366 arts) — epígrafe completado → removidos.
     'const-buenos-aires', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones',
@@ -37,9 +39,10 @@ export const COMPLETENESS_BACKLOG = {
   ]),
   // Artículos sin explicación en lenguaje claro
   sinExplicacion: new Set<string>([
+    // 2026-07-06: RG IGJ 15/2024 (422 arts) — verbatim + índice; explicación por artículo en tandas.
+    'rg-igj-15-2024',
     // 2026-06-30: derogadas enriquecidas (explicación) → removidas: 24.769, 23.515, 20.840, 24.779, 13.512, 23.091, 20.771, 25.250, 14.394, 21.342, 2.393, 8.871.
-    // Pendiente derogada: 23.984 (CPP 1991, 539). BUG: 19.724 tiene texto de RG AFIP (COTI), recargar.
-    'ley-23984', 'ley-19724',
+    // 2026-07-06: 23.984 (CPP 1991) enriquecida y 19.724 (Prehorizontalidad) recargada con el texto correcto + explicación → removidas. DEUDA SALDADA.
     // 2026-06-30: RRHH + Estatuto del Periodista verbatim enriquecidas (explicación) → removidas: 26.390, 26.427, 24.700, 12.908.
     'const-jujuy', 'const-la-pampa', 'const-la-rioja', 'const-mendoza', 'const-misiones', 'const-neuquen',
     'const-rio-negro', 'const-salta', 'const-san-juan', 'const-san-luis', 'const-santa-cruz', 'const-santa-fe',
@@ -72,22 +75,26 @@ export const COMPLETENESS_BACKLOG = {
     'ley-26061', 'ley-26206', 'ley-24977', 'decreto-93-2026', 'decreto-151-2022', 'ley-13653', 'ley-26529',
     // 2026-06-23: recién cargadas. 25520 y 941 tienen bis (ord fraccionario → DIFERIDAS);
     //   24059/1023/1112 tienen títulos en la fuente, índice pendiente de cargar.
-    'ley-25520', 'dnu-941-2025', 'ley-24059', 'decreto-1023-2001', 'decreto-1112-2024',
+    // 2026-07-06: 24.059 (Seguridad Interior) — índice de 8 títulos cargado → removida.
+    'ley-25520', 'dnu-941-2025', 'decreto-1023-2001', 'decreto-1112-2024',
     // 2026-06-24: Ley 26.388 (Delitos Informáticos) — modificatoria plana del Código Penal (15 arts, sin capítulos).
     'ley-26388',
     // 2026-06-25: Ley 11.683 (t.o. 1998) — DIFERIDA: 29 artículos "sin número" (ord fraccionario 3.1, 4.1…) rompen ord==número.
     // 2026-06-25: Ley 24.241 (SIJP) — DIFERIDA: artículos "bis" (ord fraccionario 22.5, 27.5…) rompen ord==número.
     'ley-11683', 'ley-24241',
-    // 2026-06-25: ola blind spots — 26.773 PLANA; 23.554/21.526/13.064/5965/26993 con capítulos (índice pendiente); 27.126 modificatoria.
-    'ley-26773', 'ley-23554', 'ley-27126', 'ley-21526', 'ley-13064', 'ley-5965', 'ley-26993',
+    // 2026-06-25: ola blind spots — 26.773 PLANA; 21.526 con capítulos; 27.126 modificatoria.
+    // 2026-07-06: 23.554/13.064 (índice cargado); 5.965 (letra de cambio: 2 títulos + 13 caps) y 26.993 (COPREC: 6 títulos) — índice cargado → removidas.
+    'ley-26773', 'ley-27126', 'ley-21526',
     // 2026-06-25: Ley 25.212 (Pacto Federal del Trabajo) — DIFERIDA: numeración reinicia por ANEXO (ord 1001/2001…) → ord != número.
     'ley-25212',
     // 2026-06-25: grupo A — tienen estructura (títulos/capítulos) y ord==número; índice cargable, pendiente de cargar.
-    'ley-27430', 'ley-27348', 'ley-27611', 'ley-27349', 'ley-27506', 'ley-27260', 'ley-26831', 'ley-27440',
+    // 2026-07-06: 27.430 (13 títulos), 27.440 (17 títulos), 26.831 (7 títulos), 27.260 (2 libros/14 títulos) — índice cargado → removidas.
+    'ley-27348', 'ley-27611', 'ley-27349', 'ley-27506',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
-    // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario); 24.635 con índice pendiente.
-    'ley-24083', 'ley-24635', 'ley-25246',
+    // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
+    // 2026-07-06: 24.635 (Conciliación Laboral Obligatoria, 14 títulos) — índice cargado → removida.
+    'ley-24083', 'ley-25246',
     // 2026-06-26: 23.966/23.576 con bis; 26.363 modificatoria — índice diferido.
     'ley-23966', 'ley-26363', 'ley-23576',
     // 2026-06-26: 24.441/24.463/26.417/20.643 — bis o modificatorias, índice diferido.
@@ -134,10 +141,12 @@ export const COMPLETENESS_BACKLOG = {
     'ley-2393', 'ley-14394',
     // 2026-06-29: Propiedad Horizontal / Locaciones Urbanas / Defensa de la Democracia (≥15 arts) verbatim; índice diferido.
     'ley-13512', 'ley-23091', 'ley-23077',
-    // 2026-06-29: Prehorizontalidad (26) + Normalizacion Locaciones Urbanas 1976 (50) verbatim; índice diferido.
+    // 2026-06-29: Normalizacion Locaciones Urbanas 1976 (50) verbatim; índice diferido.
+    // 2026-07-06: Prehorizontalidad 19.724 recargada (38 arts) — lista plana sin capítulos → PLANA (exenta).
     'ley-19724', 'ley-21342',
-    // 2026-06-29: Ley Saenz Pena (100) + CPP de la Nacion 1991 (539) verbatim; índice diferido.
-    'ley-8871', 'ley-23984',
+    // 2026-06-29: Ley Saenz Pena (100) verbatim; índice diferido.
+    // 2026-07-06: 23.984 (CPP 1991, 570 arts) — índice de 6 secciones cargado → removida. DEUDA SALDADA.
+    'ley-8871',
     // 2026-06-30: 26.390/26.427 modificatorias PLANAS (sustituyen artículos de otras leyes, sin capítulos propios) → exentas; 12.908 índice diferido.
     'ley-26390', 'ley-26427', 'ley-12908',
     // 2026-06-28: tanda Digesto/demanda para llegar a 300 normas — born-complete (título+explicación+metadata+relaciones).
@@ -149,6 +158,19 @@ export const COMPLETENESS_BACKLOG = {
     //   plano sin capítulos en la fuente oficial → exento permanente (PLANA). (27.446/27.444/27.445 y
     //   los otros decretos del cluster tienen índice cargado o <15 arts.)
     'decreto-1063-2016',
+    // 2026-07-06: cargadas born-complete sin capítulos en la fuente → PLANAS (exentas permanentes).
+    //   Ley 48 (Jurisdicción Federal / recurso extraordinario, 24 arts) y Ley 25.891 (Comunicaciones
+    //   Móviles, 17 arts) son listas planas de artículos, sin títulos/capítulos.
+    'ley-48', 'ley-25891',
+    // 2026-07-06: barrido de completitud — normas >=15 arts cargadas born-complete en tandas
+    //   (título+explicación+metadata+relaciones) SIN índice. Deuda de índice diferido: clasificar
+    //   PLANA (modificatorias/listas) vs DIFERIDA (bis/ord/anexo) y cargar en tandas. TODO → cero.
+    'decreto-408-2026', 'decreto-ley-6673-1963', 'ley-3959', 'ley-13273', 'ley-16986', 'ley-17811',
+    'ley-19511', 'ley-20247', 'ley-20284', 'ley-20429', 'ley-21382', 'ley-22428', 'ley-22802',
+    'ley-23771', 'ley-23877', 'ley-24028', 'ley-24193', 'ley-24573', 'ley-24922', 'ley-25018',
+    'ley-25054', 'ley-25080', 'ley-25087', 'ley-25191', 'ley-25248', 'ley-25453', 'ley-25551',
+    'ley-25603', 'ley-25743', 'ley-25798', 'ley-26222', 'ley-26361', 'ley-26370', 'ley-26425',
+    'ley-26589', 'ley-26855', 'ley-26951', 'ley-27233', 'ley-27279', 'ley-27372', 'ley-27375',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([
@@ -159,7 +181,7 @@ export const COMPLETENESS_BACKLOG = {
     'const-santiago-del-estero', 'const-tierra-del-fuego', 'ley-27150', 'const-tucuman', 'codigo-civil-comercial',
     'ley-27742', 'ley-24417', 'ley-25929', 'ley-25561', 'ley-27130', 'ley-25675', 'ley-22431', 'ley-23302', 'ley-23277',
     'ley-27553', 'ley-24788', 'ley-25673', 'ley-26150', 'ley-23798', 'ley-27350', 'ley-23928', 'ley-26160', 'ley-13653',
-    'decreto-222-2003', 'decreto-467-2026', 'ley-27423',
+    'decreto-222-2003', 'decreto-467-2026', 'ley-27423', 'rg-igj-15-2024',
   ]),
   // Normas sin obligaciones ni derechos. ✅ SALDADO (2026-06-21): las 3 normas
   // tienen obligaciones/derechos. Se mantiene vacío: toda norma debe tenerlos.
