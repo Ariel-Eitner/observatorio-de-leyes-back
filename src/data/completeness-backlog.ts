@@ -12,9 +12,7 @@
 export const COMPLETENESS_BACKLOG = {
   // Artículos sin título (epígrafe)
   sinTitulo: new Set<string>([
-    // 2026-07-06: RG IGJ 15/2024 (Normas de la IGJ, 422 arts) cargada VERBATIM + índice (24 títulos) + Tier1.
-    //   Epígrafe + explicación por artículo = enriquecimiento en tandas (el articulado no trae epígrafe individual).
-    'rg-igj-15-2024',
+    // 2026-07-06: RG IGJ 15/2024 (Normas de la IGJ, 422 arts) — título (epígrafe) + explicación por artículo completados en tandas → removida. DEUDA SALDADA.
     // 2026-06-29: cluster electoral verbatim enriquecido (epígrafe) → removidos: 19.945 Código Electoral, 23.298 Partidos, 26.571 PASO.
     // 2026-06-30: derogadas enriquecidas (epígrafe) → removidas: 24.769, 23.515, 20.840, 24.779, 13.512, 23.091, 20.771, 25.250, 14.394, 21.342, 2.393, 8.871.
     // 2026-07-06: 23.984 (CPP 1991, 570 arts) enriquecida (título + explicación + índice) → removida. DEUDA SALDADA.
@@ -39,8 +37,7 @@ export const COMPLETENESS_BACKLOG = {
   ]),
   // Artículos sin explicación en lenguaje claro
   sinExplicacion: new Set<string>([
-    // 2026-07-06: RG IGJ 15/2024 (422 arts) — verbatim + índice; explicación por artículo en tandas.
-    'rg-igj-15-2024',
+    // 2026-07-06: RG IGJ 15/2024 (422 arts) — explicación en lenguaje claro por artículo completada en tandas → removida. DEUDA SALDADA.
     // 2026-06-30: derogadas enriquecidas (explicación) → removidas: 24.769, 23.515, 20.840, 24.779, 13.512, 23.091, 20.771, 25.250, 14.394, 21.342, 2.393, 8.871.
     // 2026-07-06: 23.984 (CPP 1991) enriquecida y 19.724 (Prehorizontalidad) recargada con el texto correcto + explicación → removidas. DEUDA SALDADA.
     // 2026-06-30: RRHH + Estatuto del Periodista verbatim enriquecidas (explicación) → removidas: 26.390, 26.427, 24.700, 12.908.
