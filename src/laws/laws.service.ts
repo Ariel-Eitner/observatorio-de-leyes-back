@@ -232,6 +232,36 @@ function catLabel(slug?: string | null): string | null {
 // El código de contexto para parsear referencias inline se deriva de
 // law.shortCode (columna en BD); ya no hay un mapa hardcodeado.
 
+// Código corto legible para el nodo del grafo. Preferencia: meta estática (canónicos
+// como "LCT"/"CN") → shortCode de la BD ("Ley 26.529") → derivado del número
+// ("Ley 27.551") → nombre. NUNCA el id crudo (antes `id.slice(0,6)` daba "ley-27").
+function graphShortCode(
+	law: {
+		id: string;
+		shortCode?: string | null;
+		number?: string | null;
+		normType?: string | null;
+		commonName?: string | null;
+		title?: string | null;
+	},
+	metaShort?: string,
+): string {
+	if (metaShort) return metaShort;
+	if (law.shortCode && law.shortCode.trim()) return law.shortCode;
+	const num = law.number?.trim();
+	if (num) {
+		const fmt = /^\d+$/.test(num) ? num.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : num;
+		const t = (law.normType ?? '').toUpperCase();
+		if (t.includes('DNU')) return `DNU ${fmt}`;
+		if (t.includes('DECRETO')) return `Decreto ${fmt}`;
+		if (t.includes('RESOLUC') || t.startsWith('RG')) return `Res. ${fmt}`;
+		if (t.includes('DISPOSIC')) return `Disp. ${fmt}`;
+		if (t.includes('CONSTITU')) return law.commonName ?? law.title ?? law.id;
+		return `Ley ${fmt}`;
+	}
+	return law.commonName ?? law.title ?? law.id;
+}
+
 @Injectable()
 export class LawsService implements OnModuleInit {
 	private readonly logger = new Logger(LawsService.name);
@@ -595,7 +625,7 @@ export class LawsService implements OnModuleInit {
 			return {
 				id: law.id,
 				label: law.commonName ?? law.title,
-				shortCode: meta?.shortCode ?? law.id.slice(0, 6),
+				shortCode: graphShortCode(law, meta?.shortCode),
 				category: law.category ?? meta?.category ?? 'default',
 				articleCount: law.articles.length,
 				frontendPath: computeFrontendPath(law),
