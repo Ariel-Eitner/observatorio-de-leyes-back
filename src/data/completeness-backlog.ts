@@ -87,6 +87,10 @@ export const COMPLETENESS_BACKLOG = {
     // 2026-06-25: grupo A — tienen estructura (títulos/capítulos) y ord==número; índice cargable, pendiente de cargar.
     // 2026-07-06: 27.430 (13 títulos), 27.440 (17 títulos), 26.831 (7 títulos), 27.260 (2 libros/14 títulos) — índice cargado → removidas.
     'ley-27348', 'ley-27611', 'ley-27349', 'ley-27506',
+    // 2026-07-07: lote de estructurales/citadas. PLANAS: 27.161 (EANA, 31 arts sin capítulos), 24.633 (obras de arte, 16 arts).
+    //   DIFERIDAS (bis → ord fraccionario): 24.018 (10 bis), 24.937 (3 bis), 25.922 (8/10 bis), 11.672 (116 bis).
+    //   (24.195/18.037/22.248 SÍ tienen índice cargado; 23.853/22.016 <15 arts, exentas.)
+    'ley-27161', 'ley-24633', 'ley-24018', 'ley-24937', 'ley-25922', 'ley-11672',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -168,6 +172,16 @@ export const COMPLETENESS_BACKLOG = {
     'ley-25054', 'ley-25080', 'ley-25087', 'ley-25191', 'ley-25248', 'ley-25453', 'ley-25551',
     'ley-25603', 'ley-25743', 'ley-25798', 'ley-26222', 'ley-26361', 'ley-26370', 'ley-26425',
     'ley-26589', 'ley-26855', 'ley-26951', 'ley-27233', 'ley-27279', 'ley-27372', 'ley-27375',
+    // 2026-07-07: lote "18 nacionales para llegar a 500" — born-complete (título+explicación+metadata+relaciones).
+    //   PLANAS (sin capítulos en la fuente): 24.476 (autónomos), 18.038 (previsional autónomos), y los
+    //   decretos-leyes 15.385/1944 (Zonas de Seguridad) y 9.316/1946 (Reciprocidad Jubilatoria).
+    //   (26.509 Emergencia Agropecuaria SÍ tiene índice de 6 títulos cargado → NO va acá.)
+    'ley-24476', 'ley-18038', 'decreto-ley-15385-1944', 'decreto-ley-9316-1946',
+    //   DIFERIDAS: 25.917 (bis/ter/quáter → ord fraccionario), 25.344 (Cap. VI derogado = hueco 19-22),
+    //   24.946 (Ministerio Público, títulos+secciones de 2 niveles), 14.473 (Estatuto Docente, 2 niveles
+    //   + derogados), 24.073/25.239 (ómnibus tributarias por títulos), 23.982/26.360 (estructura fiscal),
+    //   y el decreto-ley 15.348/1946 (Prenda con Registro, capítulos irregulares).
+    'ley-25917', 'ley-25344', 'ley-24946', 'ley-14473', 'ley-24073', 'ley-25239', 'ley-23982', 'ley-26360', 'decreto-ley-15348-1946',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([
