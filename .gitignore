@@ -27,3 +27,9 @@ supabase/.temp/
 # artefactos de auditoria/tests (no versionar)
 audit-*.txt
 jest*.txt
+jest_html_reporters.html
+jest-html-reporters-attach/
+reports/
+
+# CI (no versionar)
+.github/
