@@ -596,6 +596,11 @@ export class LawsService implements OnModuleInit {
 				category: law.category ?? meta.category ?? null,
 				categoryLabel: catLabel(law.category ?? meta.category),
 				categories: law.categories ?? [],
+				// Campos para /corpus (índice + orden por jurisdicción/año/artículos).
+				// Aditivos: el resto del front que consume el registry los ignora.
+				jurisdiction: law.jurisdiction,
+				year: law.year ?? null,
+				articleCount: law.articleCount ?? law.articles?.length ?? 0,
 				infolegId: infoleg?.infolegId ?? null,
 				infolegUrl: infoleg ? `${INFOLEG_BASE_URL}${infoleg.infolegId}` : null,
 				digestoAnexo: infoleg?.digestoAnexo ?? null,
