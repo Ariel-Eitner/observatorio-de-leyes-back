@@ -8,6 +8,7 @@ import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
 import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks, pruneDanglingSelfRefs, artNumKey } from '../common/utils/inline-refs.util';
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
+import { buildVetos } from './vetos.util';
 
 // Metadata estática que no puede derivarse de los data files solos
 export const LAW_STATIC_META: Record<
@@ -288,6 +289,16 @@ export class LawsService implements OnModuleInit {
 	getAllNorms(): Law[] {
 		const seen = new Set<string>();
 		return this.allSources.filter((l) => (seen.has(l.id) ? false : (seen.add(l.id), true)));
+	}
+
+	/**
+	 * Circuito completo de las leyes VETADAS: sanción → veto → insistencia.
+	 * Explica los huecos de numeración de la serie de leyes (por qué no existe la 27.792).
+	 * El armado vive en `buildVetos` (función pura, testeable sin BD).
+	 */
+	getVetos() {
+		const items = buildVetos(this.getAllNorms());
+		return { total: items.length, items };
 	}
 
 	async onModuleInit() {
@@ -691,6 +702,7 @@ export class LawsService implements OnModuleInit {
 				{ status: 'VIGENTE', _count: count('status', 'VIGENTE') },
 				{ status: 'DEROGADA', _count: count('status', 'DEROGADA') },
 				{ status: 'PARCIALMENTE_VIGENTE', _count: count('status', 'PARCIALMENTE_VIGENTE') },
+				{ status: 'VETADA', _count: count('status', 'VETADA') },
 			].filter((s) => s._count > 0),
 			byJurisdiction: [
 				{ jurisdiction: 'NACIONAL', _count: count('jurisdiction', 'NACIONAL') },

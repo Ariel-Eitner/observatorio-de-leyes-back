@@ -15,16 +15,20 @@ const TIPO_SLUG: Record<string, string> = {
 };
 
 function slugify(text: string): string {
-  return text
+  const s = text
     .toLowerCase()
     .normalize('NFD')
     .replace(/\p{Diacritic}/gu, '')
     .replace(/[^a-z0-9\s]/g, '')
     .trim()
     .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .slice(0, 60)
-    .replace(/-+$/, ''); // sin guion final si el corte a 60 cae sobre un "-"
+    .replace(/-+/g, '-');
+  if (s.length <= 60) return s.replace(/-+$/, '');
+  // Corte a ~60 sin partir palabras: retrocede hasta el último guion, así
+  // termina en "…trafico" y no en "…trafico-ilicit" (palabra cortada al medio).
+  const cut = s.slice(0, 60);
+  const i = cut.lastIndexOf('-');
+  return (i > 0 ? cut.slice(0, i) : cut).replace(/-+$/, '');
 }
 
 // Slug descriptivo a partir del título oficial, sin el prefijo redundante.

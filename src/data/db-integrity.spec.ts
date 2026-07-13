@@ -78,6 +78,25 @@ describe('BD — integridad del grafo (norm_relations)', () => {
     expect(bad).toEqual([]);
   });
 
+  // Coherencia del circuito de veto: si un decreto VETA una norma, esa norma NUNCA fue ley.
+  // Marcarla VIGENTE por error la mostraría como derecho aplicable — es el peor error posible acá.
+  test('VETA apunta a una norma con estado VETADA', () => {
+    if (!dbOk) return;
+    const bad = rels.filter((r) => r.type === 'VETA')
+      .filter((r) => { const t = byId.get(r.target_id); return t && t.status !== 'VETADA'; })
+      .map((r) => `${r.source_id} VETA ${r.target_id} (${byId.get(r.target_id)?.status})`);
+    expect(bad).toEqual([]);
+  });
+
+  // …y a la inversa: una norma VETADA tiene que tener el decreto de veto que la explica.
+  // Una "ley" vetada suelta, sin su veto, es una ley fantasma.
+  test('toda norma VETADA es destino de una relación VETA', () => {
+    if (!dbOk) return;
+    const vetadas = new Set(rels.filter((r) => r.type === 'VETA').map((r) => r.target_id));
+    const bad = norms.filter((n) => n.status === 'VETADA' && !vetadas.has(n.id)).map((n) => n.id);
+    expect(bad).toEqual([]);
+  });
+
   test('REGLAMENTA no apunta a un reglamento (decreto/resolución/disposición)', () => {
     if (!dbOk) return;
     const RANGO_MENOR = new Set(['DECRETO', 'RESOLUCION', 'DISPOSICION']);
@@ -91,7 +110,7 @@ describe('BD — integridad del grafo (norm_relations)', () => {
 describe('BD — integridad de normas', () => {
   test('todas las normas tienen title y status/norm_type/jurisdiction válidos', () => {
     if (!dbOk) return;
-    const STATUS = ['VIGENTE', 'DEROGADA', 'PARCIALMENTE_VIGENTE'];
+    const STATUS = ['VIGENTE', 'DEROGADA', 'PARCIALMENTE_VIGENTE', 'VETADA'];
     const TYPES = ['CONSTITUCION', 'LEY', 'DECRETO', 'RESOLUCION', 'DISPOSICION', 'ORDENANZA', 'DECRETO_LEY', 'CIRCULAR', 'TRATADO'];
     const JUR = ['NACIONAL', 'PROVINCIAL', 'MUNICIPAL', 'INTERNACIONAL'];
     const bad = norms.filter((n) =>

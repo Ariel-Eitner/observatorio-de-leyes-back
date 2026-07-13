@@ -91,6 +91,15 @@ export const COMPLETENESS_BACKLOG = {
     //   DIFERIDAS (bis → ord fraccionario): 24.018 (10 bis), 24.937 (3 bis), 25.922 (8/10 bis), 11.672 (116 bis).
     //   (24.195/18.037/22.248 SÍ tienen índice cargado; 23.853/22.016 <15 arts, exentas.)
     'ley-27161', 'ley-24633', 'ley-24018', 'ley-24937', 'ley-25922', 'ley-11672',
+    // 2026-07-12: era Milei. PLANAS — modificatorias sin estructura propia en la fuente: su articulado
+    //   es una lista de sustituciones y los CAPÍTULOS que aparecen en el texto son de la norma modificada,
+    //   no de estas leyes. 27.781 (Boleta Única de Papel, 44 arts → modifica el Código Electoral);
+    //   27.759 (19 arts → sustituye artículos de la Ley 26.879 y el art. 157 bis del Código Penal).
+    //   (27.743 y 27.798 SÍ tenían títulos propios en la fuente → índice cargado, no van al backlog.)
+    'ley-27781', 'ley-27759',
+    // 2026-07-12: Ley 26.216 (entrega voluntaria de armas) — PLANA: 24 artículos corridos, sin
+    //   títulos ni capítulos en la fuente oficial (verificado con estructura.ps1 → 0 secciones).
+    'ley-26216',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).

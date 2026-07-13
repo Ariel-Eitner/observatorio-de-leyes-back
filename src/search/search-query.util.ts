@@ -32,6 +32,17 @@ export const SEARCH_SYNONYMS: Record<string, string[]> = {
   fotomultas:      ['transito'],
   radar:           ['velocidad', 'transito'],
   cinemometro:     ['velocidad', 'transito'],
+  // Familia: la gente dice "tenencia" (término del Código Civil derogado) y "custodia";
+  // el Código Civil y Comercial dice "cuidado personal" (arts. 648-657). Detectado por
+  // tracking: "tenencia compartida" no llegaba nunca al cuidado personal compartido.
+  tenencia:        ['cuidado'],
+  custodia:        ['cuidado'],
+  // "mobbing" no existe en ninguna norma; el corpus dice acoso / hostigamiento
+  // (Ley 26.485 de Violencia contra la Mujer, Ley 27.580 = Convenio 190 de la OIT).
+  // Ambos lexemas son muy discriminantes (26 y 6 artículos) → no meten ruido.
+  mobbing:         ['acoso', 'hostigamiento'],
+  // "ir preso / ir a la cárcel" → el texto legal dice prisión.
+  carcel:          ['prision'],
 };
 
 // Frases coloquiales que se colapsan a un token ANTES de tokenizar

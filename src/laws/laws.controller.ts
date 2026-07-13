@@ -45,6 +45,13 @@ export class LawsController {
     return this.lawsService.getGraphData();
   }
 
+  // Antes de @Get(':id'): si no, 'vetos' se interpretaría como un id de norma.
+  @Get('vetos')
+  @ApiOperation({ summary: 'Leyes sancionadas y vetadas: circuito sanción → veto → insistencia' })
+  getVetos() {
+    return this.lawsService.getVetos();
+  }
+
   @Get('number/:number')
   @ApiOperation({ summary: 'Obtener ley por número (ej: 25326)' })
   findByNumber(@Param('number') number: string) {

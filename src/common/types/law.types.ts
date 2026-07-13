@@ -1,6 +1,9 @@
 import type { RefChunk } from '../utils/inline-refs.util';
 
-export const LawStatus = { VIGENTE: 'VIGENTE', DEROGADA: 'DEROGADA', PARCIALMENTE_VIGENTE: 'PARCIALMENTE_VIGENTE' } as const;
+// VETADA: el Congreso la sancionó pero el Ejecutivo la vetó totalmente y la insistencia no
+// prosperó → NUNCA fue ley. Se conserva el texto sancionado por su valor informativo (la gente
+// la busca por lo que leyó en las noticias), SIEMPRE con la advertencia de que no rige.
+export const LawStatus = { VIGENTE: 'VIGENTE', DEROGADA: 'DEROGADA', PARCIALMENTE_VIGENTE: 'PARCIALMENTE_VIGENTE', VETADA: 'VETADA' } as const;
 export type LawStatus = (typeof LawStatus)[keyof typeof LawStatus];
 
 export const Jurisdiction = { NACIONAL: 'NACIONAL', PROVINCIAL: 'PROVINCIAL', MUNICIPAL: 'MUNICIPAL', INTERNACIONAL: 'INTERNACIONAL' } as const;
@@ -27,6 +30,7 @@ export const RelationType = {
   COMPLEMENTA:         'COMPLEMENTA',         // A complementa B sin modificarla; conviven
   SUPLETORIA:          'SUPLETORIA',          // A se aplica supletoriamente cuando B no regula
   ESPECIALIZA:         'ESPECIALIZA',         // A es estatuto especial que prevalece sobre B para un sector
+  VETA:                'VETA',                // A (decreto de veto) observa totalmente a B, que por eso nunca fue ley
   RELACIONADA:         'RELACIONADA',         // relación genérica para el grafo
 } as const;
 export type RelationType = (typeof RelationType)[keyof typeof RelationType];

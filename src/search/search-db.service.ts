@@ -60,6 +60,31 @@ interface SearchOpts {
 const RANK_WEIGHTS = '{0.1,0.2,0.4,1.0}';
 const HEADLINE_OPTS = 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2';
 
+// Umbral del boost por NOMBRE de norma (word_similarity de trigramas). Medido contra el
+// corpus real: los nombres de verdad caen entre 0.55 y 1.0 ("ley de iva" → Ley del
+// Impuesto al Valor Agregado = 0.55; "código penal" = 0.69; "ley de contrato de trabajo"
+// = 0.83), y los falsos positivos por debajo de 0.45 ("tenencia compartida" → "Tiempo
+// Compartido" = 0.45, que con el umbral viejo de 0.4 se colaba PRIMERO en una de las
+// consultas de familia más frecuentes). 0.5 los separa sin perder ningún nombre legítimo.
+const NAME_SIM_MIN = 0.5;
+
+// Similaridad de la query ($1) con el NOMBRE de la norma: el mejor puntaje entre el
+// nombre visible, sus ALIASES y la sigla exacta ($2 = términos significativos).
+// Los aliases son clave: sin ellos, "habeas data" caía en la Ley de Hábeas Corpus
+// (0.58 de similaridad por compartir "habeas") en vez de la Ley de Protección de los
+// Datos Personales (0.25). Como los aliases viven en la BD, se pueden curar sin deploy.
+const NAME_SIM_EXPR = `GREATEST(
+  word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))),
+  coalesce((SELECT max(word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(al))))
+            FROM unnest(coalesce(n.aliases, ARRAY[]::text[])) al), 0),
+  (immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]))::int::float
+)`;
+
+// Con menos de estos resultados, el AND estricto se considera fallido y se prueba el
+// fallback OR (ver search()). Los ítems del fallback puntúan por frase/cobertura, así que
+// se ordenan solos respecto de los pocos que ya había; no se pierde nada de lo anterior.
+const FALLBACK_MIN_RESULTS = 3;
+
 function norm(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9\s]/g, '').trim();
 }
@@ -209,6 +234,7 @@ export class SearchDbService {
     // Match directo por número de norma ("26.388", "1112/2024", "ley 27742"): el
     // tsvector parte puntos/barras y no matchea el número entero. Va con score alto.
     const numDigits = extractNumberDigits(q);
+    let numMatchedNorm = false;
     if (numDigits && opts.type !== 'article') {
       const params: unknown[] = [numDigits];
       const where = this.filterClauses(opts, params);
@@ -220,7 +246,39 @@ export class SearchDbService {
         WHERE regexp_replace(n.number, '\\D', '', 'g') = $1${where}
         LIMIT 5`;
       const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
-      for (const r of rows) { const it = this.lawItem(r, q); it.score = 1000; out.unshift(it); }
+      numMatchedNorm = rows.length > 0;
+      // Score DECRECIENTE por posición: la SQL ya viene ordenada por relevancia y el
+      // sort final es por score. Con un score fijo para todas, el orden de la SQL se
+      // perdía (y con `unshift` en el loop, además se invertía: la peor quedaba primera).
+      rows.forEach((r, i) => { const it = this.lawItem(r, q); it.score = 1000 - i; out.push(it); });
+    }
+
+    // Número suelto que NO es ninguna norma cargada: casi siempre la persona quiere un
+    // ARTÍCULO de un código ("1725" = art. 1725 del Código Civil y Comercial; "280" = art.
+    // 280). Sin esto caía en el texto libre y devolvía ruido (la "Ley 17.250" para 1725).
+    // Del tracking: el guest que buscó "1725" fue refinando a "art 1" y "art . 1
+    // constitución nacional" hasta encontrar lo que quería — nunca llegó.
+    // Solo para números de hasta 4 dígitos (ningún código pasa del art. 2671) y solo si
+    // no hubo norma con ese número, así "27001" (ley no cargada) sigue avisando eso.
+    if (numDigits && !numMatchedNorm && numDigits.length <= 4 && opts.type !== 'law') {
+      try {
+        const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
+          `SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
+                  n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
+                  n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories,
+                  left(coalesce(nullif(a.plain_language_explanation, ''), a.body, ''), 240) AS snippet,
+                  (SELECT count(*) FROM articles a2 WHERE a2.norm_id = n.id) AS art_count
+           FROM articles a JOIN norms n ON n.id = a.norm_id
+           WHERE a.number = $1
+             AND (n.id LIKE 'codigo%' OR coalesce(n.common_name, n.title) ILIKE 'c_digo%')
+           ORDER BY art_count DESC
+           LIMIT 4`,
+          numDigits,
+        );
+        // Por debajo del match exacto de norma por número (1000) y por encima del boost
+        // por nombre (≤800): es una interpretación, no lo que el usuario escribió textual.
+        rows.forEach((r, i) => { const it = this.articleItem(r, q); it.score = 900 - i; out.push(it); });
+      } catch { /* interpretar el número como artículo es un extra; nunca rompe la búsqueda */ }
     }
 
     // Referencia directa a un artículo de una norma nombrada ("Código Penal art. 79",
@@ -257,7 +315,10 @@ export class SearchDbService {
           ORDER BY phrase DESC, rank DESC
           LIMIT 5`;
         const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
-        for (const r of rows) { const it = this.articleItem(r, q); it.score = 2000; out.unshift(it); }
+        // Score DECRECIENTE por posición (ver el match por número): el ORDER BY de la SQL
+        // ya pone primero el artículo de la norma cuyo nombre contiene la frase buscada
+        // ("Código Penal art. 79" → Homicidio simple, no el art. 79 del Código Aduanero).
+        rows.forEach((r, i) => { const it = this.articleItem(r, q); it.score = 2000 - i; out.push(it); });
       } catch { /* la ref a artículo es un extra; nunca debe romper la búsqueda */ }
     }
 
@@ -276,32 +337,37 @@ export class SearchDbService {
         const params: unknown[] = [q, nt];
         const where = this.filterClauses(opts, params);
         const sql = `
-          SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title,
-                 n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories,
-                 coalesce(n.summary,'') AS summary, coalesce(n.summary,'') AS snippet,
-                 GREATEST(
-                   word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))),
-                   (immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]))::int::float
-                 ) AS sim
-          FROM norms n
-          WHERE ( word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))) >= 0.4
-                  OR immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]) )
-                ${where}
-          ORDER BY sim DESC, length(coalesce(n.common_name, n.title)) ASC
+          SELECT * FROM (
+            SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title,
+                   n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories,
+                   coalesce(n.summary,'') AS summary, coalesce(n.summary,'') AS snippet,
+                   length(coalesce(n.common_name, n.title)) AS name_len,
+                   ${NAME_SIM_EXPR} AS sim
+            FROM norms n
+            WHERE true${where}
+          ) s
+          WHERE s.sim >= ${NAME_SIM_MIN}
+          ORDER BY s.sim DESC, s.name_len ASC
           LIMIT 6`;
         const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ...params);
         rows.forEach((r, i) => { const it = this.lawItem(r, q); it.score = 500 + Number(r.sim) * 300 - i * 0.1; out.push(it); });
       } catch { /* el boost por nombre es un extra; nunca rompe la búsqueda */ }
     }
 
-    // FALLBACK: si NADA matcheó (ni FTS AND ni boosts por número/nombre/artículo),
-    // relajar el AND a OR. En vez de exigir TODOS los términos, matchea cualquiera y
-    // re-rankea por: frase-adyacente (bigrama) > cobertura (nº de términos que matchea)
-    // > ts_rank. Resuelve consultas en lenguaje natural ("amparo ajustes razonables")
-    // donde ningún registro tiene todas las palabras. Corre SOLO con `out` vacío, así
-    // nunca degrada una búsqueda que ya devolvía resultados. Candidatos acotados por
-    // ts_rank (200) para no pagar phrase/cobertura/headline sobre todo el OR.
-    if (out.length === 0) {
+    // FALLBACK: relajar el AND a OR. En vez de exigir TODOS los términos, matchea
+    // cualquiera y re-rankea por: frase-adyacente (bigrama) > cobertura (nº de términos
+    // que matchea) > ts_rank. Resuelve consultas en lenguaje natural ("amparo ajustes
+    // razonables") donde ningún registro tiene todas las palabras. Candidatos acotados
+    // por ts_rank (200) para no pagar phrase/cobertura/headline sobre todo el OR.
+    //
+    // Corre con `out` vacío Y TAMBIÉN con muy pocos resultados: exigir CERO lo volvía
+    // inalcanzable justo cuando más falta hace, porque basta UN match casual e irrelevante
+    // para bloquearlo ("amparo ajustes razonables" traía solo la Ley 11.683 —por el
+    // "recurso de amparo" del procedimiento fiscal— y así la Convención de Discapacidad,
+    // que sí habla de ajustes razonables, nunca aparecía). No corre si hubo match exacto
+    // por número de norma o por referencia a artículo: eso es lo que el usuario pidió textual.
+    const exactMatch = Boolean(numDigits) || Boolean(artRef);
+    if (!exactMatch && out.length < FALLBACK_MIN_RESULTS) {
       const fb = buildFtsFallback(q);
       if (fb && opts.type !== 'law') {
         const params: unknown[] = [fb.or, fb.bigrams, fb.groups];
@@ -461,15 +527,14 @@ export class SearchDbService {
     if (nt.length > 0) {
       try {
         const nrows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
-          `SELECT n.id, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
-                  GREATEST(
-                    word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))),
-                    (immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]))::int::float
-                  ) AS sim
-           FROM norms n
-           WHERE ( word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))) >= 0.4
-                   OR immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]) )
-           ORDER BY sim DESC, length(coalesce(n.common_name, n.title)) ASC LIMIT 5`,
+          `SELECT * FROM (
+             SELECT n.id, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
+                    n.norm_type, n.year, length(coalesce(n.common_name, n.title)) AS name_len,
+                    ${NAME_SIM_EXPR} AS sim
+             FROM norms n
+           ) s
+           WHERE s.sim >= ${NAME_SIM_MIN}
+           ORDER BY s.sim DESC, s.name_len ASC LIMIT 5`,
           q, nt,
         );
         for (const r of nrows) {
