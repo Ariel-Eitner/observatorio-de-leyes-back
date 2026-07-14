@@ -329,6 +329,14 @@ export class LawsService implements OnModuleInit {
 
 			// Cargar SOLO el delta, en lotes (sin pico de memoria: no se sostiene una
 			// segunda copia de todo el corpus).
+			//
+			// NO SUBIR el lote. Parece que el cuello de botella fuera la latencia de red
+			// (con 900 normas son ~225 viajes secuenciales a Supabase, ~97 s de arranque en
+			// frío), pero NO lo es: es la CPU. El contenedor corre con 0.2 CPU y subir el
+			// paralelismo solo agrega contención procesando las respuestas.
+			// Medido el 2026-07-14 con 911 normas: BATCH=4 → 97 s; BATCH=16 → 285 s (3x PEOR).
+			// Si el arranque vuelve a molestar, el camino no es este: es hidratar en background
+			// sin bloquear el puerto, o darle más CPU al contenedor.
 			const loaded: Law[] = [];
 			const BATCH = 4;
 			for (let i = 0; i < toLoad.length; i += BATCH) {

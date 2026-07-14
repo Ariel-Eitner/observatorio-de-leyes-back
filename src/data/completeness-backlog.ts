@@ -100,6 +100,38 @@ export const COMPLETENESS_BACKLOG = {
     // 2026-07-12: Ley 26.216 (entrega voluntaria de armas) — PLANA: 24 artículos corridos, sin
     //   títulos ni capítulos en la fuente oficial (verificado con estructura.ps1 → 0 secciones).
     'ley-26216',
+    // 2026-07-13: rango 27.700–27.740. PLANAS — articulado corrido, 0 secciones en la fuente oficial.
+    //   27.713 (Cardiopatías Congénitas, 15 arts) y 27.726 (PROGRESAR, 27 arts).
+    //   (27.715, 27.701, 27.712 y 27.734 SÍ tenían estructura propia → índice cargado, no van acá.)
+    //   OJO: 27.712 y 27.734 estuvieron acá por error. `estructura.ps1` buscaba solo "CAPÍTULO" en
+    //   mayúsculas y estas leyes lo escriben "Capítulo": daba 0 secciones y parecían planas. El script
+    //   ya usa (?i); si una ley "plana" te sorprende, re-verificala.
+    'ley-27713', 'ley-27726',
+    // 2026-07-13: rango 27.000–27.999. PLANA — la 27.617 (Ganancias: piso salarial, aguinaldo exento y
+    //   deducciones) tiene 15 arts pero es modificatoria: su articulado es una lista de sustituciones a
+    //   la Ley 20.628 y no tiene estructura propia (verificado con estructura.ps1 → 0 secciones).
+    'ley-27617',
+    // 2026-07-13: rango 27.000–27.999. PLANA — la 27.304 (Ley del Arrepentido) tiene 19 arts corridos,
+    //   sin títulos ni capítulos en la fuente oficial (verificado con estructura.ps1 → 0 secciones).
+    'ley-27304',
+    // 2026-07-13: rango 27.000–27.999. PLANA — la 27.272 (Ley de Flagrancia) tiene 18 arts corridos: los
+    //   TÍTULO que aparecen en su texto son los del Código Procesal Penal que sustituye, no propios
+    //   (verificado con estructura.ps1 → 0 secciones).
+    'ley-27272',
+    // 2026-07-13: rango 27.000–27.999. PLANAS — articulado corrido, 0 secciones (verificado con
+    //   estructura.ps1 ya corregido + grep directo sobre el .txt). 27.674 (NNyA con cáncer, 16 arts:
+    //   usa epígrafes por artículo, que NO son secciones) y 27.552 (Fibrosis Quística, 20 arts).
+    'ley-27674', 'ley-27552',
+    // 2026-07-13: PLANA — 27.439 (Régimen de Subrogancias, 17 arts): el texto de InfoLeg va directo de
+    //   "Ley:" a "Artículo 1°", sin títulos ni capítulos (estructura.ps1 → 0 secciones).
+    'ley-27439',
+    // 2026-07-13: PLANA — 27.453 (Regularización dominial / barrios populares, 20 arts). estructura.ps1
+    //   reporta 1 sección pero es falso positivo: toma la mención "capítulo XI del Anexo del decreto 2.670"
+    //   que está DENTRO del texto del art. 1°. No tiene títulos ni capítulos propios.
+    'ley-27453',
+    // 2026-07-13: PLANA — 27.640 (Marco Regulatorio de Biocombustibles, 25 arts): solo tiene epígrafes
+    //   sueltos ("Autoridad de aplicación", "Determinación del precio"), no TÍTULO/CAPÍTULO propios.
+    'ley-27640',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -205,5 +237,23 @@ export const COMPLETENESS_BACKLOG = {
   ]),
   // Normas sin obligaciones ni derechos. ✅ SALDADO (2026-06-21): las 3 normas
   // tienen obligaciones/derechos. Se mantiene vacío: toda norma debe tenerlos.
-  sinObligDerechos: new Set<string>([]),
+  // Leyes SIMBÓLICAS sin obligaciones ni derechos exigibles: declaran una "Capital Nacional de…", un
+  // "Día Nacional de…" o una fiesta, y no imponen ninguna conducta a nadie. No es deuda: es la naturaleza
+  // de la norma. Se verificó leyendo el texto completo, una por una — NO se inventaron obligaciones para
+  // llenar el campo. (Ojo: muchas otras simbólicas SÍ tienen obligaciones reales —incorporar la fecha al
+  // calendario escolar, difusión a cargo del PEN, intervención de la Comisión Nacional de Monumentos— y
+  // por eso NO están acá.)
+  // 2026-07-14: rango 27.000–27.999, ola de simbólicas.
+  sinObligDerechos: new Set<string>([
+    'ley-27100', 'ley-27105', 'ley-27106', 'ley-27107', 'ley-27108', 'ley-27110', 'ley-27115',
+    'ley-27119', 'ley-27128', 'ley-27157', 'ley-27158', 'ley-27190', 'ley-27195', 'ley-27215',
+    'ley-27248', 'ley-27255', 'ley-27257', 'ley-27259', 'ley-27277', 'ley-27289', 'ley-27291',
+    'ley-27300', 'ley-27309', 'ley-27311',
+    'ley-27001', 'ley-27013', 'ley-27048', 'ley-27055', 'ley-27057', 'ley-27058', 'ley-27060',
+    'ley-27069', 'ley-27075', 'ley-27085', 'ley-27089', 'ley-27091', 'ley-27096', 'ley-27099',
+    'ley-27315', 'ley-27365', 'ley-27366', 'ley-27367', 'ley-27368', 'ley-27380', 'ley-27383',
+    'ley-27388', 'ley-27414', 'ley-27422', 'ley-27427', 'ley-27459', 'ley-27460', 'ley-27462',
+    'ley-27463', 'ley-27464', 'ley-27471', 'ley-27495', 'ley-27593', 'ley-27596', 'ley-27620',
+    'ley-27659', 'ley-27660', 'ley-27681',
+  ]),
 };
