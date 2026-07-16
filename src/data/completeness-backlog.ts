@@ -107,6 +107,14 @@ export const COMPLETENESS_BACKLOG = {
     //   mayúsculas y estas leyes lo escriben "Capítulo": daba 0 secciones y parecían planas. El script
     //   ya usa (?i); si una ley "plana" te sorprende, re-verificala.
     'ley-27713', 'ley-27726',
+    // 2026-07-14: rango 27.xxx, ola de sustantivas. PLANAS — solo epígrafes por artículo, sin
+    //   TÍTULO/CAPÍTULO propios (estructura.ps1 → 0). 27.159 (Muerte Súbita, 18 arts) y 27.491 (Control
+    //   de Enfermedades Prevenibles por Vacunación, 36 arts).
+    'ley-27159', 'ley-27491',
+    // 2026-07-14: 18.711 (Misiones y funciones de las fuerzas de seguridad, 23 arts): articulado corrido,
+    //   sin TÍTULO/CAPÍTULO propios. Cargada como madre del caso Gendarmería (arts. 2-6 derogados por el
+    //   Decreto 454/2025). PARCIALMENTE_VIGENTE.
+    'ley-18711',
     // 2026-07-13: rango 27.000–27.999. PLANA — la 27.617 (Ganancias: piso salarial, aguinaldo exento y
     //   deducciones) tiene 15 arts pero es modificatoria: su articulado es una lista de sustituciones a
     //   la Ley 20.628 y no tiene estructura propia (verificado con estructura.ps1 → 0 secciones).
@@ -132,6 +140,29 @@ export const COMPLETENESS_BACKLOG = {
     // 2026-07-13: PLANA — 27.640 (Marco Regulatorio de Biocombustibles, 25 arts): solo tiene epígrafes
     //   sueltos ("Autoridad de aplicación", "Determinación del precio"), no TÍTULO/CAPÍTULO propios.
     'ley-27640',
+    // 2026-07-15: rango 27.xxx, ola de sustantivas. PLANAS — articulado corrido, 0 encabezados de
+    //   TÍTULO/CAPÍTULO en el full_text (verificado en BD). 27.249 (Reparación a ex-soldados de Malvinas),
+    //   27.418 (Fomento agricultura familiar), 27.428 (Régimen de responsabilidad estatal / consenso fiscal),
+    //   27.487 (Presupuestos mínimos… control), 27.570 (deroga beneficios ex-presidentes: el epígrafe interno
+    //   de un artículo es una mención, no sección) y 27.685 (Prevención cardiovascular).
+    'ley-27249', 'ley-27418', 'ley-27428', 'ley-27487', 'ley-27570', 'ley-27685',
+    // 2026-07-15: rango 27.xxx, tanda x5 (22 leyes). PLANAS ≥15 arts — 0 secciones en la fuente oficial
+    //   (verificado en BD: 0 encabezados TÍTULO/CAPÍTULO propios). Varias son MODIFICATORIAS y los
+    //   capítulos que aparecen en su texto son de la ley madre, no propios:
+    //   27.132 (Ferrocarriles Argentinos S.E. — mod. 26.352), 27.202 (reforma Ley del Deporte — mod. 20.655),
+    //   27.562 (ampliación moratoria — mod. 27.541), 27.646 (ganadería ovina — mod. 25.422),
+    //   27.694 (regularización dominial — mod. 27.453). Sustantivas planas: 27.139 (beneficio víctimas AMIA),
+    //   27.179 (indemnización Fábrica Militar Río Tercero), 27.343 (Oficina de Presupuesto del Congreso),
+    //   27.508 (Fondo Víctimas de Trata, PARCIALMENTE_VIGENTE — arts. 1-2 derogados por Dto 1048/2024),
+    //   27.671 (capacitación obligatoria Malvinas, tipo Ley Micaela).
+    'ley-27132', 'ley-27139', 'ley-27179', 'ley-27202', 'ley-27343',
+    'ley-27508', 'ley-27562', 'ley-27646', 'ley-27671', 'ley-27694',
+    // 2026-07-16: grandes del rango 27.xxx. MODIFICATORIAS PLANAS ≥15 arts — sus artículos sustituyen
+    //   artículos de una ley madre y los TÍTULO/CAPÍTULO que aparecen son de la ley modificada, no propios
+    //   (estructura.ps1 dio falsos positivos por esas menciones). 27.482 (68 arts, reforma del Código
+    //   Procesal Penal Federal 27.063), y la cadena antidopaje que reforma la Ley 26.912: 27.109 (68 arts),
+    //   27.434 (54 arts), 27.619 (74 arts).
+    'ley-27482', 'ley-27109', 'ley-27434', 'ley-27619',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -255,5 +286,22 @@ export const COMPLETENESS_BACKLOG = {
     'ley-27388', 'ley-27414', 'ley-27422', 'ley-27427', 'ley-27459', 'ley-27460', 'ley-27462',
     'ley-27463', 'ley-27464', 'ley-27471', 'ley-27495', 'ley-27593', 'ley-27596', 'ley-27620',
     'ley-27659', 'ley-27660', 'ley-27681',
+    // 2026-07-15: rango 27.xxx, tandas de chicas. Declaraciones honoríficas puras (patrimonio/interés/capital
+    //   nacional, denominaciones) sin organismo obligado ni deber concreto → obligations y rights vacíos por
+    //   decisión. 27.381 (Feria de Mataderos), 27.389 (denominación Ruta Nac. 40 "Libertador San Martín"),
+    //   27.461 (fútbol como deporte popular), 27.494 (Capital Nacional de la Biodiversidad).
+    'ley-27381', 'ley-27389', 'ley-27461', 'ley-27494',
+    // 2026-07-15: más de las tandas chicas. Honoríficas puras: 27.327 (Trombonanza interés nacional),
+    //   27.524 (Córdoba Capital Nac. de la Reforma Universitaria). Organizativa sin derechos/obligaciones
+    //   para personas: 27.387 (actualiza la planta de cargos del Juzgado Federal de Campana).
+    'ley-27327', 'ley-27387', 'ley-27524',
+    // 2026-07-16: cierre de las chicas del rango 27.xxx. Honoríficas/declarativas sin destinatario obligado
+    //   (capitales nacionales, días conmemorativos que "invitan", denominaciones, autorizaciones de tropas de
+    //   objeto agotado) → obligations y rights vacíos por decisión. 27.038 (Pico Truncado Capital del Hidrógeno),
+    //   27.050 (Puente → Ezequiel Demonty), 27.140 (Feria FIAR interés nacional), 27.165 y 27.280 (autorizaciones
+    //   de salida de tropas ya cumplidas), 27.288 (Estación Chacarita → Villa Crespo), 27.513 (Capital del Turismo
+    //   Astronómico), 27.567 (autorización de ejercicios combinados vencida), 27.575 (Día del Donante de Órganos).
+    'ley-27038', 'ley-27050', 'ley-27140', 'ley-27165', 'ley-27280',
+    'ley-27288', 'ley-27513', 'ley-27567', 'ley-27575',
   ]),
 };

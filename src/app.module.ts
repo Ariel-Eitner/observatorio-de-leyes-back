@@ -18,6 +18,7 @@ import { ExportsModule }         from './exports/exports.module';
 import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.module';
 import { FinanzasModule }         from './finanzas/finanzas.module';
 import { JurisprudenciaModule }   from './jurisprudencia/jurisprudencia.module';
+import { CorpusReadyGuard }       from './common/guards/corpus-ready.guard';
 
 @Module({
   imports: [
@@ -48,6 +49,9 @@ import { JurisprudenciaModule }   from './jurisprudencia/jurisprudencia.module';
   providers: [
     // Aplicar rate limiting globalmente por IP (ThrottlerGuard usa IP por defecto)
     { provide: APP_GUARD, useClass: ThrottlerGuard },
+    // El puerto abre antes de que el corpus esté cargado: 503 en las rutas que lo
+    // necesitan hasta que termine de hidratar (ver LawsService.onModuleInit).
+    { provide: APP_GUARD, useClass: CorpusReadyGuard },
   ],
 })
 export class AppModule {}

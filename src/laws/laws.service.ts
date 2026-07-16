@@ -263,6 +263,46 @@ function graphShortCode(
 	return law.commonName ?? law.title ?? law.id;
 }
 
+// ── Lotes de hidratación ─────────────────────────────────────────────────────
+// Cuánto se trae de una sola vez. El pico de memoria transitoria lo marcan los
+// ARTÍCULOS del lote, no cuántas normas son: la mediana es 8 artículos por norma
+// pero el Código Civil y Comercial tiene 2.671, así que "150 normas" puede querer
+// decir 1.200 artículos o 20.000. Por eso el lote se arma con presupuesto: acota el
+// pico sin importar qué normas caigan juntas ni cuánto crezca el corpus.
+//
+// Estos números NO son a ojo. Medido el 16-jul-2026 con 1.266 normas / 38.960
+// artículos, contra Supabase, en el contenedor real (0.2 CPU, límite 256 MB):
+//
+//   por norma (lo viejo) → 595 s   |  ~141 MB
+//   1.000 art / 60       → 226 s   |  141 MB (55%)
+//   3.000 art / 150      → 140 s   |  144 MB (56%)   ← acá
+//   8.000 art / 400      →  97 s   |  186 MB (73%)
+//
+// Se eligió 3.000/150: ganar 43 s más no vale comerse el margen de memoria, y el
+// corpus CRECE (911 normas el 14-jul → 1.266 el 16-jul). Si algún día sobra RAM,
+// subirlo es seguro; bajarlo solo cuesta tiempo de arranque.
+export const LOTE_ARTICULOS = 3000;
+export const LOTE_NORMAS_MAX = 150;
+
+export function armarLotes(normas: { id: string; articleCount: number }[]): string[][] {
+	const lotes: string[][] = [];
+	let actual: string[] = [];
+	let arts = 0;
+	for (const n of normas) {
+		// Cerrar el lote antes de pasarnos. Una norma gigante se lleva su propio lote:
+		// preferimos un pico de 2.671 artículos solo, y no ese más 59 normas encima.
+		if (actual.length > 0 && (arts + n.articleCount > LOTE_ARTICULOS || actual.length >= LOTE_NORMAS_MAX)) {
+			lotes.push(actual);
+			actual = [];
+			arts = 0;
+		}
+		actual.push(n.id);
+		arts += n.articleCount;
+	}
+	if (actual.length > 0) lotes.push(actual);
+	return lotes;
+}
+
 @Injectable()
 export class LawsService implements OnModuleInit {
 	private readonly logger = new Logger(LawsService.name);
@@ -275,8 +315,16 @@ export class LawsService implements OnModuleInit {
 	private categories: { slug: string; label: string; description: string | null; icon: string | null; ord: number }[] = [];
 	// Candado para que dos refrescos no corran a la vez.
 	private hydrating = false;
+	// ¿Ya terminó la primera hidratación? Mientras sea false el corpus está a medio
+	// llenar y CorpusReadyGuard corta con 503 (ver onModuleInit).
+	private ready = false;
 
 	constructor(private readonly normsDb: NormsDbService) {}
+
+	/** El corpus está completo en memoria y se puede responder. */
+	isReady(): boolean {
+		return this.ready;
+	}
 
 	private get allSources(): Law[] {
 		return [...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms];
@@ -301,9 +349,36 @@ export class LawsService implements OnModuleInit {
 		return { total: items.length, items };
 	}
 
-	async onModuleInit() {
+	/**
+	 * Hidrata el corpus SIN bloquear el arranque.
+	 *
+	 * Antes esto era `await refreshFromDb()`, así que Nest no abría el puerto hasta
+	 * terminar de cargar TODAS las normas. Con 911 normas eran ~97 s; con 1.261 pasó
+	 * de 439 s, y Docker marcaba el contenedor `unhealthy` antes de que abriera →
+	 * el frontend (depends_on: service_healthy) ni arrancaba. El arranque crecía con
+	 * cada norma nueva, así que subir el `start_period` solo pateaba el problema.
+	 *
+	 * Ahora el puerto abre de una y el corpus entra por detrás. Mientras tanto
+	 * CorpusReadyGuard responde 503 + Retry-After en las rutas que lo necesitan:
+	 * es la diferencia entre "volvé en un rato" y servir 404 sobre un corpus vacío
+	 * (que además envenenaría el SEO y las métricas de law_not_found).
+	 */
+	onModuleInit(): void {
+		void this.hydrateWithRetry();
+	}
+
+	private async hydrateWithRetry(intento = 1): Promise<void> {
+		const t0 = Date.now();
 		const r = await this.refreshFromDb();
-		if (r.ok) this.logger.log(`${r.count} normas hidratadas desde la BD`);
+		if (r.ok) {
+			this.logger.log(`${r.count} normas hidratadas desde la BD en ${Math.round((Date.now() - t0) / 1000)} s`);
+			return;
+		}
+		// Sin corpus el backend no sirve para nada y el guard deja todo en 503: hay que
+		// insistir, no quedarse esperando un reinicio manual.
+		const espera = Math.min(15_000 * intento, 60_000);
+		this.logger.error(`Hidratación fallida (intento ${intento}) — reintento en ${espera / 1000} s`);
+		setTimeout(() => void this.hydrateWithRetry(intento + 1), espera);
 	}
 
 	/**
@@ -322,28 +397,25 @@ export class LawsService implements OnModuleInit {
 			const idSet = new Set(stamps.map((s) => s.id));
 			const haveStamp = new Map(this.dbNorms.map((n) => [n.id, n.updatedAt]));
 			// A cargar: normas nuevas (no en memoria) o editadas (cambió updated_at).
-			const toLoad = stamps.filter((s) => haveStamp.get(s.id) !== s.updatedAt).map((s) => s.id);
+			const toLoad = stamps.filter((s) => haveStamp.get(s.id) !== s.updatedAt);
 			const toRemove = new Set([...haveStamp.keys()].filter((id) => !idSet.has(id)));
-			const isNew = (id: string) => !haveStamp.has(id);
-			const added = toLoad.filter(isNew).length;
+			const added = toLoad.filter((s) => !haveStamp.has(s.id)).length;
 
-			// Cargar SOLO el delta, en lotes (sin pico de memoria: no se sostiene una
-			// segunda copia de todo el corpus).
+			// Cargar SOLO el delta, de a lotes: una consulta por lote, y de a un lote por vez.
 			//
-			// NO SUBIR el lote. Parece que el cuello de botella fuera la latencia de red
-			// (con 900 normas son ~225 viajes secuenciales a Supabase, ~97 s de arranque en
-			// frío), pero NO lo es: es la CPU. El contenedor corre con 0.2 CPU y subir el
-			// paralelismo solo agrega contención procesando las respuestas.
-			// Medido el 2026-07-14 con 911 normas: BATCH=4 → 97 s; BATCH=16 → 285 s (3x PEOR).
-			// Si el arranque vuelve a molestar, el camino no es este: es hidratar en background
-			// sin bloquear el puerto, o darle más CPU al contenedor.
+			// OJO, acá hay una trampa. El comentario viejo decía "NO SUBIR el lote" porque
+			// medido con 911 normas BATCH=4 daba 97 s y BATCH=16 daba 285 s (3x PEOR). Era
+			// cierto PARA ESA forma de cargar: `Promise.all(chunk.map(loadNorm))` lanzaba N
+			// loadNorm EN PARALELO y cada uno son ~7 consultas (Prisma abre una por relación
+			// del include) → con 16 eran ~112 consultas concurrentes peleándose 0.2 CPU.
+			//
+			// Acá el lote es otra cosa: `loadNorms(ids)` hace UN findMany con `IN (...)`, así
+			// que son ~7 consultas para TODO el lote, y los lotes van de a uno (sin paralelismo).
+			// Subir el lote NO agrega concurrencia: baja la cantidad de viajes. De ~8.800
+			// consultas (7 × 1.266 normas) a ~200.
 			const loaded: Law[] = [];
-			const BATCH = 4;
-			for (let i = 0; i < toLoad.length; i += BATCH) {
-				const chunk = await Promise.all(
-					toLoad.slice(i, i + BATCH).map((id) => this.normsDb.loadNorm(id)),
-				);
-				for (const law of chunk) if (law) loaded.push(law);
+			for (const lote of armarLotes(toLoad)) {
+				loaded.push(...(await this.normsDb.loadNorms(lote)));
 			}
 
 			// Merge por id: quita las eliminadas, reemplaza las editadas, suma las nuevas.
@@ -360,6 +432,8 @@ export class LawsService implements OnModuleInit {
 			// inversas hacia el DNU 70/2023). applyCuratedRelations dedup por
 			// type+target, así que es idempotente aunque ya corriera sobre el código.
 			applyCuratedRelations([...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms]);
+			// Recién acá el corpus está completo: hasta este punto el guard corta con 503.
+			this.ready = true;
 			return { ok: true, count: this.dbNorms.length, added, removed: toRemove.size };
 		} catch (e) {
 			this.logger.error(`Error hidratando normas desde la BD: ${(e as Error).message}`);

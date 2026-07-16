@@ -14,11 +14,12 @@ export class EventsController {
     @Body() dto: TrackEventDto,
     @Ip() ip: string,
     @Headers('x-forwarded-for') xff?: string,
+    @Headers('user-agent') ua?: string,
   ): Promise<{ ok: boolean }> {
     // Detrás del proxy de Render la IP real viaja en x-forwarded-for (la primera
     // de la cadena); @Ip() es el fallback para entornos sin proxy.
     const clientIp = xff?.split(',')[0]?.trim() || ip;
-    await this.events.track(dto, clientIp);
+    await this.events.track(dto, clientIp, ua);
     return { ok: true };
   }
 

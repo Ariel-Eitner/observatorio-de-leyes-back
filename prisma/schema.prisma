@@ -18,10 +18,23 @@ model TrackingEvent {
 
   @@index([createdAt(sort: Desc)], map: "idx_te_created_at")
   @@index([guestId], map: "idx_te_guest")
+  @@index([guestId, createdAt(sort: Desc)], map: "idx_te_guest_created")
   @@index([sessionId], map: "idx_te_session")
   @@index([type], map: "idx_te_type")
   @@index([type, createdAt(sort: Desc)], map: "idx_te_type_date")
   @@map("tracking_events")
+}
+
+// Tráfico de crawlers agregado por día. Los bots eran el 80% de tracking_events;
+// ahora se descartan al ingresar (ver common/bots.ts) y solo se cuentan acá, para
+// no perder la señal de cuánto nos crawlean sin pagar el costo de guardar cada hit.
+model BotTrafficDaily {
+  day  DateTime @db.Date
+  bot  String
+  hits BigInt   @default(0)
+
+  @@id([day, bot])
+  @@map("bot_traffic_daily")
 }
 
 model ExportGeneration {

@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../common/prisma/prisma.service';
+import { botName, isBotUa } from '../common/bots';
 
 export class TrackEventDto {
   @IsString() @IsNotEmpty() @MaxLength(100)
@@ -80,8 +81,29 @@ export class EventsService {
     return geo;
   }
 
-  async track(dto: TrackEventDto, ip?: string): Promise<void> {
+  // Los bots no se guardan crudos: se cuentan agregados por día. Sin esto la tabla
+  // crecía a 80% crawlers y el panel de visitantes se colgaba (ver common/bots.ts).
+  private async countBot(ua?: string | null): Promise<void> {
     try {
+      await this.prisma.$executeRaw`
+        INSERT INTO bot_traffic_daily (day, bot, hits)
+        VALUES (CURRENT_DATE, ${botName(ua)}, 1)
+        ON CONFLICT (day, bot) DO UPDATE SET hits = bot_traffic_daily.hits + 1`;
+    } catch (e) {
+      this.logger.error(`countBot: ${(e as Error).message}`);
+    }
+  }
+
+  async track(dto: TrackEventDto, ip?: string, uaHeader?: string): Promise<void> {
+    try {
+      // El header lo pone el cliente HTTP real; context.ua lo manda el JS y puede
+      // faltar. Con que cualquiera de los dos huela a crawler, alcanza.
+      const ua = uaHeader || (dto.context?.ua as string | undefined);
+      if (isBotUa(ua)) {
+        await this.countBot(ua);
+        return;
+      }
+
       const geo = await this.resolveGeo(ip);
       const context = {
         ...(dto.context ?? {}),

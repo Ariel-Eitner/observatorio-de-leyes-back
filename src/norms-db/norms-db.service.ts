@@ -1,4 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../common/prisma/prisma.service';
 import type {
   Law, Article, LawSegment, ArticleAmendment, LawAmendment,
@@ -11,6 +12,23 @@ import type { NormStub } from '../data/norm-stubs';
 // Convierte columnas date / timestamptz (Date | null) a los strings que usa el tipo Law.
 const dDate = (d: Date | null): string | null => (d ? d.toISOString().slice(0, 10) : null);
 const dTs = (d: Date | null): string => (d ? d.toISOString() : '');
+
+// Todo lo que hace falta para reconstruir un Law. Uno solo, compartido por la carga
+// de a una y la de a lotes: si se separan, una de las dos se queda sin un include y
+// el bug aparece en una norma suelta meses después.
+const NORM_INCLUDE = {
+  norm_metadata: true,
+  norm_sections: { include: { norm_titles: { orderBy: { ord: 'asc' } } }, orderBy: { ord: 'asc' } },
+  articles: {
+    include: { segments: { orderBy: { ord: 'asc' } }, article_amendments: true },
+    orderBy: { ord: 'asc' },
+  },
+  norm_amendments: true,
+  annexes: { orderBy: { ord: 'asc' } },
+  norm_relations: true,
+} satisfies Prisma.normsInclude;
+
+type NormRow = Prisma.normsGetPayload<{ include: typeof NORM_INCLUDE }>;
 
 @Injectable()
 export class NormsDbService {
@@ -25,13 +43,22 @@ export class NormsDbService {
   }
 
   /**
-   * Id + marca de actualización de cada norma (consulta liviana, sin artículos).
-   * Sirve para refrescar el corpus en memoria de forma incremental: detecta altas,
-   * bajas y ediciones (una norma re-cargada cambia su `updated_at`).
+   * Id + marca de actualización + tamaño de cada norma (consulta liviana: NO trae los
+   * artículos, solo cuántos son). Sirve para refrescar el corpus en memoria de forma
+   * incremental —detecta altas, bajas y ediciones (una norma re-cargada cambia su
+   * `updated_at`)— y para que LawsService arme lotes con presupuesto de artículos:
+   * la mediana es 8 artículos pero el Código Civil y Comercial tiene 2.671, así que
+   * "50 normas por lote" puede significar 400 artículos o 20.000.
    */
-  async listIdStamps(): Promise<{ id: string; updatedAt: string }[]> {
-    const rows = await this.prisma.norms.findMany({ select: { id: true, updated_at: true } });
-    return rows.map((r) => ({ id: r.id, updatedAt: r.updated_at ? r.updated_at.toISOString() : '' }));
+  async listIdStamps(): Promise<{ id: string; updatedAt: string; articleCount: number }[]> {
+    const rows = await this.prisma.norms.findMany({
+      select: { id: true, updated_at: true, article_count: true },
+    });
+    return rows.map((r) => ({
+      id: r.id,
+      updatedAt: r.updated_at ? r.updated_at.toISOString() : '',
+      articleCount: r.article_count ?? 0,
+    }));
   }
 
   /** Stubs de normas referenciadas pero no cargadas (tabla norm_stubs). */
@@ -50,22 +77,30 @@ export class NormsDbService {
 
   /** Reconstruye el objeto Law completo desde las tablas relacionales. */
   async loadNorm(id: string): Promise<Law | null> {
-    const n = await this.prisma.norms.findUnique({
-      where: { id },
-      include: {
-        norm_metadata: true,
-        norm_sections: { include: { norm_titles: { orderBy: { ord: 'asc' } } }, orderBy: { ord: 'asc' } },
-        articles: {
-          include: { segments: { orderBy: { ord: 'asc' } }, article_amendments: true },
-          orderBy: { ord: 'asc' },
-        },
-        norm_amendments: true,
-        annexes: { orderBy: { ord: 'asc' } },
-        norm_relations: true,
-      },
-    });
-    if (!n) return null;
+    const n = await this.prisma.norms.findUnique({ where: { id }, include: NORM_INCLUDE });
+    return n ? this.toLaw(n) : null;
+  }
 
+  /**
+   * Igual que loadNorm pero para VARIAS normas de una.
+   *
+   * Por qué existe: con `include` anidado, Prisma dispara ~7 consultas por llamada
+   * (una por relación). Pidiendo norma por norma eran ~7 × 1.266 ≈ 8.800 viajes al
+   * pooler de Supabase y el arranque tardaba ~10 min. Con `findMany + IN` esas ~7
+   * consultas traen el LOTE ENTERO, así que el costo pasa a ser por lote y no por
+   * norma. También es más suave con la base: menos consultas, no más grandes de lo
+   * necesario.
+   *
+   * El tamaño del lote lo decide quien llama (LawsService), con presupuesto de
+   * artículos, porque el pico de memoria depende de eso y no de cuántas normas son.
+   */
+  async loadNorms(ids: string[]): Promise<Law[]> {
+    if (ids.length === 0) return [];
+    const rows = await this.prisma.norms.findMany({ where: { id: { in: ids } }, include: NORM_INCLUDE });
+    return rows.map((n) => this.toLaw(n));
+  }
+
+  private toLaw(n: NormRow): Law {
     const articles: Article[] = n.articles.map((a) => {
       const segments: LawSegment[] = a.segments.map((s) => ({
         id: s.id, lawId: s.norm_id, articleId: s.article_id, articleNumber: s.article_number ?? '',
