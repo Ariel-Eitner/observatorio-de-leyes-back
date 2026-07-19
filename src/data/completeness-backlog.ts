@@ -163,6 +163,28 @@ export const COMPLETENESS_BACKLOG = {
     //   Procesal Penal Federal 27.063), y la cadena antidopaje que reforma la Ley 26.912: 27.109 (68 arts),
     //   27.434 (54 arts), 27.619 (74 arts).
     'ley-27482', 'ley-27109', 'ley-27434', 'ley-27619',
+    // 2026-07-16: tanda de "leyes madre" citadas por el corpus. PLANAS ≥15 arts — articulado corrido, 0
+    //   secciones propias en la fuente (verificado con estructura.ps1 + BD). 16.463 (Ley de Medicamentos,
+    //   27 arts), 24.819 (Lealtad y Juego Limpio en el Deporte, 21 arts, DEROGADA por la 26.912 — las 2
+    //   "secciones" que detecta estructura.ps1 son del Anexo I, posteriores al último artículo) y
+    //   26.045 (Registro Nacional de Precursores Químicos, 23 arts).
+    'ley-16463', 'ley-24819', 'ley-26045',
+    // 2026-07-16: Decreto 1382/2012 (crea la AABE, 21 arts) — PLANO: articulado corrido, sin TÍTULO/CAPÍTULO
+    //   propios (estructura.ps1 → 0 secciones reales).
+    'decreto-1382-2012',
+    // 2026-07-17: rango 26.900-26.999. PLANAS ≥15 arts sin estructura propia. 26.938 (automotores artesanales,
+    //   15 arts; el epígrafe "Disposiciones finales" es del art. 12, no una sección). MODIFICATORIAS planas:
+    //   26.987 (reforma Bomberos Voluntarios Ley 25.054, 20 arts) y 26.991 (reforma Ley de Abastecimiento
+    //   20.680, 20 arts — DEROGADA junto con la 20.680 por el DNU 70/2023).
+    'ley-26938', 'ley-26987', 'ley-26991',
+    // 2026-07-18: rango 26.800-26.899. MODIFICATORIA plana ≥15 arts: 26.853 (Cámaras Federales de Casación,
+    //   16 arts — los TÍTULO que aparecen son del Código Procesal Civil y Comercial que modifica, no propios).
+    'ley-26853',
+    // 2026-07-18: rango 26.700-26.799. PLANAS ≥15 arts sin estructura propia. 26.716 (Juzgado Federal Rawson,
+    //   15 arts — las "secciones" son Anexos de cargos), 26.725 (cesión comunitaria Mapuche Curruhuinca, 15
+    //   arts — los Anexos I-III están dentro del art. 14), 26.735 (reforma Régimen Penal Tributario de la Ley
+    //   24.769, 20 arts — modificatoria; los TÍTULO son de la ley que modifica).
+    'ley-26716', 'ley-26725', 'ley-26735',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -303,5 +325,28 @@ export const COMPLETENESS_BACKLOG = {
     //   Astronómico), 27.567 (autorización de ejercicios combinados vencida), 27.575 (Día del Donante de Órganos).
     'ley-27038', 'ley-27050', 'ley-27140', 'ley-27165', 'ley-27280',
     'ley-27288', 'ley-27513', 'ley-27567', 'ley-27575',
+    // 2026-07-17: rango 26.900-26.999. Declaraciones honoríficas puras sin organismo obligado (capitales
+    //   nacionales, denominaciones, día conmemorativo que solo "adhiere", declaración de interés que solo
+    //   "promueve/invita"). 26.900 (Estación Avellaneda Santillán-Kosteki), 26.901 (El Calafate Capital de
+    //   los Glaciares), 26.910 (Río Turbio Capital del Carbón), 26.924 (Sgo. del Estero Capital de la
+    //   Chacarera), 26.936/26.937 (Atucha II/I denominación), 26.958 (Día Víctimas de Accidentes de
+    //   Tránsito), 26.985 (Scholas Occurrentes, interés nacional).
+    'ley-26900', 'ley-26901', 'ley-26910', 'ley-26924',
+    'ley-26936', 'ley-26937', 'ley-26958', 'ley-26985',
+    // 2026-07-18: rango 26.800-26.899. Honoríficas puras (capitales nacionales, denominaciones, días
+    //   conmemorativos sin organismo obligado) y las 2 autorizaciones de viaje presidencial de objeto
+    //   agotado. 26.802 (Bariloche Cap. Turismo), 26.804 (Las Parejas Cap. PyME Agroindustrial),
+    //   26.806/26.898 (viajes de la Presidenta), 26.807 (denominación Biblioteca Nacional), 26.808
+    //   (Capitán Bermúdez Cap. Porcelana), 26.810 (Comodoro Rivadavia Cap. Colectividades), 26.832 (Día
+    //   Periodista de Exteriores), 26.846 (Cap. Vigilia Malvinas), 26.848 (Tucumán Cap. Mountain Bike),
+    //   26.866 (San Carlos Cap. Cristal Artesanal), 26.878 (Día Joven Empresario), 26.891 (Jujuy Cap. Pachamama).
+    'ley-26802', 'ley-26804', 'ley-26806', 'ley-26807', 'ley-26808', 'ley-26810', 'ley-26832',
+    'ley-26846', 'ley-26848', 'ley-26866', 'ley-26878', 'ley-26891', 'ley-26898',
+    // 2026-07-18: rango 26.700-26.799. Honoríficas puras / declarativas sin organismo obligado y 1 viaje
+    //   presidencial. 26.715 (RN 66 "Alfonsín"), 26.726 (viaje Presidenta 2012), 26.753 (Día del Niño Heroico
+    //   Tambor de Tacuarí), 26.757 (Catamarca Cap. del Poncho), 26.775 (Fiesta de la Actividad Física),
+    //   26.787 (Día del Desarrollo Científico y Tecnológico Espacial), 26.794 (denominación CCK), 26.797
+    //   (RN 3 "Padre Zink" — el texto solo "solicita", no obliga).
+    'ley-26715', 'ley-26726', 'ley-26753', 'ley-26757', 'ley-26775', 'ley-26787', 'ley-26794', 'ley-26797',
   ]),
 };
