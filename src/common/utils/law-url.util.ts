@@ -12,6 +12,7 @@ const TIPO_SLUG: Record<string, string> = {
   'ley-27150':              '/codigos/procesal-penal',
   'carta-onu':              '/tratados/carta-onu',
   'convencion-derechos-nino': '/tratados/convencion-derechos-nino',
+  'acuerdo-residencia-argentina-brasil': '/tratados/acuerdo-residencia-argentina-brasil',
 };
 
 function slugify(text: string): string {

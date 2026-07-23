@@ -441,7 +441,24 @@ export class SearchDbService {
       const prev = best.get(it.id);
       if (!prev || it.score > prev.score) best.set(it.id, it);
     }
-    return [...best.values()].sort((a, b) => b.score - a.score).slice(0, limit);
+
+    // Orden final en dos bandas. Los boosts intencionales (número exacto, nombre de norma,
+    // referencia directa a artículo, fallback) puntúan >= 500 y mandan por SCORE puro: un
+    // match exacto de artículo ("código penal art. 80") tiene que quedar arriba. Por debajo
+    // de ese piso están los resultados por texto (ts_rank <= ~1); ahí la NORMA va antes que
+    // los artículos, para que la ley sea la puerta de entrada y sus artículos la sigan
+    // (p. ej. "ganancias" → Ley 20.628 primero, después sus artículos), de forma dinámica y
+    // sin fijar nada por query.
+    const EXACT_TIER_FLOOR = 100; // el ts_rank del FTS nunca lo alcanza; el boost más bajo (nombre) arranca en ~500
+    const rank = (a: SearchResultItem, b: SearchResultItem): number => {
+      const aExact = a.score >= EXACT_TIER_FLOOR;
+      const bExact = b.score >= EXACT_TIER_FLOOR;
+      if (aExact !== bExact) return aExact ? -1 : 1;
+      if (aExact) return b.score - a.score;
+      if (a.type !== b.type) return a.type === 'law' ? -1 : 1;
+      return b.score - a.score;
+    };
+    return [...best.values()].sort(rank).slice(0, limit);
   }
 
   async suggest(query: string, limit = 8): Promise<SearchSuggestion[]> {

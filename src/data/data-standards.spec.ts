@@ -40,7 +40,7 @@ const ARTNUM_FORMAT_BACKLOG = new Set<string>([
   'const-chubut', 'const-corrientes', 'const-la-rioja', 'const-san-juan',
 ]);
 // Normas cuyo `number` no es puramente numérico de forma legítima/heredada.
-const NUMBER_ALLOWLIST = new Set<string>(['carta-onu', 'disp-dnpdp-7-2005']);
+const NUMBER_ALLOWLIST = new Set<string>(['carta-onu', 'disp-dnpdp-7-2005', 'acuerdo-residencia-argentina-brasil']);
 
 interface NormRow { id: string; number: string; title: string }
 interface ArtRow { norm_id: string; number: string }

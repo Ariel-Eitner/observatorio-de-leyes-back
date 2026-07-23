@@ -185,6 +185,28 @@ export const COMPLETENESS_BACKLOG = {
     //   arts — los Anexos I-III están dentro del art. 14), 26.735 (reforma Régimen Penal Tributario de la Ley
     //   24.769, 20 arts — modificatoria; los TÍTULO son de la ley que modifica).
     'ley-26716', 'ley-26725', 'ley-26735',
+    // 2026-07-19: rango 26.600-26.699. MODIFICATORIAS planas ≥15 arts (los TÍTULO/CAPÍTULO son de la ley
+    //   madre): 26.683 (lavado de activos, mod. Código Penal + Ley 25.246, 26 arts — art. 25 vetado por Dto
+    //   825/2011), 26.684 (reforma de Concursos y Quiebras, mod. Ley 24.522, 33 arts). Sustantiva plana:
+    //   26.690 (resarcimiento a damnificados del atentado a la Embajada de Israel, 15 arts).
+    'ley-26683', 'ley-26684', 'ley-26690',
+    // 2026-07-19: rango 26.500-26.599. PLANAS ≥15 arts sin estructura propia en la fuente. 26.548 (Banco
+    //   Nacional de Datos Genéticos, 31 arts — organizada por epígrafes de artículo; el único heading es
+    //   "Cláusulas transitorias" del art. 30, no una sección) y 26.566 (extensión de la vida de la Central
+    //   Nuclear Embalse, 20 arts — articulado corrido).
+    'ley-26548', 'ley-26566',
+    // 2026-07-19: rango 26.400-26.499. MODIFICATORIA plana ≥15 arts: 26.478 (reforma Ley 22.939 de marcas y
+    //   señales del ganado, 15 arts — los TÍTULO/CAPÍTULO de su texto son de la ley madre, no propios).
+    'ley-26478',
+    // 2026-07-19: rango 26.300-26.399. PLANAS ≥15 arts sin estructura propia (verificado con estructura.ps1).
+    //   26.377 (Convenios de Corresponsabilidad Gremial, 20 arts — epígrafes por artículo, no secciones),
+    //   26.355 (Marcas Colectivas, 19 arts) y 26.371 (Cámara Nac. de Casación en lo Criminal y Correccional,
+    //   15 arts — modificatoria: sus TÍTULO/CAPÍTULO son del CPP / Ley 24.050 / DL 1285/58, no propios).
+    'ley-26377', 'ley-26355', 'ley-26371',
+    // 2026-07-19: rango 26.200-26.299. PLANAS ≥15 arts sin estructura propia. 26.281 (Prevención y Control del
+    //   Chagas, 17 arts), 26.283 (beneficios tributarios a prestadores médicos y obras sociales, 15 arts) y
+    //   26.246 (creación de juzgados y Cámara Federal de La Matanza, 15 arts — sin TÍTULO/CAPÍTULO propios).
+    'ley-26281', 'ley-26283', 'ley-26246',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -348,5 +370,27 @@ export const COMPLETENESS_BACKLOG = {
     //   26.787 (Día del Desarrollo Científico y Tecnológico Espacial), 26.794 (denominación CCK), 26.797
     //   (RN 3 "Padre Zink" — el texto solo "solicita", no obliga).
     'ley-26715', 'ley-26726', 'ley-26753', 'ley-26757', 'ley-26775', 'ley-26787', 'ley-26794', 'ley-26797',
+    // 2026-07-19: rango 26.600-26.699. Honoríficas puras / viaje presidencial. 26.652 (Día de la Historieta),
+    //   26.656 (viaje Presidenta 2011), 26.665 (Día del Folklorista).
+    'ley-26652', 'ley-26656', 'ley-26665',
+    // 2026-07-19: rango 26.500-26.599. Autorización de viaje presidencial de objeto agotado, sin destinatario
+    //   obligado. 26.553 (autorización a la Presidenta para ausentarse del país durante 2010).
+    'ley-26553',
+    // 2026-07-19: rango 26.400-26.499. Autorización de viaje presidencial de objeto agotado, sin destinatario
+    //   obligado. 26.461 (autorización a la Presidenta para ausentarse del país durante 2009).
+    'ley-26461',
+    // 2026-07-19: rango 26.300-26.399. Honoríficas puras (días conmemorativos y denominación de puente) sin
+    //   organismo obligado, y 1 viaje presidencial. 26.316 (Día Nac. de la Prevención del Abuso contra NNyA),
+    //   26.320 (Día Nac. de la Gratuidad de la Enseñanza Universitaria), 26.322 (Puente Gobernador Ragone),
+    //   26.336 (autorización a la Presidenta para ausentarse del país durante 2008).
+    'ley-26316', 'ley-26320', 'ley-26322', 'ley-26336',
+    // 2026-07-19: rango 26.200-26.299. Honoríficas puras (días conmemorativos, capitales/cunas, danza nacional)
+    //   sin organismo obligado, y 1 viaje presidencial. 26.207 (autorización al Presidente para ausentarse del
+    //   país durante 2007), 26.219 (Margarita Belén Cuna del Cooperativismo Algodonero), 26.225 (Feria Nac. del
+    //   Comahue), 26.271 (Día del Cooperativismo Agropecuario), 26.275 (Laborde Capital del Malambo), 26.277
+    //   (Día de las Heroínas y Mártires de la Independencia), 26.293 (Cuna de la Educación Pública), 26.295
+    //   (Día Nac. de la Producción Orgánica), 26.297 (el pericón, danza nacional).
+    'ley-26207', 'ley-26219', 'ley-26225', 'ley-26271', 'ley-26275',
+    'ley-26277', 'ley-26293', 'ley-26295', 'ley-26297',
   ]),
 };
