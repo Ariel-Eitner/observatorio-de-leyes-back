@@ -14,6 +14,10 @@ export class TrackEventDto {
   @IsOptional() @IsString() @MaxLength(200)
   guestId?: string;
 
+  // id del usuario logueado (users.id) — para atribuir la actividad a la cuenta.
+  @IsOptional() @IsString() @MaxLength(200)
+  userId?: string;
+
   @IsOptional()
   properties?: Record<string, unknown>;
 
@@ -121,6 +125,7 @@ export class EventsService {
           type:       dto.type,
           sessionId:  dto.sessionId,
           guestId:    dto.guestId    ?? null,
+          userId:     dto.userId     ?? null,
           properties: (dto.properties ?? undefined) as Prisma.InputJsonValue | undefined,
           context:    (Object.keys(context).length ? context : undefined) as Prisma.InputJsonValue | undefined,
         },
@@ -150,6 +155,7 @@ export class EventsService {
           timestamp:  row.createdAt.toISOString(),
           sessionId:  row.sessionId,
           guestId:    row.guestId    ?? undefined,
+          userId:     row.userId     ?? undefined,
           properties: (row.properties as Record<string, unknown>) ?? undefined,
           context:    (row.context    as Record<string, unknown>) ?? undefined,
         });

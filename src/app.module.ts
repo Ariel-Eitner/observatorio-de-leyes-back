@@ -4,6 +4,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { LawsModule } from './laws/laws.module';
+import { ToursModule } from './tours/tours.module';
 import { ArticlesModule } from './articles/articles.module';
 import { SegmentsModule } from './segments/segments.module';
 import { SearchModule } from './search/search.module';
@@ -18,6 +19,9 @@ import { ExportsModule }         from './exports/exports.module';
 import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.module';
 import { FinanzasModule }         from './finanzas/finanzas.module';
 import { JurisprudenciaModule }   from './jurisprudencia/jurisprudencia.module';
+import { AuthModule }             from './auth/auth.module';
+import { UserContentModule }      from './user-content/user-content.module';
+import { UsersModule }            from './users/users.module';
 import { CorpusReadyGuard }       from './common/guards/corpus-ready.guard';
 
 @Module({
@@ -32,6 +36,7 @@ import { CorpusReadyGuard }       from './common/guards/corpus-ready.guard';
       limit: 120,      // 120 req/min por IP — generoso para leer leyes
     }]),
     LawsModule,
+    ToursModule,
     ArticlesModule,
     SegmentsModule,
     SearchModule,
@@ -45,6 +50,9 @@ import { CorpusReadyGuard }       from './common/guards/corpus-ready.guard';
     ContractAnalyzerModule,
     FinanzasModule,
     JurisprudenciaModule,
+    AuthModule,
+    UserContentModule,
+    UsersModule,
   ],
   providers: [
     // Aplicar rate limiting globalmente por IP (ThrottlerGuard usa IP por defecto)

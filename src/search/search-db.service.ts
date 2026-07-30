@@ -102,21 +102,44 @@ function nameTerms(q: string): string[] {
   return norm(q).split(/\s+/).filter((t) => t.length > 2 && !NAME_GENERIC.has(t));
 }
 
-// Extrae el número de una norma cuando la query ES (esencialmente) un número:
-// "26.388", "26388", "ley 26.388", "decreto 1112/2024", "941/2025". Devuelve solo
-// los dígitos para un match directo por número. null si la query trae texto además
-// del número (ahí manda el tsvector). Resuelve el bug de que el tsvector parte los
-// puntos/barras ("26.388" → "26" & "388") y no matchea el token entero ("26388").
-function extractNumberDigits(q: string): string | null {
-  const cleaned = q
+// Saca las "palabras-número" que la gente antepone al número de una norma: "ley",
+// "decreto", "n°/nº", "nro", "número" y el "n" suelto. Los ordinales °/º se pasan a
+// separador ANTES (si no, "n°" no cae por el \b del final). Fuente única para no
+// desincronizar extractNumberDigits e isNumberOnlyQuery, que deben decidir IGUAL.
+function stripNumberWords(q: string): string {
+  return q
     .toLowerCase()
-    .replace(/\b(ley|leyes|decreto|decretos|dnu|norma|normas|resoluci[oó]n|disposici[oó]n|n[°º]|nro\.?|numero|n[uú]mero)\b/gi, ' ')
+    .replace(/[°º]/g, ' ')
+    .replace(/\b(ley|leyes|decreto|decretos|dnu|norma|normas|resoluci[oó]n|disposici[oó]n|nro\.?|numero|n[uú]mero|n)\b/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// Extrae el número de una norma cuando la query ES (esencialmente) un número:
+// "26.388", "26388", "ley 26.388", "decreto 1112/2024", "941/2025", "ley n° 26388".
+// Devuelve solo los dígitos para un match directo por número. null si la query trae
+// texto además del número (ahí manda el tsvector). Resuelve el bug de que el tsvector
+// parte los puntos/barras ("26.388" → "26" & "388") y no matchea el token entero.
+function extractNumberDigits(q: string): string | null {
+  const cleaned = stripNumberWords(q);
   // Si queda texto que no sea dígitos / separadores, no es una búsqueda por número.
   if (cleaned.replace(/[\d.\/\s-]/g, '').length > 0) return null;
   const digits = cleaned.replace(/\D/g, '');
   return digits.length >= 3 && digits.length <= 9 ? digits : null;
+}
+
+// ¿La query es SOLO un número? ("25542", "ley 25.542", "n° 24", "1112/2024"), sin
+// texto adicional. En ese caso el FTS por texto es PURO RUIDO: el token numérico entra
+// al tsquery como prefijo (`24:*`) y matchea miles de registros por prefijo — medido:
+// "24:*" da 3570 artículos y 368 normas. La intención real ("quiero la norma con ese
+// número") la resuelve el match directo por número. A diferencia de extractNumberDigits
+// (que exige 3-9 dígitos para el match), acá NO hay piso de longitud: así, mientras se
+// tipea el número dígito a dígito ("2", "24", "255"…), tampoco floodea con prefijos.
+export function isNumberOnlyQuery(q: string): boolean {
+  const cleaned = stripNumberWords(q);
+  if (!cleaned) return false;
+  // Solo dígitos y separadores (. / - espacio), con al menos un dígito.
+  return /\d/.test(cleaned) && cleaned.replace(/[\d.\/\s-]/g, '').length === 0;
 }
 
 // Detecta una referencia directa a un artículo dentro de una norma nombrada:
@@ -190,7 +213,11 @@ export class SearchDbService {
     // de texto (p. ej. es solo un número) → la resuelven los match por número/nombre.
     const ftsQ = buildFtsQuery(q);
 
-    if (opts.type !== 'law' && ftsQ) {
+    // Query que es SOLO un número: se salta el FTS (que floodearía por prefijo) y la
+    // resuelve el match directo por número. Ver isNumberOnlyQuery.
+    const numberOnly = isNumberOnlyQuery(q);
+
+    if (opts.type !== 'law' && ftsQ && !numberOnly) {
       const params: unknown[] = [ftsQ];
       const where = this.filterClauses(opts, params);
       params.push(limit);
@@ -212,7 +239,7 @@ export class SearchDbService {
       } catch { /* un tsquery inválido nunca debe romper la búsqueda */ }
     }
 
-    if (opts.type !== 'article' && ftsQ) {
+    if (opts.type !== 'article' && ftsQ && !numberOnly) {
       const params: unknown[] = [ftsQ];
       const where = this.filterClauses(opts, params);
       params.push(limit);
@@ -366,7 +393,7 @@ export class SearchDbService {
     // "recurso de amparo" del procedimiento fiscal— y así la Convención de Discapacidad,
     // que sí habla de ajustes razonables, nunca aparecía). No corre si hubo match exacto
     // por número de norma o por referencia a artículo: eso es lo que el usuario pidió textual.
-    const exactMatch = Boolean(numDigits) || Boolean(artRef);
+    const exactMatch = Boolean(numDigits) || Boolean(artRef) || numberOnly;
     if (!exactMatch && out.length < FALLBACK_MIN_RESULTS) {
       const fb = buildFtsFallback(q);
       if (fb && opts.type !== 'law') {
@@ -468,8 +495,11 @@ export class SearchDbService {
     // Mismo tsquery con sinónimos que search(), para que el autocompletado también
     // cruce coloquial ↔ legal (p. ej. "venta onl…" ya sugiere Defensa del Consumidor).
     const ftsQ = buildFtsQuery(q);
+    // Query que es SOLO un número: se salta el FTS (prefijo `24:*` floodea con miles de
+    // registros) y la resuelve el match directo por número de abajo. Ver isNumberOnlyQuery.
+    const numberOnly = isNumberOnlyQuery(q);
     let rows: Record<string, unknown>[] = [];
-    if (ftsQ) {
+    if (ftsQ && !numberOnly) {
       const sql = `
         WITH tq AS (SELECT to_tsquery('spanish'::regconfig, $1) AS qq)
         SELECT 'article' AS rtype, a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,

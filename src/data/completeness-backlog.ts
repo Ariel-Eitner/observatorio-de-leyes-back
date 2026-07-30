@@ -133,6 +133,21 @@ export const COMPLETENESS_BACKLOG = {
     // 2026-07-13: PLANA — 27.439 (Régimen de Subrogancias, 17 arts): el texto de InfoLeg va directo de
     //   "Ley:" a "Artículo 1°", sin títulos ni capítulos (estructura.ps1 → 0 secciones).
     'ley-27439',
+    // 2026-07-24: rango 26.000-26.199 (tanda 1). PLANA — 26.028 (Impuesto sobre la transferencia o
+    //   importación de gasoil, 17 arts): articulado corrido con epígrafes por artículo, sin TÍTULO/CAPÍTULO
+    //   propios en la fuente oficial. Es tributaria de tema único (no modificatoria).
+    'ley-26028',
+    // 2026-07-24: rango 26.000-26.199 (tanda 2). PLANA — 26.040 (creación del Instituto Nacional
+    //   Yrigoyeneano, 26 arts): articulado corrido; las "2 secciones" que detecta estructura.ps1 son los
+    //   Anexos I/II (nóminas de miembros), no secciones del articulado. Sin estructura propia de títulos.
+    'ley-26040',
+    // 2026-07-24: rango 26.000-26.199 (tanda 3). PLANAS — modificatorias sin estructura propia: su articulado
+    //   es una lista de sustituciones a la ley madre. 26.066 (16 arts, reforma la Ley 24.193 de trasplantes) y
+    //   26.080 (25 arts, reforma la Ley 24.937 del Consejo de la Magistratura).
+    'ley-26066', 'ley-26080',
+    // 2026-07-25: rango 26.000-26.199 (tanda 6, cierre del rango). PLANA — 26.181 (Fondo Hídrico de
+    //   Infraestructura, 17 arts): articulado corrido sin TÍTULO/CAPÍTULO propios en la fuente oficial.
+    'ley-26181',
     // 2026-07-13: PLANA — 27.453 (Regularización dominial / barrios populares, 20 arts). estructura.ps1
     //   reporta 1 sección pero es falso positivo: toma la mención "capítulo XI del Anexo del decreto 2.670"
     //   que está DENTRO del texto del art. 1°. No tiene títulos ni capítulos propios.
@@ -373,6 +388,24 @@ export const COMPLETENESS_BACKLOG = {
     // 2026-07-19: rango 26.600-26.699. Honoríficas puras / viaje presidencial. 26.652 (Día de la Historieta),
     //   26.656 (viaje Presidenta 2011), 26.665 (Día del Folklorista).
     'ley-26652', 'ley-26656', 'ley-26665',
+    // 2026-07-24: rango 26.000-26.199 (tanda 1). Declaraciones honoríficas puras sin organismo obligado:
+    //   26.027 (Monte Maíz Capital Nacional de las Sembradoras), 26.030 (Mina Clavero Capital Nacional del
+    //   Rally + Día Nacional del Rally). El resto de la tanda cumple Tier 1 con obligaciones o derechos reales.
+    'ley-26027', 'ley-26030',
+    // 2026-07-24: rango 26.000-26.199 (tanda 2). Sin destinatario obligado: 26.059 (autorización de entrada
+    //   de tropas extranjeras y salida de fuerzas nacionales para las ejercitaciones combinadas 2005-2006,
+    //   de objeto agotado) y 26.064 (Día Nacional contra el Trabajo Infantil, fecha conmemorativa que no
+    //   impone deberes ni difusión a cargo de ningún organismo). El resto de la tanda cumple Tier 1.
+    //   Suma 26.037 (Sunchales Capital Nacional del Cooperativismo): declaración honorífica pura, sin
+    //   organismo obligado ni derecho concreto.
+    'ley-26059', 'ley-26064', 'ley-26037',
+    // 2026-07-25: rango 26.000-26.199 (tanda 4). Honorífica pura sin organismo obligado: 26.125 (declara
+    //   Héroe Nacional al Gral. Martín Miguel de Güemes). El resto de la tanda cumple Tier 1.
+    'ley-26125',
+    // 2026-07-25: rango 26.000-26.199 (tanda 5). Adhesiones oficiales "Capital Nacional de…" puras, sin
+    //   organismo obligado ni derecho concreto: 26.152 (Rosario, del Mutualismo) y 26.157 (Resistencia, de
+    //   las Esculturas). El resto de la tanda cumple Tier 1.
+    'ley-26152', 'ley-26157',
     // 2026-07-19: rango 26.500-26.599. Autorización de viaje presidencial de objeto agotado, sin destinatario
     //   obligado. 26.553 (autorización a la Presidenta para ausentarse del país durante 2010).
     'ley-26553',

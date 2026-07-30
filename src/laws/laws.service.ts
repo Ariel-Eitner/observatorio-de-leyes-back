@@ -10,6 +10,11 @@ import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 import { buildVetos } from './vetos.util';
 
+// Endpoint del front que invalida el caché de las fichas. Va hardcodeado a propósito: el
+// dominio es estable y no justifica una variable de entorno más. El secreto es el mismo
+// ADMIN_SECRET que ya comparten back y front.
+const FRONT_REVALIDATE_URL = 'https://observatorio-de-leyes-front.vercel.app/api/revalidate';
+
 // Metadata estática que no puede derivarse de los data files solos
 export const LAW_STATIC_META: Record<
 	string,
@@ -433,13 +438,79 @@ export class LawsService implements OnModuleInit {
 			// type+target, así que es idempotente aunque ya corriera sobre el código.
 			applyCuratedRelations([...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms]);
 			// Recién acá el corpus está completo: hasta este punto el guard corta con 503.
+			const eraArranque = !this.ready;
 			this.ready = true;
+
+			// Avisarle al front qué rutas invalidar. En el arranque NO se notifica: ahí
+			// `toLoad` es el corpus entero y no hubo cambio real que propagar.
+			if (!eraArranque && (loaded.length > 0 || toRemove.size > 0)) {
+				void this.notificarFront(loaded, [...toRemove]);
+			}
+
 			return { ok: true, count: this.dbNorms.length, added, removed: toRemove.size };
 		} catch (e) {
 			this.logger.error(`Error hidratando normas desde la BD: ${(e as Error).message}`);
 			return { ok: false, count: this.dbNorms.length, added: 0, removed: 0 };
 		} finally {
 			this.hydrating = false;
+		}
+	}
+
+	/**
+	 * Le avisa al front qué rutas quedaron desactualizadas después de un refresh.
+	 *
+	 * Las fichas de normas se cachean para siempre (`revalidate = false`) porque así el sitio
+	 * no gasta funciones: en junio de 2026 Vercel pausó el proyecto por consumo. El costo de
+	 * esa decisión era que una norma nueva o editada solo se veía con un redeploy, y peor: si
+	 * alguien pedía la URL antes de que existiera, **el 404 también quedaba cacheado para
+	 * siempre**. Esto lo resuelve sin resignar el caché: se invalidan solo las rutas afectadas
+	 * y Next las regenera recién en la próxima visita.
+	 *
+	 * Es fire-and-forget con timeout: si el front no responde, el refresh no se cae.
+	 */
+	private async notificarFront(cambiadas: Law[], eliminadas: string[]): Promise<void> {
+		// Solo en producción: en local no tiene sentido (y no queremos que un refresh de
+		// desarrollo vaya a invalidar el caché del sitio real).
+		if (process.env.NODE_ENV !== 'production') return;
+		const secret = process.env.ADMIN_SECRET;
+		if (!secret) return;
+
+		const LIMITE = 400;
+		const paths: string[] = [];
+		for (const law of cambiadas) {
+			const base = computeFrontendPath(law);
+			paths.push(base);
+			for (const art of law.articles ?? []) {
+				paths.push(`${base}/articulo/${slugifyArticle(art.number)}`);
+			}
+		}
+		// Una norma borrada ya no tiene articulado que recorrer: alcanza con su ficha.
+		for (const id of eliminadas) paths.push(`/leyes/${id}`);
+
+		// Si el cambio es masivo, enumerar rutas es peor que invalidar todo de una: `all`
+		// solo marca el caché como vencido, la regeneración sigue siendo perezosa.
+		const body = paths.length > LIMITE ? { all: true } : { paths };
+
+		const ctrl = new AbortController();
+		const timer = setTimeout(() => ctrl.abort(), 10_000);
+		try {
+			const res = await fetch(FRONT_REVALIDATE_URL, {
+				method: 'POST',
+				headers: { 'content-type': 'application/json', 'x-obs-admin': secret },
+				body: JSON.stringify(body),
+				signal: ctrl.signal,
+			});
+			if (!res.ok) {
+				this.logger.warn(`Revalidación del front respondió ${res.status}`);
+			} else {
+				this.logger.log(
+					`Front revalidado: ${'all' in body ? 'todo el árbol' : `${paths.length} rutas`}`,
+				);
+			}
+		} catch (e) {
+			this.logger.warn(`No se pudo avisar al front para revalidar: ${(e as Error).message}`);
+		} finally {
+			clearTimeout(timer);
 		}
 	}
 
