@@ -79,14 +79,14 @@ model PostedLawHistory {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model contact_submissions {
-  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  created_at        DateTime @default(now()) @db.Timestamptz(6)
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at        DateTime  @default(now()) @db.Timestamptz(6)
   nombre            String
-  email             String
+  email             String?
   tipo              String
   mensaje           String
   user_agent        String?
-  is_read           Boolean  @default(false)
+  is_read           Boolean   @default(false)
   apellido          String?
   telefono          String?
   profesion         String?
@@ -99,6 +99,9 @@ model contact_submissions {
   provincia         String?
   como_nos_encontro String?
   tipo_usuario      String?
+  guest_id          String?
+  consent_at        DateTime? @db.Timestamptz(6)
+  consent_version   String?
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -118,6 +121,20 @@ model founders {
   pagado          Boolean?  @default(false)
   comprobante_url String?
   comprobante_at  DateTime? @db.Timestamptz(6)
+  telefono        String?
+  // Beneficio Pro para donantes verificados: se otorga a mano desde el panel.
+  beneficio             String?
+  beneficio_meses       Int?
+  beneficio_otorgado_at DateTime? @db.Timestamptz(6)
+  beneficio_hasta       DateTime? @db.Timestamptz(6)
+  beneficio_nota        String?
+  guest_id        String?
+  mensaje         String?
+  nivel           String?
+  oculto_muro     Boolean   @default(false)
+  // Prueba de consentimiento (ley 25.326). Bumpear CONSENT_VERSION al cambiar el texto.
+  consent_at      DateTime? @db.Timestamptz(6)
+  consent_version String?
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -137,7 +154,7 @@ model lead_events {
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model leads {
   id                String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  email             String        @unique
+  email             String?       @unique
   nombre            String?
   created_at        DateTime?     @default(now()) @db.Timestamptz(6)
   updated_at        DateTime?     @default(now()) @db.Timestamptz(6)
@@ -155,6 +172,11 @@ model leads {
   provincia         String?
   telefono          String?
   como_nos_encontro String?
+  guest_id          String?
+  device            String?
+  // Prueba de consentimiento (ley 25.326).
+  consent_at        DateTime?     @db.Timestamptz(6)
+  consent_version   String?
   lead_events       lead_events[]
 
   @@index([created_at(sort: Desc)])
@@ -196,7 +218,7 @@ model Egreso {
   recurrente  Boolean  @default(false)
   mesesPagados String[] @default([]) @map("meses_pagados") // recurrentes: meses "YYYY-MM" marcados como pagados
   createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([fecha(sort: Desc)], map: "idx_egresos_fecha")
   @@index([categoria], map: "idx_egresos_categoria")
@@ -219,7 +241,7 @@ model Ingreso {
   periodo     String?  // "2026-05"
   sourceRef   String?  @unique @map("source_ref") // dedupe de ingresos creados desde un pago
   createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([fecha(sort: Desc)], map: "idx_ingresos_fecha")
   @@index([tipo], map: "idx_ingresos_tipo")
@@ -263,7 +285,7 @@ model norms {
   bo_number         String?
   short_code        String?
   aliases           String[]                 @default([])
-  is_destacada      Boolean                  @default(false)
+  is_destacada      Boolean?                 @default(false)
   infoleg_id_meta   String?
   status            String                   @default("VIGENTE")
   jurisdiction      String
@@ -282,7 +304,15 @@ model norms {
   affected_subjects String[]                 @default([])
   created_at        DateTime                 @default(now()) @db.Timestamptz(6)
   updated_at        DateTime                 @default(now()) @db.Timestamptz(6)
-  search            Unsupported("tsvector")? @default(dbgenerated("to_tsvector('spanish'::regconfig, ((((COALESCE(title, ''::text) || ' '::text) || COALESCE(common_name, ''::text)) || ' '::text) || COALESCE(summary, ''::text)))"))
+  // En la BD es una columna GENERATED (setweight + immutable_unaccent); la crea
+  // el baseline en prisma/migrations/. Prisma no soporta columnas generadas: al
+  // introspectar produccion la representa como @default(dbgenerated(...)), y ese
+  // default es invalido en Postgres porque referencia otras columnas
+  //   ERROR: cannot use column reference in DEFAULT expression
+  // Con el default declarado, el esquema deja de ser reproducible. Se declara
+  // sin default a proposito. Ver la trampa en prisma/README.md: por esto todo
+  // `migrate dev` genera un DROP DEFAULT espurio que hay que borrar a mano.
+  search            Unsupported("tsvector")?
   annexes           annexes[]
   articles          articles[]
   norm_amendments   norm_amendments[]
@@ -365,7 +395,8 @@ model articles {
   keywords                   String[]                 @default([])
   jurisprudence_refs         Json?
   visual_content             Json?
-  search                     Unsupported("tsvector")? @default(dbgenerated("to_tsvector('spanish'::regconfig, ((((COALESCE(title, ''::text) || ' '::text) || body) || ' '::text) || COALESCE(plain_language_explanation, ''::text)))"))
+  // Columna GENERATED en la BD — misma razon que norms.search (ver ahi).
+  search                     Unsupported("tsvector")?
   article_amendments         article_amendments[]
   norms                      norms                    @relation(fields: [norm_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   segments                   segments[]
@@ -452,7 +483,7 @@ model norm_stubs {
   number     String   @id
   name       String
   infoleg_id String?
-  created_at DateTime @default(now()) @db.Timestamptz(6)
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
 
   @@map("norm_stubs")
 }
@@ -461,12 +492,12 @@ model norm_stubs {
 // duplicadas y divergentes: CATEGORY_LABELS en laws.service (back) y CATEGORIES
 // en app/lib/categories.ts (front). Fuente única ahora.
 model categories {
-  slug        String   @id
+  slug        String    @id
   label       String
   description String?
   icon        String?
-  ord         Int      @default(0)
-  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  ord         Int?      @default(0)
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
 
   @@map("categories")
 }
@@ -502,10 +533,15 @@ model User {
   createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
   lastLoginAt    DateTime? @map("last_login_at") @db.Timestamptz(6)
+  // Fuerza bruta por CUENTA. El límite por IP no alcanza: un ataque distribuido
+  // sobre un solo email usa una IP distinta por intento y nunca toca ese techo.
+  failedLoginCount Int      @default(0) @map("failed_login_count")
+  lockedUntil    DateTime? @map("locked_until") @db.Timestamptz(6)
   sessions       Session[]
   savedLaws      SavedLaw[]
   likes          LawLike[]
   folders        Folder[]
+  benefitClaims  BenefitClaim[]
 
   @@index([guestId], map: "idx_users_guest")
   @@index([founderId], map: "idx_users_founder")
@@ -581,6 +617,7 @@ model BenefitClaim {
   comprobanteUrl String?  @map("comprobante_url")
   status         String   @default("pendiente") // pendiente | verificado | rechazado
   createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([status], map: "idx_benefit_claims_status")
   @@index([userId], map: "idx_benefit_claims_user")
@@ -600,4 +637,226 @@ model Folder {
 
   @@index([userId], map: "idx_folders_user")
   @@map("folders")
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Tablas que existian en produccion pero que Prisma no conocia (6-ago-2026).
+//
+// Eran 12 de las 43. Su DDL vivia SOLO dentro de Supabase: no estaba en este
+// archivo ni en supabase/migrations/. Consecuencia practica: `db-local.ps1`
+// armaba una base local con 31 tablas y el runtime pedia 43, asi que /mapa-legal
+// se quedaba sin recorridos (tours.service.ts los cachea a [] cuando la tabla no
+// existe, ver el try/catch) y todo el panel de admin fallaba en local.
+//
+// Tipadas desde el DDL real del baseline (00000000000000_baseline). Al agregarlas
+// aca, `prisma db push` y `prisma migrate` producen una base local COMPLETA.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// Recorridos guiados del mapa legal. Antes vivian en tours.ts (codigo); se
+// movieron a la BD para poder editarlos sin deploy.
+model Tour {
+  id          String     @id
+  title       String
+  hook        String
+  emoji       String?
+  accent      String?
+  cardHook    String?    @map("card_hook")
+  comingSoon  Boolean    @default(false) @map("coming_soon")
+  layout      String?
+  ord         Int        @default(0)
+  createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime   @default(now()) @map("updated_at") @db.Timestamptz(6)
+  steps       TourStep[]
+
+  @@map("tours")
+}
+
+model TourStep {
+  id     String  @id
+  tourId String  @map("tour_id")
+  lawId  String  @map("law_id")
+  titulo String
+  say    String
+  via    String?
+  scale  Float?
+  durMs  Int?    @map("dur_ms")
+  ord    Int
+  tour   Tour    @relation(fields: [tourId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([tourId, ord], map: "tour_steps_tour_idx")
+  @@map("tour_steps")
+}
+
+// Pagos de Mercado Pago. `monto` es numeric en la BD: se mapea a Decimal para no
+// perder centavos (Float redondearia).
+model Pago {
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt         DateTime? @map("updated_at") @db.Timestamptz(6)
+  tipo              String    @default("apoyo")
+  concepto          String?
+  monto             Decimal   @db.Decimal
+  estado            String    @default("pendiente")
+  mpPaymentId       String?   @map("mp_payment_id")
+  mpStatus          String?   @map("mp_status")
+  mpStatusDetail    String?   @map("mp_status_detail")
+  paymentMethod     String?   @map("payment_method")
+  email             String?
+  nombre            String?
+  guestId           String?   @map("guest_id")
+  leadId            String?   @map("lead_id") @db.Uuid
+  founderId         String?   @map("founder_id") @db.Uuid
+  device            String?
+  utmSource         String?   @map("utm_source")
+  utmMedium         String?   @map("utm_medium")
+  utmCampaign       String?   @map("utm_campaign")
+  metadata          Json?
+  externalReference String?   @map("external_reference")
+
+  @@index([createdAt(sort: Desc)], map: "idx_pagos_created_at")
+  @@index([estado], map: "idx_pagos_estado")
+  @@index([guestId], map: "idx_pagos_guest")
+  @@index([mpPaymentId], map: "idx_pagos_mp_payment_id")
+  @@map("pagos")
+}
+
+model ProductOrder {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt      DateTime? @default(now()) @map("created_at") @db.Timestamptz(6)
+  producto       String
+  nombre         String?
+  email          String?
+  telefono       String?
+  precio         Decimal?  @db.Decimal
+  detalle        Json?
+  status         String    @default("pendiente")
+  utmSource      String?   @map("utm_source")
+  utmMedium      String?   @map("utm_medium")
+  utmCampaign    String?   @map("utm_campaign")
+  notas          String?
+  guestId        String?   @map("guest_id")
+  consentAt      DateTime? @map("consent_at") @db.Timestamptz(6)
+  consentVersion String?   @map("consent_version")
+
+  @@map("product_orders")
+}
+
+// Seguimiento de posteos: m24/m48 guardan las metricas a 24 y 48 horas.
+model ContentPost {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  red         String   @default("twitter")
+  categoria   String
+  leyTema     String?  @map("ley_tema")
+  angulo      String?
+  utm         String?
+  texto       String   @default("")
+  link        String?
+  publishedAt DateTime @default(now()) @map("published_at") @db.Timestamptz(6)
+  m24         Json?
+  m48         Json?
+  notas       String?
+
+  @@index([publishedAt(sort: Desc)], map: "idx_content_posts_published")
+  @@map("content_posts")
+}
+
+// Recorrido congelado de un visitante. Se arma en el rollup diario y permite
+// purgar tracking_events sin perder la historia.
+model UserJourney {
+  guestId      String    @id @map("guest_id")
+  contactEmail String?   @map("contact_email")
+  firstTouch   Json?     @map("first_touch")
+  timeline     Json      @default("[]")
+  sessions     Int       @default(0)
+  total        Int       @default(0)
+  firstAt      DateTime? @map("first_at") @db.Timestamptz(6)
+  lastAt       DateTime? @map("last_at") @db.Timestamptz(6)
+  frozenAt     DateTime  @default(now()) @map("frozen_at") @db.Timestamptz(6)
+
+  @@map("user_journeys")
+}
+
+// Metricas ya calculadas por dia. `frozen` marca los dias cerrados, que no se
+// recalculan aunque se purguen los eventos crudos.
+model MetricsDaily {
+  day         DateTime @id @db.Date
+  payload     Json
+  guestIds    Json?    @map("guest_ids")
+  eventsCount Int      @default(0) @map("events_count")
+  frozen      Boolean  @default(false)
+  computedAt  DateTime @default(now()) @map("computed_at") @db.Timestamptz(6)
+
+  @@map("metrics_daily")
+}
+
+// Snapshot server-side de las metricas por rango. Al agregar un campo a
+// computeMetrics hay que subir SNAPSHOT_SCHEMA_VERSION o el panel sirve datos viejos.
+model MetricsSnapshot {
+  rangeKey      String   @id @map("range_key")
+  payload       Json
+  computedAt    DateTime @default(now()) @map("computed_at") @db.Timestamptz(6)
+  eventsInRange Int?     @default(0) @map("events_in_range")
+  eventsAllTime Int?     @default(0) @map("events_all_time")
+
+  @@map("metrics_snapshots")
+}
+
+// Clave/valor del panel (ej. "ultima vez que mire los contactos").
+model AdminKv {
+  key       String    @id
+  value     String?
+  updatedAt DateTime? @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  @@map("admin_kv")
+}
+
+model AdminDoc {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  key       String   @unique(map: "admin_docs_key_key")
+  content   Json     @default("{}")
+  updatedAt DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  @@map("admin_docs")
+}
+
+// Healthcheck de /admin/sistema: un snapshot por hora de front/back/BD.
+model SystemHealth {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  checkedAt DateTime @default(now()) @map("checked_at") @db.Timestamptz(6)
+  payload   Json
+
+  @@index([checkedAt(sort: Desc)], map: "idx_system_health_checked")
+  @@map("system_health")
+}
+
+// Triage de /admin/pendientes: resolver o anotar POR problema, no por evento.
+model IssueTriage {
+  issueKey  String   @id @map("issue_key")
+  kind      String
+  detail    String
+  status    String   @default("pendiente") // pendiente | resuelto | ignorado
+  note      String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  @@map("issue_triage")
+}
+
+// Anotador de pendientes del panel (/admin/tareas): lo que se va encontrando
+// mientras se revisa el sitio, para no perderlo.
+//
+// A propósito NO es un gestor de proyectos. Una tarea es un texto y si está
+// hecha o no — sin asignados, etiquetas, vencimientos ni prioridades. Si algún
+// día hace falta más, que sea una decisión explícita y no una acumulación.
+model AdminTask {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  texto     String
+  hecha     Boolean   @default(false)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  hechaAt   DateTime? @map("hecha_at") @db.Timestamptz(6)
+
+  @@index([hecha, createdAt(sort: Desc)], map: "idx_admin_tasks_hecha")
+  @@map("admin_tasks")
 }

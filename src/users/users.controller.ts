@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Patch, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Headers, HttpCode, Ip, Patch, Post, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ClaimDonationDto } from './dto/claim-donation.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
@@ -21,8 +21,18 @@ export class UsersController {
 
   @Post('me/password')
   @HttpCode(200)
-  changePassword(@CurrentUser() user: AccessTokenPayload, @Body() dto: ChangePasswordDto) {
-    return this.svc.changePassword(user.sub, dto);
+  changePassword(
+    @CurrentUser() user: AccessTokenPayload,
+    @Body() dto: ChangePasswordDto,
+    @Ip() ip: string,
+    @Headers('x-forwarded-for') xff?: string,
+    @Headers('user-agent') ua?: string,
+  ) {
+    // El cambio de clave cierra todas las sesiones y abre una nueva para este
+    // dispositivo, así que hace falta la metadata de la sesión entrante.
+    const clientIp = xff?.split(',')[0]?.trim() || ip;
+    const device = ua && /Mobi|Android|iPhone|iPad/i.test(ua) ? 'mobile' : 'desktop';
+    return this.svc.changePassword(user.sub, dto, { ip: clientIp, userAgent: ua, device });
   }
 
   // ── Bootstrap de la cuenta (perfil + guardadas + carpetas en un request) ────────

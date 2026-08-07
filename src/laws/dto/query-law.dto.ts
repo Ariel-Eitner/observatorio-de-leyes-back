@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsEnum, IsInt, Min, Max } from 'class-validator';
+import { IsOptional, IsString, IsEnum, IsInt, IsBoolean, Min, Max } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { Transform, Type } from 'class-transformer';
 import { LawStatus, Jurisdiction, NormType } from '../../common/types/law.types';
@@ -62,7 +62,17 @@ export class QueryLawDto {
   @Max(100)
   limit?: number = 20;
 
-  @ApiPropertyOptional({ enum: ['number', 'year', 'title', 'createdAt'], default: 'year' })
+  @ApiPropertyOptional({ description: 'Solo normas destacadas' })
+  @IsOptional()
+  @Transform(({ value }) => value === true || value === 'true' || value === '1')
+  @IsBoolean()
+  destacada?: boolean;
+
+  @ApiPropertyOptional({
+    enum: ['number', 'year', 'title', 'articleCount'],
+    default: 'year',
+    description: 'Cualquier otro valor cae a "year" (ver LawsService.SORT_KEYS)',
+  })
   @IsOptional()
   @IsString()
   sortBy?: string = 'year';

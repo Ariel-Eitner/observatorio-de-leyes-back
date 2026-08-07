@@ -44,7 +44,7 @@ export class PostDraftsService {
     const pending = await this.findAll(platform);
     for (const d of pending) usedSet.add(`${d.lawId}::${d.articleNumber}`);
 
-    const law = this.pickLaw(usedSet);
+    const law = await this.pickLaw(usedSet);
     if (!law) {
       this.logger.warn('[generate] No hay leyes disponibles para generar');
       return null;
@@ -118,31 +118,39 @@ export class PostDraftsService {
     });
   }
 
-  private pickLaw(usedSet: Set<string>) {
+  /**
+   * Elige la norma del próximo borrador. Puntúa con los datos del índice y baja el
+   * articulado de UNA sola: la ganadora.
+   *
+   * Antes puntuaba abriendo las 500 normas del listado para contarles los artículos
+   * sin usar. Con el articulado en la BD eso serían 500 consultas para descartar
+   * 499. El conteo sale igual de `articleCount` menos los pares ya usados de esa
+   * norma, que están en `usedSet`.
+   */
+  private async pickLaw(usedSet: Set<string>) {
     const { data: summaries } = this.laws.findAll({ page: 1, limit: 500 });
 
-    const eligible = (summaries ?? [])
+    const usados = new Map<string, number>();
+    for (const clave of usedSet) {
+      const lawId = clave.slice(0, clave.indexOf('::'));
+      usados.set(lawId, (usados.get(lawId) ?? 0) + 1);
+    }
+
+    const scored = (summaries ?? [])
       .filter(s => s.normType !== 'CONSTITUCION' && s.articleCount > 0)
       .map(s => {
-        try { return this.laws.findOne(s.id); } catch { return null; }
+        const unused = Math.max(0, s.articleCount - (usados.get(s.id) ?? 0));
+        return { id: s.id, score: (s.commonName ? 10 : 0) + unused * 2 };
       })
-      .filter((l): l is NonNullable<typeof l> => !!l)
-      .filter(l => (l.articles ?? []).length > 0);
-
-    if (!eligible.length) return null;
-
-    const scored = eligible.map(law => {
-      const unused = (law.articles ?? []).filter(
-        a => !usedSet.has(`${law.id}::${a.number}`),
-      ).length;
-      return { law, score: (law.commonName ? 10 : 0) + unused * 2 };
-    }).filter(s => s.score > 0);
+      .filter(s => s.score > 0);
 
     if (!scored.length) return null;
     scored.sort((a, b) => b.score - a.score);
     const top5 = scored.slice(0, 5);
     const idx  = new Date().getDay() % top5.length;
-    return top5[idx].law;
+    const law  = await this.laws.getFullNorm(top5[idx].id);
+    // Si la ganadora resultó no tener articulado cargado, no hay borrador que hacer.
+    return law && (law.articles ?? []).length > 0 ? law : null;
   }
 
   private mapRow(row: PrismaPostDraft): PostDraft {

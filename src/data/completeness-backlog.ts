@@ -313,6 +313,11 @@ export const COMPLETENESS_BACKLOG = {
     //   + derogados), 24.073/25.239 (ómnibus tributarias por títulos), 23.982/26.360 (estructura fiscal),
     //   y el decreto-ley 15.348/1946 (Prenda con Registro, capítulos irregulares).
     'ley-25917', 'ley-25344', 'ley-24946', 'ley-14473', 'ley-24073', 'ley-25239', 'ley-23982', 'ley-26360', 'decreto-ley-15348-1946',
+    // 2026-08-06: Ley 25.966 — PLANA. Es modificatoria de la 25.380: sus 20 artículos son una
+    //   lista de sustituciones ("Sustitúyese el texto del artículo N de la Ley 25.380…") y el
+    //   texto oficial no tiene títulos ni capítulos propios. La estructura pertenece a la norma
+    //   modificada, no a esta.
+    'ley-25966',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([

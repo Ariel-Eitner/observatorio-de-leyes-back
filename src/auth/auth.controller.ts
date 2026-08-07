@@ -35,7 +35,11 @@ export class AuthController {
   }
 
   @Post('register')
-  @Throttle({ default: { ttl: 60_000, limit: 10 } })
+  // OJO con la clave: tiene que ser el NOMBRE del throttler registrado en
+  // AppModule ('global'). Con una clave que no existe (antes decía 'default')
+  // @nestjs/throttler descarta la anulación en silencio y la ruta se queda con
+  // el límite genérico de 120/min. No hay error ni warning: parece protegida.
+  @Throttle({ global: { ttl: 60_000, limit: 10 } })
   register(
     @Body() dto: RegisterDto,
     @Ip() ip: string,
@@ -47,7 +51,7 @@ export class AuthController {
 
   @Post('login')
   @HttpCode(200)
-  @Throttle({ default: { ttl: 60_000, limit: 10 } })
+  @Throttle({ global: { ttl: 60_000, limit: 10 } })
   login(
     @Body() dto: LoginDto,
     @Ip() ip: string,
@@ -59,7 +63,7 @@ export class AuthController {
 
   @Post('refresh')
   @HttpCode(200)
-  @Throttle({ default: { ttl: 60_000, limit: 60 } })
+  @Throttle({ global: { ttl: 60_000, limit: 60 } })
   refresh(
     @Body() dto: RefreshDto,
     @Ip() ip: string,

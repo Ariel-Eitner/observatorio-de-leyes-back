@@ -25,7 +25,7 @@ export class ExportsController {
 
   @Post()
   @HttpCode(200)
-  @Throttle({ default: { ttl: 60_000, limit: 10 } })
+  @Throttle({ global: { ttl: 60_000, limit: 10 } })
   async record(@Body() dto: RecordExportDto) {
     if (!dto?.guestId || !dto?.type) return { ok: false, remaining: 0 };
     return this.exports.record(dto.guestId, dto.type);

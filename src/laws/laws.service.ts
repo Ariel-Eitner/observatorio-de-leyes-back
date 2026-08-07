@@ -308,6 +308,61 @@ export function armarLotes(normas: { id: string; articleCount: number }[]): stri
 	return lotes;
 }
 
+// ── Orden del listado ─────────────────────────────────────────────────────────
+
+export const SORT_KEYS = ['number', 'year', 'title', 'articleCount'] as const;
+export type SortKey = (typeof SORT_KEYS)[number];
+
+/**
+ * Clave de orden para el número de una norma.
+ *
+ * `number` es TEXTO en la base y tiene tres formas: entero pelado ("27818"),
+ * número con año ("990/2020", decretos y resoluciones) y algunas sin número que
+ * comparar ("Carta ONU", "7-DNPDP"). Compararlo como string —que es lo que hacía
+ * este listado— ordena por dígito: la Ley 48 caía entre la 6961 y la 3959.
+ *
+ * Devuelve [grupo, primario, secundario]. El grupo separa "tiene número" de "no
+ * tiene": las que no lo tienen van al final en los dos sentidos, porque poner
+ * "Carta ONU" primero al pedir "de menor a mayor" no le sirve a nadie.
+ */
+export function claveNumero(raw: string): [number, number, number] {
+	const n = (raw ?? '').trim();
+	// Con año: manda el año. El Decreto 70/2023 es posterior al 990/2020 aunque
+	// su número sea más chico.
+	const conAnio = n.match(/^(\d+)\s*\/\s*(\d{4})$/);
+	if (conAnio) return [0, parseInt(conAnio[2], 10), parseInt(conAnio[1], 10)];
+	if (/^\d+$/.test(n)) return [0, parseInt(n, 10), 0];
+	return [1, 0, 0];
+}
+
+/**
+ * Comparador del listado. Siempre desempata por id para que el orden sea
+ * estable: sin eso, dos normas del mismo año pueden intercambiarse entre página
+ * y página y aparecer repetidas o faltar.
+ *
+ * Ojo con `number` en listados SIN filtrar por tipo: mezcla números de ley
+ * (27.818) con años de decreto (2023), que no son comparables entre sí. Dentro
+ * de un mismo tipo —que es como se usa— el orden es exacto.
+ */
+function compararNormas(a: Law, b: Law, sortBy: SortKey, dir: 1 | -1): number {
+	let cmp = 0;
+	if (sortBy === 'number') {
+		const [ga, pa, sa] = claveNumero(a.number);
+		const [gb, pb, sb] = claveNumero(b.number);
+		if (ga !== gb) return ga - gb;
+		cmp = (pa - pb) || (sa - sb);
+	} else if (sortBy === 'title') {
+		cmp = a.title.localeCompare(b.title, 'es');
+	} else if (sortBy === 'articleCount') {
+		cmp = a.articleCount - b.articleCount;
+	} else {
+		// year: con el número como desempate, así un año con 200 normas no sale
+		// en orden arbitrario.
+		cmp = (a.year - b.year) || (claveNumero(a.number)[1] - claveNumero(b.number)[1]);
+	}
+	return cmp !== 0 ? cmp * dir : a.id.localeCompare(b.id);
+}
+
 @Injectable()
 export class LawsService implements OnModuleInit {
 	private readonly logger = new Logger(LawsService.name);
@@ -320,6 +375,20 @@ export class LawsService implements OnModuleInit {
 	private categories: { slug: string; label: string; description: string | null; icon: string | null; ord: number }[] = [];
 	// Candado para que dos refrescos no corran a la vez.
 	private hydrating = false;
+
+	// ── Caché de normas completas ───────────────────────────────────────────────
+	// `dbNorms` tiene las 3.100 normas SIN cuerpo. El cuerpo (artículos, segmentos,
+	// metadata) se pide a la BD cuando alguien abre esa norma, y se guarda acá.
+	//
+	// El tope es por ARTÍCULOS, no por cantidad de normas: la mediana son 8 pero el
+	// Código Civil y Comercial tiene 2.671, así que "20 normas" puede significar
+	// 160 artículos o 40.000. Mismo criterio que armarLotes.
+	//
+	// Map conserva el orden de inserción, así que el primero que devuelve keys() es
+	// el más viejo: alcanza para un LRU sin estructura extra.
+	private static readonly CACHE_ARTICULOS_MAX = 8_000;
+	private fullCache = new Map<string, Law>();
+	private fullCacheArticulos = 0;
 	// ¿Ya terminó la primera hidratación? Mientras sea false el corpus está a medio
 	// llenar y CorpusReadyGuard corta con 503 (ver onModuleInit).
 	private ready = false;
@@ -387,47 +456,38 @@ export class LawsService implements OnModuleInit {
 	}
 
 	/**
-	 * Sincroniza las normas en memoria con la BD de forma INCREMENTAL: carga solo
-	 * las nuevas (delta) y descarta las que ya no están, sin re-hidratar todo. Así
-	 * una norma recién cargada aparece en registry / grafo / refs sin reiniciar
-	 * Render y sin duplicar el pico de memoria (relevante con el límite de 256M /
-	 * 0.2 CPU). En el arranque, `dbNorms` está vacío → carga todo el corpus.
-	 * Idempotente y protegido por un candado contra corridas concurrentes.
+	 * Sincroniza el índice de normas con la BD.
+	 *
+	 * Carga las 3.100 normas SIN cuerpo, en UNA consulta. El cuerpo sale de la BD
+	 * cuando alguien abre una norma (ver `getFullNorm`), así que acá no hay lotes
+	 * ni presupuesto de artículos que administrar: el índice entero son ~19 MB.
+	 *
+	 * Sigue comparando `updated_at` contra lo que ya está en memoria, pero ya no
+	 * para decidir QUÉ traer —viene todo— sino para saber qué cambió y avisarle al
+	 * front qué rutas invalidar. Idempotente y con candado contra corridas
+	 * concurrentes.
 	 */
 	async refreshFromDb(): Promise<{ ok: boolean; count: number; added: number; removed: number }> {
 		if (this.hydrating) return { ok: false, count: this.dbNorms.length, added: 0, removed: 0 };
 		this.hydrating = true;
 		try {
-			const stamps = await this.normsDb.listIdStamps();
-			const idSet = new Set(stamps.map((s) => s.id));
 			const haveStamp = new Map(this.dbNorms.map((n) => [n.id, n.updatedAt]));
-			// A cargar: normas nuevas (no en memoria) o editadas (cambió updated_at).
-			const toLoad = stamps.filter((s) => haveStamp.get(s.id) !== s.updatedAt);
+
+			const metas = await this.normsDb.loadNormsMeta();
+
+			const idSet = new Set(metas.map((m) => m.id));
+			// Cambiadas: nuevas (no estaban) o editadas (cambió updated_at).
+			const changed = metas.filter((m) => haveStamp.get(m.id) !== m.updatedAt);
 			const toRemove = new Set([...haveStamp.keys()].filter((id) => !idSet.has(id)));
-			const added = toLoad.filter((s) => !haveStamp.has(s.id)).length;
+			const added = changed.filter((m) => !haveStamp.has(m.id)).length;
 
-			// Cargar SOLO el delta, de a lotes: una consulta por lote, y de a un lote por vez.
-			//
-			// OJO, acá hay una trampa. El comentario viejo decía "NO SUBIR el lote" porque
-			// medido con 911 normas BATCH=4 daba 97 s y BATCH=16 daba 285 s (3x PEOR). Era
-			// cierto PARA ESA forma de cargar: `Promise.all(chunk.map(loadNorm))` lanzaba N
-			// loadNorm EN PARALELO y cada uno son ~7 consultas (Prisma abre una por relación
-			// del include) → con 16 eran ~112 consultas concurrentes peleándose 0.2 CPU.
-			//
-			// Acá el lote es otra cosa: `loadNorms(ids)` hace UN findMany con `IN (...)`, así
-			// que son ~7 consultas para TODO el lote, y los lotes van de a uno (sin paralelismo).
-			// Subir el lote NO agrega concurrencia: baja la cantidad de viajes. De ~8.800
-			// consultas (7 × 1.266 normas) a ~200.
-			const loaded: Law[] = [];
-			for (const lote of armarLotes(toLoad)) {
-				loaded.push(...(await this.normsDb.loadNorms(lote)));
-			}
+			this.dbNorms = metas;
 
-			// Merge por id: quita las eliminadas, reemplaza las editadas, suma las nuevas.
-			const byId = new Map(this.dbNorms.map((n) => [n.id, n]));
-			for (const id of toRemove) byId.delete(id);
-			for (const law of loaded) byId.set(law.id, law);
-			this.dbNorms = [...byId.values()];
+			// El cuerpo cacheado de una norma editada quedó viejo, y el índice de
+			// nombres/siglas con el que se enlazan las referencias también: una norma
+			// nueva no era enlazable hasta reiniciar. Los dos se tiran acá.
+			this.refCtx = null;
+			for (const id of [...changed.map((m) => m.id), ...toRemove]) this.descachear(id);
 
 			this.stubs = await this.normsDb.listStubs();
 			this.categories = await this.normsDb.listCategories();
@@ -442,9 +502,9 @@ export class LawsService implements OnModuleInit {
 			this.ready = true;
 
 			// Avisarle al front qué rutas invalidar. En el arranque NO se notifica: ahí
-			// `toLoad` es el corpus entero y no hubo cambio real que propagar.
-			if (!eraArranque && (loaded.length > 0 || toRemove.size > 0)) {
-				void this.notificarFront(loaded, [...toRemove]);
+			// "cambió todo" y no hubo cambio real que propagar.
+			if (!eraArranque && (changed.length > 0 || toRemove.size > 0)) {
+				void this.notificarFront(changed, [...toRemove]);
 			}
 
 			return { ok: true, count: this.dbNorms.length, added, removed: toRemove.size };
@@ -477,11 +537,26 @@ export class LawsService implements OnModuleInit {
 
 		const LIMITE = 400;
 		const paths: string[] = [];
+		// Los números de artículo salen de la BD: en memoria las normas están sin
+		// cuerpo. Una sola consulta para todas las cambiadas, y solo la columna
+		// `number` — invalidar rutas no necesita el texto.
+		const numeros = new Map<string, string[]>();
+		try {
+			for (const { normId, number } of await this.normsDb.listArticleNumbers(cambiadas.map((l) => l.id))) {
+				const acc = numeros.get(normId);
+				if (acc) acc.push(number);
+				else numeros.set(normId, [number]);
+			}
+		} catch (e) {
+			// Sin números se invalidan igual las fichas; los artículos quedan viejos
+			// hasta el próximo refresh. Peor sería no invalidar nada.
+			this.logger.warn(`No se pudieron listar los artículos a revalidar: ${(e as Error).message}`);
+		}
 		for (const law of cambiadas) {
 			const base = computeFrontendPath(law);
 			paths.push(base);
-			for (const art of law.articles ?? []) {
-				paths.push(`${base}/articulo/${slugifyArticle(art.number)}`);
+			for (const number of numeros.get(law.id) ?? []) {
+				paths.push(`${base}/articulo/${slugifyArticle(number)}`);
 			}
 		}
 		// Una norma borrada ya no tiene articulado que recorrer: alcanza con su ficha.
@@ -524,6 +599,7 @@ export class LawsService implements OnModuleInit {
 			category,
 			yearFrom,
 			yearTo,
+			destacada,
 			page = 1,
 			limit = 20,
 			sortBy = 'year',
@@ -537,6 +613,7 @@ export class LawsService implements OnModuleInit {
 			if (topic && !law.topics.includes(topic)) return false;
 			if (yearFrom && law.year < yearFrom) return false;
 			if (yearTo && law.year > yearTo) return false;
+			if (destacada && !law.isDestacada) return false;
 			if (category) {
 				// Una norma matchea si la categoría está entre sus categorías (principal o secundaria).
 				const cats = law.categories?.length
@@ -556,13 +633,12 @@ export class LawsService implements OnModuleInit {
 			return true;
 		});
 
-		filtered.sort((a, b) => {
-			const av = a[sortBy as keyof Law] as string | number;
-			const bv = b[sortBy as keyof Law] as string | number;
-			if (av < bv) return order === 'asc' ? -1 : 1;
-			if (av > bv) return order === 'asc' ? 1 : -1;
-			return 0;
-		});
+		// Whitelist: `sortBy` venía del query string sin validar y se usaba como
+		// índice de Law, así que `sortBy=articles` comparaba arrays y `sortBy=metadata`
+		// objetos — devolvía cualquier orden sin fallar.
+		const clave: SortKey = (SORT_KEYS as readonly string[]).includes(sortBy) ? (sortBy as SortKey) : 'year';
+		const dir: 1 | -1 = order === 'asc' ? 1 : -1;
+		filtered.sort((a, b) => compararNormas(a, b, clave, dir));
 
 		const total = filtered.length;
 		const skip = (page - 1) * limit;
@@ -586,7 +662,9 @@ export class LawsService implements OnModuleInit {
 			categoryLabel: catLabel(law.category ?? LAW_STATIC_META[law.id]?.category),
 			categories: law.categories ?? [],
 			frontendPath: computeFrontendPath(law),
-			_count: { articles: law.articles.length, amendments: law.amendments.length },
+			digestoAnexo: INFOLEG_MAP[law.id]?.digestoAnexo ?? null,
+			// articleCount y no articles.length: el índice no tiene el cuerpo cargado.
+			_count: { articles: law.articleCount, amendments: law.amendments.length },
 		}));
 
 		return {
@@ -595,22 +673,79 @@ export class LawsService implements OnModuleInit {
 		};
 	}
 
-	findOne(id: string): Law {
-		const all = this.allSources;
-		const law = all.find((l) => l.id === id);
-		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
+	// ── Cuerpo de una norma: BD + caché ─────────────────────────────────────────
+
+	/** Saca una norma del caché y devuelve su presupuesto de artículos. */
+	private descachear(id: string): void {
+		const cached = this.fullCache.get(id);
+		if (!cached) return;
+		this.fullCache.delete(id);
+		this.fullCacheArticulos -= cached.articles.length;
+	}
+
+	/**
+	 * La norma COMPLETA: del caché si está, de la BD si no.
+	 *
+	 * Las referencias inline se pre-parsean una sola vez, acá, antes de guardarla:
+	 * así el costo se paga en la primera visita y no en cada una.
+	 */
+	async getFullNorm(id: string): Promise<Law | null> {
+		const cached = this.fullCache.get(id);
+		if (cached) {
+			// Renovar la posición en el LRU: borrar y volver a insertar la manda al final.
+			this.fullCache.delete(id);
+			this.fullCache.set(id, cached);
+			return cached;
+		}
+
+		// Las normas que siguen viviendo en código (hoy ninguna) ya vienen completas.
+		const enCodigo = [...ALL_LAWS, ...NORMAS_CLAVE].find((l) => l.id === id);
+		if (enCodigo) {
+			this.ensureRefChunks(enCodigo);
+			return enCodigo;
+		}
+
+		// Solo si está en el índice: así una norma inexistente no dispara una consulta.
+		const meta = this.dbNorms.find((n) => n.id === id);
+		if (!meta) return null;
+
+		const law = await this.normsDb.loadNorm(id);
+		if (!law) return null;
+		// Las relaciones salen del ÍNDICE, no de la consulta: al índice ya se le
+		// aplicaron las relaciones curadas (las que no están en la BD, como las
+		// inversas hacia el DNU 70/2023). Si se usaran las de `loadNorm`, la ficha
+		// de la norma mostraría menos aristas que el mapa legal, sin ningún síntoma.
+		law.relations = meta.relations;
+		const infoleg = INFOLEG_MAP[law.id];
+		law.infolegUrl = infoleg ? `${INFOLEG_BASE_URL}${infoleg.infolegId}` : null;
+		law.digestoAnexo = infoleg?.digestoAnexo ?? null;
 		this.ensureRefChunks(law);
+
+		// Desalojar de a uno desde el más viejo hasta que entre. Una norma que sola
+		// se pasa del tope igual se sirve: se guarda y el próximo ingreso la echa.
+		this.fullCache.set(law.id, law);
+		this.fullCacheArticulos += law.articles.length;
+		while (this.fullCacheArticulos > LawsService.CACHE_ARTICULOS_MAX && this.fullCache.size > 1) {
+			const masViejo = this.fullCache.keys().next().value as string;
+			this.descachear(masViejo);
+		}
 		return law;
 	}
 
-	findByNumber(number: string): Law {
+	async findOne(id: string): Promise<Law> {
+		const law = await this.getFullNorm(id);
+		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
+		return law;
+	}
+
+	async findByNumber(number: string): Promise<Law> {
 		// Normaliza (saca puntos/espacios) y busca en todas las normas (código + BD).
 		// Antes buscaba solo en this.laws, vacío tras migrar todo a la BD.
 		const canon = (s: string) => s.replace(/\./g, '').replace(/\s+/g, '').toLowerCase();
 		const target = canon(number);
-		const law = this.getAllNorms().find((l) => canon(l.number) === target);
-		if (!law) throw new NotFoundException(`Ley N° ${number} no encontrada`);
-		return law;
+		const meta = this.getAllNorms().find((l) => canon(l.number) === target);
+		if (!meta) throw new NotFoundException(`Ley N° ${number} no encontrada`);
+		return this.findOne(meta.id);
 	}
 
 	// Un solo artículo + datos mínimos de la ley. Evita que el front baje la norma
@@ -635,12 +770,12 @@ export class LawsService implements OnModuleInit {
 		};
 	}
 
-	findArticle(id: string, articleNumber: string) {
-		return this.pickArticle(this.findOne(id), articleNumber);
+	async findArticle(id: string, articleNumber: string) {
+		return this.pickArticle(await this.findOne(id), articleNumber);
 	}
 
-	findArticleByNumber(number: string, articleNumber: string) {
-		return this.pickArticle(this.findByNumber(number), articleNumber);
+	async findArticleByNumber(number: string, articleNumber: string) {
+		return this.pickArticle(await this.findByNumber(number), articleNumber);
 	}
 
 	// ── Pre-cómputo de referencias inline (saca el mega-regex del front) ──────────
@@ -724,41 +859,72 @@ export class LawsService implements OnModuleInit {
 		this.refsComputed.add(law);
 	}
 
-	getRegistry() {
+	/** Normas únicas (código + BD) sin duplicados por id. Base de los dos registries. */
+	private registrySources(): Law[] {
 		const allSrcs = [...NORMAS_CLAVE, ...this.laws, ...this.dbNorms];
 		const seen = new Set<string>();
-		const unique = allSrcs.filter((l) => {
+		return allSrcs.filter((l) => {
 			if (seen.has(l.id)) return false;
 			seen.add(l.id);
 			return true;
 		});
+	}
 
-		const laws = unique.map((law) => {
-			const meta: { shortCode?: string; apiPath: string; aliases?: string[]; isDestacada?: boolean; category?: string } =
-				LAW_STATIC_META[law.id] ?? { apiPath: `/laws/${law.id}` };
+	/**
+	 * Los campos con los que se RESUELVE una referencia: quién es, cómo se la
+	 * nombra y a dónde apunta. Es la parte que comparten `/laws/registry` y
+	 * `/laws/registry/light`, y vive en un solo lugar a propósito: si las dos
+	 * versiones derivaran los alias distinto, una norma resolvería en una y no en
+	 * la otra, y el enlazado inline fallaría sin ruido.
+	 */
+	private registryCore(law: Law) {
+		const meta: { shortCode?: string; apiPath: string; aliases?: string[]; isDestacada?: boolean; category?: string } =
+			LAW_STATIC_META[law.id] ?? { apiPath: `/laws/${law.id}` };
+		return {
+			id: law.id,
+			number: law.number,
+			shortCode: law.shortCode ?? meta.shortCode ?? null,
+			label: law.commonName ?? law.title,
+			frontendPath: computeFrontendPath(law),
+			apiPath: meta.apiPath,
+			// Toda norma del registry está cargada (BD o código) → disponible.
+			// (Antes dependía de tener shortCode en LAW_STATIC_META, así una norma
+			// cargada sin entrada en ese mapa quedaba como "no disponible".)
+			available: true,
+			status: law.status,
+			// Alias para resolver "Ley 27.551" / "27551" aunque no haya entrada
+			// hardcodeada: se derivan del número de la propia norma.
+			aliases: Array.from(new Set([
+				...(law.aliases ?? meta.aliases ?? []),
+				...(law.number ? [law.number, law.number.replace(/^(\d+)(\d{3})$/, '$1.$2')] : []),
+			])),
+			isDestacada: law.isDestacada ?? meta.isDestacada ?? false,
+			category: law.category ?? meta.category ?? null,
+		};
+	}
+
+	private registryTail() {
+		return {
+			slugAliases: SLUG_ALIASES,
+			categories: this.categories,
+			stubs: this.stubs.map((s) => ({ number: s.number, name: s.name, infolegId: s.infolegId ?? null })),
+		};
+	}
+
+	/**
+	 * Registry completo: resolución + catálogo (jurisdicción, año, cantidad de
+	 * artículos, InfoLeg, digesto). Lo piden desde el servidor las pocas páginas
+	 * que muestran esos datos — /corpus, los sitemaps, el redactor, las páginas de
+	 * índice por tipo. Pesa ~1,6 MB, así que NO tiene que viajar al navegador:
+	 * para eso está `getRegistryLight()`.
+	 */
+	getRegistry() {
+		const laws = this.registrySources().map((law) => {
 			const infoleg = INFOLEG_MAP[law.id] ?? null;
 			return {
-				id: law.id,
-				number: law.number,
+				...this.registryCore(law),
 				normType: law.normType,
-				shortCode: law.shortCode ?? meta.shortCode ?? null,
-				label: law.commonName ?? law.title,
-				frontendPath: computeFrontendPath(law),
-				apiPath: meta.apiPath,
-				// Toda norma del registry está cargada (BD o código) → disponible.
-				// (Antes dependía de tener shortCode en LAW_STATIC_META, así una norma
-				// cargada sin entrada en ese mapa quedaba como "no disponible".)
-				available: true,
-				status: law.status,
-				// Alias para resolver "Ley 27.551" / "27551" aunque no haya entrada
-				// hardcodeada: se derivan del número de la propia norma.
-				aliases: Array.from(new Set([
-					...(law.aliases ?? meta.aliases ?? []),
-					...(law.number ? [law.number, law.number.replace(/^(\d+)(\d{3})$/, '$1.$2')] : []),
-				])),
-				isDestacada: law.isDestacada ?? meta.isDestacada ?? false,
-				category: law.category ?? meta.category ?? null,
-				categoryLabel: catLabel(law.category ?? meta.category),
+				categoryLabel: catLabel(law.category ?? LAW_STATIC_META[law.id]?.category),
 				categories: law.categories ?? [],
 				// Campos para /corpus (índice + orden por jurisdicción/año/artículos).
 				// Aditivos: el resto del front que consume el registry los ignora.
@@ -772,11 +938,25 @@ export class LawsService implements OnModuleInit {
 			};
 		});
 
+		return { laws, ...this.registryTail() };
+	}
+
+	/**
+	 * Solo lo necesario para resolver una referencia a una norma.
+	 *
+	 * Existe por dónde se consume: el layout raíz del frontend lo pide en CADA
+	 * request y se lo pasa a un componente cliente, así que lo que devuelva acá
+	 * termina serializado dentro del HTML de todas las páginas del sitio. Con el
+	 * registry completo eso eran 1,91 MB de HTML en la home.
+	 *
+	 * Devuelve los mismos campos que el front ya usaba del lado del cliente: el
+	 * catálogo (jurisdicción, año, InfoLeg, digesto) no lo lee ningún componente
+	 * de navegador, solo Server Components que piden `/laws/registry` directo.
+	 */
+	getRegistryLight() {
 		return {
-			laws,
-			slugAliases: SLUG_ALIASES,
-			categories: this.categories,
-			stubs: this.stubs.map((s) => ({ number: s.number, name: s.name, infolegId: s.infolegId ?? null })),
+			laws: this.registrySources().map((law) => this.registryCore(law)),
+			...this.registryTail(),
 		};
 	}
 
@@ -796,7 +976,7 @@ export class LawsService implements OnModuleInit {
 				label: law.commonName ?? law.title,
 				shortCode: graphShortCode(law, meta?.shortCode),
 				category: law.category ?? meta?.category ?? 'default',
-				articleCount: law.articles.length,
+				articleCount: law.articleCount,
 				frontendPath: computeFrontendPath(law),
 			};
 		});
@@ -820,7 +1000,7 @@ export class LawsService implements OnModuleInit {
 	getStats() {
 		const src = this.allSources;
 		const total = src.length;
-		const totalArticles = src.reduce((sum, l) => sum + l.articles.length, 0);
+		const totalArticles = src.reduce((sum, l) => sum + l.articleCount, 0);
 
 		const count = (key: string, value: string) =>
 			src.filter((l) => (l as unknown as Record<string, unknown>)[key] === value).length;

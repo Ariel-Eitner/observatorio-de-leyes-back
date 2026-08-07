@@ -13,21 +13,33 @@ import type { NormStub } from '../data/norm-stubs';
 const dDate = (d: Date | null): string | null => (d ? d.toISOString().slice(0, 10) : null);
 const dTs = (d: Date | null): string => (d ? d.toISOString() : '');
 
-// Todo lo que hace falta para reconstruir un Law. Uno solo, compartido por la carga
-// de a una y la de a lotes: si se separan, una de las dos se queda sin un include y
-// el bug aparece en una norma suelta meses después.
+// Lo que necesita una norma para EXISTIR en los índices globales: sus escalares,
+// sus relaciones tipadas (grafo) y sus modificatorias (conteo del listado). Nada
+// de cuerpo. Es lo que se carga al arrancar, para las 3.100 normas.
+//
+// Lo que queda afuera y por qué: `articles` son 101 MB y 49.518 filas, `segments`
+// 8,5 MB y `norm_metadata` 7,9 MB — el 90% del corpus, y ninguna operación global
+// (listado, registry, grafo, stats, vetos) lo mira. Ver LawsService.
+const NORM_META_INCLUDE = {
+  norm_amendments: true,
+  norm_relations: true,
+} satisfies Prisma.normsInclude;
+
+// Todo lo que hace falta para reconstruir un Law completo. Uno solo, compartido por
+// la carga de a una y la de a lotes: si se separan, una de las dos se queda sin un
+// include y el bug aparece en una norma suelta meses después.
 const NORM_INCLUDE = {
+  ...NORM_META_INCLUDE,
   norm_metadata: true,
   norm_sections: { include: { norm_titles: { orderBy: { ord: 'asc' } } }, orderBy: { ord: 'asc' } },
   articles: {
     include: { segments: { orderBy: { ord: 'asc' } }, article_amendments: true },
     orderBy: { ord: 'asc' },
   },
-  norm_amendments: true,
   annexes: { orderBy: { ord: 'asc' } },
-  norm_relations: true,
 } satisfies Prisma.normsInclude;
 
+type NormMetaRow = Prisma.normsGetPayload<{ include: typeof NORM_META_INCLUDE }>;
 type NormRow = Prisma.normsGetPayload<{ include: typeof NORM_INCLUDE }>;
 
 @Injectable()
@@ -75,6 +87,47 @@ export class NormsDbService {
     return rows.map((r) => ({ slug: r.slug, label: r.label, description: r.description, icon: r.icon, ord: r.ord }));
   }
 
+  /**
+   * TODAS las normas sin su cuerpo, en UNA consulta.
+   *
+   * Es el índice con el que arranca el backend. Antes se cargaba el corpus entero
+   * (artículos, segmentos y metadata incluidos) en lotes: ~200 consultas y varios
+   * minutos, durante los cuales el sitio contestaba 503. Esto es una consulta y
+   * ~19 MB, porque deja afuera lo que ninguna operación global mira.
+   */
+  async loadNormsMeta(): Promise<Law[]> {
+    const rows = await this.prisma.norms.findMany({ include: NORM_META_INCLUDE });
+    return rows.map((n) => this.toLawMeta(n));
+  }
+
+  /**
+   * Números de artículo de las normas dadas, sin traer el texto.
+   *
+   * Lo usa la revalidación del front, que necesita armar una ruta por artículo
+   * (`/leyes/x/articulo/1`) de las normas que cambiaron. Antes salían de los
+   * artículos que ya estaban en memoria; con el índice liviano hay que pedirlos.
+   */
+  async listArticleNumbers(ids: string[]): Promise<{ normId: string; number: string }[]> {
+    if (ids.length === 0) return [];
+    const rows = await this.prisma.articles.findMany({
+      where: { norm_id: { in: ids } },
+      select: { norm_id: true, number: true },
+    });
+    return rows.map((r) => ({ normId: r.norm_id, number: r.number }));
+  }
+
+  /** A qué norma pertenece un artículo. Para resolver /articles/:id sin índice global. */
+  async normIdOfArticle(id: string): Promise<string | null> {
+    const row = await this.prisma.articles.findUnique({ where: { id }, select: { norm_id: true } });
+    return row?.norm_id ?? null;
+  }
+
+  /** A qué norma pertenece un segmento. Para resolver /segments/:id sin índice global. */
+  async normIdOfSegment(id: string): Promise<string | null> {
+    const row = await this.prisma.segments.findUnique({ where: { id }, select: { norm_id: true } });
+    return row?.norm_id ?? null;
+  }
+
   /** Reconstruye el objeto Law completo desde las tablas relacionales. */
   async loadNorm(id: string): Promise<Law | null> {
     const n = await this.prisma.norms.findUnique({ where: { id }, include: NORM_INCLUDE });
@@ -98,6 +151,45 @@ export class NormsDbService {
     if (ids.length === 0) return [];
     const rows = await this.prisma.norms.findMany({ where: { id: { in: ids } }, include: NORM_INCLUDE });
     return rows.map((n) => this.toLaw(n));
+  }
+
+  /**
+   * Norma SIN cuerpo: escalares, relaciones y modificatorias. `articles`,
+   * `sections`, `annexes` y `metadata` van vacíos a propósito — quien los
+   * necesita pide la norma completa con loadNorm().
+   *
+   * Es la mitad de arriba de toLaw(): las dos comparten este mapeo para que un
+   * campo nuevo en `norms` no quede poblado en una vista y en la otra no.
+   */
+  private toLawMeta(n: NormMetaRow): Law {
+    const amendments: LawAmendment[] = n.norm_amendments.map((am) => ({
+      id: am.id, lawId: am.norm_id, modifyingLaw: am.modifying_law ?? '',
+      modifyingDate: dDate(am.modifying_date), description: am.description,
+      type: (am.type as AmendmentType | null) ?? undefined, createdAt: dTs(am.created_at),
+    }));
+
+    const relations: LawRelation[] = n.norm_relations.map((r) => ({
+      type: r.type as RelationType, targetLawId: r.target_id,
+      targetLawLabel: r.target_label ?? r.target_id, description: r.description,
+    }));
+
+    return {
+      id: n.id, number: n.number ?? '', title: n.title, summary: n.summary,
+      category: n.category ?? undefined, categories: n.categories ?? [], year: n.year ?? 0,
+      sanctionDate: dDate(n.sanction_date), promulgationDate: dDate(n.promulgation_date),
+      publicationDate: dDate(n.publication_date), effectiveDate: dDate(n.effective_date),
+      derogatedDate: dDate(n.derogated_date), boNumber: n.bo_number,
+      status: n.status as LawStatus, jurisdiction: n.jurisdiction as Jurisdiction,
+      normType: n.norm_type as NormType, issuingBody: n.issuing_body, fullText: n.full_text,
+      sourceUrl: n.source_url, articleCount: n.article_count, topics: n.topics, keywords: n.keywords,
+      relatedNorms: n.related_norms, relations, executiveSummary: n.executive_summary,
+      objective: n.objective, problemItSolves: n.problem_it_solves, practicalImpact: n.practical_impact,
+      affectedSubjects: n.affected_subjects, commonName: n.common_name ?? undefined,
+      shortCode: n.short_code ?? null, aliases: n.aliases ?? [], isDestacada: n.is_destacada ?? false,
+      amendments,
+      sections: [], articles: [], segments: [], annexes: [], metadata: null,
+      createdAt: dTs(n.created_at), updatedAt: dTs(n.updated_at),
+    };
   }
 
   private toLaw(n: NormRow): Law {
@@ -136,20 +228,9 @@ export class NormsDbService {
       })),
     }));
 
-    const amendments: LawAmendment[] = n.norm_amendments.map((am) => ({
-      id: am.id, lawId: am.norm_id, modifyingLaw: am.modifying_law ?? '',
-      modifyingDate: dDate(am.modifying_date), description: am.description,
-      type: (am.type as AmendmentType | null) ?? undefined, createdAt: dTs(am.created_at),
-    }));
-
     const annexes: Annex[] = n.annexes.map((an) => ({
       id: an.id, lawId: an.norm_id, number: an.number ?? '', title: an.title,
       content: an.content, order: an.ord,
-    }));
-
-    const relations: LawRelation[] = n.norm_relations.map((r) => ({
-      type: r.type as RelationType, targetLawId: r.target_id,
-      targetLawLabel: r.target_label ?? r.target_id, description: r.description,
     }));
 
     const metadata: LawMetadata | null = n.norm_metadata
@@ -166,21 +247,6 @@ export class NormsDbService {
         }
       : null;
 
-    return {
-      id: n.id, number: n.number ?? '', title: n.title, summary: n.summary,
-      category: n.category ?? undefined, categories: n.categories ?? [], year: n.year ?? 0,
-      sanctionDate: dDate(n.sanction_date), promulgationDate: dDate(n.promulgation_date),
-      publicationDate: dDate(n.publication_date), effectiveDate: dDate(n.effective_date),
-      derogatedDate: dDate(n.derogated_date), boNumber: n.bo_number,
-      status: n.status as LawStatus, jurisdiction: n.jurisdiction as Jurisdiction,
-      normType: n.norm_type as NormType, issuingBody: n.issuing_body, fullText: n.full_text,
-      sourceUrl: n.source_url, articleCount: n.article_count, topics: n.topics, keywords: n.keywords,
-      relatedNorms: n.related_norms, relations, executiveSummary: n.executive_summary,
-      objective: n.objective, problemItSolves: n.problem_it_solves, practicalImpact: n.practical_impact,
-      affectedSubjects: n.affected_subjects, commonName: n.common_name ?? undefined,
-      shortCode: n.short_code ?? null, aliases: n.aliases ?? [], isDestacada: n.is_destacada ?? false,
-      sections, articles, segments: [], annexes, amendments, metadata,
-      createdAt: dTs(n.created_at), updatedAt: dTs(n.updated_at),
-    };
+    return { ...this.toLawMeta(n), sections, articles, annexes, metadata };
   }
 }

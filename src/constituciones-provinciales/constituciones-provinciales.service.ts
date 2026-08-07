@@ -23,18 +23,20 @@ export class ConstitucionesProvincialesService {
     }));
   }
 
-  getBySlug(slug: string) {
-    const law = this.provinciales().find((c) => c.id === `const-${slug}`);
+  // Con articulado: el índice en memoria no lo tiene, lo pide LawsService a la BD.
+  async getBySlug(slug: string) {
+    const meta = this.provinciales().find((c) => c.id === `const-${slug}`);
+    const law = meta ? await this.laws.getFullNorm(meta.id) : null;
     if (!law) throw new NotFoundException(`Constitución de '${slug}' no encontrada`);
     return law;
   }
 
-  getArticles(slug: string) {
-    return this.getBySlug(slug).articles;
+  async getArticles(slug: string) {
+    return (await this.getBySlug(slug)).articles;
   }
 
-  getArticle(slug: string, number: string) {
-    const article = this.getBySlug(slug).articles.find((a) => a.number === number);
+  async getArticle(slug: string, number: string) {
+    const article = (await this.getBySlug(slug)).articles.find((a) => a.number === number);
     if (!article) throw new NotFoundException(`Artículo ${number} no encontrado en const-${slug}`);
     return article;
   }

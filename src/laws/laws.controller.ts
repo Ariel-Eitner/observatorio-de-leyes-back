@@ -27,8 +27,16 @@ export class LawsController {
     return this.lawsService.refreshFromDb();
   }
 
+  // Antes de @Get('registry'): Nest resuelve por orden de declaración y la ruta
+  // de dos segmentos tiene que ganarle a la de uno.
+  @Get('registry/light')
+  @ApiOperation({ summary: 'Registro mínimo para resolver referencias (sin catálogo). Lo consume el layout del front en cada request' })
+  getRegistryLight() {
+    return this.lawsService.getRegistryLight();
+  }
+
   @Get('registry')
-  @ApiOperation({ summary: 'Registro completo de metadata de leyes (shortCodes, paths, aliases)' })
+  @ApiOperation({ summary: 'Registro completo de metadata de leyes (shortCodes, paths, aliases, catálogo)' })
   getRegistry() {
     return this.lawsService.getRegistry();
   }

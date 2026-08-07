@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import * as argon2 from 'argon2';
 import { PrismaService } from '../common/prisma/prisma.service';
-import { AuthService } from '../auth/auth.service';
+import { AuthService, SessionMeta } from '../auth/auth.service';
 import { ClaimDonationDto } from './dto/claim-donation.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
@@ -62,8 +62,16 @@ export class UsersService {
     return this.auth.me(userId);
   }
 
-  /** Cambia la contraseña verificando la actual. No toca las sesiones activas. */
-  async changePassword(userId: string, dto: ChangePasswordDto) {
+  /**
+   * Cambia la contraseña verificando la actual y CIERRA TODAS las sesiones.
+   *
+   * Cerrar las sesiones es el punto: cambiar la clave es lo que hace alguien que
+   * sospecha que le entraron a la cuenta, y si las sesiones viejas sobreviven el
+   * atacante se queda adentro 30 días más con su refresh token. Se devuelve un
+   * par de tokens nuevo para el dispositivo actual, así quien hizo el cambio no
+   * se auto-expulsa; el front los guarda en las cookies.
+   */
+  async changePassword(userId: string, dto: ChangePasswordDto, meta: SessionMeta) {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user) throw new NotFoundException('Usuario no encontrado');
 
@@ -71,8 +79,14 @@ export class UsersService {
     if (!ok) throw new UnauthorizedException('La contraseña actual es incorrecta');
 
     const passwordHash = await argon2.hash(dto.newPassword, { type: argon2.argon2id });
-    await this.prisma.user.update({ where: { id: userId }, data: { passwordHash } });
-    return { ok: true };
+    await this.prisma.user.update({
+      where: { id: userId },
+      // Cambiar la clave también levanta un bloqueo por intentos fallidos.
+      data: { passwordHash, failedLoginCount: 0, lockedUntil: null },
+    });
+
+    const tokens = await this.auth.rotateAllSessions(userId, meta);
+    return { ok: true, sesionesCerradas: true, ...tokens };
   }
 
   // ── Bootstrap de la cuenta ──────────────────────────────────────────────────────

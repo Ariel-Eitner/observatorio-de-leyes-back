@@ -3,5 +3,7 @@ dist
 coverage
 .env*
 *.spec.ts
-prisma/migrations
 README.md
+# prisma/migrations NO se excluye: desde el 6-ago-2026 el esquema se aplica con
+# `prisma migrate deploy`, que las necesita dentro de la imagen. La linea que las
+# excluia quedaba de cuando no existia ninguna migracion.

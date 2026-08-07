@@ -7,18 +7,11 @@
  * para no romper entornos sin conexión.
  */
 import { PrismaClient } from '@prisma/client';
-import * as fs from 'fs';
-import * as path from 'path';
 import { RelationType } from '../common/types/law.types';
+import { setupTestDatabase } from './test-db';
 
-// jest no carga el .env: lo leemos a mano si DATABASE_URL no está en el entorno.
-if (!process.env.DATABASE_URL) {
-  const envPath = path.resolve(__dirname, '../../.env');
-  if (fs.existsSync(envPath)) {
-    const line = fs.readFileSync(envPath, 'utf8').split(/\r?\n/).find((l) => l.startsWith('DATABASE_URL='));
-    if (line) process.env.DATABASE_URL = line.slice('DATABASE_URL='.length).replace(/^["']|["']$/g, '').trim();
-  }
-}
+// Por defecto: la base LOCAL. Para correr contra producción: TEST_AGAINST_PROD=1
+setupTestDatabase();
 
 jest.setTimeout(30_000);
 const prisma = new PrismaClient();

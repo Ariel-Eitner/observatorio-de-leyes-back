@@ -9,17 +9,11 @@
  * Si no hay DATABASE_URL / la BD no responde, los checks se saltan (no fallan).
  */
 import { PrismaClient } from '@prisma/client';
-import * as fs from 'fs';
-import * as path from 'path';
 import { COMPLETENESS_BACKLOG } from './completeness-backlog';
+import { setupTestDatabase } from './test-db';
 
-if (!process.env.DATABASE_URL) {
-  const envPath = path.resolve(__dirname, '../../.env');
-  if (fs.existsSync(envPath)) {
-    const line = fs.readFileSync(envPath, 'utf8').split(/\r?\n/).find((l) => l.startsWith('DATABASE_URL='));
-    if (line) process.env.DATABASE_URL = line.slice('DATABASE_URL='.length).replace(/^["']|["']$/g, '').trim();
-  }
-}
+// Por defecto: la base LOCAL. Para correr contra producción: TEST_AGAINST_PROD=1
+setupTestDatabase();
 
 jest.setTimeout(30_000);
 const prisma = new PrismaClient();

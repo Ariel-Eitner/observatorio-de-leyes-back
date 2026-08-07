@@ -1,9 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, Logger, LogLevel } from '@nestjs/common';
+import type { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { json, urlencoded } from 'express';
+import compression from 'compression';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
+import { describeDbTarget } from './common/db-env';
 
 async function bootstrap() {
   const isProd = process.env.NODE_ENV === 'production';
@@ -13,8 +17,60 @@ async function bootstrap() {
     ? ['warn', 'error']
     : ['log', 'warn', 'error', 'verbose'];
 
-  const app = await NestFactory.create(AppModule, { logger: logLevels });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    logger: logLevels,
+    // Los parsers se registran a mano más abajo para poder dar un límite distinto
+    // por ruta. Con el parser de fábrica no se puede: es uno solo para todo.
+    bodyParser: false,
+  });
   const logger = new Logger('Bootstrap');
+
+  // ── Compresión de las respuestas ────────────────────────────────────────────
+  // Va PRIMERO, antes que cualquier otro middleware que escriba en la respuesta:
+  // engancha `res.write`/`res.end` y solo comprime lo que pase después de él.
+  //
+  // El borde de Render ya comprime hacia el navegador, así que esto no cambia lo
+  // que ve un visitante. Lo que arregla son los dos tramos que hoy van en crudo:
+  // el de Next→Nest (que es servidor contra servidor, y es por donde pasa TODO el
+  // tráfico del sitio por el modelo BFF) y el entorno local. Medido sobre
+  // /laws/registry: 1.700.252 B → 211.364 B, 8,0x.
+  //
+  // El umbral de fábrica (1 kb) queda: comprimir respuestas chicas cuesta más CPU
+  // del que ahorra en bytes, y el contenedor tiene 0.2 CPU.
+  app.use(compression());
+
+  // ── Tamaño máximo del body ──────────────────────────────────────────────────
+  // El default de body-parser (100 kb) alcanza para todo el sitio MENOS para el
+  // panel: un snapshot de métricas ronda los 500 kb (guarda arrays de eventos) y
+  // los recorridos congelados también pesan. Con el límite de fábrica el POST
+  // moría con 413 y el panel mostraba "sin datos" sin decir por qué.
+  //
+  // El límite grande va SOLO en /api/admin-data, que está detrás de
+  // AdminHeaderGuard. Subirlo global sería regalar un vector de agotamiento de
+  // memoria en rutas públicas, y el contenedor tiene 256 MB (ya hubo un OOM).
+  //
+  // El orden importa: body-parser marca `req._body` al parsear y el siguiente se
+  // saltea solo. Por eso el específico va PRIMERO y el general después.
+  app.use('/api/admin-data', json({ limit: '25mb' }));
+  app.use(json());
+  app.use(urlencoded({ extended: true }));
+
+  // ── Confiar en el proxy ─────────────────────────────────────────────────────
+  // Sin esto, Express ignora X-Forwarded-For y `req.ip` es la IP del balanceador
+  // de Render (la misma para todo el mundo), así que el rate limit por IP no
+  // identifica a nadie. El '1' es a propósito: confiar en UN salto (el proxy de
+  // la plataforma) y no en toda la cadena, que el cliente sí puede inventar.
+  app.set('trust proxy', 1);
+
+  // ── A qué base estamos apuntando ────────────────────────────────────────────
+  // El stack "local" comparte la base con producción, así que arrancar sin saber
+  // contra qué se está trabajando es la receta del borrado accidental.
+  const db = describeDbTarget();
+  if (db.isProduction) {
+    logger.warn(`BASE DE DATOS: ${db.label} — las escrituras impactan datos reales`);
+  } else {
+    logger.log(`Base de datos: ${db.label}`);
+  }
 
   // ── Seguridad HTTP ──────────────────────────────────────────────────────────
   app.use(helmet());

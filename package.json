@@ -15,10 +15,10 @@
     "test:report": "jest --reporters=default --reporters=jest-html-reporters",
     "report:all": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/report-all.ts",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
-    "prisma:seed": "ts-node --project tsconfig.json -r tsconfig-paths/register prisma/seed.ts",
-    "db:setup": "npm run prisma:migrate && npm run prisma:seed",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:status": "prisma migrate status",
+    "prisma:migrate:new": "prisma migrate dev --create-only",
     "audit": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit.ts",
     "audit:coverage": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-coverage.ts",
     "audit:quality": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-quality.ts",
@@ -26,9 +26,6 @@
     "audit:graph": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-graph.ts",
     "tracking:e2e": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts",
     "tracking:e2e:docker": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts http://localhost:4000 http://localhost:4600/api"
-  },
-  "prisma": {
-    "seed": "ts-node --project tsconfig.json prisma/seed.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
@@ -46,6 +43,7 @@
     "argon2": "^0.45.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
     "helmet": "^8.1.0",
     "mammoth": "^1.12.0",
@@ -60,6 +58,7 @@
     "@nestjs/cli": "^10.4.9",
     "@nestjs/schematics": "^10.2.3",
     "@nestjs/testing": "^10.4.15",
+    "@types/compression": "^1.8.1",
     "@types/cookie-parser": "^1.4.10",
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.14",

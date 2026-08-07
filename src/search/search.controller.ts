@@ -5,7 +5,7 @@ import { SearchService } from './search.service';
 
 @ApiTags('search')
 @Controller('search')
-@Throttle({ default: { ttl: 60_000, limit: 40 } })
+@Throttle({ global: { ttl: 60_000, limit: 40 } })
 export class SearchController {
   constructor(private readonly searchService: SearchService) {}
 

@@ -239,6 +239,13 @@ export interface Law {
   issuingBody: string | null;
   fullText: string | null;
   sourceUrl: string | null;
+  // Ficha en InfoLeg, si la norma está mapeada. Sale de INFOLEG_MAP y lo adjunta
+  // LawsService al servir la norma. Vive acá y no en el registry porque lo usa
+  // una sola página —la ficha— que ya baja la norma: en el registry costaría
+  // ~70 bytes × 3.100 normas en CADA render del sitio.
+  infolegUrl?: string | null;
+  /** Anexo del Digesto Jurídico, si corresponde. Misma fuente y mismo motivo. */
+  digestoAnexo?: 'I' | 'II' | 'post_digesto' | null;
   articleCount: number;
   topics: string[];
   keywords: string[];
@@ -281,6 +288,10 @@ export interface LawSummary {
   keywords: string[];
   articleCount: number;
   frontendPath?: string;   // ruta del front (la calcula el back; el front ya no la deriva)
+  // Badge del listado. Viaja acá —20 filas por página— y no se busca en el
+  // registry: era la única razón por la que /buscar bajaba el registry COMPLETO
+  // (1,7 MB) al navegador en cada visita.
+  digestoAnexo?: 'I' | 'II' | 'post_digesto' | null;
   _count: { articles: number; amendments: number };
 }
 
