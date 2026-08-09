@@ -15,6 +15,7 @@ import {
 } from './analitica.service';
 import type { LeadPatchBody } from './panel.service';
 import { TareasService } from './tareas.service';
+import { CorpusReviewService, type NormReview } from './corpus-review.service';
 
 /**
  * Datos del panel de administración.
@@ -36,7 +37,20 @@ export class AdminDataController {
     private readonly comercial: ComercialService,
     private readonly analitica: AnaliticaService,
     private readonly tareas: TareasService,
+    private readonly corpusReview: CorpusReviewService,
   ) {}
+
+  // ── Checklist de revisión del corpus ────────────────────────────────────────
+
+  @Get('corpus-review')
+  listarCorpusReview() {
+    return this.corpusReview.listar();
+  }
+
+  @Put('corpus-review')
+  guardarCorpusReview(@Body() body: { path?: string; review?: Partial<NormReview> }) {
+    return this.corpusReview.guardar(body.path ?? '', body.review ?? {});
+  }
 
   // ── Tareas del panel ────────────────────────────────────────────────────────
 

@@ -4,6 +4,7 @@ import { PanelService } from './panel.service';
 import { ComercialService } from './comercial.service';
 import { AnaliticaService } from './analitica.service';
 import { TareasService } from './tareas.service';
+import { CorpusReviewService } from './corpus-review.service';
 
 /**
  * Datos del panel de administración.
@@ -14,6 +15,12 @@ import { TareasService } from './tareas.service';
  */
 @Module({
   controllers: [AdminDataController],
-  providers: [PanelService, ComercialService, AnaliticaService, TareasService],
+  providers: [
+    PanelService,
+    ComercialService,
+    AnaliticaService,
+    TareasService,
+    CorpusReviewService,
+  ],
 })
 export class AdminDataModule {}

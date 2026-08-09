@@ -41,12 +41,28 @@ interface ArtRow { norm_id: string; number: string }
 
 let dbOk = false;
 let norms: NormRow[] = [];
-let arts: ArtRow[] = [];
+// R3 y R4 no necesitan los ~49.500 artículos: necesitan los que INFRINGEN. Bajarlos
+// todos costaba 633 kB de egreso de Supabase por corrida de CI (ver el mismo cambio,
+// más grande, en completeness.spec.ts).
+//
+// R4 filtra en SQL a propósito con un patrón MÁS AMPLIO que el de JS (acepta
+// minúsculas donde JS pide mayúscula, y cualquier sufijo alfabético donde JS lista
+// seis): así el SQL trae un superconjunto y quien decide qué es infracción sigue
+// siendo el mismo regex de abajo. Si el prefiltro se equivoca, se equivoca de más.
+let dupsPorNorma: ArtRow[] = [];
+let formatoSospechoso: ArtRow[] = [];
 
 beforeAll(async () => {
   try {
     norms = await prisma.norms.findMany({ select: { id: true, number: true, title: true } });
-    arts = await prisma.articles.findMany({ select: { norm_id: true, number: true } });
+    dupsPorNorma = await prisma.$queryRawUnsafe<ArtRow[]>(
+      `SELECT norm_id, min(number) AS number
+       FROM articles GROUP BY norm_id, btrim(number) HAVING count(*) > 1`,
+    );
+    formatoSospechoso = await prisma.$queryRawUnsafe<ArtRow[]>(
+      `SELECT DISTINCT norm_id, number FROM articles
+       WHERE number ~ '[º°]' OR number ~ '^[0-9]+ +[A-Za-z]' OR number ~* '^[0-9]+[a-z]'`,
+    );
     dbOk = norms.length > 0;
     if (!dbOk) console.warn('⚠ BD vacía o sin conexión — se saltan los checks de estándar de datos.');
   } catch {
@@ -96,16 +112,9 @@ describe('Estándar de datos — numeración de artículos', () => {
   // R3: ningún número de artículo se repite dentro de una misma norma.
   test('R3 · sin articles.number duplicado por norma', () => {
     if (!dbOk) return;
-    const seen = new Map<string, Set<string>>();
-    const dups: string[] = [];
-    for (const a of arts) {
-      if (DUP_ARTNUM_BACKLOG.has(a.norm_id)) continue;
-      let set = seen.get(a.norm_id);
-      if (!set) { set = new Set(); seen.set(a.norm_id, set); }
-      const key = a.number.trim();
-      if (set.has(key)) dups.push(`${a.norm_id}="${a.number}"`);
-      else set.add(key);
-    }
+    const dups = dupsPorNorma
+      .filter((a) => !DUP_ARTNUM_BACKLOG.has(a.norm_id))
+      .map((a) => `${a.norm_id}="${a.number}"`);
     expect([...new Set(dups)]).toEqual([]);
   });
 
@@ -114,7 +123,7 @@ describe('Estándar de datos — numeración de artículos', () => {
   // backlog hasta su recarga.
   test('R4 · articles.number sin grado/casing/sufijo-pegado', () => {
     if (!dbOk) return;
-    const bad = arts
+    const bad = formatoSospechoso
       .filter((a) => !ARTNUM_FORMAT_BACKLOG.has(a.norm_id))
       .filter((a) =>
         /[º°]/.test(a.number) ||

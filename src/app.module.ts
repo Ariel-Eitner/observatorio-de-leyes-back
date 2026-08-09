@@ -23,6 +23,7 @@ import { FinanzasModule }         from './finanzas/finanzas.module';
 import { CrmModule }              from './crm/crm.module';
 import { JurisprudenciaModule }   from './jurisprudencia/jurisprudencia.module';
 import { AuthModule }             from './auth/auth.module';
+import { AccountModule }          from './account/account.module';
 import { UserContentModule }      from './user-content/user-content.module';
 import { UsersModule }            from './users/users.module';
 import { CorpusReadyGuard }       from './common/guards/corpus-ready.guard';
@@ -68,6 +69,7 @@ import { MonitorModule }          from './monitor/monitor.module';
     CrmModule,
     JurisprudenciaModule,
     AuthModule,
+    AccountModule,
     UserContentModule,
     UsersModule,
   ],

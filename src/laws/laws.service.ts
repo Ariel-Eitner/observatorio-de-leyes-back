@@ -386,9 +386,23 @@ export class LawsService implements OnModuleInit {
 	//
 	// Map conserva el orden de inserción, así que el primero que devuelve keys() es
 	// el más viejo: alcanza para un LRU sin estructura extra.
-	private static readonly CACHE_ARTICULOS_MAX = 8_000;
+	//
+	// EL TOPE NO ES LIBRE: es lo que decide cuánto se relee de Supabase. Con 8.000
+	// (16% de los ~49.500 artículos del corpus) el caché hacía thrashing puro:
+	// medido en producción el 9-ago-2026, pedir 4 normas grandes en rueda daba hit
+	// rate 0% —la segunda vuelta releía exactamente las mismas filas— porque el
+	// CCyC solo (2.671 arts) se come un tercio del presupuesto. Eso puso el egreso
+	// de Supabase en 1,2 GB/día contra un plan de 5 GB/mes.
+	//
+	// 25.000 = ~50% del corpus, con el que las normas grandes conviven sin echarse.
+	// No subirlo a 49.500 (corpus entero): el corpus perezoso existe justamente
+	// para no volver a los 7 min de arranque y al 69% de RAM.
+	private static readonly CACHE_ARTICULOS_MAX = 25_000;
 	private fullCache = new Map<string, Law>();
 	private fullCacheArticulos = 0;
+	// Números de artículo de todo el corpus (para el sitemap). Se invalida junto con
+	// el resto del índice en refreshFromDb.
+	private articleNumbersCache: { id: string; numbers: string[] }[] | null = null;
 	// ¿Ya terminó la primera hidratación? Mientras sea false el corpus está a medio
 	// llenar y CorpusReadyGuard corta con 503 (ver onModuleInit).
 	private ready = false;
@@ -406,11 +420,24 @@ export class LawsService implements OnModuleInit {
 
 	/**
 	 * Todas las normas del sistema (código + BD), deduplicadas por id.
-	 * Fuente única para search, segments, articles y constituciones provinciales.
+	 *
+	 * Por defecto DEJA AFUERA las no listadas (visibility='ENLACE'). Es el punto
+	 * único donde se aplica esa regla a propósito: de acá salen el listado, el
+	 * registry, el grafo, las stats y los vetos, así que filtrar una sola vez
+	 * evita que una pantalla nueva se olvide y publique lo que no debía.
+	 *
+	 * `incluirNoListadas` es para el acceso DIRECTO —por id o por número—, que
+	 * es justamente lo que tiene que seguir funcionando: no listada no es
+	 * privada, es que no aparece sola.
 	 */
-	getAllNorms(): Law[] {
+	getAllNorms(opts: { incluirNoListadas?: boolean } = {}): Law[] {
 		const seen = new Set<string>();
-		return this.allSources.filter((l) => (seen.has(l.id) ? false : (seen.add(l.id), true)));
+		return this.allSources.filter((l) => {
+			if (seen.has(l.id)) return false;
+			if (!opts.incluirNoListadas && l.visibility === 'ENLACE') return false;
+			seen.add(l.id);
+			return true;
+		});
 	}
 
 	/**
@@ -487,6 +514,9 @@ export class LawsService implements OnModuleInit {
 			// nombres/siglas con el que se enlazan las referencias también: una norma
 			// nueva no era enlazable hasta reiniciar. Los dos se tiran acá.
 			this.refCtx = null;
+			// Mismo motivo para los números de artículo: una norma nueva o editada
+			// cambia el sitemap.
+			this.articleNumbersCache = null;
 			for (const id of [...changed.map((m) => m.id), ...toRemove]) this.descachear(id);
 
 			this.stubs = await this.normsDb.listStubs();
@@ -600,13 +630,21 @@ export class LawsService implements OnModuleInit {
 			yearFrom,
 			yearTo,
 			destacada,
+			scope,
+			incluirNoListadas,
 			page = 1,
 			limit = 20,
 			sortBy = 'year',
 			order = 'desc',
 		} = query;
 
-		let filtered = this.getAllNorms().filter((law) => {
+		// Las no listadas solo se pueden pedir ACOTADAS A UN ÁMBITO. Sin esa
+		// condición el flag sería un "mostrame todo lo oculto" y alcanzaría con
+		// adivinar el parámetro para saltear la visibilidad de cualquier tanda.
+		const verOcultas = !!(incluirNoListadas && scope);
+
+		let filtered = this.getAllNorms({ incluirNoListadas: verOcultas }).filter((law) => {
+			if (scope && law.scopeSlug !== scope) return false;
 			if (status && law.status !== status) return false;
 			if (jurisdiction && law.jurisdiction !== jurisdiction) return false;
 			if (normType && law.normType !== normType) return false;
@@ -732,6 +770,99 @@ export class LawsService implements OnModuleInit {
 		return law;
 	}
 
+	/**
+	 * La norma con el articulado ADELGAZADO: de cada artículo queda lo que necesita
+	 * la navegación (id, número, título, orden) y nada de texto.
+	 *
+	 * Es para la página de UN artículo, que hasta ahora bajaba la norma entera para
+	 * mostrar uno solo: 4,2 MB del Código Civil y Comercial para servir ~2 kB, y
+	 * multiplicado por los 2.671 artículos que tiene. La página resuelve el artículo
+	 * contra esta lista —con el mismo criterio de siempre, así no se reabre el bug
+	 * de los dos slugs desincronizados— y después pide ESE artículo completo.
+	 *
+	 * OJO: los artículos vienen con `text` vacío A PROPÓSITO. No usar este endpoint
+	 * para nada que muestre articulado (visor, descarga de la ley, buscador).
+	 */
+	async getNormLight(id: string): Promise<Law | null> {
+		const full = await this.getFullNorm(id);
+		if (!full) return null;
+		return {
+			...full,
+			articles: full.articles.map((a) => ({
+				...a,
+				text: '',
+				plainLanguageExplanation: null,
+				practicalEffects: [],
+				examples: [],
+				relatedArticles: [],
+				jurisprudence: [],
+				jurisprudenceRefs: undefined,
+				regulations: [],
+				keywords: [],
+				segments: [],
+				amendments: [],
+				visualContent: undefined,
+				textChunks: undefined,
+				explanationChunks: undefined,
+			})),
+		};
+	}
+
+	/**
+	 * Números de artículo de TODAS las normas, sin una sola línea de texto legal.
+	 *
+	 * Existe por el sitemap de artículos, que necesita una URL por artículo y para
+	 * eso pedía las ~3.100 normas COMPLETAS —en paralelo— solo para leer
+	 * `article.number`. Con el corpus perezoso eso dejó de salir de la RAM y pasó a
+	 * ser una pasada entera por Supabase: 105 MB por regeneración, y encima el
+	 * paralelismo garantizaba que el caché se vaciara solo. Acá son ~600 kB de una
+	 * consulta, y quedan cacheados hasta el próximo refresh.
+	 */
+	async getArticleNumbers(): Promise<{ id: string; numbers: string[] }[]> {
+		if (this.articleNumbersCache) return this.articleNumbersCache;
+
+		const normas = this.getAllNorms();
+		const enBd = new Set(this.dbNorms.map((n) => n.id));
+		const porNorma = new Map<string, string[]>();
+
+		// Las normas que siguen viviendo en código (hoy ninguna) ya tienen el
+		// articulado en memoria: pedírselo a la BD devolvería vacío.
+		for (const l of normas) {
+			if (!enBd.has(l.id)) {
+				porNorma.set(l.id, l.articles.map((a) => a.number).filter((n) => n?.trim()));
+			}
+		}
+
+		const ids = normas.filter((l) => enBd.has(l.id)).map((l) => l.id);
+		for (const { normId, number } of await this.normsDb.listArticleNumbers(ids)) {
+			if (!number?.trim()) continue;
+			const ya = porNorma.get(normId);
+			if (ya) ya.push(number);
+			else porNorma.set(normId, [number]);
+		}
+
+		this.articleNumbersCache = [...porNorma].map(([id, numbers]) => ({ id, numbers }));
+		return this.articleNumbersCache;
+	}
+
+	/**
+	 * Resuelve una norma por su ruta pública exacta, INCLUYENDO las no listadas.
+	 *
+	 * Existe por ellas: el registry —que es como el front resuelve todo lo demás—
+	 * deja afuera las `ENLACE`, así que sin esto una norma no listada sería
+	 * inalcanzable y "accesible por link directo" no significaría nada.
+	 *
+	 * Toma la ruta completa y no (ámbito, tipo, número) para que la regla de
+	 * armado viva en un solo lado: computeFrontendPath.
+	 */
+	async findByFrontendPath(path: string): Promise<Law | null> {
+		const buscada = (path || '').split('?')[0].replace(/\/+$/, '');
+		if (!buscada.startsWith('/')) return null;
+		const meta = this.getAllNorms({ incluirNoListadas: true })
+			.find((l) => computeFrontendPath(l) === buscada);
+		return meta ? this.getFullNorm(meta.id) : null;
+	}
+
 	async findOne(id: string): Promise<Law> {
 		const law = await this.getFullNorm(id);
 		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
@@ -743,7 +874,8 @@ export class LawsService implements OnModuleInit {
 		// Antes buscaba solo en this.laws, vacío tras migrar todo a la BD.
 		const canon = (s: string) => s.replace(/\./g, '').replace(/\s+/g, '').toLowerCase();
 		const target = canon(number);
-		const meta = this.getAllNorms().find((l) => canon(l.number) === target);
+		// incluirNoListadas: buscar por número es acceso directo, igual que por id.
+		const meta = this.getAllNorms({ incluirNoListadas: true }).find((l) => canon(l.number) === target);
 		if (!meta) throw new NotFoundException(`Ley N° ${number} no encontrada`);
 		return this.findOne(meta.id);
 	}
@@ -859,12 +991,16 @@ export class LawsService implements OnModuleInit {
 		this.refsComputed.add(law);
 	}
 
-	/** Normas únicas (código + BD) sin duplicados por id. Base de los dos registries. */
+	/**
+	 * Normas únicas (código + BD) sin duplicados por id. Base de los dos registries.
+	 * Sin las no listadas: el registry alimenta el sitemap y el enlazado inline.
+	 */
 	private registrySources(): Law[] {
 		const allSrcs = [...NORMAS_CLAVE, ...this.laws, ...this.dbNorms];
 		const seen = new Set<string>();
 		return allSrcs.filter((l) => {
 			if (seen.has(l.id)) return false;
+			if (l.visibility === 'ENLACE') return false;
 			seen.add(l.id);
 			return true;
 		});
@@ -998,7 +1134,9 @@ export class LawsService implements OnModuleInit {
 	}
 
 	getStats() {
-		const src = this.allSources;
+		// getAllNorms y no allSources: las estadísticas son públicas y no deben
+		// contar lo no listado (si no, "3.408 normas" no coincide con lo navegable).
+		const src = this.getAllNorms();
 		const total = src.length;
 		const totalArticles = src.reduce((sum, l) => sum + l.articleCount, 0);
 

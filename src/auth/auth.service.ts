@@ -6,6 +6,7 @@ import {
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
+import { Cron } from '@nestjs/schedule';
 import { JwtService } from '@nestjs/jwt';
 import { randomBytes, createHash } from 'crypto';
 import * as argon2 from 'argon2';
@@ -29,6 +30,16 @@ const ACCESS_TTL = process.env.JWT_ACCESS_TTL ?? '15m';
 // usuario que se equivoca de contraseña y duros con quien prueba en serie.
 const MAX_FALLOS = 8;
 const BLOQUEO_MINUTOS = 15;
+
+/**
+ * Cuánto sobrevive una sesión ya revocada antes de que la purga se la lleve.
+ *
+ * No se borran al instante porque las filas revocadas son las que hacen andar la
+ * detección de reuso: si un refresh rotado se vuelve a presentar, ese registro
+ * es lo que permite darse cuenta y revocar toda la familia. Una semana cubre de
+ * sobra la ventana en la que ese aviso todavía sirve para algo.
+ */
+const RETENCION_REVOCADAS_DIAS = 7;
 
 @Injectable()
 export class AuthService {
@@ -354,5 +365,41 @@ export class AuthService {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user) throw new NotFoundException('Usuario no encontrado');
     return this.sanitize(user);
+  }
+
+  // ── Mantenimiento ────────────────────────────────────────────────────────────
+
+  /**
+   * Borra las sesiones que ya no sirven para nada: las vencidas y las revocadas
+   * hace más de una semana.
+   *
+   * Es minimización de datos, no prolijidad: cada fila de `sessions` guarda la
+   * IP y el user-agent del dispositivo, o sea datos personales. Sin esto se
+   * acumulan para siempre — la rotación crea una fila nueva en cada refresh (una
+   * cada 15 minutos de uso activo) y hasta ahora nada las levantaba: una sola
+   * cuenta llegó a tener 30 filas vivas.
+   *
+   * Corre de madrugada. Si el proceso estaba dormido y el cron no llegó a
+   * dispararse, no pasa nada: la purga del día siguiente barre lo acumulado.
+   */
+  @Cron('0 4 * * *')
+  async purgarSesionesViejas() {
+    const ahora = Date.now();
+    try {
+      const { count } = await this.prisma.session.deleteMany({
+        where: {
+          OR: [
+            { expiresAt: { lt: new Date(ahora) } },
+            { revokedAt: { lt: new Date(ahora - RETENCION_REVOCADAS_DIAS * 86_400_000) } },
+          ],
+        },
+      });
+      if (count > 0) console.log(`[auth] purga de sesiones: ${count} fila(s) borrada(s)`);
+      return { borradas: count };
+    } catch (e) {
+      // El mantenimiento nunca puede tumbar el proceso.
+      console.error('[auth] falló la purga de sesiones', e);
+      return { borradas: 0 };
+    }
   }
 }

@@ -62,6 +62,21 @@ export class QueryLawDto {
   @Max(100)
   limit?: number = 20;
 
+  @ApiPropertyOptional({ description: 'Ámbito subnacional: catamarca-capital, caba, salta…' })
+  @IsOptional()
+  @IsString()
+  scope?: string;
+
+  @ApiPropertyOptional({
+    description:
+      'Incluye las normas con visibility=ENLACE. Solo tiene efecto junto con `scope`: ' +
+      'sirve para la página de muestra de una jurisdicción, no para listar todo lo oculto.',
+  })
+  @IsOptional()
+  @Transform(({ value }) => value === true || value === 'true' || value === '1')
+  @IsBoolean()
+  incluirNoListadas?: boolean;
+
   @ApiPropertyOptional({ description: 'Solo normas destacadas' })
   @IsOptional()
   @Transform(({ value }) => value === true || value === 'true' || value === '1')

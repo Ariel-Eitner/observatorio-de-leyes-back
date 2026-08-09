@@ -19,8 +19,20 @@ jest.setTimeout(30_000);
 const prisma = new PrismaClient();
 const INDICE_MIN_ARTS = 15;
 
-interface NormRow { id: string; article_count: number; affected_subjects: string[] }
-interface MetaRow { obligations: string[]; rights: string[]; faq: unknown }
+// TODO lo que sigue se resuelve con agregaciones, no bajando filas.
+//
+// Este spec corre en CI contra la BD de PRODUCCIÓN (secret DATABASE_URL), y lo
+// hacía leyendo los ~49.500 artículos con `title` y `plain_language_explanation`
+// enteros —12 MB de egreso de Supabase por corrida, en cada push y cada PR— para
+// después quedarse solo con "¿alguno está vacío?". Preguntado en SQL son unos
+// pocos kB: viajan los ids ofensores, no el texto legal. El rigor es el mismo.
+//
+// El `btrim` con la lista de espacios replica el `.trim() === ''` de JS (incluido
+// el NBSP, que aparece en textos pegados de PDFs).
+const VACIO = String.raw`btrim(coalesce(%C%, ''), E' \t\n\r\f\v\u00a0') = ''`;
+
+interface NormRow { id: string; article_count: number; tiene_sujetos: boolean }
+interface MetaRow { obligations: boolean; rights: boolean; faq: boolean }
 
 let dbOk = false;
 let norms: NormRow[] = [];
@@ -29,17 +41,30 @@ let conIndice = new Set<string>();
 let sinTitulo = new Set<string>();
 let sinExplicacion = new Set<string>();
 
+const idsDe = (rows: { norm_id: string }[]) => new Set(rows.map((r) => r.norm_id));
+
 beforeAll(async () => {
   try {
-    norms = await prisma.norms.findMany({ select: { id: true, article_count: true, affected_subjects: true } });
-    const meta = await prisma.norm_metadata.findMany({ select: { norm_id: true, obligations: true, rights: true, faq: true } });
+    norms = await prisma.$queryRawUnsafe<NormRow[]>(
+      `SELECT id, article_count, coalesce(array_length(affected_subjects, 1), 0) > 0 AS tiene_sujetos FROM norms`,
+    );
+    const meta = await prisma.$queryRawUnsafe<({ norm_id: string } & MetaRow)[]>(
+      `SELECT norm_id,
+              coalesce(array_length(obligations, 1), 0) > 0 AS obligations,
+              coalesce(array_length(rights, 1), 0) > 0 AS rights,
+              (jsonb_typeof(faq::jsonb) = 'array' AND jsonb_array_length(faq::jsonb) > 0) AS faq
+       FROM norm_metadata`,
+    );
     metaByNorm = new Map(meta.map((m) => [m.norm_id, { obligations: m.obligations, rights: m.rights, faq: m.faq }]));
-    conIndice = new Set((await prisma.norm_sections.findMany({ select: { norm_id: true } })).map((s) => s.norm_id));
-    const arts = await prisma.articles.findMany({ select: { norm_id: true, title: true, plain_language_explanation: true } });
-    for (const a of arts) {
-      if (!a.title || a.title.trim() === '') sinTitulo.add(a.norm_id);
-      if (!a.plain_language_explanation || a.plain_language_explanation.trim() === '') sinExplicacion.add(a.norm_id);
-    }
+    conIndice = idsDe(await prisma.$queryRawUnsafe<{ norm_id: string }[]>(
+      `SELECT DISTINCT norm_id FROM norm_sections`,
+    ));
+    sinTitulo = idsDe(await prisma.$queryRawUnsafe<{ norm_id: string }[]>(
+      `SELECT DISTINCT norm_id FROM articles WHERE ${VACIO.replace('%C%', 'title')}`,
+    ));
+    sinExplicacion = idsDe(await prisma.$queryRawUnsafe<{ norm_id: string }[]>(
+      `SELECT DISTINCT norm_id FROM articles WHERE ${VACIO.replace('%C%', 'plain_language_explanation')}`,
+    ));
     dbOk = norms.length > 0;
     if (!dbOk) console.warn('⚠ BD vacía o sin conexión — se saltan los checks de completitud.');
   } catch {
@@ -49,8 +74,6 @@ beforeAll(async () => {
 });
 
 afterAll(async () => { await prisma.$disconnect(); });
-
-const arrOk = (a: unknown) => Array.isArray(a) && a.length > 0;
 
 describe('Completitud — Definition of Done (CI bloquea normas a medias)', () => {
   // En CI la BD es obligatoria: si no se pudo leer (falta el secret DATABASE_URL),
@@ -69,12 +92,12 @@ describe('Completitud — Definition of Done (CI bloquea normas a medias)', () =
 
   test('toda norma tiene FAQ', () => {
     if (!dbOk) return;
-    expect(norms.filter((n) => !arrOk(metaByNorm.get(n.id)?.faq)).map((n) => n.id)).toEqual([]);
+    expect(norms.filter((n) => !metaByNorm.get(n.id)?.faq).map((n) => n.id)).toEqual([]);
   });
 
   test('toda norma tiene "a quién alcanza" (affected_subjects)', () => {
     if (!dbOk) return;
-    expect(norms.filter((n) => !arrOk(n.affected_subjects)).map((n) => n.id)).toEqual([]);
+    expect(norms.filter((n) => !n.tiene_sujetos).map((n) => n.id)).toEqual([]);
   });
 
   test('toda norma tiene obligaciones o derechos', () => {
@@ -82,7 +105,7 @@ describe('Completitud — Definition of Done (CI bloquea normas a medias)', () =
     expect(
       norms.filter((n) => {
         const m = metaByNorm.get(n.id);
-        return !arrOk(m?.obligations) && !arrOk(m?.rights) && !COMPLETENESS_BACKLOG.sinObligDerechos.has(n.id);
+        return !m?.obligations && !m?.rights && !COMPLETENESS_BACKLOG.sinObligDerechos.has(n.id);
       }).map((n) => n.id),
     ).toEqual([]);
   });

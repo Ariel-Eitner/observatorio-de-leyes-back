@@ -289,6 +289,12 @@ model norms {
   infoleg_id_meta   String?
   status            String                   @default("VIGENTE")
   jurisdiction      String
+  /// Qué jurisdicción subnacional, cuando jurisdiction es PROVINCIAL o MUNICIPAL.
+  /// Ej: 'catamarca' (provincia), 'catamarca-capital' (municipio), 'caba'.
+  scope_slug        String?
+  /// Si la norma SE MUESTRA. Distinto de `status`, que dice si RIGE.
+  /// PUBLICA | ENLACE (accesible por URL directa, fuera de listados e índices).
+  visibility        String                   @default("PUBLICA")
   norm_type         String
   issuing_body      String?
   full_text         String?
@@ -327,6 +333,7 @@ model norms {
   @@index([status], map: "idx_norms_status")
   @@index([topics], map: "idx_norms_topics", type: Gin)
   @@index([norm_type], map: "idx_norms_type")
+  @@index([scope_slug], map: "idx_norms_scope")
 }
 
 model norm_metadata {
@@ -542,6 +549,9 @@ model User {
   likes          LawLike[]
   folders        Folder[]
   benefitClaims  BenefitClaim[]
+  // OJO: esta relación NO borra en cascada (ver AccountRequest). El registro de
+  // un pedido de supresión tiene que sobrevivir a la cuenta que lo pidió.
+  accountRequests AccountRequest[]
 
   @@index([guestId], map: "idx_users_guest")
   @@index([founderId], map: "idx_users_founder")
@@ -637,6 +647,47 @@ model Folder {
 
   @@index([userId], map: "idx_folders_user")
   @@map("folders")
+}
+
+// Solicitudes que la persona hace sobre su propia cuenta: recuperar la
+// contraseña, borrarla, o pedir una copia de sus datos.
+//
+// El reset vive acá y no en un flujo automático porque no hay proveedor de
+// email: la persona pide, el admin aprueba a mano contra el canal de contacto
+// que dejó, y recién ahí se emite un código de un solo uso.
+//
+// Además es el REGISTRO DE CUMPLIMIENTO de la Ley 25.326 (qué se pidió, cuándo,
+// cuándo se resolvió). Por eso `user` es onDelete: SetNull: la prueba de que se
+// atendió una supresión no puede desaparecer junto con la cuenta suprimida.
+model AccountRequest {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type           String // password_reset | account_deletion | data_export
+  userId         String?   @map("user_id") @db.Uuid
+  // Se vacía al resolver un borrado; queda emailHash como prueba no legible.
+  email          String?
+  emailHash      String?   @map("email_hash")
+  // Por dónde contactar a la persona (WhatsApp, otro email, redes). Sin email
+  // transaccional es el único modo de hacerle llegar el código.
+  contacto       String?
+  status         String    @default("pendiente") // pendiente | aprobado | rechazado | resuelto | vencido
+  // sha256 del código. El código en claro se muestra UNA sola vez, al aprobar.
+  tokenHash      String?   @unique @map("token_hash")
+  tokenExpiresAt DateTime? @map("token_expires_at") @db.Timestamptz(6)
+  tokenUsedAt    DateTime? @map("token_used_at") @db.Timestamptz(6)
+  notaAdmin      String?   @map("nota_admin")
+  ip             String?
+  userAgent      String?   @map("user_agent")
+  // Alcance exacto de lo ejecutado (tablas y filas afectadas en un borrado).
+  detalle        Json?
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  resolvedAt     DateTime? @map("resolved_at") @db.Timestamptz(6)
+  user           User?     @relation(fields: [userId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@index([status], map: "idx_account_requests_status")
+  @@index([createdAt(sort: Desc)], map: "idx_account_requests_created")
+  @@index([userId], map: "idx_account_requests_user")
+  @@index([emailHash], map: "idx_account_requests_email_hash")
+  @@map("account_requests")
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -859,4 +910,28 @@ model AdminTask {
 
   @@index([hecha, createdAt(sort: Desc)], map: "idx_admin_tasks_hecha")
   @@map("admin_tasks")
+}
+
+// Checklist de revisión del corpus (la columna extra de /corpus): por cada norma,
+// qué ítems están bien, cuáles mal, una nota libre y si ya se revisó.
+//
+// POR QUÉ ESTÁ EN LA BASE Y NO EN UN ARCHIVO: antes se guardaba en
+// `corpus-review.json`, en el disco del proyecto, y por eso solo existía en el
+// stack local — en Vercel el filesystem es de solo lectura. Para poder revisar
+// el corpus desde producción con la cuenta de admin, la persistencia tiene que
+// vivir donde vive todo lo demás.
+//
+// La PK es el `path` de la norma (`/leyes/26842-derechos-...`), que es la misma
+// clave que ya usaba el JSON: así la anotación sobrevive aunque cambie el id
+// interno, y un upsert por norma no pisa lo anotado en otra.
+model AdminCorpusReview {
+  path      String   @id
+  // { "titulo": "ok", "texto": "mal", ... } — lo que no está es "sin evaluar".
+  items     Json     @default("{}")
+  nota      String   @default("")
+  revisada  Boolean  @default(false)
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([revisada], map: "idx_admin_corpus_review_revisada")
+  @@map("admin_corpus_review")
 }

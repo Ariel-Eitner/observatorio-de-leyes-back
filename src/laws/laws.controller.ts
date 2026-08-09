@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param, Post, Query, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { SkipThrottle } from '@nestjs/throttler';
 import { LawsService } from './laws.service';
@@ -41,10 +41,27 @@ export class LawsController {
     return this.lawsService.getRegistry();
   }
 
+  // Antes de @Get(':id'). Resuelve por ruta pública e incluye las no listadas:
+  // es el único camino a una norma con visibility='ENLACE'.
+  @Get('by-path')
+  @ApiOperation({ summary: 'Norma por su ruta pública exacta (incluye no listadas)' })
+  async findByPath(@Query('path') path: string) {
+    const law = await this.lawsService.findByFrontendPath(path ?? '');
+    if (!law) throw new NotFoundException(`No hay norma en la ruta "${path}"`);
+    return law;
+  }
+
   @Get('stats')
   @ApiOperation({ summary: 'Estadísticas generales del repositorio' })
   getStats() {
     return this.lawsService.getStats();
+  }
+
+  // Antes de @Get(':id'), como todas las rutas de un segmento.
+  @Get('article-numbers')
+  @ApiOperation({ summary: 'Números de artículo por norma, sin texto. Lo consume el sitemap de artículos' })
+  getArticleNumbers() {
+    return this.lawsService.getArticleNumbers();
   }
 
   @Get('graph')
@@ -82,6 +99,15 @@ export class LawsController {
     @Param('articleNumber') articleNumber: string,
   ) {
     return this.lawsService.findArticle(id, articleNumber);
+  }
+
+  // Antes de @Get(':id'): dos segmentos le ganan a uno.
+  @Get(':id/light')
+  @ApiOperation({ summary: 'Norma con el articulado sin texto (solo números y títulos). Para la página de un artículo' })
+  async findOneLight(@Param('id') id: string) {
+    const law = await this.lawsService.getNormLight(id);
+    if (!law) throw new NotFoundException(`No existe la norma "${id}"`);
+    return law;
   }
 
   @Get(':id')

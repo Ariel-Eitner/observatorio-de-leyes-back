@@ -4,7 +4,7 @@ import { PrismaService } from '../common/prisma/prisma.service';
 import type {
   Law, Article, LawSegment, ArticleAmendment, LawAmendment,
   LawSection, LawTitle, Annex, LawRelation, LawMetadata,
-  LawStatus, Jurisdiction, NormType, SegmentType, ArticleStatus, AmendmentType, RelationType,
+  LawStatus, Jurisdiction, Visibility, NormType, SegmentType, ArticleStatus, AmendmentType, RelationType,
   VisualItem, JurisprudenceRef,
 } from '../common/types/law.types';
 import type { NormStub } from '../data/norm-stubs';
@@ -112,6 +112,10 @@ export class NormsDbService {
     const rows = await this.prisma.articles.findMany({
       where: { norm_id: { in: ids } },
       select: { norm_id: true, number: true },
+      // Orden estable: sin esto el sitemap de artículos sale distinto en cada
+      // regeneración aunque no haya cambiado nada, y todo el XML figura como
+      // modificado río abajo.
+      orderBy: [{ norm_id: 'asc' }, { ord: 'asc' }],
     });
     return rows.map((r) => ({ normId: r.norm_id, number: r.number }));
   }
@@ -180,6 +184,7 @@ export class NormsDbService {
       publicationDate: dDate(n.publication_date), effectiveDate: dDate(n.effective_date),
       derogatedDate: dDate(n.derogated_date), boNumber: n.bo_number,
       status: n.status as LawStatus, jurisdiction: n.jurisdiction as Jurisdiction,
+      scopeSlug: n.scope_slug, visibility: (n.visibility as Visibility) ?? 'PUBLICA',
       normType: n.norm_type as NormType, issuingBody: n.issuing_body, fullText: n.full_text,
       sourceUrl: n.source_url, articleCount: n.article_count, topics: n.topics, keywords: n.keywords,
       relatedNorms: n.related_norms, relations, executiveSummary: n.executive_summary,

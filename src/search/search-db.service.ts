@@ -187,12 +187,19 @@ function lawStub(id: string, number: string, title: string): Law {
   return { id, number, title } as Law;
 }
 
+// Las normas no listadas (visibility='ENLACE') se sirven por URL directa pero no
+// se BUSCAN. Toda consulta de este servicio alias-ea la tabla como `n`, así que
+// esta condición se puede pegar en cualquiera de ellas.
+const SOLO_PUBLICAS = "n.visibility = 'PUBLICA'";
+
 @Injectable()
 export class SearchDbService {
   constructor(private readonly prisma: PrismaService) {}
 
   private filterClauses(opts: SearchOpts, params: unknown[]): string {
-    const c: string[] = [];
+    // Siempre presente: una norma no listada no puede aparecer en la búsqueda.
+    // Va acá y NO como opción para que no se pueda olvidar al agregar una consulta.
+    const c: string[] = [SOLO_PUBLICAS];
     const add = (sql: string, val: unknown) => { params.push(val); c.push(sql.replace('$$', `$${params.length}`)); };
     if (opts.normType)     add('n.norm_type = $$', opts.normType);
     if (opts.status)       add('n.status = $$', opts.status);
@@ -297,6 +304,7 @@ export class SearchDbService {
                   (SELECT count(*) FROM articles a2 WHERE a2.norm_id = n.id) AS art_count
            FROM articles a JOIN norms n ON n.id = a.norm_id
            WHERE a.number = $1
+             AND ${SOLO_PUBLICAS}
              AND (n.id LIKE 'codigo%' OR coalesce(n.common_name, n.title) ILIKE 'c_digo%')
            ORDER BY art_count DESC
            LIMIT 4`,
@@ -338,6 +346,7 @@ export class SearchDbService {
           FROM articles a
           JOIN norms n ON n.id = a.norm_id
           WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
+            AND ${SOLO_PUBLICAS}
             AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))${numCond} )
           ORDER BY phrase DESC, rank DESC
           LIMIT 5`;
@@ -506,12 +515,12 @@ export class SearchDbService {
                n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
                ts_rank('${RANK_WEIGHTS}', a.search, tq.qq) AS rank
         FROM articles a JOIN norms n ON n.id = a.norm_id, tq
-        WHERE a.search @@ tq.qq
+        WHERE a.search @@ tq.qq AND ${SOLO_PUBLICAS}
         UNION ALL
         SELECT 'law' AS rtype, n.id AS aid, n.id AS norm_id, NULL AS art_number, NULL AS art_title,
                n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year,
                ts_rank('${RANK_WEIGHTS}', n.search, tq.qq) * 1.5 AS rank
-        FROM norms n, tq WHERE n.search @@ tq.qq
+        FROM norms n, tq WHERE n.search @@ tq.qq AND ${SOLO_PUBLICAS}
         ORDER BY rank DESC LIMIT $2`;
       try {
         rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(sql, ftsQ, limit);
@@ -525,7 +534,7 @@ export class SearchDbService {
       try {
         const nrows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
           `SELECT n.id, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.year
-           FROM norms n WHERE regexp_replace(n.number, '\\D', '', 'g') = $1 LIMIT 3`,
+           FROM norms n WHERE regexp_replace(n.number, '\\D', '', 'g') = $1 AND ${SOLO_PUBLICAS} LIMIT 3`,
           numDigits,
         );
         for (const r of nrows) {
@@ -579,6 +588,7 @@ export class SearchDbService {
                     n.norm_type, n.year, length(coalesce(n.common_name, n.title)) AS name_len,
                     ${NAME_SIM_EXPR} AS sim
              FROM norms n
+             WHERE ${SOLO_PUBLICAS}
            ) s
            WHERE s.sim >= ${NAME_SIM_MIN}
            ORDER BY s.sim DESC, s.name_len ASC LIMIT 5`,
@@ -616,7 +626,9 @@ export class SearchDbService {
 
   async facets(query?: string): Promise<Record<string, Record<string, number>>> {
     const q = query?.trim();
-    const cond = q ? `WHERE n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))` : '';
+    const cond = q
+      ? `WHERE ${SOLO_PUBLICAS} AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))`
+      : `WHERE ${SOLO_PUBLICAS}`;
     const params = q ? [q] : [];
     const sql = `
       SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade

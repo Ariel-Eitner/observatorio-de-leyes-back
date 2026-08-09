@@ -9,6 +9,15 @@ export type LawStatus = (typeof LawStatus)[keyof typeof LawStatus];
 export const Jurisdiction = { NACIONAL: 'NACIONAL', PROVINCIAL: 'PROVINCIAL', MUNICIPAL: 'MUNICIPAL', INTERNACIONAL: 'INTERNACIONAL' } as const;
 export type Jurisdiction = (typeof Jurisdiction)[keyof typeof Jurisdiction];
 
+// Si la norma SE MUESTRA. Ortogonal a LawStatus, que dice si RIGE: una norma
+// puede estar VIGENTE y no publicarse todavía, o estar DEROGADA y ser pública.
+//
+// ENLACE es "no listada": se sirve por URL directa pero queda afuera del
+// sitemap, del listado, del buscador, del grafo y de las estadísticas. Sirve
+// para demos y para revisar una tanda grande antes de darla a conocer.
+export const Visibility = { PUBLICA: 'PUBLICA', ENLACE: 'ENLACE' } as const;
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
 export const NormType = { CONSTITUCION: 'CONSTITUCION', LEY: 'LEY', DECRETO: 'DECRETO', RESOLUCION: 'RESOLUCION', DISPOSICION: 'DISPOSICION', ORDENANZA: 'ORDENANZA', DECRETO_LEY: 'DECRETO_LEY', CIRCULAR: 'CIRCULAR', TRATADO: 'TRATADO' } as const;
 export type NormType = (typeof NormType)[keyof typeof NormType];
 
@@ -235,6 +244,10 @@ export interface Law {
   boNumber: string | null;
   status: LawStatus;
   jurisdiction: Jurisdiction;
+  /** Qué jurisdicción subnacional: 'catamarca-capital', 'caba', 'salta'… */
+  scopeSlug?: string | null;
+  /** Ausente = PUBLICA. Opcional para no tocar las normas que viven en código. */
+  visibility?: Visibility;
   normType: NormType;
   issuingBody: string | null;
   fullText: string | null;

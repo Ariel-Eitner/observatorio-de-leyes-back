@@ -45,10 +45,41 @@ function descriptiveSlug(title: string): string {
   return slugify(name);
 }
 
+// Carpeta de la ruta según el nivel de gobierno. Las constituciones provinciales
+// NO pasan por acá: siguen en /constituciones/{provincia}, que ya está indexado.
+const CARPETA_NIVEL: Partial<Record<Law['jurisdiction'], string>> = {
+  PROVINCIAL: 'provincias',
+  MUNICIPAL:  'municipios',
+};
+
+// Plural del tipo de norma para la ruta subnacional: /municipios/x/decretos/…
+const CARPETA_TIPO: Partial<Record<Law['normType'], string>> = {
+  LEY:         'leyes',
+  DECRETO:     'decretos',
+  DECRETO_LEY: 'decretos-ley',
+  RESOLUCION:  'resoluciones',
+  ORDENANZA:   'ordenanzas',
+  DISPOSICION: 'disposiciones',
+};
+
 export function computeFrontendPath(law: Law): string {
   if (TIPO_SLUG[law.id]) return TIPO_SLUG[law.id];
   if (law.id.startsWith('const-')) return `/constituciones/${law.id.slice('const-'.length)}`;
   if (law.id.startsWith('dnu-')) return `/dnu/${law.id.slice('dnu-'.length)}`;
+
+  // ── Subnacionales ─────────────────────────────────────────────────────────
+  // El número de una norma provincial o municipal NO es único en el país: el
+  // decreto 45/2026 existe en Catamarca, en Salta y en la Nación. Por eso el
+  // ámbito va en la ruta y no se puede caer al patrón nacional.
+  const carpeta = CARPETA_NIVEL[law.jurisdiction];
+  if (carpeta && law.scopeSlug) {
+    const tipo = CARPETA_TIPO[law.normType] ?? 'normas';
+    const num = law.number.replace(/\./g, '').replace(/\//g, '-');
+    const slug = descriptiveSlug(law.title);
+    const cola = slug && slug !== num ? `${num}-${slug}` : num;
+    return `/${carpeta}/${law.scopeSlug}/${tipo}/${cola}`;
+  }
+
   // Decretos y resoluciones: id (que ya trae tipo+número) + nombre descriptivo,
   // para sumar keywords y no quedar como /leyes/decreto-151-2022 "pelado".
   if (law.id.startsWith('decreto-') || law.id.startsWith('rg-')) {

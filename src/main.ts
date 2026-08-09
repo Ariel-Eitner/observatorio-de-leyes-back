@@ -82,6 +82,32 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
+  // ── Cache-Control en el contenido público ───────────────────────────────────
+  // El backend no emitía NINGÚN Cache-Control, así que lo único que había río
+  // abajo era el ETag de Express: cada capa volvía a preguntar y nada se podía
+  // reutilizar. Esto no cambia el egreso de Supabase (eso lo decide el caché de
+  // normas en LawsService), pero sí evita repreguntas al backend.
+  //
+  // Es una ALLOWLIST a propósito, no una lista de exclusiones: si mañana aparece
+  // una ruta nueva, el default sigue siendo "no cachear". Nada de /admin, /auth,
+  // /account ni /events entra acá, y solo aplica a GET.
+  //
+  // Los plazos son cortos porque el corpus se edita en caliente: un refresh del
+  // admin invalida el front (ver notificarFront), y no queremos que un CDN siga
+  // sirviendo la norma vieja mucho después. El `revalidate` que fija Next en sus
+  // fetch tiene precedencia sobre esto, así que no pisa la invalidación por ruta.
+  const CONTENIDO_PUBLICO =
+    /^\/api\/(laws|articles|segments|jurisprudencia|constituciones-provinciales)(\/|$)/;
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && CONTENIDO_PUBLICO.test(req.path)) {
+      res.setHeader(
+        'Cache-Control',
+        'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+      );
+    }
+    next();
+  });
+
   // ── CORS — solo orígenes conocidos ─────────────────────────────────────────
   const PROD_ORIGINS = [
     'https://observatorio-de-leyes-front.vercel.app',

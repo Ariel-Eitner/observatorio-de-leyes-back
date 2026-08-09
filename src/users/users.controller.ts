@@ -1,8 +1,11 @@
 import { Body, Controller, Get, Headers, HttpCode, Ip, Patch, Post, UseGuards } from '@nestjs/common';
+import { Throttle } from '@nestjs/throttler';
 import { UsersService } from './users.service';
 import { ClaimDonationDto } from './dto/claim-donation.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
+import { AccountDataService } from '../account/account-data.service';
+import { DeleteAccountDto } from '../account/dto/account.dto';
 import { JwtAuthGuard, AccessTokenPayload } from '../auth/guards/jwt-auth.guard';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 
@@ -10,7 +13,10 @@ import { CurrentUser } from '../auth/decorators/current-user.decorator';
 @Controller('users')
 @UseGuards(JwtAuthGuard)
 export class UsersController {
-  constructor(private readonly svc: UsersService) {}
+  constructor(
+    private readonly svc: UsersService,
+    private readonly datos: AccountDataService,
+  ) {}
 
   // ── Perfil ────────────────────────────────────────────────────────────────────
 
@@ -57,5 +63,37 @@ export class UsersController {
   @Post('me/claim-donation')
   claim(@CurrentUser() user: AccessTokenPayload, @Body() dto: ClaimDonationDto) {
     return this.svc.createClaim(user.sub, user.email, dto);
+  }
+
+  // ── Datos personales (Ley 25.326) ─────────────────────────────────────────────
+
+  /**
+   * Derecho de acceso: copia completa de los datos del titular.
+   *
+   * Con límite propio porque arma un JSON grande cruzando varias tablas; nadie
+   * necesita pedir su exportación más de unas pocas veces por minuto.
+   */
+  @Get('me/export')
+  @Throttle({ global: { ttl: 60_000, limit: 5 } })
+  exportar(@CurrentUser() user: AccessTokenPayload) {
+    return this.datos.exportar(user.sub);
+  }
+
+  /**
+   * Derecho de supresión: borra la cuenta y anonimiza el resto del rastro.
+   * Irreversible. Pide contraseña y la palabra BORRAR (ver DeleteAccountDto).
+   */
+  @Post('me/delete')
+  @HttpCode(200)
+  @Throttle({ global: { ttl: 60_000, limit: 5 } })
+  borrarCuenta(
+    @CurrentUser() user: AccessTokenPayload,
+    @Body() dto: DeleteAccountDto,
+    @Ip() ip: string,
+    @Headers('x-forwarded-for') xff?: string,
+    @Headers('user-agent') ua?: string,
+  ) {
+    const clientIp = xff?.split(',')[0]?.trim() || ip;
+    return this.datos.borrarCuenta(user.sub, dto.password, { ip: clientIp, userAgent: ua });
   }
 }

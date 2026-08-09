@@ -35,6 +35,9 @@ interface GeoData {
   countryCode?: string;
   region?: string; // provincia / estado
   city?: string;
+  // true = la IP pertenece a un datacenter / hosting, no a un ISP residencial.
+  // Es la única señal que delata a los crawlers que se disfrazan de Chrome real.
+  hosting?: boolean;
 }
 
 // Rangos privados / loopback: no tiene sentido geolocalizarlos.
@@ -62,14 +65,19 @@ export class EventsService {
     let geo: GeoData | null = null;
     try {
       // lang=es → nombres de país/provincia en español ("Estados Unidos", no "United States").
-      const url = `http://ip-api.com/json/${encodeURIComponent(clean)}?fields=status,country,countryCode,regionName,city&lang=es`;
+      // `hosting` viene en el plan gratuito y no cuesta una llamada extra.
+      const url = `http://ip-api.com/json/${encodeURIComponent(clean)}?fields=status,country,countryCode,regionName,city,hosting&lang=es`;
       const res = await fetch(url, { signal: AbortSignal.timeout(2500) });
       if (res.ok) {
         const d = (await res.json()) as {
           status?: string; country?: string; countryCode?: string; regionName?: string; city?: string;
+          hosting?: boolean;
         };
         if (d.status === 'success') {
-          geo = { country: d.country, countryCode: d.countryCode, region: d.regionName, city: d.city };
+          geo = {
+            country: d.country, countryCode: d.countryCode, region: d.regionName, city: d.city,
+            hosting: d.hosting === true,
+          };
         }
       }
     } catch {
@@ -87,11 +95,11 @@ export class EventsService {
 
   // Los bots no se guardan crudos: se cuentan agregados por día. Sin esto la tabla
   // crecía a 80% crawlers y el panel de visitantes se colgaba (ver common/bots.ts).
-  private async countBot(ua?: string | null): Promise<void> {
+  private async countBot(name: string): Promise<void> {
     try {
       await this.prisma.$executeRaw`
         INSERT INTO bot_traffic_daily (day, bot, hits)
-        VALUES (CURRENT_DATE, ${botName(ua)}, 1)
+        VALUES (CURRENT_DATE, ${name}, 1)
         ON CONFLICT (day, bot) DO UPDATE SET hits = bot_traffic_daily.hits + 1`;
     } catch (e) {
       this.logger.error(`countBot: ${(e as Error).message}`);
@@ -104,11 +112,24 @@ export class EventsService {
       // faltar. Con que cualquiera de los dos huela a crawler, alcanza.
       const ua = uaHeader || (dto.context?.ua as string | undefined);
       if (isBotUa(ua)) {
-        await this.countBot(ua);
+        await this.countBot(botName(ua));
         return;
       }
 
+      // Segunda barrera: la IP. El filtro por user-agent solo caza a los que se
+      // declaran; en ago-2026 el 56% de los "visitantes" eran procesos corriendo en
+      // Santa Clara, Hong Kong y Singapur con user-agent de Chrome legítimo y version
+      // rotada. Los delata la red: 0,95 page views, 6,1 s de sesión y cero búsquedas
+      // en 3.153 visitantes. Si la IP es de datacenter, no es una persona.
+      //
+      // A propósito NO se filtra por `proxy`: iCloud Private Relay y las VPN
+      // corporativas lo activan y detrás hay gente real.
       const geo = await this.resolveGeo(ip);
+      if (geo?.hosting) {
+        await this.countBot('datacenter');
+        return;
+      }
+
       const context = {
         ...(dto.context ?? {}),
         ...(geo

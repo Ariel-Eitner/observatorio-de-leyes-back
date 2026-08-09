@@ -11,9 +11,11 @@
 // por el consumo de Vercel) y tracking_events queda solo con gente real.
 
 // Ojo con el regex: el filtro viejo era /(bot|crawl|spider|...)/ y se le escapaban
-// 84.588 filas de "GoogleOther" — no contiene "bot" por ningún lado.
+// 84.588 filas de "GoogleOther" — no contiene "bot" por ningún lado. Lo mismo pasó
+// con "Google-NotebookLM" (270 eventos colados entre jun y ago 2026): no dice "bot"
+// ni matchea ninguno de los patrones de Google. Ante la duda, agregá el nombre literal.
 const BOT_UA =
-  /googlebot|googleother|google-extended|apis-google|mediapartners|adsbot|bingbot|bingpreview|msnbot|yandex|baiduspider|duckduckbot|slurp|sogou|exabot|applebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|gptbot|chatgpt|oai-searchbot|claudebot|anthropic|perplexity|ccbot|bytespider|amazonbot|meta-externalagent|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|dataforseo|screaming frog|serpstat|blexbot|seekport|zoominfobot|crawler|crawling|spider|headless|lighthouse|pagespeed|phantomjs|puppeteer|playwright|python-requests|scrapy|curl\/|wget|go-http-client|node-fetch|axios\/|okhttp|java\/|libwww|httpunit|bot\/|bot$|[^a-z]bot[^a-z]/;
+  /googlebot|googleother|google-extended|apis-google|mediapartners|adsbot|notebooklm|bingbot|bingpreview|msnbot|yandex|baiduspider|duckduckbot|slurp|sogou|exabot|applebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|gptbot|chatgpt|oai-searchbot|claudebot|anthropic|perplexity|ccbot|bytespider|amazonbot|meta-externalagent|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|dataforseo|screaming frog|serpstat|blexbot|seekport|zoominfobot|crawler|crawling|spider|headless|lighthouse|pagespeed|phantomjs|puppeteer|playwright|python-requests|scrapy|curl\/|wget|go-http-client|node-fetch|axios\/|okhttp|java\/|libwww|httpunit|bot\/|bot$|[^a-z]bot[^a-z]/;
 
 export function isBotUa(ua?: string | null): boolean {
   return BOT_UA.test((ua ?? '').toLowerCase());
@@ -27,6 +29,7 @@ const NAMES: [RegExp, string][] = [
   [/google-extended/, 'google-extended'],
   [/googlebot/, 'googlebot'],
   [/adsbot|mediapartners|apis-google/, 'google-ads'],
+  [/notebooklm/, 'notebooklm'],
   [/bingbot|bingpreview|msnbot/, 'bingbot'],
   [/gptbot/, 'gptbot'],
   [/oai-searchbot/, 'oai-searchbot'],
