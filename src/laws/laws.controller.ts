@@ -59,7 +59,7 @@ export class LawsController {
 
   // Antes de @Get(':id'), como todas las rutas de un segmento.
   @Get('article-numbers')
-  @ApiOperation({ summary: 'Números de artículo por norma, sin texto. Lo consume el sitemap de artículos' })
+  @ApiOperation({ summary: 'Por norma: fecha de última actualización y números de artículo, sin texto. Lo consume el generador del sitemap' })
   getArticleNumbers() {
     return this.lawsService.getArticleNumbers();
   }

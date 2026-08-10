@@ -15,6 +15,20 @@ import { buildVetos } from './vetos.util';
 // ADMIN_SECRET que ya comparten back y front.
 const FRONT_REVALIDATE_URL = 'https://observatorio-de-leyes-front.vercel.app/api/revalidate';
 
+/**
+ * Una entrada de `/laws/article-numbers`: todo lo que el generador del sitemap
+ * necesita saber de una norma, y nada más.
+ *
+ * `updatedAt` viaja acá y NO en el registry porque el registry cruza al navegador
+ * en cada render y este endpoint lo consume un script de build. Es el `<lastmod>`
+ * tanto de la ficha de la norma como de sus artículos.
+ */
+export interface ArticleNumbers {
+	id: string;
+	updatedAt: string;
+	numbers: string[];
+}
+
 // Metadata estática que no puede derivarse de los data files solos
 export const LAW_STATIC_META: Record<
 	string,
@@ -402,7 +416,7 @@ export class LawsService implements OnModuleInit {
 	private fullCacheArticulos = 0;
 	// Números de artículo de todo el corpus (para el sitemap). Se invalida junto con
 	// el resto del índice en refreshFromDb.
-	private articleNumbersCache: { id: string; numbers: string[] }[] | null = null;
+	private articleNumbersCache: ArticleNumbers[] | null = null;
 	// ¿Ya terminó la primera hidratación? Mientras sea false el corpus está a medio
 	// llenar y CorpusReadyGuard corta con 503 (ver onModuleInit).
 	private ready = false;
@@ -818,12 +832,19 @@ export class LawsService implements OnModuleInit {
 	 * paralelismo garantizaba que el caché se vaciara solo. Acá son ~600 kB de una
 	 * consulta, y quedan cacheados hasta el próximo refresh.
 	 */
-	async getArticleNumbers(): Promise<{ id: string; numbers: string[] }[]> {
+	async getArticleNumbers(): Promise<ArticleNumbers[]> {
 		if (this.articleNumbersCache) return this.articleNumbersCache;
 
 		const normas = this.getAllNorms();
 		const enBd = new Set(this.dbNorms.map((n) => n.id));
-		const porNorma = new Map<string, string[]>();
+
+		// Se siembra con TODAS las normas listadas, incluso las que no tienen
+		// articulado: así el resultado es el mapa completo del corpus publicable y
+		// el generador del sitemap saca de una sola llamada las fichas y los
+		// artículos. Sembrarlo también evita que una norma que llegue por
+		// listArticleNumbers y no esté en `normas` se cuele (no puede pasar hoy
+		// —`ids` sale de `normas`—, pero el filtro de visibilidad no depende de eso).
+		const porNorma = new Map<string, string[]>(normas.map((l) => [l.id, []]));
 
 		// Las normas que siguen viviendo en código (hoy ninguna) ya tienen el
 		// articulado en memoria: pedírselo a la BD devolvería vacío.
@@ -836,12 +857,15 @@ export class LawsService implements OnModuleInit {
 		const ids = normas.filter((l) => enBd.has(l.id)).map((l) => l.id);
 		for (const { normId, number } of await this.normsDb.listArticleNumbers(ids)) {
 			if (!number?.trim()) continue;
-			const ya = porNorma.get(normId);
-			if (ya) ya.push(number);
-			else porNorma.set(normId, [number]);
+			porNorma.get(normId)?.push(number);
 		}
 
-		this.articleNumbersCache = [...porNorma].map(([id, numbers]) => ({ id, numbers }));
+		const fechas = new Map(normas.map((l) => [l.id, l.updatedAt]));
+		this.articleNumbersCache = [...porNorma].map(([id, numbers]) => ({
+			id,
+			updatedAt: fechas.get(id) ?? '',
+			numbers,
+		}));
 		return this.articleNumbersCache;
 	}
 

@@ -318,6 +318,43 @@ export const COMPLETENESS_BACKLOG = {
     //   texto oficial no tiene títulos ni capítulos propios. La estructura pertenece a la norma
     //   modificada, no a esta.
     'ley-25966',
+    // 2026-08-10: rango 25.xxx, tanda de índices (17 normas ≥15 arts sin norm_sections). Las 17 son
+    //   PLANAS: ninguna tiene TÍTULO/CAPÍTULO/SECCIÓN propios. Verificado con estructura.ps1 + grep
+    //   case-insensitive sobre el .txt completo de InfoLeg + barrido de líneas en mayúsculas y en Title
+    //   Case + texact.htm (texto actualizado) donde existe. Todas tienen ord==número y ningún artículo
+    //   con sufijo, así que NO son diferidas: la deuda es inexistente, no postergada.
+    //   MODIFICATORIAS (los TÍTULO/CAPÍTULO de su texto son de la ley madre, no propios):
+    //     25.233 (16 arts, reforma la Ley de Ministerios y crea la Oficina Anticorrupción — su articulado
+    //       es una lista de sustituciones y los "Título V/VII/VIII" citados son de la Ley de Ministerios),
+    //     25.589 (22 arts, reforma concursal de 2002 — el "CAPITULO VII / ACUERDO PREVENTIVO
+    //       EXTRAJUDICIAL" que aparece es el capítulo de la Ley 24.522 que el art. 18 reemplaza),
+    //     25.615 (17 arts, normalización del PAMI — agrega/sustituye artículos de la Ley 19.032; el único
+    //       heading, "Disposiciones Transitorias" antes del art. 14, no cubre los arts. 1-13).
+    //   EPÍGRAFES POR ARTÍCULO (que NO son secciones):
+    //     25.284 (28 arts, entidades deportivas — cada artículo lleva su epígrafe en mayúsculas
+    //       "OBJETIVOS DE LA LEY", "JUEZ COMPETENTE"…; los "Título III, Capítulo VIII, Sección II" que
+    //       detecta estructura.ps1 son menciones a la Ley 24.522 dentro del texto de los arts. 1, 7 y 12),
+    //     25.371 (17 arts, desempleo en la construcción — epígrafes por artículo; el "Título IV" es una
+    //       mención a la Ley 24.013 y "Período de cotización" es el encabezado de la tabla del art. 6).
+    //   ANEXOS POSTERIORES AL ARTICULADO (planillas, no secciones — estructura.ps1 los cuenta pero no
+    //   los imprime porque no tienen ningún artículo después):
+    //     25.292 (21 arts, fuero penal tributario — ANEXO I/II/III son planillas de cargos del Poder
+    //       Judicial, el MPF y el MPD; "CREACION DE ORGANOS" es el título general de la ley),
+    //     25.880 (15 arts, ingreso de tropas extranjeras — ANEXO I posterior al último artículo).
+    //   ARTICULADO CORRIDO, sin encabezado de ninguna clase:
+    //     25.053 (21, Fondo Nacional de Incentivo Docente), 25.119 (16, CINAIN), 25.165 (24, Pasantías
+    //     Educativas), 25.169 (17, contrato asociativo de explotación tambera), 25.509 (15, derecho real
+    //     de superficie forestal), 25.599 (18, turismo estudiantil), 25.746 (15, Registro de Personas
+    //     Menores Extraviadas), 25.761 (16, desarmado de automotores), 25.872 (15, Empresariado Joven),
+    //     25.964 (15, tasa por actuaciones ante el Tribunal Fiscal de la Nación).
+    'ley-25053', 'ley-25119', 'ley-25165', 'ley-25169', 'ley-25233', 'ley-25284', 'ley-25292',
+    'ley-25371', 'ley-25509', 'ley-25589', 'ley-25599', 'ley-25615', 'ley-25746', 'ley-25761',
+    'ley-25872', 'ley-25880', 'ley-25964',
+    // 2026-08-10: rango 24.xxx. Ley 24.020 (régimen de condecoraciones militares, 16 arts) — PLANA:
+    //   articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la fuente oficial (estructura.ps1 → 0
+    //   secciones sobre el .txt completo de InfoLeg). ord==número y ningún artículo con sufijo: la
+    //   deuda es inexistente, no postergada.
+    'ley-24020',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([
