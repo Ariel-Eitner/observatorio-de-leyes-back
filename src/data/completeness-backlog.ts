@@ -222,6 +222,13 @@ export const COMPLETENESS_BACKLOG = {
     //   Chagas, 17 arts), 26.283 (beneficios tributarios a prestadores médicos y obras sociales, 15 arts) y
     //   26.246 (creación de juzgados y Cámara Federal de La Matanza, 15 arts — sin TÍTULO/CAPÍTULO propios).
     'ley-26281', 'ley-26283', 'ley-26246',
+    // 2026-08-10: rango 24.0xx (cierre). PLANAS ≥15 arts sin estructura propia (verificado con estructura.ps1:
+    //   0 secciones). 24.061 (Presupuesto 1992, 41 arts — articulado corrido, sin TÍTULO/CAPÍTULO) y
+    //   24.091 (creación de los juzgados federales 7 a 12 de la Capital Federal, 21 arts — sólo epígrafes
+    //   por artículo, que el parser dejó pegados al final del artículo anterior; no son secciones).
+    //   NO va al backlog la 24.093 (Ley de Puertos): tiene 7 TÍTULOS y 7 CAPÍTULOS propios y su índice de
+    //   dos niveles quedó cargado.
+    'ley-24061', 'ley-24091',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -355,6 +362,29 @@ export const COMPLETENESS_BACKLOG = {
     //   secciones sobre el .txt completo de InfoLeg). ord==número y ningún artículo con sufijo: la
     //   deuda es inexistente, no postergada.
     'ley-24020',
+    // 2026-08-11: rango 24.1xx. Ley 24.199 (régimen unificado del PRODE, 17 arts) — PLANA: articulado
+    //   corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la fuente oficial (estructura.ps1 → 0 secciones). El
+    //   único encabezado del texto es "Disposición transitoria." antes del art. 16, que no alcanza para
+    //   armar un índice de dos niveles. ord==número, sin sufijos: deuda inexistente, no postergada.
+    'ley-24199',
+    // 2026-08-11: rango 24.3xx. Ley 24.305 (Programa Nacional de Lucha contra la Fiebre Aftosa,
+    //   24 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la fuente oficial
+    //   (estructura.ps1 → 0 secciones sobre el .txt completo de InfoLeg, confirmado con grep).
+    //   ord==número y ningún artículo con sufijo: la deuda es inexistente, no postergada.
+    'ley-24305',
+    // 2026-08-11: rango 24.3xx. Ley 24.308 (concesión de pequeños comercios en sedes administrativas a
+    //   personas con discapacidad, 20 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en
+    //   la fuente oficial (estructura.ps1 → 20 artículos en secuencia, 0 secciones). Su art. 1 sustituye
+    //   el art. 11 de la Ley 22.431, pero no arrastra estructura de esa ley. ord==número y ningún
+    //   artículo con sufijo: la deuda es inexistente, no postergada.
+    'ley-24308',
+    // 2026-08-11: rango 24.3xx. Ley 24.319 (emergencia del tránsito vehicular en la ciudad de Buenos
+    //   Aires, 17 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la fuente oficial
+    //   (estructura.ps1 → 17 artículos en secuencia, 0 secciones). Tiene tres bloques temáticos
+    //   evidentes (emergencia y Gabinete, restricción de circulación, medidas complementarias) pero el
+    //   texto no los rotula: rotularlos nosotros sería inventar un índice que la ley no tiene.
+    //   ord==número y ningún artículo con sufijo: la deuda es inexistente, no postergada.
+    'ley-24319',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([
