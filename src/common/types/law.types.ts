@@ -49,6 +49,15 @@ export interface LawRelation {
   targetLawId: string;
   targetLawLabel: string;
   description: string | null;
+  /**
+   * Ruta pública de la norma destino, o null si no está cargada (la tarjeta se
+   * muestra sin enlace). La resuelve el backend al hidratar el índice.
+   *
+   * Existe para que "Normas relacionadas" no necesite el registry en el cliente:
+   * ese componente resolvía el path con las 3.400 entradas del registry, que por
+   * eso viajaban serializadas dentro del HTML de cada página. Ver `enriquecerRelaciones`.
+   */
+  targetPath?: string | null;
 }
 
 export interface LawAmendment {

@@ -25,6 +25,13 @@ const NORM_META_INCLUDE = {
   norm_relations: true,
 } satisfies Prisma.normsInclude;
 
+// Un artículo con todo lo suyo. Es el include que comparten la norma completa y la
+// carga de a UN artículo, para que las dos devuelvan exactamente el mismo objeto.
+const ARTICLE_INCLUDE = {
+  segments: { orderBy: { ord: 'asc' } },
+  article_amendments: true,
+} satisfies Prisma.articlesInclude;
+
 // Todo lo que hace falta para reconstruir un Law completo. Uno solo, compartido por
 // la carga de a una y la de a lotes: si se separan, una de las dos se queda sin un
 // include y el bug aparece en una norma suelta meses después.
@@ -32,8 +39,28 @@ const NORM_INCLUDE = {
   ...NORM_META_INCLUDE,
   norm_metadata: true,
   norm_sections: { include: { norm_titles: { orderBy: { ord: 'asc' } } }, orderBy: { ord: 'asc' } },
+  articles: { include: ARTICLE_INCLUDE, orderBy: { ord: 'asc' } },
+  annexes: { orderBy: { ord: 'asc' } },
+} satisfies Prisma.normsInclude;
+
+// La norma SIN el texto de su articulado: de cada artículo solo lo que necesita la
+// navegación (número, título, orden, estado), y sin sus segmentos.
+//
+// POR QUÉ EXISTE: la página de UN artículo pedía la norma COMPLETA a la BD y la
+// adelgazaba en JS. Eso bajó el peso de la RESPUESTA pero no el de la CONSULTA: una
+// fila de `articles` pesa ~1,8 kB con su cuerpo y su explicación, así que la vista
+// "liviana" del Código Procesal Civil (786 arts) le costaba a Supabase los mismos
+// 1,4 MB que la completa. Medido el 11-ago-2026, ese camino era el grueso del egreso.
+// Con este include la misma norma sale en ~50 kB.
+const NORM_LIGHT_INCLUDE = {
+  ...NORM_META_INCLUDE,
+  norm_metadata: true,
+  norm_sections: { include: { norm_titles: { orderBy: { ord: 'asc' } } }, orderBy: { ord: 'asc' } },
   articles: {
-    include: { segments: { orderBy: { ord: 'asc' } }, article_amendments: true },
+    select: {
+      id: true, norm_id: true, number: true, title: true, ord: true,
+      status: true, effective_date: true, derogated_date: true,
+    },
     orderBy: { ord: 'asc' },
   },
   annexes: { orderBy: { ord: 'asc' } },
@@ -41,6 +68,8 @@ const NORM_INCLUDE = {
 
 type NormMetaRow = Prisma.normsGetPayload<{ include: typeof NORM_META_INCLUDE }>;
 type NormRow = Prisma.normsGetPayload<{ include: typeof NORM_INCLUDE }>;
+type NormLightRow = Prisma.normsGetPayload<{ include: typeof NORM_LIGHT_INCLUDE }>;
+type ArticleRow = Prisma.articlesGetPayload<{ include: typeof ARTICLE_INCLUDE }>;
 
 @Injectable()
 export class NormsDbService {
@@ -139,6 +168,32 @@ export class NormsDbService {
   }
 
   /**
+   * La norma con su ficha completa pero con el articulado VACÍO de texto: cada
+   * artículo trae número, título, orden y estado, y nada más.
+   *
+   * Es lo que necesitan la navegación de una norma y la página de un artículo (que
+   * después pide ESE artículo). La diferencia con `loadNorm` no está en la respuesta
+   * —eso ya se recortaba en JS— sino en lo que viaja desde la base: ~50 bytes por
+   * artículo en vez de ~1,8 kB. Ver NORM_LIGHT_INCLUDE.
+   */
+  async loadNormLight(id: string): Promise<Law | null> {
+    const n = await this.prisma.norms.findUnique({ where: { id }, include: NORM_LIGHT_INCLUDE });
+    return n ? this.toLawLight(n) : null;
+  }
+
+  /**
+   * UN artículo con su cuerpo, sus segmentos y sus modificatorias.
+   *
+   * Para servir un artículo suelto sin bajar la norma entera: el Código Civil y
+   * Comercial son 4,2 MB de base para mostrar ~2 kB, y multiplicado por los 2.671
+   * artículos que tiene. Quien llama ya resolvió el id contra el índice liviano.
+   */
+  async loadArticle(id: string): Promise<Article | null> {
+    const a = await this.prisma.articles.findUnique({ where: { id }, include: ARTICLE_INCLUDE });
+    return a ? this.toArticle(a) : null;
+  }
+
+  /**
    * Igual que loadNorm pero para VARIAS normas de una.
    *
    * Por qué existe: con `include` anidado, Prisma dispara ~7 consultas por llamada
@@ -197,33 +252,42 @@ export class NormsDbService {
     };
   }
 
-  private toLaw(n: NormRow): Law {
-    const articles: Article[] = n.articles.map((a) => {
-      const segments: LawSegment[] = a.segments.map((s) => ({
-        id: s.id, lawId: s.norm_id, articleId: s.article_id, articleNumber: s.article_number ?? '',
-        segmentType: s.segment_type as SegmentType, text: s.body,
-        plainExplanation: s.plain_explanation, practicalExample: s.practical_example,
-        references: s.refs, order: s.ord,
-      }));
-      const amendments: ArticleAmendment[] = a.article_amendments.map((am) => ({
-        id: am.id, articleId: am.article_id, modifyingLaw: am.modifying_law ?? '',
-        modifyingDate: dDate(am.modifying_date), previousText: am.previous_text ?? '',
-        newText: am.new_text ?? '', description: am.description, createdAt: dTs(am.created_at),
-      }));
-      return {
-        id: a.id, lawId: a.norm_id, number: a.number, title: a.title, text: a.body,
-        plainLanguageExplanation: a.plain_language_explanation,
-        practicalEffects: a.practical_effects, examples: a.examples,
-        relatedArticles: a.related_articles, jurisprudence: a.jurisprudence,
-        jurisprudenceRefs: (a.jurisprudence_refs as unknown as JurisprudenceRef[]) ?? undefined,
-        regulations: a.regulations, keywords: a.keywords, order: a.ord,
-        segments, amendments,
-        visualContent: (a.visual_content as unknown as VisualItem[]) ?? undefined,
-        status: (a.status as ArticleStatus | null) ?? undefined,
-        effectiveDate: dDate(a.effective_date), derogatedDate: dDate(a.derogated_date),
-      };
-    });
+  /** Una fila de `articles` (con sus segmentos y modificatorias) → Article. */
+  private toArticle(a: ArticleRow): Article {
+    const segments: LawSegment[] = a.segments.map((s) => ({
+      id: s.id, lawId: s.norm_id, articleId: s.article_id, articleNumber: s.article_number ?? '',
+      segmentType: s.segment_type as SegmentType, text: s.body,
+      plainExplanation: s.plain_explanation, practicalExample: s.practical_example,
+      references: s.refs, order: s.ord,
+    }));
+    const amendments: ArticleAmendment[] = a.article_amendments.map((am) => ({
+      id: am.id, articleId: am.article_id, modifyingLaw: am.modifying_law ?? '',
+      modifyingDate: dDate(am.modifying_date), previousText: am.previous_text ?? '',
+      newText: am.new_text ?? '', description: am.description, createdAt: dTs(am.created_at),
+    }));
+    return {
+      id: a.id, lawId: a.norm_id, number: a.number, title: a.title, text: a.body,
+      plainLanguageExplanation: a.plain_language_explanation,
+      practicalEffects: a.practical_effects, examples: a.examples,
+      relatedArticles: a.related_articles, jurisprudence: a.jurisprudence,
+      jurisprudenceRefs: (a.jurisprudence_refs as unknown as JurisprudenceRef[]) ?? undefined,
+      regulations: a.regulations, keywords: a.keywords, order: a.ord,
+      segments, amendments,
+      visualContent: (a.visual_content as unknown as VisualItem[]) ?? undefined,
+      status: (a.status as ArticleStatus | null) ?? undefined,
+      effectiveDate: dDate(a.effective_date), derogatedDate: dDate(a.derogated_date),
+    };
+  }
 
+  /**
+   * La ficha de la norma sin el articulado: secciones, anexos y metadata.
+   *
+   * La comparten la vista completa y la liviana, que solo se diferencian en los
+   * artículos. Si cada una lo mapeara por su cuenta, un campo nuevo aparecería en
+   * una y en la otra no, y el síntoma sería una sección que se ve en la ficha y
+   * desaparece al abrir un artículo.
+   */
+  private toFicha(n: NormRow | NormLightRow): Pick<Law, 'sections' | 'annexes' | 'metadata'> {
     const sections: LawSection[] = n.norm_sections.map((s) => ({
       id: s.id, lawId: s.norm_id, number: s.number ?? '', name: s.name,
       articleStart: s.article_start ?? 0, articleEnd: s.article_end ?? 0,
@@ -252,6 +316,40 @@ export class NormsDbService {
         }
       : null;
 
-    return { ...this.toLawMeta(n), sections, articles, annexes, metadata };
+    return { sections, annexes, metadata };
+  }
+
+  private toLaw(n: NormRow): Law {
+    return {
+      ...this.toLawMeta(n),
+      ...this.toFicha(n),
+      articles: n.articles.map((a) => this.toArticle(a)),
+    };
+  }
+
+  /**
+   * Igual que `toLaw` pero con los artículos en su forma de índice: número, título,
+   * orden y estado. El resto de los campos del artículo van vacíos —no nulos ni
+   * ausentes— para que el consumidor reciba SIEMPRE la misma forma y no tenga que
+   * distinguir "no hay texto" de "no lo pedimos".
+   */
+  private toLawLight(n: NormLightRow): Law {
+    return {
+      ...this.toLawMeta(n),
+      ...this.toFicha(n),
+      articles: n.articles.map((a) => ({
+        id: a.id, lawId: a.norm_id, number: a.number, title: a.title,
+        text: '',
+        plainLanguageExplanation: null,
+        practicalEffects: [], examples: [], relatedArticles: [], jurisprudence: [],
+        jurisprudenceRefs: undefined,
+        regulations: [], keywords: [],
+        order: a.ord,
+        segments: [], amendments: [],
+        visualContent: undefined,
+        status: (a.status as ArticleStatus | null) ?? undefined,
+        effectiveDate: dDate(a.effective_date), derogatedDate: dDate(a.derogated_date),
+      })),
+    };
   }
 }

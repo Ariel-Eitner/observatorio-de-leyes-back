@@ -3,7 +3,7 @@ import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
 import { applyCuratedRelations } from '../data/relations-curadas';
 import type { NormStub } from '../data/norm-stubs';
-import { Law, LawSummary } from '../common/types/law.types';
+import { Article, Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
 import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks, pruneDanglingSelfRefs, artNumKey } from '../common/utils/inline-refs.util';
@@ -414,6 +414,18 @@ export class LawsService implements OnModuleInit {
 	private static readonly CACHE_ARTICULOS_MAX = 25_000;
 	private fullCache = new Map<string, Law>();
 	private fullCacheArticulos = 0;
+
+	// ── Caché de normas LIVIANAS (índice de artículos, sin texto) ────────────────
+	// Va aparte del caché de normas completas a propósito: son los dos caminos que
+	// más se piden y compartir presupuesto significaría que abrir una norma grande
+	// desaloje el índice de todas las demás, que es justo lo que hay que evitar.
+	//
+	// El presupuesto puede ser mucho más generoso porque un artículo sin texto pesa
+	// ~50 bytes contra ~1,8 kB: 60.000 entra el corpus entero (~50.900 artículos) y
+	// el índice deja de releerse.
+	private static readonly CACHE_LIGHT_ARTICULOS_MAX = 60_000;
+	private lightCache = new Map<string, Law>();
+	private lightCacheArticulos = 0;
 	// Números de artículo de todo el corpus (para el sitemap). Se invalida junto con
 	// el resto del índice en refreshFromDb.
 	private articleNumbersCache: ArticleNumbers[] | null = null;
@@ -541,6 +553,8 @@ export class LawsService implements OnModuleInit {
 			// inversas hacia el DNU 70/2023). applyCuratedRelations dedup por
 			// type+target, así que es idempotente aunque ya corriera sobre el código.
 			applyCuratedRelations([...ALL_LAWS, ...NORMAS_CLAVE, ...this.dbNorms]);
+			// Después de las curadas: recién ahí el conjunto de aristas es el definitivo.
+			this.enriquecerRelaciones();
 			// Recién acá el corpus está completo: hasta este punto el guard corta con 503.
 			const eraArranque = !this.ready;
 			this.ready = true;
@@ -557,6 +571,29 @@ export class LawsService implements OnModuleInit {
 			return { ok: false, count: this.dbNorms.length, added: 0, removed: 0 };
 		} finally {
 			this.hydrating = false;
+		}
+	}
+
+	/**
+	 * Le pone a cada relación la RUTA de la norma destino.
+	 *
+	 * "Normas relacionadas" resolvía esa ruta en el navegador buscando el id en el
+	 * registry, y por eso el registry entero —3.400 entradas, 153 kB comprimidos—
+	 * viajaba serializado dentro del HTML de TODAS las páginas: el 83% del peso de
+	 * cada una. El backend ya tiene el índice en memoria, así que lo resuelve una
+	 * vez por hidratación en vez de mandar el índice completo a cada visitante.
+	 *
+	 * `null` = la norma destino no está cargada (o no es pública): la tarjeta se
+	 * muestra igual, sin enlace. Es el mismo criterio que aplicaba el front con
+	 * `e?.available ? e.frontendPath : null`.
+	 */
+	private enriquecerRelaciones(): void {
+		const rutas = new Map<string, string>();
+		for (const law of this.registrySources()) rutas.set(law.id, computeFrontendPath(law));
+		for (const law of this.allSources) {
+			for (const rel of law.relations ?? []) {
+				rel.targetPath = rutas.get(rel.targetLawId) ?? null;
+			}
 		}
 	}
 
@@ -727,12 +764,18 @@ export class LawsService implements OnModuleInit {
 
 	// ── Cuerpo de una norma: BD + caché ─────────────────────────────────────────
 
-	/** Saca una norma del caché y devuelve su presupuesto de artículos. */
+	/** Saca una norma de los dos cachés y devuelve su presupuesto de artículos. */
 	private descachear(id: string): void {
 		const cached = this.fullCache.get(id);
-		if (!cached) return;
-		this.fullCache.delete(id);
-		this.fullCacheArticulos -= cached.articles.length;
+		if (cached) {
+			this.fullCache.delete(id);
+			this.fullCacheArticulos -= cached.articles.length;
+		}
+		const light = this.lightCache.get(id);
+		if (light) {
+			this.lightCache.delete(id);
+			this.lightCacheArticulos -= light.articles.length;
+		}
 	}
 
 	/**
@@ -796,10 +839,47 @@ export class LawsService implements OnModuleInit {
 	 *
 	 * OJO: los artículos vienen con `text` vacío A PROPÓSITO. No usar este endpoint
 	 * para nada que muestre articulado (visor, descarga de la ley, buscador).
+	 *
+	 * NO PASA POR `getFullNorm`. Pasaba, y ahí estaba el agujero: adelgazaba la
+	 * respuesta en JS después de haber bajado la norma entera, así que el ahorro era
+	 * de Render para afuera y la base pagaba lo mismo. Medido el 11-ago-2026, este
+	 * endpoint era ~930 llamadas cada 2 h y ninguna encontraba la norma en caché:
+	 * ~1 MB de Supabase por llamada, ~2 GB/día contra un plan de 5 GB/mes. Ahora la
+	 * consulta trae solo el índice (~50 bytes por artículo). Ver NORM_LIGHT_INCLUDE.
 	 */
 	async getNormLight(id: string): Promise<Law | null> {
-		const full = await this.getFullNorm(id);
-		if (!full) return null;
+		const cached = this.lightCache.get(id);
+		if (cached) {
+			// Renovar la posición en el LRU: borrar y volver a insertar la manda al final.
+			this.lightCache.delete(id);
+			this.lightCache.set(id, cached);
+			return cached;
+		}
+
+		// Si la norma completa YA está en memoria, adelgazarla no cuesta una consulta.
+		const full = this.fullCache.get(id) ?? [...ALL_LAWS, ...NORMAS_CLAVE].find((l) => l.id === id);
+		if (full) return this.cachearLight(this.adelgazar(full));
+
+		// Solo si está en el índice: así una norma inexistente no dispara una consulta.
+		const meta = this.dbNorms.find((n) => n.id === id);
+		if (!meta) return null;
+
+		const law = await this.normsDb.loadNormLight(id);
+		if (!law) return null;
+		// Mismo criterio que getFullNorm: las relaciones salen del ÍNDICE, que ya tiene
+		// aplicadas las curadas. Si salieran de la consulta, la ficha mostraría menos
+		// aristas que el mapa legal y sin ningún síntoma.
+		law.relations = meta.relations;
+		const infoleg = INFOLEG_MAP[law.id];
+		law.infolegUrl = infoleg ? `${INFOLEG_BASE_URL}${infoleg.infolegId}` : null;
+		law.digestoAnexo = infoleg?.digestoAnexo ?? null;
+		// Sin ensureRefChunks: no hay texto que parsear, y la versión completa igual
+		// descartaba los chunks. El artículo que se abra los recibe en findArticle.
+		return this.cachearLight(law);
+	}
+
+	/** La norma completa vista como índice: los artículos, sin una línea de texto. */
+	private adelgazar(full: Law): Law {
 		return {
 			...full,
 			articles: full.articles.map((a) => ({
@@ -820,6 +900,19 @@ export class LawsService implements OnModuleInit {
 				explanationChunks: undefined,
 			})),
 		};
+	}
+
+	/** Guarda el índice de una norma desalojando por presupuesto de artículos. */
+	private cachearLight(law: Law): Law {
+		this.lightCache.set(law.id, law);
+		this.lightCacheArticulos += law.articles.length;
+		while (this.lightCacheArticulos > LawsService.CACHE_LIGHT_ARTICULOS_MAX && this.lightCache.size > 1) {
+			const masViejo = this.lightCache.keys().next().value as string;
+			const viejo = this.lightCache.get(masViejo);
+			this.lightCache.delete(masViejo);
+			if (viejo) this.lightCacheArticulos -= viejo.articles.length;
+		}
+		return law;
 	}
 
 	/**
@@ -904,16 +997,42 @@ export class LawsService implements OnModuleInit {
 		return this.findOne(meta.id);
 	}
 
-	// Un solo artículo + datos mínimos de la ley. Evita que el front baje la norma
-	// entera (cientos de artículos) solo para mostrar uno en el modal de referencia.
-	private pickArticle(law: Law, articleNumber: string) {
+	/**
+	 * Un solo artículo + datos mínimos de la ley. Evita que el front baje la norma
+	 * entera (cientos de artículos) solo para mostrar uno en el modal de referencia.
+	 *
+	 * Y ahora también evita que la BASE la mande: se resuelve el número contra el
+	 * ÍNDICE de la norma (liviano y cacheado) y recién ahí se pide ESE artículo. El
+	 * criterio de matcheo es el mismo de siempre —número exacto o slug— para no
+	 * reabrir el bug de los dos slugs desincronizados.
+	 *
+	 * Si la norma completa ya está en RAM se usa esa y no se consulta nada.
+	 */
+	private async pickArticle(law: Law, articleNumber: string) {
 		const slug = slugifyArticle(articleNumber);
-		const article = law.articles.find(
+		const stub = law.articles.find(
 			(a) => a.number === articleNumber || slugifyArticle(a.number) === slug,
 		);
-		if (!article) {
+		if (!stub) {
 			throw new NotFoundException(`Art. ${articleNumber} no encontrado en "${law.id}"`);
 		}
+
+		// `law` es el índice: trae el artículo sin cuerpo. El cuerpo sale de la norma
+		// completa si ya está en RAM, y si no, de una consulta por ESE artículo.
+		let article = this.articuloEnRam(law.id, stub.id);
+		if (!article) {
+			const completo = await this.normsDb.loadArticle(stub.id);
+			if (!completo) {
+				throw new NotFoundException(`Art. ${articleNumber} no encontrado en "${law.id}"`);
+			}
+			this.refChunksDeArticulo(
+				completo,
+				law.shortCode ?? '',
+				new Set(law.articles.map((a) => artNumKey(a.number))),
+			);
+			article = completo;
+		}
+
 		return {
 			article,
 			law: {
@@ -926,12 +1045,31 @@ export class LawsService implements OnModuleInit {
 		};
 	}
 
+	/**
+	 * El artículo CON cuerpo, si la norma que lo contiene ya está en memoria.
+	 *
+	 * Cubre los dos orígenes: el caché de normas completas y las que viven en código
+	 * (que nunca estuvieron en la BD, así que pedirlas por `loadArticle` daría 404).
+	 */
+	private articuloEnRam(lawId: string, articleId: string): Article | undefined {
+		const enRam =
+			this.fullCache.get(lawId) ?? [...ALL_LAWS, ...NORMAS_CLAVE].find((l) => l.id === lawId);
+		return enRam?.articles.find((a) => a.id === articleId);
+	}
+
 	async findArticle(id: string, articleNumber: string) {
-		return this.pickArticle(await this.findOne(id), articleNumber);
+		const law = await this.getNormLight(id);
+		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
+		return this.pickArticle(law, articleNumber);
 	}
 
 	async findArticleByNumber(number: string, articleNumber: string) {
-		return this.pickArticle(await this.findByNumber(number), articleNumber);
+		const canon = (s: string) => s.replace(/\./g, '').replace(/\s+/g, '').toLowerCase();
+		const target = canon(number);
+		// incluirNoListadas: buscar por número es acceso directo, igual que por id.
+		const meta = this.getAllNorms({ incluirNoListadas: true }).find((l) => canon(l.number) === target);
+		if (!meta) throw new NotFoundException(`Ley N° ${number} no encontrada`);
+		return this.findArticle(meta.id, articleNumber);
 	}
 
 	// ── Pre-cómputo de referencias inline (saca el mega-regex del front) ──────────
@@ -979,40 +1117,52 @@ export class LawsService implements OnModuleInit {
 		// Nunca debe tumbar findOne: ante cualquier error, no agrega chunks y el
 		// front cae a parsear en el cliente (fallback).
 		try {
-			const { combined, nameToCode } = this.getRefCtx();
 			const ctxLawCode = law.shortCode ?? '';
-			const isAvail = (lc: string) => this.refAvailable(lc);
-			// Números de artículo que realmente existen en esta norma. Sirve para podar
-			// refs "colgantes" a la propia norma (un "artículo 140" citado en una
-			// explicación que en realidad es de otra ley, o un número que no es artículo)
-			// que el parser, sin ley explícita, engancha al artículo homónimo de esta
-			// norma → enlace 404. Ver pruneDanglingSelfRefs.
 			const validArtKeys = new Set((law.articles ?? []).map((a) => artNumKey(a.number)));
-			// El texto oficial cita OTRAS leyes: sin ctx, para que "art. N" suelto no
-			// se enganche por error a la norma actual (solo refs explícitas).
 			for (const art of law.articles ?? []) {
-				if (art.text) {
-					art.textChunks = parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode);
-				}
-				if (art.plainLanguageExplanation) {
-					art.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys);
-				}
-				for (const seg of art.segments ?? []) {
-					if (seg.text) {
-						seg.textChunks = parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode);
-					}
-					if (seg.plainExplanation) {
-						seg.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
-					}
-					if (seg.practicalExample) {
-						seg.exampleChunks = pruneDanglingSelfRefs(parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
-					}
-				}
+				this.refChunksDeArticulo(art, ctxLawCode, validArtKeys);
 			}
 		} catch (e) {
 			this.logger.error(`Pre-cómputo de refChunks falló para "${law.id}": ${(e as Error).message}`);
 		}
 		this.refsComputed.add(law);
+	}
+
+	/**
+	 * Las referencias inline de UN artículo (y sus segmentos), in situ.
+	 *
+	 * Vive aparte de `ensureRefChunks` porque hay dos caminos que lo necesitan: la
+	 * norma completa (que los pre-computa de una) y el artículo suelto, que se pide
+	 * a la BD por su cuenta. Un solo lugar: si se duplicara, el artículo abierto
+	 * desde su propia URL enlazaría distinto que el mismo artículo dentro del visor.
+	 *
+	 * `validArtKeys` son los números de artículo que REALMENTE existen en la norma:
+	 * sirve para podar refs colgantes a la propia norma (un "artículo 140" citado en
+	 * una explicación que en realidad es de otra ley) que el parser, sin ley
+	 * explícita, engancharía al artículo homónimo de esta → enlace 404.
+	 */
+	private refChunksDeArticulo(art: Article, ctxLawCode: string, validArtKeys: Set<string>): void {
+		const { combined, nameToCode } = this.getRefCtx();
+		const isAvail = (lc: string) => this.refAvailable(lc);
+		// El texto oficial cita OTRAS leyes: sin ctx, para que "art. N" suelto no
+		// se enganche por error a la norma actual (solo refs explícitas).
+		if (art.text) {
+			art.textChunks = parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode);
+		}
+		if (art.plainLanguageExplanation) {
+			art.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys);
+		}
+		for (const seg of art.segments ?? []) {
+			if (seg.text) {
+				seg.textChunks = parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode);
+			}
+			if (seg.plainExplanation) {
+				seg.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
+			}
+			if (seg.practicalExample) {
+				seg.exampleChunks = pruneDanglingSelfRefs(parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
+			}
+		}
 	}
 
 	/**
