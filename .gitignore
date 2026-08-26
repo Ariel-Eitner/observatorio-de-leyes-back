@@ -33,3 +33,9 @@ reports/
 
 # CI (no versionar)
 .github/
+
+# papelera y cuarentena: codigo retirado que se guarda por si hay que revertir.
+# Viven en la raiz del monorepo, pero se ignoran tambien aca por si alguna vez
+# se crean adentro del repo — nada de esto puede terminar en GitHub.
+_papelera/
+_cuarentena/

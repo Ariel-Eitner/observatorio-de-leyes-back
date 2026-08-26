@@ -23,12 +23,20 @@ let dbOk = false;
 let norms: NormRow[] = [];
 let rels: RelRow[] = [];
 let byId = new Map<string, NormRow>();
+// Normas con una derogación ya sancionada pero de efecto FUTURO (ver el test de DEROGA).
+let derogacionDiferida = new Set<string>();
 
 beforeAll(async () => {
   try {
     norms = await prisma.norms.findMany({ select: { id: true, status: true, norm_type: true, title: true, jurisdiction: true } });
     rels = await prisma.norm_relations.findMany({ select: { source_id: true, target_id: true, type: true, target_label: true } });
     byId = new Map(norms.map((n) => [n.id, n]));
+    const hoy = new Date();
+    const difs = await prisma.norm_amendments.findMany({
+      where: { type: 'DEROGATION', modifying_date: { gt: hoy } },
+      select: { norm_id: true },
+    });
+    derogacionDiferida = new Set(difs.map((d) => d.norm_id));
     dbOk = norms.length > 0;
     if (!dbOk) console.warn('⚠ BD vacía o sin conexión — se saltan los checks de integridad.');
   } catch {
@@ -63,10 +71,23 @@ describe('BD — integridad del grafo (norm_relations)', () => {
     expect(rels.filter((r) => !r.target_label?.trim()).map((r) => `${r.source_id}->${r.target_id}`)).toEqual([]);
   });
 
-  test('DEROGA apunta a una norma con estado DEROGADA', () => {
+  // Excepción de las DEROGACIONES DIFERIDAS: una ley puede derogar a otra con efecto a fecha
+  // futura, y hasta que esa fecha llegue la norma derogada SIGUE VIGENTE. Las dos cosas son
+  // ciertas a la vez. Caso testigo: la Ley 27.802 de Modernización Laboral deroga la Ley 27.555
+  // de Teletrabajo y los estatutos del Periodista Profesional y del Viajante de Comercio, pero
+  // recién a partir del 1 de enero de 2027.
+  // Marcarlas DEROGADA hoy sería mentir sobre derecho aplicable — exactamente lo que este archivo
+  // existe para impedir —, así que la arista se admite cuando la norma tiene registrada la
+  // derogación en norm_amendments con fecha posterior a hoy. Cuando esa fecha pase, el amendment
+  // deja de contar como futuro y el test vuelve a exigir el cambio de estado.
+  test('DEROGA apunta a una norma con estado DEROGADA (salvo derogación de efecto futuro)', () => {
     if (!dbOk) return;
     const bad = rels.filter((r) => r.type === 'DEROGA')
-      .filter((r) => { const t = byId.get(r.target_id); return t && t.status !== 'DEROGADA'; })
+      .filter((r) => {
+        const t = byId.get(r.target_id);
+        if (!t || t.status === 'DEROGADA') return false;
+        return !derogacionDiferida.has(r.target_id);
+      })
       .map((r) => `${r.source_id} DEROGA ${r.target_id} (${byId.get(r.target_id)?.status})`);
     expect(bad).toEqual([]);
   });

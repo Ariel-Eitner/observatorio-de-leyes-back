@@ -18,10 +18,11 @@ export class ArticlesService {
     private readonly normsDb: NormsDbService,
   ) {}
 
-  async findByLaw(lawId: string) {
+  async findByLaw(lawId: string, limit?: number) {
     const law = await this.laws.getFullNorm(lawId);
     if (!law) throw new NotFoundException(`Ley con id "${lawId}" no encontrada`);
-    return [...law.articles].sort((a, b) => a.order - b.order);
+    const ordenados = [...law.articles].sort((a, b) => a.order - b.order);
+    return limit ? ordenados.slice(0, limit) : ordenados;
   }
 
   async findOne(id: string) {

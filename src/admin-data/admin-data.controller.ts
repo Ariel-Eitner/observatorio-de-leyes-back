@@ -16,6 +16,7 @@ import {
 import type { LeadPatchBody } from './panel.service';
 import { TareasService } from './tareas.service';
 import { CorpusReviewService, type NormReview } from './corpus-review.service';
+import { ProspectosService, type ProspectoInput } from './prospectos.service';
 
 /**
  * Datos del panel de administración.
@@ -38,7 +39,51 @@ export class AdminDataController {
     private readonly analitica: AnaliticaService,
     private readonly tareas: TareasService,
     private readonly corpusReview: CorpusReviewService,
+    private readonly prospectos: ProspectosService,
   ) {}
+
+  // ── Prospección comercial ───────────────────────────────────────────────────
+
+  @Get('prospectos')
+  listarProspectos() {
+    return this.prospectos.listar();
+  }
+
+  @Post('prospectos')
+  @HttpCode(201)
+  crearProspecto(@Body() body: ProspectoInput) {
+    return this.prospectos.crear(body ?? {});
+  }
+
+  @Post('prospectos/importar')
+  @HttpCode(200)
+  importarProspectos(@Body() body: { filas?: ProspectoInput[]; fuente?: string }) {
+    return this.prospectos.importar(body?.filas ?? [], body?.fuente ?? 'csv');
+  }
+
+  @Patch('prospectos/:id')
+  actualizarProspecto(@Param('id') id: string, @Body() body: ProspectoInput) {
+    return this.prospectos.actualizar(id, body ?? {});
+  }
+
+  @Delete('prospectos/:id')
+  borrarProspecto(@Param('id') id: string) {
+    return this.prospectos.borrar(id);
+  }
+
+  @Get('prospectos/:id/eventos')
+  eventosProspecto(@Param('id') id: string) {
+    return this.prospectos.eventos(id);
+  }
+
+  @Post('prospectos/:id/eventos')
+  @HttpCode(201)
+  agregarEventoProspecto(
+    @Param('id') id: string,
+    @Body() body: { tipo?: string; detalle?: string; proximo_paso?: string | null; proximo_at?: string | null; etapa?: string },
+  ) {
+    return this.prospectos.agregarEvento(id, body ?? {});
+  }
 
   // ── Checklist de revisión del corpus ────────────────────────────────────────
 
@@ -195,50 +240,6 @@ export class AdminDataController {
     return u ?? { error: 'not_found' };
   }
 
-  // ── Contenido: seguimiento de posteos y tweets ──────────────────────────────
-
-  @Get('content-posts')
-  contentPosts() {
-    return this.comercial.contentPosts();
-  }
-
-  @Post('content-posts')
-  @HttpCode(201)
-  crearContentPost(@Body() body: Record<string, unknown>) {
-    return this.comercial.crearContentPost(body);
-  }
-
-  @Patch('content-posts/:id')
-  actualizarContentPost(@Param('id') id: string, @Body() body: Record<string, unknown>) {
-    return this.comercial.actualizarContentPost(id, body);
-  }
-
-  @Delete('content-posts/:id')
-  borrarContentPost(@Param('id') id: string) {
-    return this.comercial.borrarContentPost(id);
-  }
-
-  @Get('tweets')
-  tweets() {
-    return this.comercial.tweets();
-  }
-
-  @Post('tweets')
-  @HttpCode(201)
-  crearTweet(@Body() body: Record<string, unknown>) {
-    return this.comercial.crearTweet(body);
-  }
-
-  @Patch('tweets/:id')
-  actualizarTweet(@Param('id') id: string, @Body() body: Record<string, unknown>) {
-    return this.comercial.actualizarTweet(id, body);
-  }
-
-  @Delete('tweets/:id')
-  borrarTweet(@Param('id') id: string) {
-    return this.comercial.borrarTweet(id);
-  }
-
   // ── Tracking ────────────────────────────────────────────────────────────────
 
   /**
@@ -368,11 +369,6 @@ export class AdminDataController {
       limit: lim,
       offset: off,
     };
-  }
-
-  @Get('page-flow')
-  async pageFlow(@Query('min') min = '1') {
-    return { transitions: await this.analitica.pageFlow(Number(min) || 1) };
   }
 
   // ── Salud del sistema ───────────────────────────────────────────────────────

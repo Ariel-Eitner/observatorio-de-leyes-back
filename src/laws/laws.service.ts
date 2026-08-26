@@ -39,7 +39,7 @@ export const LAW_STATIC_META: Record<
 		apiPath: '/laws/constitucion-nacional',
 		aliases: ['CN', '24.430'],
 		isDestacada: false,
-		category: 'constitucion',
+		category: 'constitucional',
 	},
 	'codigo-penal': {
 		shortCode: 'CP',
@@ -179,30 +179,30 @@ export const LAW_STATIC_META: Record<
 		isDestacada: true,
 		category: 'economico',
 	},
-	'const-buenos-aires': { shortCode: 'CBsAs', apiPath: '/laws/const-buenos-aires', category: 'constitucion' },
-	'const-caba': { shortCode: 'CCABA', apiPath: '/laws/const-caba', category: 'constitucion' },
-	'const-catamarca': { shortCode: 'CCat', apiPath: '/laws/const-catamarca', category: 'constitucion' },
-	'const-chaco': { shortCode: 'CChac', apiPath: '/laws/const-chaco', category: 'constitucion' },
-	'const-chubut': { shortCode: 'CChub', apiPath: '/laws/const-chubut', category: 'constitucion' },
-	'const-cordoba': { shortCode: 'CCor', apiPath: '/laws/const-cordoba', category: 'constitucion' },
-	'const-corrientes': { shortCode: 'CCtes', apiPath: '/laws/const-corrientes', category: 'constitucion' },
-	'const-entre-rios': { shortCode: 'CER', apiPath: '/laws/const-entre-rios', category: 'constitucion' },
-	'const-formosa': { shortCode: 'CFos', apiPath: '/laws/const-formosa', category: 'constitucion' },
-	'const-jujuy': { shortCode: 'CJuj', apiPath: '/laws/const-jujuy', category: 'constitucion' },
-	'const-la-pampa': { shortCode: 'CLPam', apiPath: '/laws/const-la-pampa', category: 'constitucion' },
-	'const-la-rioja': { shortCode: 'CLRio', apiPath: '/laws/const-la-rioja', category: 'constitucion' },
-	'const-mendoza': { shortCode: 'CMza', apiPath: '/laws/const-mendoza', category: 'constitucion' },
-	'const-misiones': { shortCode: 'CMis', apiPath: '/laws/const-misiones', category: 'constitucion' },
-	'const-neuquen': { shortCode: 'CNqn', apiPath: '/laws/const-neuquen', category: 'constitucion' },
-	'const-rio-negro': { shortCode: 'CRN', apiPath: '/laws/const-rio-negro', category: 'constitucion' },
-	'const-salta': { shortCode: 'CSal', apiPath: '/laws/const-salta', category: 'constitucion' },
-	'const-san-juan': { shortCode: 'CSJ', apiPath: '/laws/const-san-juan', category: 'constitucion' },
-	'const-san-luis': { shortCode: 'CSL', apiPath: '/laws/const-san-luis', category: 'constitucion' },
-	'const-santa-cruz': { shortCode: 'CSCZ', apiPath: '/laws/const-santa-cruz', category: 'constitucion' },
-	'const-santa-fe': { shortCode: 'CSF', apiPath: '/laws/const-santa-fe', category: 'constitucion' },
-	'const-santiago-del-estero': { shortCode: 'CSTE', apiPath: '/laws/const-santiago-del-estero', category: 'constitucion' },
-	'const-tierra-del-fuego': { shortCode: 'CTDF', apiPath: '/laws/const-tierra-del-fuego', category: 'constitucion' },
-	'const-tucuman': { shortCode: 'CTUC', apiPath: '/laws/const-tucuman', category: 'constitucion' },
+	'const-buenos-aires': { shortCode: 'CBsAs', apiPath: '/laws/const-buenos-aires', category: 'constitucional' },
+	'const-caba': { shortCode: 'CCABA', apiPath: '/laws/const-caba', category: 'constitucional' },
+	'const-catamarca': { shortCode: 'CCat', apiPath: '/laws/const-catamarca', category: 'constitucional' },
+	'const-chaco': { shortCode: 'CChac', apiPath: '/laws/const-chaco', category: 'constitucional' },
+	'const-chubut': { shortCode: 'CChub', apiPath: '/laws/const-chubut', category: 'constitucional' },
+	'const-cordoba': { shortCode: 'CCor', apiPath: '/laws/const-cordoba', category: 'constitucional' },
+	'const-corrientes': { shortCode: 'CCtes', apiPath: '/laws/const-corrientes', category: 'constitucional' },
+	'const-entre-rios': { shortCode: 'CER', apiPath: '/laws/const-entre-rios', category: 'constitucional' },
+	'const-formosa': { shortCode: 'CFos', apiPath: '/laws/const-formosa', category: 'constitucional' },
+	'const-jujuy': { shortCode: 'CJuj', apiPath: '/laws/const-jujuy', category: 'constitucional' },
+	'const-la-pampa': { shortCode: 'CLPam', apiPath: '/laws/const-la-pampa', category: 'constitucional' },
+	'const-la-rioja': { shortCode: 'CLRio', apiPath: '/laws/const-la-rioja', category: 'constitucional' },
+	'const-mendoza': { shortCode: 'CMza', apiPath: '/laws/const-mendoza', category: 'constitucional' },
+	'const-misiones': { shortCode: 'CMis', apiPath: '/laws/const-misiones', category: 'constitucional' },
+	'const-neuquen': { shortCode: 'CNqn', apiPath: '/laws/const-neuquen', category: 'constitucional' },
+	'const-rio-negro': { shortCode: 'CRN', apiPath: '/laws/const-rio-negro', category: 'constitucional' },
+	'const-salta': { shortCode: 'CSal', apiPath: '/laws/const-salta', category: 'constitucional' },
+	'const-san-juan': { shortCode: 'CSJ', apiPath: '/laws/const-san-juan', category: 'constitucional' },
+	'const-san-luis': { shortCode: 'CSL', apiPath: '/laws/const-san-luis', category: 'constitucional' },
+	'const-santa-cruz': { shortCode: 'CSCZ', apiPath: '/laws/const-santa-cruz', category: 'constitucional' },
+	'const-santa-fe': { shortCode: 'CSF', apiPath: '/laws/const-santa-fe', category: 'constitucional' },
+	'const-santiago-del-estero': { shortCode: 'CSTE', apiPath: '/laws/const-santiago-del-estero', category: 'constitucional' },
+	'const-tierra-del-fuego': { shortCode: 'CTDF', apiPath: '/laws/const-tierra-del-fuego', category: 'constitucional' },
+	'const-tucuman': { shortCode: 'CTUC', apiPath: '/laws/const-tucuman', category: 'constitucional' },
 };
 
 const SLUG_ALIASES: Record<string, string> = {
@@ -218,35 +218,18 @@ const SLUG_ALIASES: Record<string, string> = {
 	'27-423': 'ley-27423',
 };
 
-// Etiqueta legible de cada categoría temática (slug en BD → label).
-// Fuente única: antes estaba duplicada y divergente en el front (home vs buscar).
-const CATEGORY_LABELS: Record<string, string> = {
-	constitucional: 'Constitucional',
-	penal: 'Penal',
-	'procesal-penal': 'Procesal penal',
-	laboral: 'Laboral',
-	civil: 'Civil y comercial',
-	comercial: 'Comercial',
-	aduanero: 'Aduanero',
-	tributario: 'Tributario',
-	'datos-personales': 'Datos personales',
-	transparencia: 'Transparencia',
-	ambiental: 'Ambiental',
-	genero: 'Género',
-	salud: 'Salud',
-	consumidor: 'Consumidor',
-	ninez: 'Niñez',
-	educacion: 'Educación',
-	internacional: 'Internacional',
-	'derechos-humanos': 'Derechos humanos',
-	economico: 'Económico',
-};
-// Poblado desde la tabla `categories` al arrancar (LawsService.onModuleInit).
-// CATEGORY_LABELS queda solo como fallback defensivo si la BD no respondió aún.
+// Etiqueta legible de cada categoría temática (slug → label). Se puebla desde la
+// tabla `categories` en LawsService.onModuleInit, que es la ÚNICA fuente.
+//
+// Acá vivía un CATEGORY_LABELS hardcodeado de 19 entradas "por si la BD no
+// respondía". Nunca llegaba a usarse (el guard devuelve 503 hasta que el corpus
+// está listo, y para entonces esto ya está poblado) y sí lograba divergir de la
+// tabla: decía "Civil y comercial" contra "Civil y Comercial", "Económico"
+// contra "Económica y Fiscal", y le faltaban 11 de las 30 categorías.
 let _categoryLabels: Record<string, string> = {};
 function catLabel(slug?: string | null): string | null {
 	if (!slug) return null;
-	return _categoryLabels[slug] ?? CATEGORY_LABELS[slug] ?? slug;
+	return _categoryLabels[slug] ?? slug;
 }
 
 // El código de contexto para parsear referencias inline se deriva de
@@ -385,8 +368,9 @@ export class LawsService implements OnModuleInit {
 	private dbNorms: Law[] = [];
 	// Stubs (normas referenciadas, no cargadas) — fuente: tabla norm_stubs en BD.
 	private stubs: NormStub[] = [];
-	// Categorías temáticas — fuente: tabla categories en BD.
-	private categories: { slug: string; label: string; description: string | null; icon: string | null; ord: number }[] = [];
+	// Categorías temáticas — fuente: tabla categories en BD. Ya vienen ordenadas
+	// alfabéticamente desde listCategories; el registry las sirve tal cual.
+	private categories: { slug: string; label: string; description: string | null; icon: string | null; color: string | null }[] = [];
 	// Candado para que dos refrescos no corran a la vez.
 	private hydrating = false;
 
@@ -561,8 +545,12 @@ export class LawsService implements OnModuleInit {
 
 			// Avisarle al front qué rutas invalidar. En el arranque NO se notifica: ahí
 			// "cambió todo" y no hubo cambio real que propagar.
+			//
+			// Se distingue ALTA de EDICIÓN porque cuesta órdenes de magnitud distintos:
+			// ver notificarFront.
 			if (!eraArranque && (changed.length > 0 || toRemove.size > 0)) {
-				void this.notificarFront(changed, [...toRemove]);
+				const nuevas = new Set(changed.filter((m) => !haveStamp.has(m.id)).map((m) => m.id));
+				void this.notificarFront(changed, [...toRemove], nuevas);
 			}
 
 			return { ok: true, count: this.dbNorms.length, added, removed: toRemove.size };
@@ -608,30 +596,61 @@ export class LawsService implements OnModuleInit {
 	 * y Next las regenera recién en la próxima visita.
 	 *
 	 * Es fire-and-forget con timeout: si el front no responde, el refresh no se cae.
+	 *
+	 * ALTA Y EDICIÓN NO CUESTAN LO MISMO, y confundirlas fue lo que disparó el
+	 * consumo de Vercel en agosto de 2026:
+	 *
+	 * - Una norma **nueva** no tiene ni una página generada todavía. Invalidar sus
+	 *   49 artículos no destraba nada —no hay nada cacheado que destrabar— y lo
+	 *   único que puede haber quedado viejo es un 404 de su ficha, pedida antes de
+	 *   que la norma existiera. Alcanza con la ficha.
+	 * - Una norma **editada** sí tiene sus páginas cacheadas con el texto viejo:
+	 *   ahí hay que invalidar la ficha Y cada artículo.
+	 *
+	 * Antes se mandaba todo junto y, arriba de 400 rutas, se caía a `{ all: true }`
+	 * → `revalidatePath('/', 'layout')` en el front → **las 49.342 páginas del sitio
+	 * marcadas como vencidas de un saque**. Una sola tanda de carga alcanzaba para
+	 * dispararlo (una ley de 400 artículos ya pasa el límite), y después cada
+	 * crawler que recorría el sitemap pagaba una regeneración completa por página.
+	 * Eso es exactamente la factura de "ISR Writes" + "Fast Origin Transfer".
+	 *
+	 * Ahora no existe el modo masivo: se enumeran las rutas que de verdad quedaron
+	 * viejas y se mandan en lotes. Cargar 300 leyes nuevas invalida 300 fichas y los
+	 * 4 índices, no el sitio entero.
 	 */
-	private async notificarFront(cambiadas: Law[], eliminadas: string[]): Promise<void> {
+	private async notificarFront(
+		cambiadas: Law[],
+		eliminadas: string[],
+		nuevas: Set<string>,
+	): Promise<void> {
 		// Solo en producción: en local no tiene sentido (y no queremos que un refresh de
 		// desarrollo vaya a invalidar el caché del sitio real).
 		if (process.env.NODE_ENV !== 'production') return;
 		const secret = process.env.ADMIN_SECRET;
 		if (!secret) return;
 
-		const LIMITE = 400;
+		// Tamaño de lote: tiene que coincidir con el MAX_PATHS del front.
+		const LOTE = 500;
+		const editadas = cambiadas.filter((l) => !nuevas.has(l.id));
 		const paths: string[] = [];
 		// Los números de artículo salen de la BD: en memoria las normas están sin
-		// cuerpo. Una sola consulta para todas las cambiadas, y solo la columna
-		// `number` — invalidar rutas no necesita el texto.
+		// cuerpo. Una sola consulta, y solo la columna `number` — invalidar rutas no
+		// necesita el texto. Se piden SOLO los de las editadas: los de una norma
+		// nueva no tienen página que invalidar, y pedirlos era además la consulta
+		// más cara de todo el refresh en una tanda de carga.
 		const numeros = new Map<string, string[]>();
-		try {
-			for (const { normId, number } of await this.normsDb.listArticleNumbers(cambiadas.map((l) => l.id))) {
-				const acc = numeros.get(normId);
-				if (acc) acc.push(number);
-				else numeros.set(normId, [number]);
+		if (editadas.length > 0) {
+			try {
+				for (const { normId, number } of await this.normsDb.listArticleNumbers(editadas.map((l) => l.id))) {
+					const acc = numeros.get(normId);
+					if (acc) acc.push(number);
+					else numeros.set(normId, [number]);
+				}
+			} catch (e) {
+				// Sin números se invalidan igual las fichas; los artículos quedan viejos
+				// hasta el próximo refresh. Peor sería no invalidar nada.
+				this.logger.warn(`No se pudieron listar los artículos a revalidar: ${(e as Error).message}`);
 			}
-		} catch (e) {
-			// Sin números se invalidan igual las fichas; los artículos quedan viejos
-			// hasta el próximo refresh. Peor sería no invalidar nada.
-			this.logger.warn(`No se pudieron listar los artículos a revalidar: ${(e as Error).message}`);
 		}
 		for (const law of cambiadas) {
 			const base = computeFrontendPath(law);
@@ -643,31 +662,39 @@ export class LawsService implements OnModuleInit {
 		// Una norma borrada ya no tiene articulado que recorrer: alcanza con su ficha.
 		for (const id of eliminadas) paths.push(`/leyes/${id}`);
 
-		// Si el cambio es masivo, enumerar rutas es peor que invalidar todo de una: `all`
-		// solo marca el caché como vencido, la regeneración sigue siendo perezosa.
-		const body = paths.length > LIMITE ? { all: true } : { paths };
+		const lotes: string[][] = [];
+		for (let i = 0; i < paths.length; i += LOTE) lotes.push(paths.slice(i, i + LOTE));
+		// Sin rutas puntuales igual hay que refrescar los índices agregados (los
+		// agrega el front a cada lote); un lote vacío es el que hace ese trabajo.
+		if (lotes.length === 0) lotes.push([]);
 
-		const ctrl = new AbortController();
-		const timer = setTimeout(() => ctrl.abort(), 10_000);
-		try {
-			const res = await fetch(FRONT_REVALIDATE_URL, {
-				method: 'POST',
-				headers: { 'content-type': 'application/json', 'x-obs-admin': secret },
-				body: JSON.stringify(body),
-				signal: ctrl.signal,
-			});
-			if (!res.ok) {
-				this.logger.warn(`Revalidación del front respondió ${res.status}`);
-			} else {
-				this.logger.log(
-					`Front revalidado: ${'all' in body ? 'todo el árbol' : `${paths.length} rutas`}`,
-				);
+		let enviadas = 0;
+		for (const lote of lotes) {
+			const ctrl = new AbortController();
+			const timer = setTimeout(() => ctrl.abort(), 10_000);
+			try {
+				const res = await fetch(FRONT_REVALIDATE_URL, {
+					method: 'POST',
+					headers: { 'content-type': 'application/json', 'x-obs-admin': secret },
+					body: JSON.stringify({ paths: lote }),
+					signal: ctrl.signal,
+				});
+				if (!res.ok) {
+					this.logger.warn(`Revalidación del front respondió ${res.status}`);
+					break;
+				}
+				enviadas += lote.length;
+			} catch (e) {
+				this.logger.warn(`No se pudo avisar al front para revalidar: ${(e as Error).message}`);
+				break;
+			} finally {
+				clearTimeout(timer);
 			}
-		} catch (e) {
-			this.logger.warn(`No se pudo avisar al front para revalidar: ${(e as Error).message}`);
-		} finally {
-			clearTimeout(timer);
 		}
+		this.logger.log(
+			`Front revalidado: ${enviadas}/${paths.length} rutas ` +
+				`(${nuevas.size} altas → solo ficha, ${editadas.length} ediciones → ficha + artículos)`,
+		);
 	}
 
 	findAll(query: QueryLawDto) {
@@ -1271,6 +1298,39 @@ export class LawsService implements OnModuleInit {
 	}
 
 	/**
+	 * Peso de una arista según la fuerza del vínculo jurídico. Escala 1–10.
+	 *
+	 * POR QUÉ EXISTE: hasta agosto de 2026 acá iba un `weight: 10` fijo para las
+	 * 7.006 aristas, y eso rompía DOS cosas del mapa en silencio:
+	 *
+	 *   1. El zoom semántico de LegalGraph2D oculta las aristas "débiles" al
+	 *      alejarse, con la condición `weight < 3`. Con todo en 10 nunca se
+	 *      cumplía: el LOD estaba escrito pero no ocultaba una sola arista, y el
+	 *      navegador rasterizaba las 7.006 en cada frame (medido: 3 FPS).
+	 *   2. El grosor sale de `scaleLinear().domain([0, maxW]).range([0.5, 5])`.
+	 *      Con un único valor posible, TODAS las aristas salían con grosor 5 —el
+	 *      máximo— y el resaltado (`base * 2.5` capado a 5) tampoco se notaba.
+	 *
+	 * El orden es el de la fuerza del vínculo: lo que cambia la vigencia de una
+	 * norma pesa más que lo que apenas la menciona. RELACIONADA es el 67,7% de
+	 * las aristas y es justo la más débil: por eso queda por debajo del umbral.
+	 */
+	private static readonly GRAPH_EDGE_WEIGHT: Record<string, number> = {
+		DEROGA: 10,
+		DEROGA_PARCIALMENTE: 10,
+		VETA: 9,
+		MODIFICA: 8,
+		REGLAMENTA: 7,
+		IMPLEMENTA: 7,
+		RATIFICA: 6,
+		COMPLEMENTA: 5,
+		SUPLETORIA: 5,
+		ESPECIALIZA: 5,
+		RELACIONADA: 2,
+		referencia: 1,
+	};
+
+	/**
 	 * Grafo del mapa legal: nodos (todas las normas) + links (relaciones tipadas).
 	 * Se arma desde la memoria (código + BD) en una sola pasada, así el grafo
 	 * incluye automáticamente cualquier norma nueva sin que el front pida cada una.
@@ -1300,7 +1360,10 @@ export class LawsService implements OnModuleInit {
 				const key = `${rel.type}|||${law.id}|||${tgt}`;
 				if (seen.has(key)) continue;
 				seen.add(key);
-				links.push({ source: law.id, target: tgt, weight: 10, type: rel.type });
+				// Un tipo desconocido cae en 5 (medio): visible, pero sin fingir que es
+				// un vínculo fuerte. Nunca 10, para no revivir el bug del peso plano.
+				const weight = LawsService.GRAPH_EDGE_WEIGHT[rel.type] ?? 5;
+				links.push({ source: law.id, target: tgt, weight, type: rel.type });
 			}
 		}
 
@@ -1327,13 +1390,16 @@ export class LawsService implements OnModuleInit {
 				: ([l.category ?? LAW_STATIC_META[l.id]?.category].filter(Boolean) as string[]);
 			for (const c of cats) catMap[c] = (catMap[c] ?? 0) + 1;
 		}
+		// Alfabético por label: es el orden con el que se dibuja el filtro del
+		// buscador. Antes salía por cantidad descendente, así que la lista de
+		// áreas temáticas se reacomodaba entera con cada búsqueda —el filtro que
+		// estaba tercero pasaba a estar noveno— y no había forma de buscar una
+		// categoría con la vista.
 		const byCategory = Object.entries(catMap)
 			.map(([category, _count]) => ({ category, label: catLabel(category), _count }))
-			.sort((a, b) => b._count - a._count);
-		// Áreas del derecho cubiertas (categorías distintas, sin contar las constitucionales)
-		const areasCubiertas = byCategory.filter(
-			(c) => c.category !== 'constitucional' && c.category !== 'constitucion',
-		).length;
+			.sort((a, b) => (a.label ?? a.category).localeCompare(b.label ?? b.category, 'es'));
+		// Áreas del derecho cubiertas (categorías distintas, sin contar la constitucional)
+		const areasCubiertas = byCategory.filter((c) => c.category !== 'constitucional').length;
 		// Constituciones provinciales (id const-*)
 		const provincias = src.filter((l) => l.id.startsWith('const-')).length;
 

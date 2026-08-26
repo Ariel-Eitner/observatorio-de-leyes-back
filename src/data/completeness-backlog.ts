@@ -229,6 +229,13 @@ export const COMPLETENESS_BACKLOG = {
     //   NO va al backlog la 24.093 (Ley de Puertos): tiene 7 TÍTULOS y 7 CAPÍTULOS propios y su índice de
     //   dos niveles quedó cargado.
     'ley-24061', 'ley-24091',
+    // 2026-08-13: rango 24.6xx (tanda 24.609+). PLANA ≥15 arts sin estructura propia (verificado con
+    //   estructura.ps1 sobre el texto actualizado de InfoLeg: 21 artículos en secuencia, 0 secciones).
+    //   24.657 (Consejo Federal de Discapacidad): el articulado va corrido de "Créase" a "Comuníquese",
+    //   sin TÍTULO/CAPÍTULO. El agrupamiento temático que se percibe al leerla (objetivos / funciones /
+    //   atribuciones / integración / funcionamiento) no está en la fuente oficial: son epígrafes que
+    //   figuran en el sumario del Boletín Oficial, no encabezados de sección del texto.
+    'ley-24657',
     // 2026-06-25: cotidianas — DIFERIDAS: artículos "bis" (ord fraccionario) y derogados (huecos) rompen ord==número.
     'ley-11723', 'ley-24449', 'ley-23737', 'ley-25871', 'ley-18345',
     // 2026-06-26: tier verde — 24.083/25.246 con bis (ord fraccionario).
@@ -385,6 +392,46 @@ export const COMPLETENESS_BACKLOG = {
     //   texto no los rotula: rotularlos nosotros sería inventar un índice que la ley no tiene.
     //   ord==número y ningún artículo con sufijo: la deuda es inexistente, no postergada.
     'ley-24319',
+    // 2026-08-12: rango 24.3xx. Ley 24.372 (Ente de Cooperación Técnica y Financiera del Servicio
+    //   Penitenciario Federal, 20 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la
+    //   fuente oficial (estructura.ps1 → 20 artículos en secuencia, 0 secciones). El único encabezado
+    //   del texto ("ENTE DE COOPERACION TECNICA Y FINANCIERA DEL SERVICIO PENITENCIARIO FEDERAL") va
+    //   antes del art. 1 y es el nombre de la ley, no una sección. ord==número y ningún artículo con
+    //   sufijo: la deuda es inexistente, no postergada.
+    'ley-24372',
+    // 2026-08-12: rango 24.4xx. Ley 24.400 (creación del Juzgado Federal de Primera Instancia de Río
+    //   Grande, 20 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la fuente oficial
+    //   (estructura.ps1 → 20 artículos en secuencia, 0 secciones). Lo que el texto trae son epígrafes
+    //   centrados por artículo ("Alzada", "Causas en trámite", "Vigencia"…), que el parser dejó pegados
+    //   al final del artículo anterior: se recortaron del body y se cargaron como articles.title. No
+    //   son secciones — el mismo caso que la 24.091. ord==número y ningún artículo con sufijo: la
+    //   deuda es inexistente, no postergada.
+    'ley-24400',
+    // 2026-08-12: rango 24.4xx. Ley 24.432 (honorarios profesionales: tope del 25 % en costas y
+    //   libertad de pacto, 17 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la
+    //   fuente oficial (estructura.ps1 → 17 artículos en secuencia, 0 secciones). Es además una
+    //   modificatoria pura en sus arts. 1 a 12: los artículos que cita (505, 521 y 1627 del Código
+    //   Civil; 277, 281, 283 y 309 bis de la Ley 19.551; 277 de la Ley 20.744; 77 y 478 del CPCCN;
+    //   y los 17 incisos de la Ley 21.839) son estructura de OTRAS normas, no suya. ord==número y
+    //   ningún artículo con sufijo: la deuda es inexistente, no postergada.
+    'ley-24432',
+    // 2026-08-12: rango 24.4xx. Ley 24.498 (Actualización Minera, 20 arts) — PLANA: es modificatoria
+    //   pura del Código de Minería. estructura.ps1 detecta "sección II del Título VI", "sección III
+    //   del título VI" y "TITULO XVIII", pero esos son títulos y secciones DEL CÓDIGO que la ley
+    //   deroga o sustituye (arts. 9, 14 y 15), no estructura propia. Lo que el texto trae como
+    //   encabezados son epígrafes centrados por artículo ("Investigación desde aeronaves",
+    //   "Disposiciones transitorias y generales"…), que el parser dejó pegados al final del artículo
+    //   anterior: se recortaron del body y se cargaron como articles.title — el mismo caso que la
+    //   24.400. ord==número y ningún artículo con sufijo: la deuda es inexistente, no postergada.
+    'ley-24498',
+    // 2026-08-12: rango 24.5xx. Ley 24.540 (Régimen de Identificación de los Recién Nacidos,
+    //   22 arts) — PLANA: articulado corrido, sin TÍTULO/CAPÍTULO/SECCIÓN en la fuente oficial
+    //   (estructura.ps1 → 22 artículos en secuencia, 0 secciones). El texto no rotula bloques:
+    //   el único encabezado es el nombre de la ley antes del art. 1. Sus arts. 18 y 19 sustituyen
+    //   artículos del decreto ley 8.204/63 y del Código Civil, cuya ubicación ("capítulo II del
+    //   título II de la sección II del libro 1°") es estructura de OTRA norma, no suya.
+    //   ord==número y ningún artículo con sufijo: la deuda es inexistente, no postergada.
+    'ley-24540',
   ]),
   // Normas sin segments (párrafos). NO bloquea CI (es enriquecimiento), se reporta en audit:coverage.
   sinSegments: new Set<string>([

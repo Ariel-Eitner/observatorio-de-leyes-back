@@ -3,7 +3,7 @@ import { FoundersService, UpsertFounderParams } from './founders.service';
 import { ContactoService, CrearContactoParams } from './contacto.service';
 import { LeadsService, UpsertLeadParams } from './leads.service';
 import { ProductOrdersService, CrearOrdenParams } from './product-orders.service';
-import { PagosService, PagoRow, TierAplicado } from './pagos.service';
+import { PagosService, PagoRow, TierAplicado, ProProductoAplicado } from './pagos.service';
 
 /**
  * Endpoints públicos de CRM: alta de fundador, muro, contacto/feedback y leads.
@@ -143,5 +143,14 @@ export class CrmController {
   ) {
     const founderId = await this.pagos.aplicarApoyoAprobado(body.pago, body.tier, body.tipoCambio);
     return { founderId };
+  }
+
+  /** Compra de Pro aprobada: acredita el plan a la cuenta (por id). */
+  @Post('pro-aprobado')
+  @HttpCode(200)
+  proAprobado(
+    @Body() body: { pago: PagoRow; producto: ProProductoAplicado; tipoCambio: number | null },
+  ) {
+    return this.pagos.aplicarProAprobado(body.pago, body.producto, body.tipoCambio);
   }
 }

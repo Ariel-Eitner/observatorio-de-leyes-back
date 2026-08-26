@@ -6,12 +6,14 @@ import { LikesController } from './likes.controller';
 import { LikesService } from './likes.service';
 import { FoldersController } from './folders.controller';
 import { FoldersService } from './folders.service';
+import { RedactorDocsController } from './redactor-docs.controller';
+import { RedactorDocsService } from './redactor-docs.service';
 
-// Contenido del usuario: leyes guardadas y me gusta. Importa AuthModule para
-// reusar JwtAuthGuard + AuthEnabledGuard (que dependen de JwtService/env).
+// Contenido del usuario: leyes guardadas, me gusta, carpetas y documentos del
+// Redactor. Importa AuthModule para reusar JwtAuthGuard (depende de JwtService/env).
 @Module({
   imports: [AuthModule],
-  controllers: [SavedLawsController, LikesController, FoldersController],
-  providers: [SavedLawsService, LikesService, FoldersService],
+  controllers: [SavedLawsController, LikesController, FoldersController, RedactorDocsController],
+  providers: [SavedLawsService, LikesService, FoldersService, RedactorDocsService],
 })
 export class UserContentModule {}

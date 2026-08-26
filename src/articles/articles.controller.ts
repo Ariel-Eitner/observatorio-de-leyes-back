@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { ArticlesService } from './articles.service';
 
@@ -9,8 +9,12 @@ export class ArticlesController {
 
   @Get('by-law/:lawId')
   @ApiOperation({ summary: 'Obtener artículos de una ley' })
-  findByLaw(@Param('lawId') lawId: string) {
-    return this.articlesService.findByLaw(lawId);
+  findByLaw(@Param('lawId') lawId: string, @Query('limit') limit?: string) {
+    // Sin `limit` devuelve la ley entera (comportamiento histórico). El Redactor
+    // pide 10: sin el recorte acá, elegir el Código Civil y Comercial serializaba
+    // 5,4 MB (2.671 artículos) para que el front tirara todo salvo 10.
+    const n = limit ? Math.max(1, Math.min(parseInt(limit, 10) || 0, 100)) : undefined;
+    return this.articlesService.findByLaw(lawId, n);
   }
 
   @Get(':id')

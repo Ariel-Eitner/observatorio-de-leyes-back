@@ -29,42 +29,27 @@ export class PanelService {
   // ── Badges de la barra de navegación ────────────────────────────────────────
 
   /**
-   * Los 5 contadores del nav en UNA consulta por contador, en paralelo.
+   * Los 4 contadores del nav en UNA consulta por contador, en paralelo.
    *
    * Antes eran 6 round-trips a Supabase desde `app/admin/layout.tsx`, que corre
    * en CADA navegación del panel (`force-dynamic`).
    */
   async navBadges() {
-    const [contactosNuevos, postDrafts, foundersSinVerificar, pdfPendientes, tareasPendientes, seguimiento] =
+    const [contactosNuevos, foundersSinVerificar, pdfPendientes, tareasPendientes] =
       await Promise.all([
         this.contactosNuevosCount(),
-        this.prisma.postDraft.count(),
         this.prisma.founders.count({
           where: { pagado: false, comprobante_url: { not: null } },
         }),
         this.prisma.productOrder.count({ where: { status: 'pendiente' } }),
         this.prisma.adminTask.count({ where: { hecha: false } }),
-        // Sin filtro por m48 en SQL: filtrar un Json por NULL en Prisma exige
-        // Prisma.DbNull y es fácil equivocarse en silencio. Son unas pocas filas.
-        this.prisma.contentPost.findMany({
-          select: { publishedAt: true, m24: true, m48: true },
-        }),
       ]);
-
-    // Posteos cuya ventana de métricas (24 h / 48 h) ya venció y siguen sin cargar.
-    const now = Date.now();
-    const seguimientoPendiente = seguimiento.filter((p) => {
-      const h = (now - p.publishedAt.getTime()) / 3_600_000;
-      return (h >= 24 && !p.m24) || (h >= 48 && !p.m48);
-    }).length;
 
     return {
       contactosNuevos,
-      postDrafts,
       foundersSinVerificar,
       pdfPendientes,
       tareasPendientes,
-      seguimientoPendiente,
     };
   }
 

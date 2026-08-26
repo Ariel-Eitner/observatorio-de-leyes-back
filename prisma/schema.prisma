@@ -495,14 +495,25 @@ model norm_stubs {
   @@map("norm_stubs")
 }
 
-// Categorías temáticas (slug, etiqueta, descripción, icono). Antes estaban
-// duplicadas y divergentes: CATEGORY_LABELS en laws.service (back) y CATEGORIES
-// en app/lib/categories.ts (front). Fuente única ahora.
+// Categorías temáticas (slug, etiqueta, descripción, icono, color). Fuente única
+// de la taxonomía: la sirve /laws/registry y de ahí la leen el Navbar,
+// /categorias, el filtro del buscador y el mapa legal.
+//
+// `color` se agregó en 20260814170000: el color de cada categoría estaba copiado
+// en cuatro archivos del front (LegalGraph2D, LegalGraph3D, MapaLegalClient y el
+// script de topología) y ya eran cuatro listas distintas —la 3D coloreaba 16
+// categorías y la 2D 23, así que el mismo nodo cambiaba de color al pasar de una
+// vista a la otra.
+//
+// `ord` era el orden temático curado con el que se listaban. Ya no se lee: el
+// orden es alfabético por label (ver norms-db.service.listCategories). Se
+// conserva la columna para no perder la curaduría por si vuelve a hacer falta.
 model categories {
   slug        String    @id
   label       String
   description String?
   icon        String?
+  color       String?
   ord         Int?      @default(0)
   created_at  DateTime? @default(now()) @db.Timestamptz(6)
 
@@ -548,10 +559,17 @@ model User {
   savedLaws      SavedLaw[]
   likes          LawLike[]
   folders        Folder[]
+  redactorDocs   RedactorDoc[]
   benefitClaims  BenefitClaim[]
   // OJO: esta relación NO borra en cascada (ver AccountRequest). El registro de
   // un pedido de supresión tiene que sobrevivir a la cuenta que lo pidió.
   accountRequests AccountRequest[]
+  downloadLogs   DownloadLog[]
+  /// Estado del modal "pasate a Pro" (puntaje, apariciones, último cierre).
+  /// La forma la define el front (softgate.ts); acá solo se guarda.
+  gateState      Json?     @map("gate_state")
+  /// Pro Fundador anual: monto pagado por el año, congelado mientras renueve por ese monto.
+  proPrecioCongelado Int?  @map("pro_precio_congelado")
 
   @@index([guestId], map: "idx_users_guest")
   @@index([founderId], map: "idx_users_founder")
@@ -636,6 +654,22 @@ model BenefitClaim {
 
 // Carpetas para organizar leyes guardadas. Límite de cantidad por plan
 // (free/pro/pro+), sin límite para admin — ver FoldersService.
+// Documentos del Redactor guardados en la cuenta. `content` es el JSON de Tiptap
+// serializado como texto — el mismo formato que el Redactor guarda en localStorage
+// para los invitados, así la migración guest→cuenta es copiar el string tal cual.
+model RedactorDoc {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  title     String
+  content   String
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([userId], map: "idx_redactor_docs_user")
+  @@map("redactor_docs")
+}
+
 model Folder {
   id        String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   userId    String     @map("user_id") @db.Uuid
@@ -763,7 +797,12 @@ model Pago {
   utmCampaign       String?   @map("utm_campaign")
   metadata          Json?
   externalReference String?   @map("external_reference")
+  /// Compra de Pro: la cuenta a la que se acredita (por id, nunca por email).
+  userId            String?   @map("user_id") @db.Uuid
+  /// pro_mensual | pro_anual (ver app/lib/proProductos.ts en el front)
+  producto          String?
 
+  @@index([userId], map: "idx_pagos_user")
   @@index([createdAt(sort: Desc)], map: "idx_pagos_created_at")
   @@index([estado], map: "idx_pagos_estado")
   @@index([guestId], map: "idx_pagos_guest")
@@ -934,4 +973,81 @@ model AdminCorpusReview {
 
   @@index([revisada], map: "idx_admin_corpus_review_revisada")
   @@map("admin_corpus_review")
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Prospección comercial (/admin/prospectos). A quién SALIMOS a buscar, a
+// diferencia de `leads` (quien ENTRÓ solo por un formulario). Ver la migración
+// 20260821120000_prospectos para la base legal (ley 25.326 arts. 5 y 27) y por
+// qué lead_id / user_id no llevan FK.
+// ─────────────────────────────────────────────────────────────────────────────
+model Prospecto {
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nombre           String
+  organizacion     String?
+  /// abogado | estudio | empresa | contador | escribano | universidad | sindicato | estado | medio | otro
+  tipo             String    @default("abogado")
+  /// laboral | familia | consumidor | previsional | penal | corporativo | compliance | rrhh | tributario | ...
+  segmento         String?
+  email            String?
+  telefono         String?
+  linkedin         String?
+  web              String?
+  ciudad           String?
+  provincia        String?
+  /// manual | csv | osm | web_estudio | linkedin | referido | evento | sitio (entró por el sitio)
+  fuente           String    @default("manual")
+  /// De dónde salió el dato de contacto (base legal: fuente de acceso público).
+  origenDato       String?   @map("origen_dato")
+  /// nuevo | por_contactar | contactado | respondio | reunion | prueba | cliente | descartado | no_contactar
+  etapa            String    @default("nuevo")
+  /// 1 alta · 2 media · 3 baja
+  prioridad        Int       @default(2) @db.SmallInt
+  /// email | linkedin | whatsapp | telefono | presencial
+  canal            String?
+  proximoPaso      String?   @map("proximo_paso")
+  proximoAt        DateTime? @map("proximo_at") @db.Timestamptz(6)
+  ultimoContactoAt DateTime? @map("ultimo_contacto_at") @db.Timestamptz(6)
+  toques           Int       @default(0)
+  notas            String?
+  optOut           Boolean   @default(false) @map("opt_out")
+  optOutAt         DateTime? @map("opt_out_at") @db.Timestamptz(6)
+  leadId           String?   @map("lead_id") @db.Uuid
+  userId           String?   @map("user_id") @db.Uuid
+  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  eventos          ProspectoEvento[]
+
+  @@index([etapa, proximoAt], map: "idx_prospectos_etapa_proximo")
+  @@index([provincia], map: "idx_prospectos_provincia")
+  @@index([tipo], map: "idx_prospectos_tipo")
+  @@map("prospectos")
+}
+
+model ProspectoEvento {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  prospectoId String    @map("prospecto_id") @db.Uuid
+  /// nota | email | linkedin | whatsapp | llamada | reunion | etapa | sistema
+  tipo        String
+  detalle     String?
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  prospecto   Prospecto @relation(fields: [prospectoId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([prospectoId, createdAt(sort: Desc)], map: "idx_prospecto_eventos_prospecto")
+  @@map("prospecto_eventos")
+}
+
+// Cupos mensuales: una fila por descarga/análisis autorizado. El cupo del plan
+// gratuito es count(*) del mes calendario (ver src/cupos/cupos.service.ts).
+model DownloadLog {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  /// articulo | ley | lector
+  kind      String
+  target    String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([userId, kind, createdAt(sort: Desc)], map: "idx_download_log_user_kind_created")
+  @@map("download_log")
 }

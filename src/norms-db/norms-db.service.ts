@@ -108,12 +108,26 @@ export class NormsDbService {
     return rows.map((r) => ({ number: r.number, name: r.name, infolegId: r.infoleg_id ?? undefined }));
   }
 
-  /** Categorías temáticas (tabla categories). */
+  /**
+   * Categorías temáticas (tabla categories) — la fuente única de la taxonomía.
+   *
+   * Orden alfabético por label, con localeCompare('es') para que las tildes y la
+   * eñe caigan donde corresponde ("Energía" entre "Empresa" y "Familia", no al
+   * final). No se ordena en Postgres porque el collation del contenedor no es
+   * el mismo que el de producción y el orden salía distinto en cada entorno.
+   *
+   * Ordenaba por la columna `ord`, un orden temático curado a mano que además
+   * tenía un empate (administrativo y procesal-penal ambos en 4, así que entre
+   * esos dos el orden lo decidía Postgres). La columna sigue existiendo pero ya
+   * nadie la lee; ver la nota en schema.prisma.
+   */
   async listCategories(): Promise<
-    { slug: string; label: string; description: string | null; icon: string | null; ord: number }[]
+    { slug: string; label: string; description: string | null; icon: string | null; color: string | null }[]
   > {
-    const rows = await this.prisma.categories.findMany({ orderBy: { ord: 'asc' } });
-    return rows.map((r) => ({ slug: r.slug, label: r.label, description: r.description, icon: r.icon, ord: r.ord }));
+    const rows = await this.prisma.categories.findMany();
+    return rows
+      .map((r) => ({ slug: r.slug, label: r.label, description: r.description, icon: r.icon, color: r.color }))
+      .sort((a, b) => a.label.localeCompare(b.label, 'es'));
   }
 
   /**

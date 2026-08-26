@@ -97,4 +97,30 @@ Los hashes de local y prod tienen que ser idénticos.
   baseline): agrega una columna y corre un `UPDATE` sobre normas ya existentes. Solo tiene
   sentido con corpus cargado.
 - **`../supabase/migrations/`** — las 12 migraciones históricas (2026-05, era pre-corpus).
-  Quedan como registro; el baseline ya incluye todo lo que hacían.
+  El 12-ago-2026 se movieron a `_papelera/06-artefactos-obsoletos/` tras verificar una por una
+  que el baseline las cubre por completo: sus 7 tablas, sus 15 columnas de `ALTER TABLE`, sus
+  8 índices, `set_updated_at()` y el trigger `founders_updated_at` están todos acá. Las 2
+  `CREATE POLICY` están en `supabase-only/rls.sql`. No se perdió nada.
+
+## El baseline se reconstruye solo — verificado
+
+El 12-ago-2026 se levantó una base vacía y se le aplicó **únicamente** `migrations/` (baseline
++ las 5 migraciones siguientes, en orden). Las seis corrieron sin un solo error, y el resultado
+comparado contra la base real da:
+
+| | Real | Reconstruida |
+|---|---|---|
+| Columnas | 506 | 498 |
+| Índices | 121 | 120 |
+| Funciones | 79 | 79 |
+| Triggers | 1 | 1 |
+| Tablas con RLS | 38 | 38 |
+| Extensiones | `pg_trgm, pgcrypto, plpgsql, unaccent` | idénticas |
+
+La única diferencia son las 8 columnas y el índice de `_prisma_migrations`, que es la tabla de
+control que crea `prisma migrate deploy` y no existe cuando se aplica el `.sql` a mano. Fuera de
+eso el diff es **vacío**: no hay una sola columna, índice, función ni policy que dependa de las
+migraciones viejas de Supabase.
+
+Para repetir la prueba: crear una base, aplicarle los seis `migration.sql` en orden, y diffear
+`information_schema.columns` y `pg_indexes` contra la base real.

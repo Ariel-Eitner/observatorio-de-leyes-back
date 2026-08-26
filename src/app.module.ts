@@ -16,7 +16,6 @@ import { EventsModule }    from './events/events.module';
 import { AdminModule }       from './admin/admin.module';
 import { AdminDataModule }   from './admin-data/admin-data.module';
 import { PrismaModule }      from './common/prisma/prisma.module';
-import { PostDraftsModule }  from './post-drafts/post-drafts.module';
 import { ExportsModule }         from './exports/exports.module';
 import { ContractAnalyzerModule } from './contract-analyzer/contract-analyzer.module';
 import { FinanzasModule }         from './finanzas/finanzas.module';
@@ -26,6 +25,7 @@ import { AuthModule }             from './auth/auth.module';
 import { AccountModule }          from './account/account.module';
 import { UserContentModule }      from './user-content/user-content.module';
 import { UsersModule }            from './users/users.module';
+import { CuposModule }            from './cupos/cupos.module';
 import { CorpusReadyGuard }       from './common/guards/corpus-ready.guard';
 import { MonitorModule }          from './monitor/monitor.module';
 
@@ -62,7 +62,6 @@ import { MonitorModule }          from './monitor/monitor.module';
     EventsModule,
     AdminModule,
     AdminDataModule,
-    PostDraftsModule,
     ExportsModule,
     ContractAnalyzerModule,
     FinanzasModule,
@@ -72,6 +71,7 @@ import { MonitorModule }          from './monitor/monitor.module';
     AccountModule,
     UserContentModule,
     UsersModule,
+    CuposModule,
   ],
   providers: [
     // Rate limiting global. ProxyThrottlerGuard (no el ThrottlerGuard de fábrica)

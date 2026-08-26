@@ -44,7 +44,7 @@ export class AccountDataService {
     const email = user.email;
     const guestId = user.guestId;
 
-    const [saved, folders, claims, sessions, solicitudes] = await Promise.all([
+    const [saved, folders, claims, sessions, solicitudes, redactorDocs] = await Promise.all([
       this.prisma.savedLaw.findMany({
         where: { userId },
         orderBy: { createdAt: 'desc' },
@@ -85,6 +85,12 @@ export class AccountDataService {
           createdAt: true,
           resolvedAt: true,
         },
+      }),
+      // Documentos del Redactor: son contenido creado por el titular, va completo.
+      this.prisma.redactorDoc.findMany({
+        where: { userId },
+        orderBy: { updatedAt: 'desc' },
+        select: { title: true, content: true, createdAt: true, updatedAt: true },
       }),
     ]);
 
@@ -138,6 +144,7 @@ export class AccountDataService {
       perfil,
       leyesGuardadas: saved,
       carpetas: folders,
+      documentosDelRedactor: redactorDocs,
       reclamosDeBeneficio: claims,
       sesiones: sessions,
       solicitudes,

@@ -5,6 +5,7 @@ import { ComercialService } from './comercial.service';
 import { AnaliticaService } from './analitica.service';
 import { TareasService } from './tareas.service';
 import { CorpusReviewService } from './corpus-review.service';
+import { ProspectosService } from './prospectos.service';
 
 /**
  * Datos del panel de administración.
@@ -21,6 +22,7 @@ import { CorpusReviewService } from './corpus-review.service';
     AnaliticaService,
     TareasService,
     CorpusReviewService,
+    ProspectosService,
   ],
 })
 export class AdminDataModule {}

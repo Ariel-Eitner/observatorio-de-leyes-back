@@ -1,19 +1,19 @@
-import { Injectable } from '@nestjs/common';
+﻿import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../common/prisma/prisma.service';
-import { dayKey, iso, num, numOrNull } from './shared';
+import { iso, num, numOrNull } from './shared';
 
 /**
- * Pagos, órdenes de informe, fundadores y usuarios del panel.
+ * Pagos, Ã³rdenes de informe, fundadores y usuarios del panel.
  *
- * Todo esto lo leía el frontend directo de Supabase. Los modelos de Prisma que
- * están en camelCase se devuelven en snake_case: los componentes cliente del
- * panel ya están tipados contra ese shape.
+ * Todo esto lo leÃ­a el frontend directo de Supabase. Los modelos de Prisma que
+ * estÃ¡n en camelCase se devuelven en snake_case: los componentes cliente del
+ * panel ya estÃ¡n tipados contra ese shape.
  */
 @Injectable()
 export class ComercialService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // ── Pagos ───────────────────────────────────────────────────────────────────
+  // â”€â”€ Pagos â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   async pagos() {
     const rows = await this.prisma.pago.findMany({
@@ -47,7 +47,7 @@ export class ComercialService {
     return { ok: true };
   }
 
-  // ── Órdenes de informe (product_orders) ─────────────────────────────────────
+  // â”€â”€ Ã“rdenes de informe (product_orders) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   async ordenes() {
     const rows = await this.prisma.productOrder.findMany({
@@ -82,7 +82,7 @@ export class ComercialService {
     return { ok: true };
   }
 
-  // ── Fundadores ──────────────────────────────────────────────────────────────
+  // â”€â”€ Fundadores â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /** Ficha completa: la pantalla muestra beneficio, consentimiento y UTMs. */
   async founders() {
@@ -106,8 +106,8 @@ export class ComercialService {
   }
 
   /**
-   * Confirma el pago real DESPUÉS de verificarlo en Mercado Pago. El comprobante
-   * por sí solo no alcanza: es el segundo nivel del flujo de confirmación.
+   * Confirma el pago real DESPUÃ‰S de verificarlo en Mercado Pago. El comprobante
+   * por sÃ­ solo no alcanza: es el segundo nivel del flujo de confirmaciÃ³n.
    */
   async setFounderPagado(id: string, pagado: boolean) {
     await this.prisma.founders.updateMany({
@@ -117,11 +117,11 @@ export class ComercialService {
     return { ok: true };
   }
 
-  // ── Usuarios ────────────────────────────────────────────────────────────────
+  // â”€â”€ Usuarios â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   /**
-   * Listado de usuarios + lo necesario para las métricas por usuario. La
-   * agregación (descargas, herramientas, última actividad) se hace en el front,
+   * Listado de usuarios + lo necesario para las mÃ©tricas por usuario. La
+   * agregaciÃ³n (descargas, herramientas, Ãºltima actividad) se hace en el front,
    * que ya tiene las listas de tipos de evento.
    */
   async usuarios() {
@@ -172,7 +172,7 @@ export class ComercialService {
   /**
    * Ficha de un usuario con su identidad unificada: el lead (por lead_id o
    * email), el fundador (por email) y la actividad de tracking por user_id O por
-   * su guest_id anónimo — lo de ANTES de registrarse.
+   * su guest_id anÃ³nimo â€” lo de ANTES de registrarse.
    */
   async usuario(id: string) {
     const user = await this.prisma.user.findUnique({ where: { id } });
@@ -268,106 +268,5 @@ export class ComercialService {
       })),
       leadEvents: leadEvents.map((e) => ({ type: e.type, created_at: iso(e.created_at) })),
     };
-  }
-
-  // ── Contenido: seguimiento de posteos y tweets ──────────────────────────────
-
-  async contentPosts() {
-    const rows = await this.prisma.contentPost.findMany({ orderBy: { publishedAt: 'desc' } });
-    return rows.map(this.contentPostRow);
-  }
-
-  async crearContentPost(body: Record<string, unknown>) {
-    const row = await this.prisma.contentPost.create({ data: this.contentPostData(body) as never });
-    return this.contentPostRow(row);
-  }
-
-  async actualizarContentPost(id: string, body: Record<string, unknown>) {
-    const row = await this.prisma.contentPost.update({
-      where: { id },
-      data: this.contentPostData(body) as never,
-    });
-    return this.contentPostRow(row);
-  }
-
-  async borrarContentPost(id: string) {
-    await this.prisma.contentPost.deleteMany({ where: { id } });
-    return { ok: true };
-  }
-
-  private contentPostRow = (p: {
-    id: string; createdAt: Date; red: string; categoria: string; leyTema: string | null;
-    angulo: string | null; utm: string | null; texto: string; link: string | null;
-    publishedAt: Date; m24: unknown; m48: unknown; notas: string | null;
-  }) => ({
-    id: p.id,
-    created_at: iso(p.createdAt),
-    red: p.red,
-    categoria: p.categoria,
-    ley_tema: p.leyTema,
-    angulo: p.angulo,
-    utm: p.utm,
-    texto: p.texto,
-    link: p.link,
-    published_at: iso(p.publishedAt),
-    m24: p.m24,
-    m48: p.m48,
-    notas: p.notas,
-  });
-
-  /** El front manda snake_case (viene del shape de Supabase); Prisma usa camelCase. */
-  private contentPostData(b: Record<string, unknown>) {
-    const d: Record<string, unknown> = {};
-    if (b.red !== undefined) d.red = b.red;
-    if (b.categoria !== undefined) d.categoria = b.categoria;
-    if (b.ley_tema !== undefined) d.leyTema = b.ley_tema;
-    if (b.angulo !== undefined) d.angulo = b.angulo;
-    if (b.utm !== undefined) d.utm = b.utm;
-    if (b.texto !== undefined) d.texto = b.texto;
-    if (b.link !== undefined) d.link = b.link;
-    if (b.published_at !== undefined) d.publishedAt = new Date(b.published_at as string);
-    if (b.m24 !== undefined) d.m24 = b.m24;
-    if (b.m48 !== undefined) d.m48 = b.m48;
-    if (b.notas !== undefined) d.notas = b.notas;
-    return d;
-  }
-
-  async tweets() {
-    const rows = await this.prisma.tweets_performance.findMany({ orderBy: { fecha: 'desc' } });
-    return rows.map((t) => ({ ...t, fecha: dayKey(t.fecha), created_at: iso(t.created_at) }));
-  }
-
-  async crearTweet(body: Record<string, unknown>) {
-    const row = await this.prisma.tweets_performance.create({
-      data: this.tweetData(body) as never,
-    });
-    return { ...row, fecha: dayKey(row.fecha), created_at: iso(row.created_at) };
-  }
-
-  async actualizarTweet(id: string, body: Record<string, unknown>) {
-    const row = await this.prisma.tweets_performance.update({
-      where: { id },
-      data: this.tweetData(body) as never,
-    });
-    return { ...row, fecha: dayKey(row.fecha), created_at: iso(row.created_at) };
-  }
-
-  async borrarTweet(id: string) {
-    await this.prisma.tweets_performance.deleteMany({ where: { id } });
-    return { ok: true };
-  }
-
-  private tweetData(b: Record<string, unknown>) {
-    const d: Record<string, unknown> = {};
-    // `fecha` es @db.Date: se manda "YYYY-MM-DD" y hay que anclarla a UTC, si no
-    // el huso local puede correrla un día.
-    if (b.fecha !== undefined) d.fecha = new Date(`${String(b.fecha).slice(0, 10)}T00:00:00Z`);
-    for (const k of [
-      'tipo', 'url', 'texto_preview', 'impresiones', 'replies', 'bookmarks',
-      'retweets', 'link_clicks', 'follows_ganados', 'notas', 'subtweets',
-    ]) {
-      if (b[k] !== undefined) d[k] = b[k];
-    }
-    return d;
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable, ForbiddenException, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../common/prisma/prisma.service';
+import { effectivePlan, PLAN_SELECT } from '../common/plan';
 import { CreateFolderDto } from './dto/folder.dto';
 
 // Límite de carpetas por plan. El admin no tiene límite. Los Fundadores/donantes
@@ -20,9 +21,9 @@ export class FoldersService {
   private async limitFor(userId: string): Promise<number> {
     const u = await this.prisma.user.findUnique({
       where: { id: userId },
-      select: { plan: true, isAdmin: true },
+      select: PLAN_SELECT,
     });
-    return folderLimitFor(u?.plan, !!u?.isAdmin);
+    return folderLimitFor(u ? effectivePlan(u) : 'free', !!u?.isAdmin);
   }
 
   async list(userId: string) {

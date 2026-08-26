@@ -354,17 +354,6 @@ export class AnaliticaService {
     }));
   }
 
-  async pageFlow(min: number) {
-    const rows = await this.prisma.$queryRaw<
-      Array<{ from_page: string; to_page: string; peso: bigint }>
-    >`SELECT * FROM admin_page_flow(${min}::int)`;
-    return rows.map((r) => ({
-      from_page: r.from_page,
-      to_page: r.to_page,
-      peso: Number(r.peso),
-    }));
-  }
-
   /** Tamaño de la base y peso por tabla — lo muestra /admin/sistema. */
   async dbStats() {
     const rows = await this.prisma.$queryRaw<Array<{ admin_db_stats: unknown }>>`

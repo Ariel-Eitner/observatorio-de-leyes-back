@@ -36,12 +36,23 @@ export interface PagoRow {
   utm_source: string | null;
   utm_medium: string | null;
   utm_campaign: string | null;
+  /** Compra de Pro: cuenta a la que se acredita (por id). */
+  user_id: string | null;
+  /** pro_mensual | pro_anual */
+  producto: string | null;
 }
 
 /** Tier ya resuelto por el front a partir del monto. */
 export interface TierAplicado {
   id: string;
   proMeses: number;
+}
+
+/** Producto Pro ya resuelto por el front (app/lib/proProductos.ts). */
+export interface ProProductoAplicado {
+  id: string;
+  meses: number;
+  congelado: boolean;
 }
 
 @Injectable()
@@ -65,6 +76,8 @@ export class PagosService {
     utmSource: string | null;
     utmMedium: string | null;
     utmCampaign: string | null;
+    userId?: string | null;
+    producto?: string | null;
   }): PagoRow {
     return {
       id: p.id,
@@ -78,6 +91,8 @@ export class PagosService {
       utm_source: p.utmSource,
       utm_medium: p.utmMedium,
       utm_campaign: p.utmCampaign,
+      user_id: p.userId ?? null,
+      producto: p.producto ?? null,
     };
   }
 
@@ -98,6 +113,8 @@ export class PagosService {
         utmCampaign: (data.utmCampaign as string) ?? null,
         metadata: (data.metadata ?? null) as never,
         externalReference: (data.externalReference as string) ?? null,
+        userId: (data.userId as string) ?? null,
+        producto: (data.producto as string) ?? null,
       },
     });
     return this.toRow(row);
@@ -172,9 +189,10 @@ export class PagosService {
       if (pago.nombre && !existing.nombre) upd.nombre = pago.nombre;
       if (pago.guest_id) upd.guest_id = pago.guest_id;
       // Solo subir de nivel, nunca bajar: si vuelve a donar más, mejora.
+      // Un mecenazgo (proMeses 0) no pisa un nivel heredado con meses de Pro.
       if (tier && tier.proMeses >= (existing.beneficio_meses ?? 0)) {
         upd.nivel = tier.id;
-        upd.beneficio = 'Pro';
+        upd.beneficio = tier.proMeses > 0 ? 'Pro' : null;
         upd.beneficio_meses = tier.proMeses;
       }
       await this.prisma.founders.update({ where: { id: existing.id }, data: upd });
@@ -188,7 +206,7 @@ export class PagosService {
           confirmed_at: now,
           guest_id: pago.guest_id ?? null,
           nivel: tier?.id ?? null,
-          beneficio: tier ? 'Pro' : null,
+          beneficio: tier && tier.proMeses > 0 ? 'Pro' : null,
           beneficio_meses: tier?.proMeses ?? null,
           utm_source: pago.utm_source,
           utm_medium: pago.utm_medium,
@@ -244,5 +262,123 @@ export class PagosService {
     }
 
     return founderId;
+  }
+
+  /**
+   * Una COMPRA DE PRO quedó aprobada (docs/reglas-por-plan.html, 21-ago-2026):
+   * acredita el plan a la cuenta POR ID (nunca por email: sin verificación de
+   * email, cruzar por email era explotable), congela el precio si el producto lo
+   * prevé, registra el ingreso y, si es anual, deja a la persona en el muro como
+   * "Pro Fundador". Idempotente por `ingresos.source_ref`: el webhook de MP
+   * puede repetir y el plan solo se extiende una vez por pago.
+   */
+  async aplicarProAprobado(
+    pago: PagoRow,
+    producto: ProProductoAplicado,
+    tipoCambio: number | null,
+  ): Promise<{ ok: boolean; error?: string; planUntil?: string | null; founderId?: string | null }> {
+    if (pago.tipo !== 'pro' || !pago.user_id) return { ok: false, error: 'sin_usuario' };
+    const user = await this.prisma.user.findUnique({
+      where: { id: pago.user_id },
+      select: { id: true, email: true, nombre: true, apellido: true, planUntil: true },
+    });
+    if (!user) return { ok: false, error: 'usuario_inexistente' };
+
+    const sourceRef = `pro:${pago.id}`;
+    const yaAcreditado = await this.prisma.ingreso.findUnique({ where: { sourceRef }, select: { id: true } });
+    const now = new Date();
+    let planUntil = user.planUntil;
+
+    if (!yaAcreditado) {
+      // Extiende desde el vencimiento vigente si todavía no pasó; si no, desde hoy.
+      const base = user.planUntil && user.planUntil > now ? user.planUntil : now;
+      planUntil = new Date(base.getTime() + producto.meses * 30 * 86_400_000);
+      await this.prisma.user.update({
+        where: { id: user.id },
+        data: {
+          plan: 'pro',
+          planUntil,
+          ...(producto.congelado ? { proPrecioCongelado: Math.round(pago.monto) } : {}),
+        },
+      });
+    }
+
+    const nombre = [user.nombre, user.apellido].filter(Boolean).join(' ').trim() || pago.nombre || null;
+    let founderId: string | null = null;
+
+    // Pro Fundador (anual): figura en el muro. No pisa una distinción heredada
+    // (original) ni un nivel con más meses; un Pro mensual no entra al muro.
+    if (producto.meses >= 12) {
+      const existing = await this.prisma.founders.findUnique({
+        where: { email: user.email },
+        select: { id: true, nombre: true, nivel: true, beneficio_meses: true },
+      });
+      if (existing) {
+        const upd: Record<string, unknown> = { pagado: true, confirmed_at: now, canal: 'mercado_pago' };
+        if (nombre && !existing.nombre) upd.nombre = nombre;
+        if (existing.nivel !== 'original' && (existing.beneficio_meses ?? 0) <= producto.meses) {
+          upd.nivel = 'pro_fundador';
+          upd.beneficio = 'Pro';
+          upd.beneficio_meses = producto.meses;
+        }
+        await this.prisma.founders.update({ where: { id: existing.id }, data: upd });
+        founderId = existing.id;
+      } else {
+        const created = await this.prisma.founders.create({
+          data: {
+            email: user.email,
+            nombre: nombre ?? user.email.split('@')[0],
+            canal: 'mercado_pago',
+            pagado: true,
+            confirmed_at: now,
+            guest_id: pago.guest_id ?? null,
+            nivel: 'pro_fundador',
+            beneficio: 'Pro',
+            beneficio_meses: producto.meses,
+            utm_source: pago.utm_source,
+            utm_medium: pago.utm_medium,
+            utm_campaign: pago.utm_campaign,
+          },
+          select: { id: true },
+        });
+        founderId = created.id;
+      }
+    }
+
+    await this.leads.upsert({
+      email: user.email,
+      nombre,
+      source: 'pro',
+      status: 'registered',
+      guestId: pago.guest_id ?? null,
+      device: pago.device ?? null,
+      utms: { utm_source: pago.utm_source, utm_medium: pago.utm_medium, utm_campaign: pago.utm_campaign },
+      event: { type: 'pro_pagado', payload: { monto: pago.monto, producto: producto.id, meses: producto.meses } },
+    });
+
+    try {
+      const iso = now.toISOString();
+      await this.prisma.ingreso.upsert({
+        where: { sourceRef },
+        create: {
+          fecha: new Date(iso.slice(0, 10)),
+          tipo: 'SUSCRIPCION',
+          cliente: user.email,
+          descripcion: `Plan Pro ${producto.meses >= 12 ? 'anual (Fundador)' : 'mensual'}${nombre ? ` — ${nombre}` : ''}`,
+          monto: pago.monto,
+          moneda: 'ARS',
+          tipoCambio,
+          montoArs: pago.monto,
+          medioCobro: 'MERCADOPAGO',
+          periodo: iso.slice(0, 7),
+          sourceRef,
+        },
+        update: {},
+      });
+    } catch (e) {
+      this.logger.warn(`No se pudo registrar el ingreso del pago Pro ${pago.id}: ${(e as Error).message}`);
+    }
+
+    return { ok: true, planUntil: planUntil ? planUntil.toISOString() : null, founderId };
   }
 }
