@@ -13,11 +13,43 @@
 //  IMPORTANTE: debe producir EXACTAMENTE los mismos chunks que el front.
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * A dónde apunta una referencia y en qué estado está: lo que hace falta para
+ * PINTARLA sin tener el registry a mano.
+ *
+ * Lo agrega el backend (`LawsService.resolverChunk`) sobre los chunks ya
+ * parseados; el parser de acá abajo no lo toca, sigue siendo puro y espejo del
+ * front. Existe para sacar las 8.034 normas del registry del HTML de cada
+ * página: el navegador resolvía cada referencia contra esa lista, y por eso la
+ * lista tenía que viajar entera.
+ *
+ * Por qué en el servidor y no en el cliente: estos `href` son enlaces internos
+ * REALES. Si se resolvieran en el navegador desaparecerían del HTML y Google
+ * dejaría de ver el enlazado entre normas, que es la mitad del SEO del sitio.
+ *
+ * Los campos son opcionales a propósito: se omiten cuando valen lo de siempre
+ * (`derogada: false`, sin stub), porque esto viaja en cada artículo.
+ */
+export interface RefTarget {
+  /** Ruta pública destino. Ausente = no hay adónde ir (no cargada / sin ficha). */
+  href?: string;
+  /** Nombre para mostrar de la norma referida. Ausente = usar el propio lawCode. */
+  label?: string;
+  /** ¿La norma está cargada en el corpus? Es lo que decide chip vivo vs opaco. */
+  available: boolean;
+  /** Solo si está DEROGADA (pinta en rojo). Se omite en el caso normal. */
+  derogada?: boolean;
+  /** Norma referenciada pero NO cargada: alcanza para la ficha mínima. */
+  stub?: { number: string; name: string; infolegId?: string | null };
+  /** La referencia apunta a la norma que se está leyendo → no se enlaza. */
+  isSelf?: boolean;
+}
+
 export type RefChunk =
   | { kind: 'text'; text: string }
-  | { kind: 'art'; text: string; lawCode: string; articleNumber: string; paragraph: number | null; isSelf: boolean }
-  | { kind: 'multi'; text: string; lawCode: string; articleNumbers: string[] }
-  | { kind: 'law'; text: string; lawCode: string };
+  | { kind: 'art'; text: string; lawCode: string; articleNumber: string; paragraph: number | null; isSelf: boolean; target?: RefTarget }
+  | { kind: 'multi'; text: string; lawCode: string; articleNumbers: string[]; target?: RefTarget }
+  | { kind: 'law'; text: string; lawCode: string; target?: RefTarget };
 
 const GENERIC_CODE_PREFIX = /^(Ley\s+|Disp\.\s+|Decreto\s+)/i;
 const EXTRA_CODES = ['CADH', 'PIDCP', 'PIDESC', 'CDN'];

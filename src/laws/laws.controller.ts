@@ -29,8 +29,15 @@ export class LawsController {
 
   // Antes de @Get('registry'): Nest resuelve por orden de declaración y la ruta
   // de dos segmentos tiene que ganarle a la de uno.
+  // Antes de 'registry/light', como todas las rutas de un segmento.
+  @Get('registry/nav')
+  @ApiOperation({ summary: 'Categorías + stubs + alias de slug, SIN el catálogo de normas. Es lo que el layout del front mete en el HTML de cada página' })
+  getRegistryNav() {
+    return this.lawsService.getRegistryNav();
+  }
+
   @Get('registry/light')
-  @ApiOperation({ summary: 'Registro mínimo para resolver referencias (sin catálogo). Lo consume el layout del front en cada request' })
+  @ApiOperation({ summary: 'Registro mínimo para resolver referencias (sin catálogo). Carga perezosa desde el navegador, solo para lo interactivo' })
   getRegistryLight() {
     return this.lawsService.getRegistryLight();
   }

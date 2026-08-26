@@ -202,6 +202,8 @@ export interface Article {
   // Referencias inline pre-parseadas (para la página de artículo individual).
   textChunks?: RefChunk[];
   explanationChunks?: RefChunk[];
+  /** Un array de chunks por ítem de `regulations`, en el mismo orden. */
+  regulationsChunks?: RefChunk[][];
   // Estado individual del artículo (relevante para leyes PARCIALMENTE_VIGENTE)
   status?: ArticleStatus;
   effectiveDate?: string | null;
@@ -288,6 +290,29 @@ export interface Law {
   annexes: Annex[];
   amendments: LawAmendment[];
   metadata: LawMetadata | null;
+  /**
+   * Referencias inline pre-parseadas Y pre-resueltas de los textos de la FICHA
+   * (los que pinta LawHeader: resumen, objetivo, problema y las listas de
+   * obligaciones/derechos/sanciones/casos).
+   *
+   * Existe por lo mismo que los chunks de los artículos: sin esto el navegador
+   * necesita el registry completo para saber a dónde apunta cada referencia, y
+   * el registry son 2,4 MB en el HTML de cada una de las páginas del sitio.
+   * Estos textos están en el HTML de las ~8.000 fichas, así que resolverlos en
+   * el cliente les borraría los enlaces internos a ojos de Google.
+   */
+  refsFicha?: {
+    executiveSummary?: RefChunk[];
+    objective?: RefChunk[];
+    problemItSolves?: RefChunk[];
+    /** Un array de chunks por ítem de la lista, en el mismo orden. */
+    obligations?: RefChunk[][];
+    rights?: RefChunk[][];
+    sanctions?: RefChunk[][];
+    useCases?: RefChunk[][];
+    /** Un array de chunks por RESPUESTA de la FAQ, en el orden de `metadata.faq`. */
+    faq?: RefChunk[][];
+  };
   createdAt: string;
   updatedAt: string;
 }

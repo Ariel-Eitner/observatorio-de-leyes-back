@@ -6,7 +6,7 @@ import type { NormStub } from '../data/norm-stubs';
 import { Article, Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
-import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks, pruneDanglingSelfRefs, artNumKey } from '../common/utils/inline-refs.util';
+import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks, pruneDanglingSelfRefs, artNumKey, type RefChunk, type RefTarget } from '../common/utils/inline-refs.util';
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 import { buildVetos } from './vetos.util';
 
@@ -14,6 +14,36 @@ import { buildVetos } from './vetos.util';
 // dominio es estable y no justifica una variable de entorno más. El secreto es el mismo
 // ADMIN_SECRET que ya comparten back y front.
 const FRONT_REVALIDATE_URL = 'https://observatorio-de-leyes-front.vercel.app/api/revalidate';
+
+/**
+ * Una norma vista desde el resolvedor de referencias: solo lo que hace falta
+ * para enlazarla. Es el equivalente en el servidor de lo que el navegador leía
+ * del registry — y el motivo por el que el registry ya no viaja en el HTML.
+ */
+interface RefDestino {
+	label: string;
+	href: string;
+	available: boolean;
+	status: string;
+	/** shortCode + alias, para detectar la auto-referencia sin recorrer el registry. */
+	alias: string[];
+}
+
+/**
+ * "26485" → "26.485". Port EXACTO de `formatLeyNumber` del front
+ * (`app/lib/format.ts`), porque se usa para resolver el mismo alias de los dos
+ * lados: si acá agrupara distinto, una referencia enlazaría en el servidor y no
+ * en el cliente.
+ */
+function formatearNumeroLey(n: string | null | undefined): string | null {
+	if (!n) return null;
+	const s = String(n).trim();
+	if (!s) return null;
+	if (s.includes('/')) return s; // decreto NNN/AAAA · RG NNNN/AAAA
+	const digitos = s.replace(/\D/g, '');
+	if (!digitos) return s;
+	return digitos.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
 
 /**
  * Una entrada de `/laws/article-numbers`: todo lo que el generador del sitemap
@@ -1054,7 +1084,7 @@ export class LawsService implements OnModuleInit {
 			}
 			this.refChunksDeArticulo(
 				completo,
-				law.shortCode ?? '',
+				law,
 				new Set(law.articles.map((a) => artNumKey(a.number))),
 			);
 			article = completo;
@@ -1101,7 +1131,16 @@ export class LawsService implements OnModuleInit {
 
 	// ── Pre-cómputo de referencias inline (saca el mega-regex del front) ──────────
 	private refsComputed = new WeakSet<Law>();
-	private refCtx: { combined: RegExp; available: Set<string>; nameToCode: Record<string, string> } | null = null;
+	private refCtx: {
+		combined: RegExp;
+		available: Set<string>;
+		nameToCode: Record<string, string>;
+		/** Índices de resolución: de un código de ley al destino que se enlaza. */
+		porShortCode: Map<string, RefDestino>;
+		porAlias: Map<string, RefDestino>;
+		porId: Map<string, RefDestino>;
+		stubPorNumero: Map<string, { number: string; name: string; infolegId?: string | null }>;
+	} | null = null;
 
 	private getRefCtx() {
 		if (this.refCtx) return this.refCtx;
@@ -1122,12 +1161,138 @@ export class LawsService implements OnModuleInit {
 			...laws.filter((l) => l.available).map((l) => ({ label: l.label, shortCode: l.shortCode, number: l.number })),
 			...this.stubs.map((s) => ({ label: s.name, shortCode: '', number: s.number })),
 		]);
+
+		// Los mismos tres índices que el front armaba en el navegador
+		// (`lawRegistry.initRegistry`). Se arman una vez acá y se tiran junto con
+		// el resto del contexto cuando entra o cambia una norma.
+		const porShortCode = new Map<string, RefDestino>();
+		const porAlias = new Map<string, RefDestino>();
+		const porId = new Map<string, RefDestino>();
+		for (const l of laws) {
+			const destino: RefDestino = {
+				label: l.label,
+				href: l.frontendPath,
+				available: l.available,
+				status: l.status,
+				// Los alias van en el destino para poder contestar "¿esta referencia
+				// es a la norma que estoy leyendo?" en O(1) por norma en vez de
+				// recorrer las 8.034 del registry por cada referencia del texto.
+				alias: l.shortCode ? [l.shortCode, ...(l.aliases ?? [])] : (l.aliases ?? []),
+			};
+			porId.set(l.id, destino);
+			if (l.shortCode) porShortCode.set(l.shortCode, destino);
+			for (const a of l.aliases ?? []) porAlias.set(a, destino);
+		}
+
 		this.refCtx = {
 			combined: buildCombined(buildLawCodesPattern(shortCodes), namesIdx.pattern),
 			available,
 			nameToCode: namesIdx.nameToCode,
+			porShortCode,
+			porAlias,
+			porId,
+			stubPorNumero: new Map(this.stubs.map((s) => [s.number.replace(/\./g, ''), s])),
 		};
 		return this.refCtx;
+	}
+
+	/**
+	 * Resuelve un código de ley tal como aparece citado en un texto ("CN",
+	 * "Ley 26.485", "Decreto 70/2023") a la norma del registry.
+	 *
+	 * Es el port EXACTO de `resolveCode` del front (`app/lib/lawRegistry.ts`),
+	 * incluido el detalle de normalizar el número a la forma con puntos antes de
+	 * buscar por alias: los alias del registry se guardan en las dos formas, pero
+	 * el orden de búsqueda importa cuando una ley tiene alias propios cargados a
+	 * mano. Si esto divergiera del front, una referencia resolvería en el servidor
+	 * y no en el cliente (o al revés) y el enlazado fallaría sin ruido.
+	 */
+	private resolverCodigo(code: string): RefDestino | undefined {
+		const { porShortCode, porAlias, porId } = this.getRefCtx();
+		const directo = porShortCode.get(code);
+		if (directo) return directo;
+
+		const ley = code.match(/^Ley\s+([\d.,]+)$/i);
+		if (ley) {
+			const crudo = ley[1];
+			const conPuntos = formatearNumeroLey(crudo) ?? crudo;
+			return porAlias.get(conPuntos) ?? porAlias.get(crudo);
+		}
+
+		const decreto = code.match(/^Decreto\s+(\d+)\/(\d{4})$/i);
+		if (decreto) return porId.get(`decreto-${decreto[1]}-${decreto[2]}`);
+
+		return undefined;
+	}
+
+	/**
+	 * El destino de UNA referencia, listo para pintar sin registry en el cliente.
+	 *
+	 * `articleNumber` viene solo en las refs a un artículo puntual: ahí el enlace
+	 * es a la página del artículo, no a la ficha de la norma. En las refs a un
+	 * rango de artículos (`multi`) el enlace es a la ficha, porque lo que abre es
+	 * un modal con la lista.
+	 */
+	private resolverRef(lawCode: string, articleNumber?: string, esPropia = false): RefTarget {
+		const entrada = this.resolverCodigo(lawCode);
+
+		// Referencia a la propia norma que se está leyendo. `isSelf` le saca el
+		// nombre de la norma a la etiqueta ("Art. 5" en vez de "Art. 5 — Código
+		// Penal"), porque repetirlo en su propia ficha sobra.
+		//
+		// El `href` va IGUAL: al visor le sirve para las citas de varios artículos
+		// ("Arts. 42–44"), que siguen siendo un chip clickeable aunque sean de esta
+		// misma norma. Las de un artículo suelto y las de la norma entera se pintan
+		// como texto y ni lo miran.
+		if (esPropia) {
+			return { available: true, isSelf: true, label: entrada?.label, href: entrada?.href };
+		}
+
+		if (!entrada?.available) {
+			// Sin ficha propia, pero puede haber stub: alcanza para la ficha mínima
+			// con el nombre real de la norma y el link a InfoLeg.
+			const stub = this.stubDe(lawCode);
+			return stub
+				? { available: false, stub, label: stub.name }
+				: { available: false, label: entrada?.label };
+		}
+
+		const href = articleNumber
+			? `${entrada.href}/articulo/${slugifyArticle(articleNumber)}`
+			: entrada.href;
+		const target: RefTarget = { available: true, href, label: entrada.label };
+		if (entrada.status === 'DEROGADA') target.derogada = true;
+		return target;
+	}
+
+	/** Port de `resolveStubByCode` del front: el primer número que aparezca. */
+	private stubDe(lawCode: string): { number: string; name: string; infolegId?: string | null } | undefined {
+		const m = lawCode.match(/(\d[\d.]*\d|\d)/);
+		if (!m) return undefined;
+		return this.getRefCtx().stubPorNumero.get(m[1].replace(/\./g, ''));
+	}
+
+	/**
+	 * Agrega el `target` a cada chunk que sea una referencia. In situ.
+	 *
+	 * `aliasPropios` son los alias de la norma que contiene el texto; sirven para
+	 * detectar la auto-referencia, que no se enlaza (sería un link a la página en
+	 * la que ya estás). Port de `isSelfLaw` del front. Los chunks `art` ya traen su
+	 * propio `isSelf`, que el parser calcula con más contexto (el artículo), así
+	 * que ese se respeta tal cual.
+	 */
+	private resolverChunks(chunks: RefChunk[], aliasPropios: string[]): RefChunk[] {
+		const esPropia = (lawCode: string) => {
+			const m = lawCode.match(/^Ley\s+([\d.]+)$/i);
+			const normalizado = m ? m[1] : lawCode;
+			return aliasPropios.some((a) => a.toLowerCase() === normalizado.toLowerCase());
+		};
+		for (const c of chunks) {
+			if (c.kind === 'art') c.target = this.resolverRef(c.lawCode, c.articleNumber, c.isSelf);
+			else if (c.kind === 'multi') c.target = this.resolverRef(c.lawCode, undefined, esPropia(c.lawCode));
+			else if (c.kind === 'law') c.target = this.resolverRef(c.lawCode, undefined, esPropia(c.lawCode));
+		}
+		return chunks;
 	}
 
 	// Réplica de isLawAvailable del front (solo afecta a rangos/listas multi-artículo).
@@ -1144,11 +1309,11 @@ export class LawsService implements OnModuleInit {
 		// Nunca debe tumbar findOne: ante cualquier error, no agrega chunks y el
 		// front cae a parsear en el cliente (fallback).
 		try {
-			const ctxLawCode = law.shortCode ?? '';
 			const validArtKeys = new Set((law.articles ?? []).map((a) => artNumKey(a.number)));
 			for (const art of law.articles ?? []) {
-				this.refChunksDeArticulo(art, ctxLawCode, validArtKeys);
+				this.refChunksDeArticulo(art, law, validArtKeys);
 			}
+			this.refChunksDeFicha(law);
 		} catch (e) {
 			this.logger.error(`Pre-cómputo de refChunks falló para "${law.id}": ${(e as Error).message}`);
 		}
@@ -1168,26 +1333,80 @@ export class LawsService implements OnModuleInit {
 	 * una explicación que en realidad es de otra ley) que el parser, sin ley
 	 * explícita, engancharía al artículo homónimo de esta → enlace 404.
 	 */
-	private refChunksDeArticulo(art: Article, ctxLawCode: string, validArtKeys: Set<string>): void {
-		const { combined, nameToCode } = this.getRefCtx();
+	/**
+	 * Lo mismo que `refChunksDeArticulo` pero para los textos de la FICHA: el
+	 * resumen ejecutivo, el objetivo, el problema que resuelve y las cuatro
+	 * listas (obligaciones, derechos, sanciones, casos de uso).
+	 *
+	 * Son textos redactados, no el articulado, y citan otras normas todo el
+	 * tiempo ("modifica la Ley 20.744", "reglamenta el CCyC"). Van sin contexto
+	 * de artículo —igual que el texto oficial— para que un "art. 5" suelto no se
+	 * enganche por error a la propia norma.
+	 */
+	private refChunksDeFicha(law: Law): void {
+		const ctx = this.getRefCtx();
 		const isAvail = (lc: string) => this.refAvailable(lc);
+		const aliasPropios = ctx.porId.get(law.id)?.alias ?? [];
+		const armar = (t: string | null | undefined) =>
+			t ? this.resolverChunks(parseRefChunks(t, ctx.combined, '', undefined, isAvail, ctx.nameToCode), aliasPropios) : undefined;
+		const armarLista = (items: string[] | undefined) =>
+			items?.length ? items.map((i) => armar(i) ?? []) : undefined;
+
+		const m = law.metadata;
+		const ficha = {
+			executiveSummary: armar(law.executiveSummary),
+			objective: armar(law.objective),
+			problemItSolves: armar(law.problemItSolves),
+			obligations: armarLista(m?.obligations),
+			rights: armarLista(m?.rights),
+			sanctions: armarLista(m?.sanctions),
+			useCases: armarLista(m?.useCases),
+			// Las respuestas de la FAQ citan artículos todo el tiempo ("Arts. 42-44
+			// CP"). Sin esto el acordeón las mostraría como texto plano hasta que el
+			// navegador se baje el catálogo, o sea en cada ficha con FAQ.
+			faq: m?.faq?.length ? m.faq.map((f) => armar(f.answer) ?? []) : undefined,
+		};
+		// Solo se adjunta si algo tiene contenido: una ficha sin textos no debe
+		// sumar un objeto vacío al payload de todas las normas.
+		if (Object.values(ficha).some((v) => v !== undefined)) law.refsFicha = ficha;
+	}
+
+	private refChunksDeArticulo(art: Article, law: Law, validArtKeys: Set<string>): void {
+		const ctx = this.getRefCtx();
+		const { combined, nameToCode } = ctx;
+		const ctxLawCode = law.shortCode ?? '';
+		const isAvail = (lc: string) => this.refAvailable(lc);
+		// Los alias de la norma que contiene el texto, una vez para todo el artículo.
+		const aliasPropios = ctx.porId.get(law.id)?.alias ?? [];
+		// Parsear y resolver van juntos: un chunk sin `target` es un chunk que el
+		// front no puede pintar sin el registry, que es justo lo que se sacó.
+		const armar = (chunks: RefChunk[]) => this.resolverChunks(chunks, aliasPropios);
+
 		// El texto oficial cita OTRAS leyes: sin ctx, para que "art. N" suelto no
 		// se enganche por error a la norma actual (solo refs explícitas).
 		if (art.text) {
-			art.textChunks = parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode);
+			art.textChunks = armar(parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode));
 		}
 		if (art.plainLanguageExplanation) {
-			art.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys);
+			art.explanationChunks = armar(pruneDanglingSelfRefs(parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys));
+		}
+		// "Reglamentaciones": referencias sueltas a otras normas ("Decreto 1694/2009")
+		// que el visor pinta como chips debajo del artículo. Van CON contexto de
+		// artículo, como la explicación: acá un "art. N" pelado sí es de esta norma.
+		if (art.regulations?.length) {
+			art.regulationsChunks = art.regulations.map((r) =>
+				armar(pruneDanglingSelfRefs(parseRefChunks(r, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys)),
+			);
 		}
 		for (const seg of art.segments ?? []) {
 			if (seg.text) {
-				seg.textChunks = parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode);
+				seg.textChunks = armar(parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode));
 			}
 			if (seg.plainExplanation) {
-				seg.explanationChunks = pruneDanglingSelfRefs(parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
+				seg.explanationChunks = armar(pruneDanglingSelfRefs(parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys));
 			}
 			if (seg.practicalExample) {
-				seg.exampleChunks = pruneDanglingSelfRefs(parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys);
+				seg.exampleChunks = armar(pruneDanglingSelfRefs(parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys));
 			}
 		}
 	}
@@ -1295,6 +1514,24 @@ export class LawsService implements OnModuleInit {
 			laws: this.registrySources().map((law) => this.registryCore(law)),
 			...this.registryTail(),
 		};
+	}
+
+	/**
+	 * El registry SIN el catálogo de normas: categorías, stubs y alias de slug.
+	 *
+	 * Es lo único que el layout raíz del front necesita meter en el HTML, y por
+	 * eso existe. Antes ahí iba el light entero y el resultado eran **2,4 MB de
+	 * JSON dentro del HTML de cada una de las ~49.000 páginas** (el 85% del peso
+	 * de la página), porque el navegador resolvía cada referencia inline contra
+	 * esa lista. Ahora las referencias vienen resueltas desde acá (ver
+	 * `resolverRef`) y esto pesa **7 kB**.
+	 *
+	 * Hay un segundo ahorro, menos visible: el light son 2,49 MB y **el Data
+	 * Cache de Next descarta todo lo que pase de 2 MB**, así que el layout se lo
+	 * bajaba del backend en CADA generación de página. Esto entra de sobra.
+	 */
+	getRegistryNav() {
+		return this.registryTail();
 	}
 
 	/**
