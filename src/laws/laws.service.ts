@@ -557,6 +557,10 @@ export class LawsService implements OnModuleInit {
 			// Mismo motivo para los números de artículo: una norma nueva o editada
 			// cambia el sitemap.
 			this.articleNumbersCache = null;
+			// Y el sello de versión, que es lo que hace seguro cachear un mes en el
+			// navegador: si no se recalcula acá, las URLs versionadas seguirían
+			// apuntando al catálogo viejo.
+			this.corpusVersionCache = null;
 			for (const id of [...changed.map((m) => m.id), ...toRemove]) this.descachear(id);
 
 			this.stubs = await this.normsDb.listStubs();
@@ -1120,6 +1124,143 @@ export class LawsService implements OnModuleInit {
 		return this.pickArticle(law, articleNumber);
 	}
 
+	/**
+	 * Todo lo que necesita la PÁGINA de un artículo, y nada más.
+	 *
+	 * Existe por una medición: la página pedía `/laws/:id/light`, que trae el
+	 * índice COMPLETO de la norma (número y título de cada artículo), y lo pedía
+	 * de nuevo para cada uno de sus artículos. Sobre las 46.232 páginas de
+	 * artículo del sitio eso son **564 MB por rastreo completo**, el 66% del
+	 * ancho de banda del backend — para usar, de todo ese índice, únicamente el
+	 * artículo anterior y el siguiente.
+	 *
+	 * Acá el anterior y el siguiente se calculan en el servidor, que ya tiene el
+	 * índice en memoria, y viajan como dos objetos de dos campos. El resto de la
+	 * norma va SIN articulado: la ficha (nombre, número, fechas, relaciones) es
+	 * lo único que la página usa además del artículo.
+	 */
+	/**
+	 * Igual que `findArticlePage`, pero resolviendo la norma por su RUTA PÚBLICA.
+	 *
+	 * Con esto la página de un artículo no necesita nada más para renderizarse. La
+	 * versión por id obligaba al front a traducir ruta → id, y la única tabla que
+	 * sabe hacer eso es el registry: 157 kB bajados del backend para averiguar un
+	 * identificador que el backend ya tiene en memoria.
+	 */
+	async findArticlePageByPath(path: string, articleNumber: string) {
+		const meta = this.metaPorRuta(path);
+		if (!meta) throw new NotFoundException(`No hay norma en la ruta "${path}"`);
+		return this.findArticlePage(meta.id, articleNumber);
+	}
+
+	/**
+	 * Norma a partir de una ruta pública, tolerando las formas viejas.
+	 *
+	 * Es el espejo en el servidor de `resolveLeyesLaw` del front, y vive acá por
+	 * el mismo motivo que la resolución de referencias: el front necesitaba el
+	 * registry entero para hacerlo. Acepta la ruta canónica, un id viejo, un alias
+	 * de slug y la ruta por número. Quien llama compara el `frontendPath` que
+	 * vuelve con el que pidió y manda el 308 si difieren.
+	 */
+	private metaPorRuta(path: string): Law | null {
+		const buscada = (path || '').split('?')[0].replace(/\/+$/, '');
+		if (!buscada.startsWith('/')) return null;
+		const todas = this.getAllNorms({ incluirNoListadas: true });
+
+		const canonica = todas.find((l) => computeFrontendPath(l) === buscada);
+		if (canonica) return canonica;
+
+		// Solo /leyes/<algo> tiene formas alternativas; el resto de los tipos usa
+		// una ruta fija y si no coincidió, no existe.
+		const slug = buscada.match(/^\/leyes\/(.+)$/)?.[1];
+		if (!slug) return null;
+
+		const porId = todas.find((l) => l.id === (SLUG_ALIASES[slug] ?? slug));
+		if (porId) return porId;
+
+		const num = slug.match(/^(\d[\d.]*)/)?.[1];
+		if (!num) return null;
+		const canon = num.replace(/\./g, '');
+		return todas.find((l) => l.number.replace(/\./g, '') === canon) ?? null;
+	}
+
+	/**
+	 * La ficha de la norma como la necesita la PÁGINA de un artículo: una lista
+	 * explícita de campos, no la norma "menos el articulado".
+	 *
+	 * Es una allowlist a propósito. Medido sobre el artículo 79 del Código Penal,
+	 * mandar la ficha entera eran 4.578 de los 5.149 bytes de la respuesta —el
+	 * 89%— y ahí viajaban `amendments` (1.718 B), `metadata` con las preguntas
+	 * frecuentes y las listas de obligaciones (1.530 B), `sections` (553 B) y el
+	 * `refsFicha` de la ficha, que esta página no pinta. Con una denylist, el día
+	 * que se agregue un campo nuevo a la norma se cuela solo.
+	 *
+	 * Lo que queda es la unión de lo que usan `ArticuloPageContent` (encabezado,
+	 * fechas y las normas relacionadas) y la cadena de descarga/impresión, que
+	 * arma la portada del PDF del artículo con los datos de publicación.
+	 */
+	private fichaParaArticulo(law: Law) {
+		return {
+			id: law.id,
+			number: law.number,
+			title: law.title,
+			commonName: law.commonName,
+			// `frontendPath` explícito: con esto el front decide el 308 a la ruta
+			// canónica sin tener que consultar el registry.
+			frontendPath: computeFrontendPath(law),
+			status: law.status,
+			normType: law.normType,
+			jurisdiction: law.jurisdiction,
+			summary: law.summary,
+			executiveSummary: law.executiveSummary,
+			sanctionDate: law.sanctionDate,
+			promulgationDate: law.promulgationDate,
+			publicationDate: law.publicationDate,
+			effectiveDate: law.effectiveDate,
+			derogatedDate: law.derogatedDate,
+			boNumber: law.boNumber,
+			issuingBody: law.issuingBody,
+			sourceUrl: law.sourceUrl,
+			// Las usa "Normas relacionadas", que está en esta página.
+			relations: law.relations,
+			// Vacío a propósito: la navegación entre artículos ya viene resuelta en
+			// `prev`/`next`, y este era justamente el campo que pesaba.
+			articles: [] as Article[],
+		};
+	}
+
+	async findArticlePage(id: string, articleNumber: string) {
+		const law = await this.getNormLight(id);
+		if (!law) throw new NotFoundException(`Ley con id "${id}" no encontrada`);
+
+		// La norma existe pero el artículo NO es un caso distinto de "no existe la
+		// norma", y el front los trata distinto: 404 para lo segundo, redirección a
+		// la ficha para lo primero (pasa siempre que una ley modificatoria cita un
+		// artículo del código que modifica y alguien arma la URL a ojo). Por eso
+		// vuelve `article: null` en vez de un 404 que borraría la diferencia.
+		const existe = law.articles?.some(
+			(a) => a.number === articleNumber || slugifyArticle(a.number) === slugifyArticle(articleNumber),
+		);
+		if (!existe) {
+			return { law: this.fichaParaArticulo(law), article: null, prev: null, next: null };
+		}
+
+		const { article } = await this.pickArticle(law, articleNumber);
+
+		// El orden real, que tolera bis/ter (order fraccionario). Mismo criterio
+		// que usaba el front; se muda tal cual para no cambiar la navegación.
+		const orden = [...(law.articles ?? [])].sort((a, b) => a.order - b.order);
+		const i = orden.findIndex((a) => a.id === article.id);
+		const corto = (a?: Article) => (a ? { number: a.number, title: a.title ?? null } : null);
+
+		return {
+			law: this.fichaParaArticulo(law),
+			article,
+			prev: i > 0 ? corto(orden[i - 1]) : null,
+			next: i >= 0 && i < orden.length - 1 ? corto(orden[i + 1]) : null,
+		};
+	}
+
 	async findArticleByNumber(number: string, articleNumber: string) {
 		const canon = (s: string) => s.replace(/\./g, '').replace(/\s+/g, '').toLowerCase();
 		const target = canon(number);
@@ -1130,6 +1271,7 @@ export class LawsService implements OnModuleInit {
 	}
 
 	// ── Pre-cómputo de referencias inline (saca el mega-regex del front) ──────────
+	private corpusVersionCache: string | null = null;
 	private refsComputed = new WeakSet<Law>();
 	private refCtx: {
 		combined: RegExp;
@@ -1531,7 +1673,32 @@ export class LawsService implements OnModuleInit {
 	 * bajaba del backend en CADA generación de página. Esto entra de sobra.
 	 */
 	getRegistryNav() {
-		return this.registryTail();
+		return { ...this.registryTail(), corpusVersion: this.getCorpusVersion() };
+	}
+
+	/**
+	 * Sello de versión del corpus: cambia si y solo si cambió alguna norma.
+	 *
+	 * Existe para poder cachear DURO en el navegador. El `max-age` del navegador
+	 * es una puerta de una sola dirección —no hay forma de purgarlo— así que un
+	 * mes de caché sobre una URL fija dejaría a esa persona con el catálogo viejo
+	 * hasta un mes después de cargar normas nuevas. Con el sello en la URL, la
+	 * dirección cambia cuando cambia el corpus y el caché viejo simplemente queda
+	 * huérfano: se puede cachear un mes SIN riesgo de servir algo vencido.
+	 *
+	 * Se deriva de los datos (cantidad + `updatedAt` más reciente) y no de la hora
+	 * de arranque, así reiniciar el backend NO invalida el caché de nadie.
+	 */
+	getCorpusVersion(): string {
+		if (this.corpusVersionCache) return this.corpusVersionCache;
+		let masReciente = '';
+		for (const n of this.dbNorms) if (n.updatedAt > masReciente) masReciente = n.updatedAt;
+		// Hash corto y estable (djb2) para no exponer fechas en la URL.
+		const crudo = `${this.dbNorms.length}:${masReciente}`;
+		let h = 5381;
+		for (let i = 0; i < crudo.length; i++) h = ((h << 5) + h + crudo.charCodeAt(i)) | 0;
+		this.corpusVersionCache = (h >>> 0).toString(36);
+		return this.corpusVersionCache;
 	}
 
 	/**

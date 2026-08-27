@@ -48,6 +48,16 @@ export class LawsController {
     return this.lawsService.getRegistry();
   }
 
+  // Antes de @Get(':id'), como todas las rutas de un segmento.
+  @Get('article-page')
+  @ApiOperation({ summary: 'Todo lo que necesita la página de un artículo, resuelto por RUTA PÚBLICA: artículo + ficha sin articulado + anterior/siguiente' })
+  findArticlePageByPath(
+    @Query('path') path: string,
+    @Query('num') num: string,
+  ) {
+    return this.lawsService.findArticlePageByPath(path ?? '', num ?? '');
+  }
+
   // Antes de @Get(':id'). Resuelve por ruta pública e incluye las no listadas:
   // es el único camino a una norma con visibility='ENLACE'.
   @Get('by-path')
@@ -100,12 +110,21 @@ export class LawsController {
   }
 
   @Get(':id/article/:articleNumber')
-  @ApiOperation({ summary: 'Un artículo de una ley por id (sin bajar la norma entera)' })
+  @ApiOperation({ summary: 'Un artículo de una ley por id (sin bajar la norma entera). Lo usan los modales del visor' })
   findArticle(
     @Param('id') id: string,
     @Param('articleNumber') articleNumber: string,
   ) {
     return this.lawsService.findArticle(id, articleNumber);
+  }
+
+  @Get(':id/article-page/:articleNumber')
+  @ApiOperation({ summary: 'Artículo + ficha sin articulado + anterior/siguiente: todo lo que necesita la PÁGINA de un artículo. Reemplaza a pedir :id/light por cada artículo' })
+  findArticlePage(
+    @Param('id') id: string,
+    @Param('articleNumber') articleNumber: string,
+  ) {
+    return this.lawsService.findArticlePage(id, articleNumber);
   }
 
   // Antes de @Get(':id'): dos segmentos le ganan a uno.

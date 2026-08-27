@@ -92,17 +92,37 @@ async function bootstrap() {
   // una ruta nueva, el default sigue siendo "no cachear". Nada de /admin, /auth,
   // /account ni /events entra acá, y solo aplica a GET.
   //
-  // Los plazos son cortos porque el corpus se edita en caliente: un refresh del
-  // admin invalida el front (ver notificarFront), y no queremos que un CDN siga
-  // sirviendo la norma vieja mucho después. El `revalidate` que fija Next en sus
-  // fetch tiene precedencia sobre esto, así que no pisa la invalidación por ruta.
+  // POR QUÉ UN MES Y NO CINCO MINUTOS: el corpus cambia poco y su invalidación
+  // NO es por tiempo sino por evento — al editar, `notificarFront` le dice al
+  // front exactamente qué rutas rehacer. Un plazo corto no aporta frescura (la
+  // da el evento) y sí obliga a repreguntar: medido el 27-ago-2026, repreguntar
+  // el índice de una norma en cada página de artículo eran 564 MB por rastreo.
+  //
+  // LA ASIMETRÍA QUE IMPORTA: `s-maxage` (cachés compartidos) es reversible —se
+  // purga—, pero `max-age` (el navegador) NO: una vez que un navegador se guardó
+  // la respuesta por un mes, no hay forma de alcanzarlo. Por eso van distintos:
+  //
+  //   · sin `?v=`  → un mes en compartidos, un minuto en el navegador. El ETag
+  //                  hace que la repregunta del navegador cueste un 304 (~200 B)
+  //                  en vez de la respuesta entera.
+  //   · con `?v=`  → un mes en los dos, `immutable`. Es seguro porque la URL
+  //                  lleva el sello del corpus (LawsService.getCorpusVersion):
+  //                  si el corpus cambia, cambia la URL y el caché viejo queda
+  //                  huérfano en vez de vencido.
+  //
+  // El `revalidate` que fija Next en sus fetch tiene precedencia sobre esto, así
+  // que nada de acá pisa la invalidación por ruta.
+  const UN_MES = 60 * 60 * 24 * 30;
   const CONTENIDO_PUBLICO =
     /^\/api\/(laws|articles|segments|jurisprudencia|constituciones-provinciales)(\/|$)/;
   app.use((req, res, next) => {
     if (req.method === 'GET' && CONTENIDO_PUBLICO.test(req.path)) {
+      const versionada = typeof req.query.v === 'string' && req.query.v.length > 0;
       res.setHeader(
         'Cache-Control',
-        'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+        versionada
+          ? `public, max-age=${UN_MES}, s-maxage=${UN_MES}, immutable`
+          : `public, max-age=60, s-maxage=${UN_MES}, stale-while-revalidate=86400`,
       );
     }
     next();
