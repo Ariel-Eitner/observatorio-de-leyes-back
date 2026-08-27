@@ -1380,14 +1380,20 @@ export class LawsService implements OnModuleInit {
 
 		// Referencia a la propia norma que se está leyendo. `isSelf` le saca el
 		// nombre de la norma a la etiqueta ("Art. 5" en vez de "Art. 5 — Código
-		// Penal"), porque repetirlo en su propia ficha sobra.
+		// Penal"), porque repetirlo en su propia ficha sobra — y en columnas
+		// angostas (la calculadora laboral) el nombre completo rompía el layout.
 		//
-		// El `href` va IGUAL: al visor le sirve para las citas de varios artículos
-		// ("Arts. 42–44"), que siguen siendo un chip clickeable aunque sean de esta
-		// misma norma. Las de un artículo suelto y las de la norma entera se pintan
-		// como texto y ni lo miran.
+		// El `href` va IGUAL, y con el artículo si la cita es a un artículo: las
+		// citas a otro artículo de la misma norma ("ver art. 80") son chips
+		// clickeables. Solo la cita al MISMO artículo que se está leyendo se pinta
+		// como texto plano, y eso lo decide el `isSelf` del chunk, no este target.
 		if (esPropia) {
-			return { available: true, isSelf: true, label: entrada?.label, href: entrada?.href };
+			const href = entrada
+				? articleNumber
+					? `${entrada.href}/articulo/${slugifyArticle(articleNumber)}`
+					: entrada.href
+				: undefined;
+			return { available: true, isSelf: true, label: entrada?.label, href };
 		}
 
 		if (!entrada?.available) {
@@ -1430,7 +1436,14 @@ export class LawsService implements OnModuleInit {
 			return aliasPropios.some((a) => a.toLowerCase() === normalizado.toLowerCase());
 		};
 		for (const c of chunks) {
-			if (c.kind === 'art') c.target = this.resolverRef(c.lawCode, c.articleNumber, c.isSelf);
+			// En los `art`, `esPropia` también cubre la cita a OTRO artículo de la
+			// misma norma ("ver art. 80" dentro del Código Penal): el chip debe
+			// decir "Art. 80" a secas, no "Art. 80 — Código Penal de la Nación
+			// Argentina". El `isSelf` del parser solo marca la cita al MISMO
+			// artículo; sin este OR, todas las citas internas salían con el nombre
+			// completo de la norma repetido — medido: rompía el layout de la
+			// calculadora laboral y ensuciaba cada página de artículo.
+			if (c.kind === 'art') c.target = this.resolverRef(c.lawCode, c.articleNumber, c.isSelf || esPropia(c.lawCode));
 			else if (c.kind === 'multi') c.target = this.resolverRef(c.lawCode, undefined, esPropia(c.lawCode));
 			else if (c.kind === 'law') c.target = this.resolverRef(c.lawCode, undefined, esPropia(c.lawCode));
 		}
