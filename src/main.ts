@@ -133,14 +133,24 @@ async function bootstrap() {
 
 	app.enableCors({
 		origin: (origin, callback) => {
-			console.log('CORS ORIGIN:', origin);
-			console.log('CORS ALLOWED:', allowedOrigins);
+			console.log('================================');
+			console.log('CORS REQUEST');
+			console.log('Origin:', origin);
+			console.log('Allowed:', allowedOrigins);
 
-			if (!origin || allowedOrigins.includes(origin)) {
+			if (!origin) {
+				console.log('CORS RESULT: ALLOWED - NO ORIGIN');
 				return callback(null, true);
 			}
 
-			callback(new Error(`Not allowed by CORS: ${origin}`));
+			if (allowedOrigins.includes(origin)) {
+				console.log('CORS RESULT: ALLOWED');
+				return callback(null, true);
+			}
+
+			console.log('CORS RESULT: REJECTED');
+
+			return callback(new Error(`Not allowed by CORS: ${origin}`));
 		},
 		// origin: (origin, callback) => {
 		// 	// Permitir requests sin origin (SSR, curl local, Postman en dev)
