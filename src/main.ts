@@ -126,7 +126,7 @@ async function bootstrap() {
 	});
 
 	// ── CORS — solo orígenes conocidos ─────────────────────────────────────────
-	const PROD_ORIGINS = ['https://observatorio-de-leyes.com/'];
+	const PROD_ORIGINS = ['https://observatorio-de-leyes.com'];
 	const allowedOrigins = isProd
 		? [...PROD_ORIGINS, ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [])]
 		: ['http://localhost:3000', 'http://localhost:4000'];
