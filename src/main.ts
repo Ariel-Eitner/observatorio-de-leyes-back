@@ -133,22 +133,22 @@ async function bootstrap() {
 
 	app.enableCors({
 		origin: (origin, callback) => {
-			console.log('================================');
 			console.log('CORS REQUEST');
 			console.log('Origin:', origin);
-			console.log('Allowed:', allowedOrigins);
 
 			if (!origin) {
-				console.log('CORS RESULT: ALLOWED - NO ORIGIN');
+				console.log('CORS: ALLOWED (no origin)');
 				return callback(null, true);
 			}
 
 			if (allowedOrigins.includes(origin)) {
-				console.log('CORS RESULT: ALLOWED');
+				console.log('CORS: ALLOWED');
 				return callback(null, true);
 			}
 
-			console.log('CORS RESULT: REJECTED');
+			console.error('🚨 CORS REJECTED!');
+			console.error('Origin rechazado:', JSON.stringify(origin));
+			console.error('Allowed:', allowedOrigins);
 
 			return callback(new Error(`Not allowed by CORS: ${origin}`));
 		},
