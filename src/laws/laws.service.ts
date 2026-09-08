@@ -6,14 +6,23 @@ import type { NormStub } from '../data/norm-stubs';
 import { Article, Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
 import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
-import { buildCombined, buildLawCodesPattern, buildLawNamesIndex, parseRefChunks, pruneDanglingSelfRefs, artNumKey, type RefChunk, type RefTarget } from '../common/utils/inline-refs.util';
+import {
+	buildCombined,
+	buildLawCodesPattern,
+	buildLawNamesIndex,
+	parseRefChunks,
+	pruneDanglingSelfRefs,
+	artNumKey,
+	type RefChunk,
+	type RefTarget,
+} from '../common/utils/inline-refs.util';
 import { INFOLEG_MAP, INFOLEG_BASE_URL } from '../common/utils/infoleg-map';
 import { buildVetos } from './vetos.util';
 
 // Endpoint del front que invalida el caché de las fichas. Va hardcodeado a propósito: el
 // dominio es estable y no justifica una variable de entorno más. El secreto es el mismo
 // ADMIN_SECRET que ya comparten back y front.
-const FRONT_REVALIDATE_URL = 'https://observatorio-de-leyes-front.vercel.app/api/revalidate';
+const FRONT_REVALIDATE_URL = 'https://observatorio-de-leyes.com/api/revalidate';
 
 /**
  * Una norma vista desde el resolvedor de referencias: solo lo que hace falta
@@ -152,9 +161,19 @@ export const LAW_STATIC_META: Record<
 	'ley-26206': { shortCode: 'Ley 26.206', apiPath: '/laws/ley-26206', aliases: ['26.206'], category: 'educacion' },
 	'ley-27802': { shortCode: 'Ley 27.802', apiPath: '/laws/number/27802', aliases: ['27.802'] },
 	'decreto-315-2026': { shortCode: 'Decreto 315/2026', apiPath: '/laws/decreto-315-2026', aliases: ['315/2026'] },
-	'rg-arca-5844-2026': { shortCode: 'RG ARCA 5844/2026', apiPath: '/laws/rg-arca-5844-2026', aliases: ['5844/2026', 'RG 5844'] },
+	'rg-arca-5844-2026': {
+		shortCode: 'RG ARCA 5844/2026',
+		apiPath: '/laws/rg-arca-5844-2026',
+		aliases: ['5844/2026', 'RG 5844'],
+	},
 	'decreto-407-2026': { shortCode: 'Decreto 407/2026', apiPath: '/laws/decreto-407-2026', aliases: ['407/2026'] },
-	'dnu-70-2023': { shortCode: 'DNU 70/2023', apiPath: '/laws/dnu-70-2023', aliases: ['70/2023', 'DNU 70', 'mega DNU', 'decreto 70/2023', 'decreto 70'], isDestacada: true, category: 'economico' },
+	'dnu-70-2023': {
+		shortCode: 'DNU 70/2023',
+		apiPath: '/laws/dnu-70-2023',
+		aliases: ['70/2023', 'DNU 70', 'mega DNU', 'decreto 70/2023', 'decreto 70'],
+		isDestacada: true,
+		category: 'economico',
+	},
 	'decreto-207-2011': { shortCode: 'Decreto 207/2011', apiPath: '/laws/decreto-207-2011' },
 	'carta-onu': {
 		shortCode: 'Carta ONU',
@@ -377,7 +396,7 @@ function compararNormas(a: Law, b: Law, sortBy: SortKey, dir: 1 | -1): number {
 		const [ga, pa, sa] = claveNumero(a.number);
 		const [gb, pb, sb] = claveNumero(b.number);
 		if (ga !== gb) return ga - gb;
-		cmp = (pa - pb) || (sa - sb);
+		cmp = pa - pb || sa - sb;
 	} else if (sortBy === 'title') {
 		cmp = a.title.localeCompare(b.title, 'es');
 	} else if (sortBy === 'articleCount') {
@@ -385,7 +404,7 @@ function compararNormas(a: Law, b: Law, sortBy: SortKey, dir: 1 | -1): number {
 	} else {
 		// year: con el número como desempate, así un año con 200 normas no sale
 		// en orden arbitrario.
-		cmp = (a.year - b.year) || (claveNumero(a.number)[1] - claveNumero(b.number)[1]);
+		cmp = a.year - b.year || claveNumero(a.number)[1] - claveNumero(b.number)[1];
 	}
 	return cmp !== 0 ? cmp * dir : a.id.localeCompare(b.id);
 }
@@ -400,7 +419,13 @@ export class LawsService implements OnModuleInit {
 	private stubs: NormStub[] = [];
 	// Categorías temáticas — fuente: tabla categories en BD. Ya vienen ordenadas
 	// alfabéticamente desde listCategories; el registry las sirve tal cual.
-	private categories: { slug: string; label: string; description: string | null; icon: string | null; color: string | null }[] = [];
+	private categories: {
+		slug: string;
+		label: string;
+		description: string | null;
+		icon: string | null;
+		color: string | null;
+	}[] = [];
 	// Candado para que dos refrescos no corran a la vez.
 	private hydrating = false;
 
@@ -652,11 +677,7 @@ export class LawsService implements OnModuleInit {
 	 * viejas y se mandan en lotes. Cargar 300 leyes nuevas invalida 300 fichas y los
 	 * 4 índices, no el sitio entero.
 	 */
-	private async notificarFront(
-		cambiadas: Law[],
-		eliminadas: string[],
-		nuevas: Set<string>,
-	): Promise<void> {
+	private async notificarFront(cambiadas: Law[], eliminadas: string[], nuevas: Set<string>): Promise<void> {
 		// Solo en producción: en local no tiene sentido (y no queremos que un refresh de
 		// desarrollo vaya a invalidar el caché del sitio real).
 		if (process.env.NODE_ENV !== 'production') return;
@@ -768,7 +789,9 @@ export class LawsService implements OnModuleInit {
 				// Una norma matchea si la categoría está entre sus categorías (principal o secundaria).
 				const cats = law.categories?.length
 					? law.categories
-					: (law.category ?? LAW_STATIC_META[law.id]?.category ? [law.category ?? LAW_STATIC_META[law.id]?.category] : []);
+					: (law.category ?? LAW_STATIC_META[law.id]?.category)
+						? [law.category ?? LAW_STATIC_META[law.id]?.category]
+						: [];
 				if (!cats.includes(category)) return false;
 			}
 			if (q) {
@@ -1004,7 +1027,10 @@ export class LawsService implements OnModuleInit {
 		// articulado en memoria: pedírselo a la BD devolvería vacío.
 		for (const l of normas) {
 			if (!enBd.has(l.id)) {
-				porNorma.set(l.id, l.articles.map((a) => a.number).filter((n) => n?.trim()));
+				porNorma.set(
+					l.id,
+					l.articles.map((a) => a.number).filter((n) => n?.trim()),
+				);
 			}
 		}
 
@@ -1036,8 +1062,7 @@ export class LawsService implements OnModuleInit {
 	async findByFrontendPath(path: string): Promise<Law | null> {
 		const buscada = (path || '').split('?')[0].replace(/\/+$/, '');
 		if (!buscada.startsWith('/')) return null;
-		const meta = this.getAllNorms({ incluirNoListadas: true })
-			.find((l) => computeFrontendPath(l) === buscada);
+		const meta = this.getAllNorms({ incluirNoListadas: true }).find((l) => computeFrontendPath(l) === buscada);
 		return meta ? this.getFullNorm(meta.id) : null;
 	}
 
@@ -1071,9 +1096,7 @@ export class LawsService implements OnModuleInit {
 	 */
 	private async pickArticle(law: Law, articleNumber: string) {
 		const slug = slugifyArticle(articleNumber);
-		const stub = law.articles.find(
-			(a) => a.number === articleNumber || slugifyArticle(a.number) === slug,
-		);
+		const stub = law.articles.find((a) => a.number === articleNumber || slugifyArticle(a.number) === slug);
 		if (!stub) {
 			throw new NotFoundException(`Art. ${articleNumber} no encontrado en "${law.id}"`);
 		}
@@ -1086,11 +1109,7 @@ export class LawsService implements OnModuleInit {
 			if (!completo) {
 				throw new NotFoundException(`Art. ${articleNumber} no encontrado en "${law.id}"`);
 			}
-			this.refChunksDeArticulo(
-				completo,
-				law,
-				new Set(law.articles.map((a) => artNumKey(a.number))),
-			);
+			this.refChunksDeArticulo(completo, law, new Set(law.articles.map((a) => artNumKey(a.number))));
 			article = completo;
 		}
 
@@ -1113,8 +1132,7 @@ export class LawsService implements OnModuleInit {
 	 * (que nunca estuvieron en la BD, así que pedirlas por `loadArticle` daría 404).
 	 */
 	private articuloEnRam(lawId: string, articleId: string): Article | undefined {
-		const enRam =
-			this.fullCache.get(lawId) ?? [...ALL_LAWS, ...NORMAS_CLAVE].find((l) => l.id === lawId);
+		const enRam = this.fullCache.get(lawId) ?? [...ALL_LAWS, ...NORMAS_CLAVE].find((l) => l.id === lawId);
 		return enRam?.articles.find((a) => a.id === articleId);
 	}
 
@@ -1400,14 +1418,10 @@ export class LawsService implements OnModuleInit {
 			// Sin ficha propia, pero puede haber stub: alcanza para la ficha mínima
 			// con el nombre real de la norma y el link a InfoLeg.
 			const stub = this.stubDe(lawCode);
-			return stub
-				? { available: false, stub, label: stub.name }
-				: { available: false, label: entrada?.label };
+			return stub ? { available: false, stub, label: stub.name } : { available: false, label: entrada?.label };
 		}
 
-		const href = articleNumber
-			? `${entrada.href}/articulo/${slugifyArticle(articleNumber)}`
-			: entrada.href;
+		const href = articleNumber ? `${entrada.href}/articulo/${slugifyArticle(articleNumber)}` : entrada.href;
 		const target: RefTarget = { available: true, href, label: entrada.label };
 		if (entrada.status === 'DEROGADA') target.derogada = true;
 		return target;
@@ -1503,9 +1517,10 @@ export class LawsService implements OnModuleInit {
 		const isAvail = (lc: string) => this.refAvailable(lc);
 		const aliasPropios = ctx.porId.get(law.id)?.alias ?? [];
 		const armar = (t: string | null | undefined) =>
-			t ? this.resolverChunks(parseRefChunks(t, ctx.combined, '', undefined, isAvail, ctx.nameToCode), aliasPropios) : undefined;
-		const armarLista = (items: string[] | undefined) =>
-			items?.length ? items.map((i) => armar(i) ?? []) : undefined;
+			t
+				? this.resolverChunks(parseRefChunks(t, ctx.combined, '', undefined, isAvail, ctx.nameToCode), aliasPropios)
+				: undefined;
+		const armarLista = (items: string[] | undefined) => (items?.length ? items.map((i) => armar(i) ?? []) : undefined);
 
 		const m = law.metadata;
 		const ficha = {
@@ -1543,14 +1558,26 @@ export class LawsService implements OnModuleInit {
 			art.textChunks = armar(parseRefChunks(art.text, combined, '', undefined, isAvail, nameToCode));
 		}
 		if (art.plainLanguageExplanation) {
-			art.explanationChunks = armar(pruneDanglingSelfRefs(parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys));
+			art.explanationChunks = armar(
+				pruneDanglingSelfRefs(
+					parseRefChunks(art.plainLanguageExplanation, combined, ctxLawCode, art.number, isAvail, nameToCode),
+					ctxLawCode,
+					validArtKeys,
+				),
+			);
 		}
 		// "Reglamentaciones": referencias sueltas a otras normas ("Decreto 1694/2009")
 		// que el visor pinta como chips debajo del artículo. Van CON contexto de
 		// artículo, como la explicación: acá un "art. N" pelado sí es de esta norma.
 		if (art.regulations?.length) {
 			art.regulationsChunks = art.regulations.map((r) =>
-				armar(pruneDanglingSelfRefs(parseRefChunks(r, combined, ctxLawCode, art.number, isAvail, nameToCode), ctxLawCode, validArtKeys)),
+				armar(
+					pruneDanglingSelfRefs(
+						parseRefChunks(r, combined, ctxLawCode, art.number, isAvail, nameToCode),
+						ctxLawCode,
+						validArtKeys,
+					),
+				),
 			);
 		}
 		for (const seg of art.segments ?? []) {
@@ -1558,10 +1585,22 @@ export class LawsService implements OnModuleInit {
 				seg.textChunks = armar(parseRefChunks(seg.text, combined, '', undefined, isAvail, nameToCode));
 			}
 			if (seg.plainExplanation) {
-				seg.explanationChunks = armar(pruneDanglingSelfRefs(parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys));
+				seg.explanationChunks = armar(
+					pruneDanglingSelfRefs(
+						parseRefChunks(seg.plainExplanation, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode),
+						ctxLawCode,
+						validArtKeys,
+					),
+				);
 			}
 			if (seg.practicalExample) {
-				seg.exampleChunks = armar(pruneDanglingSelfRefs(parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode), ctxLawCode, validArtKeys));
+				seg.exampleChunks = armar(
+					pruneDanglingSelfRefs(
+						parseRefChunks(seg.practicalExample, combined, ctxLawCode, seg.articleNumber, isAvail, nameToCode),
+						ctxLawCode,
+						validArtKeys,
+					),
+				);
 			}
 		}
 	}
@@ -1605,10 +1644,12 @@ export class LawsService implements OnModuleInit {
 			status: law.status,
 			// Alias para resolver "Ley 27.551" / "27551" aunque no haya entrada
 			// hardcodeada: se derivan del número de la propia norma.
-			aliases: Array.from(new Set([
-				...(law.aliases ?? meta.aliases ?? []),
-				...(law.number ? [law.number, law.number.replace(/^(\d+)(\d{3})$/, '$1.$2')] : []),
-			])),
+			aliases: Array.from(
+				new Set([
+					...(law.aliases ?? meta.aliases ?? []),
+					...(law.number ? [law.number, law.number.replace(/^(\d+)(\d{3})$/, '$1.$2')] : []),
+				]),
+			),
 			isDestacada: law.isDestacada ?? meta.isDestacada ?? false,
 			category: law.category ?? meta.category ?? null,
 		};
