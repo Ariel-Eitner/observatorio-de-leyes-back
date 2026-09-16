@@ -62,6 +62,10 @@ const CARPETA_TIPO: Partial<Record<Law['normType'], string>> = {
   DISPOSICION: 'disposiciones',
 };
 
+export function matchesLegacyLawSlug(slug: string, lawId: string): boolean {
+  return slug === lawId || slug.startsWith(`${lawId}-`);
+}
+
 export function computeFrontendPath(law: Law): string {
   if (TIPO_SLUG[law.id]) return TIPO_SLUG[law.id];
   if (law.id.startsWith('const-')) return `/constituciones/${law.id.slice('const-'.length)}`;

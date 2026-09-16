@@ -1,4 +1,4 @@
-import { computeFrontendPath } from './law-url.util';
+import { computeFrontendPath, matchesLegacyLawSlug } from './law-url.util';
 import type { Law } from '../types/law.types';
 
 // Solo usa id, number, title. Construimos objetos mínimos.
@@ -50,6 +50,13 @@ describe('computeFrontendPath', () => {
   it('decreto sin prefijo tipo-norma en el título: usa el título completo', () => {
     expect(computeFrontendPath(law('decreto-1023-2001', '1023/2001', 'Regimen de Contrataciones de la Administracion Nacional')))
       .toBe('/leyes/decreto-1023-2001-regimen-de-contrataciones-de-la-administracion-nacional');
+  });
+
+  it('resuelve slugs heredados con id + sufijo descriptivo para decretos-ley', () => {
+    const slug = 'decreto-ley-6769-1958-organica-de-las-municipalidades-de-la-provincia-de-buenos-ai';
+    expect(matchesLegacyLawSlug(slug, 'decreto-ley-6769-1958')).toBe(true);
+    expect(matchesLegacyLawSlug('decreto-ley-6769-1958', 'decreto-ley-6769-1958')).toBe(true);
+    expect(matchesLegacyLawSlug('otra-cosa', 'decreto-ley-6769-1958')).toBe(false);
   });
 
   it('normas troncales (TIPO_SLUG) siguen en /codigos, /constituciones, /tratados', () => {

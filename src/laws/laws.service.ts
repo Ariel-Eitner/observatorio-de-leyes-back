@@ -5,7 +5,7 @@ import { applyCuratedRelations } from '../data/relations-curadas';
 import type { NormStub } from '../data/norm-stubs';
 import { Article, Law, LawSummary } from '../common/types/law.types';
 import { QueryLawDto } from './dto/query-law.dto';
-import { computeFrontendPath, slugifyArticle } from '../common/utils/law-url.util';
+import { computeFrontendPath, matchesLegacyLawSlug, slugifyArticle } from '../common/utils/law-url.util';
 import {
 	buildCombined,
 	buildLawCodesPattern,
@@ -1195,6 +1195,9 @@ export class LawsService implements OnModuleInit {
 
 		const porId = todas.find((l) => l.id === (SLUG_ALIASES[slug] ?? slug));
 		if (porId) return porId;
+
+		const porLegacyId = todas.find((l) => matchesLegacyLawSlug(slug, l.id));
+		if (porLegacyId) return porLegacyId;
 
 		const num = slug.match(/^(\d[\d.]*)/)?.[1];
 		if (!num) return null;
