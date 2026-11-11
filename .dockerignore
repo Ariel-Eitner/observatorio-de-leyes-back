@@ -1,4 +1,9 @@
 node_modules
+.git
+.local
+reports
+logs
+*.log
 dist
 coverage
 .env*

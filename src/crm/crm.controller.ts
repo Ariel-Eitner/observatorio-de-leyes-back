@@ -1,9 +1,27 @@
-import { Body, Controller, Get, HttpCode, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+  UseGuards,
+  GoneException,
+} from '@nestjs/common';
+import { AdminHeaderGuard } from '../common/guards/admin-header.guard';
 import { FoundersService, UpsertFounderParams } from './founders.service';
 import { ContactoService, CrearContactoParams } from './contacto.service';
 import { LeadsService, UpsertLeadParams } from './leads.service';
-import { ProductOrdersService, CrearOrdenParams } from './product-orders.service';
-import { PagosService, PagoRow, TierAplicado, ProProductoAplicado } from './pagos.service';
+import {
+  ProductOrdersService,
+  CrearOrdenParams,
+} from './product-orders.service';
+import {
+  PagosService,
+  PagoRow,
+  TierAplicado,
+  ProProductoAplicado,
+} from './pagos.service';
 
 /**
  * Endpoints públicos de CRM: alta de fundador, muro, contacto/feedback y leads.
@@ -17,6 +35,7 @@ import { PagosService, PagoRow, TierAplicado, ProProductoAplicado } from './pago
  * el browser.
  */
 @Controller('crm')
+@UseGuards(AdminHeaderGuard)
 export class CrmController {
   constructor(
     private readonly founders: FoundersService,
@@ -50,12 +69,17 @@ export class CrmController {
   @HttpCode(200)
   async comprobante(
     @Param('email') email: string,
-    @Body() body: { url: string; nombre?: string | null; canal?: string | null },
+    @Body()
+    body: { url: string; nombre?: string | null; canal?: string | null },
   ) {
-    const ok = await this.founders.adjuntarComprobante(decodeURIComponent(email), body.url, {
-      nombre: body.nombre,
-      canal: body.canal,
-    });
+    const ok = await this.founders.adjuntarComprobante(
+      decodeURIComponent(email),
+      body.url,
+      {
+        nombre: body.nombre,
+        canal: body.canal,
+      },
+    );
     return { ok };
   }
 
@@ -107,7 +131,10 @@ export class CrmController {
 
   @Post('pagos/:id')
   @HttpCode(200)
-  async actualizarPago(@Param('id') id: string, @Body() patch: Record<string, unknown>) {
+  async actualizarPago(
+    @Param('id') id: string,
+    @Body() patch: Record<string, unknown>,
+  ) {
     const row = await this.pagos.actualizar(id, patch);
     return row ?? { error: 'not_found' };
   }
@@ -139,9 +166,18 @@ export class CrmController {
   @Post('apoyo-aprobado')
   @HttpCode(200)
   async apoyoAprobado(
-    @Body() body: { pago: PagoRow; tier: TierAplicado | null; tipoCambio: number | null },
+    @Body()
+    body: {
+      pago: PagoRow;
+      tier: TierAplicado | null;
+      tipoCambio: number | null;
+    },
   ) {
-    const founderId = await this.pagos.aplicarApoyoAprobado(body.pago, body.tier, body.tipoCambio);
+    const founderId = await this.pagos.aplicarApoyoAprobado(
+      body.pago,
+      body.tier,
+      body.tipoCambio,
+    );
     return { founderId };
   }
 
@@ -149,8 +185,15 @@ export class CrmController {
   @Post('pro-aprobado')
   @HttpCode(200)
   proAprobado(
-    @Body() body: { pago: PagoRow; producto: ProProductoAplicado; tipoCambio: number | null },
+    @Body()
+    body: {
+      pago: PagoRow;
+      producto: ProProductoAplicado;
+      tipoCambio: number | null;
+    },
   ) {
-    return this.pagos.aplicarProAprobado(body.pago, body.producto, body.tipoCambio);
+    throw new GoneException(
+      'La acreditación se procesa mediante el circuito verificado de pagos.',
+    );
   }
 }

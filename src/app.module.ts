@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { BillingModule } from './billing/billing.module';
+import { NotificationsModule } from './notifications/notifications.module';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
@@ -31,9 +33,11 @@ import { MonitorModule }          from './monitor/monitor.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true, ignoreEnvFile: process.env.OBS_LOCAL_SANDBOX === 'true' }),
     ScheduleModule.forRoot(),
     PrismaModule,
+    BillingModule,
+    NotificationsModule,
     // Primero de la lista: su interceptor tiene que envolver a todos los demás
     // para medir el tiempo real de respuesta, no el de un tramo.
     MonitorModule,

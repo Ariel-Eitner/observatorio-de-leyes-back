@@ -1,5 +1,10 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { PrismaService } from '../common/prisma/prisma.service';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from "@nestjs/common";
+import { PrismaService } from "../common/prisma/prisma.service";
+import { BillingService } from "../billing/billing.service";
 
 /**
  * Otorgamiento MANUAL del beneficio de donante (Fundador + Plan Pro).
@@ -16,13 +21,16 @@ import { PrismaService } from '../common/prisma/prisma.service';
  */
 @Injectable()
 export class BenefitsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly billing: BillingService,
+  ) {}
 
   /** Reclamos con el email y el nombre de la cuenta que los hizo. */
   async listClaims(status?: string) {
     const claims = await this.prisma.benefitClaim.findMany({
       where: status ? { status } : undefined,
-      orderBy: { createdAt: 'desc' },
+      orderBy: { createdAt: "desc" },
       take: 200,
     });
     if (claims.length === 0) return [];
@@ -31,7 +39,14 @@ export class BenefitsService {
     // que el usuario se trae aparte y se une en memoria.
     const users = await this.prisma.user.findMany({
       where: { id: { in: [...new Set(claims.map((c) => c.userId))] } },
-      select: { id: true, email: true, nombre: true, plan: true, planUntil: true, isFounder: true },
+      select: {
+        id: true,
+        email: true,
+        nombre: true,
+        plan: true,
+        planUntil: true,
+        isFounder: true,
+      },
     });
     const porId = new Map(users.map((u) => [u.id, u]));
 
@@ -55,40 +70,30 @@ export class BenefitsService {
    * degradar por error un beneficio ya concedido.
    */
   async setBenefit(userId: string, otorgar: boolean, meses = 12) {
-    const user = await this.prisma.user.findUnique({ where: { id: userId } });
-    if (!user) throw new NotFoundException('Usuario no encontrado');
-
-    if (!otorgar) {
-      const actualizado = await this.prisma.user.update({
-        where: { id: userId },
-        data: { isFounder: false, plan: 'free', planUntil: null },
-      });
-      return this.resumen(actualizado);
-    }
-
-    if (!Number.isFinite(meses) || meses < 1 || meses > 1200) {
-      throw new BadRequestException('Cantidad de meses inválida');
-    }
-    const hasta = new Date(Date.now() + meses * 30 * 86_400_000);
-    const planUntil = user.planUntil && user.planUntil > hasta ? user.planUntil : hasta;
-
-    const actualizado = await this.prisma.user.update({
-      where: { id: userId },
-      data: { isFounder: true, plan: 'pro', planUntil },
-    });
-    return this.resumen(actualizado);
+    return this.resumen(
+      await this.billing.adjustLegacyBenefit(userId, otorgar, meses),
+    );
   }
 
   /** Resuelve un reclamo y, si se verifica, otorga el beneficio en el acto. */
-  async resolveClaim(claimId: string, status: 'verificado' | 'rechazado', meses = 12) {
-    if (status !== 'verificado' && status !== 'rechazado') {
-      throw new BadRequestException('Estado inválido');
+  async resolveClaim(
+    claimId: string,
+    status: "verificado" | "rechazado",
+    meses = 12,
+  ) {
+    if (status !== "verificado" && status !== "rechazado") {
+      throw new BadRequestException("Estado inválido");
     }
-    const claim = await this.prisma.benefitClaim.findUnique({ where: { id: claimId } });
-    if (!claim) throw new NotFoundException('Reclamo no encontrado');
+    const claim = await this.prisma.benefitClaim.findUnique({
+      where: { id: claimId },
+    });
+    if (!claim) throw new NotFoundException("Reclamo no encontrado");
 
-    await this.prisma.benefitClaim.update({ where: { id: claimId }, data: { status } });
-    if (status === 'rechazado') return { ok: true, status, usuario: null };
+    await this.prisma.benefitClaim.update({
+      where: { id: claimId },
+      data: { status },
+    });
+    if (status === "rechazado") return { ok: true, status, usuario: null };
 
     const usuario = await this.setBenefit(claim.userId, true, meses);
     return { ok: true, status, usuario };

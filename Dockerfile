@@ -19,6 +19,9 @@ RUN npm prune --production --ignore-scripts
 # ── Stage 2: runner ──────────────────────────────────────────────────────────
 FROM node:22-alpine AS runner
 WORKDIR /app
+ARG APP_VERSION=1.1.0
+ENV APP_VERSION=$APP_VERSION
+LABEL org.opencontainers.image.version=$APP_VERSION
 
 ENV NODE_ENV=production
 
@@ -27,6 +30,7 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/prisma ./prisma
+RUN node -e "if(require('./package.json').version!==process.env.APP_VERSION)process.exit(1)"
 
 EXPOSE 3600
 

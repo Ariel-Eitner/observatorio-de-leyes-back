@@ -4,9 +4,9 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { createHash, randomBytes } from 'crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import * as argon2 from 'argon2';
-import { Prisma } from '@prisma/client';
+import { Prisma, User } from '@prisma/client';
 import { PrismaService } from '../common/prisma/prisma.service';
 
 /** Marcador que queda en los campos de texto obligatorios que no se pueden vaciar. */
@@ -26,7 +26,7 @@ export class AccountDataService {
   // ── Derecho de acceso: copia de los datos ────────────────────────────────────
 
   /**
-   * Devuelve TODO lo que la base tiene sobre esta persona, en un solo JSON.
+   * Devuelve todos los datos que la base tiene sobre esta persona, en un solo JSON.
    *
    * Es el derecho de acceso del art. 14 de la Ley 25.326. Incluye a propósito lo
    * que la persona no ve en la interfaz —el registro en el CRM, los eventos de
@@ -44,80 +44,96 @@ export class AccountDataService {
     const email = user.email;
     const guestId = user.guestId;
 
-    const [saved, folders, claims, sessions, solicitudes, redactorDocs] = await Promise.all([
-      this.prisma.savedLaw.findMany({
-        where: { userId },
-        orderBy: { createdAt: 'desc' },
-        select: { normId: true, nota: true, folderId: true, createdAt: true },
-      }),
-      this.prisma.folder.findMany({
-        where: { userId },
-        orderBy: { ord: 'asc' },
-        select: { id: true, name: true, ord: true, createdAt: true },
-      }),
-      this.prisma.benefitClaim.findMany({
-        where: { userId },
-        orderBy: { createdAt: 'desc' },
-      }),
-      this.prisma.session.findMany({
-        where: { userId },
-        orderBy: { createdAt: 'desc' },
-        // tokenHash queda afuera a propósito: es una credencial, no un dato del titular.
-        select: {
-          createdAt: true,
-          expiresAt: true,
-          lastUsedAt: true,
-          revokedAt: true,
-          ip: true,
-          userAgent: true,
-          device: true,
-        },
-      }),
-      this.prisma.accountRequest.findMany({
-        where: { userId },
-        orderBy: { createdAt: 'desc' },
-        select: {
-          type: true,
-          status: true,
-          contacto: true,
-          notaAdmin: true,
-          detalle: true,
-          createdAt: true,
-          resolvedAt: true,
-        },
-      }),
-      // Documentos del Redactor: son contenido creado por el titular, va completo.
-      this.prisma.redactorDoc.findMany({
-        where: { userId },
-        orderBy: { updatedAt: 'desc' },
-        select: { title: true, content: true, createdAt: true, updatedAt: true },
-      }),
-    ]);
+    const [saved, folders, claims, sessions, solicitudes, redactorDocs] =
+      await Promise.all([
+        this.prisma.savedLaw.findMany({
+          where: { userId },
+          orderBy: { createdAt: 'desc' },
+          select: { normId: true, nota: true, folderId: true, createdAt: true },
+        }),
+        this.prisma.folder.findMany({
+          where: { userId },
+          orderBy: { ord: 'asc' },
+          select: { id: true, name: true, ord: true, createdAt: true },
+        }),
+        this.prisma.benefitClaim.findMany({
+          where: { userId },
+          orderBy: { createdAt: 'desc' },
+        }),
+        this.prisma.session.findMany({
+          where: { userId },
+          orderBy: { createdAt: 'desc' },
+          // tokenHash queda afuera a propósito: es una credencial, no un dato del titular.
+          select: {
+            createdAt: true,
+            expiresAt: true,
+            lastUsedAt: true,
+            revokedAt: true,
+            ip: true,
+            userAgent: true,
+            device: true,
+          },
+        }),
+        this.prisma.accountRequest.findMany({
+          where: { userId },
+          orderBy: { createdAt: 'desc' },
+          select: {
+            type: true,
+            status: true,
+            contacto: true,
+            notaAdmin: true,
+            detalle: true,
+            createdAt: true,
+            resolvedAt: true,
+          },
+        }),
+        // Documentos del Redactor: son contenido creado por el titular, va completo.
+        this.prisma.redactorDoc.findMany({
+          where: { userId },
+          orderBy: { updatedAt: 'desc' },
+          select: {
+            title: true,
+            content: true,
+            createdAt: true,
+            updatedAt: true,
+          },
+        }),
+      ]);
 
     // Huella anterior al registro: se cruza por email y por el guest anónimo.
-    const [lead, founder, pagos, contactos, pedidos, eventos, journey] = await Promise.all([
-      this.prisma.leads.findFirst({ where: { email } }),
-      this.prisma.founders.findFirst({ where: { email } }),
-      this.prisma.pago.findMany({
-        where: guestId ? { OR: [{ email }, { guestId }] } : { email },
-        orderBy: { createdAt: 'desc' },
-      }),
-      this.prisma.contact_submissions.findMany({
-        where: guestId ? { OR: [{ email }, { guest_id: guestId }] } : { email },
-        orderBy: { created_at: 'desc' },
-      }),
-      this.prisma.productOrder.findMany({
-        where: guestId ? { OR: [{ email }, { guestId }] } : { email },
-        orderBy: { createdAt: 'desc' },
-      }),
-      this.prisma.trackingEvent.findMany({
-        where: guestId ? { OR: [{ userId }, { guestId }] } : { userId },
-        orderBy: { createdAt: 'desc' },
-        take: MAX_EVENTOS_EXPORT,
-        select: { type: true, createdAt: true, properties: true, sessionId: true },
-      }),
-      guestId ? this.prisma.userJourney.findUnique({ where: { guestId } }) : Promise.resolve(null),
-    ]);
+    const [lead, founder, pagos, contactos, pedidos, eventos, journey] =
+      await Promise.all([
+        this.prisma.leads.findFirst({ where: { email } }),
+        this.prisma.founders.findFirst({ where: { email } }),
+        this.prisma.pago.findMany({
+          where: guestId ? { OR: [{ email }, { guestId }] } : { email },
+          orderBy: { createdAt: 'desc' },
+        }),
+        this.prisma.contact_submissions.findMany({
+          where: guestId
+            ? { OR: [{ email }, { guest_id: guestId }] }
+            : { email },
+          orderBy: { created_at: 'desc' },
+        }),
+        this.prisma.productOrder.findMany({
+          where: guestId ? { OR: [{ email }, { guestId }] } : { email },
+          orderBy: { createdAt: 'desc' },
+        }),
+        this.prisma.trackingEvent.findMany({
+          where: guestId ? { OR: [{ userId }, { guestId }] } : { userId },
+          orderBy: { createdAt: 'desc' },
+          take: MAX_EVENTOS_EXPORT,
+          select: {
+            type: true,
+            createdAt: true,
+            properties: true,
+            sessionId: true,
+          },
+        }),
+        guestId
+          ? this.prisma.userJourney.findUnique({ where: { guestId } })
+          : Promise.resolve(null),
+      ]);
 
     const leadEvents = lead
       ? await this.prisma.lead_events.findMany({
@@ -150,6 +166,28 @@ export class AccountDataService {
       solicitudes,
       crm: { lead, leadEvents, founder, pagos, contactos, pedidos },
       actividad: { eventos, recorrido: journey },
+      notificaciones: await this.prisma.userNotification.findMany({
+        where: { userId },
+      }),
+      preferenciasDeAvisos: await this.prisma.notificationPreference.findUnique(
+        { where: { userId } },
+      ),
+      opinionesDelProducto: await this.prisma.productFeedback.findMany({
+        where: { userId },
+      }),
+      compras: await this.prisma.billingOrder.findMany({
+        where: { userId },
+        select: {
+          id: true,
+          kind: true,
+          product: true,
+          amount: true,
+          currency: true,
+          months: true,
+          state: true,
+          createdAt: true,
+        },
+      }),
     };
   }
 
@@ -171,7 +209,22 @@ export class AccountDataService {
    * Devuelve el detalle de filas afectadas, que queda asentado en
    * `account_requests` como prueba del alcance de lo que se suprimió.
    */
-  async borrarCuenta(userId: string, password: string, meta: { ip?: string; userAgent?: string }) {
+  async borrarDesdeAdmin(actorId: string, userId: string, password: string, email: string) {
+    const actor = await this.prisma.user.findUnique({where:{id:actorId}});
+    if (!actor?.isAdmin || actor.status !== 'active') throw new ForbiddenException('Se requiere una cuenta administradora activa');
+    if (!(await argon2.verify(actor.passwordHash, password).catch(() => false))) throw new UnauthorizedException('La contraseña del administrador es incorrecta');
+    const user = await this.prisma.user.findUnique({where:{id:userId}});
+    if (!user) throw new NotFoundException('Usuario no encontrado');
+    if (user.isAdmin || actorId === userId) throw new ForbiddenException('Las cuentas administradoras están protegidas');
+    if (email.trim().toLowerCase() !== user.email.toLowerCase()) throw new ForbiddenException('El correo de confirmación no coincide');
+    return this.suprimir(user, {}, `administrador:${actorId}`);
+  }
+
+  async borrarCuenta(
+    userId: string,
+    password: string,
+    meta: { ip?: string; userAgent?: string },
+  ) {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user) throw new NotFoundException('Usuario no encontrado');
 
@@ -187,9 +240,15 @@ export class AccountDataService {
 
     // Se pide la contraseña aunque la sesión ya esté abierta: es una acción
     // irreversible y una sesión robada no debería poder ejecutarla.
-    const ok = await argon2.verify(user.passwordHash, password).catch(() => false);
+    const ok = await argon2
+      .verify(user.passwordHash, password)
+      .catch(() => false);
     if (!ok) throw new UnauthorizedException('La contraseña es incorrecta');
+    return this.suprimir(user, meta, 'el propio titular desde /cuenta');
+  }
 
+  private async suprimir(user: User, meta: {ip?:string;userAgent?:string}, ejecutadoPor: string) {
+    const userId = user.id;
     const email = user.email;
     const emailHash = this.sha256(email);
     const guestId = user.guestId;
@@ -198,6 +257,10 @@ export class AccountDataService {
     const emailAnonimo = `borrado-${sufijo}@anonimizado.local`;
 
     const detalle = await this.prisma.$transaction(async (tx) => {
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
+      const current = await tx.user.findUnique({where:{id:userId}});
+      if (!current) throw new NotFoundException('Usuario no encontrado');
+      if (current.isAdmin) throw new ForbiddenException('Las cuentas administradoras están protegidas');
       const filas: Record<string, number> = {};
 
       // 1. Actividad de navegación: deja de estar atribuida a nadie. Los eventos
@@ -219,7 +282,9 @@ export class AccountDataService {
       // 2. Recorrido congelado del visitante y cuotas de exportación: son índices
       //    por guest_id, no tienen valor sin la persona.
       if (guestId) {
-        filas.user_journeys = (await tx.userJourney.deleteMany({ where: { guestId } })).count;
+        filas.user_journeys = (
+          await tx.userJourney.deleteMany({ where: { guestId } })
+        ).count;
         filas.export_generations = (
           await tx.exportGeneration.deleteMany({ where: { guestId } })
         ).count;
@@ -232,7 +297,9 @@ export class AccountDataService {
         // Los eventos del lead se borran enteros: su `payload` es JSON libre y
         // puede contener el email o el teléfono, así que no hay forma barata de
         // anonimizarlos campo por campo.
-        filas.lead_events = (await tx.lead_events.deleteMany({ where: { lead_id: lead.id } })).count;
+        filas.lead_events = (
+          await tx.lead_events.deleteMany({ where: { lead_id: lead.id } })
+        ).count;
         await tx.leads.update({
           where: { id: lead.id },
           data: {
@@ -251,7 +318,9 @@ export class AccountDataService {
       //    texto libre donde la gente se identifica ("soy Ariel, de tal estudio").
       filas.contact_submissions = (
         await tx.contact_submissions.updateMany({
-          where: guestId ? { OR: [{ email }, { guest_id: guestId }] } : { email },
+          where: guestId
+            ? { OR: [{ email }, { guest_id: guestId }] }
+            : { email },
           data: {
             nombre: ANONIMO,
             apellido: null,
@@ -309,7 +378,12 @@ export class AccountDataService {
       filas.pagos = (
         await tx.pago.updateMany({
           where: guestId ? { OR: [{ email }, { guestId }] } : { email },
-          data: { email: null, nombre: null, guestId: null, metadata: Prisma.DbNull },
+          data: {
+            email: null,
+            nombre: null,
+            guestId: null,
+            metadata: Prisma.DbNull,
+          },
         })
       ).count;
 
@@ -324,35 +398,27 @@ export class AccountDataService {
 
       // 9. La cuenta. Sessions, saved_laws, folders, law_likes y benefit_claims
       //    caen por CASCADE (ver schema.prisma).
+      await tx.billingOrder.updateMany({
+        where: { OR: [{ userId }, { contactEmail: email }] },
+        data: { contactEmail: null, contactName: null },
+      });
+      await tx.domainEvent.updateMany({
+        where: { userId },
+        data: { userId: null },
+      });
+      await tx.ingreso.updateMany({
+        where: { cliente: email },
+        data: { cliente: null, descripcion: ANONIMO },
+      });
       await tx.user.delete({ where: { id: userId } });
       filas.users = 1;
-
+      await tx.accountRequest.create({data:{
+        type:'account_deletion',userId:null,email:null,emailHash,status:'resuelto',resolvedAt:new Date(),
+        ip:meta.ip??null,userAgent:meta.userAgent?.slice(0,500)??null,
+        detalle:{ejecutadoPor,alcance:'borrado de la cuenta y anonimización del CRM',conservado:'pagos y aportes sin datos personales (respaldo contable)',filasAfectadas:filas},
+      }});
       return filas;
     });
-
-    // Asiento del borrado. Va FUERA de la transacción a propósito: si algo
-    // fallara al escribirlo, el borrado ya está hecho y no queremos revertirlo
-    // —el derecho del titular pesa más que la prolijidad de nuestro registro.
-    await this.prisma.accountRequest
-      .create({
-        data: {
-          type: 'account_deletion',
-          userId: null,
-          email: null,
-          emailHash,
-          status: 'resuelto',
-          resolvedAt: new Date(),
-          ip: meta.ip ?? null,
-          userAgent: meta.userAgent?.slice(0, 500) ?? null,
-          detalle: {
-            ejecutadoPor: 'el propio titular desde /cuenta',
-            alcance: 'borrado de la cuenta y anonimización del CRM',
-            conservado: 'pagos y aportes sin datos personales (respaldo contable)',
-            filasAfectadas: detalle,
-          },
-        },
-      })
-      .catch(() => undefined);
 
     return { ok: true, filasAfectadas: detalle };
   }

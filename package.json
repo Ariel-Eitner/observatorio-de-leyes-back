@@ -1,6 +1,6 @@
 {
   "name": "observatorio-de-leyes-backend",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "build": "nest build",
@@ -10,6 +10,12 @@
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "test": "jest",
+    "test:integration": "node operations/test-isolated.cjs",
+    "test:browser": "node operations/test-browser.cjs",
+    "test:docker": "node operations/test-docker.cjs",
+    "sandbox:start": "node operations/local-sandbox.cjs start",
+    "sandbox:stop": "node operations/local-sandbox.cjs stop",
+    "sandbox:status": "node operations/local-sandbox.cjs status",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:report": "jest --reporters=default --reporters=jest-html-reporters",
@@ -25,7 +31,9 @@
     "audit:norm": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-norm.ts",
     "audit:graph": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/audit-graph.ts",
     "tracking:e2e": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts",
-    "tracking:e2e:docker": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts http://localhost:4000 http://localhost:4600/api"
+    "tracking:e2e:docker": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts http://localhost:4000 http://localhost:4600/api",
+    "sandbox:build": "node operations/local-sandbox.cjs build",
+    "docker:local": "node operations/compose.cjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",
@@ -45,6 +53,7 @@
     "class-validator": "^0.14.1",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
+    "csv-parse": "^7.0.2",
     "helmet": "^8.1.0",
     "mammoth": "^1.12.0",
     "minisearch": "^7.2.0",

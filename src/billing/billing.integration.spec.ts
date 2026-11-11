@@ -1,0 +1,986 @@
+import { Test } from "@nestjs/testing";
+import { ValidationPipe, INestApplication } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
+import { createServer, Server } from "http";
+import { createHmac, randomUUID } from "crypto";
+import { PrismaModule } from "../common/prisma/prisma.module";
+import { PrismaService } from "../common/prisma/prisma.service";
+import { CrmModule } from "../crm/crm.module";
+import { BillingModule } from "./billing.module";
+import { BillingService } from "./billing.service";
+import { NotificationsModule } from "../notifications/notifications.module";
+import { NotificationsService } from "../notifications/notifications.service";
+import { ProviderPayment } from "./provider";
+import { PaymentProvider } from "./provider";
+import { BadGatewayException } from "@nestjs/common";
+import { addMonths } from "./catalog";
+import { CuposModule } from "../cupos/cupos.module";
+import { CuposService } from "../cupos/cupos.service";
+import { AccountModule } from "../account/account.module";
+import { ExportsModule } from "../exports/exports.module";
+import * as argon2 from "argon2";
+import { readFileSync } from 'node:fs';
+
+const integration =
+  process.env.OBS_ISOLATED_TEST_DB === "1" ? describe : describe.skip;
+integration("pagos y notificaciones en PostgreSQL aislado", () => {
+  let app: INestApplication,
+    db: PrismaService,
+    billing: BillingService,
+    notifications: NotificationsService,
+    base: string,
+    provider: Server;
+  let user: any,
+    other: any,
+    token: string,
+    otherToken: string,
+    serial = 100;
+  const payments = new Map<string, ProviderPayment>();
+  const idempotency = new Map<string, string>();
+  jest.setTimeout(60000);
+  async function call(
+    route: string,
+    method = "GET",
+    body?: unknown,
+    options: { service?: boolean; token?: string; access?: string } = {
+      service: true,
+      token: undefined,
+    },
+  ) {
+    const response = await fetch(base + route, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...(options.service === false
+          ? {}
+          : { "x-obs-admin": process.env.ADMIN_SECRET }),
+        ...(options.token ? { Authorization: "Bearer " + options.token } : {}),
+        ...(options.access ? { "x-payment-token": options.access } : {}),
+      },
+      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+    });
+    return { status: response.status, data: await response.json() };
+  }
+  const order = () =>
+    billing.create(
+      { requestKey: randomUUID(), tipo: "pro", producto: "pro_mensual" },
+      user.id,
+    );
+  async function payment(id: string, status = "approved") {
+    const p: ProviderPayment = {
+      id: String(++serial),
+      external_reference: id,
+      status,
+      transaction_amount: 26000,
+      currency_id: "ARS",
+      collector_id: 1234,
+      date_last_updated: new Date().toISOString(),
+    };
+    payments.set(String(p.id), p);
+    return p;
+  }
+  beforeAll(async () => {
+    const url = new URL(process.env.DATABASE_URL);
+    if (
+      url.hostname !== "127.0.0.1" ||
+      url.pathname !== "/observatorio_billing_fixture"
+    )
+      throw Error("Se requiere una base efímera local de pruebas");
+    provider = createServer(async (req, res) => {
+      const url = new URL(req.url, "http://localhost");
+      let body = "";
+      for await (const chunk of req) body += chunk;
+      let data: any;
+      const input = body ? JSON.parse(body) : {};
+      if (req.method === "POST" && url.pathname === "/v1/payments") {
+        const key = String(req.headers["x-idempotency-key"]);
+        let id = idempotency.get(key);
+        if (!id) {
+          const p = await payment(input.external_reference);
+          p.transaction_amount = input.transaction_amount;
+          id = String(p.id);
+          idempotency.set(key, id);
+        }
+        data = payments.get(id);
+      } else if (url.pathname === "/v1/payments/search")
+        data = {
+          results: [...payments.values()].filter(
+            (p) =>
+              p.external_reference ===
+              url.searchParams.get("external_reference"),
+          ),
+        };
+      else if (url.pathname.startsWith("/v1/payments/"))
+        data = payments.get(url.pathname.split("/").pop());
+      else if (url.pathname === "/checkout/preferences")
+        data = {
+          id: "fixture-preference",
+          init_point:
+            "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=fixture",
+        };
+      if (!data) {
+        res.statusCode = 404;
+        data = { error: "fixture not found" };
+      }
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify(data));
+    });
+    await new Promise<void>((resolve) =>
+      provider.listen(0, "127.0.0.1", resolve),
+    );
+    process.env.MP_API_BASE_URL = `http://127.0.0.1:${(provider.address() as any).port}`;
+    const module = await Test.createTestingModule({
+      imports: [
+        PrismaModule,
+        BillingModule,
+        NotificationsModule,
+        CrmModule,
+        CuposModule,
+        AccountModule,
+        ExportsModule,
+      ],
+    }).compile();
+    app = module.createNestApplication();
+    app.setGlobalPrefix("api");
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+        forbidNonWhitelisted: true,
+        transform: true,
+      }),
+    );
+    await app.listen(0, "127.0.0.1");
+    base = (await app.getUrl()) + "/api";
+    db = app.get(PrismaService);
+    billing = app.get(BillingService);
+    notifications = app.get(NotificationsService);
+  });
+  afterAll(async () => {
+    await app?.close();
+    await new Promise<void>((resolve) => provider?.close(() => resolve()));
+  });
+  beforeEach(async () => {
+    await db.$executeRawUnsafe(
+      'TRUNCATE TABLE "users", "billing_orders", "provider_events", "domain_events", "notification_campaigns", "pagos", "ingresos", "founders" CASCADE',
+    );
+    payments.clear();
+    idempotency.clear();
+    user = await db.user.create({
+      data: {
+        email: "a@fixture.invalid",
+        passwordHash: "disabled-fixture",
+        status: "active",
+      },
+    });
+    other = await db.user.create({
+      data: {
+        email: "b@fixture.invalid",
+        passwordHash: "disabled-fixture",
+        status: "active",
+      },
+    });
+    const jwt = app.get(JwtService);
+    token = jwt.sign(
+      { sub: user.id, email: user.email, roles: [] },
+      { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
+    );
+    otherToken = jwt.sign(
+      { sub: other.id, email: other.email, roles: [] },
+      { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
+    );
+  });
+  it('la migración importa descargas de meses anteriores y excluye análisis',async()=>{
+    await db.downloadLog.createMany({data:Array.from({length:7},(_,i)=>({userId:user.id,kind:i%2?'ley':'articulo',createdAt:new Date('2025-01-01')}))});
+    await db.downloadLog.create({data:{userId:other.id,kind:'lector'}});
+    const sql=readFileSync('prisma/migrations/20261110210000_lifetime_downloads/migration.sql','utf8');
+    await db.$transaction(async tx=>{
+      // Recreate the pre-migration shape only inside this disposable fixture.
+      await tx.$executeRawUnsafe('ALTER TABLE users DROP COLUMN free_downloads_used');
+      for(const statement of sql.split(';').filter(s=>s.trim())) await tx.$executeRawUnsafe(statement);
+    });
+    expect((await db.user.findUnique({where:{id:user.id}})).freeDownloadsUsed).toBe(5);
+    expect((await db.user.findUnique({where:{id:other.id}})).freeDownloadsUsed).toBe(0);
+    expect((await app.get(CuposService).autorizar(user.id,'ley')).ok).toBe(false);
+  });
+  it("cinco descargas totales entre tipos, incluso con diez solicitudes concurrentes", async () => {
+    const cupos = app.get(CuposService);
+    const results = await Promise.all(
+      Array.from({ length: 10 }, (_, i) =>
+        cupos.autorizar(user.id, ["ley", "articulo", "exportacion"][i % 3]),
+      ),
+    );
+    expect(results.filter((r) => r.ok)).toHaveLength(5);
+    expect(
+      (await db.user.findUnique({ where: { id: user.id } })).freeDownloadsUsed,
+    ).toBe(5);
+    expect(await db.downloadLog.count({ where: { userId: user.id } })).toBe(5);
+    expect((await cupos.resumen(user.id)).descargas.restante).toBe(0);
+    expect(results.every((r) => r.renueva === null)).toBe(true);
+  });
+  it("el saldo no se recupera al cambiar de mes, limpiar logs o vencer Pro; lector separado", async () => {
+    const cupos = app.get(CuposService);
+    await db.user.update({
+      where: { id: user.id },
+      data: { freeDownloadsUsed: 5 },
+    });
+    await db.downloadLog.deleteMany({ where: { userId: user.id } });
+    expect((await cupos.autorizar(user.id, "ley")).ok).toBe(false);
+    expect((await cupos.autorizar(user.id, "lector")).ok).toBe(true);
+    expect((await cupos.autorizar(user.id, "lector")).ok).toBe(false);
+    await db.user.update({
+      where: { id: user.id },
+      data: { plan: "pro", planUntil: new Date(Date.now() + 86400000) },
+    });
+    expect((await cupos.autorizar(user.id, "exportacion")).ok).toBe(true);
+    await db.user.update({
+      where: { id: user.id },
+      data: { planUntil: new Date(Date.now() - 86400000) },
+    });
+    expect((await cupos.autorizar(user.id, "articulo")).ok).toBe(false);
+  });
+  it("exportaciones usan la cuenta autenticada y comparten el saldo sin guestId", async () => {
+    expect(
+      (await call("/exports", "POST", { type: "pdf" }, { service: false }))
+        .status,
+    ).toBe(401);
+    for (let i = 0; i < 5; i++)
+      expect(
+        (
+          await call(
+            "/exports",
+            "POST",
+            { type: i % 2 ? "docx" : "pdf" },
+            { token },
+          )
+        ).data.ok,
+      ).toBe(true);
+    expect(
+      (await call("/cupos/autorizar", "POST", { kind: "ley" }, { token })).data
+        .ok,
+    ).toBe(false);
+    expect(
+      (await call("/exports", "POST", { type: "exe" }, { token })).status,
+    ).toBe(400);
+    expect(
+      (await call("/exports/count", "GET", undefined, { token })).data
+        .remaining,
+    ).toBe(0);
+  });
+  it("borrado admin verifica rol real, contraseña, correo y confirmación; protege admins", async () => {
+    const actor = await db.user.create({
+      data: {
+        email: "admin@fixture.invalid",
+        isAdmin: true,
+        passwordHash: await argon2.hash("Fixture-delete-2026!"),
+      },
+    });
+    const adminToken = app
+      .get(JwtService)
+      .sign(
+        { sub: actor.id },
+        { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
+      );
+    const path = `/admin/users/${other.id}/delete`,
+      body = {
+        email: other.email,
+        password: "Fixture-delete-2026!",
+        confirmation: "BORRAR",
+      };
+    expect(
+      (await call(path, "POST", body, { service: false, token: adminToken }))
+        .status,
+    ).toBe(401);
+    expect((await call(path, "POST", body, { token })).status).toBe(403);
+    expect(
+      (
+        await call(
+          path,
+          "POST",
+          { ...body, password: "incorrecta" },
+          { token: adminToken },
+        )
+      ).status,
+    ).toBe(401);
+    expect(
+      (
+        await call(
+          path,
+          "POST",
+          { ...body, email: user.email },
+          { token: adminToken },
+        )
+      ).status,
+    ).toBe(403);
+    expect(
+      (
+        await call(
+          path,
+          "POST",
+          { ...body, confirmation: "SI" },
+          { token: adminToken },
+        )
+      ).status,
+    ).toBe(400);
+    expect(
+      (
+        await call(
+          `/admin/users/${actor.id}/delete`,
+          "POST",
+          { ...body, email: actor.email },
+          { token: adminToken },
+        )
+      ).status,
+    ).toBe(403);
+    const purchase = await billing.create(
+      { requestKey: randomUUID(), tipo: "pro", producto: "pro_mensual" },
+      other.id,
+    );
+    await billing.apply(await payment(purchase.id));
+    await notifications.deliver();
+    await db.session.create({
+      data: {
+        userId: other.id,
+        tokenHash: randomUUID(),
+        expiresAt: new Date(Date.now() + 86400000),
+      },
+    });
+    expect((await call(path, "POST", body, { token: adminToken })).status).toBe(
+      200,
+    );
+    expect(await db.user.findUnique({ where: { id: other.id } })).toBeNull();
+    expect(await db.session.count({ where: { userId: other.id } })).toBe(0);
+    expect(
+      await db.userNotification.count({ where: { userId: other.id } }),
+    ).toBe(0);
+    expect(
+      (await db.billingOrder.findUnique({ where: { id: purchase.id } }))
+        .contactEmail,
+    ).toBeNull();
+    expect(await db.billingPayment.count()).toBe(1);
+    expect((await db.ingreso.findFirst()).cliente).toBeNull();
+    const audit = await db.accountRequest.findFirst({
+      where: { type: "account_deletion" },
+      orderBy: { createdAt: "desc" },
+    });
+    expect((audit.detalle as any).ejecutadoPor).toBe(
+      "administrador:" + actor.id,
+    );
+  });
+  it("fallar la auditoría revierte todo el borrado administrativo", async () => {
+    const actor = await db.user.create({
+      data: {
+        email: "rollback-admin@fixture.invalid",
+        isAdmin: true,
+        passwordHash: await argon2.hash("Fixture-delete-2026!"),
+      },
+    });
+    const adminToken = app
+      .get(JwtService)
+      .sign(
+        { sub: actor.id },
+        { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
+      );
+    await db.$executeRawUnsafe(
+      "CREATE OR REPLACE FUNCTION deletion_fixture_fail() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'fixture'; END $$",
+    );
+    await db.$executeRawUnsafe(
+      "CREATE TRIGGER deletion_fixture_failure BEFORE INSERT ON account_requests FOR EACH ROW EXECUTE FUNCTION deletion_fixture_fail()",
+    );
+    try {
+      const response = await call(
+        `/admin/users/${other.id}/delete`,
+        "POST",
+        {
+          email: other.email,
+          password: "Fixture-delete-2026!",
+          confirmation: "BORRAR",
+        },
+        { token: adminToken },
+      );
+      expect(response.status).toBe(500);
+      expect(
+        await db.user.findUnique({ where: { id: other.id } }),
+      ).not.toBeNull();
+    } finally {
+      await db.$executeRawUnsafe(
+        "DROP TRIGGER deletion_fixture_failure ON account_requests",
+      );
+    }
+  });
+  it("no ofrece cobros cuando falta la configuración de firma", async () => {
+    const secret = process.env.MP_WEBHOOK_SECRET;
+    try {
+      delete process.env.MP_WEBHOOK_SECRET;
+      expect((await call("/billing/config")).data.enabled).toBe(false);
+      await expect(
+        app.get(PaymentProvider).request("/v1/payments", {}),
+      ).rejects.toThrow();
+      expect(payments.size).toBe(0);
+    } finally {
+      process.env.MP_WEBHOOK_SECRET = secret;
+    }
+  });
+  it("reabre sólo eventos no procesados sin crear cargos", async () => {
+    const o = await order();
+    const p = await payment(o.id);
+    await billing.enqueue("exhausted", String(p.id));
+    const event = await db.providerEvent.findFirst();
+    await db.providerEvent.update({
+      where: { id: event.id },
+      data: { attempts: 12, error: "fixture" },
+    });
+    expect(
+      (
+        await call(
+          `/billing/events/provider/${event.id}/retry`,
+          "POST",
+          {},
+          { service: false },
+        )
+      ).status,
+    ).toBe(401);
+    expect(
+      (await call(`/billing/events/provider/${event.id}/retry`, "POST", {}))
+        .status,
+    ).toBe(200);
+    await billing.tick();
+    expect(await db.entitlementGrant.count()).toBe(1);
+    const processed = await db.providerEvent.findUnique({
+      where: { id: event.id },
+    });
+    await billing.retryEvent("provider", event.id);
+    expect(
+      +(await db.providerEvent.findUnique({ where: { id: event.id } }))
+        .processedAt,
+    ).toBe(+processed.processedAt);
+    expect(payments.size).toBe(1);
+  });
+  it("bloquea CRM financiero sin secreto y retira acreditación antigua", async () => {
+    expect(
+      (await call("/crm/pro-aprobado", "POST", {}, { service: false })).status,
+    ).toBe(401);
+    expect((await call("/crm/pro-aprobado", "POST", {})).status).toBe(410);
+    expect(
+      (await call("/crm/pagos", "POST", {}, { service: false })).status,
+    ).toBe(401);
+  });
+  it("monto/cuenta se fijan en servidor y la orden es idempotente", async () => {
+    const dto = {
+      requestKey: randomUUID(),
+      tipo: "pro",
+      producto: "pro_mensual",
+      monto: 1000,
+    };
+    const a = await call("/billing/orders", "POST", dto, { token });
+    const b = await call("/billing/orders", "POST", dto, { token });
+    expect(a.status).toBe(200);
+    expect(a.data.amount).toBe(26000);
+    expect(b.data.id).toBe(a.data.id);
+    expect(
+      (await call("/billing/orders", "POST", dto, { token: otherToken }))
+        .status,
+    ).toBe(409);
+    expect(
+      (
+        await call("/billing/orders", "POST", {
+          ...dto,
+          requestKey: randomUUID(),
+        })
+      ).status,
+    ).toBe(403);
+  });
+  it("estado privado por propietario, sin confiar en id UUID", async () => {
+    const o = await order();
+    expect(
+      (
+        await call("/billing/orders/" + o.id, "GET", undefined, {
+          token: otherToken,
+        })
+      ).status,
+    ).toBe(403);
+    expect(
+      (await call("/billing/orders/" + o.id, "GET", undefined, { token })).data
+        .paymentConfirmed,
+    ).toBe(false);
+  });
+  it("apoyo anónimo exige capacidad privada y nunca concede Pro", async () => {
+    const o = await billing.create(
+      {
+        requestKey: randomUUID(),
+        tipo: "apoyo",
+        monto: 1000,
+        email: "donor@fixture.invalid",
+      },
+      null,
+    );
+    expect((await call("/billing/orders/" + o.id)).status).toBe(403);
+    expect(
+      (
+        await call("/billing/orders/" + o.id, "GET", undefined, {
+          access: o.accessToken,
+        })
+      ).status,
+    ).toBe(200);
+    const p = await payment(o.id);
+    p.transaction_amount = 1000;
+    await billing.apply(p);
+    expect(await db.entitlementGrant.count()).toBe(0);
+    expect(await db.ingreso.count()).toBe(1);
+  });
+  it("diez entregas concurrentes del mismo pago conceden una sola vez y un aviso", async () => {
+    const o = await order(),
+      p = await payment(o.id);
+    await Promise.all(Array.from({ length: 10 }, () => billing.apply(p)));
+    expect(await db.entitlementGrant.count()).toBe(1);
+    expect(await db.ingreso.count()).toBe(1);
+    expect(await db.domainEvent.count()).toBe(1);
+    await Promise.all([notifications.deliver(), notifications.deliver()]);
+    expect(await db.userNotification.count()).toBe(1);
+  });
+  it("dos compras simultáneas suman los dos períodos", async () => {
+    const [a, b] = await Promise.all([order(), order()]);
+    await Promise.all([
+      billing.apply(await payment(a.id)),
+      billing.apply(await payment(b.id)),
+    ]);
+    const grants = await db.entitlementGrant.findMany({
+      orderBy: [{ grantedAt: "asc" }, { id: "asc" }],
+    });
+    const baseline = await db.billingBaseline.findUnique({
+      where: { userId: user.id },
+    });
+    const expected = addMonths(
+      addMonths(grants[0].grantedAt, 1, baseline.anchorDay),
+      1,
+      baseline.anchorDay,
+    );
+    expect(
+      +(await db.user.findUnique({ where: { id: user.id } })).planUntil,
+    ).toBe(+expected);
+    expect(grants).toHaveLength(2);
+  });
+  it("una falla contable revierte también la concesión; reintento concede sólo una vez", async () => {
+    const o = await order(),
+      p = await payment(o.id);
+    await db.$executeRawUnsafe(
+      `CREATE OR REPLACE FUNCTION billing_fixture_fail() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'fixture failure'; END $$`,
+    );
+    await db.$executeRawUnsafe(
+      "CREATE TRIGGER billing_fixture_failure BEFORE INSERT ON ingresos FOR EACH ROW EXECUTE FUNCTION billing_fixture_fail()",
+    );
+    try {
+      await expect(billing.apply(p)).rejects.toThrow();
+      expect(await db.entitlementGrant.count()).toBe(0);
+      expect((await db.user.findUnique({ where: { id: user.id } })).plan).toBe(
+        "free",
+      );
+    } finally {
+      await db.$executeRawUnsafe(
+        "DROP TRIGGER billing_fixture_failure ON ingresos",
+      );
+    }
+    await billing.apply(p);
+    expect(await db.entitlementGrant.count()).toBe(1);
+    expect(await db.domainEvent.count()).toBe(1);
+  });
+  it("el HTTP de tarjeta usa proveedor simulado e idempotencia de intención", async () => {
+    const o = await order();
+    const payload = {
+      orderId: o.id,
+      attemptKey: randomUUID(),
+      formData: {
+        token: "synthetic-card",
+        payment_method_id: "visa",
+        installments: 1,
+      },
+    };
+    const first = await call("/billing/payments", "POST", payload, { token });
+    const retry = await call("/billing/payments", "POST", payload, { token });
+    expect(first.status).toBe(200);
+    expect(first.data.entitlementActive).toBe(true);
+    expect(retry.data.paymentConfirmed).toBe(true);
+    expect(payments.size).toBe(1);
+  });
+  it("firma obligatoria, ACK durable y deduplicación del webhook", async () => {
+    const o = await order(),
+      p = await payment(o.id),
+      id = String(p.id),
+      requestId = "fixture-request",
+      ts = "1794319200";
+    expect(
+      (
+        await call(
+          "/billing/webhook?data.id=" + id,
+          "POST",
+          { data: { id } },
+          { service: false },
+        )
+      ).status,
+    ).toBe(403);
+    const signature = `ts=${ts},v1=${createHmac("sha256", process.env.MP_WEBHOOK_SECRET).update(`id:${id};request-id:${requestId};ts:${ts};`).digest("hex")}`;
+    for (let i = 0; i < 2; i++) {
+      const response = await fetch(base + "/billing/webhook?data.id=" + id, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-request-id": requestId,
+          "x-signature": signature,
+        },
+        body: JSON.stringify({ type: "payment", data: { id } }),
+      });
+      expect(response.status).toBe(200);
+    }
+    expect(await db.providerEvent.count()).toBe(1);
+    expect(await db.entitlementGrant.count()).toBe(0);
+    await billing.tick();
+    expect(await db.entitlementGrant.count()).toBe(1);
+    expect((await db.providerEvent.findFirst()).processedAt).not.toBeNull();
+  });
+  it("monto o receptor incorrectos no acreditan", async () => {
+    const o = await order(),
+      p = await payment(o.id);
+    p.transaction_amount = 1;
+    await expect(billing.apply(p)).rejects.toThrow();
+    expect(await db.entitlementGrant.count()).toBe(0);
+    expect(
+      (await db.billingOrder.findUnique({ where: { id: o.id } })).state,
+    ).toBe("review");
+    p.transaction_amount = 26000;
+    p.collector_id = 999;
+    await expect(billing.apply(p)).rejects.toThrow();
+    expect(await db.entitlementGrant.count()).toBe(0);
+  });
+  it("reembolso retira sólo su concesión y no duplica reversión contable", async () => {
+    const a = await order(),
+      b = await order(),
+      p = await payment(a.id),
+      q = await payment(b.id);
+    await billing.apply(p);
+    await billing.apply(q);
+    p.status = "refunded";
+    p.date_last_updated = new Date(Date.now() + 1000).toISOString();
+    await billing.apply(p);
+    await billing.apply(p);
+    expect(await db.entitlementGrant.count({ where: { active: true } })).toBe(
+      1,
+    );
+    expect(await db.ingreso.count({ where: { monto: { lt: 0 } } })).toBe(1);
+    expect((await db.user.findUnique({ where: { id: user.id } })).plan).toBe(
+      "pro",
+    );
+  });
+  it("evento antiguo no retrocede un pago verificado", async () => {
+    const o = await order(),
+      p = await payment(o.id);
+    await billing.apply(p);
+    await billing.apply({
+      ...p,
+      status: "pending",
+      date_last_updated: new Date(Date.now() - 100000).toISOString(),
+    });
+    expect(
+      (await db.billingOrder.findUnique({ where: { id: o.id } })).state,
+    ).toBe("approved");
+  });
+  it("conserva Pro histórico permanente y distinción de fundador tras reembolso", async () => {
+    await db.user.update({
+      where: { id: user.id },
+      data: { isFounder: true, plan: "pro", planUntil: null },
+    });
+    const o = await order(),
+      p = await payment(o.id);
+    await billing.apply(p);
+    p.status = "refunded";
+    p.date_last_updated = new Date(Date.now() + 1000).toISOString();
+    await billing.apply(p);
+    const u = await db.user.findUnique({ where: { id: user.id } });
+    expect(u.isFounder).toBe(true);
+    expect(u.plan).toBe("pro");
+    expect(u.planUntil).toBeNull();
+  });
+  it("campaña congela audiencia, excluye admin y respeta preferencias", async () => {
+    await db.user.update({ where: { id: other.id }, data: { isAdmin: true } });
+    const c = await notifications.createCampaign({
+      requestKey: randomUUID(),
+      title: "Novedad",
+      body: "Mensaje de prueba",
+      category: "product",
+      actionPath: "/cuenta",
+    });
+    expect((await notifications.preview(c.id)).eligible).toBe(1);
+    expect((await notifications.publish(c.id)).recipients).toBe(1);
+    await db.user.create({
+      data: { email: "late@fixture.invalid", passwordHash: "disabled" },
+    });
+    expect((await notifications.publish(c.id)).recipients).toBe(1);
+    expect(await db.userNotification.count()).toBe(1);
+    expect((await notifications.count(user.id)).count).toBe(1);
+  });
+  it("marcar, desmarcar, archivar y restaurar no toca bandeja ajena", async () => {
+    const row = await db.userNotification.create({
+      data: {
+        userId: user.id,
+        eventKey: randomUUID(),
+        category: "account",
+        title: "Aviso",
+        body: "Prueba",
+      },
+    });
+    expect(
+      (
+        await call(
+          "/notifications/" + row.id + "/read",
+          "PATCH",
+          { read: true },
+          { token: otherToken },
+        )
+      ).status,
+    ).toBe(404);
+    await Promise.all([
+      notifications.read(user.id, row.id, true),
+      notifications.read(user.id, row.id, true),
+    ]);
+    expect((await notifications.count(user.id)).count).toBe(0);
+    await notifications.read(user.id, row.id, false);
+    expect((await notifications.count(user.id)).count).toBe(1);
+    expect(
+      (await db.userNotification.findUnique({ where: { id: row.id } }))
+        .firstOpenedAt,
+    ).not.toBeNull();
+    await notifications.archive(user.id, row.id, true);
+    expect((await notifications.list(user.id)).items).toHaveLength(0);
+    await notifications.archive(user.id, row.id, false);
+    expect((await notifications.list(user.id)).items).toHaveLength(1);
+  });
+  it("marketing requiere preferencia y retirarla no habilita nuevos envíos", async () => {
+    const c = await notifications.createCampaign({
+      requestKey: randomUUID(),
+      title: "Oferta",
+      body: "Promoción",
+      category: "marketing",
+    });
+    expect((await notifications.preview(c.id)).eligible).toBe(0);
+    await notifications.preferences(user.id, {
+      product: true,
+      marketing: true,
+    });
+    expect((await notifications.publish(c.id)).recipients).toBe(1);
+    await notifications.withdraw(c.id);
+    expect((await notifications.list(user.id)).items).toHaveLength(0);
+  });
+  it("feedback admite crítica, es único por destinatario y valida puntuación", async () => {
+    const c = await notifications.createCampaign({
+      requestKey: randomUUID(),
+      title: "Opinión",
+      body: "Contanos",
+      category: "product",
+    });
+    await notifications.publish(c.id);
+    expect(
+      (
+        await call(
+          "/notifications/campaigns/" + c.id + "/feedback",
+          "POST",
+          { score: 0 },
+          { token },
+        )
+      ).status,
+    ).toBe(400);
+    await notifications.feedback(user.id, c.id, {
+      score: 1,
+      comment: "No me sirvió",
+    });
+    await notifications.feedback(user.id, c.id, {
+      score: 2,
+      comment: "Falta mejorar",
+    });
+    expect(await db.productFeedback.count({ where: { userId: user.id } })).toBe(
+      1,
+    );
+  });
+  it("cursor pagina sin duplicados y marcar todas conserva un aviso futuro", async () => {
+    const now = new Date();
+    await db.userNotification.createMany({
+      data: Array.from({ length: 25 }, (_, i) => ({
+        userId: user.id,
+        eventKey: randomUUID(),
+        category: "account",
+        title: "Aviso " + i,
+        body: "Prueba",
+        createdAt: now,
+      })),
+    });
+    const first = await notifications.list(user.id);
+    const second = await notifications.list(user.id, first.nextCursor);
+    expect(first.items.length + second.items.length).toBe(25);
+    expect(
+      new Set([...first.items, ...second.items].map((x) => x.id)).size,
+    ).toBe(25);
+    await db.userNotification.create({
+      data: {
+        userId: user.id,
+        eventKey: randomUUID(),
+        category: "account",
+        title: "Posterior",
+        body: "Prueba",
+        createdAt: new Date(Date.now() + 60000),
+      },
+    });
+    await notifications.readAll(user.id);
+    expect((await notifications.count(user.id)).count).toBe(1);
+  });
+  it("respuesta perdida del proveedor se recupera por conciliación sin volver a cobrar", async () => {
+    const o = await order();
+    const provider = app.get(PaymentProvider);
+    const original = provider.request.bind(provider);
+    const spy = jest
+      .spyOn(provider, "request")
+      .mockImplementationOnce(async (...args) => {
+        await original(...args);
+        throw new BadGatewayException("Respuesta perdida");
+      });
+    try {
+      await billing.submit(
+        await billing.owned(o.id, user.id, null),
+        randomUUID(),
+        { token: "synthetic", payment_method_id: "visa" },
+      );
+    } finally {
+      spy.mockRestore();
+    }
+    expect(payments.size).toBe(1);
+    expect(await db.entitlementGrant.count()).toBe(0);
+    await db.billingOrder.update({
+      where: { id: o.id },
+      data: { createdAt: new Date(Date.now() - 120000) },
+    });
+    await billing.reconcile();
+    await billing.tick();
+    expect(await db.entitlementGrant.count()).toBe(1);
+    expect(payments.size).toBe(1);
+  });
+  it("dos cobros de una misma orden se registran, pero no duplican el derecho", async () => {
+    const o = await order(),
+      p = await payment(o.id),
+      q = await payment(o.id);
+    await billing.apply(p);
+    await billing.apply(q);
+    expect(await db.entitlementGrant.count()).toBe(1);
+    expect(await db.ingreso.count()).toBe(2);
+    expect(
+      (await db.billingOrder.findUnique({ where: { id: o.id } })).state,
+    ).toBe("review");
+    q.status = "refunded";
+    q.date_last_updated = new Date(Date.now() + 1000).toISOString();
+    await billing.apply(q);
+    const sum = await db.ingreso.aggregate({ _sum: { monto: true } });
+    expect(sum._sum.monto).toBe(26000);
+    expect(await db.entitlementGrant.count({ where: { active: true } })).toBe(
+      1,
+    );
+  });
+  it("reembolso recibido antes de aprobación conserva balance neto cero sin acreditar", async () => {
+    const o = await order(),
+      p = await payment(o.id, "refunded");
+    await billing.apply(p);
+    expect(await db.entitlementGrant.count()).toBe(0);
+    expect(
+      (await db.ingreso.aggregate({ _sum: { monto: true } }))._sum.monto,
+    ).toBe(0);
+  });
+  it("reembolso parcial pasa a revisión sin revocar automáticamente otros derechos", async () => {
+    const o = await order(),
+      p = await payment(o.id);
+    await billing.apply(p);
+    await expect(
+      billing.apply({ ...p, transaction_amount_refunded: 1000 }),
+    ).rejects.toThrow();
+    expect(await db.entitlementGrant.count({ where: { active: true } })).toBe(
+      1,
+    );
+    expect((await billing.health()).reviewOrders).toBe(1);
+  });
+  it("fallo de entrega de aviso no afecta al pago ni a Pro", async () => {
+    const o = await order();
+    await billing.apply(await payment(o.id));
+    await db.$executeRawUnsafe(
+      `CREATE OR REPLACE FUNCTION notification_fixture_fail() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'fixture delivery failure'; END $$`,
+    );
+    await db.$executeRawUnsafe(
+      "CREATE TRIGGER notification_fixture_failure BEFORE INSERT ON user_notifications FOR EACH ROW EXECUTE FUNCTION notification_fixture_fail()",
+    );
+    try {
+      await notifications.deliver();
+      expect(await db.userNotification.count()).toBe(0);
+      expect(await db.entitlementGrant.count({ where: { active: true } })).toBe(
+        1,
+      );
+      expect((await db.domainEvent.findFirst()).attempts).toBe(1);
+    } finally {
+      await db.$executeRawUnsafe(
+        "DROP TRIGGER notification_fixture_failure ON user_notifications",
+      );
+    }
+    await db.domainEvent.updateMany({ data: { nextAttemptAt: new Date() } });
+    await notifications.deliver();
+    expect(await db.userNotification.count()).toBe(1);
+  });
+  it("lease vigente impide procesar; lease vencido se recupera", async () => {
+    const o = await order(),
+      p = await payment(o.id);
+    await billing.enqueue("lease-test", String(p.id));
+    await db.providerEvent.updateMany({
+      data: { leaseUntil: new Date(Date.now() + 60000) },
+    });
+    await billing.tick();
+    expect(await db.entitlementGrant.count()).toBe(0);
+    await db.providerEvent.updateMany({
+      data: { leaseUntil: new Date(Date.now() - 1000) },
+    });
+    await billing.tick();
+    expect(await db.entitlementGrant.count()).toBe(1);
+  });
+  it("retirar un beneficio manual preserva una compra pagada", async () => {
+    const o = await order();
+    await billing.apply(await payment(o.id));
+    const until = (await db.user.findUnique({ where: { id: user.id } }))
+      .planUntil;
+    await billing.adjustLegacyBenefit(user.id, true, 12);
+    await billing.adjustLegacyBenefit(user.id, false, 12);
+    const u = await db.user.findUnique({ where: { id: user.id } });
+    expect(u.isFounder).toBe(false);
+    expect(u.plan).toBe("pro");
+    expect(+u.planUntil).toBe(+until);
+  });
+  it("RLS niega lectura directa a un rol anónimo aunque tenga permiso SELECT", async () => {
+    await order();
+    await db.$executeRawUnsafe(
+      `DO $$ BEGIN IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname='billing_fixture_anon') THEN CREATE ROLE billing_fixture_anon; END IF; END $$`,
+    );
+    await db.$executeRawUnsafe(
+      "GRANT USAGE ON SCHEMA public TO billing_fixture_anon",
+    );
+    await db.$executeRawUnsafe(
+      "GRANT SELECT ON billing_orders TO billing_fixture_anon",
+    );
+    const rows = await db.$transaction(async (tx) => {
+      await tx.$executeRawUnsafe("SET LOCAL ROLE billing_fixture_anon");
+      return tx.$queryRawUnsafe<any[]>("SELECT id FROM billing_orders");
+    });
+    expect(rows).toHaveLength(0);
+  });
+  it("borrado de usuario elimina bandeja y feedback sin borrar movimientos financieros", async () => {
+    const o = await order();
+    await billing.apply(await payment(o.id));
+    await notifications.deliver();
+    await db.billingOrder.updateMany({
+      where: { userId: user.id },
+      data: { contactEmail: null, contactName: null },
+    });
+    await db.user.delete({ where: { id: user.id } });
+    expect(await db.userNotification.count()).toBe(0);
+    expect(await db.billingPayment.count()).toBe(1);
+    expect(await db.ingreso.count()).toBe(1);
+    await expect(billing.owned(o.id, null, o.accessToken)).rejects.toThrow();
+  });
+});

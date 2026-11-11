@@ -1,0 +1,181 @@
+services:
+  db:
+    # PostgreSQL 17 para igualar producción (17.6). Con PG16 un dump de prod no
+    # restaura: pg_restore aborta o deja tablas a medias, porque el formato
+    # custom de pg_dump 17 no lo lee un servidor anterior.
+    image: postgres:17-alpine
+    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-db-postgres-17
+    environment:
+      POSTGRES_USER: observatorio
+      POSTGRES_PASSWORD: observatorio
+      POSTGRES_DB: observatorio
+      # Sin esto el initdb usa la locale del contenedor y los ORDER BY sobre
+      # texto acentuado ordenan distinto que en producción.
+      LANG: es_AR.utf8
+      POSTGRES_INITDB_ARGS: '--encoding=UTF8'
+    ports:
+      # 5433 en el host, NO 5432: si tenés un Postgres instalado en Windows el
+      # puerto default ya está tomado y el contenedor no levanta.
+      - '5433:5432'
+    volumes:
+      - db_local:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U observatorio -d observatorio']
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  backend:
+    image: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-backend:${OBSERVATORIO_VERSION:-1.1.0}
+    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-backend-${OBSERVATORIO_VERSION:-1.1.0}
+    build:
+      context: ./observatorio-de-leyes-backend
+      dockerfile: Dockerfile
+      args:
+        APP_VERSION: ${OBSERVATORIO_VERSION:-1.1.0}
+    environment:
+      NODE_ENV: production
+      PORT: 3600
+      FRONTEND_URL: http://localhost:4000
+      ADMIN_SECRET: ${ADMIN_SECRET}
+      # Monitor de consumo (/admin/monitor). Vive en memoria, con topes duros.
+      # MONITOR_ENABLED=false y el interceptor devuelve en la primera linea.
+      MONITOR_ENABLED: ${MONITOR_ENABLED:-true}
+      # Hardcodeado, NO ${DATABASE_URL}: la variable del .env apunta a producción
+      # y leerla acá sería dejar el accidente a un typo de distancia. Host 'db' =
+      # nombre del servicio, se resuelve por la red interna de Docker.
+      DATABASE_URL: postgresql://observatorio:observatorio@db:5432/observatorio?schema=public
+      # El backend avisa al arrancar contra qué base corre (ver common/db-env.ts).
+      DB_ENV: ${DB_ENV:-development}
+      # Default FALSE: el "limpiar tracking" del panel no vacía nada salvo que se
+      # pida a propósito. La base es local, pero llenarla cuesta un restore de
+      # producción — "descartable" no quiere decir que sobre borrarla de un click.
+      # Para una limpieza real: ALLOW_DESTRUCTIVE=true docker compose up -d
+      ALLOW_DESTRUCTIVE: ${ALLOW_DESTRUCTIVE:-false}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_SERVICE_KEY: ${SUPABASE_SERVICE_KEY}
+      # Mercado Pago (secretos server-side).
+      MP_ACCESS_TOKEN: ${MP_ACCESS_TOKEN}
+      BILLING_ENABLED: ${BILLING_ENABLED:-false}
+      MP_COLLECTOR_ID: ${MP_COLLECTOR_ID:-}
+      MP_WEBHOOK_SECRET: ${MP_WEBHOOK_SECRET:-}
+      MP_SITE_URL: ${MP_SITE_URL:-}
+      MP_CLIENT_ID: ${MP_CLIENT_ID}
+      MP_CLIENT_SECRET: ${MP_CLIENT_SECRET}
+      # ── Auth / sistema de usuarios ──
+      # AUTH_ENABLED gatea /api/auth/*: sin 'true' devuelve 404 (nadie entra).
+      # En el deploy real (Render) NO setear estas hasta querer abrir auth.
+      AUTH_ENABLED: ${AUTH_ENABLED:-false}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
+      JWT_ACCESS_TTL: ${JWT_ACCESS_TTL:-15m}
+      REFRESH_TTL_DAYS: ${REFRESH_TTL_DAYS:-30}
+      ADMIN_EMAILS: ${ADMIN_EMAILS}
+    ports:
+      - '4600:3600'
+    volumes:
+      - backend_logs:/app/logs
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.2'
+          memory: 256M
+        reservations:
+          cpus: '0.05'
+          memory: 64M
+    healthcheck:
+      # /live (proceso vivo), NO /health (que además espera a que el corpus esté cargado).
+      # Acá solo queremos que el frontend, que depende de este servicio con
+      # `condition: service_healthy`, arranque sin esperar los ~8 min del corpus.
+      # Las rutas que sí lo necesitan devuelven 503 mientras tanto (CorpusReadyGuard).
+      # Nest escucha en IPv4; localhost puede resolver primero a ::1 en Alpine.
+      test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:3600/api/live || exit 1']
+      interval: 30s
+      timeout: 5s
+      # Historia, para que no se repita: el corpus se hidrataba ANTES de abrir el puerto. Eran
+      # ~97 s con 911 normas (14-jul-2026) y >439 s con 1.261 (16-jul) → Docker marcaba
+      # `unhealthy`, el frontend ni arrancaba y el `up` moría con "dependency failed to start".
+      # Subir el `start_period` solo pateaba el problema: el arranque crecía con cada norma.
+      # Ahora LawsService.onModuleInit hidrata en background y /live contesta en ~5 s.
+      #
+      # Y NO: subir el lote de hidratación tampoco ayuda (probado: BATCH=16 → 285 s, 3x peor;
+      # el cuello es la CPU, no la red).
+      start_period: 60s
+      start_interval: 5s
+      retries: 5
+
+  frontend:
+    image: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-frontend:${OBSERVATORIO_VERSION:-1.1.0}
+    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-frontend-${OBSERVATORIO_VERSION:-1.1.0}
+    build:
+      context: ./observatorio-de-leyes-frontend
+      dockerfile: Dockerfile
+      args:
+        APP_VERSION: ${OBSERVATORIO_VERSION:-1.1.0}
+        # URL que verá el browser del usuario final.
+        # Si desplegás en un servidor, reemplazá localhost por tu IP/dominio.
+        NEXT_PUBLIC_API_URL: http://localhost:4600/api
+        # Public Key de MP: se hornea en build (NEXT_PUBLIC_*).
+        NEXT_PUBLIC_MP_PUBLIC_KEY: ${NEXT_PUBLIC_MP_PUBLIC_KEY}
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      # Next standalone bindea a HOSTNAME; sin esto Docker lo fija al id del
+      # contenedor y el healthcheck contra loopback (127.0.0.1) falla.
+      HOSTNAME: 0.0.0.0
+      INTERNAL_API_URL: http://backend:3600/api
+      # Cookies de sesión: false en el Docker local (http://localhost); true en
+      # el deploy real por HTTPS (Vercel).
+      AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-false}
+      # /admin sin login en el stack local. Produccion no lee este archivo (Vercel
+      # y Render no levantan compose) y ademas el bypass exige que el Host sea
+      # loopback o IP privada, asi que una fuga de la variable seria inofensiva.
+      # Ver app/lib/localBypass.ts. Para volver a pedir cuenta: ADMIN_BYPASS_LOCAL=false
+      ADMIN_BYPASS_LOCAL: ${ADMIN_BYPASS_LOCAL:-true}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      ADMIN_SECRET: ${ADMIN_SECRET}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_SERVICE_KEY: ${SUPABASE_SERVICE_KEY}
+      # Mercado Pago (secretos server-side; la public key va por build arg arriba).
+      MP_ACCESS_TOKEN: ${MP_ACCESS_TOKEN}
+      MP_CLIENT_ID: ${MP_CLIENT_ID}
+      MP_CLIENT_SECRET: ${MP_CLIENT_SECRET}
+      MP_WEBHOOK_SECRET: ${MP_WEBHOOK_SECRET}
+      MP_SITE_URL: ${MP_SITE_URL}
+    ports:
+      - '4000:3000'
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.05'
+          memory: 128M
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:3000/api/health || exit 1']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  # OJO: el nombre importa. Docker lo prefija con el del proyecto, así que este
+  # es `observatorio-de-leyes_db_local` — el mismo que ya tiene los datos
+  # restaurados. Renombrarlo equivale a empezar con la base vacía.
+  db_local:
+  backend_logs:

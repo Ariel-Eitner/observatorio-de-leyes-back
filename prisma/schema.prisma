@@ -106,35 +106,35 @@ model contact_submissions {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model founders {
-  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  created_at      DateTime  @default(now()) @db.Timestamptz(6)
-  updated_at      DateTime  @default(now()) @db.Timestamptz(6)
-  nombre          String
-  email           String    @unique
-  canal           String?
-  confirmed_at    DateTime? @db.Timestamptz(6)
-  utm_source      String?
-  utm_medium      String?
-  utm_campaign    String?
-  utm_content     String?
-  utm_term        String?
-  pagado          Boolean?  @default(false)
-  comprobante_url String?
-  comprobante_at  DateTime? @db.Timestamptz(6)
-  telefono        String?
+  id                    String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at            DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at            DateTime  @default(now()) @db.Timestamptz(6)
+  nombre                String
+  email                 String    @unique
+  canal                 String?
+  confirmed_at          DateTime? @db.Timestamptz(6)
+  utm_source            String?
+  utm_medium            String?
+  utm_campaign          String?
+  utm_content           String?
+  utm_term              String?
+  pagado                Boolean?  @default(false)
+  comprobante_url       String?
+  comprobante_at        DateTime? @db.Timestamptz(6)
+  telefono              String?
   // Beneficio Pro para donantes verificados: se otorga a mano desde el panel.
   beneficio             String?
   beneficio_meses       Int?
   beneficio_otorgado_at DateTime? @db.Timestamptz(6)
   beneficio_hasta       DateTime? @db.Timestamptz(6)
   beneficio_nota        String?
-  guest_id        String?
-  mensaje         String?
-  nivel           String?
-  oculto_muro     Boolean   @default(false)
+  guest_id              String?
+  mensaje               String?
+  nivel                 String?
+  oculto_muro           Boolean   @default(false)
   // Prueba de consentimiento (ley 25.326). Bumpear CONSENT_VERSION al cambiar el texto.
-  consent_at      DateTime? @db.Timestamptz(6)
-  consent_version String?
+  consent_at            DateTime? @db.Timestamptz(6)
+  consent_version       String?
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -204,21 +204,21 @@ model tracking_daily_summary {
 }
 
 model Egreso {
-  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  fecha       DateTime @db.Date
-  proveedor   String
-  categoria   String   // INFRA | HERRAMIENTAS | HONORARIOS | PUBLICIDAD | EQUIPO | IMPUESTOS | OTRO
-  descripcion String?
-  monto       Float
-  moneda      String   @default("USD") // ARS | USD
-  tipoCambio  Float?   @map("tipo_cambio")
-  montoArs    Float?   @map("monto_ars")
-  comprobante String?
-  estado      String   @default("pagado") // pagado | pendiente
-  recurrente  Boolean  @default(false)
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  fecha        DateTime @db.Date
+  proveedor    String
+  categoria    String // INFRA | HERRAMIENTAS | HONORARIOS | PUBLICIDAD | EQUIPO | IMPUESTOS | OTRO
+  descripcion  String?
+  monto        Float
+  moneda       String   @default("USD") // ARS | USD
+  tipoCambio   Float?   @map("tipo_cambio")
+  montoArs     Float?   @map("monto_ars")
+  comprobante  String?
+  estado       String   @default("pagado") // pagado | pendiente
+  recurrente   Boolean  @default(false)
   mesesPagados String[] @default([]) @map("meses_pagados") // recurrentes: meses "YYYY-MM" marcados como pagados
-  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   @@index([fecha(sort: Desc)], map: "idx_egresos_fecha")
   @@index([categoria], map: "idx_egresos_categoria")
@@ -228,7 +228,7 @@ model Egreso {
 model Ingreso {
   id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   fecha       DateTime @db.Date
-  tipo        String   // SUSCRIPCION | DONACION | SERVICIO | OTRO
+  tipo        String // SUSCRIPCION | DONACION | SERVICIO | OTRO
   plan        String?
   cliente     String?
   descripcion String?
@@ -238,7 +238,7 @@ model Ingreso {
   montoArs    Float?   @map("monto_ars")
   medioCobro  String   @default("STRIPE") @map("medio_cobro") // MERCADOPAGO | STRIPE | TRANSFERENCIA | EFECTIVO | OTRO
   facturaAfip String?  @map("factura_afip")
-  periodo     String?  // "2026-05"
+  periodo     String? // "2026-05"
   sourceRef   String?  @unique @map("source_ref") // dedupe de ingresos creados desde un pago
   createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
   updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
@@ -487,7 +487,7 @@ model norm_relations {
 // referencias inline (nombre completo + link a InfoLeg) sin cargar el articulado.
 // Antes vivían hardcodeadas en src/data/norm-stubs.ts (+ espejo en el front).
 model norm_stubs {
-  number     String   @id
+  number     String    @id
   name       String
   infoleg_id String?
   created_at DateTime? @default(now()) @db.Timestamptz(6)
@@ -526,54 +526,225 @@ model categories {
 // leads/founders/pagos. Ver docs/sistema-usuarios.html.
 
 model User {
-  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  email          String    @unique
-  passwordHash   String    @map("password_hash")
-  nombre         String?
+  freeDownloadsUsed Int @default(0) @map("free_downloads_used")
+  billingOrders          BillingOrder[]
+  billingBaseline        BillingBaseline?
+  entitlementGrants      EntitlementGrant[]
+  notifications          UserNotification[]
+  notificationPreference NotificationPreference?
+  productFeedback        ProductFeedback[]
+  id                     String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email                  String                  @unique
+  passwordHash           String                  @map("password_hash")
+  nombre                 String?
   // Perfil opcional (se completa en registro o en /cuenta; nada es obligatorio).
-  apellido       String?
-  telefono       String?
-  tipoUsuario    String?   @map("tipo_usuario") // abogado | estudiante | judicial | empresa | periodista | ciudadano | otro
-  profesion      String?
-  especialidad   String?   // rama/área en la que se especializa (ej. laboral, penal)
-  empresa        String?
-  provincia      String?
-  status         String    @default("active") // active | suspended | closed
-  isAdmin        Boolean   @default(false) @map("is_admin")
-  isFounder      Boolean   @default(false) @map("is_founder")
-  plan           String    @default("free") // free | pro
-  planUntil      DateTime? @map("plan_until") @db.Timestamptz(6)
-  guestId        String?   @map("guest_id") // migración guest → usuario
-  leadId         String?   @map("lead_id") @db.Uuid
-  founderId      String?   @map("founder_id") @db.Uuid
-  consentAt      DateTime? @map("consent_at") @db.Timestamptz(6)
-  consentVersion String?   @map("consent_version")
-  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
-  lastLoginAt    DateTime? @map("last_login_at") @db.Timestamptz(6)
+  apellido               String?
+  telefono               String?
+  tipoUsuario            String?                 @map("tipo_usuario") // abogado | estudiante | judicial | empresa | periodista | ciudadano | otro
+  profesion              String?
+  especialidad           String? // rama/área en la que se especializa (ej. laboral, penal)
+  empresa                String?
+  provincia              String?
+  status                 String                  @default("active") // active | suspended | closed
+  isAdmin                Boolean                 @default(false) @map("is_admin")
+  isFounder              Boolean                 @default(false) @map("is_founder")
+  plan                   String                  @default("free") // free | pro
+  planUntil              DateTime?               @map("plan_until") @db.Timestamptz(6)
+  guestId                String?                 @map("guest_id") // migración guest → usuario
+  leadId                 String?                 @map("lead_id") @db.Uuid
+  founderId              String?                 @map("founder_id") @db.Uuid
+  consentAt              DateTime?               @map("consent_at") @db.Timestamptz(6)
+  consentVersion         String?                 @map("consent_version")
+  createdAt              DateTime                @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime                @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  lastLoginAt            DateTime?               @map("last_login_at") @db.Timestamptz(6)
   // Fuerza bruta por CUENTA. El límite por IP no alcanza: un ataque distribuido
   // sobre un solo email usa una IP distinta por intento y nunca toca ese techo.
-  failedLoginCount Int      @default(0) @map("failed_login_count")
-  lockedUntil    DateTime? @map("locked_until") @db.Timestamptz(6)
-  sessions       Session[]
-  savedLaws      SavedLaw[]
-  likes          LawLike[]
-  folders        Folder[]
-  redactorDocs   RedactorDoc[]
-  benefitClaims  BenefitClaim[]
+  failedLoginCount       Int                     @default(0) @map("failed_login_count")
+  lockedUntil            DateTime?               @map("locked_until") @db.Timestamptz(6)
+  sessions               Session[]
+  savedLaws              SavedLaw[]
+  likes                  LawLike[]
+  folders                Folder[]
+  redactorDocs           RedactorDoc[]
+  benefitClaims          BenefitClaim[]
   // OJO: esta relación NO borra en cascada (ver AccountRequest). El registro de
   // un pedido de supresión tiene que sobrevivir a la cuenta que lo pidió.
-  accountRequests AccountRequest[]
-  downloadLogs   DownloadLog[]
+  accountRequests        AccountRequest[]
+  downloadLogs           DownloadLog[]
   /// Estado del modal "pasate a Pro" (puntaje, apariciones, último cierre).
   /// La forma la define el front (softgate.ts); acá solo se guarda.
-  gateState      Json?     @map("gate_state")
+  gateState              Json?                   @map("gate_state")
   /// Pro Fundador anual: monto pagado por el año, congelado mientras renueve por ese monto.
-  proPrecioCongelado Int?  @map("pro_precio_congelado")
+  proPrecioCongelado     Int?                    @map("pro_precio_congelado")
 
   @@index([guestId], map: "idx_users_guest")
   @@index([founderId], map: "idx_users_founder")
   @@map("users")
+}
+
+// Financial order snapshots and entitlement ledger are independent from editable income records.
+model BillingOrder {
+  id            String            @id @default(uuid()) @db.Uuid
+  requestKey    String            @unique
+  userId        String?           @db.Uuid
+  user          User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
+  kind          String
+  product       String?
+  amount        Decimal           @db.Decimal(14, 2)
+  currency      String            @default("ARS")
+  months        Int               @default(0)
+  frozen        Boolean           @default(false)
+  description   String
+  contactEmail  String?
+  contactName   String?
+  accessHash    String
+  state         String            @default("pending")
+  preferenceId  String?
+  attemptKey    String?
+  attemptState  String?
+  preferenceUrl String?
+  createdAt     DateTime          @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime          @updatedAt @db.Timestamptz(6)
+  payments      BillingPayment[]
+  grant         EntitlementGrant?
+
+  @@index([userId, createdAt])
+  @@map("billing_orders")
+}
+
+model BillingPayment {
+  providerId        String       @id
+  orderId           String       @db.Uuid
+  order             BillingOrder @relation(fields: [orderId], references: [id])
+  status            String
+  amount            Decimal      @db.Decimal(14, 2)
+  currency          String
+  providerUpdatedAt DateTime     @db.Timestamptz(6)
+  createdAt         DateTime     @default(now()) @db.Timestamptz(6)
+
+  @@index([orderId])
+  @@map("billing_payments")
+}
+
+model BillingBaseline {
+  userId    String    @id @db.Uuid
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan      String
+  until     DateTime? @db.Timestamptz(6)
+  anchorDay Int
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@map("billing_baselines")
+}
+
+model EntitlementGrant {
+  id         String       @id @default(uuid()) @db.Uuid
+  orderId    String       @unique @db.Uuid
+  order      BillingOrder @relation(fields: [orderId], references: [id])
+  userId     String?      @db.Uuid
+  user       User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+  providerId String       @unique
+  months     Int
+  active     Boolean      @default(true)
+  grantedAt  DateTime     @default(now()) @db.Timestamptz(6)
+
+  @@index([userId, grantedAt])
+  @@map("entitlement_grants")
+}
+
+model ProviderEvent {
+  id            String    @id @default(uuid()) @db.Uuid
+  eventKey      String    @unique
+  paymentId     String
+  attempts      Int       @default(0)
+  nextAttemptAt DateTime  @default(now()) @db.Timestamptz(6)
+  leaseUntil    DateTime? @db.Timestamptz(6)
+  processedAt   DateTime? @db.Timestamptz(6)
+  error         String?
+  createdAt     DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@index([processedAt, nextAttemptAt])
+  @@map("provider_events")
+}
+
+model DomainEvent {
+  id            String    @id @default(uuid()) @db.Uuid
+  eventKey      String    @unique
+  userId        String?   @db.Uuid
+  topic         String
+  payload       Json
+  processedAt   DateTime? @db.Timestamptz(6)
+  attempts      Int       @default(0)
+  nextAttemptAt DateTime  @default(now()) @db.Timestamptz(6)
+  error         String?
+  createdAt     DateTime  @default(now()) @db.Timestamptz(6)
+
+  @@index([processedAt, nextAttemptAt])
+  @@map("domain_events")
+}
+
+model NotificationCampaign {
+  id          String             @id @default(uuid()) @db.Uuid
+  requestKey  String             @unique
+  title       String
+  body        String
+  actionPath  String?
+  category    String             @default("product")
+  state       String             @default("draft")
+  cutoffAt    DateTime?          @db.Timestamptz(6)
+  publishedAt DateTime?          @db.Timestamptz(6)
+  expiresAt   DateTime?          @db.Timestamptz(6)
+  createdAt   DateTime           @default(now()) @db.Timestamptz(6)
+  recipients  UserNotification[]
+  feedback    ProductFeedback[]
+
+  @@map("notification_campaigns")
+}
+
+model UserNotification {
+  id            String                @id @default(uuid()) @db.Uuid
+  userId        String                @db.Uuid
+  user          User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  campaignId    String?               @db.Uuid
+  campaign      NotificationCampaign? @relation(fields: [campaignId], references: [id])
+  eventKey      String                @unique
+  category      String
+  title         String
+  body          String
+  actionPath    String?
+  readAt        DateTime?             @db.Timestamptz(6)
+  firstOpenedAt DateTime?             @db.Timestamptz(6)
+  archivedAt    DateTime?             @db.Timestamptz(6)
+  createdAt     DateTime              @default(now()) @db.Timestamptz(6)
+
+  @@unique([campaignId, userId])
+  @@index([userId, createdAt, id])
+  @@map("user_notifications")
+}
+
+model NotificationPreference {
+  userId    String   @id @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product   Boolean  @default(true)
+  marketing Boolean  @default(false)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+
+  @@map("notification_preferences")
+}
+
+model ProductFeedback {
+  id         String               @id @default(uuid()) @db.Uuid
+  userId     String               @db.Uuid
+  user       User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  campaignId String               @db.Uuid
+  campaign   NotificationCampaign @relation(fields: [campaignId], references: [id])
+  score      Int
+  comment    String?
+  updatedAt  DateTime             @updatedAt @db.Timestamptz(6)
+
+  @@unique([userId, campaignId])
+  @@map("product_feedback")
 }
 
 // Un refresh token = una fila. Guarda solo el sha256 del token opaco, nunca el
@@ -740,18 +911,18 @@ model AccountRequest {
 // Recorridos guiados del mapa legal. Antes vivian en tours.ts (codigo); se
 // movieron a la BD para poder editarlos sin deploy.
 model Tour {
-  id          String     @id
-  title       String
-  hook        String
-  emoji       String?
-  accent      String?
-  cardHook    String?    @map("card_hook")
-  comingSoon  Boolean    @default(false) @map("coming_soon")
-  layout      String?
-  ord         Int        @default(0)
-  createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt   DateTime   @default(now()) @map("updated_at") @db.Timestamptz(6)
-  steps       TourStep[]
+  id         String     @id
+  title      String
+  hook       String
+  emoji      String?
+  accent     String?
+  cardHook   String?    @map("card_hook")
+  comingSoon Boolean    @default(false) @map("coming_soon")
+  layout     String?
+  ord        Int        @default(0)
+  createdAt  DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime   @default(now()) @map("updated_at") @db.Timestamptz(6)
+  steps      TourStep[]
 
   @@map("tours")
 }
@@ -982,11 +1153,11 @@ model AdminCorpusReview {
 // qué lead_id / user_id no llevan FK.
 // ─────────────────────────────────────────────────────────────────────────────
 model Prospecto {
-  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id               String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   nombre           String
   organizacion     String?
   /// abogado | estudio | empresa | contador | escribano | universidad | sindicato | estado | medio | otro
-  tipo             String    @default("abogado")
+  tipo             String            @default("abogado")
   /// laboral | familia | consumidor | previsional | penal | corporativo | compliance | rrhh | tributario | ...
   segmento         String?
   email            String?
@@ -996,26 +1167,26 @@ model Prospecto {
   ciudad           String?
   provincia        String?
   /// manual | csv | osm | web_estudio | linkedin | referido | evento | sitio (entró por el sitio)
-  fuente           String    @default("manual")
+  fuente           String            @default("manual")
   /// De dónde salió el dato de contacto (base legal: fuente de acceso público).
-  origenDato       String?   @map("origen_dato")
+  origenDato       String?           @map("origen_dato")
   /// nuevo | por_contactar | contactado | respondio | reunion | prueba | cliente | descartado | no_contactar
-  etapa            String    @default("nuevo")
+  etapa            String            @default("nuevo")
   /// 1 alta · 2 media · 3 baja
-  prioridad        Int       @default(2) @db.SmallInt
+  prioridad        Int               @default(2) @db.SmallInt
   /// email | linkedin | whatsapp | telefono | presencial
   canal            String?
-  proximoPaso      String?   @map("proximo_paso")
-  proximoAt        DateTime? @map("proximo_at") @db.Timestamptz(6)
-  ultimoContactoAt DateTime? @map("ultimo_contacto_at") @db.Timestamptz(6)
-  toques           Int       @default(0)
+  proximoPaso      String?           @map("proximo_paso")
+  proximoAt        DateTime?         @map("proximo_at") @db.Timestamptz(6)
+  ultimoContactoAt DateTime?         @map("ultimo_contacto_at") @db.Timestamptz(6)
+  toques           Int               @default(0)
   notas            String?
-  optOut           Boolean   @default(false) @map("opt_out")
-  optOutAt         DateTime? @map("opt_out_at") @db.Timestamptz(6)
-  leadId           String?   @map("lead_id") @db.Uuid
-  userId           String?   @map("user_id") @db.Uuid
-  createdAt        DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
-  updatedAt        DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  optOut           Boolean           @default(false) @map("opt_out")
+  optOutAt         DateTime?         @map("opt_out_at") @db.Timestamptz(6)
+  leadId           String?           @map("lead_id") @db.Uuid
+  userId           String?           @map("user_id") @db.Uuid
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt        DateTime          @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
   eventos          ProspectoEvento[]
 
   @@index([etapa, proximoAt], map: "idx_prospectos_etapa_proximo")

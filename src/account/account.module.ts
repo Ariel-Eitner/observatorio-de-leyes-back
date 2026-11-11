@@ -4,6 +4,7 @@ import { AccountController } from './account.controller';
 import { AccountAdminController } from './account-admin.controller';
 import { AccountRequestsService } from './account-requests.service';
 import { AccountDataService } from './account-data.service';
+import { UserAdminController } from './user-admin.controller';
 
 /**
  * Todo lo que una persona puede hacer sobre su propia cuenta más allá de usarla:
@@ -16,7 +17,7 @@ import { AccountDataService } from './account-data.service';
  */
 @Module({
   imports: [AuthModule],
-  controllers: [AccountController, AccountAdminController],
+  controllers: [AccountController, AccountAdminController, UserAdminController],
   providers: [AccountRequestsService, AccountDataService],
   exports: [AccountRequestsService, AccountDataService],
 })

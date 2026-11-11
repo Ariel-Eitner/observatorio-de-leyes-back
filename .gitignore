@@ -39,3 +39,13 @@ reports/
 # se crean adentro del repo — nada de esto puede terminar en GitHub.
 _papelera/
 _cuarentena/
+
+# temps / debug
+diagnostico.js
+enriquecer-tanda.js
+test-conexion.js
+# local probe files
+scripts/*.log
+tmp/
+tmp/**
+.local/

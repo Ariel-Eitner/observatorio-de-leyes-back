@@ -1,33 +1,35 @@
-import { Body, Controller, Get, Post, Query, HttpCode, UseGuards } from '@nestjs/common';
-import { SkipThrottle, Throttle } from '@nestjs/throttler';
-import { ExportsService, ExportType } from './exports.service';
-import { AdminHeaderGuard } from '../common/guards/admin-header.guard';
-
-interface RecordExportDto {
-  guestId: string;
-  type:    ExportType;
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  HttpCode,
+  UseGuards,
+} from "@nestjs/common";
+import { IsIn } from "class-validator";
+import { ExportsService, ExportType } from "./exports.service";
+import {
+  JwtAuthGuard,
+  AccessTokenPayload,
+} from "../auth/guards/jwt-auth.guard";
+import { CurrentUser } from "../auth/decorators/current-user.decorator";
+class RecordExportDto {
+  @IsIn(["pdf", "docx", "text"]) type: ExportType;
 }
-
-@Controller('exports')
+@Controller("exports")
+@UseGuards(JwtAuthGuard)
 export class ExportsController {
   constructor(private readonly exports: ExportsService) {}
-
-  @Get('count')
-  @SkipThrottle()
-  @UseGuards(AdminHeaderGuard)
-  async getCount(
-    @Query('guestId') guestId: string,
-    @Query('type') type: ExportType,
-  ) {
-    if (!guestId || !type) return { used: 0, limit: 5, remaining: 5 };
-    return this.exports.getCount(guestId, type);
+  @Get("count")
+  getCount(@CurrentUser() user: AccessTokenPayload) {
+    return this.exports.getCount(user.sub);
   }
-
   @Post()
   @HttpCode(200)
-  @Throttle({ global: { ttl: 60_000, limit: 10 } })
-  async record(@Body() dto: RecordExportDto) {
-    if (!dto?.guestId || !dto?.type) return { ok: false, remaining: 0 };
-    return this.exports.record(dto.guestId, dto.type);
+  record(
+    @CurrentUser() user: AccessTokenPayload,
+    @Body() dto: RecordExportDto,
+  ) {
+    return this.exports.record(user.sub, dto.type);
   }
 }

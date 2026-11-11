@@ -191,7 +191,7 @@ async function bootstrap() {
 	}
 
 	const port = process.env.PORT || 3600;
-	await app.listen(port);
+	await app.listen(port, process.env.HOST ?? '0.0.0.0');
 	logger.log(`API lista en puerto ${port}`);
 }
 
