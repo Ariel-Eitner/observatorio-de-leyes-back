@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 — 2026-11-11
+
+- Papelera de usuarios: suspensión inmediata, restauración y borrado definitivo manual o a los 30 días.
+- Avisos de bienvenida, producto y cupo agotado con enlaces a cuenta y planes.
+- Descargas por ley con acceso durante 30 días y paquetes de 1, 10, 50 y 100 créditos válidos por un año.
+- Catálogo comercial versionado y condiciones guardadas con cada compra; Escritos y Redactor exclusivos de Pro.
+
+
+- El arranque de producción aplica las migraciones antes de abrir el servidor y sus tareas periódicas; un fallo bloquea el arranque en lugar de servir con tablas o campos ausentes.
+- Prisma se conserva como dependencia de ejecución; regresión de inicio de sesión sobre PostgreSQL migrado.
+
 ## 1.1.0 — 2026-11-10
 
 - Primera línea estable 1.x documentada, integrando pagos y notificaciones de la etapa 0.2.0.

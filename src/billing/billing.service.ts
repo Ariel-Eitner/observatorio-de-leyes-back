@@ -13,6 +13,8 @@ import { PrismaService } from "../common/prisma/prisma.service";
 import { PaymentProvider, ProviderPayment } from "./provider";
 import { CreateOrderDto } from "./billing.dto";
 import { PRODUCTS, addMonths, billingDay, publicState } from "./catalog";
+import { COMMERCIAL_CATALOG, COMMERCIAL_POLICY } from "../commercial/catalog";
+import { syncQuotaNotice } from "../notifications/account-notices";
 
 type Tx = Prisma.TransactionClient;
 const digest = (s: string) => createHash("sha256").update(s).digest("hex");
@@ -44,10 +46,14 @@ export class BillingService {
     const user = userId
       ? await this.db.user.findUnique({ where: { id: userId } })
       : null;
-    if (dto.tipo === "pro" && (!user || user.status !== "active"))
+    if (dto.tipo !== "apoyo" && (!user || user.status !== "active"))
       throw new ForbiddenException("Necesitás una cuenta activa");
-    const product = dto.tipo === "pro" ? PRODUCTS[dto.producto] : null;
-    if (dto.tipo === "pro" && !product)
+    if (dto.catalogVersion && dto.catalogVersion !== COMMERCIAL_CATALOG.version)
+      throw new ConflictException(
+        "Las opciones de compra cambiaron. Actualizá la página de planes antes de continuar.",
+      );
+    const product = dto.tipo !== "apoyo" ? PRODUCTS[dto.producto] : null;
+    if (dto.tipo !== "apoyo" && (!product || product.kind !== dto.tipo))
       throw new BadRequestException("Producto inválido");
     const amount = product
       ? product.frozen && user.proPrecioCongelado > 0
@@ -68,6 +74,15 @@ export class BillingService {
           amount,
           months: product?.months ?? 0,
           frozen: product?.frozen ?? false,
+          catalogVersion: COMMERCIAL_CATALOG.version,
+          downloadQuantity: product?.quantity ?? 0,
+          conditions: product
+            ? {
+                ...product,
+                redownloadDays: COMMERCIAL_POLICY.redownloadDays,
+                creditMonths: COMMERCIAL_POLICY.creditMonths,
+              }
+            : {},
           description: product?.name ?? "Apoyo al Observatorio de Leyes",
           userId: user?.id ?? null,
           contactEmail: user?.email ?? dto.email ?? null,
@@ -113,7 +128,7 @@ export class BillingService {
     } else {
       // A deleted Pro account never becomes an anonymous order.
       if (
-        order.kind === "pro" ||
+        order.kind !== "apoyo" ||
         !token ||
         !timingSafeEqual(
           Buffer.from(digest(token)),
@@ -130,17 +145,26 @@ export class BillingService {
     const grant = await this.db.entitlementGrant.findUnique({
       where: { orderId: id },
     });
+    const credit =
+      order.kind === "descargas"
+        ? await this.db.downloadCredit.findUnique({ where: { orderId: id } })
+        : null;
     return {
       pagoId: id,
       estado: publicState(order.state),
       paymentConfirmed: order.state === "approved",
       entitlementActive:
-        order.kind !== "pro"
-          ? order.state === "approved"
-          : grant?.active === true,
+        order.kind === "descargas"
+          ? !!credit && !credit.revokedAt
+          : order.kind !== "pro"
+            ? order.state === "approved"
+            : grant?.active === true,
       monto: Number(order.amount),
       tipo: order.kind,
       renewal: "manual",
+      downloadQuantity: order.downloadQuantity,
+      creditExpiresAt: credit?.expiresAt ?? null,
+      catalogVersion: order.catalogVersion,
     };
   }
 
@@ -440,11 +464,60 @@ export class BillingService {
           return; // Record the second charge; never silently grant twice for one order.
         }
         if (payment.status === "approved") {
+          if (order.kind === "descargas") {
+            const user =
+              order.userId &&
+              (await tx.user.findUnique({ where: { id: order.userId } }));
+            if (!user || !["active", "trashed"].includes(user.status))
+              throw new ConflictException(
+                "La cuenta requiere revisión antes de acreditar el saldo.",
+              );
+            const credit = await tx.downloadCredit.findUnique({
+              where: { orderId: id },
+            });
+            if (
+              credit &&
+              (credit.revokedAt || credit.providerId !== String(payment.id))
+            ) {
+              await tx.billingOrder.update({
+                where: { id },
+                data: { state: "review" },
+              });
+              return;
+            }
+            if (!credit) {
+              const conditions = order.conditions as { creditMonths?: number };
+              if (!order.downloadQuantity)
+                throw new ConflictException(
+                  "La orden no tiene descargas para acreditar.",
+                );
+              await tx.downloadCredit.create({
+                data: {
+                  orderId: id,
+                  userId: user.id,
+                  providerId: String(payment.id),
+                  quantity: order.downloadQuantity,
+                  remaining: order.downloadQuantity,
+                  expiresAt: addMonths(
+                    new Date(),
+                    conditions.creditMonths ?? 12,
+                  ),
+                },
+              });
+              await this.event(
+                tx,
+                "downloads:" + id,
+                user.id,
+                "billing.downloads",
+                { orderId: id, quantity: order.downloadQuantity },
+              );
+            }
+          }
           if (order.kind === "pro" && !existing) {
             const user =
               order.userId &&
               (await tx.user.findUnique({ where: { id: order.userId } }));
-            if (!user || user.status !== "active")
+            if (!user || !["active", "trashed"].includes(user.status))
               throw new ConflictException("Cuenta no disponible");
             await tx.billingBaseline.upsert({
               where: { userId: user.id },
@@ -513,11 +586,53 @@ export class BillingService {
         }
         if (order.userId && order.kind === "pro")
           await this.project(tx, order.userId);
+        if (
+          order.kind === "descargas" &&
+          ["refunded", "charged_back"].includes(payment.status)
+        ) {
+          const credit = await tx.downloadCredit.findUnique({
+            where: { orderId: id },
+          });
+          if (
+            credit &&
+            credit.providerId === String(payment.id) &&
+            !credit.revokedAt
+          ) {
+            await tx.downloadCredit.update({
+              where: { id: credit.id },
+              data: { revokedAt: new Date(), remaining: 0 },
+            });
+            await tx.lawDownloadAccess.deleteMany({
+              where: { userId: order.userId, creditId: credit.id },
+            });
+            if (order.userId)
+              await this.event(
+                tx,
+                "downloads-revoked:" + id,
+                order.userId,
+                "billing.downloads_revoked",
+                { orderId: id },
+              );
+          }
+        }
+        if (order.userId) {
+          const account = await tx.user.findUnique({
+            where: { id: order.userId },
+          });
+          if (account) await syncQuotaNotice(tx, account);
+        }
         // A late pending event for another failed attempt cannot erase an already active grant.
         const grant = await tx.entitlementGrant.findUnique({
           where: { orderId: id },
         });
-        const state = grant?.active ? "approved" : payment.status;
+        const downloadCredit =
+          order.kind === "descargas"
+            ? await tx.downloadCredit.findUnique({ where: { orderId: id } })
+            : null;
+        const state =
+          grant?.active || (downloadCredit && !downloadCredit.revokedAt)
+            ? "approved"
+            : payment.status;
         await tx.billingOrder.update({
           where: { id },
           data: {
@@ -594,7 +709,12 @@ export class BillingService {
       create: {
         sourceRef,
         fecha: new Date(),
-        tipo: order.kind === "pro" ? "SUSCRIPCION" : "DONACION",
+        tipo:
+          order.kind === "pro"
+            ? "SUSCRIPCION"
+            : order.kind === "descargas"
+              ? "VENTA"
+              : "DONACION",
         monto: amount,
         montoArs: amount,
         moneda: order.currency,

@@ -15,6 +15,7 @@ import { AdminHeaderGuard } from "../common/guards/admin-header.guard";
 import { BillingService } from "./billing.service";
 import { CreateOrderDto, PreferenceDto, SubmitPaymentDto } from "./billing.dto";
 import { PaymentProvider } from "./provider";
+import { COMMERCIAL_CATALOG } from "../commercial/catalog";
 
 @Controller("billing")
 @UseGuards(AdminHeaderGuard)
@@ -33,7 +34,11 @@ export class BillingController {
         process.env.ALLOW_MOCK_PAYMENTS === "true" &&
         /^http:\/\/127\.0\.0\.1:\d+$/.test(process.env.MP_API_BASE_URL ?? ""),
       renewal: "manual",
+      catalogVersion: COMMERCIAL_CATALOG.version,
     };
+  }
+  @Get("catalog") catalog() {
+    return COMMERCIAL_CATALOG;
   }
   private user(authorization?: string) {
     if (!authorization) return null;

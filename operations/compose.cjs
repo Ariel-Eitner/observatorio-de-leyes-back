@@ -8,6 +8,17 @@ const dirs = [
   "observatorio-de-leyes-frontend",
 ];
 const version = require("../package.json").version;
+const catalogSource = fs.readFileSync(
+  path.join(__dirname, "../src/commercial/commercial-catalog.json"),
+);
+const catalogCopy = fs.readFileSync(
+  path.join(
+    root,
+    "observatorio-de-leyes-frontend/app/lib/commercial-catalog.json",
+  ),
+);
+if (!catalogSource.equals(catalogCopy))
+  throw Error("Catálogo comercial desincronizado: npm run catalog:sync");
 if (!/^1\.\d+\.\d+$/.test(version))
   throw Error("La versión estable debe ser 1.x.y");
 for (const dir of dirs) {
@@ -18,7 +29,9 @@ for (const dir of dirs) {
     pkg.version !== version ||
     lock.version !== version ||
     lock.packages[""].version !== version ||
-    /^## (\d+\.\d+\.\d+) /m.exec(fs.readFileSync(path.join(base,"CHANGELOG.md"),"utf8"))?.[1] !== version
+    /^## (\d+\.\d+\.\d+) /m.exec(
+      fs.readFileSync(path.join(base, "CHANGELOG.md"), "utf8"),
+    )?.[1] !== version
   )
     throw Error("Versión/changelog inconsistente en " + dir);
 }

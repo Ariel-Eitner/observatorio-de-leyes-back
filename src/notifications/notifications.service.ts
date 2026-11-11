@@ -9,6 +9,7 @@ import { Cron } from "@nestjs/schedule";
 import { Prisma } from "@prisma/client";
 import { PrismaService } from "../common/prisma/prisma.service";
 import { CampaignDto, FeedbackDto, PreferencesDto } from "./notifications.dto";
+import { ensureAccountNotices, syncQuotaNotice } from "./account-notices";
 
 const UUID = /^[0-9a-f-]{36}$/i;
 export function safeAction(value?: string) {
@@ -30,6 +31,38 @@ export function safeAction(value?: string) {
 
 @Injectable()
 export class NotificationsService {
+  private noticeCursor: string | undefined;
+  private notifying = false;
+  async syncAccount(userId: string, forceProduct = false) {
+    return this.db.$transaction(async (tx) => {
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
+      const user = await tx.user.findUnique({ where: { id: userId } });
+      if (!user || user.status !== "active") return;
+      await ensureAccountNotices(tx, user, forceProduct);
+      await syncQuotaNotice(tx, user);
+    });
+  }
+  @Cron("0 * * * * *")
+  async accountNotices() {
+    if (this.notifying) return;
+    this.notifying = true;
+    try {
+      const users = await this.db.user.findMany({
+        where: {
+          status: "active",
+          ...(this.noticeCursor ? { id: { gt: this.noticeCursor } } : {}),
+        },
+        select: { id: true },
+        orderBy: { id: "asc" },
+        take: 100,
+      });
+      for (const user of users) await this.syncAccount(user.id);
+      this.noticeCursor =
+        users.length === 100 ? users[users.length - 1].id : undefined;
+    } finally {
+      this.notifying = false;
+    }
+  }
   constructor(private readonly db: PrismaService) {}
   private async active(userId: string) {
     const user = await this.db.user.findUnique({
@@ -64,6 +97,7 @@ export class NotificationsService {
     archived = false,
   ) {
     await this.active(userId);
+    await this.syncAccount(userId);
     let after: Prisma.UserNotificationWhereInput = {};
     if (cursor) {
       try {
@@ -106,6 +140,7 @@ export class NotificationsService {
   }
   async count(userId: string) {
     await this.active(userId);
+    await this.syncAccount(userId);
     return {
       count: await this.db.userNotification.count({
         where: { AND: [this.visible(userId), { readAt: null }] },
@@ -332,6 +367,7 @@ export class NotificationsService {
             }));
           if (user?.status === "active") {
             const granted = current.topic === "billing.granted";
+            const downloads = current.topic === "billing.downloads";
             await tx.userNotification.upsert({
               where: { eventKey: current.eventKey },
               update: {},
@@ -339,12 +375,16 @@ export class NotificationsService {
                 eventKey: current.eventKey,
                 userId: current.userId,
                 category: "account",
-                title: granted
-                  ? "Tu plan Pro está activo"
-                  : "Se actualizó el derecho de tu compra",
-                body: granted
-                  ? "El pago se confirmó y el beneficio fue acreditado. Consultá tu cuenta para ver su vigencia."
-                  : "Se registró una devolución o contracargo. Se conservan tus otros beneficios vigentes.",
+                title: downloads
+                  ? "Tus descargas están disponibles"
+                  : granted
+                    ? "Tu plan Pro está activo"
+                    : "Se actualizó el derecho de tu compra",
+                body: downloads
+                  ? "El pago se confirmó. El saldo de leyes está disponible en tu cuenta durante un año. Cada ley que descargues puede volver a descargarse durante 30 días sin consumir más saldo."
+                  : granted
+                    ? "El pago se confirmó y el beneficio fue acreditado. Consultá tu cuenta para ver su vigencia."
+                    : "Se registró una devolución o contracargo. Se conservan tus otros beneficios vigentes.",
                 actionPath: "/cuenta",
               },
             });

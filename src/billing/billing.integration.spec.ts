@@ -16,10 +16,12 @@ import { BadGatewayException } from "@nestjs/common";
 import { addMonths } from "./catalog";
 import { CuposModule } from "../cupos/cupos.module";
 import { CuposService } from "../cupos/cupos.service";
+import { AccountDataService } from "../account/account-data.service";
 import { AccountModule } from "../account/account.module";
+import { AuthModule } from "../auth/auth.module";
 import { ExportsModule } from "../exports/exports.module";
 import * as argon2 from "argon2";
-import { readFileSync } from 'node:fs';
+import { readFileSync } from "node:fs";
 
 const integration =
   process.env.OBS_ISOLATED_TEST_DB === "1" ? describe : describe.skip;
@@ -137,6 +139,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         CrmModule,
         CuposModule,
         AccountModule,
+        AuthModule,
         ExportsModule,
       ],
     }).compile();
@@ -163,6 +166,15 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     await db.$executeRawUnsafe(
       'TRUNCATE TABLE "users", "billing_orders", "provider_events", "domain_events", "notification_campaigns", "pagos", "ingresos", "founders" CASCADE',
     );
+    await db.norms.createMany({
+      data: Array.from({ length: 20 }, (_, i) => ({
+        id: `fixture-law-${i}`,
+        title: `Ley de prueba ${i}`,
+        jurisdiction: "NACIONAL",
+        norm_type: "LEY",
+      })),
+      skipDuplicates: true,
+    });
     payments.clear();
     idempotency.clear();
     user = await db.user.create({
@@ -189,24 +201,75 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
     );
   });
-  it('la migración importa descargas de meses anteriores y excluye análisis',async()=>{
-    await db.downloadLog.createMany({data:Array.from({length:7},(_,i)=>({userId:user.id,kind:i%2?'ley':'articulo',createdAt:new Date('2025-01-01')}))});
-    await db.downloadLog.create({data:{userId:other.id,kind:'lector'}});
-    const sql=readFileSync('prisma/migrations/20261110210000_lifetime_downloads/migration.sql','utf8');
-    await db.$transaction(async tx=>{
-      // Recreate the pre-migration shape only inside this disposable fixture.
-      await tx.$executeRawUnsafe('ALTER TABLE users DROP COLUMN free_downloads_used');
-      for(const statement of sql.split(';').filter(s=>s.trim())) await tx.$executeRawUnsafe(statement);
+  it("el login funciona con el esquema migrado y emite una sesión", async () => {
+    const password = "Login-fixture-2026!";
+    await db.user.update({
+      where: { id: user.id },
+      data: { passwordHash: await argon2.hash(password) },
     });
-    expect((await db.user.findUnique({where:{id:user.id}})).freeDownloadsUsed).toBe(5);
-    expect((await db.user.findUnique({where:{id:other.id}})).freeDownloadsUsed).toBe(0);
-    expect((await app.get(CuposService).autorizar(user.id,'ley')).ok).toBe(false);
+    const result = await call(
+      "/auth/login",
+      "POST",
+      { email: user.email, password },
+      { service: false },
+    );
+    expect(result.status).toBe(200);
+    expect(result.data.user.id).toBe(user.id);
+    expect(typeof result.data.accessToken).toBe("string");
+    expect(typeof result.data.refreshToken).toBe("string");
+    expect(await db.session.count({ where: { userId: user.id } })).toBe(1);
+    expect(
+      (
+        await call(
+          "/auth/login",
+          "POST",
+          { email: user.email, password: "incorrect-password" },
+          { service: false },
+        )
+      ).status,
+    ).toBe(401);
+  });
+  it("la migración importa descargas de meses anteriores y excluye análisis", async () => {
+    await db.downloadLog.createMany({
+      data: Array.from({ length: 7 }, (_, i) => ({
+        userId: user.id,
+        kind: i % 2 ? "ley" : "articulo",
+        createdAt: new Date("2025-01-01"),
+      })),
+    });
+    await db.downloadLog.create({ data: { userId: other.id, kind: "lector" } });
+    const sql = readFileSync(
+      "prisma/migrations/20261110210000_lifetime_downloads/migration.sql",
+      "utf8",
+    );
+    await db.$transaction(async (tx) => {
+      // Recreate the pre-migration shape only inside this disposable fixture.
+      await tx.$executeRawUnsafe(
+        "ALTER TABLE users DROP COLUMN free_downloads_used",
+      );
+      for (const statement of sql.split(";").filter((s) => s.trim()))
+        await tx.$executeRawUnsafe(statement);
+    });
+    expect(
+      (await db.user.findUnique({ where: { id: user.id } })).freeDownloadsUsed,
+    ).toBe(5);
+    expect(
+      (await db.user.findUnique({ where: { id: other.id } })).freeDownloadsUsed,
+    ).toBe(0);
+    expect(
+      (await app.get(CuposService).autorizar(user.id, "ley", "fixture-law-0"))
+        .ok,
+    ).toBe(false);
   });
   it("cinco descargas totales entre tipos, incluso con diez solicitudes concurrentes", async () => {
     const cupos = app.get(CuposService);
     const results = await Promise.all(
       Array.from({ length: 10 }, (_, i) =>
-        cupos.autorizar(user.id, ["ley", "articulo", "exportacion"][i % 3]),
+        cupos.autorizar(
+          user.id,
+          ["ley", "articulo"][i % 2],
+          `fixture-law-${i}`,
+        ),
       ),
     );
     expect(results.filter((r) => r.ok)).toHaveLength(5);
@@ -224,7 +287,9 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       data: { freeDownloadsUsed: 5 },
     });
     await db.downloadLog.deleteMany({ where: { userId: user.id } });
-    expect((await cupos.autorizar(user.id, "ley")).ok).toBe(false);
+    expect((await cupos.autorizar(user.id, "ley", "fixture-law-0")).ok).toBe(
+      false,
+    );
     expect((await cupos.autorizar(user.id, "lector")).ok).toBe(true);
     expect((await cupos.autorizar(user.id, "lector")).ok).toBe(false);
     await db.user.update({
@@ -236,28 +301,21 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       where: { id: user.id },
       data: { planUntil: new Date(Date.now() - 86400000) },
     });
-    expect((await cupos.autorizar(user.id, "articulo")).ok).toBe(false);
+    expect(
+      (await cupos.autorizar(user.id, "articulo", "fixture-law-1")).ok,
+    ).toBe(false);
   });
   it("exportaciones usan la cuenta autenticada y comparten el saldo sin guestId", async () => {
     expect(
       (await call("/exports", "POST", { type: "pdf" }, { service: false }))
         .status,
     ).toBe(401);
-    for (let i = 0; i < 5; i++)
-      expect(
-        (
-          await call(
-            "/exports",
-            "POST",
-            { type: i % 2 ? "docx" : "pdf" },
-            { token },
-          )
-        ).data.ok,
-      ).toBe(true);
     expect(
-      (await call("/cupos/autorizar", "POST", { kind: "ley" }, { token })).data
-        .ok,
+      (await call("/exports", "POST", { type: "pdf" }, { token })).data.ok,
     ).toBe(false);
+    expect(
+      (await db.user.findUnique({ where: { id: user.id } })).freeDownloadsUsed,
+    ).toBe(0);
     expect(
       (await call("/exports", "POST", { type: "exe" }, { token })).status,
     ).toBe(400);
@@ -266,12 +324,12 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         .remaining,
     ).toBe(0);
   });
-  it("borrado admin verifica rol real, contraseña, correo y confirmación; protege admins", async () => {
+  it("papelera exige administrador real y confirmación, suspende, restaura y anonimiza al purgar", async () => {
     const actor = await db.user.create({
       data: {
         email: "admin@fixture.invalid",
         isAdmin: true,
-        passwordHash: await argon2.hash("Fixture-delete-2026!"),
+        passwordHash: "disabled",
       },
     });
     const adminToken = app
@@ -281,54 +339,21 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
       );
     const path = `/admin/users/${other.id}/delete`,
-      body = {
-        email: other.email,
-        password: "Fixture-delete-2026!",
-        confirmation: "BORRAR",
-      };
+      body = { confirmed: true };
     expect(
       (await call(path, "POST", body, { service: false, token: adminToken }))
         .status,
     ).toBe(401);
     expect((await call(path, "POST", body, { token })).status).toBe(403);
     expect(
-      (
-        await call(
-          path,
-          "POST",
-          { ...body, password: "incorrecta" },
-          { token: adminToken },
-        )
-      ).status,
-    ).toBe(401);
-    expect(
-      (
-        await call(
-          path,
-          "POST",
-          { ...body, email: user.email },
-          { token: adminToken },
-        )
-      ).status,
-    ).toBe(403);
-    expect(
-      (
-        await call(
-          path,
-          "POST",
-          { ...body, confirmation: "SI" },
-          { token: adminToken },
-        )
-      ).status,
+      (await call(path, "POST", { confirmed: false }, { token: adminToken }))
+        .status,
     ).toBe(400);
     expect(
       (
-        await call(
-          `/admin/users/${actor.id}/delete`,
-          "POST",
-          { ...body, email: actor.email },
-          { token: adminToken },
-        )
+        await call(`/admin/users/${actor.id}/delete`, "POST", body, {
+          token: adminToken,
+        })
       ).status,
     ).toBe(403);
     const purchase = await billing.create(
@@ -336,7 +361,6 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       other.id,
     );
     await billing.apply(await payment(purchase.id));
-    await notifications.deliver();
     await db.session.create({
       data: {
         userId: other.id,
@@ -347,24 +371,248 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     expect((await call(path, "POST", body, { token: adminToken })).status).toBe(
       200,
     );
-    expect(await db.user.findUnique({ where: { id: other.id } })).toBeNull();
+    let trashed = await db.user.findUnique({ where: { id: other.id } });
+    expect(trashed.status).toBe("trashed");
+    expect(+trashed.purgeAt - +trashed.trashedAt).toBe(30 * 86400000);
     expect(await db.session.count({ where: { userId: other.id } })).toBe(0);
     expect(
-      await db.userNotification.count({ where: { userId: other.id } }),
-    ).toBe(0);
+      (await call("/auth/me", "GET", undefined, { token: otherToken })).status,
+    ).toBe(401);
+    expect(
+      (
+        await call(`/admin/users/${other.id}/restore`, "POST", body, {
+          token: adminToken,
+        })
+      ).status,
+    ).toBe(200);
+    expect((await db.user.findUnique({ where: { id: other.id } })).status).toBe(
+      "active",
+    );
+    expect((await call(path, "POST", body, { token: adminToken })).status).toBe(
+      200,
+    );
+    expect(
+      (
+        await call(
+          "/admin/users/trash/purge",
+          "POST",
+          { confirmed: true, ids: [other.id] },
+          { token: adminToken },
+        )
+      ).status,
+    ).toBe(200);
+    expect(await db.user.findUnique({ where: { id: other.id } })).toBeNull();
     expect(
       (await db.billingOrder.findUnique({ where: { id: purchase.id } }))
         .contactEmail,
     ).toBeNull();
     expect(await db.billingPayment.count()).toBe(1);
     expect((await db.ingreso.findFirst()).cliente).toBeNull();
-    const audit = await db.accountRequest.findFirst({
-      where: { type: "account_deletion" },
-      orderBy: { createdAt: "desc" },
+  });
+  it("la limpieza automática elimina sólo cuentas cuyo plazo venció", async () => {
+    await db.user.update({
+      where: { id: user.id },
+      data: {
+        status: "trashed",
+        trashedAt: new Date(Date.now() - 31 * 86400000),
+        purgeAt: new Date(Date.now() - 1000),
+      },
     });
-    expect((audit.detalle as any).ejecutadoPor).toBe(
-      "administrador:" + actor.id,
+    await db.user.update({
+      where: { id: other.id },
+      data: {
+        status: "trashed",
+        trashedAt: new Date(),
+        purgeAt: new Date(Date.now() + 86400000),
+      },
+    });
+    await app.get(AccountDataService).purgeExpiredTrash();
+    expect(await db.user.findUnique({ where: { id: user.id } })).toBeNull();
+    expect(
+      await db.user.findUnique({ where: { id: other.id } }),
+    ).not.toBeNull();
+  });
+  it("una ley y sus artículos comparten 30 días sin extender el plazo ni consumir otro crédito", async () => {
+    const cupos = app.get(CuposService);
+    const results = await Promise.all(
+      Array.from({ length: 10 }, (_, i) =>
+        cupos.autorizar(
+          user.id,
+          i % 2 ? "articulo" : "ley",
+          `fixture-law-0${i % 2 ? "#1" : ""}`,
+        ),
+      ),
     );
+    expect(results.every((r) => r.ok)).toBe(true);
+    expect(
+      (await db.user.findUnique({ where: { id: user.id } })).freeDownloadsUsed,
+    ).toBe(1);
+    const access = await db.lawDownloadAccess.findFirst({
+      where: { userId: user.id },
+    });
+    expect(+access.expiresAt - +access.createdAt).toBeLessThanOrEqual(
+      30 * 86400000,
+    );
+    await cupos.autorizar(user.id, "ley", "fixture-law-0");
+    expect(
+      +(await db.lawDownloadAccess.findUnique({ where: { id: access.id } }))
+        .expiresAt,
+    ).toBe(+access.expiresAt);
+    await db.lawDownloadAccess.update({
+      where: { id: access.id },
+      data: { expiresAt: new Date(Date.now() - 1000) },
+    });
+    expect((await cupos.autorizar(user.id, "ley", "fixture-law-0")).ok).toBe(
+      true,
+    );
+    expect(
+      (await db.user.findUnique({ where: { id: user.id } })).freeDownloadsUsed,
+    ).toBe(2);
+  });
+  it("compras idempotentes duran un año, respetan cupo gratuito y revierten sólo su saldo", async () => {
+    const o = await billing.create(
+      { requestKey: randomUUID(), tipo: "descargas", producto: "descargas_10" },
+      user.id,
+    );
+    const p = await payment(o.id);
+    p.transaction_amount = 8000;
+    await Promise.all([billing.apply(p), billing.apply(p)]);
+    expect(await db.downloadCredit.count()).toBe(1);
+    let credit = await db.downloadCredit.findFirst();
+    expect(credit.remaining).toBe(10);
+    expect(+credit.expiresAt - Date.now()).toBeGreaterThan(364 * 86400000);
+    const cupos = app.get(CuposService);
+    await cupos.autorizar(user.id, "ley", "fixture-law-0");
+    expect((await db.downloadCredit.findFirst()).remaining).toBe(10);
+    await db.user.update({
+      where: { id: user.id },
+      data: { freeDownloadsUsed: 5 },
+    });
+    await cupos.autorizar(user.id, "ley", "fixture-law-1");
+    expect((await db.downloadCredit.findFirst()).remaining).toBe(9);
+    await notifications.syncAccount(user.id);
+    expect(
+      await db.userNotification.count({
+        where: {
+          userId: user.id,
+          eventKey: { startsWith: "quota:" },
+          archivedAt: null,
+        },
+      }),
+    ).toBe(0);
+    await billing.apply({
+      ...p,
+      status: "refunded",
+      date_last_updated: new Date(Date.now() + 1000).toISOString(),
+    });
+    credit = await db.downloadCredit.findFirst();
+    expect(credit.remaining).toBe(0);
+    expect(credit.revokedAt).not.toBeNull();
+    expect(
+      await db.lawDownloadAccess.count({
+        where: { userId: user.id, creditId: credit.id },
+      }),
+    ).toBe(0);
+    expect(
+      await db.lawDownloadAccess.count({
+        where: { userId: user.id, source: "free" },
+      }),
+    ).toBe(1);
+  });
+  it("avisos iniciales se deduplican; producto espera 48 horas salvo activación explícita", async () => {
+    await db.user.update({
+      where: { id: user.id },
+      data: { freeDownloadsUsed: 5 },
+    });
+    await notifications.syncAccount(user.id);
+    await notifications.syncAccount(user.id);
+    expect(
+      await db.userNotification.count({
+        where: { userId: user.id, eventKey: { startsWith: "welcome:" } },
+      }),
+    ).toBe(1);
+    expect(
+      await db.userNotification.count({
+        where: { userId: user.id, eventKey: { startsWith: "product:" } },
+      }),
+    ).toBe(0);
+    expect(
+      await db.userNotification.count({
+        where: {
+          userId: user.id,
+          eventKey: { startsWith: "quota:" },
+          archivedAt: null,
+        },
+      }),
+    ).toBe(1);
+    await notifications.syncAccount(user.id, true);
+    expect(
+      await db.userNotification.count({
+        where: { userId: user.id, eventKey: { startsWith: "product:" } },
+      }),
+    ).toBe(1);
+    await db.user.update({
+      where: { id: user.id },
+      data: { plan: "pro", planUntil: new Date(Date.now() + 86400000) },
+    });
+    await notifications.syncAccount(user.id);
+    expect(
+      await db.userNotification.count({
+        where: {
+          userId: user.id,
+          eventKey: { startsWith: "quota:" },
+          archivedAt: null,
+        },
+      }),
+    ).toBe(0);
+  });
+  it("saldo vencido no autoriza otra ley, pero conserva una ley previamente habilitada", async () => {
+    const o = await billing.create(
+      { requestKey: randomUUID(), tipo: "descargas", producto: "descargas_10" },
+      user.id,
+    );
+    const p = await payment(o.id);
+    p.transaction_amount = 8000;
+    await billing.apply(p);
+    await db.user.update({
+      where: { id: user.id },
+      data: { freeDownloadsUsed: 5 },
+    });
+    const cupos = app.get(CuposService);
+    expect((await cupos.autorizar(user.id, "ley", "fixture-law-0")).ok).toBe(
+      true,
+    );
+    const credit = await db.downloadCredit.findFirst();
+    await db.downloadCredit.update({
+      where: { id: credit.id },
+      data: { expiresAt: new Date(Date.now() - 1000) },
+    });
+    expect((await cupos.resumen(user.id)).compradas.restante).toBe(0);
+    expect(
+      (await cupos.autorizar(user.id, "articulo", "fixture-law-0#1")).ok,
+    ).toBe(true);
+    expect((await cupos.autorizar(user.id, "ley", "fixture-law-1")).ok).toBe(
+      false,
+    );
+    expect((await db.downloadCredit.findFirst()).remaining).toBe(9);
+  });
+  it("una versión de catálogo diferente se rechaza antes de crear la orden", async () => {
+    expect(
+      (
+        await call(
+          "/billing/orders",
+          "POST",
+          {
+            requestKey: randomUUID(),
+            tipo: "descargas",
+            producto: "descargas_1",
+            catalogVersion: "old",
+          },
+          { token },
+        )
+      ).status,
+    ).toBe(409);
+    expect(await db.billingOrder.count()).toBe(0);
   });
   it("fallar la auditoría revierte todo el borrado administrativo", async () => {
     const actor = await db.user.create({
@@ -390,11 +638,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       const response = await call(
         `/admin/users/${other.id}/delete`,
         "POST",
-        {
-          email: other.email,
-          password: "Fixture-delete-2026!",
-          confirmation: "BORRAR",
-        },
+        { confirmed: true },
         { token: adminToken },
       );
       expect(response.status).toBe(500);
@@ -714,9 +958,14 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     });
     expect((await notifications.publish(c.id)).recipients).toBe(1);
     expect(await db.userNotification.count()).toBe(1);
-    expect((await notifications.count(user.id)).count).toBe(1);
+    expect((await notifications.count(user.id)).count).toBe(2);
   });
   it("marcar, desmarcar, archivar y restaurar no toca bandeja ajena", async () => {
+    await notifications.syncAccount(user.id);
+    await db.userNotification.updateMany({
+      where: { userId: user.id },
+      data: { archivedAt: new Date() },
+    });
     const row = await db.userNotification.create({
       data: {
         userId: user.id,
@@ -766,7 +1015,11 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     });
     expect((await notifications.publish(c.id)).recipients).toBe(1);
     await notifications.withdraw(c.id);
-    expect((await notifications.list(user.id)).items).toHaveLength(0);
+    expect(
+      (await notifications.list(user.id)).items.filter(
+        (n) => n.campaignId === c.id,
+      ),
+    ).toHaveLength(0);
   });
   it("feedback admite crítica, es único por destinatario y valida puntuación", async () => {
     const c = await notifications.createCampaign({
@@ -799,6 +1052,11 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     );
   });
   it("cursor pagina sin duplicados y marcar todas conserva un aviso futuro", async () => {
+    await notifications.syncAccount(user.id);
+    await db.userNotification.updateMany({
+      where: { userId: user.id },
+      data: { archivedAt: new Date() },
+    });
     const now = new Date();
     await db.userNotification.createMany({
       data: Array.from({ length: 25 }, (_, i) => ({

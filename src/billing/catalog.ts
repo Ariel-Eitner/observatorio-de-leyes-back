@@ -1,19 +1,7 @@
-export const PRODUCTS = {
-  pro_mensual: {
-    id: "pro_mensual",
-    name: "Pro mensual",
-    amount: 26000,
-    months: 1,
-    frozen: false,
-  },
-  pro_anual: {
-    id: "pro_anual",
-    name: "Pro Fundador anual",
-    amount: 200000,
-    months: 12,
-    frozen: true,
-  },
-} as const;
+import { COMMERCIAL_CATALOG } from "../commercial/catalog";
+export const PRODUCTS = Object.fromEntries(
+  COMMERCIAL_CATALOG.products.map((p) => [p.id, p]),
+) as Record<string, (typeof COMMERCIAL_CATALOG.products)[number]>;
 
 // Calendar months in Argentina, retaining the original billing day through February.
 export function billingDay(date: Date): number {

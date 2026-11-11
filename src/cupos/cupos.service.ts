@@ -1,7 +1,16 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from "@nestjs/common";
 import { Prisma } from "@prisma/client";
 import { PrismaService } from "../common/prisma/prisma.service";
-import { effectivePlan, PLAN_SELECT, type PlanTier } from "../common/plan";
+import { effectivePlan, type PlanTier } from "../common/plan";
+import { COMMERCIAL_POLICY } from "../commercial/catalog";
+import {
+  creditBalance,
+  syncQuotaNotice,
+} from "../notifications/account-notices";
 export type CupoKind = "articulo" | "ley" | "lector" | "exportacion";
 export const CUPO_KINDS: CupoKind[] = [
   "articulo",
@@ -9,10 +18,20 @@ export const CUPO_KINDS: CupoKind[] = [
   "lector",
   "exportacion",
 ];
-export const FREE_DOWNLOAD_LIMIT = 5;
+export const FREE_DOWNLOAD_LIMIT = COMMERCIAL_POLICY.freeLaws;
 export const CUPOS_POR_PLAN = {
-  free: { articulo: 5, ley: 5, exportacion: 5, lector: 1 },
-  pro: { articulo: null, ley: null, exportacion: null, lector: 15 },
+  free: {
+    articulo: FREE_DOWNLOAD_LIMIT,
+    ley: FREE_DOWNLOAD_LIMIT,
+    exportacion: 0,
+    lector: COMMERCIAL_POLICY.freeContractAnalyses,
+  },
+  pro: {
+    articulo: null,
+    ley: null,
+    exportacion: null,
+    lector: COMMERCIAL_POLICY.proContractAnalyses,
+  },
 } as const;
 export interface CupoEstado {
   usado: number;
@@ -23,6 +42,11 @@ export interface CuposResumen {
   plan: PlanTier;
   periodo: { desde: string; hasta: string; renueva: string };
   descargas: CupoEstado;
+  compradas: {
+    restante: number;
+    lotes: { remaining: number; expiresAt: string }[];
+  };
+  leyesDisponibles: { normId: string; expiresAt: string }[];
   cupos: Record<CupoKind, CupoEstado>;
 }
 export type AutorizarResultado = {
@@ -31,10 +55,15 @@ export type AutorizarResultado = {
   limite: number | null;
   restante?: number | null;
   renueva: string | null;
-} & ({ ok: true } | { ok: false; error: "cupo_agotado" | "kind_invalido" });
+  reutilizada?: boolean;
+  disponibleHasta?: string;
+} & (
+  | { ok: true }
+  | { ok: false; error: "cupo_agotado" | "kind_invalido" | "solo_pro" }
+);
 function periodoActual(now = new Date()) {
-  const local = new Date(+now - 10800000);
-  const y = local.getUTCFullYear(),
+  const local = new Date(+now - 10800000),
+    y = local.getUTCFullYear(),
     m = local.getUTCMonth();
   return {
     desde: new Date(Date.UTC(y, m, 1) + 10800000),
@@ -50,17 +79,30 @@ const estado = (usado: number, limite: number | null): CupoEstado => ({
 export class CuposService {
   constructor(private readonly prisma: PrismaService) {}
   async resumen(userId: string): Promise<CuposResumen> {
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-      select: { ...PLAN_SELECT, freeDownloadsUsed: true, status: true },
-    });
+    const user = await this.prisma.user.findUnique({ where: { id: userId } });
     if (!user || user.status !== "active")
       throw new NotFoundException("Cuenta no disponible");
     const plan = effectivePlan(user),
-      { desde, hasta } = periodoActual();
-    const lector = await this.prisma.downloadLog.count({
-      where: { userId, kind: "lector", createdAt: { gte: desde, lt: hasta } },
-    });
+      { desde, hasta } = periodoActual(),
+      now = new Date();
+    const [lector, lots, access] = await Promise.all([
+      this.prisma.downloadLog.count({
+        where: { userId, kind: "lector", createdAt: { gte: desde, lt: hasta } },
+      }),
+      this.prisma.downloadCredit.findMany({
+        where: {
+          userId,
+          revokedAt: null,
+          expiresAt: { gt: now },
+          remaining: { gt: 0 },
+        },
+        orderBy: { expiresAt: "asc" },
+      }),
+      this.prisma.lawDownloadAccess.findMany({
+        where: { userId, expiresAt: { gt: now } },
+        orderBy: { expiresAt: "asc" },
+      }),
+    ]);
     const descargas = estado(
       user.freeDownloadsUsed,
       plan === "pro" ? null : FREE_DOWNLOAD_LIMIT,
@@ -73,10 +115,21 @@ export class CuposService {
         renueva: hasta.toISOString(),
       },
       descargas,
+      compradas: {
+        restante: lots.reduce((s, l) => s + l.remaining, 0),
+        lotes: lots.map((l) => ({
+          remaining: l.remaining,
+          expiresAt: l.expiresAt.toISOString(),
+        })),
+      },
+      leyesDisponibles: access.map((a) => ({
+        normId: a.normId,
+        expiresAt: a.expiresAt.toISOString(),
+      })),
       cupos: {
         articulo: descargas,
         ley: descargas,
-        exportacion: descargas,
+        exportacion: estado(0, plan === "pro" ? null : 0),
         lector: estado(lector, CUPOS_POR_PLAN[plan].lector),
       },
     };
@@ -97,16 +150,14 @@ export class CuposService {
         renueva: null,
       };
     return this.prisma.$transaction(
-      async (tx): Promise<AutorizarResultado> => {
+      async (tx) => {
         await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
-        const user = await tx.user.findUnique({
-          where: { id: userId },
-          select: { ...PLAN_SELECT, freeDownloadsUsed: true, status: true },
-        });
+        const user = await tx.user.findUnique({ where: { id: userId } });
         if (!user || user.status !== "active")
           throw new NotFoundException("Cuenta no disponible");
         const plan = effectivePlan(user),
-          { desde, hasta } = periodoActual();
+          now = new Date(),
+          { desde, hasta } = periodoActual(now);
         const renueva = kind === "lector" ? hasta.toISOString() : null;
         const limite = CUPOS_POR_PLAN[plan][kind];
         const usado =
@@ -115,29 +166,122 @@ export class CuposService {
                 where: { userId, kind, createdAt: { gte: desde, lt: hasta } },
               })
             : user.freeDownloadsUsed;
-        if (limite !== null && usado >= limite)
+        if (kind === "exportacion" && plan !== "pro")
           return {
             ok: false,
-            error: "cupo_agotado",
+            error: "solo_pro",
             kind,
-            usado,
-            limite,
-            renueva,
+            usado: 0,
+            limite: 0,
+            renueva: null,
           };
-        if (kind !== "lector" && plan === "free")
-          await tx.user.update({
-            where: { id: userId },
-            data: { freeDownloadsUsed: { increment: 1 } },
+        if (kind === "lector") {
+          if (limite !== null && usado >= limite)
+            return {
+              ok: false,
+              error: "cupo_agotado",
+              kind,
+              usado,
+              limite,
+              renueva,
+            };
+          await tx.downloadLog.create({
+            data: { userId, kind, target: target?.slice(0, 300) },
           });
-        await tx.downloadLog.create({
-          data: {
-            userId,
+          return { ok: true, kind, ...estado(usado + 1, limite), renueva };
+        }
+        if (kind === "exportacion") {
+          await tx.downloadLog.create({
+            data: { userId, kind, target: target?.slice(0, 300) },
+          });
+          return { ok: true, kind, ...estado(0, null), renueva: null };
+        }
+        const normId = target?.split("#")[0];
+        if (!normId || normId.length > 300)
+          throw new BadRequestException("Elegí la ley que querés descargar.");
+        if (
+          !(await tx.norms.findUnique({
+            where: { id: normId },
+            select: { id: true },
+          }))
+        )
+          throw new NotFoundException("La ley no está disponible.");
+        const access = await tx.lawDownloadAccess.findUnique({
+          where: { userId_normId: { userId, normId } },
+        });
+        if (access && +access.expiresAt > +now) {
+          await tx.downloadLog.create({ data: { userId, kind, target } });
+          return {
+            ok: true,
             kind,
-            target: target ? String(target).slice(0, 300) : null,
+            ...estado(usado, limite),
+            renueva: null,
+            reutilizada: true,
+            disponibleHasta: access.expiresAt.toISOString(),
+          };
+        }
+        let source = "pro",
+          creditId: string | undefined;
+        if (plan !== "pro") {
+          if (user.freeDownloadsUsed < FREE_DOWNLOAD_LIMIT) {
+            await tx.user.update({
+              where: { id: userId },
+              data: { freeDownloadsUsed: { increment: 1 } },
+            });
+            user.freeDownloadsUsed++;
+            source = "free";
+          } else {
+            const lot = await tx.downloadCredit.findFirst({
+              where: {
+                userId,
+                revokedAt: null,
+                expiresAt: { gt: now },
+                remaining: { gt: 0 },
+              },
+              orderBy: [{ expiresAt: "asc" }, { id: "asc" }],
+            });
+            if (!lot) {
+              await syncQuotaNotice(tx, user);
+              return {
+                ok: false,
+                error: "cupo_agotado",
+                kind,
+                usado,
+                limite,
+                renueva: null,
+              };
+            }
+            await tx.downloadCredit.update({
+              where: { id: lot.id },
+              data: { remaining: { decrement: 1 } },
+            });
+            source = "paid";
+            creditId = lot.id;
+          }
+        }
+        const expiresAt = new Date(
+          +now + COMMERCIAL_POLICY.redownloadDays * 86400000,
+        );
+        await tx.lawDownloadAccess.upsert({
+          where: { userId_normId: { userId, normId } },
+          create: { userId, normId, source, creditId, expiresAt },
+          update: {
+            source,
+            creditId: creditId ?? null,
+            expiresAt,
+            createdAt: now,
           },
         });
-        const nuevo = usado + (kind === "lector" || plan === "free" ? 1 : 0);
-        return { ok: true, kind, ...estado(nuevo, limite), renueva };
+        await tx.downloadLog.create({ data: { userId, kind, target } });
+        await syncQuotaNotice(tx, user);
+        return {
+          ok: true,
+          kind,
+          ...estado(user.freeDownloadsUsed, limite),
+          renueva: null,
+          reutilizada: false,
+          disponibleHasta: expiresAt.toISOString(),
+        };
       },
       { timeout: 15000 },
     );

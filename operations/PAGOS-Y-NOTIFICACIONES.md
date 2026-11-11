@@ -31,9 +31,21 @@ Ejecutar las pruebas de navegador sobre un sandbox recién iniciado: la suite ca
 
 Las pruebas de integración crean otro PostgreSQL efímero, aplican todas las migraciones y lo eliminan al terminar. Incluyen concurrencia, fallos transaccionales, respuesta perdida del proveedor, duplicados, devoluciones, firma, permisos, RLS y privacidad. La suite general conserva las pruebas existentes; las pruebas que requieren un corpus poblado no sustituyen una validación normativa completa.
 
-## Configuración de un futuro despliegue
+## Catálogo y reglas comerciales
 
-No desplegar con el simulador. Respaldar primero y aplicar la migración `20261110190000_billing_notifications` con un rol propietario que pueda crear tablas y habilitar RLS. No hay migración masiva de usuarios, pagos o planes; las tablas anteriores permanecen.
+`src/commercial/commercial-catalog.json` define la versión, precios, paquetes y plazos. `npm run catalog:sync` genera la copia del frontend; `npm run catalog:check` comprueba que coincidan. Compose también comprueba esa igualdad. Cada orden guarda su versión y condiciones; una pantalla con versión diferente recibe un conflicto y debe actualizarse antes de comprar.
+
+Una descarga consume una ley, incluyendo sus artículos y formatos PDF, con acceso reutilizable durante 30 días sin extender el plazo. Se utilizan primero las cinco leyes gratuitas y luego el lote comprado con vencimiento más cercano. Cada compra dura 12 meses; Pro conserva los créditos sin consumirlos. Escritos, Redactor y exportaciones son Pro.
+
+Los avisos de bienvenida se crean con el registro. El aviso de producto espera 48 horas y respeta preferencias. Para la activación única de cuentas anteriores, después de respaldar y migrar, ejecutar `node operations/activate-account-notices.cjs --apply` con `DATABASE_URL` explícita y el backend compilado. Fuerza ese aviso de producto sin cambiar preferencias. Se puede repetir sin duplicados; el aviso de cupo agotado se crea sólo para cuentas gratuitas sin saldo y se archiva cuando corresponde. No envía correos.
+
+La papelera cierra sesiones y bloquea los JWT mediante el estado real de la cuenta. La restauración conserva datos y saldos, sin pausar sus vencimientos. La limpieza periódica elimina definitivamente las cuentas después de 30 días y conserva los movimientos financieros anonimizados. Los administradores están protegidos.
+
+## Configuración del despliegue
+
+La imagen Docker y `npm run start:prod` ejecutan `prisma migrate deploy` antes de iniciar Nest y sus tareas periódicas. Si falta `DATABASE_URL` o falla una migración, el servidor no arranca con un esquema incompatible. Prisma se conserva como dependencia de producción. Este paso no sustituye el respaldo previo al despliegue.
+
+No desplegar con el simulador. Respaldar primero y aplicar las migraciones pendientes, incluida `20261111150000_trash_download_credits`, con un rol propietario que pueda crear tablas y habilitar RLS. Las tablas anteriores permanecen; se preservan los contadores históricos y los accesos identificables de los últimos 30 días.
 
 Backend: `BILLING_ENABLED=true`, `MP_ACCESS_TOKEN`, `MP_COLLECTOR_ID` (id real del receptor), `MP_WEBHOOK_SECRET`, `MP_SITE_URL` (origen HTTPS del frontend), `ADMIN_SECRET`, `JWT_ACCESS_SECRET`, `AUTH_ENABLED=true`, `DATABASE_URL`. Frontend: `INTERNAL_API_URL`, el mismo `ADMIN_SECRET`, cookies seguras y `NEXT_PUBLIC_MP_PUBLIC_KEY` al compilar. Configurar Mercado Pago para enviar eventos de pagos a `<MP_SITE_URL>/api/pagos/webhook`. `ALLOW_MOCK_PAYMENTS` y `OBS_LOCAL_SANDBOX` deben estar ausentes en producción. Sin configuración de firma/receptor el checkout queda deshabilitado.
 

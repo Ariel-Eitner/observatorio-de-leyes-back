@@ -1,6 +1,6 @@
-﻿import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../common/prisma/prisma.service';
-import { iso, num, numOrNull } from './shared';
+﻿import { Injectable } from "@nestjs/common";
+import { PrismaService } from "../common/prisma/prisma.service";
+import { iso, num, numOrNull } from "./shared";
 
 /**
  * Pagos, Ã³rdenes de informe, fundadores y usuarios del panel.
@@ -17,12 +17,22 @@ export class ComercialService {
 
   async pagos() {
     const rows = await this.prisma.pago.findMany({
-      orderBy: { createdAt: 'desc' },
+      orderBy: { createdAt: "desc" },
       take: 300,
       select: {
-        id: true, createdAt: true, tipo: true, concepto: true, monto: true,
-        estado: true, mpPaymentId: true, mpStatusDetail: true, paymentMethod: true,
-        email: true, nombre: true, device: true, utmSource: true,
+        id: true,
+        createdAt: true,
+        tipo: true,
+        concepto: true,
+        monto: true,
+        estado: true,
+        mpPaymentId: true,
+        mpStatusDetail: true,
+        paymentMethod: true,
+        email: true,
+        nombre: true,
+        device: true,
+        utmSource: true,
       },
     });
     return rows.map((p) => ({
@@ -51,11 +61,19 @@ export class ComercialService {
 
   async ordenes() {
     const rows = await this.prisma.productOrder.findMany({
-      orderBy: { createdAt: 'desc' },
+      orderBy: { createdAt: "desc" },
       take: 200,
       select: {
-        id: true, createdAt: true, producto: true, nombre: true, email: true,
-        telefono: true, precio: true, detalle: true, status: true, notas: true,
+        id: true,
+        createdAt: true,
+        producto: true,
+        nombre: true,
+        email: true,
+        telefono: true,
+        precio: true,
+        detalle: true,
+        status: true,
+        notas: true,
       },
     });
     return rows.map((o) => ({
@@ -73,7 +91,10 @@ export class ComercialService {
   }
 
   async actualizarOrden(id: string, status: string) {
-    await this.prisma.productOrder.updateMany({ where: { id }, data: { status } });
+    await this.prisma.productOrder.updateMany({
+      where: { id },
+      data: { status },
+    });
     return { ok: true };
   }
 
@@ -86,7 +107,9 @@ export class ComercialService {
 
   /** Ficha completa: la pantalla muestra beneficio, consentimiento y UTMs. */
   async founders() {
-    const rows = await this.prisma.founders.findMany({ orderBy: { created_at: 'desc' } });
+    const rows = await this.prisma.founders.findMany({
+      orderBy: { created_at: "desc" },
+    });
     return rows.map((f) => ({
       ...f,
       created_at: iso(f.created_at),
@@ -101,7 +124,9 @@ export class ComercialService {
 
   async borrarFounders(ids: string[]) {
     if (!ids.length) return { ok: true, borrados: 0 };
-    const r = await this.prisma.founders.deleteMany({ where: { id: { in: ids } } });
+    const r = await this.prisma.founders.deleteMany({
+      where: { id: { in: ids } },
+    });
     return { ok: true, borrados: r.count };
   }
 
@@ -127,17 +152,27 @@ export class ComercialService {
   async usuarios() {
     const [users, saved, events, claims, leads] = await Promise.all([
       this.prisma.user.findMany({
-        orderBy: { createdAt: 'desc' },
+        where: { status: { not: "trashed" } },
+        orderBy: { createdAt: "desc" },
         select: {
-          id: true, email: true, nombre: true, plan: true, isFounder: true,
-          isAdmin: true, leadId: true, createdAt: true, lastLoginAt: true,
+          id: true,
+          email: true,
+          nombre: true,
+          plan: true,
+          isFounder: true,
+          isAdmin: true,
+          leadId: true,
+          createdAt: true,
+          lastLoginAt: true,
         },
       }),
-      this.prisma.savedLaw.findMany({ select: { userId: true, createdAt: true } }),
+      this.prisma.savedLaw.findMany({
+        select: { userId: true, createdAt: true },
+      }),
       this.prisma.trackingEvent.findMany({
         where: { userId: { not: null } },
         select: { userId: true, type: true, createdAt: true },
-        orderBy: { createdAt: 'desc' },
+        orderBy: { createdAt: "desc" },
         take: 8000,
       }),
       this.prisma.benefitClaim.findMany({ select: { userId: true } }),
@@ -158,7 +193,10 @@ export class ComercialService {
         created_at: iso(u.createdAt),
         last_login_at: iso(u.lastLoginAt),
       })),
-      saved: saved.map((s) => ({ user_id: s.userId, created_at: iso(s.createdAt) })),
+      saved: saved.map((s) => ({
+        user_id: s.userId,
+        created_at: iso(s.createdAt),
+      })),
       events: events.map((e) => ({
         user_id: e.userId,
         type: e.type,
@@ -178,32 +216,46 @@ export class ComercialService {
     const user = await this.prisma.user.findUnique({ where: { id } });
     if (!user) return null;
 
-    const email = user.email ?? '';
+    const email = user.email ?? "";
     const guestId = user.guestId ?? null;
 
     const [lead, founder, events, saved, claims] = await Promise.all([
       user.leadId
         ? this.prisma.leads.findUnique({ where: { id: user.leadId } })
-        : this.prisma.leads.findFirst({ where: { email: { equals: email, mode: 'insensitive' } } }),
-      this.prisma.founders.findFirst({ where: { email: { equals: email, mode: 'insensitive' } } }),
+        : this.prisma.leads.findFirst({
+            where: { email: { equals: email, mode: "insensitive" } },
+          }),
+      this.prisma.founders.findFirst({
+        where: { email: { equals: email, mode: "insensitive" } },
+      }),
       this.prisma.trackingEvent.findMany({
         where: guestId ? { OR: [{ userId: id }, { guestId }] } : { userId: id },
-        select: { type: true, properties: true, createdAt: true, guestId: true, userId: true },
-        orderBy: { createdAt: 'desc' },
+        select: {
+          type: true,
+          properties: true,
+          createdAt: true,
+          guestId: true,
+          userId: true,
+        },
+        orderBy: { createdAt: "desc" },
         take: 500,
       }),
       this.prisma.savedLaw.findMany({
         where: { userId: id },
         select: { normId: true, createdAt: true },
-        orderBy: { createdAt: 'desc' },
+        orderBy: { createdAt: "desc" },
       }),
       this.prisma.benefitClaim.findMany({
         where: { userId: id },
         select: {
-          id: true, detalle: true, status: true, createdAt: true,
-          monto: true, medio: true,
+          id: true,
+          detalle: true,
+          status: true,
+          createdAt: true,
+          monto: true,
+          medio: true,
         },
-        orderBy: { createdAt: 'desc' },
+        orderBy: { createdAt: "desc" },
       }),
     ]);
 
@@ -211,7 +263,7 @@ export class ComercialService {
       ? await this.prisma.lead_events.findMany({
           where: { lead_id: lead.id },
           select: { type: true, created_at: true },
-          orderBy: { created_at: 'desc' },
+          orderBy: { created_at: "desc" },
           take: 100,
         })
       : [];
@@ -257,7 +309,10 @@ export class ComercialService {
         guest_id: e.guestId,
         user_id: e.userId,
       })),
-      saved: saved.map((s) => ({ norm_id: s.normId, created_at: iso(s.createdAt) })),
+      saved: saved.map((s) => ({
+        norm_id: s.normId,
+        created_at: iso(s.createdAt),
+      })),
       claims: claims.map((c) => ({
         id: c.id,
         detalle: c.detalle,
@@ -266,7 +321,10 @@ export class ComercialService {
         monto: c.monto,
         medio: c.medio,
       })),
-      leadEvents: leadEvents.map((e) => ({ type: e.type, created_at: iso(e.created_at) })),
+      leadEvents: leadEvents.map((e) => ({
+        type: e.type,
+        created_at: iso(e.created_at),
+      })),
     };
   }
 }

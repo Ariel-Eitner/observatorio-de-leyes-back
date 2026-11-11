@@ -15,11 +15,27 @@ async function until(check, ms = 20000) {
   throw Error("Timed out waiting for local state");
 }
 (async () => {
+  await until(
+    () =>
+      fetch("http://127.0.0.1:4772/status", {
+        signal: AbortSignal.timeout(2000),
+      })
+        .then((r) => r.ok)
+        .catch(() => false),
+    120000,
+  );
   const status = await fetch("http://127.0.0.1:4772/status", {
     signal: AbortSignal.timeout(3000),
   }).then((r) => r.json());
   assert.equal(status.url, base);
   assert.match(status.mode, /synthetic/);
+  await until(
+    () =>
+      fetch(base + "/api/pagos/config", { signal: AbortSignal.timeout(2000) })
+        .then((r) => r.ok)
+        .catch(() => false),
+    60000,
+  );
   const browser = await chromium.launch({ channel: "chrome", headless: true });
   const results = [];
   async function account(email) {
@@ -211,6 +227,24 @@ async function until(check, ms = 20000) {
     results.push(
       "Compra Pro con proveedor simulado, acreditación y actualización de sesión",
     );
+    const accessCookie = (await a.cookies()).find((c) => c.name === "obs_at");
+    assert.ok(accessCookie);
+    await a.addCookies([{ ...accessCookie, value: "expired-fixture-access" }]);
+    await page.goto(base + "/herramientas/escritos");
+    await page
+      .getByRole("heading", {
+        name: "Modelos de escritos legales",
+        exact: true,
+      })
+      .waitFor({ timeout: 60000 });
+    assert.notEqual(
+      (await a.cookies()).find((c) => c.name === "obs_at")?.value,
+      "expired-fixture-access",
+    );
+    results.push(
+      "Acceso Pro renovado automáticamente cuando vence el token corto",
+    );
+
     await until(async () => {
       const data = await (
         await a.request.get(base + "/api/notificaciones")
@@ -261,7 +295,10 @@ async function until(check, ms = 20000) {
         b.request
           .post(base + "/api/cupos/autorizar", {
             headers: { Origin: base },
-            data: { kind: ["ley", "articulo", "exportacion"][i % 3] },
+            data: {
+              kind: ["ley", "articulo"][i % 2],
+              target: `fixture-law-${i}`,
+            },
           })
           .then((r) => r.json()),
       ),
@@ -270,10 +307,14 @@ async function until(check, ms = 20000) {
     assert.ok(quota.every((r) => r.renueva === null));
     const accountPage = await b.newPage();
     await accountPage.goto(base + "/cuenta");
-    await accountPage.getByRole('button',{name:'Cerrar aviso',exact:true}).click();
-    await accountPage.getByRole('button',{name:'Plan y beneficios'}).click();
     await accountPage
-      .getByText("0 de 5 descargas gratuitas disponibles. No se renuevan.", {
+      .getByRole("button", { name: "Cerrar aviso", exact: true })
+      .click();
+    await accountPage
+      .getByRole("button", { name: "Plan y beneficios" })
+      .click();
+    await accountPage
+      .getByText("0 leyes gratuitas y 0 descargas compradas disponibles.", {
         exact: true,
       })
       .waitFor();
@@ -288,38 +329,66 @@ async function until(check, ms = 20000) {
     const targetRow = adminPage
       .getByRole("row")
       .filter({ hasText: "otro@local.invalid" });
-    await targetRow
-      .getByRole("button", { name: "Eliminar usuario", exact: true })
-      .click();
-    await adminPage
-      .getByLabel("Correo de la cuenta a eliminar")
-      .fill("otro@local.invalid");
-    await adminPage.getByLabel("Escribí BORRAR").fill("BORRAR");
-    await adminPage
-      .getByLabel("Tu contraseña de administrador")
-      .fill("incorrecta");
-    await adminPage
-      .getByRole("button", { name: "Confirmar eliminación", exact: true })
-      .click();
-    await adminPage
-      .getByRole("alert")
-      .filter({ hasText: "contraseña" })
-      .waitFor();
-    assert.equal((await b.request.get(base + "/api/auth/me")).status(), 200);
-    await adminPage
-      .getByLabel("Tu contraseña de administrador")
-      .fill("Local-demo-2026!");
-    await adminPage.screenshot({
-      path: path.join(work, "07-delete-confirmation.png"),
-      fullPage: true,
+    const move = targetRow.getByRole("button", {
+      name: "Mover a papelera",
+      exact: true,
     });
+    assert.equal(
+      await move.evaluate((el) => getComputedStyle(el).cursor),
+      "pointer",
+    );
+    await move.click();
+    assert.equal(await adminPage.locator('input[type="password"]').count(), 0);
     await adminPage
-      .getByRole("button", { name: "Confirmar eliminación", exact: true })
+      .getByRole("button", { name: "Confirmar traslado", exact: true })
       .click();
     await targetRow.waitFor({ state: "detached" });
     assert.notEqual((await b.request.get(base + "/api/auth/me")).status(), 200);
+    await adminPage.goto(base + "/admin/usuarios/papelera");
+    const trashRow = adminPage
+      .getByRole("row")
+      .filter({ hasText: "otro@local.invalid" });
+    await trashRow
+      .getByRole("button", { name: "Restaurar", exact: true })
+      .click();
+    await adminPage
+      .getByRole("button", { name: "Confirmar restauración", exact: true })
+      .click();
+    await trashRow.waitFor({ state: "detached" });
     results.push(
-      "Borrado admin con contraseña, correo, confirmación y cierre de acceso de la cuenta",
+      "Papelera con cursor, confirmación simple, suspensión y restauración",
+    );
+    const fresh = await account("otro@local.invalid"),
+      purchasePage = await fresh.newPage();
+    await purchasePage.goto(base + "/herramientas/escritos");
+    const closeNotice = purchasePage.getByRole("button", {
+      name: "Cerrar aviso",
+      exact: true,
+    });
+    await closeNotice.click();
+    await purchasePage.getByText("Herramienta Pro", { exact: true }).waitFor();
+    await purchasePage.goto(base + "/planes#descargas");
+    await purchasePage
+      .getByRole("button", { name: "Comprar una descarga", exact: true })
+      .click();
+    await purchasePage
+      .getByRole("button", { name: "Simular pago aprobado" })
+      .click();
+    await purchasePage
+      .getByRole("link", { name: "Ir a mi cuenta", exact: true })
+      .waitFor();
+    const balance = await (await fresh.request.get(base + "/api/cupos")).json();
+    assert.equal(balance.compradas.restante, 1);
+    const notices = await (
+      await fresh.request.get(base + "/api/notificaciones")
+    ).json();
+    assert.ok(!notices.items.some((n) => n.eventKey?.startsWith("quota:")));
+    await purchasePage.screenshot({
+      path: path.join(work, "08-download-purchase.png"),
+      fullPage: true,
+    });
+    results.push(
+      "Escritos exclusivo Pro, compra de descarga, saldo y aviso de agotamiento oculto",
     );
     fs.writeFileSync(
       path.join(work, "results.json"),

@@ -3,24 +3,194 @@ import {
   Injectable,
   NotFoundException,
   UnauthorizedException,
-} from '@nestjs/common';
-import { createHash, randomBytes } from 'node:crypto';
-import * as argon2 from 'argon2';
-import { Prisma, User } from '@prisma/client';
-import { PrismaService } from '../common/prisma/prisma.service';
+  BadRequestException,
+  Logger,
+} from "@nestjs/common";
+import { createHash, randomBytes } from "node:crypto";
+import * as argon2 from "argon2";
+import { Prisma, User } from "@prisma/client";
+import { PrismaService } from "../common/prisma/prisma.service";
+import { Cron } from "@nestjs/schedule";
+import { COMMERCIAL_POLICY } from "../commercial/catalog";
 
 /** Marcador que queda en los campos de texto obligatorios que no se pueden vaciar. */
-const ANONIMO = '(cuenta borrada a pedido del titular)';
+const ANONIMO = "(cuenta borrada a pedido del titular)";
 
 /** Techo de eventos incluidos en la exportación (los más recientes). */
 const MAX_EVENTOS_EXPORT = 5000;
 
 @Injectable()
 export class AccountDataService {
+  private readonly logger = new Logger(AccountDataService.name);
+  private purging = false;
+  private async requireAdmin(actorId: string) {
+    const actor = await this.prisma.user.findUnique({
+      where: { id: actorId },
+      select: { isAdmin: true, status: true },
+    });
+    if (!actor?.isAdmin || actor.status !== "active")
+      throw new ForbiddenException(
+        "Se requiere una sesión de administrador activa.",
+      );
+  }
+  async trashList(actorId: string) {
+    await this.requireAdmin(actorId);
+    return this.prisma.user.findMany({
+      where: { status: "trashed" },
+      orderBy: { purgeAt: "asc" },
+      select: {
+        id: true,
+        email: true,
+        nombre: true,
+        trashedAt: true,
+        purgeAt: true,
+      },
+    });
+  }
+  async moveToTrash(actorId: string, userId: string) {
+    await this.requireAdmin(actorId);
+    return this.prisma.$transaction(async (tx) => {
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
+      const user = await tx.user.findUnique({ where: { id: userId } });
+      if (!user) throw new NotFoundException("No se encontró la cuenta.");
+      if (user.isAdmin || userId === actorId)
+        throw new ForbiddenException(
+          "Las cuentas administradoras están protegidas.",
+        );
+      if (user.status === "trashed")
+        return {
+          ok: true,
+          message: "La cuenta ya está en la papelera.",
+          purgeAt: user.purgeAt,
+        };
+      const trashedAt = new Date(),
+        purgeAt = new Date(+trashedAt + COMMERCIAL_POLICY.trashDays * 86400000);
+      await tx.user.update({
+        where: { id: userId },
+        data: {
+          status: "trashed",
+          trashedAt,
+          purgeAt,
+          statusBeforeTrash: user.status,
+        },
+      });
+      await tx.session.deleteMany({ where: { userId } });
+      await tx.accountRequest.create({
+        data: {
+          type: "admin_trash",
+          status: "resuelto",
+          userId,
+          email: user.email,
+          resolvedAt: trashedAt,
+          detalle: { actorId, action: "trash", purgeAt: purgeAt.toISOString() },
+        },
+      });
+      return {
+        ok: true,
+        message:
+          "Cuenta trasladada a la papelera. Se puede restaurar durante 30 días.",
+        purgeAt,
+      };
+    });
+  }
+  async restoreFromTrash(actorId: string, userId: string) {
+    await this.requireAdmin(actorId);
+    return this.prisma.$transaction(async (tx) => {
+      await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
+      const user = await tx.user.findUnique({ where: { id: userId } });
+      if (!user || user.status !== "trashed")
+        throw new NotFoundException("La cuenta no está en la papelera.");
+      await tx.user.update({
+        where: { id: userId },
+        data: {
+          status: user.statusBeforeTrash || "active",
+          trashedAt: null,
+          purgeAt: null,
+          statusBeforeTrash: null,
+        },
+      });
+      await tx.accountRequest.create({
+        data: {
+          type: "admin_restore",
+          status: "resuelto",
+          userId,
+          email: user.email,
+          resolvedAt: new Date(),
+          detalle: { actorId, action: "restore" },
+        },
+      });
+      return {
+        ok: true,
+        message: "Cuenta restaurada. La persona debe volver a iniciar sesión.",
+      };
+    });
+  }
+  async purgeTrash(actorId: string, ids: string[], all = false) {
+    await this.requireAdmin(actorId);
+    if (!all && !ids.length)
+      throw new BadRequestException(
+        "Seleccioná las cuentas que querés eliminar.",
+      );
+    const users = await this.prisma.user.findMany({
+      where: {
+        status: "trashed",
+        isAdmin: false,
+        ...(all ? {} : { id: { in: ids } }),
+      },
+      take: 100,
+      orderBy: { purgeAt: "asc" },
+    });
+    let deleted = 0;
+    for (const user of users) {
+      await this.suprimir(user, {}, `administrador:${actorId}`, true);
+      deleted++;
+    }
+    return {
+      ok: true,
+      deleted,
+      remaining: await this.prisma.user.count({
+        where: { status: "trashed", isAdmin: false },
+      }),
+      message: `Se eliminaron definitivamente ${deleted} cuenta(s).`,
+    };
+  }
+  @Cron("0 */15 * * * *")
+  async purgeExpiredTrash() {
+    if (this.purging) return;
+    this.purging = true;
+    try {
+      const users = await this.prisma.user.findMany({
+        where: {
+          status: "trashed",
+          isAdmin: false,
+          purgeAt: { lte: new Date() },
+        },
+        orderBy: { purgeAt: "asc" },
+        take: 25,
+      });
+      for (const user of users) {
+        try {
+          await this.suprimir(
+            user,
+            {},
+            "limpieza automática de papelera",
+            true,
+            true,
+          );
+        } catch {
+          this.logger.error(
+            "No se pudo completar una eliminación de papelera; se reintentará.",
+          );
+        }
+      }
+    } finally {
+      this.purging = false;
+    }
+  }
   constructor(private readonly prisma: PrismaService) {}
 
   private sha256(valor: string): string {
-    return createHash('sha256').update(valor).digest('hex');
+    return createHash("sha256").update(valor).digest("hex");
   }
 
   // ── Derecho de acceso: copia de los datos ────────────────────────────────────
@@ -39,7 +209,7 @@ export class AccountDataService {
    */
   async exportar(userId: string) {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
-    if (!user) throw new NotFoundException('Usuario no encontrado');
+    if (!user) throw new NotFoundException("Usuario no encontrado");
 
     const email = user.email;
     const guestId = user.guestId;
@@ -48,21 +218,21 @@ export class AccountDataService {
       await Promise.all([
         this.prisma.savedLaw.findMany({
           where: { userId },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
           select: { normId: true, nota: true, folderId: true, createdAt: true },
         }),
         this.prisma.folder.findMany({
           where: { userId },
-          orderBy: { ord: 'asc' },
+          orderBy: { ord: "asc" },
           select: { id: true, name: true, ord: true, createdAt: true },
         }),
         this.prisma.benefitClaim.findMany({
           where: { userId },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
         }),
         this.prisma.session.findMany({
           where: { userId },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
           // tokenHash queda afuera a propósito: es una credencial, no un dato del titular.
           select: {
             createdAt: true,
@@ -76,7 +246,7 @@ export class AccountDataService {
         }),
         this.prisma.accountRequest.findMany({
           where: { userId },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
           select: {
             type: true,
             status: true,
@@ -90,7 +260,7 @@ export class AccountDataService {
         // Documentos del Redactor: son contenido creado por el titular, va completo.
         this.prisma.redactorDoc.findMany({
           where: { userId },
-          orderBy: { updatedAt: 'desc' },
+          orderBy: { updatedAt: "desc" },
           select: {
             title: true,
             content: true,
@@ -107,21 +277,21 @@ export class AccountDataService {
         this.prisma.founders.findFirst({ where: { email } }),
         this.prisma.pago.findMany({
           where: guestId ? { OR: [{ email }, { guestId }] } : { email },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
         }),
         this.prisma.contact_submissions.findMany({
           where: guestId
             ? { OR: [{ email }, { guest_id: guestId }] }
             : { email },
-          orderBy: { created_at: 'desc' },
+          orderBy: { created_at: "desc" },
         }),
         this.prisma.productOrder.findMany({
           where: guestId ? { OR: [{ email }, { guestId }] } : { email },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
         }),
         this.prisma.trackingEvent.findMany({
           where: guestId ? { OR: [{ userId }, { guestId }] } : { userId },
-          orderBy: { createdAt: 'desc' },
+          orderBy: { createdAt: "desc" },
           take: MAX_EVENTOS_EXPORT,
           select: {
             type: true,
@@ -138,7 +308,7 @@ export class AccountDataService {
     const leadEvents = lead
       ? await this.prisma.lead_events.findMany({
           where: { lead_id: lead.id },
-          orderBy: { created_at: 'desc' },
+          orderBy: { created_at: "desc" },
         })
       : [];
 
@@ -150,17 +320,23 @@ export class AccountDataService {
         generadoEl: new Date().toISOString(),
         titular: email,
         descripcion:
-          'Copia de los datos personales que el Observatorio de Leyes tiene sobre vos, en ejercicio del derecho de acceso (art. 14, Ley 25.326).',
+          "Copia de los datos personales que el Observatorio de Leyes tiene sobre vos, en ejercicio del derecho de acceso (art. 14, Ley 25.326).",
         aclaraciones: [
-          'No se incluye la contraseña: se guarda cifrada con argon2id y es irreversible por diseño.',
+          "No se incluye la contraseña: se guarda cifrada con argon2id y es irreversible por diseño.",
           `La actividad de navegación se limita a los ${MAX_EVENTOS_EXPORT} eventos más recientes.`,
-          'Los registros de CRM, pagos y contactos se cruzan por email y por el identificador anónimo de visitante previo al registro.',
+          "Los registros de CRM, pagos y contactos se cruzan por email y por el identificador anónimo de visitante previo al registro.",
         ],
       },
       perfil,
       leyesGuardadas: saved,
       carpetas: folders,
       documentosDelRedactor: redactorDocs,
+      creditosDeDescarga: await this.prisma.downloadCredit.findMany({
+        where: { userId },
+      }),
+      leyesHabilitadas: await this.prisma.lawDownloadAccess.findMany({
+        where: { userId },
+      }),
       reclamosDeBeneficio: claims,
       sesiones: sessions,
       solicitudes,
@@ -209,24 +385,13 @@ export class AccountDataService {
    * Devuelve el detalle de filas afectadas, que queda asentado en
    * `account_requests` como prueba del alcance de lo que se suprimió.
    */
-  async borrarDesdeAdmin(actorId: string, userId: string, password: string, email: string) {
-    const actor = await this.prisma.user.findUnique({where:{id:actorId}});
-    if (!actor?.isAdmin || actor.status !== 'active') throw new ForbiddenException('Se requiere una cuenta administradora activa');
-    if (!(await argon2.verify(actor.passwordHash, password).catch(() => false))) throw new UnauthorizedException('La contraseña del administrador es incorrecta');
-    const user = await this.prisma.user.findUnique({where:{id:userId}});
-    if (!user) throw new NotFoundException('Usuario no encontrado');
-    if (user.isAdmin || actorId === userId) throw new ForbiddenException('Las cuentas administradoras están protegidas');
-    if (email.trim().toLowerCase() !== user.email.toLowerCase()) throw new ForbiddenException('El correo de confirmación no coincide');
-    return this.suprimir(user, {}, `administrador:${actorId}`);
-  }
-
   async borrarCuenta(
     userId: string,
     password: string,
     meta: { ip?: string; userAgent?: string },
   ) {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
-    if (!user) throw new NotFoundException('Usuario no encontrado');
+    if (!user) throw new NotFoundException("Usuario no encontrado");
 
     // Una cuenta de administración no se borra desde la interfaz, y no es
     // paternalismo: los emails de ADMIN_EMAILS no se pueden registrar de nuevo
@@ -234,7 +399,7 @@ export class AccountDataService {
     // panel sin acceso y sin forma de recuperarlo salvo tocando la base a mano.
     if (user.isAdmin) {
       throw new ForbiddenException(
-        'Las cuentas de administración no se borran desde acá. Quitá el email de ADMIN_EMAILS primero.',
+        "Las cuentas de administración no se borran desde acá. Quitá el email de ADMIN_EMAILS primero.",
       );
     }
 
@@ -243,24 +408,41 @@ export class AccountDataService {
     const ok = await argon2
       .verify(user.passwordHash, password)
       .catch(() => false);
-    if (!ok) throw new UnauthorizedException('La contraseña es incorrecta');
-    return this.suprimir(user, meta, 'el propio titular desde /cuenta');
+    if (!ok) throw new UnauthorizedException("La contraseña es incorrecta");
+    return this.suprimir(user, meta, "el propio titular desde /cuenta");
   }
 
-  private async suprimir(user: User, meta: {ip?:string;userAgent?:string}, ejecutadoPor: string) {
+  private async suprimir(
+    user: User,
+    meta: { ip?: string; userAgent?: string },
+    ejecutadoPor: string,
+    onlyTrashed = false,
+    dueOnly = false,
+  ) {
     const userId = user.id;
     const email = user.email;
     const emailHash = this.sha256(email);
     const guestId = user.guestId;
     // Sufijo único para los campos UNIQUE NOT NULL que no admiten vaciarse.
-    const sufijo = randomBytes(4).toString('hex');
+    const sufijo = randomBytes(4).toString("hex");
     const emailAnonimo = `borrado-${sufijo}@anonimizado.local`;
 
     const detalle = await this.prisma.$transaction(async (tx) => {
       await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
-      const current = await tx.user.findUnique({where:{id:userId}});
-      if (!current) throw new NotFoundException('Usuario no encontrado');
-      if (current.isAdmin) throw new ForbiddenException('Las cuentas administradoras están protegidas');
+      const current = await tx.user.findUnique({ where: { id: userId } });
+      if (!current) throw new NotFoundException("Usuario no encontrado");
+      if (current.isAdmin)
+        throw new ForbiddenException(
+          "Las cuentas administradoras están protegidas",
+        );
+      if (onlyTrashed && current.status !== "trashed")
+        throw new BadRequestException(
+          "La cuenta fue restaurada y no se eliminará.",
+        );
+      if (dueOnly && (!current.purgeAt || +current.purgeAt > Date.now()))
+        throw new BadRequestException(
+          "El plazo de la papelera todavía no venció.",
+        );
       const filas: Record<string, number> = {};
 
       // 1. Actividad de navegación: deja de estar atribuida a nadie. Los eventos
@@ -308,7 +490,7 @@ export class AccountDataService {
             telefono: null,
             notes: ANONIMO,
             guest_id: null,
-            status: 'borrado',
+            status: "borrado",
           },
         });
         filas.leads = 1;
@@ -412,11 +594,25 @@ export class AccountDataService {
       });
       await tx.user.delete({ where: { id: userId } });
       filas.users = 1;
-      await tx.accountRequest.create({data:{
-        type:'account_deletion',userId:null,email:null,emailHash,status:'resuelto',resolvedAt:new Date(),
-        ip:meta.ip??null,userAgent:meta.userAgent?.slice(0,500)??null,
-        detalle:{ejecutadoPor,alcance:'borrado de la cuenta y anonimización del CRM',conservado:'pagos y aportes sin datos personales (respaldo contable)',filasAfectadas:filas},
-      }});
+      await tx.accountRequest.create({
+        data: {
+          type: "account_deletion",
+          userId: null,
+          email: null,
+          emailHash,
+          status: "resuelto",
+          resolvedAt: new Date(),
+          ip: meta.ip ?? null,
+          userAgent: meta.userAgent?.slice(0, 500) ?? null,
+          detalle: {
+            ejecutadoPor,
+            alcance: "borrado de la cuenta y anonimización del CRM",
+            conservado:
+              "pagos y aportes sin datos personales (respaldo contable)",
+            filasAfectadas: filas,
+          },
+        },
+      });
       return filas;
     });
 

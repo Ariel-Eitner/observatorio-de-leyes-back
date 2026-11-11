@@ -33,13 +33,13 @@ services:
           memory: 512M
 
   backend:
-    image: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-backend:${OBSERVATORIO_VERSION:-1.1.0}
-    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-backend-${OBSERVATORIO_VERSION:-1.1.0}
+    image: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-backend:${OBSERVATORIO_VERSION:-1.2.0}
+    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-backend-${OBSERVATORIO_VERSION:-1.2.0}
     build:
       context: ./observatorio-de-leyes-backend
       dockerfile: Dockerfile
       args:
-        APP_VERSION: ${OBSERVATORIO_VERSION:-1.1.0}
+        APP_VERSION: ${OBSERVATORIO_VERSION:-1.2.0}
     environment:
       NODE_ENV: production
       PORT: 3600
@@ -115,13 +115,13 @@ services:
       retries: 5
 
   frontend:
-    image: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-frontend:${OBSERVATORIO_VERSION:-1.1.0}
-    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-frontend-${OBSERVATORIO_VERSION:-1.1.0}
+    image: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-frontend:${OBSERVATORIO_VERSION:-1.2.0}
+    container_name: ${COMPOSE_PROJECT_NAME:-observatorio-de-leyes}-frontend-${OBSERVATORIO_VERSION:-1.2.0}
     build:
       context: ./observatorio-de-leyes-frontend
       dockerfile: Dockerfile
       args:
-        APP_VERSION: ${OBSERVATORIO_VERSION:-1.1.0}
+        APP_VERSION: ${OBSERVATORIO_VERSION:-1.2.0}
         # URL que verá el browser del usuario final.
         # Si desplegás en un servidor, reemplazá localhost por tu IP/dominio.
         NEXT_PUBLIC_API_URL: http://localhost:4600/api

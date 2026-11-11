@@ -295,6 +295,15 @@ if (action === "start") {
           nombre: isAdmin ? "Administrador local" : "Usuario de prueba",
         },
       });
+    await db.norms.createMany({
+      data: Array.from({ length: 20 }, (_, i) => ({
+        id: `fixture-law-${i}`,
+        title: `Ley de prueba ${i}`,
+        jurisdiction: "NACIONAL",
+        norm_type: "LEY",
+      })),
+      skipDuplicates: true,
+    });
     await db.$disconnect();
     for (const [cwd, args, file] of [
       [root, ["dist/main.js"], "backend.log"],

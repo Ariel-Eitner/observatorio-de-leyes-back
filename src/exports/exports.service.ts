@@ -5,7 +5,9 @@ export type ExportType = "pdf" | "docx" | "text";
 export class ExportsService {
   constructor(private readonly cupos: CuposService) {}
   async getCount(userId: string) {
-    const { descargas } = await this.cupos.resumen(userId);
+    const {
+      cupos: { exportacion: descargas },
+    } = await this.cupos.resumen(userId);
     return {
       used: descargas.usado,
       limit: descargas.limite,

@@ -5,15 +5,16 @@ import {
   NotFoundException,
   HttpException,
   HttpStatus,
-} from '@nestjs/common';
-import { Cron } from '@nestjs/schedule';
-import { JwtService } from '@nestjs/jwt';
-import { randomBytes, createHash } from 'crypto';
-import * as argon2 from 'argon2';
-import { PrismaService } from '../common/prisma/prisma.service';
-import { RegisterDto } from './dto/register.dto';
-import { LoginDto } from './dto/login.dto';
-import type { Prisma, User } from '@prisma/client';
+} from "@nestjs/common";
+import { Cron } from "@nestjs/schedule";
+import { JwtService } from "@nestjs/jwt";
+import { randomBytes, createHash } from "crypto";
+import * as argon2 from "argon2";
+import { PrismaService } from "../common/prisma/prisma.service";
+import { RegisterDto } from "./dto/register.dto";
+import { LoginDto } from "./dto/login.dto";
+import type { Prisma, User } from "@prisma/client";
+import { ensureAccountNotices } from "../notifications/account-notices";
 
 export interface SessionMeta {
   userAgent?: string;
@@ -22,7 +23,7 @@ export interface SessionMeta {
 }
 
 const REFRESH_TTL_DAYS = Number(process.env.REFRESH_TTL_DAYS ?? 30);
-const ACCESS_TTL = process.env.JWT_ACCESS_TTL ?? '15m';
+const ACCESS_TTL = process.env.JWT_ACCESS_TTL ?? "15m";
 
 // Fuerza bruta POR CUENTA. Es una defensa distinta a la de por IP: un ataque
 // distribuido contra un solo email cambia de IP en cada intento y jamás toca el
@@ -61,17 +62,17 @@ export class AuthService {
    * control lo tenés vos por la variable de entorno, no por la BD.
    */
   private isAdminEmail(email: string): boolean {
-    return (process.env.ADMIN_EMAILS ?? '')
-      .split(',')
+    return (process.env.ADMIN_EMAILS ?? "")
+      .split(",")
       .map((e) => e.trim().toLowerCase())
       .filter(Boolean)
       .includes(email);
   }
 
-  private rolesOf(user: Pick<User, 'isAdmin' | 'isFounder'>): string[] {
-    const roles = ['user'];
-    if (user.isFounder) roles.push('founder');
-    if (user.isAdmin) roles.push('admin');
+  private rolesOf(user: Pick<User, "isAdmin" | "isFounder">): string[] {
+    const roles = ["user"];
+    if (user.isFounder) roles.push("founder");
+    if (user.isAdmin) roles.push("admin");
     return roles;
   }
 
@@ -100,7 +101,7 @@ export class AuthService {
   }
 
   private hashToken(raw: string): string {
-    return createHash('sha256').update(raw).digest('hex');
+    return createHash("sha256").update(raw).digest("hex");
   }
 
   /** Access JWT (corto) + refresh opaco (guardado hasheado en `sessions`). */
@@ -109,10 +110,13 @@ export class AuthService {
       { sub: user.id, email: user.email, roles: this.rolesOf(user) },
       // expiresIn viene de env (string); el typedef de jsonwebtoken pide su
       // literal StringValue, así que casteamos puntualmente.
-      { secret: process.env.JWT_ACCESS_SECRET, expiresIn: ACCESS_TTL as `${number}m` },
+      {
+        secret: process.env.JWT_ACCESS_SECRET,
+        expiresIn: ACCESS_TTL as `${number}m`,
+      },
     );
 
-    const refreshToken = randomBytes(32).toString('base64url');
+    const refreshToken = randomBytes(32).toString("base64url");
     const expiresAt = new Date(Date.now() + REFRESH_TTL_DAYS * 86_400_000);
     await this.prisma.session.create({
       data: {
@@ -182,7 +186,8 @@ export class AuthService {
     const email = this.normalizeEmail(dto.email);
 
     const exists = await this.prisma.user.findUnique({ where: { email } });
-    if (exists) throw new ConflictException('Ya existe una cuenta con ese email');
+    if (exists)
+      throw new ConflictException("Ya existe una cuenta con ese email");
 
     // Los emails de ADMIN_EMAILS no se registran desde afuera. Sin esto, en una
     // base nueva (o si la cuenta se borrara) el PRIMERO que se registre con ese
@@ -192,30 +197,36 @@ export class AuthService {
     // Se responde el MISMO conflicto que un email ya tomado, para no delatar
     // desde afuera cuáles son los emails de administración.
     if (this.isAdminEmail(email)) {
-      throw new ConflictException('Ya existe una cuenta con ese email');
+      throw new ConflictException("Ya existe una cuenta con ese email");
     }
 
-    const passwordHash = await argon2.hash(dto.password, { type: argon2.argon2id });
+    const passwordHash = await argon2.hash(dto.password, {
+      type: argon2.argon2id,
+    });
 
-    const user = await this.prisma.user.create({
-      data: {
-        email,
-        passwordHash,
-        nombre: dto.nombre?.trim() || null,
-        // Perfil opcional que se haya completado en el registro.
-        apellido: dto.apellido?.trim() || null,
-        telefono: dto.telefono?.trim() || null,
-        tipoUsuario: dto.tipoUsuario?.trim() || null,
-        profesion: dto.profesion?.trim() || null,
-        especialidad: dto.especialidad?.trim() || null,
-        empresa: dto.empresa?.trim() || null,
-        provincia: dto.provincia?.trim() || null,
-        guestId: dto.guestId || null,
-        consentAt: dto.consentVersion ? new Date() : null,
-        consentVersion: dto.consentVersion || null,
-        // isAdmin NUNCA se otorga en el registro (ver el guard de arriba).
-        lastLoginAt: new Date(),
-      },
+    const user = await this.prisma.$transaction(async (tx) => {
+      const created = await tx.user.create({
+        data: {
+          email,
+          passwordHash,
+          nombre: dto.nombre?.trim() || null,
+          // Perfil opcional que se haya completado en el registro.
+          apellido: dto.apellido?.trim() || null,
+          telefono: dto.telefono?.trim() || null,
+          tipoUsuario: dto.tipoUsuario?.trim() || null,
+          profesion: dto.profesion?.trim() || null,
+          especialidad: dto.especialidad?.trim() || null,
+          empresa: dto.empresa?.trim() || null,
+          provincia: dto.provincia?.trim() || null,
+          guestId: dto.guestId || null,
+          consentAt: dto.consentVersion ? new Date() : null,
+          consentVersion: dto.consentVersion || null,
+          // isAdmin NUNCA se otorga en el registro (ver el guard de arriba).
+          lastLoginAt: new Date(),
+        },
+      });
+      await ensureAccountNotices(tx, created);
+      return created;
     });
 
     // Solo vincula identidad en el CRM. El beneficio de donante lo otorga el
@@ -231,21 +242,27 @@ export class AuthService {
     const user = await this.prisma.user.findUnique({ where: { email } });
 
     // Mensaje genérico: no revelar si el email existe (anti-enumeración).
-    const genericFail = new UnauthorizedException('Email o contraseña inválidos');
-    if (!user || user.status !== 'active') throw genericFail;
+    const genericFail = new UnauthorizedException(
+      "Email o contraseña inválidos",
+    );
+    if (!user || user.status !== "active") throw genericFail;
 
     // Cuenta bloqueada por intentos fallidos. Se responde 429 (no 401) porque es
     // una condición temporal y distinta de "credenciales inválidas" — pero solo
     // lo ve quien ya acertó el email, así que no sirve para enumerar cuentas.
     if (user.lockedUntil && user.lockedUntil.getTime() > Date.now()) {
-      const minutos = Math.ceil((user.lockedUntil.getTime() - Date.now()) / 60_000);
+      const minutos = Math.ceil(
+        (user.lockedUntil.getTime() - Date.now()) / 60_000,
+      );
       throw new HttpException(
         `Demasiados intentos fallidos. Probá de nuevo en ${minutos} minuto(s).`,
         HttpStatus.TOO_MANY_REQUESTS,
       );
     }
 
-    const ok = await argon2.verify(user.passwordHash, dto.password).catch(() => false);
+    const ok = await argon2
+      .verify(user.passwordHash, dto.password)
+      .catch(() => false);
     if (!ok) {
       // Contador por cuenta: al llegar al tope, se bloquea por un rato. Esto es
       // lo que frena un ataque distribuido, que cambia de IP en cada intento y
@@ -257,7 +274,10 @@ export class AuthService {
           data: {
             failedLoginCount: fallos,
             ...(fallos >= MAX_FALLOS
-              ? { lockedUntil: new Date(Date.now() + BLOQUEO_MINUTOS * 60_000), failedLoginCount: 0 }
+              ? {
+                  lockedUntil: new Date(Date.now() + BLOQUEO_MINUTOS * 60_000),
+                  failedLoginCount: 0,
+                }
               : {}),
           },
         })
@@ -287,8 +307,10 @@ export class AuthService {
 
   async refresh(rawToken: string, meta: SessionMeta) {
     const tokenHash = this.hashToken(rawToken);
-    const session = await this.prisma.session.findUnique({ where: { tokenHash } });
-    if (!session) throw new UnauthorizedException('Sesión inválida');
+    const session = await this.prisma.session.findUnique({
+      where: { tokenHash },
+    });
+    if (!session) throw new UnauthorizedException("Sesión inválida");
 
     // Detección de reuso: un refresh ya rotado que se vuelve a presentar es señal
     // de robo → se revocan TODAS las sesiones del usuario.
@@ -297,7 +319,7 @@ export class AuthService {
         where: { userId: session.userId, revokedAt: null },
         data: { revokedAt: new Date() },
       });
-      throw new UnauthorizedException('Sesión revocada');
+      throw new UnauthorizedException("Sesión revocada");
     }
 
     if (session.expiresAt.getTime() < Date.now()) {
@@ -305,11 +327,14 @@ export class AuthService {
         where: { id: session.id },
         data: { revokedAt: new Date() },
       });
-      throw new UnauthorizedException('Sesión expirada');
+      throw new UnauthorizedException("Sesión expirada");
     }
 
-    const user = await this.prisma.user.findUnique({ where: { id: session.userId } });
-    if (!user || user.status !== 'active') throw new UnauthorizedException('Sesión inválida');
+    const user = await this.prisma.user.findUnique({
+      where: { id: session.userId },
+    });
+    if (!user || user.status !== "active")
+      throw new UnauthorizedException("Sesión inválida");
 
     // Rotación: emitir tokens nuevos y marcar el viejo como reemplazado.
     const tokens = await this.issueTokens(user, meta);
@@ -357,13 +382,13 @@ export class AuthService {
       data: { revokedAt: new Date() },
     });
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
-    if (!user) throw new NotFoundException('Usuario no encontrado');
+    if (!user) throw new NotFoundException("Usuario no encontrado");
     return this.issueTokens(user, meta);
   }
 
   async me(userId: string) {
     const user = await this.prisma.user.findUnique({ where: { id: userId } });
-    if (!user) throw new NotFoundException('Usuario no encontrado');
+    if (!user) throw new NotFoundException("Usuario no encontrado");
     return this.sanitize(user);
   }
 
@@ -382,7 +407,7 @@ export class AuthService {
    * Corre de madrugada. Si el proceso estaba dormido y el cron no llegó a
    * dispararse, no pasa nada: la purga del día siguiente barre lo acumulado.
    */
-  @Cron('0 4 * * *')
+  @Cron("0 4 * * *")
   async purgarSesionesViejas() {
     const ahora = Date.now();
     try {
@@ -390,15 +415,20 @@ export class AuthService {
         where: {
           OR: [
             { expiresAt: { lt: new Date(ahora) } },
-            { revokedAt: { lt: new Date(ahora - RETENCION_REVOCADAS_DIAS * 86_400_000) } },
+            {
+              revokedAt: {
+                lt: new Date(ahora - RETENCION_REVOCADAS_DIAS * 86_400_000),
+              },
+            },
           ],
         },
       });
-      if (count > 0) console.log(`[auth] purga de sesiones: ${count} fila(s) borrada(s)`);
+      if (count > 0)
+        console.log(`[auth] purga de sesiones: ${count} fila(s) borrada(s)`);
       return { borradas: count };
     } catch (e) {
       // El mantenimiento nunca puede tumbar el proceso.
-      console.error('[auth] falló la purga de sesiones', e);
+      console.error("[auth] falló la purga de sesiones", e);
       return { borradas: 0 };
     }
   }
