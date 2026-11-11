@@ -289,6 +289,27 @@ async function until(check, ms = 20000) {
       .click();
     await page.getByRole("checkbox", { name: /Autorizo una suscrip/ }).check();
     await page
+      .getByLabel("Correo de Mercado Pago")
+      .fill("merchant@fixture.invalid");
+    await page
+      .getByRole("button", { name: "Iniciar suscripción mensual" })
+      .click();
+    await page
+      .getByRole("alert")
+      .filter({ hasText: "misma cuenta que recibe los cobros" })
+      .waitFor();
+    assert.equal(
+      (await (await a.request.get(base + "/api/auth/me")).json()).plan,
+      "free",
+    );
+    await page
+      .getByLabel("Correo de Mercado Pago")
+      .fill("usuario@local.invalid");
+    results.push(
+      "Comprador receptor muestra error claro y permite corregir correo antes de crear mandato",
+    );
+
+    await page
       .getByRole("button", { name: "Iniciar suscripción mensual" })
       .click();
     await page

@@ -10,12 +10,14 @@ exports.createSubscriptionFixture = (payments, nextId) => {
     subscriptions,
     invoices,
     created: 0,
+    requests: 0,
     failCreate: null,
     failCancel: false,
     reset() {
       subscriptions.clear();
       invoices.clear();
       this.created = 0;
+      this.requests = 0;
       this.failCreate = null;
       this.failCancel = false;
     },
@@ -66,6 +68,16 @@ exports.createSubscriptionFixture = (payments, nextId) => {
     handle(method, url, body) {
       const path = url.pathname;
       if (path === "/preapproval" && method === "POST") {
+        this.requests++;
+        if (
+          String(body.payer_email ?? "")
+            .trim()
+            .toLowerCase() === "merchant@fixture.invalid"
+        )
+          return {
+            status: 400,
+            body: { message: "payer and collector cannot be the same" },
+          };
         if (this.failCreate === "reject") {
           this.failCreate = null;
           return { status: 400, body: { error: "synthetic rejection" } };

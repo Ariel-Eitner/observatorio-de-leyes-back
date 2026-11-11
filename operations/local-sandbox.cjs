@@ -216,7 +216,8 @@ if (action === "start") {
         res.end(JSON.stringify(subscriptionResponse.body));
         return;
       }
-      if (url.pathname === "/users/me") result = { id: 1234 };
+      if (url.pathname === "/users/me")
+        result = { id: 1234, email: "merchant@fixture.invalid" };
       else if (req.method === "POST" && url.pathname === "/v1/payments") {
         const key = req.headers["x-idempotency-key"];
         let id = keys.get(key);

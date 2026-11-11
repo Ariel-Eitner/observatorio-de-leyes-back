@@ -15,7 +15,10 @@ export interface ProviderPayment {
   transaction_amount_refunded?: number;
 }
 export class ProviderRequestError extends BadGatewayException {
-  constructor(readonly providerStatus?: number) {
+  constructor(
+    readonly providerStatus?: number,
+    readonly providerReason?: string,
+  ) {
     super(
       "No se pudo confirmar la operación con el proveedor. Consultá el estado antes de reintentar.",
     );
@@ -145,9 +148,23 @@ export class PaymentProvider {
         });
         if (!response.ok) {
           const error = await response.json().catch(() => ({}));
-          throw new ProviderRequestError(error.providerStatus);
+          throw new ProviderRequestError(
+            error.providerStatus,
+            error.providerReason,
+          );
         }
         return await response.json();
+      }
+      if (path === "/preapproval" && method === "POST") {
+        const profile = await this.request("/users/me");
+        if (typeof profile.email !== "string") throw new ProviderRequestError();
+        if (
+          profile.email.trim().toLowerCase() ===
+          String((body as { payer_email?: unknown })?.payer_email ?? "")
+            .trim()
+            .toLowerCase()
+        )
+          throw new ProviderRequestError(400, "payer_is_collector");
       }
       const response = await fetch(this.base() + path, {
         method,
@@ -159,7 +176,15 @@ export class PaymentProvider {
         ...(body === undefined ? {} : { body: JSON.stringify(body) }),
         signal: AbortSignal.timeout(12000),
       });
-      if (!response.ok) throw new ProviderRequestError(response.status);
+      if (!response.ok) {
+        const failure = await response.json().catch(() => ({}));
+        throw new ProviderRequestError(
+          response.status,
+          path === "/preapproval"
+            ? subscriptionProviderReason(failure)
+            : undefined,
+        );
+      }
       return await response.json();
     } catch (error) {
       if (error instanceof ProviderRequestError) throw error;
@@ -183,4 +208,27 @@ export class PaymentProvider {
       ).results ?? []
     );
   }
+}
+
+export function subscriptionProviderReason(error: unknown): string | undefined {
+  const message =
+    typeof (error as { message?: unknown })?.message === "string"
+      ? (error as { message: string }).message.slice(0, 500).toLowerCase()
+      : "";
+  if (
+    /payer.*collector.*(same|equal)|customer.*(equal|same).*collector/.test(
+      message,
+    )
+  )
+    return "payer_is_collector";
+  if (/both payer and collector.*(real|test)|real.*test users/.test(message))
+    return "account_mode_mismatch";
+  if (/start_date|start date/.test(message)) return "invalid_start_date";
+  if (
+    /payer.*(invalid|not.*found|does not exist)|email.*(invalid|not.*found)/.test(
+      message,
+    )
+  )
+    return "invalid_payer";
+  return undefined;
 }

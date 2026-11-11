@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.1 — 2026-11-11
+
+- Detecta cuando comprador y receptor son la misma cuenta antes de solicitar una suscripción. Explica el rechazo y permite corregir el correo sin dejar solicitudes bloqueadas.
+- Conserva motivos seguros de rechazo entre servidores, sin exponer respuestas crudas de Mercado Pago. Muestra la fecha prevista del primer cobro cuando ya hay Pro vigente.
+
 ## 1.4.0 — 2026-11-11
 
 - Pro mensual con suscripción de Mercado Pago por $26.000 al mes, consentimiento expreso y cancelación desde la cuenta. El anual conserva un pago único por doce meses.

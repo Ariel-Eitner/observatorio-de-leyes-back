@@ -178,11 +178,26 @@ export class SubscriptionsService {
       if (
         error instanceof ProviderRequestError &&
         [400, 401, 403, 404, 422].includes(error.providerStatus)
-      )
+      ) {
         await this.db.proSubscription.updateMany({
           where: { id: row.id, providerId: null },
           data: { status: "cancelled" },
         });
+        const messages: Record<string, string> = {
+          payer_is_collector:
+            "Mercado Pago no permite suscribirte con la misma cuenta que recibe los cobros. Usá una cuenta compradora distinta.",
+          invalid_payer:
+            "Ingresá el correo de una cuenta compradora válida de Mercado Pago.",
+          account_mode_mismatch:
+            "Mercado Pago no permite mezclar cuentas de prueba y cuentas reales. Usá una cuenta compradora del mismo entorno.",
+          invalid_start_date:
+            "Mercado Pago rechazó la fecha del primer cobro. Tu acceso Pro actual se conserva; no se creó una suscripción.",
+        };
+        throw new BadRequestException(
+          messages[error.providerReason] ??
+            "Mercado Pago rechazó la solicitud de suscripción. Verificá el correo de tu cuenta compradora o contactanos. No se creó una suscripción.",
+        );
+      }
       throw error;
     }
   }

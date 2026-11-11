@@ -11,7 +11,7 @@ import { BillingService } from "./billing.service";
 import { NotificationsModule } from "../notifications/notifications.module";
 import { NotificationsService } from "../notifications/notifications.service";
 import { ProviderPayment } from "./provider";
-import { PaymentProvider } from "./provider";
+import { PaymentProvider, subscriptionProviderReason } from "./provider";
 import { BadGatewayException } from "@nestjs/common";
 import { addMonths } from "./catalog";
 import { CuposModule } from "../cupos/cupos.module";
@@ -140,8 +140,18 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
           },
         );
         res.setHeader("Content-Type", "application/json");
-        res.statusCode = forwarded.status;
-        res.end(await forwarded.text());
+        res.statusCode = forwarded.ok ? forwarded.status : 502;
+        const forwardedBody = await forwarded.json();
+        res.end(
+          JSON.stringify(
+            forwarded.ok
+              ? forwardedBody
+              : {
+                  providerStatus: forwarded.status,
+                  providerReason: subscriptionProviderReason(forwardedBody),
+                },
+          ),
+        );
         return;
       }
       const recurringResponse = recurring.handle(req.method, url, input);
@@ -151,7 +161,8 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         res.end(JSON.stringify(recurringResponse.body));
         return;
       }
-      if (url.pathname === "/users/me") data = { id: 1234 };
+      if (url.pathname === "/users/me")
+        data = { id: 1234, email: "merchant@fixture.invalid" };
       else if (req.method === "POST" && url.pathname === "/v1/payments") {
         const key = String(req.headers["x-idempotency-key"]);
         let id = idempotency.get(key);
@@ -305,6 +316,42 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     ).toBe(400);
     expect(recurring.created).toBe(0);
   });
+  it("rechaza comprador igual al receptor antes del POST y permite corregir el correo", async () => {
+    const result = await subscribe({ payerEmail: "Merchant@fixture.invalid" });
+    expect(result.status).toBe(400);
+    expect(result.data.message).toContain("misma cuenta");
+    expect(recurring.requests).toBe(0);
+    expect(recurring.created).toBe(0);
+    expect(
+      await db.proSubscription.count({
+        where: { status: "cancelled", providerId: null },
+      }),
+    ).toBe(1);
+    expect(
+      (await subscribe({ payerEmail: "buyer@fixture.invalid" })).status,
+    ).toBe(200);
+    expect(recurring.created).toBe(1);
+  });
+  it("adaptador conserva motivo seguro del rechazo sin exponer respuestas del proveedor", async () => {
+    const oldToken = process.env.MP_ACCESS_TOKEN,
+      oldSite = process.env.MP_SITE_URL;
+    try {
+      delete process.env.MP_ACCESS_TOKEN;
+      process.env.MP_SITE_URL = process.env.MP_API_BASE_URL;
+      const result = await subscribe({
+        payerEmail: "merchant@fixture.invalid",
+      });
+      expect(result.status).toBe(400);
+      expect(result.data.message).toContain("misma cuenta");
+      expect(recurring.created).toBe(0);
+      expect(
+        await db.proSubscription.count({ where: { status: "cancelled" } }),
+      ).toBe(1);
+    } finally {
+      process.env.MP_ACCESS_TOKEN = oldToken;
+      process.env.MP_SITE_URL = oldSite;
+    }
+  });
   it("dos solicitudes concurrentes crean un solo mandato; autorizar no acredita Pro", async () => {
     const results = await Promise.all([subscribe(), subscribe()]);
     const ok = results.find((r) => r.status === 200);
@@ -341,7 +388,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
   });
   it("respuesta perdida se recupera sin repetir alta; rechazo definitivo permite reintentar", async () => {
     recurring.failCreate = "reject";
-    expect((await subscribe()).status).toBe(502);
+    expect((await subscribe()).status).toBe(400);
     expect(
       await db.proSubscription.count({ where: { status: "cancelled" } }),
     ).toBe(1);
