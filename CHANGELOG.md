@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0 — 2026-11-11
+
+- Una sola consulta reúne bandeja, contador y preferencias. Las lecturas comparten la sincronización de avisos de cuenta durante un minuto, sin repetir escrituras y bloqueos por cada petición.
+- Todas las categorías de notificaciones dentro del sitio vienen activadas por defecto. Las preferencias desactivadas expresamente se conservan.
+- Pruebas de concurrencia, aislamiento, caché y recorrido de notificaciones y operaciones con usuarios en navegador local.
+
 ## 1.2.1 — 2026-11-11
 
 - Corrige el bloqueo del checkout introducido al exigir variables nuevas: los pagos configurados vuelven a estar activos por defecto, con pausa solo explícita.

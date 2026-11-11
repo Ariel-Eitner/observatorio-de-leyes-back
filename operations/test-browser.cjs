@@ -141,6 +141,11 @@ async function until(check, ms = 20000) {
     results.push("Publicación administrativa con preview y audiencia");
     const page = await a.newPage();
     page.setDefaultTimeout(timeout);
+    let notificationReads = 0;
+    page.on("request", (request) => {
+      if (new URL(request.url()).pathname === "/api/notificaciones/snapshot")
+        notificationReads++;
+    });
     await page.goto(base + "/cuenta/notificaciones", {
       waitUntil: "domcontentloaded",
     });
@@ -148,6 +153,71 @@ async function until(check, ms = 20000) {
       .getByRole("button", { name: "Cerrar aviso", exact: true })
       .click();
     await page.getByRole("heading", { name: title, exact: true }).waitFor();
+    assert.equal(
+      notificationReads,
+      1,
+      "Campana y bandeja deben compartir una sola carga",
+    );
+    const bell = page
+      .getByRole("button", { name: /^Notificaciones: \d+ sin leer$/ })
+      .first();
+    assert(!/Avisos/.test(await bell.innerText()));
+    const originalUrl = page.url();
+    await bell.click();
+    const dropdown = page.getByRole("dialog", {
+      name: "Notificaciones",
+      exact: true,
+    });
+    await dropdown.getByText(title, { exact: true }).waitFor();
+    assert.equal(page.url(), originalUrl, "Abrir la campana no debe navegar");
+    await page.screenshot({
+      path: path.join(work, "notifications-dropdown-desktop.png"),
+      fullPage: true,
+    });
+    await page.keyboard.press("Escape");
+    await bell.click();
+    await dropdown.waitFor();
+    assert.equal(notificationReads, 1, "Reabrir usa la caché");
+    await dropdown
+      .getByRole("link", { name: "Preferencias", exact: true })
+      .click();
+    await page
+      .getByRole("checkbox", { name: "Novedades y mejoras del producto" })
+      .waitFor();
+    assert.equal(
+      await page
+        .getByRole("checkbox", { name: "Novedades y mejoras del producto" })
+        .isChecked(),
+      true,
+    );
+    assert.equal(
+      await page
+        .getByRole("checkbox", {
+          name: "Ofertas y promociones dentro del sitio",
+        })
+        .isChecked(),
+      true,
+    );
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.getByRole("button", { name: "Abrir menú", exact: true }).click();
+    await page
+      .getByRole("button", { name: /^Notificaciones: \d+ sin leer$/ })
+      .last()
+      .click();
+    await dropdown.waitFor();
+    const popupBox = await dropdown.boundingBox();
+    assert(popupBox.x >= 0 && popupBox.x + popupBox.width <= 390);
+    await page.screenshot({
+      path: path.join(work, "notifications-dropdown-mobile.png"),
+      fullPage: true,
+    });
+    await dropdown
+      .getByRole("link", { name: "Ver todas", exact: true })
+      .click();
+    await page.setViewportSize({ width: 1280, height: 900 });
+    results.push(
+      "Campana sin texto, desplegable accesible, caché compartida y preferencias activas en escritorio y móvil",
+    );
     const rows = await (
       await a.request.get(base + "/api/notificaciones")
     ).json();
@@ -339,9 +409,33 @@ async function until(check, ms = 20000) {
     );
     await move.click();
     assert.equal(await adminPage.locator('input[type="password"]').count(), 0);
+    let releaseMove;
+    const moveHeld = new Promise((resolve) => {
+      releaseMove = resolve;
+    });
+    await adminPage.route("**/api/admin/usuarios/*/eliminar", async (route) => {
+      await moveHeld;
+      await route.continue();
+    });
     await adminPage
       .getByRole("button", { name: "Confirmar traslado", exact: true })
       .click();
+    await adminPage
+      .getByRole("status")
+      .filter({ hasText: "Moviendo cuenta a la papelera" })
+      .first()
+      .waitFor();
+    assert.equal(
+      await adminPage
+        .getByRole("button", { name: "Trasladando…", exact: true })
+        .isDisabled(),
+      true,
+    );
+    await adminPage.screenshot({
+      path: path.join(work, "users-moving-loading.png"),
+      fullPage: true,
+    });
+    releaseMove();
     await targetRow.waitFor({ state: "detached" });
     assert.notEqual((await b.request.get(base + "/api/auth/me")).status(), 200);
     await adminPage.goto(base + "/admin/usuarios/papelera");
@@ -351,9 +445,26 @@ async function until(check, ms = 20000) {
     await trashRow
       .getByRole("button", { name: "Restaurar", exact: true })
       .click();
+    let releaseRestore;
+    const restoreHeld = new Promise((resolve) => {
+      releaseRestore = resolve;
+    });
+    await adminPage.route(
+      "**/api/admin/papelera/usuarios/*/restaurar",
+      async (route) => {
+        await restoreHeld;
+        await route.continue();
+      },
+    );
     await adminPage
       .getByRole("button", { name: "Confirmar restauración", exact: true })
       .click();
+    await adminPage
+      .getByRole("status")
+      .filter({ hasText: "Restaurando cuenta" })
+      .first()
+      .waitFor();
+    releaseRestore();
     await trashRow.waitFor({ state: "detached" });
     results.push(
       "Papelera con cursor, confirmación simple, suspensión y restauración",

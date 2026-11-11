@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Header,
   HttpCode,
   Param,
   Patch,
@@ -29,6 +30,11 @@ import {
 @UseGuards(JwtAuthGuard)
 export class NotificationsController {
   constructor(private readonly notifications: NotificationsService) {}
+  @Get("snapshot")
+  @Header("Cache-Control", "private, no-store")
+  snapshot(@CurrentUser() u: AccessTokenPayload) {
+    return this.notifications.snapshot(u.sub);
+  }
   @Get() list(
     @CurrentUser() u: AccessTokenPayload,
     @Query("cursor") cursor?: string,

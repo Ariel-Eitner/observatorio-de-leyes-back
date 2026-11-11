@@ -1126,25 +1126,80 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     await notifications.archive(user.id, row.id, false);
     expect((await notifications.list(user.id)).items).toHaveLength(1);
   });
-  it("marketing requiere preferencia y retirarla no habilita nuevos envíos", async () => {
+  it("todas las categorías están activas por defecto y se respetan las bajas expresas", async () => {
     const c = await notifications.createCampaign({
       requestKey: randomUUID(),
       title: "Oferta",
       body: "Promoción",
       category: "marketing",
     });
-    expect((await notifications.preview(c.id)).eligible).toBe(0);
-    await notifications.preferences(user.id, {
+    expect(await notifications.preferences(user.id)).toMatchObject({
       product: true,
       marketing: true,
     });
+    expect((await notifications.preview(c.id)).eligible).toBe(2);
+    await notifications.preferences(other.id, {
+      product: true,
+      marketing: false,
+    });
+    expect((await notifications.preview(c.id)).eligible).toBe(1);
     expect((await notifications.publish(c.id)).recipients).toBe(1);
+    expect(
+      (await notifications.list(other.id)).items.some(
+        (n) => n.campaignId === c.id,
+      ),
+    ).toBe(false);
     await notifications.withdraw(c.id);
     expect(
       (await notifications.list(user.id)).items.filter(
         (n) => n.campaignId === c.id,
       ),
     ).toHaveLength(0);
+  });
+  it("preferencias persistidas conservan las bajas y el esquema crea todas activas", async () => {
+    const row = await db.notificationPreference.create({
+      data: { userId: user.id },
+    });
+    expect(row.product).toBe(true);
+    expect(row.marketing).toBe(true);
+    await notifications.preferences(user.id, {
+      product: false,
+      marketing: false,
+    });
+    expect((await notifications.snapshot(user.id)).preferences).toMatchObject({
+      product: false,
+      marketing: false,
+    });
+  });
+  it("snapshot, contador y bandeja comparten una sincronización y no bloquean cada lectura", async () => {
+    const spy = jest.spyOn(notifications, "syncAccount");
+    try {
+      const [snapshot, count, list] = await Promise.all([
+        notifications.snapshot(user.id),
+        notifications.count(user.id),
+        notifications.list(user.id),
+      ]);
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(snapshot.count).toBe(count.count);
+      expect(snapshot.items.map((n) => n.id)).toEqual(
+        list.items.map((n) => n.id),
+      );
+      await notifications.snapshot(user.id);
+      await notifications.count(user.id);
+      expect(spy).toHaveBeenCalledTimes(1);
+      const foreign = await call("/notifications/snapshot", "GET", undefined, {
+        token: otherToken,
+      });
+      expect(foreign.status).toBe(200);
+      expect(foreign.data.items.every((n) => n.userId === other.id)).toBe(true);
+      await db.user.update({
+        where: { id: user.id },
+        data: { status: "blocked" },
+      });
+      await expect(notifications.snapshot(user.id)).rejects.toThrow();
+    } finally {
+      spy.mockRestore();
+    }
   });
   it("feedback admite crítica, es único por destinatario y valida puntuación", async () => {
     const c = await notifications.createCampaign({

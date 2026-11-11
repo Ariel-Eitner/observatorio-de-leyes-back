@@ -10,7 +10,9 @@ El navegador nunca acredita un plan. Se verifica cada pago con Mercado Pago (id,
 
 No se inicia automáticamente un reembolso: un reembolso/contracargo verificado revoca su propia concesión y registra su reversión. Cobros duplicados, importes incorrectos y reembolsos parciales requieren revisión administrativa. El sistema no decide por sí solo la resolución comercial de esos casos.
 
-Notificaciones dentro del sitio: bandeja privada, contador, leído/no leído, marcar todas, archivo/restauración, paginación, preferencias y opinión opcional de 1 a 5 con comentario. Las campañas se crean como borradores, previsualizan audiencia, requieren publicación explícita, congelan destinatarios y pueden retirarse. Marketing deshabilitado por defecto. No hay envío de email, suscripción recurrente ni alertas normativas por correo en esta entrega.
+Notificaciones dentro del sitio: campana con desplegable, bandeja privada, contador, leído/no leído, marcar todas, archivo/restauración, paginación, preferencias y opinión opcional de 1 a 5 con comentario. Las campañas se crean como borradores, previsualizan audiencia, requieren publicación explícita, congelan destinatarios y pueden retirarse. Todas las categorías están activadas por defecto; cada persona puede desactivarlas desde sus preferencias. Las bajas guardadas se conservan. No hay envío de email, suscripción recurrente ni alertas normativas por correo en esta entrega.
+
+La campana y la bandeja comparten una consulta y una caché privada en memoria de 30 segundos, que se limpia al cerrar sesión y se actualiza tras las acciones. El servidor agrupa la sincronización de avisos de cuenta durante un minuto; las lecturas siguen verificando que la cuenta esté activa y consultan los avisos actuales. Las respuestas HTTP mantienen `private, no-store`, sin caché compartida entre personas.
 
 ## Entorno local descartable
 

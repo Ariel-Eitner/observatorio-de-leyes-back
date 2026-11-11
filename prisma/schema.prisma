@@ -765,7 +765,7 @@ model NotificationPreference {
   userId    String   @id @db.Uuid
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   product   Boolean  @default(true)
-  marketing Boolean  @default(false)
+  marketing Boolean  @default(true)
   updatedAt DateTime @updatedAt @db.Timestamptz(6)
 
   @@map("notification_preferences")

@@ -31,6 +31,23 @@ export function safeAction(value?: string) {
 
 @Injectable()
 export class NotificationsService {
+  private readonly synced = new Map<string, number>();
+  private readonly syncing = new Map<string, Promise<void>>();
+  private async ensureSynced(userId: string) {
+    if (Date.now() - (this.synced.get(userId) ?? 0) < 60000) return;
+    const pending = this.syncing.get(userId);
+    if (pending) return pending;
+    const job = this.syncAccount(userId)
+      .then(() => {
+        this.synced.delete(userId);
+        this.synced.set(userId, Date.now());
+        if (this.synced.size > 2000)
+          this.synced.delete(this.synced.keys().next().value!);
+      })
+      .finally(() => this.syncing.delete(userId));
+    this.syncing.set(userId, job);
+    return job;
+  }
   private noticeCursor: string | undefined;
   private notifying = false;
   async syncAccount(userId: string, forceProduct = false) {
@@ -97,7 +114,15 @@ export class NotificationsService {
     archived = false,
   ) {
     await this.active(userId);
-    await this.syncAccount(userId);
+    await this.ensureSynced(userId);
+    return this.listItems(userId, cursor, unread, archived);
+  }
+  private async listItems(
+    userId: string,
+    cursor?: string,
+    unread = false,
+    archived = false,
+  ) {
     let after: Prisma.UserNotificationWhereInput = {};
     if (cursor) {
       try {
@@ -140,11 +165,28 @@ export class NotificationsService {
   }
   async count(userId: string) {
     await this.active(userId);
-    await this.syncAccount(userId);
+    await this.ensureSynced(userId);
     return {
       count: await this.db.userNotification.count({
         where: { AND: [this.visible(userId), { readAt: null }] },
       }),
+    };
+  }
+  async snapshot(userId: string) {
+    await this.active(userId);
+    await this.ensureSynced(userId);
+    const [page, count, preferences] = await Promise.all([
+      this.listItems(userId),
+      this.db.userNotification.count({
+        where: { AND: [this.visible(userId), { readAt: null }] },
+      }),
+      this.db.notificationPreference.findUnique({ where: { userId } }),
+    ]);
+    return {
+      userId,
+      ...page,
+      count,
+      preferences: preferences ?? { product: true, marketing: true },
     };
   }
   async read(userId: string, id: string, read: boolean) {
@@ -194,7 +236,7 @@ export class NotificationsService {
       return (
         (await this.db.notificationPreference.findUnique({
           where: { userId },
-        })) ?? { product: true, marketing: false }
+        })) ?? { product: true, marketing: true }
       );
     return this.db.notificationPreference.upsert({
       where: { userId },
@@ -244,14 +286,13 @@ export class NotificationsService {
       status: "active",
       isAdmin: false,
       createdAt: { lte: cutoff },
-      ...(category === "marketing"
-        ? { notificationPreference: { marketing: true } }
-        : {
-            OR: [
-              { notificationPreference: null },
-              { notificationPreference: { product: true } },
-            ],
-          }),
+      OR: [
+        { notificationPreference: null },
+        {
+          notificationPreference:
+            category === "marketing" ? { marketing: true } : { product: true },
+        },
+      ],
     };
   }
   async campaigns() {
@@ -302,7 +343,7 @@ export class NotificationsService {
                  ${campaign.category},${campaign.title},${campaign.body},${campaign.actionPath}
           FROM users u LEFT JOIN notification_preferences p ON p."userId"=u.id
           WHERE u.status='active' AND NOT u.is_admin AND u.created_at<=${cutoff}
-            AND CASE WHEN ${campaign.category}='marketing' THEN COALESCE(p.marketing,false) ELSE COALESCE(p.product,true) END
+            AND CASE WHEN ${campaign.category}='marketing' THEN COALESCE(p.marketing,true) ELSE COALESCE(p.product,true) END
           ON CONFLICT DO NOTHING`;
         await tx.notificationCampaign.update({
           where: { id },
