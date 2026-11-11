@@ -25,9 +25,9 @@ export class BillingController {
     private readonly jwt: JwtService,
     private readonly provider: PaymentProvider,
   ) {}
-  @Get("config") config() {
+  @Get("config") async config() {
     return {
-      enabled: this.provider.ready(),
+      enabled: await this.provider.available(),
       sandbox:
         process.env.NODE_ENV !== "production" &&
         process.env.OBS_LOCAL_SANDBOX === "true" &&
@@ -39,6 +39,16 @@ export class BillingController {
   }
   @Get("catalog") catalog() {
     return COMMERCIAL_CATALOG;
+  }
+  @Post("verified-webhook")
+  @HttpCode(200)
+  verifiedWebhook(
+    @Query("data.id") id: string,
+    @Body() body: unknown,
+    @Headers("x-signature") signature: string,
+    @Headers("x-request-id") requestId: string,
+  ) {
+    return this.billing.receiveVerifiedWebhook(id, body, signature, requestId);
   }
   private user(authorization?: string) {
     if (!authorization) return null;

@@ -183,6 +183,11 @@ if (action === "start") {
       SUPABASE_SERVICE_KEY: "local-fixture",
       SITEMAP_SKIP: "1",
     });
+    // Exercise the pre-migration payment configuration, not just a fully
+    // populated environment that would hide deployment regressions.
+    delete env.BILLING_ENABLED;
+    delete env.MP_COLLECTOR_ID;
+    delete env.MP_SITE_URL;
     let serial = 100;
     const payments = new Map(),
       keys = new Map();
@@ -195,7 +200,8 @@ if (action === "start") {
         body = JSON.parse(raw || "{}");
       } catch {}
       let result;
-      if (req.method === "POST" && url.pathname === "/v1/payments") {
+      if (url.pathname === "/users/me") result = { id: 1234 };
+      else if (req.method === "POST" && url.pathname === "/v1/payments") {
         const key = req.headers["x-idempotency-key"];
         let id = keys.get(key);
         if (!id) {

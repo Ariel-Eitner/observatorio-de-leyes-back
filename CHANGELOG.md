@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.1 — 2026-11-11
+
+- Corrige el bloqueo del checkout introducido al exigir variables nuevas: los pagos configurados vuelven a estar activos por defecto, con pausa solo explícita.
+- Conserva las credenciales de Mercado Pago en el servidor del frontend cuando el backend no dispone de ellas; adaptador privado autenticado, sin transferir secretos al navegador.
+- Obtiene y verifica la cuenta receptora con la API autenticada, mantiene importes, idempotencia y acreditación en el backend y conserva la validación de firmas en el servidor que tiene el secreto.
+- Pruebas locales de regresión con configuración anterior, proveedor simulado, PostgreSQL aislado y navegador.
+
 ## 1.2.0 — 2026-11-11
 
 - Papelera de usuarios: suspensión inmediata, restauración y borrado definitivo manual o a los 30 días.

@@ -94,7 +94,37 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       for await (const chunk of req) body += chunk;
       let data: any;
       const input = body ? JSON.parse(body) : {};
-      if (req.method === "POST" && url.pathname === "/v1/payments") {
+      if (url.pathname === "/api/pagos/proveedor") {
+        if (req.headers["x-obs-admin"] !== process.env.ADMIN_SECRET) {
+          res.statusCode = 401;
+          res.end("{}");
+          return;
+        }
+        if (req.method === "GET") {
+          res.setHeader("Content-Type", "application/json");
+          res.end('{"enabled":true}');
+          return;
+        }
+        const forwarded = await fetch(
+          process.env.MP_API_BASE_URL + input.path,
+          {
+            method: input.body === undefined ? "GET" : "POST",
+            headers: {
+              "Content-Type": "application/json",
+              ...(input.key ? { "x-idempotency-key": input.key } : {}),
+            },
+            ...(input.body === undefined
+              ? {}
+              : { body: JSON.stringify(input.body) }),
+          },
+        );
+        res.setHeader("Content-Type", "application/json");
+        res.statusCode = forwarded.status;
+        res.end(await forwarded.text());
+        return;
+      }
+      if (url.pathname === "/users/me") data = { id: 1234 };
+      else if (req.method === "POST" && url.pathname === "/v1/payments") {
         const key = String(req.headers["x-idempotency-key"]);
         let id = idempotency.get(key);
         if (!id) {
@@ -651,17 +681,112 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       );
     }
   });
-  it("no ofrece cobros cuando falta la configuración de firma", async () => {
-    const secret = process.env.MP_WEBHOOK_SECRET;
+  it("recupera pagos con la configuración anterior y verifica receptor sin variables nuevas", async () => {
+    const names = [
+      "BILLING_ENABLED",
+      "MP_COLLECTOR_ID",
+      "MP_WEBHOOK_SECRET",
+      "MP_SITE_URL",
+      "FRONTEND_URL",
+    ];
+    const saved = Object.fromEntries(
+      names.map((name) => [name, process.env[name]]),
+    );
     try {
-      delete process.env.MP_WEBHOOK_SECRET;
+      for (const name of names) delete process.env[name];
+      expect((await call("/billing/config")).data.enabled).toBe(true);
+      expect(app.get(PaymentProvider).site()).toBe(
+        "https://observatorio-de-leyes.com",
+      );
+      process.env.FRONTEND_URL = process.env.MP_API_BASE_URL;
+      const o = await order();
+      await billing.submit(
+        await billing.owned(o.id, user.id, null),
+        randomUUID(),
+        { token: "synthetic", payment_method_id: "visa" },
+      );
+      expect(payments.size).toBe(1);
+      expect(await db.entitlementGrant.count()).toBe(1);
+      expect(
+        (
+          await call(
+            "/billing/webhook?data.id=123",
+            "POST",
+            { data: { id: "123" } },
+            { service: false },
+          )
+        ).status,
+      ).toBe(503);
+      expect(
+        (
+          await call(
+            "/billing/verified-webhook?data.id=123",
+            "POST",
+            { data: { id: "123" } },
+            { service: false },
+          )
+        ).status,
+      ).toBe(401);
+      const id = [...payments.keys()][0];
+      const receipt = await fetch(
+        base + "/billing/verified-webhook?data.id=" + id,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-obs-admin": process.env.ADMIN_SECRET,
+            "x-signature": "verified-by-frontend",
+            "x-request-id": "legacy-receipt",
+          },
+          body: JSON.stringify({ type: "payment", data: { id } }),
+        },
+      );
+      expect(receipt.status).toBe(200);
+      await billing.tick();
+      expect(await db.entitlementGrant.count()).toBe(1);
+    } finally {
+      for (const name of names) {
+        if (saved[name] === undefined) delete process.env[name];
+        else process.env[name] = saved[name];
+      }
+    }
+  });
+  it("usa las credenciales existentes del servidor frontend sin transferirlas al backend", async () => {
+    const saved = {
+      token: process.env.MP_ACCESS_TOKEN,
+      site: process.env.MP_SITE_URL,
+      flag: process.env.BILLING_ENABLED,
+    };
+    try {
+      delete process.env.MP_ACCESS_TOKEN;
+      delete process.env.BILLING_ENABLED;
+      process.env.MP_SITE_URL = process.env.MP_API_BASE_URL;
+      expect((await call("/billing/config")).data.enabled).toBe(true);
+      const o = await order();
+      await billing.submit(
+        await billing.owned(o.id, user.id, null),
+        randomUUID(),
+        { token: "synthetic", payment_method_id: "visa" },
+      );
+      expect(payments.size).toBe(1);
+      expect(await db.entitlementGrant.count()).toBe(1);
+    } finally {
+      process.env.MP_ACCESS_TOKEN = saved.token;
+      process.env.MP_SITE_URL = saved.site;
+      process.env.BILLING_ENABLED = saved.flag;
+    }
+  });
+  it("una pausa explícita sigue bloqueando los cobros", async () => {
+    const flag = process.env.BILLING_ENABLED;
+    try {
+      process.env.BILLING_ENABLED = "false";
       expect((await call("/billing/config")).data.enabled).toBe(false);
       await expect(
         app.get(PaymentProvider).request("/v1/payments", {}),
       ).rejects.toThrow();
       expect(payments.size).toBe(0);
     } finally {
-      process.env.MP_WEBHOOK_SECRET = secret;
+      process.env.BILLING_ENABLED = flag;
     }
   });
   it("reabre sólo eventos no procesados sin crear cargos", async () => {

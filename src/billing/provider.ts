@@ -17,14 +17,70 @@ export interface ProviderPayment {
 
 @Injectable()
 export class PaymentProvider {
+  private collector?: Promise<string>;
+
+  site() {
+    const value = (
+      process.env.MP_SITE_URL?.trim() ||
+      process.env.FRONTEND_URL?.trim() ||
+      "https://observatorio-de-leyes.com"
+    ).replace(/\/$/, "");
+    if (
+      !/^https:\/\/[a-z0-9.-]+(?::\d+)?$/.test(value) &&
+      !(
+        process.env.NODE_ENV !== "production" &&
+        /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(value)
+      )
+    )
+      throw new ServiceUnavailableException("URL de retorno no configurada");
+    return value;
+  }
+
   ready() {
-    return (
-      process.env.BILLING_ENABLED === "true" &&
-      !!process.env.MP_ACCESS_TOKEN &&
-      !!process.env.MP_COLLECTOR_ID &&
-      !!process.env.MP_WEBHOOK_SECRET &&
-      !!process.env.MP_SITE_URL
+    const flag = process.env.BILLING_ENABLED?.trim().toLowerCase();
+    if (flag && flag !== "true") return false;
+    try {
+      this.site();
+    } catch {
+      return false;
+    }
+    return !!(
+      process.env.MP_ACCESS_TOKEN?.trim() || process.env.ADMIN_SECRET?.trim()
     );
+  }
+
+  async available() {
+    if (!this.ready()) return false;
+    if (process.env.MP_ACCESS_TOKEN?.trim()) return true;
+    try {
+      const response = await fetch(this.site() + "/api/pagos/proveedor", {
+        headers: { "x-obs-admin": process.env.ADMIN_SECRET },
+        signal: AbortSignal.timeout(12000),
+        redirect: "error",
+      });
+      return response.ok && (await response.json()).enabled === true;
+    } catch {
+      return false;
+    }
+  }
+
+  async collectorId(): Promise<string> {
+    if (process.env.MP_COLLECTOR_ID?.trim())
+      return process.env.MP_COLLECTOR_ID.trim();
+    if (!this.collector)
+      this.collector = this.request("/users/me")
+        .then((profile) => {
+          if (!/^\d+$/.test(String(profile?.id ?? "")))
+            throw new BadGatewayException(
+              "No se pudo verificar la cuenta receptora",
+            );
+          return String(profile.id);
+        })
+        .catch((error) => {
+          this.collector = undefined;
+          throw error;
+        });
+    return this.collector;
   }
   private base() {
     const base = process.env.MP_API_BASE_URL ?? "https://api.mercadopago.com";
@@ -48,6 +104,27 @@ export class PaymentProvider {
       );
     }
     try {
+      if (
+        body !== undefined &&
+        (path === "/v1/payments" || path === "/checkout/preferences")
+      )
+        await this.collectorId();
+      // Existing deployments keep Mercado Pago credentials in the frontend server.
+      // Delegate only the provider call; orders and accreditation stay in this backend.
+      if (!process.env.MP_ACCESS_TOKEN?.trim()) {
+        const response = await fetch(this.site() + "/api/pagos/proveedor", {
+          method: "POST",
+          redirect: "error",
+          headers: {
+            "x-obs-admin": process.env.ADMIN_SECRET,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ path, body, key }),
+          signal: AbortSignal.timeout(20000),
+        });
+        if (!response.ok) throw new Error("provider unavailable");
+        return await response.json();
+      }
       const response = await fetch(this.base() + path, {
         method: body === undefined ? "GET" : "POST",
         headers: {

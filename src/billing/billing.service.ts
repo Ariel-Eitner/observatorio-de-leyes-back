@@ -235,18 +235,7 @@ export class BillingService {
   }
 
   private site() {
-    const value = process.env.MP_SITE_URL;
-    if (
-      !value ||
-      (!/^https:\/\/[a-z0-9.-]+(?::\d+)?$/.test(value) &&
-        !(
-          process.env.NODE_ENV !== "production" &&
-          /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(value)
-        ))
-    ) {
-      throw new ServiceUnavailableException("URL de retorno no configurada");
-    }
-    return value;
+    return this.provider.site();
   }
 
   async preference(order: BillingOrder) {
@@ -344,6 +333,28 @@ export class BillingService {
     return { ok: true }; // Only acknowledge after the durable receipt commits.
   }
 
+  // This entry point is protected by AdminHeaderGuard. The frontend verifies
+  // the signature using its existing secret before invoking it server-to-server.
+  async receiveVerifiedWebhook(
+    queryId: string,
+    body: any,
+    signature: string,
+    requestId: string,
+  ) {
+    if (process.env.MP_WEBHOOK_SECRET)
+      return this.receiveWebhook(queryId, body, signature, requestId);
+    const id = queryId || String(body?.data?.id ?? "");
+    if (
+      !/^\d+$/.test(id) ||
+      !requestId ||
+      !signature ||
+      (body?.data?.id && String(body.data.id) !== id)
+    )
+      throw new ForbiddenException("Notificación inválida");
+    await this.enqueue(digest(id + ":" + requestId + ":" + signature), id);
+    return { ok: true };
+  }
+
   async enqueue(eventKey: string, paymentId: string) {
     if (!/^\d+$/.test(paymentId))
       throw new BadRequestException("Pago inválido");
@@ -388,7 +399,7 @@ export class BillingService {
     )
       throw new BadRequestException("Estado del proveedor inválido");
     if (
-      String(payment.collector_id) !== process.env.MP_COLLECTOR_ID ||
+      String(payment.collector_id) !== (await this.provider.collectorId()) ||
       payment.currency_id !== order.currency ||
       !Number.isFinite(payment.transaction_amount) ||
       !order.amount.equals(payment.transaction_amount)
@@ -777,7 +788,7 @@ export class BillingService {
 
   @Cron("*/15 * * * * *")
   async tick() {
-    if (this.working || process.env.BILLING_ENABLED !== "true") return;
+    if (this.working || !this.provider.ready()) return;
     this.working = true;
     try {
       const [clock] = await this.db.$queryRaw<
@@ -834,7 +845,7 @@ export class BillingService {
 
   @Cron("0 */5 * * * *")
   async reconcile() {
-    if (process.env.BILLING_ENABLED !== "true") return;
+    if (!this.provider.ready()) return;
     const orders = await this.db.billingOrder.findMany({
       where: {
         state: { in: ["pending", "in_process", "authorized"] },
@@ -865,7 +876,7 @@ export class BillingService {
 
   async health() {
     return {
-      enabled: process.env.BILLING_ENABLED === "true",
+      enabled: await this.provider.available(),
       pendingEvents: await this.db.providerEvent.count({
         where: { processedAt: null },
       }),
