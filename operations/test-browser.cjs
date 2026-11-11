@@ -287,7 +287,23 @@ async function until(check, ms = 20000) {
     await page
       .getByRole("button", { name: "Contratar Pro mensual", exact: true })
       .click();
-    await page.getByRole("button", { name: "Simular pago aprobado" }).click();
+    await page.getByRole("checkbox", { name: /Autorizo una suscrip/ }).check();
+    await page
+      .getByRole("button", { name: "Iniciar suscripción mensual" })
+      .click();
+    await page
+      .getByRole("button", { name: "Simular autorización", exact: true })
+      .click();
+    await page
+      .getByRole("button", { name: "Simular primer cobro", exact: true })
+      .waitFor();
+    assert.equal(
+      (await (await a.request.get(base + "/api/auth/me")).json()).plan,
+      "free",
+    );
+    await page
+      .getByRole("button", { name: "Simular primer cobro", exact: true })
+      .click();
     await page
       .getByRole("link", { name: "Ir a mi cuenta", exact: true })
       .waitFor();
@@ -330,12 +346,32 @@ async function until(check, ms = 20000) {
       fullPage: true,
     });
     results.push("Aviso de pago entregado por outbox");
+    await page.goto(base + "/cuenta#suscripcion");
+    await page
+      .getByRole("button", { name: "Cancelar renovación mensual", exact: true })
+      .click();
+    await page
+      .getByRole("button", { name: "Confirmar cancelación", exact: true })
+      .click();
+    await page
+      .getByText(
+        "La renovación está cancelada. Se conserva el acceso ya pagado.",
+        { exact: true },
+      )
+      .waitFor();
+    assert.equal(
+      (await (await a.request.get(base + "/api/auth/me")).json()).plan,
+      "pro",
+    );
+    results.push(
+      "Suscripción: autorización sin Pro, cobro verificado y cancelación que conserva acceso",
+    );
     const draft = await (
       await a.request.post(base + "/api/pagos/orden", {
         data: {
           requestKey: require("node:crypto").randomUUID(),
           tipo: "pro",
-          producto: "pro_mensual",
+          producto: "pro_anual",
         },
         headers: { Origin: base },
       })

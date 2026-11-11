@@ -533,6 +533,7 @@ model User {
   lawDownloadAccess LawDownloadAccess[]
   freeDownloadsUsed Int @default(0) @map("free_downloads_used")
   billingOrders          BillingOrder[]
+  proSubscriptions       ProSubscription[]
   billingBaseline        BillingBaseline?
   entitlementGrants      EntitlementGrant[]
   notifications          UserNotification[]
@@ -590,6 +591,11 @@ model User {
 
 // Financial order snapshots and entitlement ledger are independent from editable income records.
 model BillingOrder {
+  subscriptionId String? @db.Uuid
+  subscription ProSubscription? @relation(fields: [subscriptionId], references: [id])
+  subscriptionInvoiceId String? @unique
+  periodStart DateTime? @db.Timestamptz(6)
+  periodEnd DateTime? @db.Timestamptz(6)
   catalogVersion String @default("legacy")
   downloadQuantity Int @default(0)
   conditions Json @default("{}")
@@ -677,6 +683,7 @@ model BillingBaseline {
 }
 
 model EntitlementGrant {
+  validUntil DateTime? @db.Timestamptz(6)
   id         String       @id @default(uuid()) @db.Uuid
   orderId    String       @unique @db.Uuid
   order      BillingOrder @relation(fields: [orderId], references: [id])
@@ -692,6 +699,7 @@ model EntitlementGrant {
 }
 
 model ProviderEvent {
+  resourceType String @default("payment")
   id            String    @id @default(uuid()) @db.Uuid
   eventKey      String    @unique
   paymentId     String
@@ -704,6 +712,32 @@ model ProviderEvent {
 
   @@index([processedAt, nextAttemptAt])
   @@map("provider_events")
+}
+
+model ProSubscription {
+  id String @id @default(uuid()) @db.Uuid
+  requestKey String @unique
+  userId String? @db.Uuid
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  providerId String? @unique
+  status String @default("creating")
+  amount Decimal @db.Decimal(14,2)
+  currency String @default("ARS")
+  catalogVersion String
+  checkoutUrl String?
+  startsAt DateTime @db.Timestamptz(6)
+  nextPaymentAt DateTime? @db.Timestamptz(6)
+  providerUpdatedAt DateTime? @db.Timestamptz(6)
+  creationAttemptAt DateTime? @db.Timestamptz(6)
+  cancelRequestedAt DateTime? @db.Timestamptz(6)
+  lastPaymentStatus String?
+  lastCheckedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+  orders BillingOrder[]
+  @@index([userId, createdAt])
+  @@index([status, lastCheckedAt])
+  @@map("pro_subscriptions")
 }
 
 model DomainEvent {

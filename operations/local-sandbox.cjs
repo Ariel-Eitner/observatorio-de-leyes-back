@@ -191,6 +191,11 @@ if (action === "start") {
     let serial = 100;
     const payments = new Map(),
       keys = new Map();
+    const subscriptionFixture =
+      require("./mock-subscriptions.cjs").createSubscriptionFixture(
+        payments,
+        () => ++serial,
+      );
     provider = createServer(async (req, res) => {
       const url = new URL(req.url, "http://localhost");
       let raw = "";
@@ -200,6 +205,17 @@ if (action === "start") {
         body = JSON.parse(raw || "{}");
       } catch {}
       let result;
+      const subscriptionResponse = subscriptionFixture.handle(
+        req.method,
+        url,
+        body,
+      );
+      if (subscriptionResponse) {
+        res.setHeader("Content-Type", "application/json");
+        res.statusCode = subscriptionResponse.status ?? 200;
+        res.end(JSON.stringify(subscriptionResponse.body));
+        return;
+      }
       if (url.pathname === "/users/me") result = { id: 1234 };
       else if (req.method === "POST" && url.pathname === "/v1/payments") {
         const key = req.headers["x-idempotency-key"];

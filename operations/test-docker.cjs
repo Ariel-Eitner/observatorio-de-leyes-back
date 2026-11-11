@@ -8,7 +8,7 @@ const version=require('../package.json').version,secret=randomBytes(32).toString
 const names=[],file=path.join(work,'docker-smoke.private.env');
 function run(args){const r=spawnSync('docker',args,{cwd:root,encoding:'utf8',windowsHide:true});if(r.status!==0)throw Error('Falló docker '+args[0]);return r.stdout.trim();}
 db.hostname='127.0.0.1';db.port='5432';
-fs.writeFileSync(file,[`DATABASE_URL=${db}`,`ADMIN_SECRET=${secret}`,`JWT_ACCESS_SECRET=${secret}`,'OBS_LOCAL_SANDBOX=true','BILLING_ENABLED=false','AUTH_ENABLED=true','ADMIN_BYPASS_LOCAL=false','AUTH_COOKIE_SECURE=false','ADMIN_PASSWORD=synthetic-image-only','SUPABASE_URL=http://127.0.0.1:9','SUPABASE_SERVICE_KEY=synthetic-image-only','INTERNAL_API_URL=http://127.0.0.1:4790/api'].join('\n'),{mode:0o600});
+fs.writeFileSync(file,[`DATABASE_URL=${db}`,`ADMIN_SECRET=${secret}`,`JWT_ACCESS_SECRET=${secret}`,'OBS_LOCAL_SANDBOX=true','MP_SITE_URL=https://127.0.0.1:9','BILLING_ENABLED=false','AUTH_ENABLED=true','ADMIN_BYPASS_LOCAL=false','AUTH_COOKIE_SECURE=false','ADMIN_PASSWORD=synthetic-image-only','SUPABASE_URL=http://127.0.0.1:9','SUPABASE_SERVICE_KEY=synthetic-image-only','INTERNAL_API_URL=http://127.0.0.1:4790/api'].join('\n'),{mode:0o600});
 (async()=>{try{
  for(const [service,port,url] of [['backend',4790,'/api/live'],['frontend',4791,'/ingresar']]){
   const image=`observatorio-de-leyes-${service}:${version}`;

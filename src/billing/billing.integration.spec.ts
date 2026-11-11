@@ -22,6 +22,8 @@ import { AuthModule } from "../auth/auth.module";
 import { ExportsModule } from "../exports/exports.module";
 import * as argon2 from "argon2";
 import { readFileSync } from "node:fs";
+import { SubscriptionsService } from "./subscriptions.service";
+import { COMMERCIAL_CATALOG } from "../commercial/catalog";
 
 const integration =
   process.env.OBS_ISOLATED_TEST_DB === "1" ? describe : describe.skip;
@@ -39,6 +41,11 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     serial = 100;
   const payments = new Map<string, ProviderPayment>();
   const idempotency = new Map<string, string>();
+  const recurring =
+    require("../../operations/mock-subscriptions.cjs").createSubscriptionFixture(
+      payments,
+      () => ++serial,
+    );
   jest.setTimeout(60000);
   async function call(
     route: string,
@@ -63,11 +70,25 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     });
     return { status: response.status, data: await response.json() };
   }
-  const order = () =>
-    billing.create(
-      { requestKey: randomUUID(), tipo: "pro", producto: "pro_mensual" },
-      user.id,
-    );
+  // Historical one-time monthly purchases remain valid; new monthly checkouts use subscriptions.
+  const legacyOrder = async (userId = user.id) => {
+    const account = await db.user.findUnique({ where: { id: userId } });
+    const row = await db.billingOrder.create({
+      data: {
+        requestKey: randomUUID(),
+        userId,
+        kind: "pro",
+        product: "pro_mensual",
+        amount: 26000,
+        months: 1,
+        description: "Pro mensual histórico",
+        contactEmail: account.email,
+        accessHash: randomUUID(),
+      },
+    });
+    return { ...row, amount: 26000, guest: false, accessToken: "" };
+  };
+  const order = () => legacyOrder();
   async function payment(id: string, status = "approved") {
     const p: ProviderPayment = {
       id: String(++serial),
@@ -108,7 +129,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         const forwarded = await fetch(
           process.env.MP_API_BASE_URL + input.path,
           {
-            method: input.body === undefined ? "GET" : "POST",
+            method: input.method ?? (input.body === undefined ? "GET" : "POST"),
             headers: {
               "Content-Type": "application/json",
               ...(input.key ? { "x-idempotency-key": input.key } : {}),
@@ -121,6 +142,13 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         res.setHeader("Content-Type", "application/json");
         res.statusCode = forwarded.status;
         res.end(await forwarded.text());
+        return;
+      }
+      const recurringResponse = recurring.handle(req.method, url, input);
+      if (recurringResponse) {
+        res.statusCode = recurringResponse.status ?? 200;
+        res.setHeader("Content-Type", "application/json");
+        res.end(JSON.stringify(recurringResponse.body));
         return;
       }
       if (url.pathname === "/users/me") data = { id: 1234 };
@@ -205,6 +233,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       })),
       skipDuplicates: true,
     });
+    recurring.reset();
     payments.clear();
     idempotency.clear();
     user = await db.user.create({
@@ -230,6 +259,303 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       { sub: other.id, email: other.email, roles: [] },
       { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
     );
+  });
+  const subscribe = (overrides = {}) =>
+    call(
+      "/billing/subscriptions",
+      "POST",
+      {
+        requestKey: randomUUID(),
+        catalogVersion: COMMERCIAL_CATALOG.version,
+        consent: true,
+        ...overrides,
+      },
+      { token },
+    );
+  const subs = () => app.get(SubscriptionsService);
+  const localSub = (id: string) =>
+    db.proSubscription.findUniqueOrThrow({ where: { id } });
+  async function chargeSubscription(id: string, options = {}) {
+    const row = await localSub(id);
+    const invoice = recurring.charge(row.providerId, options);
+    await subs().invoice(invoice.id);
+    return invoice;
+  }
+  it("mensual requiere consentimiento, sesion y catalogo vigente; no admite compra unica", async () => {
+    expect(
+      (
+        await call("/billing/subscriptions", "POST", {
+          requestKey: randomUUID(),
+          catalogVersion: COMMERCIAL_CATALOG.version,
+          consent: true,
+        })
+      ).status,
+    ).toBe(401);
+    expect((await subscribe({ consent: false })).status).toBe(400);
+    expect((await subscribe({ catalogVersion: "old" })).status).toBe(409);
+    expect(
+      (
+        await call(
+          "/billing/orders",
+          "POST",
+          { requestKey: randomUUID(), tipo: "pro", producto: "pro_mensual" },
+          { token },
+        )
+      ).status,
+    ).toBe(400);
+    expect(recurring.created).toBe(0);
+  });
+  it("dos solicitudes concurrentes crean un solo mandato; autorizar no acredita Pro", async () => {
+    const results = await Promise.all([subscribe(), subscribe()]);
+    const ok = results.find((r) => r.status === 200);
+    expect(ok).toBeDefined();
+    expect(recurring.created).toBe(1);
+    const row = await localSub(ok.data.id);
+    const remote = recurring.subscriptions.get(row.providerId);
+    remote.status = "authorized";
+    const state = await subs().status(row.id, user.id, true);
+    expect(state.status).toBe("authorized");
+    expect(state.hasPaidPeriod).toBe(false);
+    expect((await db.user.findUnique({ where: { id: user.id } })).plan).toBe(
+      "free",
+    );
+    expect((await subscribe()).data.id).toBe(row.id);
+    expect(recurring.created).toBe(1);
+    expect(
+      (
+        await call("/billing/subscriptions/" + row.id, "GET", undefined, {
+          token: otherToken,
+        })
+      ).status,
+    ).toBe(404);
+    expect(
+      (
+        await call(
+          "/billing/subscriptions/" + row.id + "/cancel",
+          "POST",
+          { confirmed: true },
+          { token: otherToken },
+        )
+      ).status,
+    ).toBe(404);
+  });
+  it("respuesta perdida se recupera sin repetir alta; rechazo definitivo permite reintentar", async () => {
+    recurring.failCreate = "reject";
+    expect((await subscribe()).status).toBe(502);
+    expect(
+      await db.proSubscription.count({ where: { status: "cancelled" } }),
+    ).toBe(1);
+    recurring.failCreate = "lost";
+    expect((await subscribe()).status).toBe(502);
+    expect(recurring.created).toBe(1);
+    const retry = await subscribe();
+    expect(retry.status).toBe(200);
+    expect(retry.data.status).toBe("pending");
+    expect(recurring.created).toBe(1);
+  });
+  it("cada factura acredita un periodo fijo una sola vez; rechazo y devolucion no agregan meses", async () => {
+    const created = await subscribe();
+    expect(created.status).toBe(200);
+    const id = created.data.id;
+    const at = new Date();
+    const first = await chargeSubscription(id, { at: at.toISOString() });
+    const once = await db.user.findUnique({ where: { id: user.id } });
+    expect(once.plan).toBe("pro");
+    expect(+once.planUntil).toBe(+addMonths(at, 1));
+    await Promise.all([subs().invoice(first.id), subs().invoice(first.id)]);
+    expect(await db.entitlementGrant.count()).toBe(1);
+    const second = await chargeSubscription(id, {
+      at: addMonths(at, 1).toISOString(),
+    });
+    const end = (await db.user.findUnique({ where: { id: user.id } }))
+      .planUntil;
+    expect(+end).toBe(+addMonths(at, 2));
+    await chargeSubscription(id, {
+      at: addMonths(at, 2).toISOString(),
+      status: "rejected",
+    });
+    expect(
+      +(await db.user.findUnique({ where: { id: user.id } })).planUntil,
+    ).toBe(+end);
+    const p = payments.get(String(first.payment.id));
+    p.status = "refunded";
+    p.date_last_updated = new Date(Date.now() + 2000).toISOString();
+    await subs().invoice(first.id);
+    expect(
+      +(await db.user.findUnique({ where: { id: user.id } })).planUntil,
+    ).toBe(+end);
+    expect(await db.entitlementGrant.count({ where: { active: true } })).toBe(
+      1,
+    );
+    expect(await db.billingOrder.count({ where: { subscriptionId: id } })).toBe(
+      3,
+    );
+    await subs().invoice(second.id);
+    expect(
+      +(await db.user.findUnique({ where: { id: user.id } })).planUntil,
+    ).toBe(+end);
+  });
+  it("validacion canonica rechaza factura de otra moneda, monto o receptor", async () => {
+    const result = await subscribe();
+    for (const options of [
+      { amount: 1 },
+      { currency: "USD" },
+      { collector: 9999 },
+    ]) {
+      const row = await localSub(result.data.id);
+      const invoice = recurring.charge(row.providerId, options);
+      await expect(subs().invoice(invoice.id)).rejects.toThrow();
+    }
+    expect(await db.entitlementGrant.count()).toBe(0);
+  });
+  it("cancelacion confirmada conserva acceso pagado y habilita anual de pago unico", async () => {
+    const result = await subscribe();
+    await chargeSubscription(result.data.id);
+    const before = await db.user.findUnique({ where: { id: user.id } });
+    expect(
+      (
+        await call(
+          "/billing/orders",
+          "POST",
+          { requestKey: randomUUID(), tipo: "pro", producto: "pro_anual" },
+          { token },
+        )
+      ).status,
+    ).toBe(409);
+    const cancelled = await call(
+      "/billing/subscriptions/" + result.data.id + "/cancel",
+      "POST",
+      { confirmed: true },
+      { token },
+    );
+    expect(cancelled.status).toBe(200);
+    expect(cancelled.data.status).toBe("cancelled");
+    expect(cancelled.data.hasPaidPeriod).toBe(true);
+    expect(
+      +(await db.user.findUnique({ where: { id: user.id } })).planUntil,
+    ).toBe(+before.planUntil);
+    const annual = await call(
+      "/billing/orders",
+      "POST",
+      { requestKey: randomUUID(), tipo: "pro", producto: "pro_anual" },
+      { token },
+    );
+    expect(annual.status).toBe(200);
+    expect(annual.data.amount).toBe(200000);
+    const p = await payment(annual.data.id);
+    p.transaction_amount = 200000;
+    await billing.apply(p);
+    expect(
+      +(await db.user.findUnique({ where: { id: user.id } })).planUntil,
+    ).toBe(+addMonths(before.planUntil, 12));
+    expect(recurring.created).toBe(1);
+  });
+  it("no suprime cuentas si cancelar quedo incierto; reintento confirma antes de borrar", async () => {
+    const result = await subscribe();
+    recurring.failCancel = true;
+    await db.user.update({ where: { id: other.id }, data: { isAdmin: true } });
+    await expect(
+      app.get(AccountDataService).moveToTrash(other.id, user.id),
+    ).rejects.toThrow();
+    expect((await db.user.findUnique({ where: { id: user.id } })).status).toBe(
+      "active",
+    );
+    expect((await localSub(result.data.id)).cancelRequestedAt).toBeTruthy();
+    await app.get(AccountDataService).moveToTrash(other.id, user.id);
+    expect((await localSub(result.data.id)).status).toBe("cancelled");
+    expect((await db.user.findUnique({ where: { id: user.id } })).status).toBe(
+      "trashed",
+    );
+  });
+  it("webhook de factura es durable, firmado e idempotente; evento de pago tambien recupera factura", async () => {
+    const result = await subscribe();
+    const row = await localSub(result.data.id);
+    const invoice = recurring.charge(row.providerId);
+    const requestId = randomUUID(),
+      ts = String(Date.now());
+    const signature =
+      "ts=" +
+      ts +
+      ",v1=" +
+      createHmac("sha256", process.env.MP_WEBHOOK_SECRET)
+        .update(`id:${invoice.id};request-id:${requestId};ts:${ts};`)
+        .digest("hex");
+    const body = {
+      type: "subscription_authorized_payment",
+      data: { id: invoice.id },
+    };
+    await expect(
+      subs().receive(body.type, invoice.id, body, "bad", requestId),
+    ).rejects.toThrow();
+    await subs().receive(body.type, invoice.id, body, signature, requestId);
+    await subs().receive(body.type, invoice.id, body, signature, requestId);
+    expect(await db.providerEvent.count()).toBe(1);
+    expect(await db.entitlementGrant.count()).toBe(0);
+    await subs().tick();
+    expect(await db.entitlementGrant.count()).toBe(1);
+    const next = recurring.charge(row.providerId);
+    await billing.processPayment(String(next.payment.id));
+    await subs().tick();
+    expect(await db.entitlementGrant.count()).toBe(2);
+    expect(await db.providerEvent.count({ where: { processedAt: null } })).toBe(
+      0,
+    );
+  });
+  it("prepago se respeta y una cancelacion antigua no cancela un mandato nuevo", async () => {
+    const until = new Date(Date.now() + 10 * 86400000);
+    await db.user.update({
+      where: { id: user.id },
+      data: { plan: "pro", planUntil: until },
+    });
+    const a = await subscribe();
+    expect(a.status).toBe(200);
+    const row = await localSub(a.data.id);
+    expect(+row.startsAt).toBe(+until);
+    expect(
+      recurring.subscriptions.get(row.providerId).auto_recurring.start_date,
+    ).toBe(until.toISOString());
+    await subs().cancel(row.id, user.id);
+    const b = await subscribe();
+    expect(b.status).toBe(200);
+    expect(b.data.id).not.toBe(row.id);
+    await subs().cancel(row.id, user.id);
+    expect((await localSub(b.data.id)).status).toBe("pending");
+    const old = process.env.NODE_ENV;
+    try {
+      process.env.NODE_ENV = "production";
+      await expect(subs().simulate(b.data.id, user.id, true)).rejects.toThrow();
+    } finally {
+      process.env.NODE_ENV = old;
+    }
+  });
+  it("adaptador privado conserva credenciales del frontend y admite alta y cancelacion PUT", async () => {
+    const oldToken = process.env.MP_ACCESS_TOKEN,
+      oldSite = process.env.MP_SITE_URL;
+    try {
+      delete process.env.MP_ACCESS_TOKEN;
+      process.env.MP_SITE_URL = process.env.MP_API_BASE_URL;
+      const created = await subscribe();
+      expect(created.status).toBe(200);
+      expect(recurring.created).toBe(1);
+      const cancelled = await subs().cancel(created.data.id, user.id);
+      expect(cancelled.status).toBe("cancelled");
+    } finally {
+      process.env.MP_ACCESS_TOKEN = oldToken;
+      process.env.MP_SITE_URL = oldSite;
+    }
+  });
+  it("pausa comercial bloquea nuevas suscripciones pero permite cancelar y consultar", async () => {
+    const a = await subscribe();
+    const old = process.env.BILLING_ENABLED;
+    try {
+      process.env.BILLING_ENABLED = "false";
+      expect((await subscribe()).status).toBe(503);
+      expect((await subs().cancel(a.data.id, user.id)).status).toBe(
+        "cancelled",
+      );
+    } finally {
+      process.env.BILLING_ENABLED = old;
+    }
   });
   it("el login funciona con el esquema migrado y emite una sesión", async () => {
     const password = "Login-fixture-2026!";
@@ -386,10 +712,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
         })
       ).status,
     ).toBe(403);
-    const purchase = await billing.create(
-      { requestKey: randomUUID(), tipo: "pro", producto: "pro_mensual" },
-      other.id,
-    );
+    const purchase = await legacyOrder(other.id);
     await billing.apply(await payment(purchase.id));
     await db.session.create({
       data: {
@@ -837,13 +1160,13 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     const dto = {
       requestKey: randomUUID(),
       tipo: "pro",
-      producto: "pro_mensual",
+      producto: "pro_anual",
       monto: 1000,
     };
     const a = await call("/billing/orders", "POST", dto, { token });
     const b = await call("/billing/orders", "POST", dto, { token });
     expect(a.status).toBe(200);
-    expect(a.data.amount).toBe(26000);
+    expect(a.data.amount).toBe(200000);
     expect(b.data.id).toBe(a.data.id);
     expect(
       (await call("/billing/orders", "POST", dto, { token: otherToken }))

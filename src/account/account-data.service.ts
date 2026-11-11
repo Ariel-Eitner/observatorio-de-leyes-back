@@ -12,6 +12,7 @@ import { Prisma, User } from "@prisma/client";
 import { PrismaService } from "../common/prisma/prisma.service";
 import { Cron } from "@nestjs/schedule";
 import { COMMERCIAL_POLICY } from "../commercial/catalog";
+import { SubscriptionsService } from "../billing/subscriptions.service";
 
 /** Marcador que queda en los campos de texto obligatorios que no se pueden vaciar. */
 const ANONIMO = "(cuenta borrada a pedido del titular)";
@@ -49,6 +50,11 @@ export class AccountDataService {
   }
   async moveToTrash(actorId: string, userId: string) {
     await this.requireAdmin(actorId);
+    const target = await this.prisma.user.findUnique({ where: { id: userId } });
+    if (!target) throw new NotFoundException("No se encontró la cuenta.");
+    if (target.isAdmin || userId === actorId)
+      throw new ForbiddenException("No se puede trasladar esta cuenta.");
+    await this.subscriptions.cancelForAccount(userId);
     return this.prisma.$transaction(async (tx) => {
       await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
       const user = await tx.user.findUnique({ where: { id: userId } });
@@ -65,6 +71,14 @@ export class AccountDataService {
         };
       const trashedAt = new Date(),
         purgeAt = new Date(+trashedAt + COMMERCIAL_POLICY.trashDays * 86400000);
+      if (
+        await tx.proSubscription.findFirst({
+          where: { userId, status: { not: "cancelled" } },
+        })
+      )
+        throw new BadRequestException(
+          "La suscripción debe quedar cancelada antes de trasladar la cuenta.",
+        );
       await tx.user.update({
         where: { id: userId },
         data: {
@@ -187,7 +201,10 @@ export class AccountDataService {
       this.purging = false;
     }
   }
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly subscriptions: SubscriptionsService,
+  ) {}
 
   private sha256(valor: string): string {
     return createHash("sha256").update(valor).digest("hex");
@@ -348,6 +365,21 @@ export class AccountDataService {
       preferenciasDeAvisos: await this.prisma.notificationPreference.findUnique(
         { where: { userId } },
       ),
+      suscripciones: await this.prisma.proSubscription.findMany({
+        where: { userId },
+        select: {
+          id: true,
+          providerId: true,
+          status: true,
+          amount: true,
+          currency: true,
+          startsAt: true,
+          nextPaymentAt: true,
+          cancelRequestedAt: true,
+          lastPaymentStatus: true,
+          createdAt: true,
+        },
+      }),
       opinionesDelProducto: await this.prisma.productFeedback.findMany({
         where: { userId },
       }),
@@ -426,11 +458,24 @@ export class AccountDataService {
     // Sufijo único para los campos UNIQUE NOT NULL que no admiten vaciarse.
     const sufijo = randomBytes(4).toString("hex");
     const emailAnonimo = `borrado-${sufijo}@anonimizado.local`;
+    if (user.isAdmin)
+      throw new ForbiddenException(
+        "Las cuentas administradoras están protegidas.",
+      );
+    await this.subscriptions.cancelForAccount(userId);
 
     const detalle = await this.prisma.$transaction(async (tx) => {
       await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtextextended(${`user:${userId}`},0))`;
       const current = await tx.user.findUnique({ where: { id: userId } });
       if (!current) throw new NotFoundException("Usuario no encontrado");
+      if (
+        await tx.proSubscription.findFirst({
+          where: { userId, status: { not: "cancelled" } },
+        })
+      )
+        throw new BadRequestException(
+          "La suscripción debe quedar cancelada antes de eliminar la cuenta.",
+        );
       if (current.isAdmin)
         throw new ForbiddenException(
           "Las cuentas administradoras están protegidas",

@@ -1,16 +1,22 @@
-# Pagos y notificaciones — 1.1.0
+# Pagos y notificaciones — 1.4.0
 
 Ver también [versionado, administración y descargas](VERSIONADO-Y-CUENTAS.md) para las políticas de esta entrega estable.
 
 ## Alcance
 
-Pro mensual y anual con renovación manual. Los precios, moneda y duración se fijan en el backend; el año equivale a doce meses calendario, con ancla de día en Argentina. Un apoyo no concede Pro. Los beneficios anteriores se conservan mediante una base histórica separada de las concesiones pagadas.
+Pro mensual con suscripción de Mercado Pago por $26.000 al mes hasta cancelar. El anual conserva un pago único por doce meses, sin renovación automática, al precio vigente del catálogo. Los precios, moneda y duración se fijan en el backend; el año equivale a doce meses calendario, con ancla de día en Argentina. Un apoyo no concede Pro. Los beneficios anteriores se conservan mediante una base histórica separada de las concesiones pagadas.
 
 El navegador nunca acredita un plan. Se verifica cada pago con Mercado Pago (id, receptor, referencia, importe, moneda, estado y fecha). La concesión, la contabilidad y el evento de dominio se confirman en una transacción. Los webhooks se firman, se guardan antes del ACK y se procesan con reintentos. Los fallos de entrega de avisos no revierten un pago confirmado. Hay conciliación periódica y panel `/admin/pagos-sistema`; reintentar una verificación o entrega no cobra de nuevo.
 
+La suscripción usa autorización alojada en Mercado Pago (`preapproval`, estado `pending`), con consentimiento expreso. Autorizar no acredita Pro: cada factura debe tener un pago aprobado verificado y concede su período calendario una sola vez. Si hay Pro prepagado, el inicio se difiere hasta su vencimiento. Se permite un solo mandato sin resolver por cuenta. Una respuesta perdida se recupera buscando la referencia; nunca se repite ciegamente un alta incierta. Las compras anteriores no se convierten en mandatos.
+
+La cancelación desde `/cuenta#suscripcion` se confirma con Mercado Pago antes de anunciar éxito; conserva el período pagado. Para contratar el anual se cancela primero la renovación mensual. El borrado de cuenta exige confirmar previamente esa cancelación. Pausar nuevas contrataciones con `BILLING_ENABLED=false` no impide consultas ni cancelaciones existentes.
+
+Activar en el panel de Mercado Pago los temas `subscription_preapproval` y `subscription_authorized_payment`, además de `payment`, con el webhook HTTPS existente `/api/pagos/webhook`. El backend acepta también `/api/billing/webhook` con su secreto. Las notificaciones se guardan antes del ACK y se verifican contra la API. La conciliación cada cinco minutos recupera facturas aunque se pierda el webhook. La cuenta y el retorno consultan el estado verificado, sin confiar en `status=approved` de la URL. No se crean suscripciones reales durante pruebas ni despliegues.
+
 No se inicia automáticamente un reembolso: un reembolso/contracargo verificado revoca su propia concesión y registra su reversión. Cobros duplicados, importes incorrectos y reembolsos parciales requieren revisión administrativa. El sistema no decide por sí solo la resolución comercial de esos casos.
 
-Notificaciones dentro del sitio: campana con desplegable, bandeja privada, contador, leído/no leído, marcar todas, archivo/restauración, paginación, preferencias y opinión opcional de 1 a 5 con comentario. Las campañas se crean como borradores, previsualizan audiencia, requieren publicación explícita, congelan destinatarios y pueden retirarse. Todas las categorías están activadas por defecto; cada persona puede desactivarlas desde sus preferencias. Las bajas guardadas se conservan. No hay envío de email, suscripción recurrente ni alertas normativas por correo en esta entrega.
+Notificaciones dentro del sitio: campana con desplegable, bandeja privada, contador, leído/no leído, marcar todas, archivo/restauración, paginación, preferencias y opinión opcional de 1 a 5 con comentario. Las campañas se crean como borradores, previsualizan audiencia, requieren publicación explícita, congelan destinatarios y pueden retirarse. Todas las categorías están activadas por defecto; cada persona puede desactivarlas desde sus preferencias. Las bajas guardadas se conservan. No hay envío de email ni alertas normativas por correo en esta entrega.
 
 La campana y la bandeja comparten una consulta y una caché privada en memoria de 30 segundos, que se limpia al cerrar sesión y se actualiza tras las acciones. El servidor agrupa la sincronización de avisos de cuenta durante un minuto; las lecturas siguen verificando que la cuenta esté activa y consultan los avisos actuales. Las respuestas HTTP mantienen `private, no-store`, sin caché compartida entre personas.
 
@@ -47,7 +53,7 @@ La papelera cierra sesiones y bloquea los JWT mediante el estado real de la cuen
 
 La imagen Docker y `npm run start:prod` ejecutan `prisma migrate deploy` antes de iniciar Nest y sus tareas periódicas. Si falta `DATABASE_URL` o falla una migración, el servidor no arranca con un esquema incompatible. Prisma se conserva como dependencia de producción. Este paso no sustituye el respaldo previo al despliegue.
 
-No desplegar con el simulador. Respaldar primero y aplicar las migraciones pendientes, incluida `20261111150000_trash_download_credits`, con un rol propietario que pueda crear tablas y habilitar RLS. Las tablas anteriores permanecen; se preservan los contadores históricos y los accesos identificables de los últimos 30 días.
+No desplegar con el simulador. Respaldar primero y aplicar las migraciones pendientes, incluidas `20261111150000_trash_download_credits` y `20261111210000_pro_subscriptions`, con un rol propietario que pueda crear tablas y habilitar RLS. Las tablas anteriores permanecen; se preservan los contadores históricos y los accesos identificables de los últimos 30 días.
 
 Los pagos con credenciales existentes están habilitados por defecto; `BILLING_ENABLED=false` los pausa explícitamente. Backend: `ADMIN_SECRET`, `JWT_ACCESS_SECRET`, `AUTH_ENABLED=true`, `DATABASE_URL`. Frontend: `INTERNAL_API_URL`, el mismo `ADMIN_SECRET`, cookies seguras y `NEXT_PUBLIC_MP_PUBLIC_KEY` al compilar. `MP_ACCESS_TOKEN` puede permanecer en el servidor del frontend: el backend usa el adaptador privado `/api/pagos/proveedor`, autenticado y limitado a operaciones de pago. También puede configurarse directamente en el backend. Sin `MP_COLLECTOR_ID`, la cuenta receptora se obtiene con `/users/me` autenticado y se verifica antes de acreditar. `MP_SITE_URL` permite sobrescribir el origen; por defecto usa `FRONTEND_URL` o `https://observatorio-de-leyes.com`.
 
@@ -58,3 +64,5 @@ Antes de habilitar cobros: validar con cuentas y tarjetas de prueba oficiales de
 Monitorear colas agotadas, órdenes en revisión y pendientes antiguos. Los paneles exponen errores genéricos, sin tokens ni formularios de tarjetas. Las tablas nuevas tienen RLS sin políticas anónimas; su acceso es por servicios autenticados. La eliminación de cuenta borra bandeja/preferencias/opiniones y anonimiza el contacto de las órdenes; conserva los movimientos financieros.
 
 Referencias verificadas: [firma de webhooks](https://www.mercadopago.com.ar/developers/es/docs/checkout-api-orders/optional-notifications), [idempotencia](https://www.mercadopago.com.ar/developers/es/docs/wallet-connect-legacy/payment-flow/idempotency/introduction). Esta entrega mantiene la API Payments y Checkout Pro existentes, no migra a Orders API.
+
+Referencias de suscripciones: [alta](https://www.mercadopago.com.ar/developers/es/reference/online-payments/subscriptions/create-preapproval/post), [cancelación](https://www.mercadopago.com.ar/developers/es/reference/online-payments/subscriptions/update-preapproval/put), [facturas](https://www.mercadopago.com.ar/developers/es/reference/online-payments/subscriptions/authorized-payment-search/get).

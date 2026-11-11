@@ -15,6 +15,7 @@ import { CreateOrderDto } from "./billing.dto";
 import { PRODUCTS, addMonths, billingDay, publicState } from "./catalog";
 import { COMMERCIAL_CATALOG, COMMERCIAL_POLICY } from "../commercial/catalog";
 import { syncQuotaNotice } from "../notifications/account-notices";
+import { enqueueSubscription } from "./subscription-events";
 
 type Tx = Prisma.TransactionClient;
 const digest = (s: string) => createHash("sha256").update(s).digest("hex");
@@ -48,6 +49,19 @@ export class BillingService {
       : null;
     if (dto.tipo !== "apoyo" && (!user || user.status !== "active"))
       throw new ForbiddenException("Necesitás una cuenta activa");
+    if (dto.producto === "pro_mensual")
+      throw new BadRequestException(
+        "El Pro mensual se contrata como suscripción desde la página de planes.",
+      );
+    if (
+      dto.producto === "pro_anual" &&
+      (await this.db.proSubscription.findFirst({
+        where: { userId, status: { not: "cancelled" } },
+      }))
+    )
+      throw new ConflictException(
+        "Cancelá la renovación mensual desde tu cuenta antes de contratar el anual.",
+      );
     if (dto.catalogVersion && dto.catalogVersion !== COMMERCIAL_CATALOG.version)
       throw new ConflictException(
         "Las opciones de compra cambiaron. Actualizá la página de planes antes de continuar.",
@@ -173,6 +187,19 @@ export class BillingService {
     attemptKey: string,
     form: Record<string, any>,
   ) {
+    if (order.subscriptionId)
+      throw new BadRequestException(
+        "Esta mensualidad la cobra la suscripción de Mercado Pago.",
+      );
+    if (
+      order.product === "pro_anual" &&
+      (await this.db.proSubscription.findFirst({
+        where: { userId: order.userId, status: { not: "cancelled" } },
+      }))
+    )
+      throw new ConflictException(
+        "Cancelá la renovación mensual antes de pagar el anual.",
+      );
     if (!UUID.test(attemptKey))
       throw new BadRequestException("Intento inválido");
     const attempt = await this.db.$transaction(async (tx) => {
@@ -239,6 +266,19 @@ export class BillingService {
   }
 
   async preference(order: BillingOrder) {
+    if (order.subscriptionId)
+      throw new BadRequestException(
+        "Esta mensualidad la cobra la suscripción de Mercado Pago.",
+      );
+    if (
+      order.product === "pro_anual" &&
+      (await this.db.proSubscription.findFirst({
+        where: { userId: order.userId, status: { not: "cancelled" } },
+      }))
+    )
+      throw new ConflictException(
+        "Cancelá la renovación mensual antes de pagar el anual.",
+      );
     // Serialize creation so repeated requests reuse the same provider idempotency key.
     const current = await this.db.$transaction(async (tx) => {
       await this.lock(tx, "order:" + order.id);
@@ -371,6 +411,20 @@ export class BillingService {
       throw new BadRequestException(
         "Identificador del proveedor inconsistente",
       );
+    if (
+      UUID.test(payment.external_reference ?? "") &&
+      (await this.db.proSubscription.findUnique({
+        where: { id: payment.external_reference },
+      }))
+    ) {
+      await enqueueSubscription(
+        this.db,
+        "subscription_payment",
+        id,
+        id + ":" + payment.date_last_updated,
+      );
+      return;
+    }
     await this.apply(payment);
   }
 
@@ -550,6 +604,8 @@ export class BillingService {
                 userId: user.id,
                 providerId: String(payment.id),
                 months: order.months,
+                validUntil: order.periodEnd,
+                ...(order.periodStart ? { grantedAt: order.periodStart } : {}),
               },
             });
             if (order.frozen)
@@ -691,11 +747,15 @@ export class BillingService {
       orderBy: [{ grantedAt: "asc" }, { id: "asc" }],
     });
     for (const grant of grants)
-      until = addMonths(
-        until && +until > +grant.grantedAt ? until : grant.grantedAt,
-        grant.months,
-        baseline.anchorDay,
-      );
+      until = grant.validUntil
+        ? !until || +grant.validUntil > +until
+          ? grant.validUntil
+          : until
+        : addMonths(
+            until && +until > +grant.grantedAt ? until : grant.grantedAt,
+            grant.months,
+            baseline.anchorDay,
+          );
     await tx.user.update({
       where: { id: userId },
       data: {
@@ -797,6 +857,7 @@ export class BillingService {
       const now = clock.now;
       const events = await this.db.providerEvent.findMany({
         where: {
+          resourceType: "payment",
           processedAt: null,
           attempts: { lt: 12 },
           nextAttemptAt: { lte: now },

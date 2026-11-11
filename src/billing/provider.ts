@@ -14,6 +14,13 @@ export interface ProviderPayment {
   date_last_updated: string;
   transaction_amount_refunded?: number;
 }
+export class ProviderRequestError extends BadGatewayException {
+  constructor(readonly providerStatus?: number) {
+    super(
+      "No se pudo confirmar la operación con el proveedor. Consultá el estado antes de reintentar.",
+    );
+  }
+}
 
 @Injectable()
 export class PaymentProvider {
@@ -39,6 +46,10 @@ export class PaymentProvider {
   ready() {
     const flag = process.env.BILLING_ENABLED?.trim().toLowerCase();
     if (flag && flag !== "true") return false;
+    return this.configured();
+  }
+
+  configured() {
     try {
       this.site();
     } catch {
@@ -97,8 +108,16 @@ export class PaymentProvider {
     return base;
   }
 
-  async request(path: string, body?: unknown, key?: string): Promise<any> {
-    if (!this.ready()) {
+  async request(
+    path: string,
+    body?: unknown,
+    key?: string,
+    method = body === undefined ? "GET" : "POST",
+  ): Promise<any> {
+    if (
+      !this.ready() &&
+      !((method === "GET" || method === "PUT") && this.configured())
+    ) {
       throw new ServiceUnavailableException(
         "Pagos temporalmente no disponibles",
       );
@@ -106,7 +125,9 @@ export class PaymentProvider {
     try {
       if (
         body !== undefined &&
-        (path === "/v1/payments" || path === "/checkout/preferences")
+        (path === "/v1/payments" ||
+          path === "/checkout/preferences" ||
+          path === "/preapproval")
       )
         await this.collectorId();
       // Existing deployments keep Mercado Pago credentials in the frontend server.
@@ -119,14 +140,17 @@ export class PaymentProvider {
             "x-obs-admin": process.env.ADMIN_SECRET,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ path, body, key }),
+          body: JSON.stringify({ path, body, key, method }),
           signal: AbortSignal.timeout(20000),
         });
-        if (!response.ok) throw new Error("provider unavailable");
+        if (!response.ok) {
+          const error = await response.json().catch(() => ({}));
+          throw new ProviderRequestError(error.providerStatus);
+        }
         return await response.json();
       }
       const response = await fetch(this.base() + path, {
-        method: body === undefined ? "GET" : "POST",
+        method,
         headers: {
           Authorization: `Bearer ${process.env.MP_ACCESS_TOKEN}`,
           "Content-Type": "application/json",
@@ -135,9 +159,10 @@ export class PaymentProvider {
         ...(body === undefined ? {} : { body: JSON.stringify(body) }),
         signal: AbortSignal.timeout(12000),
       });
-      if (!response.ok) throw new Error("provider unavailable");
+      if (!response.ok) throw new ProviderRequestError(response.status);
       return await response.json();
-    } catch {
+    } catch (error) {
+      if (error instanceof ProviderRequestError) throw error;
       // Never log payment form data, tokens, credentials or raw provider errors.
       throw new BadGatewayException(
         "No se pudo confirmar la operación con el proveedor. Consultá el estado antes de reintentar.",

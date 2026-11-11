@@ -1,14 +1,82 @@
 {
-  "version": "2026-11-11.1",
+  "version": "2026-11-11.2",
   "currency": "ARS",
-  "policy": { "freeLaws": 5, "redownloadDays": 30, "creditMonths": 12, "trashDays": 30, "productNoticeDelayHours": 48, "freeContractAnalyses": 1, "proContractAnalyses": 15, "escritosProOnly": true, "redactorProOnly": true },
-  "reference": { "usdMonthly": 20, "exchangeRate": 1300, "annualList": 260000 },
+  "policy": {
+    "freeLaws": 5,
+    "redownloadDays": 30,
+    "creditMonths": 12,
+    "trashDays": 30,
+    "productNoticeDelayHours": 48,
+    "freeContractAnalyses": 1,
+    "proContractAnalyses": 15,
+    "escritosProOnly": true,
+    "redactorProOnly": true
+  },
+  "reference": {
+    "usdMonthly": 20,
+    "exchangeRate": 1300,
+    "annualList": 260000
+  },
   "products": [
-    { "id": "pro_mensual", "kind": "pro", "name": "Pro mensual", "amount": 26000, "months": 1, "quantity": 0, "frozen": false, "description": "Un mes de Pro, con descargas ilimitadas y herramientas profesionales. Renovación manual." },
-    { "id": "pro_anual", "kind": "pro", "name": "Pro Fundador anual", "amount": 200000, "months": 12, "quantity": 0, "frozen": true, "description": "Doce meses de Pro. Precio promocional congelado para sus renovaciones mientras se mantenga la contratación." },
-    { "id": "descargas_1", "kind": "descargas", "name": "1 descarga de ley", "amount": 1000, "months": 0, "quantity": 1, "frozen": false, "description": "Una ley en PDF. Saldo válido por un año; acceso a la ley durante 30 días desde su descarga." },
-    { "id": "descargas_10", "kind": "descargas", "name": "10 descargas de leyes", "amount": 8000, "months": 0, "quantity": 10, "frozen": false, "description": "Diez leyes en PDF. Saldo válido por un año; cada ley descargada queda disponible durante 30 días." },
-    { "id": "descargas_50", "kind": "descargas", "name": "50 descargas de leyes", "amount": 25000, "months": 0, "quantity": 50, "frozen": false, "description": "Cincuenta leyes en PDF. Saldo válido por un año; cada ley descargada queda disponible durante 30 días." },
-    { "id": "descargas_100", "kind": "descargas", "name": "100 descargas de leyes", "amount": 40000, "months": 0, "quantity": 100, "frozen": false, "description": "Cien leyes en PDF. Saldo válido por un año; cada ley descargada queda disponible durante 30 días." }
+    {
+      "id": "pro_mensual",
+      "kind": "pro",
+      "name": "Pro mensual",
+      "amount": 26000,
+      "months": 1,
+      "quantity": 0,
+      "frozen": false,
+      "description": "Suscripción Pro con cobro automático mensual hasta su cancelación. Incluye descargas ilimitadas y herramientas profesionales."
+    },
+    {
+      "id": "pro_anual",
+      "kind": "pro",
+      "name": "Pro Fundador anual",
+      "amount": 200000,
+      "months": 12,
+      "quantity": 0,
+      "frozen": true,
+      "description": "Un único pago por doce meses de Pro, sin renovación automática. Conserva su precio promocional para renovaciones manuales mientras se mantenga la contratación."
+    },
+    {
+      "id": "descargas_1",
+      "kind": "descargas",
+      "name": "1 descarga de ley",
+      "amount": 1000,
+      "months": 0,
+      "quantity": 1,
+      "frozen": false,
+      "description": "Una ley en PDF. Saldo válido por un año; acceso a la ley durante 30 días desde su descarga."
+    },
+    {
+      "id": "descargas_10",
+      "kind": "descargas",
+      "name": "10 descargas de leyes",
+      "amount": 8000,
+      "months": 0,
+      "quantity": 10,
+      "frozen": false,
+      "description": "Diez leyes en PDF. Saldo válido por un año; cada ley descargada queda disponible durante 30 días."
+    },
+    {
+      "id": "descargas_50",
+      "kind": "descargas",
+      "name": "50 descargas de leyes",
+      "amount": 25000,
+      "months": 0,
+      "quantity": 50,
+      "frozen": false,
+      "description": "Cincuenta leyes en PDF. Saldo válido por un año; cada ley descargada queda disponible durante 30 días."
+    },
+    {
+      "id": "descargas_100",
+      "kind": "descargas",
+      "name": "100 descargas de leyes",
+      "amount": 40000,
+      "months": 0,
+      "quantity": 100,
+      "frozen": false,
+      "description": "Cien leyes en PDF. Saldo válido por un año; cada ley descargada queda disponible durante 30 días."
+    }
   ]
 }

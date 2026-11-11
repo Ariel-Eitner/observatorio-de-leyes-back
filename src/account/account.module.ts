@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
-import { AuthModule } from '../auth/auth.module';
-import { AccountController } from './account.controller';
-import { AccountAdminController } from './account-admin.controller';
-import { AccountRequestsService } from './account-requests.service';
-import { AccountDataService } from './account-data.service';
-import { UserAdminController } from './user-admin.controller';
+import { Module } from "@nestjs/common";
+import { BillingModule } from "../billing/billing.module";
+import { AuthModule } from "../auth/auth.module";
+import { AccountController } from "./account.controller";
+import { AccountAdminController } from "./account-admin.controller";
+import { AccountRequestsService } from "./account-requests.service";
+import { AccountDataService } from "./account-data.service";
+import { UserAdminController } from "./user-admin.controller";
 
 /**
  * Todo lo que una persona puede hacer sobre su propia cuenta más allá de usarla:
@@ -16,7 +17,7 @@ import { UserAdminController } from './user-admin.controller';
  * La dirección de las dependencias es Users → Account → Auth: sin ciclos.
  */
 @Module({
-  imports: [AuthModule],
+  imports: [AuthModule, BillingModule],
   controllers: [AccountController, AccountAdminController, UserAdminController],
   providers: [AccountRequestsService, AccountDataService],
   exports: [AccountRequestsService, AccountDataService],

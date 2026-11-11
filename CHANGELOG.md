@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.0 — 2026-11-11
+
+- Pro mensual con suscripción de Mercado Pago por $26.000 al mes, consentimiento expreso y cancelación desde la cuenta. El anual conserva un pago único por doce meses.
+- Cada cobro se verifica en el backend y acredita su período una sola vez; autorizar el mandato no acredita Pro. Cancelar conserva el acceso ya pagado.
+- Cola durable y conciliación para recuperar notificaciones perdidas; cancelación confirmada antes de borrar una cuenta.
+- Pruebas con PostgreSQL Docker aislado y navegador local, sin cargos reales.
+
 ## 1.3.0 — 2026-11-11
 
 - Una sola consulta reúne bandeja, contador y preferencias. Las lecturas comparten la sincronización de avisos de cuenta durante un minuto, sin repetir escrituras y bloqueos por cada petición.

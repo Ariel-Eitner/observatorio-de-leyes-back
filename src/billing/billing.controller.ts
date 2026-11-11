@@ -13,7 +13,16 @@ import {
 import { JwtService } from "@nestjs/jwt";
 import { AdminHeaderGuard } from "../common/guards/admin-header.guard";
 import { BillingService } from "./billing.service";
-import { CreateOrderDto, PreferenceDto, SubmitPaymentDto } from "./billing.dto";
+import {
+  CreateOrderDto,
+  PreferenceDto,
+  SubmitPaymentDto,
+  SubscriptionDto,
+  CancelSubscriptionDto,
+  SimulateSubscriptionDto,
+} from "./billing.dto";
+import { SubscriptionsService } from "./subscriptions.service";
+import { SUB_TOPICS } from "./subscription-events";
 import { PaymentProvider } from "./provider";
 import { COMMERCIAL_CATALOG } from "../commercial/catalog";
 
@@ -24,6 +33,7 @@ export class BillingController {
     private readonly billing: BillingService,
     private readonly jwt: JwtService,
     private readonly provider: PaymentProvider,
+    private readonly subscriptions: SubscriptionsService,
   ) {}
   @Get("config") async config() {
     return {
@@ -33,7 +43,7 @@ export class BillingController {
         process.env.OBS_LOCAL_SANDBOX === "true" &&
         process.env.ALLOW_MOCK_PAYMENTS === "true" &&
         /^http:\/\/127\.0\.0\.1:\d+$/.test(process.env.MP_API_BASE_URL ?? ""),
-      renewal: "manual",
+      renewal: "monthly_subscription_annual_one_time",
       catalogVersion: COMMERCIAL_CATALOG.version,
     };
   }
@@ -48,7 +58,63 @@ export class BillingController {
     @Headers("x-signature") signature: string,
     @Headers("x-request-id") requestId: string,
   ) {
-    return this.billing.receiveVerifiedWebhook(id, body, signature, requestId);
+    const type = (body as { type?: string })?.type;
+    return SUB_TOPICS[type]
+      ? this.subscriptions.receive(type, id, body, signature, requestId, true)
+      : this.billing.receiveVerifiedWebhook(id, body, signature, requestId);
+  }
+  private requiredUser(authorization?: string) {
+    const id = this.user(authorization);
+    if (!id) throw new UnauthorizedException();
+    return id;
+  }
+  @Post("subscriptions")
+  @HttpCode(200)
+  subscribe(
+    @Body() dto: SubscriptionDto,
+    @Headers("authorization") auth?: string,
+  ) {
+    return this.subscriptions.create(this.requiredUser(auth), dto);
+  }
+  @Get("subscriptions/current")
+  currentSubscription(
+    @Headers("authorization") auth?: string,
+    @Query("refresh") refresh?: string,
+  ) {
+    return this.subscriptions.current(
+      this.requiredUser(auth),
+      refresh === "true",
+    );
+  }
+  @Get("subscriptions/:id")
+  subscription(
+    @Param("id") id: string,
+    @Headers("authorization") auth?: string,
+    @Query("refresh") refresh?: string,
+  ) {
+    return this.subscriptions.status(
+      id,
+      this.requiredUser(auth),
+      refresh === "true",
+    );
+  }
+  @Post("subscriptions/:id/cancel")
+  @HttpCode(200)
+  cancelSubscription(
+    @Param("id") id: string,
+    @Body() _dto: CancelSubscriptionDto,
+    @Headers("authorization") auth?: string,
+  ) {
+    return this.subscriptions.cancel(id, this.requiredUser(auth));
+  }
+  @Post("subscriptions/:id/simulate")
+  @HttpCode(200)
+  simulateSubscription(
+    @Param("id") id: string,
+    @Body() dto: SimulateSubscriptionDto,
+    @Headers("authorization") auth?: string,
+  ) {
+    return this.subscriptions.simulate(id, this.requiredUser(auth), dto.pay);
   }
   private user(authorization?: string) {
     if (!authorization) return null;
@@ -126,7 +192,10 @@ export class BillingController {
 
 @Controller("billing/webhook")
 export class BillingWebhookController {
-  constructor(private readonly billing: BillingService) {}
+  constructor(
+    private readonly billing: BillingService,
+    private readonly subscriptions: SubscriptionsService,
+  ) {}
   @Post()
   @HttpCode(200)
   receive(
@@ -135,6 +204,9 @@ export class BillingWebhookController {
     @Headers("x-signature") signature: string,
     @Headers("x-request-id") requestId: string,
   ) {
-    return this.billing.receiveWebhook(id, body, signature, requestId);
+    const type = (body as { type?: string })?.type;
+    return SUB_TOPICS[type]
+      ? this.subscriptions.receive(type, id, body, signature, requestId)
+      : this.billing.receiveWebhook(id, body, signature, requestId);
   }
 }
