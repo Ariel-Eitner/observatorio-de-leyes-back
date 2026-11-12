@@ -2,6 +2,8 @@
 
 ## 1.4.2 — 2026-11-12
 
+- Corrige la versión predeterminada de Docker y Compose a 1.4.2 para evitar el fallo de construcción por desajuste con package.json.
+
 - Pro mensual vuelve al pago único de $26.000 por un mes, sin renovación automática, mediante Mercado Pago.
 - Nuevas suscripciones deshabilitadas; las existentes conservan consulta y cancelación desde la cuenta.
 
