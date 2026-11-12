@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  GoneException,
   Headers,
   HttpCode,
   Param,
@@ -43,7 +44,7 @@ export class BillingController {
         process.env.OBS_LOCAL_SANDBOX === "true" &&
         process.env.ALLOW_MOCK_PAYMENTS === "true" &&
         /^http:\/\/127\.0\.0\.1:\d+$/.test(process.env.MP_API_BASE_URL ?? ""),
-      renewal: "monthly_subscription_annual_one_time",
+      renewal: "manual",
       catalogVersion: COMMERCIAL_CATALOG.version,
     };
   }
@@ -71,10 +72,13 @@ export class BillingController {
   @Post("subscriptions")
   @HttpCode(200)
   subscribe(
-    @Body() dto: SubscriptionDto,
+    @Body() _dto: SubscriptionDto,
     @Headers("authorization") auth?: string,
   ) {
-    return this.subscriptions.create(this.requiredUser(auth), dto);
+    this.requiredUser(auth);
+    throw new GoneException(
+      "Las nuevas suscripciones están deshabilitadas. Comprá un mes de Pro por $26.000 desde la página de planes, sin renovación automática.",
+    );
   }
   @Get("subscriptions/current")
   currentSubscription(

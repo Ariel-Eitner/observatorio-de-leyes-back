@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-11.2",
+  "version": "2026-11-12.1",
   "currency": "ARS",
   "policy": {
     "freeLaws": 5,
@@ -26,7 +26,7 @@
       "months": 1,
       "quantity": 0,
       "frozen": false,
-      "description": "Suscripción Pro con cobro automático mensual hasta su cancelación. Incluye descargas ilimitadas y herramientas profesionales."
+      "description": "Un único pago por un mes de Pro, sin renovación automática. Incluye descargas ilimitadas y herramientas profesionales."
     },
     {
       "id": "pro_anual",

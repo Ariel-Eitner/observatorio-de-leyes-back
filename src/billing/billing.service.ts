@@ -49,18 +49,14 @@ export class BillingService {
       : null;
     if (dto.tipo !== "apoyo" && (!user || user.status !== "active"))
       throw new ForbiddenException("Necesitás una cuenta activa");
-    if (dto.producto === "pro_mensual")
-      throw new BadRequestException(
-        "El Pro mensual se contrata como suscripción desde la página de planes.",
-      );
     if (
-      dto.producto === "pro_anual" &&
+      dto.tipo === "pro" &&
       (await this.db.proSubscription.findFirst({
         where: { userId, status: { not: "cancelled" } },
       }))
     )
       throw new ConflictException(
-        "Cancelá la renovación mensual desde tu cuenta antes de contratar el anual.",
+        "Cancelá la renovación mensual desde tu cuenta antes de comprar otro período Pro.",
       );
     if (dto.catalogVersion && dto.catalogVersion !== COMMERCIAL_CATALOG.version)
       throw new ConflictException(
@@ -192,13 +188,13 @@ export class BillingService {
         "Esta mensualidad la cobra la suscripción de Mercado Pago.",
       );
     if (
-      order.product === "pro_anual" &&
+      order.kind === "pro" &&
       (await this.db.proSubscription.findFirst({
         where: { userId: order.userId, status: { not: "cancelled" } },
       }))
     )
       throw new ConflictException(
-        "Cancelá la renovación mensual antes de pagar el anual.",
+        "Cancelá la renovación mensual antes de pagar otro período Pro.",
       );
     if (!UUID.test(attemptKey))
       throw new BadRequestException("Intento inválido");
@@ -271,13 +267,13 @@ export class BillingService {
         "Esta mensualidad la cobra la suscripción de Mercado Pago.",
       );
     if (
-      order.product === "pro_anual" &&
+      order.kind === "pro" &&
       (await this.db.proSubscription.findFirst({
         where: { userId: order.userId, status: { not: "cancelled" } },
       }))
     )
       throw new ConflictException(
-        "Cancelá la renovación mensual antes de pagar el anual.",
+        "Cancelá la renovación mensual antes de pagar otro período Pro.",
       );
     // Serialize creation so repeated requests reuse the same provider idempotency key.
     const current = await this.db.$transaction(async (tx) => {

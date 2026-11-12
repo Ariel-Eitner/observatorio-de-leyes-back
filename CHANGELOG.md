@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.2 — 2026-11-12
+
+- Pro mensual vuelve al pago único de $26.000 por un mes, sin renovación automática, mediante Mercado Pago.
+- Nuevas suscripciones deshabilitadas; las existentes conservan consulta y cancelación desde la cuenta.
+
 ## 1.4.1 — 2026-11-11
 
 - Detecta cuando comprador y receptor son la misma cuenta antes de solicitar una suscripción. Explica el rechazo y permite corregir el correo sin dejar solicitudes bloqueadas.

@@ -287,43 +287,23 @@ async function until(check, ms = 20000) {
     await page
       .getByRole("button", { name: "Contratar Pro mensual", exact: true })
       .click();
-    await page.getByRole("checkbox", { name: /Autorizo una suscrip/ }).check();
-    await page
-      .getByLabel("Correo de Mercado Pago")
-      .fill("merchant@fixture.invalid");
-    await page
-      .getByRole("button", { name: "Iniciar suscripción mensual" })
-      .click();
-    await page
-      .getByRole("alert")
-      .filter({ hasText: "misma cuenta que recibe los cobros" })
-      .waitFor();
+    assert.equal(await page.getByRole("checkbox").count(), 0);
+    const closed = await a.request.post(base + "/api/suscripciones", {
+      data: {
+        requestKey: require("node:crypto").randomUUID(),
+        catalogVersion: require("../src/commercial/commercial-catalog.json")
+          .version,
+        consent: true,
+      },
+      headers: { Origin: base },
+    });
+    assert.equal(closed.status(), 410);
     assert.equal(
       (await (await a.request.get(base + "/api/auth/me")).json()).plan,
       "free",
     );
     await page
-      .getByLabel("Correo de Mercado Pago")
-      .fill("usuario@local.invalid");
-    results.push(
-      "Comprador receptor muestra error claro y permite corregir correo antes de crear mandato",
-    );
-
-    await page
-      .getByRole("button", { name: "Iniciar suscripción mensual" })
-      .click();
-    await page
-      .getByRole("button", { name: "Simular autorización", exact: true })
-      .click();
-    await page
-      .getByRole("button", { name: "Simular primer cobro", exact: true })
-      .waitFor();
-    assert.equal(
-      (await (await a.request.get(base + "/api/auth/me")).json()).plan,
-      "free",
-    );
-    await page
-      .getByRole("button", { name: "Simular primer cobro", exact: true })
+      .getByRole("button", { name: "Simular pago aprobado", exact: true })
       .click();
     await page
       .getByRole("link", { name: "Ir a mi cuenta", exact: true })
@@ -367,26 +347,16 @@ async function until(check, ms = 20000) {
       fullPage: true,
     });
     results.push("Aviso de pago entregado por outbox");
-    await page.goto(base + "/cuenta#suscripcion");
-    await page
-      .getByRole("button", { name: "Cancelar renovación mensual", exact: true })
-      .click();
-    await page
-      .getByRole("button", { name: "Confirmar cancelación", exact: true })
-      .click();
-    await page
-      .getByText(
-        "La renovación está cancelada. Se conserva el acceso ya pagado.",
-        { exact: true },
-      )
-      .waitFor();
+    await page.goto(base + "/cuenta");
     assert.equal(
-      (await (await a.request.get(base + "/api/auth/me")).json()).plan,
-      "pro",
+      await page.getByRole("button", { name: /Cancelar renovaci/ }).count(),
+      0,
     );
-    results.push(
-      "Suscripción: autorización sin Pro, cobro verificado y cancelación que conserva acceso",
-    );
+    const subscriptions = await (
+      await a.request.get(base + "/api/suscripciones/current")
+    ).json();
+    assert.equal(subscriptions, null);
+    results.push("Compra mensual sin mandato ni renovacion automatica");
     const draft = await (
       await a.request.post(base + "/api/pagos/orden", {
         data: {

@@ -70,7 +70,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     });
     return { status: response.status, data: await response.json() };
   }
-  // Historical one-time monthly purchases remain valid; new monthly checkouts use subscriptions.
+  // Historical orders also remain payable after restoring one-time checkout.
   const legacyOrder = async (userId = user.id) => {
     const account = await db.user.findUnique({ where: { id: userId } });
     const row = await db.billingOrder.create({
@@ -88,7 +88,16 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     });
     return { ...row, amount: 26000, guest: false, accessToken: "" };
   };
-  const order = () => legacyOrder();
+  const order = () =>
+    billing.create(
+      {
+        requestKey: randomUUID(),
+        tipo: "pro",
+        producto: "pro_mensual",
+        catalogVersion: COMMERCIAL_CATALOG.version,
+      },
+      user.id,
+    );
   async function payment(id: string, status = "approved") {
     const p: ProviderPayment = {
       id: String(++serial),
@@ -271,18 +280,20 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
       { secret: process.env.JWT_ACCESS_SECRET, expiresIn: "1h" },
     );
   });
-  const subscribe = (overrides = {}) =>
-    call(
-      "/billing/subscriptions",
-      "POST",
-      {
+  // Seed historical subscriptions through the service: the public creation endpoint is closed.
+  const subscribe = async (overrides = {}) => {
+    try {
+      const data = await subs().create(user.id, {
         requestKey: randomUUID(),
         catalogVersion: COMMERCIAL_CATALOG.version,
         consent: true,
         ...overrides,
-      },
-      { token },
-    );
+      });
+      return { status: 200, data };
+    } catch (error) {
+      return { status: error.getStatus(), data: error.getResponse() };
+    }
+  };
   const subs = () => app.get(SubscriptionsService);
   const localSub = (id: string) =>
     db.proSubscription.findUniqueOrThrow({ where: { id } });
@@ -292,7 +303,7 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     await subs().invoice(invoice.id);
     return invoice;
   }
-  it("mensual requiere consentimiento, sesion y catalogo vigente; no admite compra unica", async () => {
+  it("mensual admite pago unico de $26.000 y cierra nuevas suscripciones", async () => {
     expect(
       (
         await call("/billing/subscriptions", "POST", {
@@ -307,13 +318,36 @@ integration("pagos y notificaciones en PostgreSQL aislado", () => {
     expect(
       (
         await call(
-          "/billing/orders",
+          "/billing/subscriptions",
           "POST",
-          { requestKey: randomUUID(), tipo: "pro", producto: "pro_mensual" },
+          {
+            requestKey: randomUUID(),
+            catalogVersion: COMMERCIAL_CATALOG.version,
+            consent: true,
+          },
           { token },
         )
       ).status,
-    ).toBe(400);
+    ).toBe(410);
+    const purchase = await call(
+      "/billing/orders",
+      "POST",
+      {
+        requestKey: randomUUID(),
+        tipo: "pro",
+        producto: "pro_mensual",
+        monto: 1000,
+      },
+      { token },
+    );
+    expect(purchase.status).toBe(200);
+    expect(purchase.data.amount).toBe(26000);
+    const saved = await db.billingOrder.findUniqueOrThrow({
+      where: { id: purchase.data.id },
+    });
+    expect(saved.months).toBe(1);
+    expect(saved.subscriptionId).toBeNull();
+    expect((await call("/billing/config")).data.renewal).toBe("manual");
     expect(recurring.created).toBe(0);
   });
   it("rechaza comprador igual al receptor antes del POST y permite corregir el correo", async () => {
