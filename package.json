@@ -1,6 +1,6 @@
 {
   "name": "observatorio-de-leyes-backend",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "private": true,
   "scripts": {
     "build": "nest build",
@@ -35,7 +35,12 @@
     "tracking:e2e": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts",
     "tracking:e2e:docker": "ts-node --project tsconfig.json -r tsconfig-paths/register scripts/tracking-e2e.ts http://localhost:4000 http://localhost:4600/api",
     "sandbox:build": "node operations/local-sandbox.cjs build",
-    "docker:local": "node operations/compose.cjs"
+    "docker:local": "node operations/compose.cjs",
+    "release:check": "node operations/release.cjs",
+    "release:check:workspace": "node operations/release.cjs --workspace",
+    "release:prepare": "node operations/release.cjs prepare",
+    "release:test": "node --test operations/release.test.cjs",
+    "prebuild": "npm run release:check"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.96.0",

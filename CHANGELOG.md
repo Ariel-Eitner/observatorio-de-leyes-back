@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.3 — 2026-11-13
+
+- Verificaci?n de versiones y changelog antes de compilar y en CI; detecta cambios sin incremento de versi?n.
+- Comando de preparaci?n que actualiza ambos paquetes, lockfiles, changelogs y versiones de Docker/Compose con notas expl?citas.
+- Retirada de helpers obsoletos y artefactos temporales; inventario de limpieza y diagn?stico del redactor legal.
+
 ## 1.4.2 — 2026-11-12
 
 - Corrige la versión predeterminada de Docker y Compose a 1.4.2 para evitar el fallo de construcción por desajuste con package.json.

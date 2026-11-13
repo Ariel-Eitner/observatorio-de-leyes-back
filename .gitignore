@@ -31,8 +31,7 @@ jest_html_reporters.html
 jest-html-reporters-attach/
 reports/
 
-# CI (no versionar)
-.github/
+# Los workflows de CI forman parte del software.
 
 # papelera y cuarentena: codigo retirado que se guarda por si hay que revertir.
 # Viven en la raiz del monorepo, pero se ignoran tambien aca por si alguna vez

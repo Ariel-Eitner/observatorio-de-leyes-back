@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      # La BD (Supabase) es necesaria para db-integrity.spec y completeness.spec.
+      # Cargar el secret DATABASE_URL en Settings → Secrets → Actions del repo.
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npx prisma generate
+      - name: Typecheck
+        run: node_modules/.bin/tsc --noEmit -p tsconfig.json
+      - name: Tests (incluye db-integrity y completeness)
+        run: npx jest --ci --reporters=default
