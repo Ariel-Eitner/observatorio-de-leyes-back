@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../common/prisma/prisma.service';
 import { computeFrontendPath, computeArticleUrl } from '../common/utils/law-url.util';
 import { buildFtsQuery, buildFtsFallback } from './search-query.util';
+import { articleNumberKey } from './article-number.util';
 import type { Law } from '../common/types/law.types';
 
 // Formato PLANO que espera el front (FullSearchResultItem). Los campos van en el
@@ -152,7 +153,7 @@ export function isNumberOnlyQuery(q: string): boolean {
 // de la norma, y lo resuelve extractNumberDigits) → no se trata como ref de artículo.
 export function extractArticleRef(q: string): { artNum: string; lawText: string } | null {
   const m = q.match(
-    /\b(?:art(?:[íi]culos?|\.|\b)?|normas?)\s*(\d+\s*(?:bis|ter|qu[áa]ter|quater|quinquies|sexies|septies)?)/i,
+    /\b(?:art(?:[íi]culos?|\.)?|normas?)\s*(\d+\s*(?:bis|ter|qu[áa]ter|quater|quinquies|sexies|septies)?)/i,
   );
   if (!m) return null;
   const artNum = m[1].replace(/\s+/g, ' ').trim();
@@ -210,9 +211,26 @@ export class SearchDbService {
     return c.length ? ' AND ' + c.join(' AND ') : '';
   }
 
+  private async scopedNumber(q: string, key: string, opts: SearchOpts): Promise<SearchResultItem[]> {
+    const params: unknown[] = [key];
+    const where = this.filterClauses(opts, params);
+    params.push(Math.min(opts.limit ?? 30, 100));
+    const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(`
+      SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
+        n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
+        n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories,
+        left(a.body, 160) AS snippet
+      FROM articles a JOIN norms n ON n.id = a.norm_id
+      WHERE regexp_replace(lower(immutable_unaccent(a.number)), '[^a-z0-9]', '', 'g') = $1${where}
+      ORDER BY a.ord, a.id LIMIT $${params.length}`, ...params);
+    return rows.map(row => this.articleItem(row, q));
+  }
+
   async search(query: string, opts: SearchOpts = {}): Promise<SearchResultItem[]> {
     const q = query?.trim();
     if (!q) return [];
+    const scopedKey = opts.lawId && opts.type !== 'law' ? articleNumberKey(q) : null;
+    if (scopedKey) return this.scopedNumber(q, scopedKey, opts);
     const limit = Math.min(opts.limit ?? 30, 100);
     const out: SearchResultItem[] = [];
 
@@ -296,6 +314,8 @@ export class SearchDbService {
     // no hubo norma con ese número, así "27001" (ley no cargada) sigue avisando eso.
     if (numDigits && !numMatchedNorm && numDigits.length <= 4 && opts.type !== 'law') {
       try {
+        const params: unknown[] = [numDigits];
+        const where = this.filterClauses(opts, params);
         const rows = await this.prisma.$queryRawUnsafe<Record<string, unknown>[]>(
           `SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
                   n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
@@ -304,11 +324,11 @@ export class SearchDbService {
                   (SELECT count(*) FROM articles a2 WHERE a2.norm_id = n.id) AS art_count
            FROM articles a JOIN norms n ON n.id = a.norm_id
            WHERE a.number = $1
-             AND ${SOLO_PUBLICAS}
+             ${where}
              AND (n.id LIKE 'codigo%' OR coalesce(n.common_name, n.title) ILIKE 'c_digo%')
            ORDER BY art_count DESC
            LIMIT 4`,
-          numDigits,
+          ...params,
         );
         // Por debajo del match exacto de norma por número (1000) y por encima del boost
         // por nombre (≤800): es una interpretación, no lo que el usuario escribió textual.
@@ -333,6 +353,7 @@ export class SearchDbService {
         // nombre>" (código penal, constitución, CCyC…). Ahora la rama se omite.
         let numCond = '';
         if (lawDigits) { params.push(lawDigits); numCond = ` OR regexp_replace(n.number, '\\D', '', 'g') = $${params.length}`; }
+        const where = this.filterClauses(opts, params);
         const sql = `
           SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title,
                  n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title,
@@ -346,7 +367,7 @@ export class SearchDbService {
           FROM articles a
           JOIN norms n ON n.id = a.norm_id
           WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1
-            AND ${SOLO_PUBLICAS}
+            ${where}
             AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))${numCond} )
           ORDER BY phrase DESC, rank DESC
           LIMIT 5`;

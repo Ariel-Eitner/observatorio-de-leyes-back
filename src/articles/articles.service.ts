@@ -19,6 +19,11 @@ export class ArticlesService {
   ) {}
 
   async findByLaw(lawId: string, limit?: number) {
+    if (limit) {
+      const meta = this.laws.getAllNorms({ incluirNoListadas: true }).find(law => law.id === lawId);
+      if (!meta) throw new NotFoundException(`Ley con id "${lawId}" no encontrada`);
+      return this.normsDb.loadArticlePage(lawId, limit);
+    }
     const law = await this.laws.getFullNorm(lawId);
     if (!law) throw new NotFoundException(`Ley con id "${lawId}" no encontrada`);
     const ordenados = [...law.articles].sort((a, b) => a.order - b.order);
@@ -26,9 +31,8 @@ export class ArticlesService {
   }
 
   async findOne(id: string) {
-    const normId = await this.normsDb.normIdOfArticle(id);
-    const law = normId ? await this.laws.getFullNorm(normId) : null;
-    const article = law?.articles.find((a) => a.id === id);
+    const article = await this.normsDb.loadArticle(id);
+    const law = article ? this.laws.getAllNorms({ incluirNoListadas: true }).find(norm => norm.id === article.lawId) : null;
     if (!law || !article) throw new NotFoundException(`Artículo con id "${id}" no encontrado`);
     return { ...article, law: { id: law.id, number: law.number, title: law.title } };
   }

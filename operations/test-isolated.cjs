@@ -3,6 +3,8 @@ const { randomBytes } = require("node:crypto");
 const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 const name = `obs-billing-test-${process.pid}-${Date.now()}`;
+const suite = process.argv[2] || 'billing.integration.spec';
+if (!['billing.integration.spec', 'redactor.integration.spec'].includes(suite)) throw Error('Suite aislada no permitida');
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
     cwd: root,
@@ -97,7 +99,7 @@ try {
     [
       require.resolve("jest/bin/jest"),
       "--runInBand",
-      "--testPathPattern=billing.integration.spec",
+      "--testPathPattern=" + suite,
       "--reporters=default",
     ],
     { cwd: root, env, stdio: "inherit" },

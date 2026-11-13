@@ -1,0 +1,164 @@
+[
+  {
+    "key": "typescript:S3776",
+    "repo": "typescript",
+    "name": "Cognitive Complexity of functions should not be too high",
+    "createdAt": "2026-11-13T13:07:47+0000",
+    "severity": "CRITICAL",
+    "status": "READY",
+    "isTemplate": false,
+    "tags": [],
+    "sysTags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "lang": "ts",
+    "langName": "TypeScript",
+    "params": [
+      {
+        "key": "threshold",
+        "htmlDesc": "The maximum authorized complexity.",
+        "defaultValue": "15",
+        "type": "INTEGER"
+      }
+    ],
+    "defaultDebtRemFnType": "LINEAR_OFFSET",
+    "debtRemFnType": "LINEAR_OFFSET",
+    "type": "CODE_SMELL",
+    "defaultRemFnType": "LINEAR_OFFSET",
+    "defaultRemFnGapMultiplier": "1min",
+    "defaultRemFnBaseEffort": "5min",
+    "remFnType": "LINEAR_OFFSET",
+    "remFnGapMultiplier": "1min",
+    "remFnBaseEffort": "5min",
+    "remFnOverloaded": false,
+    "gapDescription": "per complexity point over the threshold",
+    "scope": "MAIN",
+    "isExternal": false,
+    "descriptionSections": [
+      {
+        "key": "how_to_fix",
+        "content": "<p>Reducing cognitive complexity can be challenging.\n  <br>\n  Here are a few suggestions:</p>\n<ul>\n  <li><strong>Extract complex conditions in a new function.</strong>\n    <br>\n    Mixed operators in condition will increase complexity. Extracting the condition in a new function with an appropriate name will reduce cognitive\n    load.</li>\n  <li><strong>Break down large functions.</strong>\n    <br>\n    Large functions can be hard to understand and maintain. If a function is doing too many things, consider breaking it down into smaller, more\n    manageable functions. Each function should have a single responsibility.</li>\n  <li><strong>Avoid deep nesting by returning early.</strong>\n    <br>\n    To avoid the nesting of conditions, process exceptional cases first and return early.</li>\n  <li><strong>Use null-safe operations (if available in the language).</strong>\n    <br>\n    When available the <code>.?</code> or <code>??</code> operator replaces multiple tests and simplifies the flow.</li>\n</ul>\n\n<p><strong>Extraction of a complex condition in a new function.</strong></p>\n<h4>Noncompliant code example</h4>\n<p>The code is using a complex condition and has a cognitive cost of 3.</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nfunction calculateFinalPrice(user, cart) {\n  let total = calculateTotal(cart);\n  if (user.hasMembership                       // +1 (if)\n    &amp;&amp; user.orders &gt; 10                        // +1 (more than one condition)\n    &amp;&amp; user.accountActive\n    &amp;&amp; !user.hasDiscount\n    || user.orders === 1) {                    // +1 (change of operator in condition)\n      total = applyDiscount(user, total);\n  }\n  return total;\n}\n</pre>\n<h4>Compliant solution</h4>\n<p>Even if the cognitive complexity of the whole program did not change, it is easier for a reader to understand the code of the\n<code>calculateFinalPrice</code> function, which now only has a cognitive cost of 1.</p>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nfunction calculateFinalPrice(user, cart) {\n  let total = calculateTotal(cart);\n  if (isEligibleForDiscount(user)) {       // +1 (if)\n    total = applyDiscount(user, total);\n  }\n  return total;\n}\n\nfunction isEligibleForDiscount(user) {\n  return user.hasMembership\n    &amp;&amp; user.orders &gt; 10                     // +1 (more than one condition)\n    &amp;&amp; user.accountActive\n    &amp;&amp; !user.hasDiscount\n    || user.orders === 1                    // +1 (change of operator in condition)\n}\n</pre>\n<p><strong>Break down large functions.</strong></p>\n<h4>Noncompliant code example</h4>\n<p>For example, consider a function that calculates the total price of a shopping cart, including sales tax and shipping.\n  <br>\n  <em>Note:</em> The code is simplified here, to illustrate the purpose. Please imagine there is more happening in the <code>for</code> loops.</p>\n<pre data-diff-id=\"3\" data-diff-type=\"noncompliant\">\nfunction calculateTotal(cart) {\n  let total = 0;\n  for (let i = 0; i &lt; cart.length; i++) {       // +1 (for)\n    total += cart[i].price;\n  }\n\n  // calculateSalesTax\n  for (let i = 0; i &lt; cart.length; i++) {       // +1 (for)\n    total += 0.2 * cart[i].price;\n  }\n\n  //calculateShipping\n  total += 5 * cart.length;\n\n  return total;\n}\n</pre>\n<p>This function could be refactored into smaller functions: The complexity is spread over multiple functions and the complex\n<code>calculateTotal</code> has now a complexity score of zero.</p>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"3\" data-diff-type=\"compliant\">\nfunction calculateTotal(cart) {\n  let total = calculateSubtotal(cart);\n  total += calculateSalesTax(cart);\n  total += calculateShipping(cart);\n  return total;\n}\n\nfunction calculateSubtotal(cart) {\n  let subTotal = 0;\n  for (const item of cart) {        // +1 (for)\n    subTotal += item.price;\n  }\n  return subTotal;\n}\n\nfunction calculateSalesTax(cart) {\n  let salesTax = 0;\n  for (const item of cart) {        // +1 (for)\n    salesTax += 0.2 * item.price;\n  }\n  return salesTax;\n}\n\nfunction calculateShipping(cart) {\n  return 5 * cart.length;\n}\n</pre>\n<p><strong>Avoid deep nesting by returning early.</strong></p>\n<h4>Noncompliant code example</h4>\n<p>The below code has a cognitive complexity of 6.</p>\n<pre data-diff-id=\"4\" data-diff-type=\"noncompliant\">\nfunction calculateDiscount(price, user) {\n  if (isEligibleForDiscount(user)) {  // +1 ( if )\n    if (user?.hasMembership) {        // +2 ( nested if )\n      return price * 0.9;\n  } else if (user?.orders === 1 ) {   // +1 ( else )\n          return price * 0.95;\n    } else {                          // +1 ( else )\n      return price;\n    }\n  } else {                            // +1 ( else )\n    return price;\n  }\n}\n</pre>\n<h4>Compliant solution</h4>\n<p>Checking for the edge case first flattens the <code>if</code> statements and reduces the cognitive complexity to 3.</p>\n<pre data-diff-id=\"4\" data-diff-type=\"compliant\">\nfunction calculateDiscount(price, user) {\n    if (!isEligibleForDiscount(user)) {  // +1 ( if )\n      return price;\n    }\n    if (user?.hasMembership) {           // +1 ( if )\n      return price * 0.9;\n    }\n    if (user?.orders === 1) {            // +1 ( if )\n      return price * 0.95;\n    }\n    return price;\n}\n</pre>\n<p><strong>Use the optional chaining operator to access data.</strong></p>\n<p>In the below code, the cognitive complexity is increased due to the multiple checks required to access the manufacturerâs name. This can be\nsimplified using the optional chaining operator.</p>\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"2\" data-diff-type=\"noncompliant\">\nlet manufacturerName = null;\n\nif (product &amp;&amp; product.details &amp;&amp; product.details.manufacturer) { // +1 (if) +1 (multiple condition)\n    manufacturerName = product.details.manufacturer.name;\n}\nif (manufacturerName) { // +1 (if)\n  console.log(manufacturerName);\n} else {\n  console.log('Manufacturer name not found');\n}\n</pre>\n<h4>Compliant solution</h4>\n<p>The optional chaining operator will return <code>undefined</code> if any reference in the chain is <code>undefined</code> or <code>null</code>,\navoiding multiple checks:</p>\n<pre data-diff-id=\"2\" data-diff-type=\"compliant\">\nlet manufacturerName = product?.details?.manufacturer?.name;\n\nif (manufacturerName) { // +1 (if)\n  console.log(manufacturerName);\n} else {\n  console.log('Manufacturer name not found');\n}\n</pre>\n<h3>Pitfalls</h3>\n<p>As this code is complex, ensure that you have unit tests that cover the code before refactoring.</p>"
+      },
+      {
+        "key": "resources",
+        "content": "<h3>Documentation</h3>\n<ul>\n  <li>Sonar - <a href=\"https://www.sonarsource.com/docs/CognitiveComplexity.pdf\">Cognitive Complexity</a></li>\n</ul>\n<h3>Articles &amp; blog posts</h3>\n<ul>\n  <li>Sonar Blog - <a href=\"https://www.sonarsource.com/blog/5-clean-code-tips-for-reducing-cognitive-complexity/\">5 Clean Code Tips for Reducing\n  Cognitive Complexity</a></li>\n</ul>"
+      },
+      {
+        "key": "root_cause",
+        "content": "<p>Cognitive Complexity is a measure of how hard it is to understand the control flow of a unit of code. Code with high cognitive complexity is hard\nto read, understand, test, and modify.</p>\n<p>As a rule of thumb, high cognitive complexity is a sign that the code should be refactored into smaller, easier-to-manage pieces.</p>\n<h3>Which syntax in code does impact cognitive complexity score?</h3>\n<p>Here are the core concepts:</p>\n<ul>\n  <li><strong>Cognitive complexity is incremented each time the code breaks the normal linear reading flow.</strong>\n    <br>\n    This concerns, for example, loop structures, conditionals, catches, switches, jumps to labels, and conditions mixing multiple operators.</li>\n  <li><strong>Each nesting level increases complexity.</strong>\n    <br>\n    During code reading, the deeper you go through nested layers, the harder it becomes to keep the context in mind.</li>\n  <li><strong>Method calls are free</strong>\n    <br>\n    A well-picked method name is a summary of multiple lines of code. A reader can first explore a high-level view of what the code is performing then\n    go deeper and deeper by looking at called functions content.\n    <br>\n    <em>Note:</em> This does not apply to recursive calls, those will increment cognitive score.</li>\n</ul>\n<p>The method of computation is fully detailed in the pdf linked in the resources.</p>\n<p>Note that the calculation of cognitive complexity at function level deviates from the documented process. Given the functional nature of\nJavaScript, nesting functions is a prevalent practice, especially within frameworks like React.js. Consequently, the cognitive complexity of functions\nremains independent from one another. This means that the complexity of a nesting function does not increase with the complexity of nested\nfunctions.</p>\n<h3>What is the potential impact?</h3>\n<p>Developers spend more time reading and understanding code than writing it. High cognitive complexity slows down changes and increases the cost of\nmaintenance.</p>\n<h3>Exceptions</h3>\n<p>Cognitive complexity calculations exclude logical expressions using the <code>||</code> and <code>??</code> operators.</p>\n<pre>\nfunction greet(name) {\n    name = name || 'Guest';\n    console.log('Hello, ' + name + '!');\n}\n</pre>"
+      },
+      {
+        "key": "introduction",
+        "content": "<p>This rule raises an issue when the code cognitive complexity of a function is above a certain threshold.</p>"
+      }
+    ],
+    "educationPrinciples": [],
+    "updatedAt": "2026-11-13T13:07:47+0000",
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ]
+  },
+  {
+    "key": "typescript:S8786",
+    "repo": "typescript",
+    "name": "Regular expressions should not cause non-linear backtracking",
+    "createdAt": "2026-11-13T13:07:47+0000",
+    "severity": "MAJOR",
+    "status": "READY",
+    "isTemplate": false,
+    "tags": [],
+    "sysTags": [
+      "regex",
+      "performance"
+    ],
+    "lang": "ts",
+    "langName": "TypeScript",
+    "params": [],
+    "defaultDebtRemFnType": "CONSTANT_ISSUE",
+    "debtRemFnType": "CONSTANT_ISSUE",
+    "type": "CODE_SMELL",
+    "defaultRemFnType": "CONSTANT_ISSUE",
+    "defaultRemFnBaseEffort": "20min",
+    "remFnType": "CONSTANT_ISSUE",
+    "remFnBaseEffort": "20min",
+    "remFnOverloaded": false,
+    "scope": "MAIN",
+    "isExternal": false,
+    "descriptionSections": [
+      {
+        "key": "root_cause",
+        "content": "<p>Regular expression engines use backtracking to try all possible execution paths when evaluating a pattern against an input. In some cases, this\nleads to non-linear backtracking where the worst-case evaluation time grows polynomially (e.g., O(nÂ²) or O(nÂ³)) with the input size. While not as\nsevere as catastrophic backtracking, such patterns can significantly degrade application performance when processing large or untrusted inputs.</p>\n<p>This rule reports regular expressions that exhibit non-linear backtracking behavior.</p>"
+      },
+      {
+        "key": "how_to_fix",
+        "content": "<p>To fix a regular expression with non-linear backtracking, consider the following strategies:</p>\n<ul>\n  <li>Replace <code>.</code> with negated character classes to exclude separators where applicable (e.g., <code>[^,]*</code> instead of\n  <code>.*</code> before <code>,</code>).</li>\n  <li>Use bounded quantifiers such as <code>{1,5}</code> to limit repetitions.</li>\n  <li>Restructure alternations and quantifiers to eliminate ambiguity â avoid patterns where multiple alternatives can match the same character.</li>\n  <li>JavaScript does not support possessive quantifiers, but atomic grouping can be emulated using lookahead assertions and backreferences.</li>\n  <li>Use a non-backtracking implementation such as <a href=\"https://github.com/uhop/node-re2/\">node-re2</a>.</li>\n</ul>\n\n<p>The following examples illustrate two distinct causes of non-linear backtracking. The first shows a pattern that is polynomial when unanchored:\nwithout a start anchor, the engine retries the pattern at every position, leading to quadratic evaluation time when there is no match. The second\nshows ambiguous alternation, which causes quadratic backtracking regardless of anchoring because multiple alternatives can match the same input in\ndifferent ways.</p>\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n/a+b/.test(input); // Noncompliant - polynomial backtracking when the pattern does not match\n</pre>\n<pre data-diff-id=\"2\" data-diff-type=\"noncompliant\">\n/(a|aa)+/.test(input); // Noncompliant - ambiguous alternation causes quadratic backtracking\n</pre>\n<h4>Compliant solution</h4>\n<p>Adding a start anchor prevents the engine from retrying at every position:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n/^a+b/.test(input); // Compliant - anchor eliminates redundant backtracking positions\n</pre>\n<p>Restructuring the alternation to eliminate the overlap removes the quadratic behavior:</p>\n<pre data-diff-id=\"2\" data-diff-type=\"compliant\">\n/a+/.test(input); // Compliant - unambiguous\n</pre>"
+      },
+      {
+        "key": "introduction",
+        "content": "<p>Regular expression engines rely on backtracking to evaluate patterns against input. Certain regex patterns lead to non-linear backtracking, where\nthe evaluation time grows polynomially with input size.</p>"
+      },
+      {
+        "key": "resources",
+        "content": "<h3>Articles &amp; blog posts</h3>\n<ul>\n  <li><a href=\"https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS\">owasp.org</a> - Regular expression Denial of\n  Service - ReDoS</li>\n  <li><a href=\"https://www.regular-expressions.info/catastrophic.html\">regular-expressions.info</a> - Runaway Regular Expressions: Catastrophic\n  Backtracking</li>\n</ul>\n<h3>Related rules</h3>\n<ul>\n  <li><a href='/coding_rules#rule_key=javascript%3AS5852'>S5852</a> - Regular expressions should not cause catastrophic backtracking</li>\n</ul>"
+      }
+    ],
+    "educationPrinciples": [],
+    "updatedAt": "2026-11-13T13:07:47+0000",
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ]
+  },
+  {
+    "key": "typescript:S5842",
+    "repo": "typescript",
+    "name": "Repeated patterns in regular expressions should not match the empty string",
+    "createdAt": "2026-11-13T13:07:47+0000",
+    "severity": "MINOR",
+    "status": "READY",
+    "isTemplate": false,
+    "tags": [],
+    "sysTags": [
+      "type-dependent"
+    ],
+    "lang": "ts",
+    "langName": "TypeScript",
+    "params": [],
+    "defaultDebtRemFnType": "CONSTANT_ISSUE",
+    "debtRemFnType": "CONSTANT_ISSUE",
+    "type": "BUG",
+    "defaultRemFnType": "CONSTANT_ISSUE",
+    "defaultRemFnBaseEffort": "5min",
+    "remFnType": "CONSTANT_ISSUE",
+    "remFnBaseEffort": "5min",
+    "remFnOverloaded": false,
+    "scope": "MAIN",
+    "isExternal": false,
+    "descriptionSections": [
+      {
+        "key": "root_cause",
+        "content": "<p>A regex should never include a repetitive pattern whose body would match the empty string. This is usually a sign that a part of the regex is\nredundant or does not do what the author intended.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n/(?:)*/      // same as the empty regex, the '*' accomplishes nothing\n/(?:|x)*/    // same as the empty regex, the alternative has no effect\n/(?:x|)*/    // same as 'x*', the empty alternative has no effect\n/(?:x*|y*)*/ // same as 'x*', the first alternative would always match, y* is never tried\n/(?:x?)*/    // same as 'x*'\n/(?:x?)+/    // same as 'x*'\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n/x*/\n</pre>"
+      }
+    ],
+    "educationPrinciples": [],
+    "updatedAt": "2026-11-13T13:07:47+0000",
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ]
+  }
+]

@@ -1,0 +1,6603 @@
+[
+  {
+    "key": "c3771c9f-54cc-4d31-b8a3-8561fbc38db2",
+    "rule": "typescript:S1874",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 493,
+    "hash": "4e713e131e10ac12e3ad0571f8078855",
+    "textRange": {
+      "startLine": 493,
+      "endLine": 493,
+      "startOffset": 86,
+      "endOffset": 97
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'returnValue' is deprecated.",
+    "effort": "15min",
+    "debt": "15min",
+    "author": "",
+    "tags": [
+      "cwe",
+      "type-dependent",
+      "obsolete"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "29e9a4e0-094c-46f4-bcb6-4a0611204f5b",
+    "rule": "typescript:S2681",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 838,
+    "hash": "4b8b3aa54c2ceff62f67396b3b9dfacb",
+    "textRange": {
+      "startLine": 838,
+      "endLine": 838,
+      "startOffset": 60,
+      "endOffset": 81
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This statement will not be executed conditionally; only the first statement will be. The rest will execute unconditionally.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "cwe",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f2681a73-ee99-4de1-a9da-546e17749cad",
+    "rule": "typescript:S2681",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 1013,
+    "hash": "d7b6f7d81a685702ddfdf0b21481e198",
+    "textRange": {
+      "startLine": 1013,
+      "endLine": 1013,
+      "startOffset": 60,
+      "endOffset": 81
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This statement will not be executed conditionally; only the first statement will be. The rest will execute unconditionally.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "cwe",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8680689c-8e2a-42b4-80fa-b212eea8e6e6",
+    "rule": "typescript:S6819",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 1048,
+    "hash": "a70f0c042fcdcdd26f373c1e09907dba",
+    "textRange": {
+      "startLine": 1048,
+      "endLine": 1048,
+      "startOffset": 24,
+      "endOffset": 89
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "631f3c70-3b02-4a55-becd-ff5493649e79",
+    "rule": "typescript:S6819",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 1049,
+    "hash": "759757d11327a6b4264e6152d2096860",
+    "textRange": {
+      "startLine": 1049,
+      "endLine": 1049,
+      "startOffset": 22,
+      "endOffset": 87
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9ca38518-52c3-42d4-9f1f-49b0a2c34740",
+    "rule": "typescript:S6819",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 52,
+    "hash": "a484c98ae5f387aa84e530e2acc9a7c6",
+    "textRange": {
+      "startLine": 52,
+      "endLine": 52,
+      "startOffset": 4,
+      "endOffset": 66
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d2cd227c-05fc-4172-a167-f84d82bd88c6",
+    "rule": "typescript:S6847",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 271,
+    "hash": "668effcdb04b304548f336a6e7ec5919",
+    "textRange": {
+      "startLine": 271,
+      "endLine": 287,
+      "startOffset": 4,
+      "endOffset": 5
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Non-interactive elements should not be assigned mouse or keyboard event listeners.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "4ac8042e-07d6-4188-8a30-ea9a057db4e7",
+    "rule": "typescript:S6819",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 364,
+    "hash": "b61596ebf9137ac924fca7415ac13175",
+    "textRange": {
+      "startLine": 364,
+      "endLine": 364,
+      "startOffset": 8,
+      "endOffset": 55
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "50345a2b-d02b-4f84-aba7-0b3bc16c815e",
+    "rule": "typescript:S6819",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 369,
+    "hash": "b61596ebf9137ac924fca7415ac13175",
+    "textRange": {
+      "startLine": 369,
+      "endLine": 369,
+      "startOffset": 8,
+      "endOffset": 55
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "defea0f7-06e4-42ce-89bf-8fabd3222807",
+    "rule": "typescript:S6819",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 475,
+    "hash": "e800465ae3aee59c0f211d3d839a525a",
+    "textRange": {
+      "startLine": 475,
+      "endLine": 475,
+      "startOffset": 20,
+      "endOffset": 60
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use <output> instead of the \"status\" role to ensure accessibility across all devices.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "21b05afc-bba0-484c-9d3f-c8f4312746cf",
+    "rule": "typescript:S6754",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 115,
+    "hash": "2520be3555d4e7a0ed148b99708dff95",
+    "textRange": {
+      "startLine": 115,
+      "endLine": 115,
+      "startOffset": 8,
+      "endOffset": 27
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "useState call is not destructured into value + setter pair",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "react"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "IDENTIFIABLE",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "bcdc79a6-88c4-4aa6-bac3-d97e59c0e9c5",
+    "rule": "typescript:S7718",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 210,
+    "hash": "d4e3ab706e405c62f4dbae0885f91953",
+    "textRange": {
+      "startLine": 210,
+      "endLine": 210,
+      "startOffset": 15,
+      "endOffset": 31
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The catch parameter `failure` should be named `error_`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "error-handling",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d6b0deaa-ff87-45a9-8793-3349350b106b",
+    "rule": "typescript:S2004",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 263,
+    "hash": "1de98de0fd603685bc802aa40d1b9f02",
+    "textRange": {
+      "startLine": 263,
+      "endLine": 263,
+      "startOffset": 53,
+      "endOffset": 55
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+            "textRange": {
+              "startLine": 111,
+              "endLine": 111,
+              "startOffset": 16,
+              "endOffset": 31
+            },
+            "msg": "Nesting +1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+            "textRange": {
+              "startLine": 237,
+              "endLine": 237,
+              "startOffset": 15,
+              "endOffset": 17
+            },
+            "msg": "Nesting +1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+            "textRange": {
+              "startLine": 253,
+              "endLine": 253,
+              "startOffset": 18,
+              "endOffset": 20
+            },
+            "msg": "Nesting +1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+            "textRange": {
+              "startLine": 256,
+              "endLine": 256,
+              "startOffset": 27,
+              "endOffset": 29
+            },
+            "msg": "Nesting +1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+            "textRange": {
+              "startLine": 259,
+              "endLine": 259,
+              "startOffset": 34,
+              "endOffset": 36
+            },
+            "msg": "Nesting +1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this code to not nest functions more than 5 levels deep.",
+    "effort": "20min",
+    "debt": "20min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f4b8f3c4-c9ca-4d64-b20b-06e227a060d7",
+    "rule": "typescript:S7718",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 277,
+    "hash": "4f84e8f9a89740597b97ba6ca2105ab8",
+    "textRange": {
+      "startLine": 277,
+      "endLine": 277,
+      "startOffset": 14,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The catch parameter `failure` should be named `error_`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "error-handling",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f7a2c749-f3c2-4945-bbdc-d042c9a69a28",
+    "rule": "typescript:S1874",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 295,
+    "hash": "d2cf09ed62bfbcb79920f44aa1087cd0",
+    "textRange": {
+      "startLine": 295,
+      "endLine": 295,
+      "startOffset": 14,
+      "endOffset": 25
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'returnValue' is deprecated.",
+    "effort": "15min",
+    "debt": "15min",
+    "author": "",
+    "tags": [
+      "cwe",
+      "type-dependent",
+      "obsolete"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2f4ed7cf-01b6-4894-97a3-c43a45580a48",
+    "rule": "typescript:S6606",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 378,
+    "hash": "95e9f76679ceadb0b37c63082edb3848",
+    "textRange": {
+      "startLine": 378,
+      "endLine": 378,
+      "startOffset": 17,
+      "endOffset": 19
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "nullish-coalescing",
+      "es2020"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6474c94b-7428-4799-b4c1-9f1077eaa2f2",
+    "rule": "typescript:S7718",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 412,
+    "hash": "d4e3ab706e405c62f4dbae0885f91953",
+    "textRange": {
+      "startLine": 412,
+      "endLine": 412,
+      "startOffset": 15,
+      "endOffset": 31
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The catch parameter `failure` should be named `error_`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "error-handling",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "29629346-af7a-43f5-a2c5-b00aafce2122",
+    "rule": "typescript:S7718",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 447,
+    "hash": "7bf58621c70cba09db115803bbe0c35d",
+    "textRange": {
+      "startLine": 447,
+      "endLine": 447,
+      "startOffset": 20,
+      "endOffset": 27
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The catch parameter `failure` should be named `error_`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "error-handling",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "10cd0b24-fbfb-4cb7-a093-348c031d89b6",
+    "rule": "typescript:S7718",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 467,
+    "hash": "d4e3ab706e405c62f4dbae0885f91953",
+    "textRange": {
+      "startLine": 467,
+      "endLine": 467,
+      "startOffset": 15,
+      "endOffset": 31
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The catch parameter `failure` should be named `error_`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "error-handling",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "edbb24e8-7a6a-47f5-b105-d81017430694",
+    "rule": "typescript:S9382",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 512,
+    "hash": "123b1352507f7e88dc33bc6cde71da5a",
+    "textRange": {
+      "startLine": 512,
+      "endLine": 512,
+      "startOffset": 6,
+      "endOffset": 75
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Unexpected `await` inside a loop.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "async",
+      "performance",
+      "es2017",
+      "promise"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e2b2acb4-7b99-4c05-b6d1-ab2ec2f33de6",
+    "rule": "typescript:S4624",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/searchModel.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 71,
+    "hash": "79d5398f119d5dd66b6447b92d25569c",
+    "textRange": {
+      "startLine": 71,
+      "endLine": 71,
+      "startOffset": 37,
+      "endOffset": 81
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Refactor this code to not use nested template literals.",
+    "effort": "10min",
+    "debt": "10min",
+    "author": "",
+    "tags": [
+      "es2015",
+      "brain-overload",
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "70ed8759-2129-453c-960f-72975d206646",
+    "rule": "typescript:S4138",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 33,
+    "hash": "9167bfb71031faf30a2a076664f1bb8e",
+    "textRange": {
+      "startLine": 33,
+      "endLine": 33,
+      "startOffset": 4,
+      "endOffset": 64
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use a \"for...of\" loop, since the index is only used to read array elements.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "clumsy"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3c2e9842-da65-47d7-8abf-fd0ca36f132d",
+    "rule": "typescript:S7758",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 99,
+    "hash": "8dc9acdeaff4b460da27b3c86c90ef21",
+    "textRange": {
+      "startLine": 99,
+      "endLine": 99,
+      "startOffset": 23,
+      "endOffset": 33
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `String#codePointAt()` over `String#charCodeAt()`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "internationalization",
+      "es2015",
+      "unicode"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "eabdb8e4-63f5-4772-9bcf-9efcec2a9b6b",
+    "rule": "typescript:S2310",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 183,
+    "hash": "3927922173ecad0d4328e95e5609781d",
+    "textRange": {
+      "startLine": 183,
+      "endLine": 183,
+      "startOffset": 4,
+      "endOffset": 5
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+            "textRange": {
+              "startLine": 160,
+              "endLine": 160,
+              "startOffset": 35,
+              "endOffset": 36
+            },
+            "msg": "Counter variable update",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Remove this assignment of \"i\".",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d32a35d3-13e1-4d16-9c05-7e53af7619da",
+    "rule": "typescript:S6582",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 223,
+    "hash": "b2f8300a45cdea5d2fccd5280106fa02",
+    "textRange": {
+      "startLine": 223,
+      "endLine": 224,
+      "startOffset": 4,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "type-dependent",
+      "es2020"
+    ],
+    "creationDate": "2026-11-13T15:02:52+0000",
+    "updateDate": "2026-11-13T15:02:52+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "a819b84c-98aa-4086-aa42-10378fcab4b6",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocumentSidebar.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 32,
+    "hash": "c6229c1e9ab56fb151bc0a04ae0cbe7f",
+    "textRange": {
+      "startLine": 32,
+      "endLine": 44,
+      "startOffset": 40,
+      "endOffset": 8
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-11-11T16:39:10+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3cd4b1c8-ef60-48de-bcb0-94e532436083",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/layout.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 3,
+    "hash": "9960d2283ea549d8529c3136c720d135",
+    "textRange": {
+      "startLine": 3,
+      "endLine": 3,
+      "startOffset": 39,
+      "endOffset": 76
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-11-11T16:39:10+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "5044ba77-f842-4801-83e4-e3e7c640374d",
+    "rule": "typescript:S6479",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/opengraph-image.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 129,
+    "hash": "11a4777f86d340962e4cc576573f659a",
+    "textRange": {
+      "startLine": 129,
+      "endLine": 129,
+      "startOffset": 17,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use a stable ID as key, because the index changes when the list changes.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "performance",
+      "react",
+      "jsx"
+    ],
+    "creationDate": "2026-11-11T16:39:10+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2f5b5a23-f76d-452d-8074-86697e5203a5",
+    "rule": "typescript:S6479",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/opengraph-image.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 172,
+    "hash": "11a4777f86d340962e4cc576573f659a",
+    "textRange": {
+      "startLine": 172,
+      "endLine": 172,
+      "startOffset": 17,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use a stable ID as key, because the index changes when the list changes.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "performance",
+      "react",
+      "jsx"
+    ],
+    "creationDate": "2026-11-11T16:39:10+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "5a6f50dc-5658-453f-a9ea-501f6ee3c9ba",
+    "rule": "typescript:S1854",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/page.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 30,
+    "hash": "07a471b0dc4361f488f0aafb1d21ea5d",
+    "textRange": {
+      "startLine": 30,
+      "endLine": 30,
+      "startOffset": 8,
+      "endOffset": 12
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The value assigned to \"SITE\" is never read. Use it or remove this assignment.",
+    "effort": "1min",
+    "debt": "1min",
+    "author": "",
+    "tags": [
+      "cwe",
+      "editable-source",
+      "unused"
+    ],
+    "creationDate": "2026-11-11T16:39:10+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e046edef-46ba-4ec6-8eae-5756509e4c71",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/api/articles/route.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 7,
+    "hash": "1791a34c250c46bc1c9b030f21f42f37",
+    "textRange": {
+      "startLine": 7,
+      "endLine": 7,
+      "startOffset": 37,
+      "endOffset": 45
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-26T18:33:49+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "7e7735d4-2e72-4e35-9110-836036207b59",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 66,
+    "hash": "bae9b94fa2122a7478156683b90bf242",
+    "textRange": {
+      "startLine": 66,
+      "endLine": 66,
+      "startOffset": 35,
+      "endOffset": 49
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-26T18:33:49+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9b8ec544-18a1-4068-aa19-7beff89589a3",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 721,
+    "hash": "c7306ad87da8e5cebd4f2e36650589c6",
+    "textRange": {
+      "startLine": 721,
+      "endLine": 721,
+      "startOffset": 26,
+      "endOffset": 34
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-26T18:33:49+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "1f81e8f6-cd8a-4ada-b9cb-5cb638a47bcc",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 186,
+    "hash": "c8e89985813578dd687c6751b6f15480",
+    "textRange": {
+      "startLine": 186,
+      "endLine": 189,
+      "startOffset": 6,
+      "endOffset": 17
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-08-26T18:33:49+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "659e8932-c942-4653-8d7e-00e6f6c854a5",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 187,
+    "hash": "82164cab2905e6b5f5c9569e7643219f",
+    "textRange": {
+      "startLine": 187,
+      "endLine": 189,
+      "startOffset": 6,
+      "endOffset": 17
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-08-26T18:33:49+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "425fbd30-aab3-4bce-b40d-aeb85b5434b6",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 188,
+    "hash": "676986e14ff07bfae745348230e64906",
+    "textRange": {
+      "startLine": 188,
+      "endLine": 189,
+      "startOffset": 6,
+      "endOffset": 17
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-08-26T18:33:49+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "70791534-fa45-4540-98d8-afdc1bfc6404",
+    "rule": "typescript:S9382",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/api.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 71,
+    "hash": "0ea9fdee156f45b018b18da032aff664",
+    "textRange": {
+      "startLine": 71,
+      "endLine": 71,
+      "startOffset": 14,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Unexpected `await` inside a loop.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "async",
+      "performance",
+      "es2017",
+      "promise"
+    ],
+    "creationDate": "2026-08-11T20:08:20+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b9e6eb2c-1304-4dc1-a8e8-8de602962643",
+    "rule": "typescript:S7744",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/authProxy.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 42,
+    "hash": "bf6fbef5a88a291ab7b210c9be222aa4",
+    "textRange": {
+      "startLine": 42,
+      "endLine": 42,
+      "startOffset": 28,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "The empty object is useless.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "unnecessary",
+      "spread-operator"
+    ],
+    "creationDate": "2026-08-07T16:46:38+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "85d0da54-5344-4403-b181-ffe2c209c7c2",
+    "rule": "typescript:S7772",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/clientIp.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 2,
+    "hash": "fb66b1deef8cb23efc8f6ddecfcf4383",
+    "textRange": {
+      "startLine": 2,
+      "endLine": 2,
+      "startOffset": 27,
+      "endOffset": 35
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `node:crypto` over `crypto`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "import",
+      "editable-source",
+      "nodejs"
+    ],
+    "creationDate": "2026-08-07T16:46:38+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f52627ef-5365-4fbe-b2e6-2d566ee3a1ad",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 173,
+    "hash": "7456c8fb87aae0c4f58916ed614903c2",
+    "textRange": {
+      "startLine": 173,
+      "endLine": 177,
+      "startOffset": 14,
+      "endOffset": 1
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "296c60c1-e9d3-4982-87f9-50798a5e743c",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 748,
+    "hash": "ad94c7e9d762953c375aadcc445b4976",
+    "textRange": {
+      "startLine": 748,
+      "endLine": 748,
+      "startOffset": 37,
+      "endOffset": 65
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e8939da1-c9bc-4ab8-a667-87b8e38c8cd5",
+    "rule": "typescript:S6772",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 1091,
+    "hash": "aaa5b4afee9c4e9d04751862122b74d4",
+    "textRange": {
+      "startLine": 1091,
+      "endLine": 1091,
+      "startOffset": 0,
+      "endOffset": 98
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Ambiguous spacing after previous element span",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "react"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "0f01475f-56fd-43a9-b9df-11f8d58ed5b5",
+    "rule": "typescript:S6582",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/borradoGranular.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 27,
+    "hash": "3fff7021be5f10dcebf239d45c9279eb",
+    "textRange": {
+      "startLine": 27,
+      "endLine": 27,
+      "startOffset": 6,
+      "endOffset": 46
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "type-dependent",
+      "es2020"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "5a9c9822-fe86-4ff7-a722-e801b00839b7",
+    "rule": "typescript:S6582",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/CitationNode.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 116,
+    "hash": "6892d1f6e2cd3ec9d77fb63b94f5fdb6",
+    "textRange": {
+      "startLine": 116,
+      "endLine": 116,
+      "startOffset": 14,
+      "endOffset": 52
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "type-dependent",
+      "es2020"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "7f7ee9a7-ee4d-46c2-aa4a-aae0e32be41d",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/indiceNormas.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 19,
+    "hash": "09cd7500c56d73b674f74fa3a3def858",
+    "textRange": {
+      "startLine": 19,
+      "endLine": 19,
+      "startOffset": 13,
+      "endOffset": 21
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "cf753813-a0af-49aa-b507-c1087d35f838",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/indiceNormas.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 20,
+    "hash": "0971efba146c79b262f94e73894ac7d1",
+    "textRange": {
+      "startLine": 20,
+      "endLine": 20,
+      "startOffset": 13,
+      "endOffset": 21
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6c169028-f863-4819-989d-d40bd8e080c6",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/indiceNormas.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 69,
+    "hash": "89d4bed5ab75cae9fbe5112bd853f200",
+    "textRange": {
+      "startLine": 69,
+      "endLine": 69,
+      "startOffset": 13,
+      "endOffset": 56
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "963072aa-8a2e-4fe3-a763-9e2c7dcff6c9",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/tour/TourOverlay.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 17,
+    "hash": "b5a31a1bb083044b03543060bbef86c5",
+    "textRange": {
+      "startLine": 17,
+      "endLine": 25,
+      "startOffset": 36,
+      "endOffset": 1
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "343d5a32-000a-41a6-91f1-03f3b7307d9d",
+    "rule": "typescript:S6772",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/tour/TourOverlay.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 195,
+    "hash": "d7b0a0ff36b79114173eef2998115204",
+    "textRange": {
+      "startLine": 195,
+      "endLine": 195,
+      "startOffset": 0,
+      "endOffset": 96
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Ambiguous spacing after previous element span",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "react"
+    ],
+    "creationDate": "2026-07-19T02:25:09+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "cd0a2a72-df52-4613-ab65-d5690f19563c",
+    "rule": "typescript:S2245",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/tracking.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 214,
+    "hash": "e8f980064cde48b78da8d9b8adf042af",
+    "textRange": {
+      "startLine": 214,
+      "endLine": 214,
+      "startOffset": 23,
+      "endOffset": 36
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Make sure that using this pseudorandom number generator is safe here.",
+    "effort": "10min",
+    "debt": "10min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "cwe",
+      "cryptography",
+      "former-hotspot"
+    ],
+    "creationDate": "2026-07-16T18:36:26+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "VULNERABILITY",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "TRUSTWORTHY",
+    "cleanCodeAttributeCategory": "RESPONSIBLE",
+    "impacts": [
+      {
+        "softwareQuality": "SECURITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "371d716a-f581-4d05-b25d-0c4a8d6cf29c",
+    "rule": "typescript:S8786",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/format.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 19,
+    "hash": "2ade3852a1b504b133c33702161a9013",
+    "textRange": {
+      "startLine": 19,
+      "endLine": 19,
+      "startOffset": 24,
+      "endOffset": 47
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Simplify this regular expression to reduce its runtime, as it has super-linear performance due to backtracking.",
+    "effort": "20min",
+    "debt": "20min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "regex",
+      "performance"
+    ],
+    "creationDate": "2026-06-29T18:44:26+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d38f9595-725b-427b-9018-2c386055e7ed",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/lawRegistry.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 223,
+    "hash": "25156c09919d2d7b51c9324d07104275",
+    "textRange": {
+      "startLine": 223,
+      "endLine": 223,
+      "startOffset": 20,
+      "endOffset": 25
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-06-09T19:20:04+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "226b3cb2-2483-4373-92b3-0bc8c32803a9",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 63,
+    "hash": "12a81efb2041e03d30cbb2ee768e37fa",
+    "textRange": {
+      "startLine": 63,
+      "endLine": 63,
+      "startOffset": 48,
+      "endOffset": 65
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawNumber ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3c177409-fcbe-4c1f-aacd-75c4d5a8f1a0",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 63,
+    "hash": "12a81efb2041e03d30cbb2ee768e37fa",
+    "textRange": {
+      "startLine": 63,
+      "endLine": 63,
+      "startOffset": 27,
+      "endOffset": 67
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawLabel || `Ley ${a.lawNumber ?? \"\"}`' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6161c19b-a5df-4145-a1d6-d2b98568c7b5",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 64,
+    "hash": "e238b7d97b78e3faba8a7800f3769d8e",
+    "textRange": {
+      "startLine": 64,
+      "endLine": 64,
+      "startOffset": 52,
+      "endOffset": 63
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.artNumber' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "038568f0-1026-4b96-a365-69e8ffd0be57",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 102,
+    "hash": "0becf985fe952cd02bcc51a6a445a23e",
+    "textRange": {
+      "startLine": 102,
+      "endLine": 102,
+      "startOffset": 74,
+      "endOffset": 76
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 103,
+              "endLine": 103,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 106,
+              "endLine": 106,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 109,
+              "endLine": 109,
+              "startOffset": 44,
+              "endOffset": 45
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 118,
+              "endLine": 118,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 122,
+              "endLine": 122,
+              "startOffset": 10,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 123,
+              "endLine": 123,
+              "startOffset": 12,
+              "endOffset": 14
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 130,
+              "endLine": 130,
+              "startOffset": 67,
+              "endOffset": 68
+            },
+            "msg": "+4 (incl. 3 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 133,
+              "endLine": 133,
+              "startOffset": 14,
+              "endOffset": 16
+            },
+            "msg": "+4 (incl. 3 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 135,
+              "endLine": 135,
+              "startOffset": 16,
+              "endOffset": 20
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 140,
+              "endLine": 140,
+              "startOffset": 71,
+              "endOffset": 72
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+            "textRange": {
+              "startLine": 142,
+              "endLine": 142,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.",
+    "effort": "12min",
+    "debt": "12min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "becbda1d-54e2-4467-97ac-c24a9d57aab4",
+    "rule": "typescript:S6853",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/FeedbackModal.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 125,
+    "hash": "2fd5735aa00f7cc2b0ad27f6d7166f06",
+    "textRange": {
+      "startLine": 125,
+      "endLine": 125,
+      "startOffset": 15,
+      "endOffset": 20
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "A form label must be associated with a control.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "5d5a0be2-9f68-4881-ae9f-86594df7d486",
+    "rule": "typescript:S6853",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/FeedbackModal.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 134,
+    "hash": "5434ce7e6f11487240c76a5fb8639fb4",
+    "textRange": {
+      "startLine": 134,
+      "endLine": 134,
+      "startOffset": 15,
+      "endOffset": 20
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "A form label must be associated with a control.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c3ef27b2-cd3f-46ef-828c-b79c2cb46035",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 62,
+    "hash": "4aff485046f8d509d854d8603e743eea",
+    "textRange": {
+      "startLine": 62,
+      "endLine": 62,
+      "startOffset": 9,
+      "endOffset": 19
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 63,
+              "endLine": 63,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 65,
+              "endLine": 65,
+              "startOffset": 4,
+              "endOffset": 7
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 66,
+              "endLine": 66,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 67,
+              "endLine": 67,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 68,
+              "endLine": 68,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 69,
+              "endLine": 69,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 70,
+              "endLine": 70,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 74,
+              "endLine": 74,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 78,
+              "endLine": 78,
+              "startOffset": 24,
+              "endOffset": 25
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.",
+    "effort": "11min",
+    "debt": "11min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "20c43672-54e5-4918-9dfe-0b01477008da",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 76,
+    "hash": "12a81efb2041e03d30cbb2ee768e37fa",
+    "textRange": {
+      "startLine": 76,
+      "endLine": 76,
+      "startOffset": 25,
+      "endOffset": 65
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawLabel || `Ley ${a.lawNumber ?? \"\"}`' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9314a860-68e4-4162-b30d-df328d148da2",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 76,
+    "hash": "12a81efb2041e03d30cbb2ee768e37fa",
+    "textRange": {
+      "startLine": 76,
+      "endLine": 76,
+      "startOffset": 46,
+      "endOffset": 63
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawNumber ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2bca7c9e-c68c-4ea5-9f90-5afe8532a236",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 78,
+    "hash": "3849d95596d1350c5f98b5519b0afe2d",
+    "textRange": {
+      "startLine": 78,
+      "endLine": 78,
+      "startOffset": 44,
+      "endOffset": 55
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.artNumber' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "0806b575-5579-443f-8177-c8401e9840e4",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 293,
+    "hash": "ae042b316ad69faac7277f68f302557b",
+    "textRange": {
+      "startLine": 293,
+      "endLine": 293,
+      "startOffset": 28,
+      "endOffset": 44
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawLabel ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e05298b6-3f40-4d4f-9285-58a9fc07f4c2",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 307,
+    "hash": "4b7a16a3b7c230d1894b9ba15b0a8c84",
+    "textRange": {
+      "startLine": 307,
+      "endLine": 307,
+      "startOffset": 22,
+      "endOffset": 37
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 318,
+              "endLine": 318,
+              "startOffset": 40,
+              "endOffset": 45
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 319,
+              "endLine": 319,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 325,
+              "endLine": 325,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 341,
+              "endLine": 341,
+              "startOffset": 4,
+              "endOffset": 7
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 344,
+              "endLine": 344,
+              "startOffset": 10,
+              "endOffset": 11
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 343,
+              "endLine": 343,
+              "startOffset": 24,
+              "endOffset": 26
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 347,
+              "endLine": 347,
+              "startOffset": 8,
+              "endOffset": 9
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 349,
+              "endLine": 349,
+              "startOffset": 33,
+              "endOffset": 34
+            },
+            "msg": "+4 (incl. 3 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 361,
+              "endLine": 361,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 363,
+              "endLine": 363,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 369,
+              "endLine": 369,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 369,
+              "endLine": 369,
+              "startOffset": 16,
+              "endOffset": 18
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.",
+    "effort": "12min",
+    "debt": "12min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-06-08T18:27:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "be064e19-272b-43c2-a454-c5988a2ab02f",
+    "rule": "typescript:S6772",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 213,
+    "hash": "75fdc5d96fbadc3bfe8090b522fba1af",
+    "textRange": {
+      "startLine": 213,
+      "endLine": 213,
+      "startOffset": 0,
+      "endOffset": 89
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Ambiguous spacing after previous element span",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "react"
+    ],
+    "creationDate": "2026-06-02T14:38:28+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ddf1e90b-c084-46f3-bae8-e5ece9a1f662",
+    "rule": "typescript:S6772",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 220,
+    "hash": "271e4f3ea15b1aadbbe27a722887ea2e",
+    "textRange": {
+      "startLine": 220,
+      "endLine": 220,
+      "startOffset": 0,
+      "endOffset": 89
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Ambiguous spacing after previous element span",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "react"
+    ],
+    "creationDate": "2026-06-02T14:38:28+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "1988f4b8-8475-4a55-96c9-8ac1f9ce80ef",
+    "rule": "typescript:S6772",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 227,
+    "hash": "87ee7b78a8ec3925b113e446a0091e0b",
+    "textRange": {
+      "startLine": 227,
+      "endLine": 227,
+      "startOffset": 0,
+      "endOffset": 90
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Ambiguous spacing after previous element span",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "react"
+    ],
+    "creationDate": "2026-06-02T14:38:28+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FORMATTED",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b090e017-4c45-4fc1-98df-eebc62a43108",
+    "rule": "typescript:S6853",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/FeedbackModal.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 140,
+    "hash": "139b23228444bfe28d138bc88eec338a",
+    "textRange": {
+      "startLine": 140,
+      "endLine": 140,
+      "startOffset": 15,
+      "endOffset": 20
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "A form label must be associated with a control.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-06-02T14:38:28+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "7deb51a8-3ac0-461d-9066-fdfcc4ed8fd6",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 42,
+    "hash": "23a4f4b5e802187ab93b446c283fe635",
+    "textRange": {
+      "startLine": 42,
+      "endLine": 42,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2a8d1625-a492-43a6-b286-7fcb2aee6b88",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 43,
+    "hash": "7a2dd850506c615ff9a8f0752f34c7e7",
+    "textRange": {
+      "startLine": 43,
+      "endLine": 43,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b93844a4-723d-485f-9011-720bcf10ed2a",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 44,
+    "hash": "252b3c62361df60c1f890ba0f3917d3a",
+    "textRange": {
+      "startLine": 44,
+      "endLine": 44,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "60127391-8099-41a5-8589-ab08986c91aa",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 45,
+    "hash": "c85020f375401395b2ed98d0f33db5d1",
+    "textRange": {
+      "startLine": 45,
+      "endLine": 45,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c2950636-688a-4f48-8cc0-61f0cd49e580",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 46,
+    "hash": "0e25540abe0d69d12e481e585a7fef15",
+    "textRange": {
+      "startLine": 46,
+      "endLine": 46,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "05da0247-e795-4612-baad-ea0ec31e838d",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 47,
+    "hash": "0d9439c740e06e92461c971e6983e3bd",
+    "textRange": {
+      "startLine": 47,
+      "endLine": 47,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "adf6a631-54c6-400f-839f-2610d3a4bb64",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 48,
+    "hash": "fb5b9eaf43c4abaea14a0c89738ad6da",
+    "textRange": {
+      "startLine": 48,
+      "endLine": 48,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e4503a64-ce40-4e12-9602-c831b6c12c80",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 49,
+    "hash": "60603dcd4ea8b96066647391ca4c7444",
+    "textRange": {
+      "startLine": 49,
+      "endLine": 49,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c952c253-342c-4d33-a089-37c6ff7c8185",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 50,
+    "hash": "463ef9771c9bbcff9a788b4a9e7d2bfd",
+    "textRange": {
+      "startLine": 50,
+      "endLine": 50,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "bcbe1e64-2b5e-4cf1-ae56-9e32c60b22b9",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 51,
+    "hash": "002b11a88a46b4280d4d27cc3c0a8922",
+    "textRange": {
+      "startLine": 51,
+      "endLine": 51,
+      "startOffset": 27,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "126b1da8-ae5b-49e9-8b2f-f12f3f4f22c6",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 61,
+    "hash": "b65608ed88d8bc9c6733cff6c5be3010",
+    "textRange": {
+      "startLine": 61,
+      "endLine": 61,
+      "startOffset": 49,
+      "endOffset": 55
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "7bbc5795-7a04-4c4c-b5f6-8f0d90183a1a",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 115,
+    "hash": "6922a439353d8380d57e68c0749f35c5",
+    "textRange": {
+      "startLine": 115,
+      "endLine": 121,
+      "startOffset": 27,
+      "endOffset": 1
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e7cbe388-71a1-439f-b564-3d309fe3612f",
+    "rule": "typescript:S9379",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 143,
+    "hash": "a6ce78c9393b181052d0c1ae91fa72b4",
+    "textRange": {
+      "startLine": 143,
+      "endLine": 143,
+      "startOffset": 16,
+      "endOffset": 35
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Remove this \"autoFocus\" attribute, as it can reduce usability and accessibility for users.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d242d6a8-3b80-45b4-a6b1-55c1abc6ca75",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 287,
+    "hash": "e29981b96b399347c1e5265c0898ff25",
+    "textRange": {
+      "startLine": 287,
+      "endLine": 287,
+      "startOffset": 28,
+      "endOffset": 41
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawId ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "dd2fe74d-e794-4b7c-9f51-53a464c7cd01",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 287,
+    "hash": "e29981b96b399347c1e5265c0898ff25",
+    "textRange": {
+      "startLine": 287,
+      "endLine": 287,
+      "startOffset": 53,
+      "endOffset": 66
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.artId ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "a18213cb-88fb-48b3-a3c3-5603a2a27b13",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 291,
+    "hash": "2b630429afa9c36a857677bbb10580d9",
+    "textRange": {
+      "startLine": 291,
+      "endLine": 291,
+      "startOffset": 28,
+      "endOffset": 45
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawNumber ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "449d39a0-ef1b-4556-854d-b19d57fc0204",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 292,
+    "hash": "8823bc303bc3e1e6cb5c4ee919e886f8",
+    "textRange": {
+      "startLine": 292,
+      "endLine": 292,
+      "startOffset": 28,
+      "endOffset": 43
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.lawName ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "40d94517-5cde-4a18-98ed-fe13e066b989",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 294,
+    "hash": "384ba5b54fa909cdb194745526aa4920",
+    "textRange": {
+      "startLine": 294,
+      "endLine": 294,
+      "startOffset": 28,
+      "endOffset": 45
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.artNumber ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "5ca9ba50-c81d-4b58-a434-1ded367e7173",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 295,
+    "hash": "83f288578a4f7da959cd5ff1fc61736e",
+    "textRange": {
+      "startLine": 295,
+      "endLine": 295,
+      "startOffset": 28,
+      "endOffset": 44
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.artTitle ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "63340b8e-0030-4bc7-875e-585deddbd172",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 296,
+    "hash": "bde0d32db962b546c87d1b2d1309ab63",
+    "textRange": {
+      "startLine": 296,
+      "endLine": 296,
+      "startOffset": 28,
+      "endOffset": 40
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.href ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-26T13:08:14+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "521ddfcc-0187-4ae7-aa8f-7101bd61142a",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 18,
+    "hash": "327d3c58c2d2e0cc460529b161a3ec5a",
+    "textRange": {
+      "startLine": 18,
+      "endLine": 20,
+      "startOffset": 38,
+      "endOffset": 8
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-05-26T02:43:48+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "0a975b8a-6d19-4f73-bb22-78d41d12ff1f",
+    "rule": "typescript:S1077",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 201,
+    "hash": "3b41e3c0cd29d783eabbf265a024b863",
+    "textRange": {
+      "startLine": 201,
+      "endLine": 201,
+      "startOffset": 11,
+      "endOffset": 14
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "This <svg> lacks an accessible name; add a \"title\" child, \"aria-label\", or \"aria-labelledby\", or mark it as decorative (e.g. aria-hidden or role=\"presentation\").",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "accessibility",
+      "react",
+      "wcag2-a"
+    ],
+    "creationDate": "2026-05-26T02:43:48+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "99bc77ff-40d8-427a-b792-0bdfc43e13b4",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/FeedbackModal.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 22,
+    "hash": "69c69c7cd09a84a3bb55e0a55bf4582a",
+    "textRange": {
+      "startLine": 22,
+      "endLine": 22,
+      "startOffset": 38,
+      "endOffset": 84
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-05-21T15:01:32+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "29df2b79-4926-44e9-9ea3-aca3e6aa69e2",
+    "rule": "typescript:S9379",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 1182,
+    "hash": "00bff60b62300c6dfdf2b4fa594864cd",
+    "textRange": {
+      "startLine": 1182,
+      "endLine": 1182,
+      "startOffset": 14,
+      "endOffset": 23
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Remove this \"autoFocus\" attribute, as it can reduce usability and accessibility for users.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "accessibility",
+      "react"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d52a9f72-d71d-406b-b7a7-4a4b4b45b3d4",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 28,
+    "hash": "20bbd521507a7000381631aa95f37c18",
+    "textRange": {
+      "startLine": 28,
+      "endLine": 28,
+      "startOffset": 26,
+      "endOffset": 45
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'m.attrs?.href ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8bd65b8a-511e-45f5-8b68-8831116337ce",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 66,
+    "hash": "270da6a6f36ccf0e6714433cb16317f3",
+    "textRange": {
+      "startLine": 66,
+      "endLine": 66,
+      "startOffset": 34,
+      "endOffset": 46
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.href ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "dc4689c9-0a9e-4aa1-b4a7-ddc6d01ac486",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 151,
+    "hash": "1ea6278961a19946a84e25b367ba5855",
+    "textRange": {
+      "startLine": 151,
+      "endLine": 151,
+      "startOffset": 8,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseFloat` over `parseFloat`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9efc8c9e-0519-4324-84b1-2743ade1eb3d",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 152,
+    "hash": "30f72c8de0c8c593d55243b575e61b8c",
+    "textRange": {
+      "startLine": 152,
+      "endLine": 152,
+      "startOffset": 8,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseFloat` over `parseFloat`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "4188bb7a-ca73-469f-abff-99c7dfb35cb6",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 166,
+    "hash": "1f970f215dc9b02a506d9c351f704f82",
+    "textRange": {
+      "startLine": 166,
+      "endLine": 166,
+      "startOffset": 35,
+      "endOffset": 85
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "27bfa8df-15ae-4567-b950-b3eb3f0b2354",
+    "rule": "typescript:S6479",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 214,
+    "hash": "11a4777f86d340962e4cc576573f659a",
+    "textRange": {
+      "startLine": 214,
+      "endLine": 214,
+      "startOffset": 17,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use a stable ID as key, because the index changes when the list changes.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "performance",
+      "react",
+      "jsx"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e77eb0a5-bf6e-4b85-8650-c81a4b0ae55d",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 147,
+    "hash": "e7fbf371370706fbe3e539d71c50919e",
+    "textRange": {
+      "startLine": 147,
+      "endLine": 147,
+      "startOffset": 103,
+      "endOffset": 115
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'c.text ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6c0495c0-db8f-473a-acab-8de1f2e09845",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 70,
+    "hash": "ca10bc01f58b1c9c0845654d4222672a",
+    "textRange": {
+      "startLine": 70,
+      "endLine": 70,
+      "startOffset": 57,
+      "endOffset": 76
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'m.attrs?.href ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b6734ae6-ee3d-4715-bce6-55c9716c4983",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 79,
+    "hash": "bde0d32db962b546c87d1b2d1309ab63",
+    "textRange": {
+      "startLine": 79,
+      "endLine": 79,
+      "startOffset": 19,
+      "endOffset": 31
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'a.href ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b8f98815-3201-4b2c-8754-3f44c0c21e18",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 86,
+    "hash": "1f2dffeff839a5c48c913d746e9085f9",
+    "textRange": {
+      "startLine": 86,
+      "endLine": 86,
+      "startOffset": 9,
+      "endOffset": 21
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 93,
+              "endLine": 93,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 94,
+              "endLine": 94,
+              "startOffset": 4,
+              "endOffset": 10
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 97,
+              "endLine": 97,
+              "startOffset": 47,
+              "endOffset": 48
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 103,
+              "endLine": 103,
+              "startOffset": 31,
+              "endOffset": 32
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 109,
+              "endLine": 109,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 117,
+              "endLine": 117,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 123,
+              "endLine": 123,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.",
+    "effort": "8min",
+    "debt": "8min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "cba8d167-3812-480d-bbc1-3674ee54e5f2",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 138,
+    "hash": "56fa5f9687f53f1df2f406a3cfd41a68",
+    "textRange": {
+      "startLine": 138,
+      "endLine": 138,
+      "startOffset": 55,
+      "endOffset": 99
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "fd7ef6b3-5247-4653-8b06-3fe9807891f3",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 138,
+    "hash": "56fa5f9687f53f1df2f406a3cfd41a68",
+    "textRange": {
+      "startLine": 138,
+      "endLine": 138,
+      "startOffset": 71,
+      "endOffset": 99
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "1921b633-85df-47fd-8fe4-eae2b6a0db39",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 149,
+    "hash": "afcb9d7eea42e06093b4648bc2cf6574",
+    "textRange": {
+      "startLine": 149,
+      "endLine": 149,
+      "startOffset": 9,
+      "endOffset": 20
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 152,
+              "endLine": 152,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 154,
+              "endLine": 154,
+              "startOffset": 4,
+              "endOffset": 7
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 158,
+              "endLine": 158,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 159,
+              "endLine": 159,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+4 (incl. 3 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 168,
+              "endLine": 168,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 173,
+              "endLine": 173,
+              "startOffset": 8,
+              "endOffset": 12
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 168,
+              "endLine": 168,
+              "startOffset": 33,
+              "endOffset": 35
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 171,
+              "endLine": 171,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+4 (incl. 3 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 180,
+              "endLine": 180,
+              "startOffset": 2,
+              "endOffset": 7
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+            "textRange": {
+              "startLine": 180,
+              "endLine": 180,
+              "startOffset": 26,
+              "endOffset": 28
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 21 to the 15 allowed.",
+    "effort": "11min",
+    "debt": "11min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3ff9dbf1-fee7-4a33-8fb6-8f4b5b1968c7",
+    "rule": "typescript:S7755",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 156,
+    "hash": "3ec41a0814ea048a13de1f83c60fe0e3",
+    "textRange": {
+      "startLine": 156,
+      "endLine": 156,
+      "startOffset": 28,
+      "endOffset": 44
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `.at(…)` over `[….length - index]`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "performance",
+      "editable-source",
+      "type-dependent",
+      "es2022"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "400e0eab-7c3d-4a92-bab2-67928a40d7ec",
+    "rule": "typescript:S7755",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 170,
+    "hash": "37d095cea662a90d5369574fbb2a2c6c",
+    "textRange": {
+      "startLine": 170,
+      "endLine": 170,
+      "startOffset": 33,
+      "endOffset": 55
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `.at(…)` over `[….length - index]`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "performance",
+      "editable-source",
+      "type-dependent",
+      "es2022"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f6c21b69-b622-44b1-aeca-d3ce7e781273",
+    "rule": "typescript:S7755",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 180,
+    "hash": "dbf6351fb04faced0b982a539bd430ee",
+    "textRange": {
+      "startLine": 180,
+      "endLine": 180,
+      "startOffset": 35,
+      "endOffset": 51
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `.at(…)` over `[….length - index]`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "performance",
+      "editable-source",
+      "type-dependent",
+      "es2022"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "7e0aa946-d951-41fb-a8c0-9f617b33f3aa",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/pdfTextRenderer.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 234,
+    "hash": "0574c55b3af31ea470d3e1aeeaf0f86d",
+    "textRange": {
+      "startLine": 234,
+      "endLine": 234,
+      "startOffset": 44,
+      "endOffset": 81
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-05-14T17:19:12+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ccdd6270-d65b-48ab-b6ff-1bdd369cf384",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/api/search/route.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 19,
+    "hash": "efd08cc72d394ef5419efa635820a83d",
+    "textRange": {
+      "startLine": 19,
+      "endLine": 19,
+      "startOffset": 17,
+      "endOffset": 25
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-13T17:33:08+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "94b714c1-c1af-40f6-9937-51decd22fe27",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 876,
+    "hash": "ee072e0296307d1428d6f8aa4018e51d",
+    "textRange": {
+      "startLine": 876,
+      "endLine": 876,
+      "startOffset": 96,
+      "endOffset": 147
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-05-12T20:17:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b46b5d5d-5377-4efb-9ee4-40a7e2af9af5",
+    "rule": "typescript:S6767",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 13,
+    "hash": "047f6eb35ee3e0cacd716dddca6d2ae2",
+    "textRange": {
+      "startLine": 13,
+      "endLine": 13,
+      "startOffset": 2,
+      "endOffset": 9
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'stacked' PropType is defined but prop is never used",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-05-12T20:17:22+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "96e2667e-52c2-4740-8d1d-2f83bc530439",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/api/search/route.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 76,
+    "hash": "5b03faeaccf049931fafc10ca9459277",
+    "textRange": {
+      "startLine": 76,
+      "endLine": 76,
+      "startOffset": 56,
+      "endOffset": 64
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:12:01+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "90f92f9f-ffed-40df-ab1a-f3d3a21a6d70",
+    "rule": "typescript:S6759",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 72,
+    "hash": "3821d4afe2e06d8bbe2ecea27d9968d3",
+    "textRange": {
+      "startLine": 72,
+      "endLine": 72,
+      "startOffset": 24,
+      "endOffset": 76
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Mark the props of the component as read-only.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "react"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3c5f0acd-02c4-4ab7-b97d-e2b8466220f6",
+    "rule": "typescript:S6479",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 79,
+    "hash": "90c73bbfc633bde601ff3f9e791ffb83",
+    "textRange": {
+      "startLine": 79,
+      "endLine": 79,
+      "startOffset": 23,
+      "endOffset": 24
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use a stable ID as key, because the index changes when the list changes.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "performance",
+      "react",
+      "jsx"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "fdb9b0ec-e6a2-417f-b13a-becce88ce420",
+    "rule": "typescript:S6479",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/DocPreview.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 92,
+    "hash": "a172fcd2a188125613f406e0a942cb9a",
+    "textRange": {
+      "startLine": 92,
+      "endLine": 92,
+      "startOffset": 21,
+      "endOffset": 22
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use a stable ID as key, because the index changes when the list changes.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "performance",
+      "react",
+      "jsx"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e897c4fd-621b-4fa8-ab32-97295d5aec4e",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/ExportButtons.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 127,
+    "hash": "6cbafb94948e4cfe597306880a458adb",
+    "textRange": {
+      "startLine": 127,
+      "endLine": 127,
+      "startOffset": 34,
+      "endOffset": 50
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'child.text ?? \"\"' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9d15e5e8-4ba4-4ac8-8722-6b23e1c96a8d",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/FeedbackModal.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 113,
+    "hash": "32ded4e3d45f58db2bf696bc0fdd498b",
+    "textRange": {
+      "startLine": 113,
+      "endLine": 115,
+      "startOffset": 17,
+      "endOffset": 50
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9a72e71d-122d-4971-98b9-2a27e8af324c",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/FeedbackModal.tsx",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 114,
+    "hash": "7f802a91e6078727ac288efe28bc2f87",
+    "textRange": {
+      "startLine": 114,
+      "endLine": 115,
+      "startOffset": 17,
+      "endOffset": 50
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-05-12T18:33:35+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ddcc7db3-d2ef-4e69-9162-b82f613c5d49",
+    "rule": "typescript:S7776",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/tracking.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 247,
+    "hash": "006283c7aaaf0117b0d43aaf1138289e",
+    "textRange": {
+      "startLine": 247,
+      "endLine": 247,
+      "startOffset": 6,
+      "endOffset": 20
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`PROD_HOSTNAMES` should be a `Set`, and use `PROD_HOSTNAMES.has()` to check existence or non-existence.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "performance",
+      "es2015",
+      "optimization",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-08T15:21:32+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f6a5bb5d-9a66-461b-a6b7-a3aa9f59a044",
+    "rule": "typescript:S1128",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/api.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 6,
+    "hash": "051841aec6de36d2019d6e5580127188",
+    "textRange": {
+      "startLine": 6,
+      "endLine": 6,
+      "startOffset": 2,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Remove this unused import of 'SearchSuggestion'.",
+    "effort": "1min",
+    "debt": "1min",
+    "author": "",
+    "tags": [
+      "es2015",
+      "type-dependent",
+      "unused"
+    ],
+    "creationDate": "2026-05-08T00:14:13+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8d5a9609-c0c0-4ce8-a198-05d9d0e19049",
+    "rule": "typescript:S4619",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/lawRegistry.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 101,
+    "hash": "410278fb3d6f92d7f91e8f3d0c787f58",
+    "textRange": {
+      "startLine": 101,
+      "endLine": 101,
+      "startOffset": 12,
+      "endOffset": 29
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use \"indexOf\" or \"includes\" (available from ES2016) instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "pitfall"
+    ],
+    "creationDate": "2026-05-08T00:14:13+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "380d5777-50e7-4f6a-a4fe-3b0156d52e17",
+    "rule": "typescript:S4619",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/lawRegistry.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 105,
+    "hash": "7bc6291a1999efb04c2d9783174bcafe",
+    "textRange": {
+      "startLine": 105,
+      "endLine": 105,
+      "startOffset": 23,
+      "endOffset": 39
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use \"indexOf\" or \"includes\" (available from ES2016) instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "pitfall"
+    ],
+    "creationDate": "2026-05-08T00:14:13+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c6fd66dd-0159-42b5-9515-261cfc48a246",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/lawRegistry.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 128,
+    "hash": "94890516a5f65e17615a0a6bf32bf729",
+    "textRange": {
+      "startLine": 128,
+      "endLine": 128,
+      "startOffset": 24,
+      "endOffset": 29
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-05-08T00:14:13+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "a9478f40-52d6-4de1-8802-1e39e46f39a4",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-frontend-20261113:app/lib/lawRegistry.ts",
+    "project": "observatorio-redactor-frontend-20261113",
+    "line": 135,
+    "hash": "3ec0abcb18a4a86db8a31e7c26d55f8a",
+    "textRange": {
+      "startLine": 135,
+      "endLine": 135,
+      "startOffset": 24,
+      "endOffset": 29
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-05-08T00:14:13+0000",
+    "updateDate": "2026-11-13T13:16:45+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  }
+]

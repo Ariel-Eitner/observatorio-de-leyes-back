@@ -5,6 +5,7 @@ import {
   NotFoundException,
 } from "@nestjs/common";
 import { PrismaService } from "../common/prisma/prisma.service";
+import { createHash } from "node:crypto";
 import { effectivePlan, PLAN_SELECT } from "../common/plan";
 import {
   CreateRedactorDocDto,
@@ -35,16 +36,19 @@ export function redactorDocLimitFor(
 export class RedactorDocsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  private async limitFor(userId: string): Promise<number> {
-    const u = await this.prisma.user.findUnique({
+  private async limitFor(
+    userId: string,
+    db: Pick<PrismaService, "user"> = this.prisma,
+  ): Promise<number> {
+    const u = await db.user.findUnique({
       where: { id: userId },
-      select: PLAN_SELECT,
+      select: { ...PLAN_SELECT, status: true },
     });
-    if (effectivePlan(u) !== "pro")
+    if (!u || u.status !== "active" || effectivePlan(u) !== "pro")
       throw new ForbiddenException(
         "El Redactor Legal está disponible con Pro.",
       );
-    return redactorDocLimitFor(u ? effectivePlan(u) : "free", !!u?.isAdmin);
+    return redactorDocLimitFor(effectivePlan(u), u.isAdmin);
   }
 
   private checkContent(content: string | undefined) {
@@ -58,41 +62,37 @@ export class RedactorDocsService {
     }
   }
 
-  async list(userId: string) {
-    const [docs, limit] = await Promise.all([
+  async list(userId: string, summary = false, offset = 0) {
+    const limit = await this.limitFor(userId);
+    const [rows, used] = await Promise.all([
       this.prisma.redactorDoc.findMany({
         where: { userId },
-        orderBy: { updatedAt: "desc" },
+        orderBy: [{ updatedAt: "desc" }, { id: "asc" }],
+        skip: offset,
+        take: summary ? 31 : 101,
         select: {
           id: true,
           title: true,
-          content: true,
+          content: !summary,
           createdAt: true,
           updatedAt: true,
         },
       }),
-      this.limitFor(userId),
+      this.prisma.redactorDoc.count({ where: { userId } }),
     ]);
-    return { docs, limit, used: docs.length };
+    const pageSize = summary ? 30 : 100;
+    return {
+      docs: rows.slice(0, pageSize),
+      limit,
+      used,
+      nextOffset: rows.length > pageSize ? offset + pageSize : null,
+    };
   }
 
-  async create(userId: string, dto: CreateRedactorDocDto) {
-    this.checkContent(dto.content);
-    const [count, limit] = await Promise.all([
-      this.prisma.redactorDoc.count({ where: { userId } }),
-      this.limitFor(userId),
-    ]);
-    if (count >= limit) {
-      throw new ForbiddenException(
-        `Llegaste al límite de ${limit} documentos de tu plan.`,
-      );
-    }
-    return this.prisma.redactorDoc.create({
-      data: {
-        userId,
-        title: dto.title.trim() || "Nuevo documento",
-        content: dto.content,
-      },
+  async get(userId: string, id: string) {
+    await this.limitFor(userId);
+    const doc = await this.prisma.redactorDoc.findFirst({
+      where: { id, userId },
       select: {
         id: true,
         title: true,
@@ -100,6 +100,52 @@ export class RedactorDocsService {
         createdAt: true,
         updatedAt: true,
       },
+    });
+    if (!doc) throw new NotFoundException("Documento no encontrado");
+    return doc;
+  }
+
+  async create(userId: string, dto: CreateRedactorDocDto) {
+    this.checkContent(dto.content);
+    const hex = dto.clientId
+      ? createHash("sha256")
+          .update(`${userId}:${dto.clientId}`)
+          .digest("hex")
+          .slice(0, 32)
+      : null;
+    const id = hex
+      ? `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`
+      : undefined;
+    return this.prisma.$transaction(async (tx) => {
+      await tx.$queryRaw`SELECT id FROM users WHERE id = ${userId}::uuid FOR UPDATE`;
+      const limit = await this.limitFor(userId, tx);
+      if (id) {
+        const existing = await tx.redactorDoc.findFirst({
+          where: { id, userId },
+        });
+        if (existing) return existing;
+      }
+      const count = await tx.redactorDoc.count({ where: { userId } });
+      if (count >= limit) {
+        throw new ForbiddenException(
+          `Llegaste al límite de ${limit} documentos de tu plan.`,
+        );
+      }
+      return tx.redactorDoc.create({
+        data: {
+          id,
+          userId,
+          title: dto.title.trim() || "Nuevo documento",
+          content: dto.content,
+        },
+        select: {
+          id: true,
+          title: true,
+          content: true,
+          createdAt: true,
+          updatedAt: true,
+        },
+      });
     });
   }
 
@@ -122,7 +168,6 @@ export class RedactorDocsService {
       select: {
         id: true,
         title: true,
-        content: true,
         createdAt: true,
         updatedAt: true,
       },

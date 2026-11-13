@@ -5,6 +5,8 @@ import { IsOptional, IsString, MaxLength } from 'class-validator';
 export const MAX_CONTENT_BYTES = 200 * 1024;
 
 export class CreateRedactorDocDto {
+  @IsOptional() @IsString() @MaxLength(100)
+  clientId?: string;
   @IsString() @MaxLength(200)
   title: string;
 

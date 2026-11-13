@@ -1,0 +1,253 @@
+{
+  "method": "Simulated Prisma returning no rows; executes actual SearchService/SearchDbService control flow. No database connections, timings or production load.",
+  "cases": [
+    {
+      "q": "constitucion",
+      "opts": {
+        "type": "law"
+      },
+      "queries": 3,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": null,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories, coalesce(n.summary,'') AS summary, ts_rank('{0.1,0.2,0.4,1.0}', n.search, qq) AS rank, ts_headline('spanish'::regconfig, coalesce(n.summary,''), qq, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2') AS snippet FROM norms n, to_tsquery('spanish'::regconfig, $1) qq WHERE n.search @@ qq AND n.visibility = 'PUBLICA' ORDER BY rank DESC LIMIT $2",
+          "parameters": [
+            "constitucion:*",
+            10
+          ],
+          "containsLawId": false,
+          "facets": false
+        },
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "constitucion"
+          ],
+          "containsLawId": false,
+          "facets": true
+        },
+        {
+          "sql": "SELECT * FROM ( SELECT n.id, n.number, coalesce(n.common_name, n.title) AS title, n.title AS raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category, n.categories, coalesce(n.summary,'') AS summary, coalesce(n.summary,'') AS snippet, length(coalesce(n.common_name, n.title)) AS name_len, GREATEST( word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(coalesce(n.common_name, n.title)))), coalesce((SELECT max(word_similarity(immutable_unaccent(lower($1)), immutable_unaccent(lower(al)))) FROM unnest(coalesce(n.aliases, ARRAY[]::text[])) al), 0), (immutable_unaccent(lower(coalesce(n.short_code,''))) = ANY($2::text[]))::int::float ) AS sim FROM norms n WHERE true AND n.visibility = 'PUBLICA' ) s WHERE s.sim >= 0.5 ORDER BY s.sim DESC, s.name_len ASC LIMIT 6",
+          "parameters": [
+            "constitucion",
+            [
+              "constitucion"
+            ]
+          ],
+          "containsLawId": false,
+          "facets": false
+        }
+      ]
+    },
+    {
+      "q": "7",
+      "opts": {
+        "type": "article",
+        "lawId": "constitucion-nacional"
+      },
+      "queries": 1,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": 0,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "7"
+          ],
+          "containsLawId": false,
+          "facets": true
+        }
+      ]
+    },
+    {
+      "q": "Art. 7",
+      "opts": {
+        "type": "article",
+        "lawId": "constitucion-nacional"
+      },
+      "queries": 2,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": 0,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, ts_rank('{0.1,0.2,0.4,1.0}', a.search, qq) AS rank, ts_headline('spanish'::regconfig, a.body, qq, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2') AS snippet FROM articles a JOIN norms n ON n.id = a.norm_id, to_tsquery('spanish'::regconfig, $1) qq WHERE a.search @@ qq AND n.visibility = 'PUBLICA' AND n.id = $2 ORDER BY rank DESC LIMIT $3",
+          "parameters": [
+            "art:*",
+            "constitucion-nacional",
+            10
+          ],
+          "containsLawId": true,
+          "facets": false
+        },
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "Art. 7"
+          ],
+          "containsLawId": false,
+          "facets": true
+        }
+      ]
+    },
+    {
+      "q": "245",
+      "opts": {
+        "type": "article",
+        "lawId": "constitucion-nacional"
+      },
+      "queries": 2,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": 1,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, left(coalesce(nullif(a.plain_language_explanation, ''), a.body, ''), 240) AS snippet, (SELECT count(*) FROM articles a2 WHERE a2.norm_id = n.id) AS art_count FROM articles a JOIN norms n ON n.id = a.norm_id WHERE a.number = $1 AND n.visibility = 'PUBLICA' AND (n.id LIKE 'codigo%' OR coalesce(n.common_name, n.title) ILIKE 'c_digo%') ORDER BY art_count DESC LIMIT 4",
+          "parameters": [
+            "245"
+          ],
+          "containsLawId": false,
+          "facets": false
+        },
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "245"
+          ],
+          "containsLawId": false,
+          "facets": true
+        }
+      ]
+    },
+    {
+      "q": "14 bis",
+      "opts": {
+        "type": "article",
+        "lawId": "constitucion-nacional"
+      },
+      "queries": 3,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": 0,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, ts_rank('{0.1,0.2,0.4,1.0}', a.search, qq) AS rank, ts_headline('spanish'::regconfig, a.body, qq, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2') AS snippet FROM articles a JOIN norms n ON n.id = a.norm_id, to_tsquery('spanish'::regconfig, $1) qq WHERE a.search @@ qq AND n.visibility = 'PUBLICA' AND n.id = $2 ORDER BY rank DESC LIMIT $3",
+          "parameters": [
+            "14:* & bis:*",
+            "constitucion-nacional",
+            10
+          ],
+          "containsLawId": true,
+          "facets": false
+        },
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "14 bis"
+          ],
+          "containsLawId": false,
+          "facets": true
+        },
+        {
+          "sql": "WITH cand AS ( SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, a.body, a.search, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, ts_rank('{0.1,0.2,0.4,1.0}', a.search, qq) AS rank FROM articles a JOIN norms n ON n.id = a.norm_id, to_tsquery('spanish'::regconfig, $1) qq WHERE a.search @@ qq AND n.visibility = 'PUBLICA' AND n.id = $4 ORDER BY rank DESC LIMIT 200 ), scored AS ( SELECT c.*, (EXISTS (SELECT 1 FROM unnest($2::text[]) bg WHERE c.search @@ phraseto_tsquery('spanish'::regconfig, bg)))::int AS phrase, (SELECT count(*) FROM unnest($3::text[]) g WHERE c.search @@ to_tsquery('spanish'::regconfig, g)) AS cov FROM cand c ORDER BY phrase DESC, cov DESC, rank DESC LIMIT $5 ) SELECT aid, norm_id, art_number, art_title, law_number, law_title, law_raw_title, norm_type, jurisdiction, status, year, law_category, law_categories, rank, phrase, cov, ts_headline('spanish'::regconfig, body, to_tsquery('spanish'::regconfig, $1), 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2') AS snippet FROM scored",
+          "parameters": [
+            "14:* | bis:*",
+            [
+              "14 bis"
+            ],
+            [
+              "14:*",
+              "bis:*"
+            ],
+            "constitucion-nacional",
+            10
+          ],
+          "containsLawId": true,
+          "facets": false
+        }
+      ]
+    },
+    {
+      "q": "igualdad",
+      "opts": {
+        "type": "article",
+        "lawId": "constitucion-nacional"
+      },
+      "queries": 2,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": 0,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, ts_rank('{0.1,0.2,0.4,1.0}', a.search, qq) AS rank, ts_headline('spanish'::regconfig, a.body, qq, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2') AS snippet FROM articles a JOIN norms n ON n.id = a.norm_id, to_tsquery('spanish'::regconfig, $1) qq WHERE a.search @@ qq AND n.visibility = 'PUBLICA' AND n.id = $2 ORDER BY rank DESC LIMIT $3",
+          "parameters": [
+            "igualdad:*",
+            "constitucion-nacional",
+            10
+          ],
+          "containsLawId": true,
+          "facets": false
+        },
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "igualdad"
+          ],
+          "containsLawId": false,
+          "facets": true
+        }
+      ]
+    },
+    {
+      "q": "art 7 constitucion",
+      "opts": {
+        "type": "article",
+        "lawId": "constitucion-nacional"
+      },
+      "queries": 3,
+      "facetsQueries": 1,
+      "searchQueriesWithoutRequestedLaw": 1,
+      "results": 0,
+      "sql": [
+        {
+          "sql": "SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, ts_rank('{0.1,0.2,0.4,1.0}', a.search, qq) AS rank, ts_headline('spanish'::regconfig, a.body, qq, 'StartSel=<mark>,StopSel=</mark>,MaxFragments=1,MaxWords=30,MinWords=8,ShortWord=2') AS snippet FROM articles a JOIN norms n ON n.id = a.norm_id, to_tsquery('spanish'::regconfig, $1) qq WHERE a.search @@ qq AND n.visibility = 'PUBLICA' AND n.id = $2 ORDER BY rank DESC LIMIT $3",
+          "parameters": [
+            "art:* & constitucion:*",
+            "constitucion-nacional",
+            10
+          ],
+          "containsLawId": true,
+          "facets": false
+        },
+        {
+          "sql": "SELECT n.norm_type, n.status, n.jurisdiction, n.categories, (floor(n.year/10)*10)::int AS decade FROM norms n WHERE n.visibility = 'PUBLICA' AND n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($1))",
+          "parameters": [
+            "art 7 constitucion"
+          ],
+          "containsLawId": false,
+          "facets": true
+        },
+        {
+          "sql": "SELECT a.id AS aid, a.norm_id, a.number AS art_number, a.title AS art_title, n.number AS law_number, coalesce(n.common_name, n.title) AS law_title, n.title AS law_raw_title, n.norm_type, n.jurisdiction, n.status, n.year, n.category AS law_category, n.categories AS law_categories, coalesce(ts_rank('{0.1,0.2,0.4,1.0}', n.search, websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2))), 0) AS rank, (position(immutable_unaccent(lower($2)) in immutable_unaccent(lower( coalesce(n.common_name,'') || ' ' || coalesce(n.title,'') || ' ' || coalesce(n.short_code,'') || ' ' || coalesce(array_to_string(n.aliases,' '),'') ))) > 0)::int AS phrase, left(coalesce(nullif(a.plain_language_explanation, ''), a.body, ''), 240) AS snippet FROM articles a JOIN norms n ON n.id = a.norm_id WHERE regexp_replace(lower(immutable_unaccent(a.number)), '\\s', '', 'g') = $1 AND n.visibility = 'PUBLICA' AND ( n.search @@ websearch_to_tsquery('spanish'::regconfig, immutable_unaccent($2)) ) ORDER BY phrase DESC, rank DESC LIMIT 5",
+          "parameters": [
+            "7",
+            "constitucion"
+          ],
+          "containsLawId": false,
+          "facets": false
+        }
+      ]
+    }
+  ],
+  "isolationProbe": {
+    "method": "Injected synthetic row only into unscoped numeric branch",
+    "requestedLawId": "constitucion-nacional",
+    "returnedLawIds": [
+      "codigo-civil-comercial"
+    ],
+    "violatesLawFilter": true
+  }
+}

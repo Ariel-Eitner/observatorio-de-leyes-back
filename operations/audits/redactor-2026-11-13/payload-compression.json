@@ -1,0 +1,167 @@
+{
+  "method": "Offline serialization and compression of public normative content already in local Next fetch cache. Current listing shape recreated from app/api/articles; proposed shape is a design experiment. No network calls, no live SQL. Timings measure single-process synchronous compression here, not server capacity.",
+  "node": "v22.21.1",
+  "iterations": 30,
+  "samples": [
+    {
+      "route": "/api/laws/codigo-penal",
+      "sourceCacheFile": "139ab4b7f704055863360c436c1aba53445df28446b25dcbd8a69f47282231af",
+      "totalArticles": 338,
+      "cachedFullNormBytes": 786267,
+      "variants": [
+        {
+          "name": "current-listing",
+          "jsonBytes": 6513,
+          "gzip1": {
+            "bytes": 2598,
+            "medianMs": 0.126,
+            "p95Ms": 0.261
+          },
+          "gzip6": {
+            "bytes": 2448,
+            "medianMs": 0.099,
+            "p95Ms": 0.154
+          },
+          "brotli4": {
+            "bytes": 2450,
+            "medianMs": 0.278,
+            "p95Ms": 0.443
+          },
+          "brotli5": {
+            "bytes": 2391,
+            "medianMs": 0.435,
+            "p95Ms": 0.631
+          }
+        },
+        {
+          "name": "proposed-metadata-only",
+          "jsonBytes": 1151,
+          "gzip1": {
+            "bytes": 348,
+            "medianMs": 0.016,
+            "p95Ms": 0.038
+          },
+          "gzip6": {
+            "bytes": 339,
+            "medianMs": 0.019,
+            "p95Ms": 0.024
+          },
+          "brotli4": {
+            "bytes": 309,
+            "medianMs": 0.177,
+            "p95Ms": 0.185
+          },
+          "brotli5": {
+            "bytes": 301,
+            "medianMs": 0.249,
+            "p95Ms": 0.344
+          }
+        },
+        {
+          "name": "proposed-with-160-char-preview",
+          "jsonBytes": 2773,
+          "gzip1": {
+            "bytes": 1044,
+            "medianMs": 0.082,
+            "p95Ms": 0.209
+          },
+          "gzip6": {
+            "bytes": 1008,
+            "medianMs": 0.104,
+            "p95Ms": 0.119
+          },
+          "brotli4": {
+            "bytes": 979,
+            "medianMs": 0.266,
+            "p95Ms": 0.438
+          },
+          "brotli5": {
+            "bytes": 957,
+            "medianMs": 0.354,
+            "p95Ms": 0.614
+          }
+        }
+      ]
+    },
+    {
+      "route": "/api/laws/constitucion-nacional",
+      "sourceCacheFile": "5ec778f0267e7f0ca48a4ed7aec1faeacdca3c904314bbc96eb0dd8f180ce46a",
+      "totalArticles": 148,
+      "cachedFullNormBytes": 535153,
+      "variants": [
+        {
+          "name": "current-listing",
+          "jsonBytes": 7414,
+          "gzip1": {
+            "bytes": 2967,
+            "medianMs": 0.083,
+            "p95Ms": 0.137
+          },
+          "gzip6": {
+            "bytes": 2753,
+            "medianMs": 0.118,
+            "p95Ms": 0.183
+          },
+          "brotli4": {
+            "bytes": 2758,
+            "medianMs": 0.272,
+            "p95Ms": 0.809
+          },
+          "brotli5": {
+            "bytes": 2675,
+            "medianMs": 0.464,
+            "p95Ms": 0.821
+          }
+        },
+        {
+          "name": "proposed-metadata-only",
+          "jsonBytes": 1224,
+          "gzip1": {
+            "bytes": 346,
+            "medianMs": 0.015,
+            "p95Ms": 0.036
+          },
+          "gzip6": {
+            "bytes": 332,
+            "medianMs": 0.019,
+            "p95Ms": 0.039
+          },
+          "brotli4": {
+            "bytes": 296,
+            "medianMs": 0.176,
+            "p95Ms": 0.228
+          },
+          "brotli5": {
+            "bytes": 289,
+            "medianMs": 0.246,
+            "p95Ms": 0.278
+          }
+        },
+        {
+          "name": "proposed-with-160-char-preview",
+          "jsonBytes": 2834,
+          "gzip1": {
+            "bytes": 1040,
+            "medianMs": 0.025,
+            "p95Ms": 0.107
+          },
+          "gzip6": {
+            "bytes": 982,
+            "medianMs": 0.094,
+            "p95Ms": 0.184
+          },
+          "brotli4": {
+            "bytes": 951,
+            "medianMs": 0.237,
+            "p95Ms": 0.489
+          },
+          "brotli5": {
+            "bytes": 927,
+            "medianMs": 0.355,
+            "p95Ms": 0.486
+          }
+        }
+      ]
+    }
+  ]
+}

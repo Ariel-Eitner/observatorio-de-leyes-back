@@ -1,0 +1,57 @@
+{
+  "component": {
+    "key": "observatorio-redactor-frontend-20261113",
+    "name": "Observatorio Redactor frontend 2026-11-13",
+    "qualifier": "TRK",
+    "measures": [
+      {
+        "metric": "coverage",
+        "value": "0.0",
+        "bestValue": false
+      },
+      {
+        "metric": "bugs",
+        "value": "211",
+        "bestValue": false
+      },
+      {
+        "metric": "complexity",
+        "value": "12137"
+      },
+      {
+        "metric": "code_smells",
+        "value": "1334",
+        "bestValue": false
+      },
+      {
+        "metric": "duplicated_lines_density",
+        "value": "10.6",
+        "bestValue": false
+      },
+      {
+        "metric": "cognitive_complexity",
+        "value": "6735",
+        "bestValue": false
+      },
+      {
+        "metric": "ncloc",
+        "value": "57402"
+      },
+      {
+        "metric": "vulnerabilities",
+        "value": "1",
+        "bestValue": false
+      },
+      {
+        "metric": "security_hotspots",
+        "value": "0",
+        "bestValue": true
+      },
+      {
+        "metric": "sqale_index",
+        "value": "8378",
+        "bestValue": false
+      }
+    ]
+  }
+}

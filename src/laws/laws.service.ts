@@ -1,3 +1,4 @@
+import { groupDigits, stripTrailingSlashes } from '../common/utils/text-format.util';
 import { Injectable, NotFoundException, Logger, OnModuleInit } from '@nestjs/common';
 import { NormsDbService } from '../norms-db/norms-db.service';
 import { ALL_LAWS, NORMAS_CLAVE } from '../data';
@@ -51,7 +52,7 @@ function formatearNumeroLey(n: string | null | undefined): string | null {
 	if (s.includes('/')) return s; // decreto NNN/AAAA · RG NNNN/AAAA
 	const digitos = s.replace(/\D/g, '');
 	if (!digitos) return s;
-	return digitos.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+	return groupDigits(digitos);
 }
 
 /**
@@ -302,7 +303,7 @@ function graphShortCode(
 	if (law.shortCode && law.shortCode.trim()) return law.shortCode;
 	const num = law.number?.trim();
 	if (num) {
-		const fmt = /^\d+$/.test(num) ? num.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : num;
+		const fmt = /^\d+$/.test(num) ? groupDigits(num) : num;
 		const t = (law.normType ?? '').toUpperCase();
 		if (t.includes('DNU')) return `DNU ${fmt}`;
 		if (t.includes('DECRETO')) return `Decreto ${fmt}`;
@@ -1060,7 +1061,7 @@ export class LawsService implements OnModuleInit {
 	 * armado viva en un solo lado: computeFrontendPath.
 	 */
 	async findByFrontendPath(path: string): Promise<Law | null> {
-		const buscada = (path || '').split('?')[0].replace(/\/+$/, '');
+		const buscada = stripTrailingSlashes((path || '').split('?')[0]);
 		if (!buscada.startsWith('/')) return null;
 		const meta = this.getAllNorms({ incluirNoListadas: true }).find((l) => computeFrontendPath(l) === buscada);
 		return meta ? this.getFullNorm(meta.id) : null;
@@ -1181,7 +1182,7 @@ export class LawsService implements OnModuleInit {
 	 * vuelve con el que pidió y manda el 308 si difieren.
 	 */
 	private metaPorRuta(path: string): Law | null {
-		const buscada = (path || '').split('?')[0].replace(/\/+$/, '');
+		const buscada = stripTrailingSlashes((path || '').split('?')[0]);
 		if (!buscada.startsWith('/')) return null;
 		const todas = this.getAllNorms({ incluirNoListadas: true });
 
@@ -1753,7 +1754,7 @@ export class LawsService implements OnModuleInit {
 		// Hash corto y estable (djb2) para no exponer fechas en la URL.
 		const crudo = `${this.dbNorms.length}:${masReciente}`;
 		let h = 5381;
-		for (let i = 0; i < crudo.length; i++) h = ((h << 5) + h + crudo.charCodeAt(i)) | 0;
+		for (let i = 0; i < crudo.length; i++) h = (Math.imul(h, 33) + crudo.charCodeAt(i)) >>> 0;
 		this.corpusVersionCache = (h >>> 0).toString(36);
 		return this.corpusVersionCache;
 	}

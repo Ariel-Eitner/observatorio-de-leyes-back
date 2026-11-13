@@ -1,0 +1,627 @@
+{
+    "total":  5,
+    "p":  1,
+    "ps":  500,
+    "paging":  {
+                   "pageIndex":  1,
+                   "pageSize":  500,
+                   "total":  5
+               },
+    "effortTotal":  38,
+    "issues":  [
+                   {
+                       "key":  "7932bad2-9d1d-4689-976d-a1e2f5225069",
+                       "rule":  "typescript:S7754",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-backend-20261113:src/articles/articles.service.ts",
+                       "project":  "observatorio-redactor-backend-20261113",
+                       "line":  23,
+                       "hash":  "0409a282e764915bfb0d8b5f0cc762f4",
+                       "textRange":  {
+                                         "startLine":  23,
+                                         "endLine":  23,
+                                         "startOffset":  70,
+                                         "endOffset":  74
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer `.some(â¦)` over `.find(â¦)`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "readability",
+                                    "performance",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:00:38+0000",
+                       "updateDate":  "2026-11-13T15:00:38+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "EFFICIENT",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "4a5f6090-ed37-4cad-96cd-6a6ad4e10397",
+                       "rule":  "typescript:S7758",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+                       "project":  "observatorio-redactor-backend-20261113",
+                       "line":  1757,
+                       "hash":  "3b243b1c7241e5c124f54660ee4a4b14",
+                       "textRange":  {
+                                         "startLine":  1757,
+                                         "endLine":  1757,
+                                         "startOffset":  71,
+                                         "endOffset":  81
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer `String#codePointAt()` over `String#charCodeAt()`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "internationalization",
+                                    "es2015",
+                                    "unicode"
+                                ],
+                       "creationDate":  "2026-11-13T15:00:38+0000",
+                       "updateDate":  "2026-11-13T15:00:38+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       },
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "e6389ff9-2996-400a-b2b4-8b7ecba94723",
+                       "rule":  "typescript:S7780",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-backend-20261113:src/search/redactor-search.service.ts",
+                       "project":  "observatorio-redactor-backend-20261113",
+                       "line":  160,
+                       "hash":  "b114b3694fa47645988b058d268190b4",
+                       "textRange":  {
+                                         "startLine":  160,
+                                         "endLine":  160,
+                                         "startOffset":  46,
+                                         "endOffset":  52
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "`String.raw` should be used to avoid escaping `\\`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "readability",
+                                    "es2015",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:00:38+0000",
+                       "updateDate":  "2026-11-13T15:00:38+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "c9550137-70a1-456f-8040-9368255764bf",
+                       "rule":  "typescript:S5843",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                       "project":  "observatorio-redactor-backend-20261113",
+                       "line":  156,
+                       "hash":  "3e1f989f89b658918ee83e347a9047eb",
+                       "textRange":  {
+                                         "startLine":  156,
+                                         "endLine":  156,
+                                         "startOffset":  4,
+                                         "endOffset":  107
+                                     },
+                       "flows":  [
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  31,
+                                                                                 "endOffset":  32
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  30,
+                                                                                 "endOffset":  31
+                                                                             },
+                                                               "msg":  "+2 (incl 1 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  26,
+                                                                                 "endOffset":  27
+                                                                             },
+                                                               "msg":  "+3 (incl 2 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  16,
+                                                                                 "endOffset":  17
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  25,
+                                                                                 "endOffset":  26
+                                                                             },
+                                                               "msg":  "+4 (incl 3 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  38,
+                                                                                 "endOffset":  39
+                                                                             },
+                                                               "msg":  "+2 (incl 1 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  42,
+                                                                                 "endOffset":  43
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  46,
+                                                                                 "endOffset":  47
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  49,
+                                                                                 "endOffset":  50
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  103,
+                                                                                 "endOffset":  104
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  56,
+                                                                                 "endOffset":  57
+                                                                             },
+                                                               "msg":  "+2 (incl 1 for nesting)",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  60,
+                                                                                 "endOffset":  61
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  70,
+                                                                                 "endOffset":  71
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  77,
+                                                                                 "endOffset":  78
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  87,
+                                                                                 "endOffset":  88
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  94,
+                                                                                 "endOffset":  95
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  156,
+                                                                                 "endLine":  156,
+                                                                                 "startOffset":  63,
+                                                                                 "endOffset":  64
+                                                                             },
+                                                               "msg":  "+1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     }
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Simplify this regular expression to reduce its complexity from 25 to the 20 allowed.",
+                       "effort":  "18min",
+                       "debt":  "18min",
+                       "author":  "",
+                       "tags":  [
+                                    "regex",
+                                    "editable-source",
+                                    "type-dependent"
+                                ],
+                       "creationDate":  "2026-11-13T15:00:38+0000",
+                       "updateDate":  "2026-11-13T15:00:38+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "67e45c5b-bed4-4b8d-a809-f70d4f3ef571",
+                       "rule":  "typescript:S6582",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-backend-20261113:src/user-content/redactor-docs.service.ts",
+                       "project":  "observatorio-redactor-backend-20261113",
+                       "line":  47,
+                       "hash":  "b5218b0ea317af7ada1954d7d0f83a63",
+                       "textRange":  {
+                                         "startLine":  47,
+                                         "endLine":  47,
+                                         "startOffset":  8,
+                                         "endOffset":  35
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer using an optional chain expression instead, as it\u0027s more concise and easier to read.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "type-dependent",
+                                    "es2020"
+                                ],
+                       "creationDate":  "2026-11-13T15:00:38+0000",
+                       "updateDate":  "2026-11-13T15:00:38+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   }
+               ],
+    "components":  [
+                       {
+                           "key":  "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "search-db.service.ts",
+                           "longName":  "src/search/search-db.service.ts",
+                           "path":  "src/search/search-db.service.ts"
+                       },
+                       {
+                           "key":  "observatorio-redactor-backend-20261113:src/user-content/redactor-docs.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "redactor-docs.service.ts",
+                           "longName":  "src/user-content/redactor-docs.service.ts",
+                           "path":  "src/user-content/redactor-docs.service.ts"
+                       },
+                       {
+                           "key":  "observatorio-redactor-backend-20261113:src/search/redactor-search.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "redactor-search.service.ts",
+                           "longName":  "src/search/redactor-search.service.ts",
+                           "path":  "src/search/redactor-search.service.ts"
+                       },
+                       {
+                           "key":  "observatorio-redactor-backend-20261113",
+                           "enabled":  true,
+                           "qualifier":  "TRK",
+                           "name":  "Observatorio Redactor backend 2026-11-13",
+                           "longName":  "Observatorio Redactor backend 2026-11-13"
+                       },
+                       {
+                           "key":  "observatorio-redactor-backend-20261113:src/articles/articles.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "articles.service.ts",
+                           "longName":  "src/articles/articles.service.ts",
+                           "path":  "src/articles/articles.service.ts"
+                       },
+                       {
+                           "key":  "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "laws.service.ts",
+                           "longName":  "src/laws/laws.service.ts",
+                           "path":  "src/laws/laws.service.ts"
+                       }
+                   ],
+    "facets":  [
+
+               ]
+}

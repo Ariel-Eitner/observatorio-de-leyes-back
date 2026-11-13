@@ -1,0 +1,102 @@
+{
+  "version": "1.5.0",
+  "exportedAt": "2026-11-13T18:21:43.929Z",
+  "profile": "Sonar way comprehensive",
+  "projects": {
+    "backend": {
+      "project": "observatorio-redactor-backend-20261113",
+      "analysisTask": "3c1958d7-0b24-4a45-91df-983e221f9162",
+      "totalIssues": 350,
+      "types": {
+        "CODE_SMELL": 347,
+        "BUG": 2,
+        "VULNERABILITY": 1
+      },
+      "selectedScopeIssues": 87,
+      "selectedScopeTypes": {
+        "CODE_SMELL": 86,
+        "BUG": 1
+      },
+      "selectedScopeRules": {
+        "typescript:S7754": 1,
+        "typescript:S7758": 1,
+        "typescript:S7780": 8,
+        "typescript:S5843": 1,
+        "typescript:S6582": 2,
+        "typescript:S3776": 6,
+        "typescript:S3358": 2,
+        "typescript:S6594": 12,
+        "typescript:S7781": 9,
+        "typescript:S7773": 9,
+        "typescript:S2933": 1,
+        "typescript:S7772": 1,
+        "typescript:S7503": 1,
+        "typescript:S1135": 1,
+        "typescript:S6535": 2,
+        "typescript:S4624": 1,
+        "typescript:S6551": 27,
+        "typescript:S107": 1,
+        "typescript:S9383": 1
+      },
+      "directEditorIssues": 0,
+      "directEditorTypes": {}
+    },
+    "frontend": {
+      "project": "observatorio-redactor-frontend-20261113",
+      "analysisTask": "cee67780-bf0a-419d-996f-eb87de81bdbf",
+      "totalIssues": 1518,
+      "types": {
+        "CODE_SMELL": 1335,
+        "BUG": 182,
+        "VULNERABILITY": 1
+      },
+      "selectedScopeIssues": 125,
+      "selectedScopeTypes": {
+        "CODE_SMELL": 124,
+        "VULNERABILITY": 1
+      },
+      "selectedScopeRules": {
+        "typescript:S1874": 2,
+        "typescript:S2681": 2,
+        "typescript:S6819": 6,
+        "typescript:S6847": 1,
+        "typescript:S6754": 1,
+        "typescript:S7718": 5,
+        "typescript:S2004": 1,
+        "typescript:S6606": 1,
+        "typescript:S9382": 2,
+        "typescript:S4624": 1,
+        "typescript:S4138": 1,
+        "typescript:S7758": 1,
+        "typescript:S2310": 1,
+        "typescript:S6582": 3,
+        "typescript:S6759": 9,
+        "typescript:S6479": 5,
+        "typescript:S1854": 1,
+        "typescript:S7773": 8,
+        "typescript:S7780": 2,
+        "typescript:S3358": 11,
+        "typescript:S7744": 1,
+        "typescript:S7772": 1,
+        "typescript:S6772": 5,
+        "typescript:S2245": 1,
+        "typescript:S8786": 1,
+        "typescript:S6594": 3,
+        "typescript:S6551": 20,
+        "typescript:S3776": 5,
+        "typescript:S6853": 3,
+        "typescript:S1077": 11,
+        "typescript:S9379": 2,
+        "typescript:S7755": 3,
+        "typescript:S6767": 1,
+        "typescript:S7776": 1,
+        "typescript:S1128": 1,
+        "typescript:S4619": 2
+      },
+      "directEditorIssues": 110,
+      "directEditorTypes": {
+        "CODE_SMELL": 110
+      }
+    }
+  }
+}

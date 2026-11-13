@@ -1,0 +1,1510 @@
+{
+    "total":  25,
+    "p":  1,
+    "ps":  500,
+    "paging":  {
+                   "pageIndex":  1,
+                   "pageSize":  500,
+                   "total":  25
+               },
+    "effortTotal":  165,
+    "issues":  [
+                   {
+                       "key":  "c3771c9f-54cc-4d31-b8a3-8561fbc38db2",
+                       "rule":  "typescript:S1874",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  493,
+                       "hash":  "4e713e131e10ac12e3ad0571f8078855",
+                       "textRange":  {
+                                         "startLine":  493,
+                                         "endLine":  493,
+                                         "startOffset":  86,
+                                         "endOffset":  97
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "\u0027returnValue\u0027 is deprecated.",
+                       "effort":  "15min",
+                       "debt":  "15min",
+                       "author":  "",
+                       "tags":  [
+                                    "cwe",
+                                    "type-dependent",
+                                    "obsolete"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "29e9a4e0-094c-46f4-bcb6-4a0611204f5b",
+                       "rule":  "typescript:S2681",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  838,
+                       "hash":  "4b8b3aa54c2ceff62f67396b3b9dfacb",
+                       "textRange":  {
+                                         "startLine":  838,
+                                         "endLine":  838,
+                                         "startOffset":  60,
+                                         "endOffset":  81
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "This statement will not be executed conditionally; only the first statement will be. The rest will execute unconditionally.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "cwe",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "FORMATTED",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "f2681a73-ee99-4de1-a9da-546e17749cad",
+                       "rule":  "typescript:S2681",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  1013,
+                       "hash":  "d7b6f7d81a685702ddfdf0b21481e198",
+                       "textRange":  {
+                                         "startLine":  1013,
+                                         "endLine":  1013,
+                                         "startOffset":  60,
+                                         "endOffset":  81
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "This statement will not be executed conditionally; only the first statement will be. The rest will execute unconditionally.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "cwe",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "FORMATTED",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "8680689c-8e2a-42b4-80fa-b212eea8e6e6",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  1048,
+                       "hash":  "a70f0c042fcdcdd26f373c1e09907dba",
+                       "textRange":  {
+                                         "startLine":  1048,
+                                         "endLine":  1048,
+                                         "startOffset":  24,
+                                         "endOffset":  89
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "631f3c70-3b02-4a55-becd-ff5493649e79",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  1049,
+                       "hash":  "759757d11327a6b4264e6152d2096860",
+                       "textRange":  {
+                                         "startLine":  1049,
+                                         "endLine":  1049,
+                                         "startOffset":  22,
+                                         "endOffset":  87
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "9ca38518-52c3-42d4-9f1f-49b0a2c34740",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  52,
+                       "hash":  "a484c98ae5f387aa84e530e2acc9a7c6",
+                       "textRange":  {
+                                         "startLine":  52,
+                                         "endLine":  52,
+                                         "startOffset":  4,
+                                         "endOffset":  66
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d2cd227c-05fc-4172-a167-f84d82bd88c6",
+                       "rule":  "typescript:S6847",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  271,
+                       "hash":  "668effcdb04b304548f336a6e7ec5919",
+                       "textRange":  {
+                                         "startLine":  271,
+                                         "endLine":  287,
+                                         "startOffset":  4,
+                                         "endOffset":  5
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Non-interactive elements should not be assigned mouse or keyboard event listeners.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       },
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "4ac8042e-07d6-4188-8a30-ea9a057db4e7",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  364,
+                       "hash":  "b61596ebf9137ac924fca7415ac13175",
+                       "textRange":  {
+                                         "startLine":  364,
+                                         "endLine":  364,
+                                         "startOffset":  8,
+                                         "endOffset":  55
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "50345a2b-d02b-4f84-aba7-0b3bc16c815e",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  369,
+                       "hash":  "b61596ebf9137ac924fca7415ac13175",
+                       "textRange":  {
+                                         "startLine":  369,
+                                         "endLine":  369,
+                                         "startOffset":  8,
+                                         "endOffset":  55
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "defea0f7-06e4-42ce-89bf-8fabd3222807",
+                       "rule":  "typescript:S6819",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  475,
+                       "hash":  "e800465ae3aee59c0f211d3d839a525a",
+                       "textRange":  {
+                                         "startLine":  475,
+                                         "endLine":  475,
+                                         "startOffset":  20,
+                                         "endOffset":  60
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use \u003coutput\u003e instead of the \"status\" role to ensure accessibility across all devices.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "accessibility",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "21b05afc-bba0-484c-9d3f-c8f4312746cf",
+                       "rule":  "typescript:S6754",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  115,
+                       "hash":  "2520be3555d4e7a0ed148b99708dff95",
+                       "textRange":  {
+                                         "startLine":  115,
+                                         "endLine":  115,
+                                         "startOffset":  8,
+                                         "endOffset":  27
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "useState call is not destructured into value + setter pair",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "react"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "IDENTIFIABLE",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "bcdc79a6-88c4-4aa6-bac3-d97e59c0e9c5",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  210,
+                       "hash":  "d4e3ab706e405c62f4dbae0885f91953",
+                       "textRange":  {
+                                         "startLine":  210,
+                                         "endLine":  210,
+                                         "startOffset":  15,
+                                         "endOffset":  31
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `failure` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d6b0deaa-ff87-45a9-8793-3349350b106b",
+                       "rule":  "typescript:S2004",
+                       "severity":  "CRITICAL",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  263,
+                       "hash":  "1de98de0fd603685bc802aa40d1b9f02",
+                       "textRange":  {
+                                         "startLine":  263,
+                                         "endLine":  263,
+                                         "startOffset":  53,
+                                         "endOffset":  55
+                                     },
+                       "flows":  [
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  111,
+                                                                                 "endLine":  111,
+                                                                                 "startOffset":  16,
+                                                                                 "endOffset":  31
+                                                                             },
+                                                               "msg":  "Nesting +1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  237,
+                                                                                 "endLine":  237,
+                                                                                 "startOffset":  15,
+                                                                                 "endOffset":  17
+                                                                             },
+                                                               "msg":  "Nesting +1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  253,
+                                                                                 "endLine":  253,
+                                                                                 "startOffset":  18,
+                                                                                 "endOffset":  20
+                                                                             },
+                                                               "msg":  "Nesting +1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  256,
+                                                                                 "endLine":  256,
+                                                                                 "startOffset":  27,
+                                                                                 "endOffset":  29
+                                                                             },
+                                                               "msg":  "Nesting +1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     },
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  259,
+                                                                                 "endLine":  259,
+                                                                                 "startOffset":  34,
+                                                                                 "endOffset":  36
+                                                                             },
+                                                               "msg":  "Nesting +1",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     }
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Refactor this code to not nest functions more than 5 levels deep.",
+                       "effort":  "20min",
+                       "debt":  "20min",
+                       "author":  "",
+                       "tags":  [
+                                    "brain-overload",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "FOCUSED",
+                       "cleanCodeAttributeCategory":  "ADAPTABLE",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "HIGH"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "f4b8f3c4-c9ca-4d64-b20b-06e227a060d7",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  277,
+                       "hash":  "4f84e8f9a89740597b97ba6ca2105ab8",
+                       "textRange":  {
+                                         "startLine":  277,
+                                         "endLine":  277,
+                                         "startOffset":  14,
+                                         "endOffset":  30
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `failure` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "f7a2c749-f3c2-4945-bbdc-d042c9a69a28",
+                       "rule":  "typescript:S1874",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  295,
+                       "hash":  "d2cf09ed62bfbcb79920f44aa1087cd0",
+                       "textRange":  {
+                                         "startLine":  295,
+                                         "endLine":  295,
+                                         "startOffset":  14,
+                                         "endOffset":  25
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "\u0027returnValue\u0027 is deprecated.",
+                       "effort":  "15min",
+                       "debt":  "15min",
+                       "author":  "",
+                       "tags":  [
+                                    "cwe",
+                                    "type-dependent",
+                                    "obsolete"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "2f4ed7cf-01b6-4894-97a3-c43a45580a48",
+                       "rule":  "typescript:S6606",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  378,
+                       "hash":  "95e9f76679ceadb0b37c63082edb3848",
+                       "textRange":  {
+                                         "startLine":  378,
+                                         "endLine":  378,
+                                         "startOffset":  17,
+                                         "endOffset":  19
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "type-dependent",
+                                    "nullish-coalescing",
+                                    "es2020"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "6474c94b-7428-4799-b4c1-9f1077eaa2f2",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  412,
+                       "hash":  "d4e3ab706e405c62f4dbae0885f91953",
+                       "textRange":  {
+                                         "startLine":  412,
+                                         "endLine":  412,
+                                         "startOffset":  15,
+                                         "endOffset":  31
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `failure` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "29629346-af7a-43f5-a2c5-b00aafce2122",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  447,
+                       "hash":  "7bf58621c70cba09db115803bbe0c35d",
+                       "textRange":  {
+                                         "startLine":  447,
+                                         "endLine":  447,
+                                         "startOffset":  20,
+                                         "endOffset":  27
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `failure` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "10cd0b24-fbfb-4cb7-a093-348c031d89b6",
+                       "rule":  "typescript:S7718",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  467,
+                       "hash":  "d4e3ab706e405c62f4dbae0885f91953",
+                       "textRange":  {
+                                         "startLine":  467,
+                                         "endLine":  467,
+                                         "startOffset":  15,
+                                         "endOffset":  31
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "The catch parameter `failure` should be named `error_`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "convention",
+                                    "error-handling",
+                                    "editable-source"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "edbb24e8-7a6a-47f5-b105-d81017430694",
+                       "rule":  "typescript:S9382",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  512,
+                       "hash":  "123b1352507f7e88dc33bc6cde71da5a",
+                       "textRange":  {
+                                         "startLine":  512,
+                                         "endLine":  512,
+                                         "startOffset":  6,
+                                         "endOffset":  75
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Unexpected `await` inside a loop.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "async",
+                                    "performance",
+                                    "es2017",
+                                    "promise"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "EFFICIENT",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "e2b2acb4-7b99-4c05-b6d1-ab2ec2f33de6",
+                       "rule":  "typescript:S4624",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/searchModel.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  71,
+                       "hash":  "79d5398f119d5dd66b6447b92d25569c",
+                       "textRange":  {
+                                         "startLine":  71,
+                                         "endLine":  71,
+                                         "startOffset":  37,
+                                         "endOffset":  81
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Refactor this code to not use nested template literals.",
+                       "effort":  "10min",
+                       "debt":  "10min",
+                       "author":  "",
+                       "tags":  [
+                                    "es2015",
+                                    "brain-overload",
+                                    "editable-source",
+                                    "confusing"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "70ed8759-2129-453c-960f-72975d206646",
+                       "rule":  "typescript:S4138",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  33,
+                       "hash":  "9167bfb71031faf30a2a076664f1bb8e",
+                       "textRange":  {
+                                         "startLine":  33,
+                                         "endLine":  33,
+                                         "startOffset":  4,
+                                         "endOffset":  64
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Use a \"for...of\" loop, since the index is only used to read array elements.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "clumsy"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "3c2e9842-da65-47d7-8abf-fd0ca36f132d",
+                       "rule":  "typescript:S7758",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  99,
+                       "hash":  "8dc9acdeaff4b460da27b3c86c90ef21",
+                       "textRange":  {
+                                         "startLine":  99,
+                                         "endLine":  99,
+                                         "startOffset":  23,
+                                         "endOffset":  33
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer `String#codePointAt()` over `String#charCodeAt()`.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "internationalization",
+                                    "es2015",
+                                    "unicode"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CONVENTIONAL",
+                       "cleanCodeAttributeCategory":  "CONSISTENT",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "LOW"
+                                       },
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "eabdb8e4-63f5-4772-9bcf-9efcec2a9b6b",
+                       "rule":  "typescript:S2310",
+                       "severity":  "MAJOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  183,
+                       "hash":  "3927922173ecad0d4328e95e5609781d",
+                       "textRange":  {
+                                         "startLine":  183,
+                                         "endLine":  183,
+                                         "startOffset":  4,
+                                         "endOffset":  5
+                                     },
+                       "flows":  [
+                                     {
+                                         "locations":  [
+                                                           {
+                                                               "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+                                                               "textRange":  {
+                                                                                 "startLine":  160,
+                                                                                 "endLine":  160,
+                                                                                 "startOffset":  35,
+                                                                                 "endOffset":  36
+                                                                             },
+                                                               "msg":  "Counter variable update",
+                                                               "msgFormattings":  [
+
+                                                                                  ]
+                                                           }
+                                                       ]
+                                     }
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Remove this assignment of \"i\".",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  false,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "RELIABILITY",
+                                           "severity":  "MEDIUM"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   },
+                   {
+                       "key":  "d32a35d3-13e1-4d16-9c05-7e53af7619da",
+                       "rule":  "typescript:S6582",
+                       "severity":  "MINOR",
+                       "component":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+                       "project":  "observatorio-redactor-frontend-20261113",
+                       "line":  223,
+                       "hash":  "b2f8300a45cdea5d2fccd5280106fa02",
+                       "textRange":  {
+                                         "startLine":  223,
+                                         "endLine":  224,
+                                         "startOffset":  4,
+                                         "endOffset":  28
+                                     },
+                       "flows":  [
+
+                                 ],
+                       "status":  "OPEN",
+                       "message":  "Prefer using an optional chain expression instead, as it\u0027s more concise and easier to read.",
+                       "effort":  "5min",
+                       "debt":  "5min",
+                       "author":  "",
+                       "tags":  [
+                                    "editable-source",
+                                    "type-dependent",
+                                    "es2020"
+                                ],
+                       "creationDate":  "2026-11-13T15:02:52+0000",
+                       "updateDate":  "2026-11-13T15:02:52+0000",
+                       "type":  "CODE_SMELL",
+                       "scope":  "MAIN",
+                       "quickFixAvailable":  true,
+                       "messageFormattings":  [
+
+                                              ],
+                       "codeVariants":  [
+
+                                        ],
+                       "cleanCodeAttribute":  "CLEAR",
+                       "cleanCodeAttributeCategory":  "INTENTIONAL",
+                       "impacts":  [
+                                       {
+                                           "softwareQuality":  "MAINTAINABILITY",
+                                           "severity":  "LOW"
+                                       }
+                                   ],
+                       "issueStatus":  "OPEN",
+                       "prioritizedRule":  false,
+                       "fromSonarQubeUpdate":  false,
+                       "internalTags":  [
+
+                                        ],
+                       "linkedTicketStatus":  "NOT_LINKED"
+                   }
+               ],
+    "components":  [
+                       {
+                           "key":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/components/LawAutocomplete.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "LawAutocomplete.tsx",
+                           "longName":  "app/herramientas/redactor/components/LawAutocomplete.tsx",
+                           "path":  "app/herramientas/redactor/components/LawAutocomplete.tsx"
+                       },
+                       {
+                           "key":  "observatorio-redactor-frontend-20261113",
+                           "enabled":  true,
+                           "qualifier":  "TRK",
+                           "name":  "Observatorio Redactor frontend 2026-11-13",
+                           "longName":  "Observatorio Redactor frontend 2026-11-13"
+                       },
+                       {
+                           "key":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "useRedactorDocs.ts",
+                           "longName":  "app/herramientas/redactor/hooks/useRedactorDocs.ts",
+                           "path":  "app/herramientas/redactor/hooks/useRedactorDocs.ts"
+                       },
+                       {
+                           "key":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/trigger.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "trigger.ts",
+                           "longName":  "app/herramientas/redactor/trigger.ts",
+                           "path":  "app/herramientas/redactor/trigger.ts"
+                       },
+                       {
+                           "key":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/RedactorClient.tsx",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "RedactorClient.tsx",
+                           "longName":  "app/herramientas/redactor/RedactorClient.tsx",
+                           "path":  "app/herramientas/redactor/RedactorClient.tsx"
+                       },
+                       {
+                           "key":  "observatorio-redactor-frontend-20261113:app/herramientas/redactor/searchModel.ts",
+                           "enabled":  true,
+                           "qualifier":  "FIL",
+                           "name":  "searchModel.ts",
+                           "longName":  "app/herramientas/redactor/searchModel.ts",
+                           "path":  "app/herramientas/redactor/searchModel.ts"
+                       }
+                   ],
+    "facets":  [
+
+               ]
+}

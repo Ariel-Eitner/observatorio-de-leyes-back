@@ -22,7 +22,7 @@ RUN npm prune --production --ignore-scripts
 # ── Stage 2: runner ──────────────────────────────────────────────────────────
 FROM node:22-alpine AS runner
 WORKDIR /app
-ARG APP_VERSION=1.4.3
+ARG APP_VERSION=1.5.0
 ENV APP_VERSION=$APP_VERSION
 LABEL org.opencontainers.image.version=$APP_VERSION
 

@@ -1,0 +1,213 @@
+{
+  "date": "2026-11-13",
+  "version": "1.4.3",
+  "sonarqube": "26.11.0.134175",
+  "sonarScanner": "6.2.1.4610",
+  "typescriptAnalyzer": "14.3.0.46350",
+  "profile": "Sonar way comprehensive",
+  "activeTypescriptRules": 440,
+  "sourceCommits": {
+    "backend": "056eaf2bb1f5048b67755e29cef9e57ddff4f944",
+    "frontend": "d8baf962d5c1f9b56f9cc7d976e1f3d92c36ccee"
+  },
+  "scopeDescription": {
+    "backend": "src/search, src/articles, src/laws, src/norms-db, src/user-content, src/common/guards/proxy-throttler.guard.ts, src/main.ts",
+    "frontend": "app/herramientas/redactor, app/api/redactor-docs, plus explicit search/article proxy and shared utility paths",
+    "frontendShared": [
+      "app/api/search/route.ts",
+      "app/api/articles/route.ts",
+      "app/lib/lawRegistry.ts",
+      "app/lib/articleSlug.ts",
+      "app/lib/articuloDerogado.ts",
+      "app/lib/clientIp.ts",
+      "app/lib/adminHeaders.ts",
+      "app/lib/authProxy.ts",
+      "app/lib/tracking.ts",
+      "app/lib/api.ts",
+      "app/lib/format.ts"
+    ]
+  },
+  "projects": {
+    "backend": {
+      "project": "observatorio-redactor-backend-20261113",
+      "analysisTask": "437d930d-5e8e-4f53-a207-d87a24544a4e",
+      "totalIssues": 353,
+      "types": {
+        "CODE_SMELL": 349,
+        "BUG": 3,
+        "VULNERABILITY": 1
+      },
+      "selectedScopeIssues": 90,
+      "selectedScopeTypes": {
+        "CODE_SMELL": 88,
+        "BUG": 2
+      },
+      "selectedScopeRules": {
+        "typescript:S3776": 6,
+        "typescript:S3358": 2,
+        "typescript:S8786": 4,
+        "typescript:S6594": 12,
+        "typescript:S7781": 9,
+        "typescript:S7758": 1,
+        "typescript:S7767": 1,
+        "typescript:S7773": 9,
+        "typescript:S2933": 1,
+        "typescript:S7780": 7,
+        "typescript:S7772": 1,
+        "typescript:S7503": 1,
+        "typescript:S1135": 1,
+        "typescript:S6535": 2,
+        "typescript:S6582": 1,
+        "typescript:S4624": 1,
+        "typescript:S5843": 1,
+        "typescript:S5842": 1,
+        "typescript:S6551": 27,
+        "typescript:S107": 1,
+        "typescript:S9383": 1
+      },
+      "metrics": {
+        "coverage": "0.0",
+        "bugs": "3",
+        "complexity": "3072",
+        "code_smells": "349",
+        "duplicated_lines_density": "2.1",
+        "cognitive_complexity": "1949",
+        "ncloc": "14318",
+        "vulnerabilities": "1",
+        "security_hotspots": "0",
+        "sqale_index": "2612"
+      },
+      "hotspots": 0,
+      "qualityGate": {
+        "status": "OK",
+        "conditions": [
+          {
+            "status": "OK",
+            "metricKey": "new_violations",
+            "comparator": "GT",
+            "errorThreshold": "0",
+            "actualValue": "0"
+          }
+        ],
+        "ignoredConditions": false,
+        "period": {
+          "mode": "PREVIOUS_VERSION",
+          "date": "2026-11-13T13:09:31+0000"
+        },
+        "caycStatus": "compliant"
+      }
+    },
+    "frontend": {
+      "project": "observatorio-redactor-frontend-20261113",
+      "analysisTask": "9326ba0f-2893-41b4-879d-201f0513dd39",
+      "totalIssues": 1546,
+      "types": {
+        "CODE_SMELL": 1334,
+        "BUG": 211,
+        "VULNERABILITY": 1
+      },
+      "selectedScopeIssues": 153,
+      "selectedScopeTypes": {
+        "CODE_SMELL": 123,
+        "BUG": 29,
+        "VULNERABILITY": 1
+      },
+      "selectedScopeRules": {
+        "typescript:S6759": 10,
+        "typescript:S1082": 6,
+        "typescript:S6848": 6,
+        "typescript:S6479": 5,
+        "typescript:S1854": 1,
+        "typescript:S7773": 8,
+        "typescript:S7780": 5,
+        "typescript:S9383": 23,
+        "typescript:S3358": 13,
+        "typescript:S2004": 1,
+        "typescript:S3776": 7,
+        "typescript:S9382": 3,
+        "typescript:S7744": 2,
+        "typescript:S7772": 1,
+        "typescript:S6772": 5,
+        "typescript:S6582": 3,
+        "typescript:S5843": 2,
+        "typescript:S8786": 2,
+        "typescript:S1135": 1,
+        "typescript:S2245": 1,
+        "typescript:S6594": 3,
+        "typescript:S6551": 20,
+        "typescript:S6853": 3,
+        "typescript:S1077": 11,
+        "typescript:S9379": 3,
+        "typescript:S7755": 3,
+        "typescript:S6767": 1,
+        "typescript:S7776": 1,
+        "typescript:S1128": 1,
+        "typescript:S4619": 2
+      },
+      "metrics": {
+        "coverage": "0.0",
+        "bugs": "211",
+        "complexity": "12137",
+        "code_smells": "1334",
+        "duplicated_lines_density": "10.6",
+        "cognitive_complexity": "6735",
+        "ncloc": "57402",
+        "vulnerabilities": "1",
+        "security_hotspots": "0",
+        "sqale_index": "8378"
+      },
+      "hotspots": 0,
+      "qualityGate": {
+        "status": "OK",
+        "conditions": [
+          {
+            "status": "OK",
+            "metricKey": "new_violations",
+            "comparator": "GT",
+            "errorThreshold": "0",
+            "actualValue": "0"
+          }
+        ],
+        "ignoredConditions": false,
+        "period": {
+          "mode": "PREVIOUS_VERSION",
+          "date": "2026-11-13T13:12:01+0000"
+        },
+        "caycStatus": "compliant"
+      }
+    }
+  },
+  "redactorFrontendOnly": {
+    "issues": 137,
+    "types": {
+      "CODE_SMELL": 108,
+      "BUG": 29
+    },
+    "rules": {
+      "typescript:S6759": 10,
+      "typescript:S1082": 6,
+      "typescript:S6848": 6,
+      "typescript:S6479": 5,
+      "typescript:S1854": 1,
+      "typescript:S7780": 5,
+      "typescript:S9383": 23,
+      "typescript:S7773": 5,
+      "typescript:S3358": 13,
+      "typescript:S2004": 1,
+      "typescript:S3776": 7,
+      "typescript:S9382": 2,
+      "typescript:S7744": 1,
+      "typescript:S6772": 5,
+      "typescript:S6582": 2,
+      "typescript:S5843": 2,
+      "typescript:S8786": 1,
+      "typescript:S1135": 1,
+      "typescript:S6551": 20,
+      "typescript:S6853": 3,
+      "typescript:S1077": 11,
+      "typescript:S9379": 3,
+      "typescript:S7755": 3,
+      "typescript:S6767": 1
+    }
+  }
+}

@@ -1,0 +1,6014 @@
+[
+  {
+    "key": "7932bad2-9d1d-4689-976d-a1e2f5225069",
+    "rule": "typescript:S7754",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/articles/articles.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 23,
+    "hash": "0409a282e764915bfb0d8b5f0cc762f4",
+    "textRange": {
+      "startLine": 23,
+      "endLine": 23,
+      "startOffset": 70,
+      "endOffset": 74
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `.some(…)` over `.find(…)`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "performance",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:00:38+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "4a5f6090-ed37-4cad-96cd-6a6ad4e10397",
+    "rule": "typescript:S7758",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1757,
+    "hash": "3b243b1c7241e5c124f54660ee4a4b14",
+    "textRange": {
+      "startLine": 1757,
+      "endLine": 1757,
+      "startOffset": 71,
+      "endOffset": 81
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `String#codePointAt()` over `String#charCodeAt()`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "internationalization",
+      "es2015",
+      "unicode"
+    ],
+    "creationDate": "2026-11-13T15:00:38+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e6389ff9-2996-400a-b2b4-8b7ecba94723",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/redactor-search.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 160,
+    "hash": "b114b3694fa47645988b058d268190b4",
+    "textRange": {
+      "startLine": 160,
+      "endLine": 160,
+      "startOffset": 46,
+      "endOffset": 52
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-11-13T15:00:38+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c9550137-70a1-456f-8040-9368255764bf",
+    "rule": "typescript:S5843",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 156,
+    "hash": "3e1f989f89b658918ee83e347a9047eb",
+    "textRange": {
+      "startLine": 156,
+      "endLine": 156,
+      "startOffset": 4,
+      "endOffset": 107
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 31,
+              "endOffset": 32
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 30,
+              "endOffset": 31
+            },
+            "msg": "+2 (incl 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 26,
+              "endOffset": 27
+            },
+            "msg": "+3 (incl 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 16,
+              "endOffset": 17
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 25,
+              "endOffset": 26
+            },
+            "msg": "+4 (incl 3 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 38,
+              "endOffset": 39
+            },
+            "msg": "+2 (incl 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 42,
+              "endOffset": 43
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 46,
+              "endOffset": 47
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 49,
+              "endOffset": 50
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 103,
+              "endOffset": 104
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 56,
+              "endOffset": 57
+            },
+            "msg": "+2 (incl 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 60,
+              "endOffset": 61
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 70,
+              "endOffset": 71
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 77,
+              "endOffset": 78
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 87,
+              "endOffset": 88
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 94,
+              "endOffset": 95
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 156,
+              "endLine": 156,
+              "startOffset": 63,
+              "endOffset": 64
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Simplify this regular expression to reduce its complexity from 25 to the 20 allowed.",
+    "effort": "18min",
+    "debt": "18min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-11-13T15:00:38+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "67e45c5b-bed4-4b8d-a809-f70d4f3ef571",
+    "rule": "typescript:S6582",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/user-content/redactor-docs.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 47,
+    "hash": "b5218b0ea317af7ada1954d7d0f83a63",
+    "textRange": {
+      "startLine": 47,
+      "endLine": 47,
+      "startOffset": 8,
+      "endOffset": 35
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "type-dependent",
+      "es2020"
+    ],
+    "creationDate": "2026-11-13T15:00:38+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3ad3a1f4-0950-405e-8d59-4af5dd3bb4db",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 681,
+    "hash": "04fa253000038210020f3d91118adda6",
+    "textRange": {
+      "startLine": 681,
+      "endLine": 681,
+      "startOffset": 15,
+      "endOffset": 29
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 684,
+              "endLine": 684,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 686,
+              "endLine": 686,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 698,
+              "endLine": 698,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 700,
+              "endLine": 700,
+              "startOffset": 4,
+              "endOffset": 7
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 702,
+              "endLine": 702,
+              "startOffset": 5,
+              "endOffset": 7
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 703,
+              "endLine": 703,
+              "startOffset": 5,
+              "endOffset": 9
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 705,
+              "endLine": 705,
+              "startOffset": 5,
+              "endOffset": 10
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 711,
+              "endLine": 711,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 714,
+              "endLine": 714,
+              "startOffset": 3,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 719,
+              "endLine": 719,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 722,
+              "endLine": 722,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 725,
+              "endLine": 725,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 728,
+              "endLine": 728,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 738,
+              "endLine": 738,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 743,
+              "endLine": 743,
+              "startOffset": 5,
+              "endOffset": 10
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 22 to the 15 allowed.",
+    "effort": "12min",
+    "debt": "12min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-09-08T00:26:58+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "eaf1692c-c1ba-4141-a92e-bdb83eaaea3a",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 780,
+    "hash": "9a6756c3bd02ddce033872e2c813ea2d",
+    "textRange": {
+      "startLine": 780,
+      "endLine": 780,
+      "startOffset": 82,
+      "endOffset": 84
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 781,
+              "endLine": 781,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 781,
+              "endLine": 781,
+              "startOffset": 13,
+              "endOffset": 15
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 782,
+              "endLine": 782,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 782,
+              "endLine": 782,
+              "startOffset": 14,
+              "endOffset": 16
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 783,
+              "endLine": 783,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 783,
+              "endLine": 783,
+              "startOffset": 20,
+              "endOffset": 22
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 784,
+              "endLine": 784,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 784,
+              "endLine": 784,
+              "startOffset": 16,
+              "endOffset": 18
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 785,
+              "endLine": 785,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 785,
+              "endLine": 785,
+              "startOffset": 13,
+              "endOffset": 15
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 786,
+              "endLine": 786,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 786,
+              "endLine": 786,
+              "startOffset": 16,
+              "endOffset": 18
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 787,
+              "endLine": 787,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 787,
+              "endLine": 787,
+              "startOffset": 14,
+              "endOffset": 16
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 788,
+              "endLine": 788,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 788,
+              "endLine": 788,
+              "startOffset": 17,
+              "endOffset": 19
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 789,
+              "endLine": 789,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 792,
+              "endLine": 792,
+              "startOffset": 5,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 793,
+              "endLine": 793,
+              "startOffset": 57,
+              "endOffset": 58
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 796,
+              "endLine": 796,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 798,
+              "endLine": 798,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 25 to the 15 allowed.",
+    "effort": "15min",
+    "debt": "15min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-09-08T00:26:58+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "22aa11df-14d1-4037-86fa-00b53a70c64c",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 793,
+    "hash": "d51a5133f954d5937077827c1eff4770",
+    "textRange": {
+      "startLine": 793,
+      "endLine": 795,
+      "startOffset": 7,
+      "endOffset": 10
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-09-08T00:26:58+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "91bd317d-85e8-406a-88d4-b5900928d6e8",
+    "rule": "typescript:S3358",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1414,
+    "hash": "fa1b2d502b1f7ba7bac3f613a4b976da",
+    "textRange": {
+      "startLine": 1414,
+      "endLine": 1416,
+      "startOffset": 6,
+      "endOffset": 19
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Extract this nested ternary operation into an independent statement.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-08-27T23:22:20+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ddb27ab4-af19-429d-954a-7f3be68a089e",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1194,
+    "hash": "851e31dd26bb2f9adfd54497f5f17511",
+    "textRange": {
+      "startLine": 1194,
+      "endLine": 1194,
+      "startOffset": 23,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-27T13:34:32+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "92e7c6b5-038f-4f23-ab0c-0b438d607167",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1203,
+    "hash": "67affe4e64d01c8a4f8046d149e821e9",
+    "textRange": {
+      "startLine": 1203,
+      "endLine": 1203,
+      "startOffset": 19,
+      "endOffset": 24
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-27T13:34:32+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8fc1d0b3-da47-4e36-97d2-87f370d396e9",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1205,
+    "hash": "7a782a7bc094559e1c5e3c4a2f99a214",
+    "textRange": {
+      "startLine": 1205,
+      "endLine": 1205,
+      "startOffset": 20,
+      "endOffset": 27
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-08-27T13:34:32+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e8e74968-b8e2-4c8b-a8eb-4c4b69d100c4",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1206,
+    "hash": "93af211f630e56052ee08983c52e9604",
+    "textRange": {
+      "startLine": 1206,
+      "endLine": 1206,
+      "startOffset": 36,
+      "endOffset": 43
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-08-27T13:34:32+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "86d6a99d-66f3-4a55-ac0c-36a90a461955",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1309,
+    "hash": "045ffabd34d9d07a50aece129c993158",
+    "textRange": {
+      "startLine": 1309,
+      "endLine": 1309,
+      "startOffset": 9,
+      "endOffset": 18
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1310,
+              "endLine": 1310,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1314,
+              "endLine": 1314,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1315,
+              "endLine": 1315,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1316,
+              "endLine": 1316,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1317,
+              "endLine": 1317,
+              "startOffset": 3,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1318,
+              "endLine": 1318,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1323,
+              "endLine": 1323,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1335,
+              "endLine": 1335,
+              "startOffset": 2,
+              "endOffset": 5
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1344,
+              "endLine": 1344,
+              "startOffset": 23,
+              "endOffset": 24
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1347,
+              "endLine": 1347,
+              "startOffset": 3,
+              "endOffset": 5
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1348,
+              "endLine": 1348,
+              "startOffset": 3,
+              "endOffset": 6
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 18 to the 15 allowed.",
+    "effort": "8min",
+    "debt": "8min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e343b032-8ad3-49a9-a1c2-dc60eb0e0518",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1358,
+    "hash": "6628e2a281662798f1b2b0cac9c3d936",
+    "textRange": {
+      "startLine": 1358,
+      "endLine": 1358,
+      "startOffset": 58,
+      "endOffset": 65
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "540b50e9-c1ff-41a2-8ba6-267f599bdb7c",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1379,
+    "hash": "a11c130193063145f08505f45ffe7ece",
+    "textRange": {
+      "startLine": 1379,
+      "endLine": 1379,
+      "startOffset": 19,
+      "endOffset": 24
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "44b392c7-42f1-4167-9f97-f53bdcec3208",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1386,
+    "hash": "eddb7ea281beea5384f2c20ead15c3a6",
+    "textRange": {
+      "startLine": 1386,
+      "endLine": 1386,
+      "startOffset": 23,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e215ea25-f3f9-4b8c-a7ca-a1d65711c5f0",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1436,
+    "hash": "25156c09919d2d7b51c9324d07104275",
+    "textRange": {
+      "startLine": 1436,
+      "endLine": 1436,
+      "startOffset": 20,
+      "endOffset": 25
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c296f3a8-44f4-4b3a-a04c-a825b1fe1410",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1438,
+    "hash": "08bbe3f70c843fe3a2338bf5a29f868a",
+    "textRange": {
+      "startLine": 1438,
+      "endLine": 1438,
+      "startOffset": 49,
+      "endOffset": 56
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "29ec4054-dc83-4bc1-a213-2b78cf66bb05",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1452,
+    "hash": "0e64331c7387ee763fc21570b99ba2c6",
+    "textRange": {
+      "startLine": 1452,
+      "endLine": 1452,
+      "startOffset": 21,
+      "endOffset": 26
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-26T20:27:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c16096ac-1019-44c8-a2c8-037e3a700f06",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/articles/articles.controller.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 16,
+    "hash": "a9f4c4785a25d98ad849c22af1ae3249",
+    "textRange": {
+      "startLine": 16,
+      "endLine": 16,
+      "startOffset": 43,
+      "endOffset": 51
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-26T18:33:04+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "4a6b7db5-9b19-4f1f-a680-3d26a519de1f",
+    "rule": "typescript:S2933",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 414,
+    "hash": "eef00adf043a35a4e162dc29a7ad0a68",
+    "textRange": {
+      "startLine": 414,
+      "endLine": 414,
+      "startOffset": 13,
+      "endOffset": 24
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 416,
+              "endLine": 416,
+              "startOffset": 1,
+              "endOffset": 13
+            },
+            "msg": "Member 'laws' is never reassigned; mark it as `readonly`.",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 455,
+              "endLine": 455,
+              "startOffset": 1,
+              "endOffset": 18
+            },
+            "msg": "Member 'fullCache' is never reassigned; mark it as `readonly`.",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 467,
+              "endLine": 467,
+              "startOffset": 1,
+              "endOffset": 19
+            },
+            "msg": "Member 'lightCache' is never reassigned; mark it as `readonly`.",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 1297,
+              "endLine": 1297,
+              "startOffset": 1,
+              "endOffset": 21
+            },
+            "msg": "Member 'refsComputed' is never reassigned; mark it as `readonly`.",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Mark these members as `readonly`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "",
+    "tags": [
+      "type-dependent",
+      "confusing"
+    ],
+    "creationDate": "2026-08-11T19:46:08+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "17a77c80-c558-45ee-8bf6-64f36c96b4af",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1287,
+    "hash": "b464a57dd15d55defe7118787c7fdb4c",
+    "textRange": {
+      "startLine": 1287,
+      "endLine": 1287,
+      "startOffset": 33,
+      "endOffset": 40
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-08-11T19:46:08+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "d03fdea7-bf94-4ea6-9e31-fd52adf38b9d",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 357,
+    "hash": "29ee05378d9777fa6caa5c1dfdf6b271",
+    "textRange": {
+      "startLine": 357,
+      "endLine": 373,
+      "startOffset": 20,
+      "endOffset": 18
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-09T05:22:46+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "62613a71-b769-469f-bb8e-489b527ead87",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 557,
+    "hash": "5cfa7477f9f771c7b92c472ca01b0012",
+    "textRange": {
+      "startLine": 557,
+      "endLine": 558,
+      "startOffset": 10,
+      "endOffset": 105
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-09T05:22:46+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "50b2569e-4f45-4ab3-b81d-d3553ecf2809",
+    "rule": "typescript:S7772",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/common/guards/proxy-throttler.guard.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 3,
+    "hash": "b930df1c01ef26bffee8944cad6b2c95",
+    "textRange": {
+      "startLine": 3,
+      "endLine": 3,
+      "startOffset": 44,
+      "endOffset": 52
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `node:crypto` over `crypto`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "convention",
+      "import",
+      "editable-source",
+      "nodejs"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ed00408a-3dba-4886-a7ee-c76152a72127",
+    "rule": "typescript:S7503",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/common/guards/proxy-throttler.guard.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 59,
+    "hash": "ae52d0b56acd1db21990e904b9c8dd4e",
+    "textRange": {
+      "startLine": 59,
+      "endLine": 59,
+      "startOffset": 2,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Async method 'getTracker' has no 'await' expression.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "async",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b51e15ee-e6de-49b8-8ab9-79e367829725",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 379,
+    "hash": "ec0d3ace16d692a9df3896ad8e8068a6",
+    "textRange": {
+      "startLine": 379,
+      "endLine": 379,
+      "startOffset": 19,
+      "endOffset": 24
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "07f3f56a-5a1e-4aa2-afc0-2567f9a1c8ac",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 380,
+    "hash": "5f0cdc5386410d3b89f427db77e15fc2",
+    "textRange": {
+      "startLine": 380,
+      "endLine": 380,
+      "startOffset": 25,
+      "endOffset": 33
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "18ec2dfe-6443-456d-9a40-c7b817e7001b",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 380,
+    "hash": "5f0cdc5386410d3b89f427db77e15fc2",
+    "textRange": {
+      "startLine": 380,
+      "endLine": 380,
+      "startOffset": 51,
+      "endOffset": 59
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2fc13fd2-80bb-4eb9-8ada-11082299ec7e",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 381,
+    "hash": "f7a830265d6f03a012386e7fd7898b9d",
+    "textRange": {
+      "startLine": 381,
+      "endLine": 381,
+      "startOffset": 33,
+      "endOffset": 41
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e3ba0558-c60d-41ce-bf15-b45d867186e3",
+    "rule": "typescript:S1135",
+    "severity": "INFO",
+    "component": "observatorio-redactor-backend-20261113:src/main.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 32,
+    "hash": "497da1051ce2c47d26328ba4d6f3c3b2",
+    "textRange": {
+      "startLine": 32,
+      "endLine": 32,
+      "startOffset": 74,
+      "endOffset": 78
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Complete the task associated to this \"TODO\" comment.",
+    "effort": "0min",
+    "debt": "0min",
+    "author": "",
+    "tags": [
+      "cwe",
+      "editable-source"
+    ],
+    "creationDate": "2026-08-07T16:46:09+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "COMPLETE",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "INFO"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3dbab075-dc4e-4c53-a269-ba751ab01fe3",
+    "rule": "typescript:S6535",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 143,
+    "hash": "ccd24dbcaf403097280b67646b9d84a3",
+    "textRange": {
+      "startLine": 143,
+      "endLine": 143,
+      "startOffset": 52,
+      "endOffset": 53
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Unnecessary escape character: \\/.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source"
+    ],
+    "creationDate": "2026-07-30T14:48:49+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "291ecfef-b1d0-4d4b-9481-8ac6a7974c21",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 229,
+    "hash": "d2d195185fc15b0990e6b6044857c97f",
+    "textRange": {
+      "startLine": 229,
+      "endLine": 229,
+      "startOffset": 8,
+      "endOffset": 14
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 231,
+              "endLine": 231,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 232,
+              "endLine": 232,
+              "startOffset": 56,
+              "endOffset": 57
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 232,
+              "endLine": 232,
+              "startOffset": 33,
+              "endOffset": 35
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 233,
+              "endLine": 233,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 245,
+              "endLine": 245,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 245,
+              "endLine": 245,
+              "startOffset": 28,
+              "endOffset": 30
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 263,
+              "endLine": 263,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 264,
+              "endLine": 264,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 267,
+              "endLine": 267,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 267,
+              "endLine": 267,
+              "startOffset": 32,
+              "endOffset": 34
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 282,
+              "endLine": 282,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 283,
+              "endLine": 283,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 290,
+              "endLine": 290,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 290,
+              "endLine": 290,
+              "startOffset": 18,
+              "endOffset": 20
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 315,
+              "endLine": 315,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 315,
+              "endLine": 315,
+              "startOffset": 18,
+              "endOffset": 20
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 336,
+              "endLine": 336,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 345,
+              "endLine": 345,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 345,
+              "endLine": 345,
+              "startOffset": 15,
+              "endOffset": 17
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 355,
+              "endLine": 355,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 379,
+              "endLine": 379,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 388,
+              "endLine": 388,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 388,
+              "endLine": 388,
+              "startOffset": 22,
+              "endOffset": 24
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 411,
+              "endLine": 411,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 427,
+              "endLine": 427,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 427,
+              "endLine": 427,
+              "startOffset": 20,
+              "endOffset": 22
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 429,
+              "endLine": 429,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 429,
+              "endLine": 429,
+              "startOffset": 13,
+              "endOffset": 15
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 454,
+              "endLine": 454,
+              "startOffset": 10,
+              "endOffset": 13
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 459,
+              "endLine": 459,
+              "startOffset": 10,
+              "endOffset": 15
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 461,
+              "endLine": 461,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 461,
+              "endLine": 461,
+              "startOffset": 13,
+              "endOffset": 15
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 484,
+              "endLine": 484,
+              "startOffset": 10,
+              "endOffset": 13
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 489,
+              "endLine": 489,
+              "startOffset": 10,
+              "endOffset": 15
+            },
+            "msg": "+3 (incl. 2 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 497,
+              "endLine": 497,
+              "startOffset": 4,
+              "endOffset": 7
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 499,
+              "endLine": 499,
+              "startOffset": 6,
+              "endOffset": 8
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 55 to the 15 allowed.",
+    "effort": "45min",
+    "debt": "45min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-30T14:48:49+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "310887b9-43e2-4f46-8847-597524d1ca5f",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 521,
+    "hash": "5b8b0847a10277bafeae7e67084ce10d",
+    "textRange": {
+      "startLine": 521,
+      "endLine": 521,
+      "startOffset": 8,
+      "endOffset": 15
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 523,
+              "endLine": 523,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 532,
+              "endLine": 532,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 532,
+              "endLine": 532,
+              "startOffset": 13,
+              "endOffset": 15
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 548,
+              "endLine": 548,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 554,
+              "endLine": 554,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 561,
+              "endLine": 561,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 565,
+              "endLine": 565,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 571,
+              "endLine": 571,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 580,
+              "endLine": 580,
+              "startOffset": 8,
+              "endOffset": 10
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 595,
+              "endLine": 595,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 599,
+              "endLine": 599,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 604,
+              "endLine": 604,
+              "startOffset": 4,
+              "endOffset": 6
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 618,
+              "endLine": 618,
+              "startOffset": 8,
+              "endOffset": 11
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 622,
+              "endLine": 622,
+              "startOffset": 8,
+              "endOffset": 13
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+            "textRange": {
+              "startLine": 638,
+              "endLine": 638,
+              "startOffset": 39,
+              "endOffset": 41
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.",
+    "effort": "13min",
+    "debt": "13min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-30T14:48:49+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6ea826b5-cd40-4fe4-a687-78fd400f4f04",
+    "rule": "typescript:S3776",
+    "severity": "CRITICAL",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 291,
+    "hash": "37d23fb40dae5a67cf21559be5cd00b6",
+    "textRange": {
+      "startLine": 291,
+      "endLine": 291,
+      "startOffset": 9,
+      "endOffset": 23
+    },
+    "flows": [
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 302,
+              "endLine": 302,
+              "startOffset": 1,
+              "endOffset": 3
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 303,
+              "endLine": 303,
+              "startOffset": 1,
+              "endOffset": 3
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 303,
+              "endLine": 303,
+              "startOffset": 19,
+              "endOffset": 21
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 305,
+              "endLine": 305,
+              "startOffset": 1,
+              "endOffset": 3
+            },
+            "msg": "+1",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 306,
+              "endLine": 306,
+              "startOffset": 32,
+              "endOffset": 33
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 308,
+              "endLine": 308,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 309,
+              "endLine": 309,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 310,
+              "endLine": 310,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 311,
+              "endLine": 311,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      },
+      {
+        "locations": [
+          {
+            "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+            "textRange": {
+              "startLine": 312,
+              "endLine": 312,
+              "startOffset": 2,
+              "endOffset": 4
+            },
+            "msg": "+2 (incl. 1 for nesting)",
+            "msgFormattings": []
+          }
+        ]
+      }
+    ],
+    "status": "OPEN",
+    "message": "Refactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.",
+    "effort": "6min",
+    "debt": "6min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-07T19:10:08+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "HIGH"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e6d8df31-c738-47d3-ad44-5272b356813b",
+    "rule": "typescript:S6582",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 303,
+    "hash": "5586d95a147429ecd1d7b9f035c69d61",
+    "textRange": {
+      "startLine": 303,
+      "endLine": 303,
+      "startOffset": 5,
+      "endOffset": 42
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer using an optional chain expression instead, as it's more concise and easier to read.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source",
+      "type-dependent",
+      "es2020"
+    ],
+    "creationDate": "2026-07-07T19:10:08+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "49b34a9e-44ae-4504-836a-141560472c59",
+    "rule": "typescript:S4624",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-query.util.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 79,
+    "hash": "7ae3d9a3245a30a8cc72bccf5a81ca3b",
+    "textRange": {
+      "startLine": 79,
+      "endLine": 79,
+      "startOffset": 52,
+      "endOffset": 60
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Refactor this code to not use nested template literals.",
+    "effort": "10min",
+    "debt": "10min",
+    "author": "",
+    "tags": [
+      "es2015",
+      "brain-overload",
+      "editable-source",
+      "confusing"
+    ],
+    "creationDate": "2026-07-06T17:23:16+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "1fe4fd5c-2631-496c-bb97-b713a058cb27",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 355,
+    "hash": "158f82a92359ea486814cfb9825521b2",
+    "textRange": {
+      "startLine": 355,
+      "endLine": 355,
+      "startOffset": 59,
+      "endOffset": 125
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-05T02:58:43+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "440e44a2-a58e-4d4a-8c48-0ae5fcdf6380",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 580,
+    "hash": "6e228aa6cdbb5f15b46cbbc5eda1fffe",
+    "textRange": {
+      "startLine": 580,
+      "endLine": 580,
+      "startOffset": 60,
+      "endOffset": 127
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-05T02:58:43+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b7591dd1-c8c9-44ec-b320-9c5a9fe45957",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 582,
+    "hash": "f4c58775625a974da785a20142f3438a",
+    "textRange": {
+      "startLine": 582,
+      "endLine": 592,
+      "startOffset": 10,
+      "endOffset": 19
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-07-05T02:58:43+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6ebadf01-64b4-477b-a57a-e18b953d8154",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 155,
+    "hash": "35a688f976385297c258bd686780f5c5",
+    "textRange": {
+      "startLine": 155,
+      "endLine": 155,
+      "startOffset": 14,
+      "endOffset": 19
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-06-29T18:43:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2f75649a-f3e5-4f70-941b-8851c60e5444",
+    "rule": "typescript:S6535",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 127,
+    "hash": "a241e6daf14506347938b49602747ef9",
+    "textRange": {
+      "startLine": 127,
+      "endLine": 127,
+      "startOffset": 27,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Unnecessary escape character: \\/.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "editable-source"
+    ],
+    "creationDate": "2026-06-24T20:37:51+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "36b53b9c-4948-4de9-a147-774e09ead3b8",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 293,
+    "hash": "29ee05378d9777fa6caa5c1dfdf6b271",
+    "textRange": {
+      "startLine": 293,
+      "endLine": 299,
+      "startOffset": 18,
+      "endOffset": 16
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-06-24T20:37:51+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "99ac869c-5fb6-473f-806c-fa5c894402ba",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1323,
+    "hash": "0555f44f8a9a5f481b849bfdaad31499",
+    "textRange": {
+      "startLine": 1323,
+      "endLine": 1323,
+      "startOffset": 53,
+      "endOffset": 60
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-06-09T19:19:20+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "bfe05d0d-3985-427f-bdff-228cd1372249",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1318,
+    "hash": "6ecf04c23358e29868dda37c2b007f03",
+    "textRange": {
+      "startLine": 1318,
+      "endLine": 1318,
+      "startOffset": 40,
+      "endOffset": 47
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-06-06T02:27:57+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "06f60f61-ed6f-4c3d-bec9-e21581b52bca",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1475,
+    "hash": "0e64331c7387ee763fc21570b99ba2c6",
+    "textRange": {
+      "startLine": 1475,
+      "endLine": 1475,
+      "startOffset": 20,
+      "endOffset": 25
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-06-06T02:27:57+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "09e595fa-2112-4c44-a42a-72a620a974b5",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1476,
+    "hash": "2eff2f85b0e0f290e2609e8123b71f32",
+    "textRange": {
+      "startLine": 1476,
+      "endLine": 1476,
+      "startOffset": 32,
+      "endOffset": 39
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-06-06T02:27:57+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3515cfdd-258d-4ec3-a268-42026df91486",
+    "rule": "typescript:S7781",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 1079,
+    "hash": "b464a57dd15d55defe7118787c7fdb4c",
+    "textRange": {
+      "startLine": 1079,
+      "endLine": 1079,
+      "startOffset": 33,
+      "endOffset": 40
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use `replaceAll()` with a string literal instead of this global regex.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "editable-source",
+      "es2021"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "LOW"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "0a1ef156-9808-4422-97e5-893f0bf0213a",
+    "rule": "typescript:S7780",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 178,
+    "hash": "cb7d8bbfe144a6a8648a8b7f178b7247",
+    "textRange": {
+      "startLine": 178,
+      "endLine": 178,
+      "startOffset": 59,
+      "endOffset": 65
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "`String.raw` should be used to avoid escaping `\\`.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "readability",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CLEAR",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "54644174-912e-471f-af4d-d9d5221ca58d",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 665,
+    "hash": "d94649146d395e231d7863af1e5fab48",
+    "textRange": {
+      "startLine": 665,
+      "endLine": 665,
+      "startOffset": 24,
+      "endOffset": 35
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.norm_type' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "2daac47b-0750-47c1-8dd9-f79472046e8f",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 666,
+    "hash": "aa7ece2d08d320daaa498015f74939a1",
+    "textRange": {
+      "startLine": 666,
+      "endLine": 666,
+      "startOffset": 24,
+      "endOffset": 32
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.status' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "404836a5-2948-4371-a353-a344d3e55181",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 667,
+    "hash": "d253e81a5c96d7074d6d0d5bc833917c",
+    "textRange": {
+      "startLine": 667,
+      "endLine": 667,
+      "startOffset": 24,
+      "endOffset": 38
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.jurisdiction' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "066eafc5-26a9-470e-8225-f92534035ff2",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 668,
+    "hash": "bbc86dd6f667ebbd29d3b79bea63b51e",
+    "textRange": {
+      "startLine": 668,
+      "endLine": 668,
+      "startOffset": 20,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.decade' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ab15e355-854e-4374-a06a-436881d79384",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 676,
+    "hash": "51f427dbe47047b65d1fbc2185e36034",
+    "textRange": {
+      "startLine": 676,
+      "endLine": 676,
+      "startOffset": 25,
+      "endOffset": 34
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.norm_id' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "59833e06-9431-4ca5-a665-10b5b667b310",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 677,
+    "hash": "9d5278dd8c898fd627398c9e377b756b",
+    "textRange": {
+      "startLine": 677,
+      "endLine": 677,
+      "startOffset": 29,
+      "endOffset": 47
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.law_number ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "519787f4-029e-4f89-b304-b802f3ce88c1",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 678,
+    "hash": "a3050f611e3ff9ee0a2e1999add7df40",
+    "textRange": {
+      "startLine": 678,
+      "endLine": 678,
+      "startOffset": 28,
+      "endOffset": 45
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.law_title ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "5d335d25-f476-456e-8023-96d199c44b32",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 679,
+    "hash": "57babed0dc7925c32b43ed30acfffe33",
+    "textRange": {
+      "startLine": 679,
+      "endLine": 679,
+      "startOffset": 31,
+      "endOffset": 67
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.law_raw_title ?? r.law_title ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "3087067b-7803-4ecb-92db-5e5f4d4c1a7c",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 680,
+    "hash": "2c70ed0001cc323f4fa6a5fac318a096",
+    "textRange": {
+      "startLine": 680,
+      "endLine": 680,
+      "startOffset": 29,
+      "endOffset": 47
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.art_number ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e7a37a70-ecd7-4dd6-9bbf-aafbb62e50b5",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 681,
+    "hash": "0f24c7f0a7588991bc5d4194c65ba306",
+    "textRange": {
+      "startLine": 681,
+      "endLine": 681,
+      "startOffset": 42,
+      "endOffset": 53
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.art_title' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "6ba8745f-b9bd-4069-a42b-a2a13f6b53b8",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 684,
+    "hash": "dad54b40f660cad4e42e1695654cc956",
+    "textRange": {
+      "startLine": 684,
+      "endLine": 684,
+      "startOffset": 28,
+      "endOffset": 33
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.aid' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9a98626e-9f7f-4a52-a1d9-87844dce8cce",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 685,
+    "hash": "22a21fbff5dcb375958fbb7b414c9b41",
+    "textRange": {
+      "startLine": 685,
+      "endLine": 685,
+      "startOffset": 51,
+      "endOffset": 62
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.norm_type' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ff8f2257-19c3-4797-b213-c3731f6dcc38",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 685,
+    "hash": "22a21fbff5dcb375958fbb7b414c9b41",
+    "textRange": {
+      "startLine": 685,
+      "endLine": 685,
+      "startOffset": 86,
+      "endOffset": 100
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.jurisdiction' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f9d01810-bd43-4094-8a8e-9d96da6f82da",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 686,
+    "hash": "0c1672b561aac48b76bae16298d74c0d",
+    "textRange": {
+      "startLine": 686,
+      "endLine": 686,
+      "startOffset": 21,
+      "endOffset": 29
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.status' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f3400219-a3d4-4998-9557-5644474d1530",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 687,
+    "hash": "e8b1fc4938eba8e81a54690179601bcc",
+    "textRange": {
+      "startLine": 687,
+      "endLine": 687,
+      "startOffset": 23,
+      "endOffset": 43
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.law_category ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "ddaefffe-8dc8-4ed7-b5ff-00fe18677ddf",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 688,
+    "hash": "d018cfd50c50385126817bc4d0aab4dd",
+    "textRange": {
+      "startLine": 688,
+      "endLine": 688,
+      "startOffset": 24,
+      "endOffset": 29
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.aid' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "37ad3498-1699-43a0-945d-04e59c13b034",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 691,
+    "hash": "590dbb47fe2840c6cfc2881200e90b63",
+    "textRange": {
+      "startLine": 691,
+      "endLine": 691,
+      "startOffset": 22,
+      "endOffset": 37
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.snippet ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "67a18a63-5126-4642-8fde-6c072eacdf62",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 696,
+    "hash": "2679666e7d2b815270f8dfda534a7ca9",
+    "textRange": {
+      "startLine": 696,
+      "endLine": 696,
+      "startOffset": 22,
+      "endOffset": 35
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.id ?? r.aid' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8cc481ac-64d5-4181-b9da-2c76ee62edd8",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 697,
+    "hash": "1101f1d01b536dfb41d84e70b16f5dcc",
+    "textRange": {
+      "startLine": 697,
+      "endLine": 697,
+      "startOffset": 26,
+      "endOffset": 56
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.number ?? r.law_number ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "a45a379c-ab0e-494f-a8d8-a86d252b81b5",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 698,
+    "hash": "d409b7e999e5fad86d9419104f853f0d",
+    "textRange": {
+      "startLine": 698,
+      "endLine": 698,
+      "startOffset": 25,
+      "endOffset": 53
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.title ?? r.law_title ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "0961e468-8edb-430e-8673-8f1c839f0105",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 699,
+    "hash": "33f7897ae6e16696fec69601ae27d6af",
+    "textRange": {
+      "startLine": 699,
+      "endLine": 699,
+      "startOffset": 28,
+      "endOffset": 48
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.raw_title ?? title' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "dd706408-7e1a-4a49-94a5-ad607705e795",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 702,
+    "hash": "05d5cdebffb1fab67a9218adc6001cd2",
+    "textRange": {
+      "startLine": 702,
+      "endLine": 702,
+      "startOffset": 70,
+      "endOffset": 81
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.norm_type' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "a3f839d2-19f7-43c9-ba17-2c118673e4ff",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 703,
+    "hash": "5831c1f438e34d0ce70b1645ceb08fdd",
+    "textRange": {
+      "startLine": 703,
+      "endLine": 703,
+      "startOffset": 27,
+      "endOffset": 47
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.jurisdiction ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "e09abe80-d861-4d6e-9b12-91218cf80d3d",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 703,
+    "hash": "5831c1f438e34d0ce70b1645ceb08fdd",
+    "textRange": {
+      "startLine": 703,
+      "endLine": 703,
+      "startOffset": 65,
+      "endOffset": 79
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.status ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T15:00:38+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "0f920c03-e34f-493d-9b52-195005ddccae",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 704,
+    "hash": "7f8df3a68d960c83b40bcab2f1311a61",
+    "textRange": {
+      "startLine": 704,
+      "endLine": 704,
+      "startOffset": 23,
+      "endOffset": 39
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.category ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c28231b1-16e5-4054-871b-5c29fa7262c9",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 705,
+    "hash": "4c09304bd085bf54ab32e8ece86f7bdd",
+    "textRange": {
+      "startLine": 705,
+      "endLine": 705,
+      "startOffset": 73,
+      "endOffset": 88
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.summary ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "c9573eee-77f1-4a6b-b1de-e0b8bcbeb500",
+    "rule": "typescript:S6551",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 707,
+    "hash": "590dbb47fe2840c6cfc2881200e90b63",
+    "textRange": {
+      "startLine": 707,
+      "endLine": 707,
+      "startOffset": 22,
+      "endOffset": 37
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "'r.snippet ?? ''' will use Object's default stringification format ('[object Object]') when stringified.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "string",
+      "type-dependent",
+      "object"
+    ],
+    "creationDate": "2026-06-05T20:12:36+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "b7ec046e-1b33-42bf-adbb-e2e166704e83",
+    "rule": "typescript:S107",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.controller.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 12,
+    "hash": "295ebad8e3a40445bc57ffb7df931260",
+    "textRange": {
+      "startLine": 12,
+      "endLine": 23,
+      "startOffset": 2,
+      "endOffset": 8
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Method 'search' has too many parameters (9). Maximum allowed is 7.",
+    "effort": "20min",
+    "debt": "20min",
+    "author": "",
+    "tags": [
+      "brain-overload",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-26T02:44:20+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": false,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "FOCUSED",
+    "cleanCodeAttributeCategory": "ADAPTABLE",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "9353e625-ccb8-43a9-bb3d-99da812098a5",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.controller.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 35,
+    "hash": "bd54cc291c18a4c2073d6ba8e5a4c242",
+    "textRange": {
+      "startLine": 35,
+      "endLine": 35,
+      "startOffset": 40,
+      "endOffset": 48
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-13T17:33:19+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "fab98630-9b5d-4274-959a-280f82a5fd88",
+    "rule": "typescript:S9383",
+    "severity": "MAJOR",
+    "component": "observatorio-redactor-backend-20261113:src/main.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 198,
+    "hash": "4581db9b06e5d8c0d6ceefba66716543",
+    "textRange": {
+      "startLine": 198,
+      "endLine": 198,
+      "startOffset": 0,
+      "endOffset": 12
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Promises must be awaited, end with a call to .catch, end with a call to .then with a rejection handler or be explicitly marked as ignored with the `void` operator.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "async",
+      "es2017",
+      "type-dependent",
+      "promise"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "BUG",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "LOGICAL",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "504d25a0-c518-4011-aa1f-ae3239534d3c",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.controller.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 42,
+    "hash": "8aa5b5b5962487dc09714f5f314d2753",
+    "textRange": {
+      "startLine": 42,
+      "endLine": 42,
+      "startOffset": 27,
+      "endOffset": 35
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "80d53be6-cd8c-4301-8a89-84892c8763f8",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.controller.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 43,
+    "hash": "99688d809fa4b37a780d581a28ca7b49",
+    "textRange": {
+      "startLine": 43,
+      "endLine": 43,
+      "startOffset": 23,
+      "endOffset": 31
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8be2579e-0e90-4ac0-afb0-fe1e06edbf1f",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 17,
+    "hash": "3df24d0a6da2096b599d7d6ccb3dc88a",
+    "textRange": {
+      "startLine": 17,
+      "endLine": 17,
+      "startOffset": 22,
+      "endOffset": 27
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "df8abfb1-ef5e-4769-8b46-884f00cd2539",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 18,
+    "hash": "bfbeeaea957641b1d5abb2f8fbbd0094",
+    "textRange": {
+      "startLine": 18,
+      "endLine": 18,
+      "startOffset": 9,
+      "endOffset": 14
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "f2f9219c-4cc1-408d-a5b1-beac4a5490d1",
+    "rule": "typescript:S6594",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 19,
+    "hash": "ad5e504f6fcd22d5e5d6905009ee6462",
+    "textRange": {
+      "startLine": 19,
+      "endLine": 19,
+      "startOffset": 9,
+      "endOffset": 14
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Use the \"RegExp.exec()\" method instead.",
+    "effort": "5min",
+    "debt": "5min",
+    "author": "",
+    "tags": [
+      "regex",
+      "editable-source",
+      "type-dependent"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:15:30+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "EFFICIENT",
+    "cleanCodeAttributeCategory": "INTENTIONAL",
+    "impacts": [
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "95d7b22c-044f-4415-a386-21339aa65c76",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 21,
+    "hash": "a05802770e4769dd5969a5af7e0270b7",
+    "textRange": {
+      "startLine": 21,
+      "endLine": 21,
+      "startOffset": 22,
+      "endOffset": 30
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  },
+  {
+    "key": "8c387168-a13e-4b25-9611-7d050f880c77",
+    "rule": "typescript:S7773",
+    "severity": "MINOR",
+    "component": "observatorio-redactor-backend-20261113:src/search/search.service.ts",
+    "project": "observatorio-redactor-backend-20261113",
+    "line": 22,
+    "hash": "9fab146dd4f833bbaefe940be433d84c",
+    "textRange": {
+      "startLine": 22,
+      "endLine": 22,
+      "startOffset": 20,
+      "endOffset": 28
+    },
+    "flows": [],
+    "status": "OPEN",
+    "message": "Prefer `Number.parseInt` over `parseInt`.",
+    "effort": "2min",
+    "debt": "2min",
+    "author": "ariel.10.e@hotmail.com",
+    "tags": [
+      "convention",
+      "es2015",
+      "editable-source"
+    ],
+    "creationDate": "2026-05-08T00:14:49+0000",
+    "updateDate": "2026-11-13T13:09:31+0000",
+    "type": "CODE_SMELL",
+    "scope": "MAIN",
+    "quickFixAvailable": true,
+    "messageFormattings": [],
+    "codeVariants": [],
+    "cleanCodeAttribute": "CONVENTIONAL",
+    "cleanCodeAttributeCategory": "CONSISTENT",
+    "impacts": [
+      {
+        "softwareQuality": "RELIABILITY",
+        "severity": "MEDIUM"
+      },
+      {
+        "softwareQuality": "MAINTAINABILITY",
+        "severity": "LOW"
+      }
+    ],
+    "issueStatus": "OPEN",
+    "prioritizedRule": false,
+    "fromSonarQubeUpdate": false,
+    "internalTags": [],
+    "linkedTicketStatus": "NOT_LINKED"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "method": "Offline public cached articles, first ten by order; legacy BFF compared with implemented 1.5.0 DTO including status fields and page envelope. Article status absent in legacy cache modeled null. Not a live SQL or production latency measurement.",
+  "node": "v22.21.1",
+  "samples": [
+    {
+      "route": "/api/laws/codigo-penal",
+      "before": {
+        "jsonBytes": 6513,
+        "gzip6Bytes": 2448
+      },
+      "after": {
+        "jsonBytes": 3411,
+        "gzip6Bytes": 1113
+      },
+      "gzipReductionPercent": 54.5
+    },
+    {
+      "route": "/api/laws/constitucion-nacional",
+      "before": {
+        "jsonBytes": 7414,
+        "gzip6Bytes": 2753
+      },
+      "after": {
+        "jsonBytes": 3472,
+        "gzip6Bytes": 1085
+      },
+      "gzipReductionPercent": 60.6
+    }
+  ]
+}

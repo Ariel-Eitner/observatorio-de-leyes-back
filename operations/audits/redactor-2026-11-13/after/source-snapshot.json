@@ -1,0 +1,64 @@
+{
+  "capturedAt": "2026-11-13T18:17:38.509Z",
+  "repositories": {
+    "backend": {
+      "baseCommit": "056eaf2bb1f5048b67755e29cef9e57ddff4f944",
+      "version": "1.5.0",
+      "files": {
+        "CHANGELOG.md": "67f9d55bbe568e6b15850646d5e42979e98ac084b367fbfb03f55abd9bf59709",
+        "Dockerfile": "af942290bf7bc145d3ff59000a132dae1fee4f667fb680ddf74771a852c6e317",
+        "operations/compose.local.yml": "a50967159511f7e6cb1e0d595feba7ce873130587b51c11a575c960ff0312bcd",
+        "operations/test-isolated.cjs": "8ee1cc966cae03deb9c8ace1ab76670736529b5740ef532b78b6a11a7c73dae8",
+        "package-lock.json": "ba3a78f05cf965e86b8c0af4b16f798cc38fd0dbcd8088b0554e2b510b77d6d7",
+        "package.json": "1ddc80a81bc500225ab853ee7d78c8046894715dee093934544f903977820b70",
+        "src/articles/articles.service.ts": "a0897906f7a6b7ac0a759ed6f5de967af716345382b82c60be07f8578412ef0e",
+        "src/laws/laws.service.ts": "d8cce2325c2df46bbda261290e39545ca6c0583ac1d3020ab41bbcffcdd4ffa0",
+        "src/norms-db/norms-db.service.ts": "ccb87c548e1c32f6a4d7e4fe091ab891ecce8e17f802a38efa2b0848f169cac3",
+        "src/search/search-db.service.ts": "82dfaf08614fe8ee26f39b0ee66f00029bfcf15fa35bcf4f7661d48ee89cde1b",
+        "src/search/search.module.ts": "28eec408d62c3c75d0d442869ed0b16f3c37f8ddf8f3f571ab1b20c01edf6e70",
+        "src/user-content/dto/redactor-doc.dto.ts": "fda1f6f93e0f4de4c52eab8e5b2b149468938b212583c0ecb5212ee91f485e53",
+        "src/user-content/redactor-docs.controller.ts": "13c7a7c2a4d4f0c4d68624cd654f9d111f722f0458f0b9ef7aded347aa56673a",
+        "src/user-content/redactor-docs.service.ts": "9636d05798b62fa7ca98a49cd11a8181c3193595d77730be2bb1503e86b2b2bc",
+        "operations/measure-redactor-payload.cjs": "adc91196934bf70c50623776d204424859d8c107e3a61b4656539445224757cb",
+        "operations/test-redactor-browser.cjs": "381d64e64ab97d3091d6a30f04ece496c1a20506981d787d7acdf6da566ba7e3",
+        "src/common/utils/text-format.util.ts": "855c48c65678d8a52e773d506507379c671bf01f33f2213d39b316e9fe7d6336",
+        "src/search/article-number.util.ts": "a3c288f211092dea3dc57fdc724deb768b540733c9f02681abb23530731281ea",
+        "src/search/redactor-search.controller.ts": "97eaf955d6d7ef626b90bb8d32a7358abb0452eb07fd8ec67441f1639bce373f",
+        "src/search/redactor-search.service.ts": "474fa60af20f770baf583c09c433040f5d72a8653767a22c5c9998b9b8a5f1a8",
+        "src/search/redactor-search.spec.ts": "3adea7172fb366b8d939e5991c7d812506ce933dcc2d41e8fb4cb03364a51236",
+        "src/search/redactor.integration.spec.ts": "82df4db824213c5974727d027259588e0a1562237bc928c6f88a9b746bd0b77f"
+      }
+    },
+    "frontend": {
+      "baseCommit": "d8baf962d5c1f9b56f9cc7d976e1f3d92c36ccee",
+      "version": "1.5.0",
+      "files": {
+        "CHANGELOG.md": "d995c819e0d9cc71044bcc4f36e1276ce4c093c6ee0e7ef978494d7f75e17dbf",
+        "Dockerfile": "fc2103b5d3aa4d739b8328a261974a3c4da13d78a2b4978869281813961b1ac4",
+        "app/api/redactor-docs/[id]/route.ts": "0d0b901e2d2ed433c92444bb2b13722fa44a12dc62499d61c50bbf21adb2d04a",
+        "app/api/redactor-docs/route.ts": "c0d76b0fbfc81765d710c9eb1de9671f2f8529870e54c49c8402cb6c0af42614",
+        "app/components/auth/AuthProvider.tsx": "ed832c707c90c6a83f42e4e29ee1771b7d209df0e176beae5c5d939f5eaa8d95",
+        "app/herramientas/redactor/RedactorClient.tsx": "7fda47ec137ac3271f51e2f4e163d4f7475be96b384203ff38d0b23250539e99",
+        "app/herramientas/redactor/borradoGranular.ts": "953d7af4ae47b03f40d0d3c27bbb4f380cd01dcf36ed224f976038032c904073",
+        "app/herramientas/redactor/components/DocPreview.tsx": "29b00f997371ceaa144abfd4f25bfd0fd445a7eb154aadf8d3b28767e5109af2",
+        "app/herramientas/redactor/components/DocumentSidebar.tsx": "1d14221e96ba6c41035a1598b7f57f9155921c40e273726c12d56ff10af65725",
+        "app/herramientas/redactor/components/ExportButtons.tsx": "b555682aab83f5d6c8a88c894f0981527ebb23d9ad4566c7b189d39eb8b21ed7",
+        "app/herramientas/redactor/components/FeedbackModal.tsx": "a217b3f4a4571f99ddff2961aa48c4fa866831f9457453f8c0fffd81adb33c10",
+        "app/herramientas/redactor/components/LawAutocomplete.tsx": "d3a9282c439ea5d401f427756d60156bf60a521fde406338333e5788f749e560",
+        "app/herramientas/redactor/hooks/useRedactorDocs.ts": "e478f304cbddbd32daa4929a870a4ba82b729754b115e01cfddeb8e31ccbaf58",
+        "app/herramientas/redactor/trigger.ts": "725835c97f858b331def88fb33280cbccc57b533c4241db8bf67ed3d1b46204a",
+        "app/lib/lawRegistry.ts": "dd7a10a6a8bf083f1a465bd351bae60f2787eb683f7bdde2b61113c1c720b91a",
+        "package-lock.json": "b1d557c32d5867bb2c265425762a8b1a1dc789067c5a8f1c57d0840e588ee618",
+        "package.json": "65322a35fb3b86924b8ec6be231c5bcbfb50f728ec0d4be3bb1a1039bf6889ba",
+        "app/api/redactor-search/[...path]/route.ts": "7ec5a31c9a3877fc0f131acbbbb2e266731ba0f2f50d191e43948e110fa7181e",
+        "app/herramientas/redactor/documentLimits.ts": "548449690c09ad3abaa22d3a4dca72afe18f4e5e796e9a2192e10801db74997a",
+        "app/herramientas/redactor/hooks/useNormTokens.ts": "cb6860d04d252e15b99f616d3979948bc26ab002b99ad34d947d5b3dfce8f8fd",
+        "app/herramientas/redactor/hooks/useSuggestions.ts": "97262b2ecc632dab9bb29f8a33575dc2aafe68a4adb8a07aa0c1cefa674207b6",
+        "app/herramientas/redactor/saveQueue.ts": "5ca54ec6af43cec38256169f14e7f62d0676c2f52aa8d4d53b35632b3a95c7ff",
+        "app/herramientas/redactor/searchModel.ts": "c67c0dca9715011e1b9616d0b7efab80f5798bf22bdf104623d436af48902c1b",
+        "app/lib/accountExitGuards.ts": "6210bf87b46147732a282aa61ef615de5b4be3c32685c5d863acf8f416fb84da",
+        "scripts/test-redactor.ts": "3754d7b104467bd463887a83f0eaa4cc5b375a4b587ac76299d76cc5ceecd9a3"
+      }
+    }
+  }
+}

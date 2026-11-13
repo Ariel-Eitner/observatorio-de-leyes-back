@@ -1,0 +1,3006 @@
+{
+  "paging": {
+    "pageIndex": 1,
+    "pageSize": 500,
+    "total": 153
+  },
+  "baseComponent": {
+    "key": "observatorio-redactor-backend-20261113",
+    "name": "Observatorio Redactor backend 2026-11-13",
+    "qualifier": "TRK",
+    "measures": []
+  },
+  "components": [
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/account-admin.controller.ts",
+      "name": "account-admin.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/account/account-admin.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "4"
+        },
+        {
+          "metric": "ncloc",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/account-data.service.ts",
+      "name": "account-data.service.ts",
+      "qualifier": "FIL",
+      "path": "src/account/account-data.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "57",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "62"
+        },
+        {
+          "metric": "ncloc",
+          "value": "563"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/notifications/account-notices.ts",
+      "name": "account-notices.ts",
+      "qualifier": "FIL",
+      "path": "src/notifications/account-notices.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "4",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "13"
+        },
+        {
+          "metric": "ncloc",
+          "value": "96"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/account-requests.service.ts",
+      "name": "account-requests.service.ts",
+      "qualifier": "FIL",
+      "path": "src/account/account-requests.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "15",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "41"
+        },
+        {
+          "metric": "ncloc",
+          "value": "188"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/account.controller.ts",
+      "name": "account.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/account/account.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "7"
+        },
+        {
+          "metric": "ncloc",
+          "value": "42"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/dto/account.dto.ts",
+      "name": "account.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/account/dto/account.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "25"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/account.module.ts",
+      "name": "account.module.ts",
+      "qualifier": "FIL",
+      "path": "src/account/account.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "15"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/admin-data.controller.ts",
+      "name": "admin-data.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/admin-data.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "75"
+        },
+        {
+          "metric": "ncloc",
+          "value": "292"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/admin-data.module.ts",
+      "name": "admin-data.module.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/admin-data.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/guards/admin-header.guard.ts",
+      "name": "admin-header.guard.ts",
+      "qualifier": "FIL",
+      "path": "src/common/guards/admin-header.guard.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "3",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "5"
+        },
+        {
+          "metric": "ncloc",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin/admin.module.ts",
+      "name": "admin.module.ts",
+      "qualifier": "FIL",
+      "path": "src/admin/admin.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/analitica.service.ts",
+      "name": "analitica.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/analitica.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "64",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "95"
+        },
+        {
+          "metric": "ncloc",
+          "value": "314"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/app.module.ts",
+      "name": "app.module.ts",
+      "qualifier": "FIL",
+      "path": "src/app.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "73"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/article-number.util.ts",
+      "name": "article-number.util.ts",
+      "qualifier": "FIL",
+      "path": "src/search/article-number.util.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "2"
+        },
+        {
+          "metric": "ncloc",
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/articles/articles.controller.ts",
+      "name": "articles.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/articles/articles.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "5"
+        },
+        {
+          "metric": "ncloc",
+          "value": "19"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/articles/articles.module.ts",
+      "name": "articles.module.ts",
+      "qualifier": "FIL",
+      "path": "src/articles/articles.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/articles/articles.service.ts",
+      "name": "articles.service.ts",
+      "qualifier": "FIL",
+      "path": "src/articles/articles.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "7",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "13"
+        },
+        {
+          "metric": "ncloc",
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/auth.controller.ts",
+      "name": "auth.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/auth.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "11"
+        },
+        {
+          "metric": "ncloc",
+          "value": "74"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/auth.module.ts",
+      "name": "auth.module.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/auth.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/auth.service.ts",
+      "name": "auth.service.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/auth.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "29",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "60"
+        },
+        {
+          "metric": "ncloc",
+          "value": "292"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/pages/aviso-legal.ts",
+      "name": "aviso-legal.ts",
+      "qualifier": "FIL",
+      "path": "src/data/pages/aviso-legal.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "44"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin/benefits.controller.ts",
+      "name": "benefits.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/admin/benefits.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "6"
+        },
+        {
+          "metric": "ncloc",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin/benefits.service.ts",
+      "name": "benefits.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin/benefits.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "6",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "15"
+        },
+        {
+          "metric": "ncloc",
+          "value": "86"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/billing.controller.ts",
+      "name": "billing.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/billing.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "8",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "31"
+        },
+        {
+          "metric": "ncloc",
+          "value": "214"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/billing.dto.ts",
+      "name": "billing.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/billing.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "43"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/billing.module.ts",
+      "name": "billing.module.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/billing.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/billing.service.ts",
+      "name": "billing.service.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/billing.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "236",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "240"
+        },
+        {
+          "metric": "duplicated_lines_density",
+          "value": "1.6",
+          "bestValue": false
+        },
+        {
+          "metric": "ncloc",
+          "value": "965"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/bots.ts",
+      "name": "bots.ts",
+      "qualifier": "FIL",
+      "path": "src/common/bots.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "4",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "7"
+        },
+        {
+          "metric": "ncloc",
+          "value": "34"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/catalog.ts",
+      "name": "catalog.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/catalog.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "5"
+        },
+        {
+          "metric": "ncloc",
+          "value": "33"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/commercial/catalog.ts",
+      "name": "catalog.ts",
+      "qualifier": "FIL",
+      "path": "src/commercial/catalog.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "2"
+        },
+        {
+          "metric": "ncloc",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/users/dto/change-password.dto.ts",
+      "name": "change-password.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/users/dto/change-password.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/users/dto/claim-donation.dto.ts",
+      "name": "claim-donation.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/users/dto/claim-donation.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/comercial.service.ts",
+      "name": "comercial.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/comercial.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "8",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "32"
+        },
+        {
+          "metric": "ncloc",
+          "value": "284"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/completeness-backlog.ts",
+      "name": "completeness-backlog.ts",
+      "qualifier": "FIL",
+      "path": "src/data/completeness-backlog.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "153"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/constituciones-provinciales/constituciones-provinciales.controller.ts",
+      "name": "constituciones-provinciales.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/constituciones-provinciales/constituciones-provinciales.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "5"
+        },
+        {
+          "metric": "ncloc",
+          "value": "28"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/constituciones-provinciales/constituciones-provinciales.module.ts",
+      "name": "constituciones-provinciales.module.ts",
+      "qualifier": "FIL",
+      "path": "src/constituciones-provinciales/constituciones-provinciales.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "10"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/constituciones-provinciales/constituciones-provinciales.service.ts",
+      "name": "constituciones-provinciales.service.ts",
+      "qualifier": "FIL",
+      "path": "src/constituciones-provinciales/constituciones-provinciales.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "4",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "14"
+        },
+        {
+          "metric": "ncloc",
+          "value": "34"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/contacto.service.ts",
+      "name": "contacto.service.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/contacto.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "31"
+        },
+        {
+          "metric": "ncloc",
+          "value": "95"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/pages/contacto.ts",
+      "name": "contacto.ts",
+      "qualifier": "FIL",
+      "path": "src/data/pages/contacto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/contract-analyzer/contract-analyzer.controller.ts",
+      "name": "contract-analyzer.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/contract-analyzer/contract-analyzer.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "4"
+        },
+        {
+          "metric": "ncloc",
+          "value": "39"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/contract-analyzer/contract-analyzer.module.ts",
+      "name": "contract-analyzer.module.ts",
+      "qualifier": "FIL",
+      "path": "src/contract-analyzer/contract-analyzer.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/contract-analyzer/contract-analyzer.service.ts",
+      "name": "contract-analyzer.service.ts",
+      "qualifier": "FIL",
+      "path": "src/contract-analyzer/contract-analyzer.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "189",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "214"
+        },
+        {
+          "metric": "duplicated_lines_density",
+          "value": "4.9",
+          "bestValue": false
+        },
+        {
+          "metric": "ncloc",
+          "value": "729"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/guards/corpus-ready.guard.ts",
+      "name": "corpus-ready.guard.ts",
+      "qualifier": "FIL",
+      "path": "src/common/guards/corpus-ready.guard.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "3",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "7"
+        },
+        {
+          "metric": "ncloc",
+          "value": "25"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/corpus-review.service.ts",
+      "name": "corpus-review.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/corpus-review.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "12",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "18"
+        },
+        {
+          "metric": "ncloc",
+          "value": "59"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/finanzas/dto/create-egreso.dto.ts",
+      "name": "create-egreso.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/finanzas/dto/create-egreso.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/finanzas/dto/create-ingreso.dto.ts",
+      "name": "create-ingreso.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/finanzas/dto/create-ingreso.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/crm.controller.ts",
+      "name": "crm.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/crm.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "20"
+        },
+        {
+          "metric": "ncloc",
+          "value": "150"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/crm.module.ts",
+      "name": "crm.module.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/crm.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/jurisprudencia/cullen-llerena.ts",
+      "name": "cullen-llerena.ts",
+      "qualifier": "FIL",
+      "path": "src/data/jurisprudencia/cullen-llerena.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "76"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/cupos/cupos.controller.ts",
+      "name": "cupos.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/cupos/cupos.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "8"
+        },
+        {
+          "metric": "ncloc",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/cupos/cupos.module.ts",
+      "name": "cupos.module.ts",
+      "qualifier": "FIL",
+      "path": "src/cupos/cupos.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/cupos/cupos.service.ts",
+      "name": "cupos.service.ts",
+      "qualifier": "FIL",
+      "path": "src/cupos/cupos.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "40",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "39"
+        },
+        {
+          "metric": "ncloc",
+          "value": "305"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/decorators/current-user.decorator.ts",
+      "name": "current-user.decorator.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/decorators/current-user.decorator.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "1"
+        },
+        {
+          "metric": "ncloc",
+          "value": "6"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/db-env.ts",
+      "name": "db-env.ts",
+      "qualifier": "FIL",
+      "path": "src/common/db-env.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "5",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "10"
+        },
+        {
+          "metric": "ncloc",
+          "value": "27"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/events/events.controller.ts",
+      "name": "events.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/events/events.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "6"
+        },
+        {
+          "metric": "ncloc",
+          "value": "55"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/events/events.module.ts",
+      "name": "events.module.ts",
+      "qualifier": "FIL",
+      "path": "src/events/events.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "9"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/events/events.service.ts",
+      "name": "events.service.ts",
+      "qualifier": "FIL",
+      "path": "src/events/events.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "24",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "32"
+        },
+        {
+          "metric": "ncloc",
+          "value": "154"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/exports/exports.controller.ts",
+      "name": "exports.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/exports/exports.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "3"
+        },
+        {
+          "metric": "ncloc",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/exports/exports.module.ts",
+      "name": "exports.module.ts",
+      "qualifier": "FIL",
+      "path": "src/exports/exports.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/exports/exports.service.ts",
+      "name": "exports.service.ts",
+      "qualifier": "FIL",
+      "path": "src/exports/exports.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "5"
+        },
+        {
+          "metric": "ncloc",
+          "value": "21"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/finanzas/finanzas.controller.ts",
+      "name": "finanzas.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/finanzas/finanzas.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "10"
+        },
+        {
+          "metric": "ncloc",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/finanzas/finanzas.module.ts",
+      "name": "finanzas.module.ts",
+      "qualifier": "FIL",
+      "path": "src/finanzas/finanzas.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/finanzas/finanzas.service.ts",
+      "name": "finanzas.service.ts",
+      "qualifier": "FIL",
+      "path": "src/finanzas/finanzas.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "34",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "55"
+        },
+        {
+          "metric": "ncloc",
+          "value": "141"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/dto/folder.dto.ts",
+      "name": "folder.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/dto/folder.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "9"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/folders.controller.ts",
+      "name": "folders.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/folders.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "5"
+        },
+        {
+          "metric": "ncloc",
+          "value": "26"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/folders.service.ts",
+      "name": "folders.service.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/folders.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "5",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "15"
+        },
+        {
+          "metric": "ncloc",
+          "value": "61"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/founders.service.ts",
+      "name": "founders.service.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/founders.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "5",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "30"
+        },
+        {
+          "metric": "ncloc",
+          "value": "123"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/health/health.controller.ts",
+      "name": "health.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/health/health.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "4"
+        },
+        {
+          "metric": "ncloc",
+          "value": "17"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/health/health.module.ts",
+      "name": "health.module.ts",
+      "qualifier": "FIL",
+      "path": "src/health/health.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/jurisprudencia/index.ts",
+      "name": "index.ts",
+      "qualifier": "FIL",
+      "path": "src/data/jurisprudencia/index.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/index.ts",
+      "name": "index.ts",
+      "qualifier": "FIL",
+      "path": "src/data/index.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/utils/infoleg-map.ts",
+      "name": "infoleg-map.ts",
+      "qualifier": "FIL",
+      "path": "src/common/utils/infoleg-map.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "69"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/utils/inline-refs.util.ts",
+      "name": "inline-refs.util.ts",
+      "qualifier": "FIL",
+      "path": "src/common/utils/inline-refs.util.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "79",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "82"
+        },
+        {
+          "metric": "ncloc",
+          "value": "202"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/jurisprudencia/jurisprudencia.controller.ts",
+      "name": "jurisprudencia.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/jurisprudencia/jurisprudencia.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "4"
+        },
+        {
+          "metric": "ncloc",
+          "value": "18"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/jurisprudencia/jurisprudencia.module.ts",
+      "name": "jurisprudencia.module.ts",
+      "qualifier": "FIL",
+      "path": "src/jurisprudencia/jurisprudencia.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "9"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/jurisprudencia/jurisprudencia.service.ts",
+      "name": "jurisprudencia.service.ts",
+      "qualifier": "FIL",
+      "path": "src/jurisprudencia/jurisprudencia.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "6"
+        },
+        {
+          "metric": "ncloc",
+          "value": "17"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/guards/jwt-auth.guard.ts",
+      "name": "jwt-auth.guard.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/guards/jwt-auth.guard.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "4",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "7"
+        },
+        {
+          "metric": "ncloc",
+          "value": "41"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/utils/law-url.util.ts",
+      "name": "law-url.util.ts",
+      "qualifier": "FIL",
+      "path": "src/common/utils/law-url.util.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "17",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "25"
+        },
+        {
+          "metric": "ncloc",
+          "value": "88"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/types/law.types.ts",
+      "name": "law.types.ts",
+      "qualifier": "FIL",
+      "path": "src/common/types/law.types.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "276"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/laws/laws.controller.ts",
+      "name": "laws.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/laws/laws.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "23"
+        },
+        {
+          "metric": "ncloc",
+          "value": "114"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/laws/laws.module.ts",
+      "name": "laws.module.ts",
+      "qualifier": "FIL",
+      "path": "src/laws/laws.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/laws/laws.service.ts",
+      "name": "laws.service.ts",
+      "qualifier": "FIL",
+      "path": "src/laws/laws.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "245",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "392"
+        },
+        {
+          "metric": "duplicated_lines_density",
+          "value": "2.1",
+          "bestValue": false
+        },
+        {
+          "metric": "ncloc",
+          "value": "1156"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/leads.service.ts",
+      "name": "leads.service.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/leads.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "48",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "42"
+        },
+        {
+          "metric": "ncloc",
+          "value": "113"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/types/legal-page.types.ts",
+      "name": "legal-page.types.ts",
+      "qualifier": "FIL",
+      "path": "src/common/types/legal-page.types.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/dto/like.dto.ts",
+      "name": "like.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/dto/like.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/likes.controller.ts",
+      "name": "likes.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/likes.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "7"
+        },
+        {
+          "metric": "ncloc",
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/likes.service.ts",
+      "name": "likes.service.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/likes.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "7"
+        },
+        {
+          "metric": "ncloc",
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/dto/login.dto.ts",
+      "name": "login.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/dto/login.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "9"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/main.ts",
+      "name": "main.ts",
+      "qualifier": "FIL",
+      "path": "src/main.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "18",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "18"
+        },
+        {
+          "metric": "ncloc",
+          "value": "103"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/pages/mision.ts",
+      "name": "mision.ts",
+      "qualifier": "FIL",
+      "path": "src/data/pages/mision.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/monitor/monitor.analyzer.ts",
+      "name": "monitor.analyzer.ts",
+      "qualifier": "FIL",
+      "path": "src/monitor/monitor.analyzer.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "40",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "55"
+        },
+        {
+          "metric": "ncloc",
+          "value": "160"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/monitor/monitor.controller.ts",
+      "name": "monitor.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/monitor/monitor.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "3"
+        },
+        {
+          "metric": "ncloc",
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/monitor/monitor.interceptor.ts",
+      "name": "monitor.interceptor.ts",
+      "qualifier": "FIL",
+      "path": "src/monitor/monitor.interceptor.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "19",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "35"
+        },
+        {
+          "metric": "ncloc",
+          "value": "72"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/monitor/monitor.module.ts",
+      "name": "monitor.module.ts",
+      "qualifier": "FIL",
+      "path": "src/monitor/monitor.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/monitor/monitor.service.ts",
+      "name": "monitor.service.ts",
+      "qualifier": "FIL",
+      "path": "src/monitor/monitor.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "50",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "54"
+        },
+        {
+          "metric": "ncloc",
+          "value": "237"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/monitor/monitor.types.ts",
+      "name": "monitor.types.ts",
+      "qualifier": "FIL",
+      "path": "src/monitor/monitor.types.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "90"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/norm-stubs.ts",
+      "name": "norm-stubs.ts",
+      "qualifier": "FIL",
+      "path": "src/data/norm-stubs.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/norms-db/norms-db.module.ts",
+      "name": "norms-db.module.ts",
+      "qualifier": "FIL",
+      "path": "src/norms-db/norms-db.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/norms-db/norms-db.service.ts",
+      "name": "norms-db.service.ts",
+      "qualifier": "FIL",
+      "path": "src/norms-db/norms-db.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "9",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "80"
+        },
+        {
+          "metric": "ncloc",
+          "value": "226"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/dto/nota.dto.ts",
+      "name": "nota.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/dto/nota.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "7"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/notifications/notifications.controller.ts",
+      "name": "notifications.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/notifications/notifications.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "17"
+        },
+        {
+          "metric": "ncloc",
+          "value": "115"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/notifications/notifications.dto.ts",
+      "name": "notifications.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/notifications/notifications.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "33"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/notifications/notifications.module.ts",
+      "name": "notifications.module.ts",
+      "qualifier": "FIL",
+      "path": "src/notifications/notifications.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/notifications/notifications.service.ts",
+      "name": "notifications.service.ts",
+      "qualifier": "FIL",
+      "path": "src/notifications/notifications.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "78",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "88"
+        },
+        {
+          "metric": "ncloc",
+          "value": "447"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/pages/pages.controller.ts",
+      "name": "pages.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/pages/pages.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "3"
+        },
+        {
+          "metric": "ncloc",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/pages/pages.module.ts",
+      "name": "pages.module.ts",
+      "qualifier": "FIL",
+      "path": "src/pages/pages.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/pages/pages.service.ts",
+      "name": "pages.service.ts",
+      "qualifier": "FIL",
+      "path": "src/pages/pages.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "1",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "3"
+        },
+        {
+          "metric": "ncloc",
+          "value": "21"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/pagos.service.ts",
+      "name": "pagos.service.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/pagos.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "23",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "52"
+        },
+        {
+          "metric": "ncloc",
+          "value": "211"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/panel.service.ts",
+      "name": "panel.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/panel.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "43",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "46"
+        },
+        {
+          "metric": "ncloc",
+          "value": "272"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/plan.ts",
+      "name": "plan.ts",
+      "qualifier": "FIL",
+      "path": "src/common/plan.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "6",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "9"
+        },
+        {
+          "metric": "ncloc",
+          "value": "17"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/prisma/prisma.module.ts",
+      "name": "prisma.module.ts",
+      "qualifier": "FIL",
+      "path": "src/common/prisma/prisma.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "8"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/prisma/prisma.service.ts",
+      "name": "prisma.service.ts",
+      "qualifier": "FIL",
+      "path": "src/common/prisma/prisma.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "2"
+        },
+        {
+          "metric": "ncloc",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/crm/product-orders.service.ts",
+      "name": "product-orders.service.ts",
+      "qualifier": "FIL",
+      "path": "src/crm/product-orders.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "3",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "13"
+        },
+        {
+          "metric": "ncloc",
+          "value": "49"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/dto/profile-fields.dto.ts",
+      "name": "profile-fields.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/common/dto/profile-fields.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "19"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/prospectos.service.ts",
+      "name": "prospectos.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/prospectos.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "86",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "101"
+        },
+        {
+          "metric": "ncloc",
+          "value": "374"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/provider.ts",
+      "name": "provider.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/provider.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "46",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "62"
+        },
+        {
+          "metric": "ncloc",
+          "value": "221"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/guards/proxy-throttler.guard.ts",
+      "name": "proxy-throttler.guard.ts",
+      "qualifier": "FIL",
+      "path": "src/common/guards/proxy-throttler.guard.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "7",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "11"
+        },
+        {
+          "metric": "ncloc",
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/laws/dto/query-law.dto.ts",
+      "name": "query-law.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/laws/dto/query-law.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "11"
+        },
+        {
+          "metric": "ncloc",
+          "value": "84"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/dto/redactor-doc.dto.ts",
+      "name": "redactor-doc.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/dto/redactor-doc.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/redactor-docs.controller.ts",
+      "name": "redactor-docs.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/redactor-docs.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "8"
+        },
+        {
+          "metric": "ncloc",
+          "value": "28"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/redactor-docs.service.ts",
+      "name": "redactor-docs.service.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/redactor-docs.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "21",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "33"
+        },
+        {
+          "metric": "ncloc",
+          "value": "173"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/redactor-search.controller.ts",
+      "name": "redactor-search.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/search/redactor-search.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "14"
+        },
+        {
+          "metric": "ncloc",
+          "value": "55"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/redactor-search.service.ts",
+      "name": "redactor-search.service.ts",
+      "qualifier": "FIL",
+      "path": "src/search/redactor-search.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "25",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "51"
+        },
+        {
+          "metric": "ncloc",
+          "value": "283"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/dto/refresh.dto.ts",
+      "name": "refresh.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/dto/refresh.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/auth/dto/register.dto.ts",
+      "name": "register.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/auth/dto/register.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/relations-curadas.ts",
+      "name": "relations-curadas.ts",
+      "qualifier": "FIL",
+      "path": "src/data/relations-curadas.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "23",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "21"
+        },
+        {
+          "metric": "duplicated_lines_density",
+          "value": "58.6",
+          "bestValue": false
+        },
+        {
+          "metric": "ncloc",
+          "value": "401"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/dto/save-law.dto.ts",
+      "name": "save-law.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/dto/save-law.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "9"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/saved-laws.controller.ts",
+      "name": "saved-laws.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/saved-laws.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "6"
+        },
+        {
+          "metric": "ncloc",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/saved-laws.service.ts",
+      "name": "saved-laws.service.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/saved-laws.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "9",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "17"
+        },
+        {
+          "metric": "ncloc",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/search-db.service.ts",
+      "name": "search-db.service.ts",
+      "qualifier": "FIL",
+      "path": "src/search/search-db.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "128",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "153"
+        },
+        {
+          "metric": "ncloc",
+          "value": "543"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/search-query.util.ts",
+      "name": "search-query.util.ts",
+      "qualifier": "FIL",
+      "path": "src/search/search-query.util.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "6",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "13"
+        },
+        {
+          "metric": "ncloc",
+          "value": "57"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/search.controller.ts",
+      "name": "search.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/search/search.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "3",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "11"
+        },
+        {
+          "metric": "ncloc",
+          "value": "57"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/search.module.ts",
+      "name": "search.module.ts",
+      "qualifier": "FIL",
+      "path": "src/search/search.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/search/search.service.ts",
+      "name": "search.service.ts",
+      "qualifier": "FIL",
+      "path": "src/search/search.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "7",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "22"
+        },
+        {
+          "metric": "ncloc",
+          "value": "80"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/segments/segments.controller.ts",
+      "name": "segments.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/segments/segments.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "4"
+        },
+        {
+          "metric": "ncloc",
+          "value": "23"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/segments/segments.module.ts",
+      "name": "segments.module.ts",
+      "qualifier": "FIL",
+      "path": "src/segments/segments.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/segments/segments.service.ts",
+      "name": "segments.service.ts",
+      "qualifier": "FIL",
+      "path": "src/segments/segments.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "6",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "16"
+        },
+        {
+          "metric": "ncloc",
+          "value": "34"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/shared.ts",
+      "name": "shared.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/shared.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "6",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "13"
+        },
+        {
+          "metric": "ncloc",
+          "value": "17"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/subscription-events.ts",
+      "name": "subscription-events.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/subscription-events.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "7",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "19"
+        },
+        {
+          "metric": "ncloc",
+          "value": "55"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/billing/subscriptions.service.ts",
+      "name": "subscriptions.service.ts",
+      "qualifier": "FIL",
+      "path": "src/billing/subscriptions.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "102",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "133"
+        },
+        {
+          "metric": "duplicated_lines_density",
+          "value": "2.6",
+          "bestValue": false
+        },
+        {
+          "metric": "ncloc",
+          "value": "601"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/admin-data/tareas.service.ts",
+      "name": "tareas.service.ts",
+      "qualifier": "FIL",
+      "path": "src/admin-data/tareas.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "9",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "16"
+        },
+        {
+          "metric": "ncloc",
+          "value": "70"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/data/test-db.ts",
+      "name": "test-db.ts",
+      "qualifier": "FIL",
+      "path": "src/data/test-db.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "7",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "10"
+        },
+        {
+          "metric": "ncloc",
+          "value": "29"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/common/utils/text-format.util.ts",
+      "name": "text-format.util.ts",
+      "qualifier": "FIL",
+      "path": "src/common/utils/text-format.util.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "3",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "6"
+        },
+        {
+          "metric": "ncloc",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/tours/tours.controller.ts",
+      "name": "tours.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/tours/tours.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "2"
+        },
+        {
+          "metric": "ncloc",
+          "value": "13"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/tours/tours.module.ts",
+      "name": "tours.module.ts",
+      "qualifier": "FIL",
+      "path": "src/tours/tours.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "9"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/tours/tours.service.ts",
+      "name": "tours.service.ts",
+      "qualifier": "FIL",
+      "path": "src/tours/tours.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "18",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "14"
+        },
+        {
+          "metric": "ncloc",
+          "value": "84"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/users/dto/update-profile.dto.ts",
+      "name": "update-profile.dto.ts",
+      "qualifier": "FIL",
+      "path": "src/users/dto/update-profile.dto.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/account/user-admin.controller.ts",
+      "name": "user-admin.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/account/user-admin.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "6"
+        },
+        {
+          "metric": "ncloc",
+          "value": "67"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/user-content/user-content.module.ts",
+      "name": "user-content.module.ts",
+      "qualifier": "FIL",
+      "path": "src/user-content/user-content.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "16"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/users/users.controller.ts",
+      "name": "users.controller.ts",
+      "qualifier": "FIL",
+      "path": "src/users/users.controller.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "13"
+        },
+        {
+          "metric": "ncloc",
+          "value": "69"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/users/users.module.ts",
+      "name": "users.module.ts",
+      "qualifier": "FIL",
+      "path": "src/users/users.module.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "complexity",
+          "value": "0"
+        },
+        {
+          "metric": "ncloc",
+          "value": "11"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/users/users.service.ts",
+      "name": "users.service.ts",
+      "qualifier": "FIL",
+      "path": "src/users/users.service.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "11",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "26"
+        },
+        {
+          "metric": "ncloc",
+          "value": "123"
+        }
+      ]
+    },
+    {
+      "key": "observatorio-redactor-backend-20261113:src/laws/vetos.util.ts",
+      "name": "vetos.util.ts",
+      "qualifier": "FIL",
+      "path": "src/laws/vetos.util.ts",
+      "language": "ts",
+      "measures": [
+        {
+          "metric": "cognitive_complexity",
+          "value": "2",
+          "bestValue": false
+        },
+        {
+          "metric": "complexity",
+          "value": "18"
+        },
+        {
+          "metric": "ncloc",
+          "value": "47"
+        }
+      ]
+    }
+  ]
+}

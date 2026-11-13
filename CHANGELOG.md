@@ -1,10 +1,24 @@
 # Changelog
 
+## 1.5.0 — 2026-11-13
+
+- Tiempo máximo de búsqueda en PostgreSQL de 2 segundos, limitado a cada transacción, y respuesta recuperable ante saturación o demora.
+- Vista previa del escrito y generador PDF cargados bajo demanda; menos procesamiento repetido y errores de exportación visibles.
+- Redactor con búsqueda contextual: Constitución Nacional primero en consultas generales, jurisdicciones ordenadas y nombres de presentación consistentes.
+- Artículos por número o palabras dentro de la norma seleccionada; equivalencia entre 7, Art. 7 y artículo 7, incluyendo sufijos como 14 bis, sin resultados de otra norma.
+- Vista previa de hasta 160 caracteres y texto oficial íntegro bajo demanda; citar, pegar y sustituir disponibles también al filtrar, con control del límite de documento sin recortar textos.
+- Consultas y respuestas livianas sin facetas ni hidratación de normas completas; caché limitada, deduplicación, concurrencia acotada y firma de IP entre frontend y backend.
+- Solicitudes cancelables, descarte de respuestas antiguas y estados diferenciados para ausencia, conexión, límites temporales y errores; mejoras de teclado, foco y selector móvil.
+- Lista de documentos paginada con metadatos y carga del contenido al abrir; guardado confirmado, cambios conservados ante fallos, reintentos acotados y avisos antes de salir o cerrar sesión.
+- Importación idempotente y control transaccional del cupo de documentos; aislamiento al cambiar de cuenta y errores de creación o borrado visibles. Sin migraciones de base de datos.
+- Índice compacto de siglas y números para el arranque, resolución en memoria y detección de referencias por tokens; eliminadas expresiones costosas y registros duplicados de extensiones del editor.
+- Pruebas de regresión, integración PostgreSQL aislada, mediciones de consultas y recorridos de navegador para escritorio y móvil.
+
 ## 1.4.3 — 2026-11-13
 
-- Verificaci?n de versiones y changelog antes de compilar y en CI; detecta cambios sin incremento de versi?n.
-- Comando de preparaci?n que actualiza ambos paquetes, lockfiles, changelogs y versiones de Docker/Compose con notas expl?citas.
-- Retirada de helpers obsoletos y artefactos temporales; inventario de limpieza y diagn?stico del redactor legal.
+- Verificación de versiones y changelog antes de compilar y en CI; detecta cambios sin incremento de versión.
+- Comando de preparación que actualiza ambos paquetes, lockfiles, changelogs y versiones de Docker/Compose con notas explícitas.
+- Retirada de helpers obsoletos y artefactos temporales; inventario de limpieza y diagnóstico del redactor legal.
 
 ## 1.4.2 — 2026-11-12
 

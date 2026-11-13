@@ -207,6 +207,12 @@ export class NormsDbService {
     return a ? this.toArticle(a) : null;
   }
 
+  async loadArticlePage(lawId: string, limit: number): Promise<Article[]> {
+    const rows = await this.prisma.articles.findMany({ where: { norm_id: lawId }, include: ARTICLE_INCLUDE,
+      orderBy: [{ ord: 'asc' }, { id: 'asc' }], take: Math.min(100, Math.max(1, limit)) });
+    return rows.map(row => this.toArticle(row));
+  }
+
   /**
    * Igual que loadNorm pero para VARIAS normas de una.
    *

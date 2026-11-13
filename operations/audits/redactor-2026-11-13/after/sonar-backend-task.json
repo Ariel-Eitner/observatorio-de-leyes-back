@@ -1,0 +1,22 @@
+{
+  "queue": [],
+  "current": {
+    "id": "3c1958d7-0b24-4a45-91df-983e221f9162",
+    "type": "REPORT",
+    "componentId": "76bbf58b-4923-4fec-ab63-e0b4fb1b43c7",
+    "componentKey": "observatorio-redactor-backend-20261113",
+    "componentName": "Observatorio Redactor backend 2026-11-13",
+    "componentQualifier": "TRK",
+    "analysisId": "e3af59ad-06b8-41e0-b851-c85ab08b2ac7",
+    "status": "SUCCESS",
+    "submittedAt": "2026-11-13T18:13:53+0000",
+    "submitterLogin": "admin",
+    "startedAt": "2026-11-13T18:13:55+0000",
+    "executedAt": "2026-11-13T18:14:06+0000",
+    "executionTimeMs": 11829,
+    "hasScannerContext": true,
+    "warningCount": 0,
+    "warnings": [],
+    "infoMessages": []
+  }
+}
